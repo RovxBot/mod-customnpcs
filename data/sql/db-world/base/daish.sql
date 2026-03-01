@@ -67,7 +67,7 @@ VALUES
    60, 60, 1, @FACTION_ALLIANCE,
    0, 1, 1.14286, 1, 0, 1 /*holy*/, 8 /*mage/caster*/,
    0, 0, 0, 7, 0,
-   'SmartAI', '', 2, 1,
+   'SmartAI', '', 0 /*idle — formation handles movement*/, 1,
    1, 1, 1, 1,
    0, 1, 0, 0, 0),
 
@@ -75,7 +75,7 @@ VALUES
    60, 60, 1, @FACTION_ALLIANCE,
    0, 1, 1.14286, 1, 0, 1, 8,
    0, 0, 0, 7, 0,
-   'SmartAI', '', 2, 1,
+   'SmartAI', '', 0 /*idle — formation handles movement*/, 1,
    1, 1, 1, 1,
    0, 1, 0, 0, 0);
 
@@ -110,19 +110,19 @@ VALUES
    300, 0, 0, 0, 0, 2 /*waypoint*/),
   (@GUID_HEAL1, @ENTRY_HEALER1, 0, 25, 25, 1, 1, 0,
    -7692.5690, -1087.0372, 217.71353, 1.1909260,
-   300, 0, 0, 0, 0, 2),
+   300, 0, 0, 0, 0, 0 /*idle — formation handles movement*/),
   (@GUID_HEAL2, @ENTRY_HEALER2, 0, 25, 25, 1, 1, 0,
    -7692.5690, -1087.0372, 217.71353, 1.1909260,
-   300, 0, 0, 0, 0, 2);
+   300, 0, 0, 0, 0, 0 /*idle — formation handles movement*/);
 
 -- ====================================================================
--- creature_addon  (bind waypoint path to Daish; healers follow via formation)
+-- creature_addon  (bind waypoint path to Daish only)
+-- Healers do NOT get creature_addon rows — they have MovementType=0
+-- and follow Daish purely through creature_formations.
 -- ====================================================================
 INSERT INTO creature_addon (guid, path_id, mount, bytes1, bytes2, emote, visibilityDistanceType, auras)
 VALUES
-  (@GUID_DAISH, @GUID_DAISH, 0, 0, 0, 0, 0, ''),
-  (@GUID_HEAL1, 0,           0, 0, 0, 0, 0, ''),
-  (@GUID_HEAL2, 0,           0, 0, 0, 0, 0, '');
+  (@GUID_DAISH, @GUID_DAISH, 0, 0, 0, 0, 0, '');
 
 -- ====================================================================
 -- Formation: healers flank Daish

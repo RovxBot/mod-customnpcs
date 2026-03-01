@@ -33,12 +33,13 @@ struct NubmagePortalDest
 
 static const NubmagePortalDest portalDests[] =
 {
-    // OptionID 1 — Thunder Bluff  (matches spell_target_position 3566)
-    { 1, 1,   -964.98f,   283.433f, 111.187f, 3.02f, "Thunder Bluff" },
-    // OptionID 2 — Undercity      (matches spell_target_position 3563)
-    { 2, 0,   1773.47f,    61.121f, -46.321f, 0.54f, "Undercity"     },
-    // OptionID 3 — Silvermoon     (matches spell_target_position 32272)
-    { 3, 530, 9998.49f, -7106.78f,   47.706f, 2.44f, "Silvermoon"    },
+    // Coordinates sourced from AzerothCore spell_target_position table.
+    // OptionID 1 — Thunder Bluff  (spell 3566 — Teleport: Thunder Bluff)
+    { 1, 1,   -1019.44f,    -2.78f,  38.85f, 5.35f, "Thunder Bluff" },
+    // OptionID 2 — Undercity      (spell 3563 — Teleport: Undercity)
+    { 2, 0,    1584.07f,   241.99f, -52.15f, 0.05f, "Undercity"     },
+    // OptionID 3 — Silvermoon     (spell 32272 — Teleport: Silvermoon)
+    { 3, 530,  9997.95f, -7106.08f,  47.71f, 2.44f, "Silvermoon"    },
 };
 
 static constexpr uint32 PORTAL_DEST_COUNT = sizeof(portalDests) / sizeof(portalDests[0]);
