@@ -15,12 +15,13 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// From SC
-void AddModCustomNPCsScripts();
+// Defined in individual .cpp files
+void AddNubmageScripts();
+void AddModCustomNPCsWorldScripts();
 
-// Add all scripts in one function
+// From SC — called by the module loader macro in CMakeLists.txt
 void AddModCustomNPCsScripts()
 {
-    // Register your custom NPC scripts here
-    // Example: new npc_custom_vendor();
+    AddNubmageScripts();
+    AddModCustomNPCsWorldScripts();
 }

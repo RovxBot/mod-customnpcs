@@ -24,3 +24,13 @@ ModCustomNPCs.Enable = 1
 #
 
 ModCustomNPCs.Announce = 1
+
+#
+#    ModCustomNPCs.Nubmage.PortalPriceGold
+#        Description: Price in gold for each Nubmage portal.
+#                     The SQL gossip_menu_option BoxMoney must match
+#                     (value × 10000 copper). Default SQL uses 100000 = 10g.
+#        Default:     10
+#
+
+ModCustomNPCs.Nubmage.PortalPriceGold = 10
