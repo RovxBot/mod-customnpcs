@@ -1,0 +1,22 @@
+# Build
+/build/
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+
+# IDE
+.vscode/
+.idea/
+*.user
+*.suo
+*.sln
+*.vcxproj*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Config (keep .dist, ignore local copies)
+conf/*.conf
+!conf/*.conf.dist

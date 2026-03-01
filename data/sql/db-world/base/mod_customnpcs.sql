@@ -1,0 +1,9 @@
+-- --------------------------------------------------------
+-- mod-customNPCs  –  World Database
+-- --------------------------------------------------------
+-- Add your custom creature_template entries, spawn data,
+-- gossip menus, etc. here.
+--
+-- Example: Insert a custom NPC creature template
+-- INSERT INTO `creature_template` (`entry`, `name`, `subname`, `ScriptName`)
+-- VALUES (100000, 'Custom NPC', 'Example', 'npc_custom_example');

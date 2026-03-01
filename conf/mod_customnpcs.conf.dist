@@ -1,0 +1,26 @@
+#
+# mod-customNPCs Configuration
+#
+
+[worldserver]
+
+########################################
+# mod-customNPCs
+########################################
+#
+#    ModCustomNPCs.Enable
+#        Description: Enable or disable the custom NPCs module.
+#        Default:     1 (Enabled)
+#                     0 (Disabled)
+#
+
+ModCustomNPCs.Enable = 1
+
+#
+#    ModCustomNPCs.Announce
+#        Description: Announce module on player login.
+#        Default:     1 (Enabled)
+#                     0 (Disabled)
+#
+
+ModCustomNPCs.Announce = 1
