@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: write
 
 jobs:
   clang-format:
@@ -16,10 +17,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: Run clang-format
-        uses: jidicula/clang-format-action@v4.13.0
+        uses: jidicula/clang-format-action@3bd9e396c8e2ed8e9d8fba163f6576682189e50a # v4.13.0
         with:
           clang-format-version: '18'
           check-path: 'src'
@@ -31,16 +32,20 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
-      - name: Install clang-tidy
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-tidy-18
+          sudo apt-get install -y clang-tidy-18 cmake
+
+      - name: Configure project (generate compile_commands.json)
+        run: |
+          cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
       - name: Run clang-tidy
         run: |
-          find src -name '*.cpp' -o -name '*.h' | xargs clang-tidy-18 -p . --warnings-as-errors='' || true
+          find src -name '*.cpp' -o -name '*.h' | xargs clang-tidy-18 -p build --warnings-as-errors=''
 
   cppcheck:
     name: Cppcheck
@@ -48,10 +53,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: Run cppcheck
-        uses: deep5050/cppcheck-action@main
+        uses: deep5050/cppcheck-action@c6e2d5e8dd11a34b4ae8e5915b2419a6e323b67c # v1.7.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_dir: src
@@ -63,7 +68,7 @@ jobs:
 
       - name: Upload results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b # v4.5.0
         with:
           name: cppcheck-report
           path: cppcheck-report.txt
