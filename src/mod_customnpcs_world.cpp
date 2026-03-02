@@ -40,7 +40,7 @@ class mod_customnpcs_playerscript : public PlayerScript
 public:
     mod_customnpcs_playerscript() : PlayerScript("mod_customnpcs_playerscript") { }
 
-    void OnLogin(Player* player) override
+    void OnPlayerLogin(Player* player) override
     {
         if (sConfigMgr->GetOption<bool>("ModCustomNPCs.Enable", true) &&
             sConfigMgr->GetOption<bool>("ModCustomNPCs.Announce", true))
