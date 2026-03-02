@@ -26,7 +26,7 @@ jobs:
         uses: github/codeql-action/init@f079b8493333aace61c81488f8bd40919487bd9f # v3
         with:
           languages: cpp
-          build-mode: none
+          build-mode: autobuild
 
       - name: Analyze
         uses: github/codeql-action/analyze@f079b8493333aace61c81488f8bd40919487bd9f # v3
