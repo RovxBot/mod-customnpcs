@@ -126,14 +126,13 @@ VALUES
 
 -- ====================================================================
 -- Formation: healers flank Daish
--- Leader must appear as a member with dist=0 for the core to register.
--- groupAI 3 = mutual assist (leader ↔ members)
+-- AzerothCore stores follow angles in degrees.
+-- Register only the escorts as members of the leader's formation.
 -- ====================================================================
 INSERT INTO creature_formations (leaderGUID, memberGUID, dist, angle, groupAI, point_1, point_2)
 VALUES
-  (@GUID_DAISH, @GUID_DAISH, 0,   0,   3, 0, 0),   -- leader entry (required!)
-  (@GUID_DAISH, @GUID_HEAL1, 3.0, 2.2, 3, 0, 0),   -- left flank
-  (@GUID_DAISH, @GUID_HEAL2, 3.0, 4.1, 3, 0, 0);   -- right flank
+  (@GUID_DAISH, @GUID_HEAL1, 3.0,  90.0, 0, 0, 0), -- left flank
+  (@GUID_DAISH, @GUID_HEAL2, 3.0, 270.0, 0, 0, 0); -- right flank
 
 -- ====================================================================
 -- Waypoints: Blackrock Mountain patrol loop (12-point circuit)

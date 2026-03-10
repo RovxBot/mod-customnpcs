@@ -78,10 +78,22 @@ public:
     {
         ClearGossipMenuFor(player);
 
+        // DB-backed gossip can arrive here either as the raw OptionID or as a
+        // gossip list index depending on the core path. Resolve through
+        // PlayerTalkClass first so stale/shifted menu rows do not misroute the
+        // destination.
+        uint32 selectedAction = action;
+        if (player->PlayerTalkClass)
+        {
+            uint32 const menuAction = player->PlayerTalkClass->GetGossipOptionAction(action);
+            if (menuAction != 0)
+                selectedAction = menuAction;
+        }
+
         // Walk the portal table to find the matching OptionID.
         for (uint32 i = 0; i < PORTAL_DEST_COUNT; ++i)
         {
-            if (portalDests[i].optionId != action)
+            if (portalDests[i].optionId != selectedAction)
                 continue;
 
             const NubmagePortalDest& dest = portalDests[i];
