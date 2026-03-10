@@ -35,11 +35,11 @@ static const NubmagePortalDest portalDests[] =
 {
     // Coordinates sourced from AzerothCore spell_target_position table.
     // OptionID 1 — Thunder Bluff  (spell 3566 — Teleport: Thunder Bluff)
-    { 1, 1,   -1019.44f,    -2.78f,  38.85f, 5.35f, "Thunder Bluff" },
+    { 1, 1,    -962.97f,   282.91f, 111.68f, 4.02f, "Thunder Bluff" },
     // OptionID 2 — Undercity      (spell 3563 — Teleport: Undercity)
-    { 2, 0,    1584.07f,   241.99f, -52.15f, 0.05f, "Undercity"     },
+    { 2, 0,    1773.43f,    61.31f, -46.32f, 2.43f, "Undercity"     },
     // OptionID 3 — Silvermoon     (spell 32272 — Teleport: Silvermoon)
-    { 3, 530,  9997.95f, -7106.08f,  47.71f, 2.44f, "Silvermoon"    },
+    { 3, 530, 10021.26f, -7014.27f,  49.72f, 4.01f, "Silvermoon"    },
 };
 
 static constexpr uint32 PORTAL_DEST_COUNT = sizeof(portalDests) / sizeof(portalDests[0]);
