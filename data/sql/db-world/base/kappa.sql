@@ -17,6 +17,8 @@
 -- IDs
 -- --------------------------------------------------------------------
 SET @ENTRY_KAPPA := 4000004;
+SET @GOSSIP_MENU_KAPPA := 4000004;
+SET @NPC_TEXT_KAPPA := 4000004;
 
 -- Display / faction
 SET @DISPLAY_ORC_FEMALE := 30752;   -- Kor'kron General / Kor'kron Reaver
@@ -33,6 +35,8 @@ DELETE FROM creature_addon          WHERE guid IN (SELECT guid FROM creature WHE
 DELETE FROM creature_equip_template WHERE CreatureID = @ENTRY_KAPPA;
 DELETE FROM creature                WHERE id1 = @ENTRY_KAPPA;
 DELETE FROM creature_template_model WHERE CreatureID = @ENTRY_KAPPA;
+DELETE FROM gossip_menu            WHERE MenuID = @GOSSIP_MENU_KAPPA;
+DELETE FROM npc_text               WHERE ID = @NPC_TEXT_KAPPA;
 DELETE FROM creature_template       WHERE entry = @ENTRY_KAPPA;
 
 -- ====================================================================
@@ -47,9 +51,9 @@ INSERT INTO creature_template
    RacialLeader, RegenHealth, mechanic_immune_mask,
    spell_school_immune_mask, flags_extra)
 VALUES
-  (@ENTRY_KAPPA, 'Kappa', 'of the single glave', 0,
+  (@ENTRY_KAPPA, 'Kappa', 'of the single glave', @GOSSIP_MENU_KAPPA,
    80, 80, 2, @FACTION_HORDE_CITY,
-   0, 1, 1.14286, 1, 0, 0, 1 /* warrior */,
+   1 /* gossip */, 1, 1.14286, 1, 0, 0, 1 /* warrior */,
    0, 0, 0, 7 /* humanoid */, 0,
    'NullCreatureAI', '', 1 /* random */, 1,
    1, 1, 1, 1,
@@ -57,6 +61,14 @@ VALUES
 
 INSERT INTO creature_template_model (CreatureID, Idx, CreatureDisplayID, DisplayScale, Probability)
 VALUES (@ENTRY_KAPPA, 0, @DISPLAY_ORC_FEMALE, 1, 1);
+
+INSERT INTO npc_text (ID, text0_0, BroadcastTextID0, lang0, Probability0)
+VALUES (@NPC_TEXT_KAPPA,
+  'Quick glave run? In and out, 10 min, easy.',
+  0, 0, 1);
+
+INSERT INTO gossip_menu (MenuID, TextID)
+VALUES (@GOSSIP_MENU_KAPPA, @NPC_TEXT_KAPPA);
 
 -- ====================================================================
 -- Equipment
