@@ -3,6 +3,7 @@
 -- =========================================================================
 -- Orc female warrior walking around Orgrimmar with Thunderfury and the
 -- off-hand Warglaive of Azzinoth.
+-- Uses Kor'kron General's built-in display for a female Horde warrior look.
 --
 -- NOTE:
 -- AzerothCore's base creature_equip_template supports visible weapon slots.
@@ -18,7 +19,7 @@
 SET @ENTRY_KAPPA := 4000004;
 
 -- Display / faction
-SET @DISPLAY_ORC_FEMALE := 20316;   -- inferred female orc player display
+SET @DISPLAY_ORC_FEMALE := 30752;   -- Kor'kron General / Kor'kron Reaver
 SET @FACTION_HORDE_CITY := 1759;
 
 -- Weapons
@@ -46,7 +47,7 @@ INSERT INTO creature_template
    RacialLeader, RegenHealth, mechanic_immune_mask,
    spell_school_immune_mask, flags_extra)
 VALUES
-  (@ENTRY_KAPPA, 'Kappa', 'Guild Leader of Maxiboomers', 0,
+  (@ENTRY_KAPPA, 'Kappa', 'of the single glave', 0,
    80, 80, 2, @FACTION_HORDE_CITY,
    0, 1, 1.14286, 1, 0, 0, 1 /* warrior */,
    0, 0, 0, 7 /* humanoid */, 0,
