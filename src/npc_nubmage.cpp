@@ -26,20 +26,18 @@
 struct NubmagePortalDest
 {
     uint32 optionId;   // gossip_menu_option.OptionID
-    uint32 mapId;
-    float  x, y, z, o;
+    uint32 spellId;
     const char* label; // for logging only
 };
 
 static const NubmagePortalDest portalDests[] =
 {
-    // Coordinates sourced from AzerothCore spell_target_position table.
     // OptionID 1 — Thunder Bluff  (spell 3566 — Teleport: Thunder Bluff)
-    { 1, 1,    -962.97f,   282.91f, 111.68f, 4.02f, "Thunder Bluff" },
+    { 1, 3566, "Thunder Bluff" },
     // OptionID 2 — Undercity      (spell 3563 — Teleport: Undercity)
-    { 2, 0,    1773.43f,    61.31f, -46.32f, 2.43f, "Undercity"     },
+    { 2, 3563, "Undercity"     },
     // OptionID 3 — Silvermoon     (spell 32272 — Teleport: Silvermoon)
-    { 3, 530, 10021.26f, -7014.27f,  49.72f, 4.01f, "Silvermoon"    },
+    { 3, 32272, "Silvermoon"    },
 };
 
 static constexpr uint32 PORTAL_DEST_COUNT = sizeof(portalDests) / sizeof(portalDests[0]);
@@ -100,9 +98,10 @@ public:
 
             // Gold was already deducted by the core via BoxMoney before we get
             // here, so if we arrive in OnGossipSelect the player already paid.
-            // Yell success and teleport.
+            // Use the real teleport spells so AzerothCore resolves the landing
+            // point through spell_target_position instead of duplicating coords.
             creature->AI()->Talk(TEXT_GROUP_SUCCESS, player);
-            player->TeleportTo(dest.mapId, dest.x, dest.y, dest.z, dest.o);
+            player->CastSpell(player, dest.spellId, true);
 
             CloseGossipMenuFor(player);
             return true;

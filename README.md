@@ -34,14 +34,20 @@ git clone https://github.com/<your-user>/mod-customNPCs.git
 
 3. Copy `conf/mod_customnpcs.conf.dist` next to your `worldserver.conf` and rename to `mod_customnpcs.conf`.
 
-4. Apply the SQL files to your **world** database:
+4. For a fresh install, apply the SQL files in `data/sql/db-world/base/` to your
+   **world** database:
 
 ```bash
 mysql -u<user> -p acore_world < data/sql/db-world/base/nubmage.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/daish.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/kappa.sql
 ```
 
-5. Restart the worldserver.
+5. Rebuild and restart the worldserver.
+
+For an existing world database, incremental changes should go in
+`data/sql/db-world/updates/`. AzerothCore's DB updater will apply those
+automatically on startup when the module is present in the source tree.
 
 ## Configuration
 
@@ -60,8 +66,11 @@ mod-customNPCs/
 │   └── mod_customnpcs.conf.dist
 ├── data/sql/db-world/base/
 │   ├── nubmage.sql          ← Nubmage template, spawn, gossip, texts, SmartAI
-│   └── daish.sql            ← Daish + healers: templates, spawns, formations,
+│   ├── daish.sql            ← Daish + healers: templates, spawns, formations,
 │                               waypoints, texts, SmartAI combat
+│   └── kappa.sql            ← Kappa template, spawn, display, gossip text
+├── data/sql/db-world/updates/
+│   └── 2026_03_11_00_kappa.sql ← Auto-applied world update for Kappa
 ├── src/
 │   ├── mod_customnpcs_pch.h
 │   ├── mod_customnpcs_loader.cpp   ← Script registration
@@ -75,7 +84,8 @@ mod-customNPCs/
 
 1. Create a new `.cpp` in `src/` with your `CreatureScript`.
 2. Add a registration function (e.g. `void AddMyNpcScripts();`) and call it from `mod_customnpcs_loader.cpp`.
-3. Add matching SQL in `data/sql/db-world/base/`.
+3. Add matching SQL in `data/sql/db-world/base/` for fresh installs.
+4. Add a timestamped SQL update in `data/sql/db-world/updates/` for existing databases.
 
 ## License
 
