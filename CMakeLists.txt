@@ -15,21 +15,6 @@
 # with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-set(MOD_CUSTOMNPCS_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
+set(MOD_CUSTOMNPCS_DIR "${CMAKE_CURRENT_LIST_DIR}")
 
-CollectSourceFiles(
-  ${MOD_CUSTOMNPCS_SOURCE_DIR}
-  PRIVATE_SOURCES
-)
-
-if (USE_SCRIPTPCH)
-  set(PRIVATE_PCH_HEADER ${MOD_CUSTOMNPCS_SOURCE_DIR}/mod_customnpcs_pch.h)
-endif()
-
-AddModuleSourceFiles(PRIVATE_SOURCES)
-
-AddModulesScriptLoader("ModCustomNPCs" "void AddModCustomNPCsScripts()")
-
-if(PRIVATE_SOURCES)
-  CreateModuleScript("mod-customnpcs" PRIVATE_SOURCES)
-endif()
+CU_AC_ADD_SCRIPT("${MOD_CUSTOMNPCS_DIR}/src" SKIP_BATCHING)

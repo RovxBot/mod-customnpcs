@@ -19,9 +19,16 @@
 void AddNubmageScripts();
 void AddModCustomNPCsWorldScripts();
 
-// From SC — called by the module loader macro in CMakeLists.txt
+// Keep the original loader for compatibility with older build setups.
 void AddModCustomNPCsScripts()
 {
     AddNubmageScripts();
     AddModCustomNPCsWorldScripts();
+}
+
+// AzerothCore's static loader on this branch expects the symbol derived
+// from the folder name: mod-customnpcs -> Addmod_customnpcsScripts().
+void Addmod_customnpcsScripts()
+{
+    AddModCustomNPCsScripts();
 }
