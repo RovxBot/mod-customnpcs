@@ -15,6 +15,29 @@
 # with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-set(MOD_CUSTOMNPCS_DIR "${CMAKE_CURRENT_LIST_DIR}")
+set(MOD_CUSTOMNPCS_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
-CU_AC_ADD_SCRIPT("${MOD_CUSTOMNPCS_DIR}/src" SKIP_BATCHING)
+if(COMMAND CollectSourceFiles)
+  CollectSourceFiles(
+    ${MOD_CUSTOMNPCS_SOURCE_DIR}
+    PRIVATE_SOURCES
+  )
+
+  if (USE_SCRIPTPCH)
+    set(PRIVATE_PCH_HEADER ${MOD_CUSTOMNPCS_SOURCE_DIR}/mod_customnpcs_pch.h)
+  endif()
+
+  AddModuleSourceFiles(PRIVATE_SOURCES)
+
+  if(COMMAND AddModulesScriptLoader)
+    AddModulesScriptLoader("ModCustomNPCs" "void AddModCustomNPCsScripts()")
+  endif()
+
+  if(PRIVATE_SOURCES)
+    CreateModuleScript("mod-customnpcs" PRIVATE_SOURCES)
+  endif()
+elseif(COMMAND CU_AC_ADD_SCRIPT)
+  CU_AC_ADD_SCRIPT("${MOD_CUSTOMNPCS_SOURCE_DIR}" SKIP_BATCHING)
+else()
+  message(FATAL_ERROR "Unsupported AzerothCore CMake API for mod-customnpcs")
+endif()
