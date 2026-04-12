@@ -34,20 +34,19 @@ DELETE FROM creature_template       WHERE entry  = @ENTRY_NUBMAGE;
 -- ====================================================================
 INSERT INTO creature_template
   (entry, name, subname, gossip_menu_id, minlevel, maxlevel, exp, faction,
-   npcflag, speed_walk, speed_run, scale, `rank`, dmgschool, unit_class,
+   npcflag, speed_walk, speed_run, `rank`, dmgschool, unit_class,
    unit_flags, unit_flags2, dynamicflags, type, type_flags,
    AIName, ScriptName, MovementType, HoverHeight,
    HealthModifier, ManaModifier, ArmorModifier, ExperienceModifier,
-   RacialLeader, RegenHealth, mechanic_immune_mask,
-   spell_school_immune_mask, flags_extra)
+   RacialLeader, RegenHealth, flags_extra)
 VALUES
   (@ENTRY_NUBMAGE, 'Nubmage', 'Portal Service', @GOSSIP_MENU_NUBMAGE,
    80, 80, 2, @FACTION_HORDE_CITY,
-   1 /* gossip */, 1, 1.14286, 1, 0, 0, 8 /* mage */,
+   1 /* gossip */, 1, 1.14286, 0, 0, 8 /* mage */,
    0, 0, 0, 7 /* humanoid */, 0,
    'SmartAI', 'npc_nubmage', 0, 1,
    1, 1, 1, 1,
-   0, 1, 0, 0, 0);
+   0, 1, 0);
 
 INSERT INTO creature_template_model (CreatureID, Idx, CreatureDisplayID, DisplayScale, Probability)
 VALUES (@ENTRY_NUBMAGE, 0, @DISPLAY_UNDERCITY_MAGE, 1, 1);

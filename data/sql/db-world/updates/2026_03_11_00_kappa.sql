@@ -35,20 +35,19 @@ DELETE FROM creature_template WHERE entry = @ENTRY_KAPPA;
 -- ====================================================================
 INSERT INTO creature_template
   (entry, name, subname, gossip_menu_id, minlevel, maxlevel, exp, faction,
-   npcflag, speed_walk, speed_run, scale, `rank`, dmgschool, unit_class,
+   npcflag, speed_walk, speed_run, `rank`, dmgschool, unit_class,
    unit_flags, unit_flags2, dynamicflags, type, type_flags,
    AIName, ScriptName, MovementType, HoverHeight,
    HealthModifier, ManaModifier, ArmorModifier, ExperienceModifier,
-   RacialLeader, RegenHealth, mechanic_immune_mask,
-   spell_school_immune_mask, flags_extra)
+   RacialLeader, RegenHealth, flags_extra)
 VALUES
   (@ENTRY_KAPPA, 'Kappa', 'of the single glave', @GOSSIP_MENU_KAPPA,
    80, 80, 2, @FACTION_HORDE_CITY,
-   1 /* gossip */, 1, 1.14286, 1, 0, 0, 1 /* warrior */,
+   1 /* gossip */, 1, 1.14286, 0, 0, 1 /* warrior */,
    0, 0, 0, 7 /* humanoid */, 0,
    'NullCreatureAI', '', 1 /* random */, 1,
    1, 1, 1, 1,
-   0, 1, 0, 0, 0);
+   0, 1, 0);
 
 INSERT INTO creature_template_model (CreatureID, Idx, CreatureDisplayID, DisplayScale, Probability)
 VALUES (@ENTRY_KAPPA, 0, @DISPLAY_ORC_FEMALE, 1, 1);

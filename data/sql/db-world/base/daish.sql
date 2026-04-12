@@ -48,36 +48,35 @@ DELETE FROM creature_template    WHERE entry IN (@ENTRY_DAISH, @ENTRY_HEALER1, @
 -- ====================================================================
 INSERT INTO creature_template
   (entry, name, subname, gossip_menu_id, minlevel, maxlevel, exp, faction,
-   npcflag, speed_walk, speed_run, scale, `rank`, dmgschool, unit_class,
+   npcflag, speed_walk, speed_run, `rank`, dmgschool, unit_class,
    unit_flags, unit_flags2, dynamicflags, type, type_flags,
    AIName, ScriptName, MovementType, HoverHeight,
    HealthModifier, ManaModifier, ArmorModifier, ExperienceModifier,
-   RacialLeader, RegenHealth, mechanic_immune_mask,
-   spell_school_immune_mask, flags_extra)
+   RacialLeader, RegenHealth, flags_extra)
 VALUES
   (@ENTRY_DAISH, 'Daish', 'Wintergrasp Champion', 0,
    60, 60, 1, @FACTION_ALLIANCE,
-   0, 1, 1.14286, 1, 1 /*elite*/, 0, 2 /*paladin*/,
+   0, 1, 1.14286, 1 /*elite*/, 0, 2 /*paladin*/,
    0, 0, 0, 7, 0,
    'SmartAI', '', 2 /*waypoint*/, 1,
    1, 1, 1, 1,
-   0, 1, 0, 0, 0),
+   0, 1, 0),
 
   (@ENTRY_HEALER1, 'Daish''s Healer', NULL, 0,
    60, 60, 1, @FACTION_ALLIANCE,
-   0, 1, 1.14286, 1, 0, 1 /*holy*/, 8 /*mage/caster*/,
+   0, 1, 1.14286, 0, 1 /*holy*/, 8 /*mage/caster*/,
    0, 0, 0, 7, 0,
    'SmartAI', '', 0 /*idle — formation handles movement*/, 1,
    1, 1, 1, 1,
-   0, 1, 0, 0, 0),
+   0, 1, 0),
 
   (@ENTRY_HEALER2, 'Daish''s Healer', NULL, 0,
    60, 60, 1, @FACTION_ALLIANCE,
-   0, 1, 1.14286, 1, 0, 1, 8,
+   0, 1, 1.14286, 0, 1, 8,
    0, 0, 0, 7, 0,
    'SmartAI', '', 0 /*idle — formation handles movement*/, 1,
    1, 1, 1, 1,
-   0, 1, 0, 0, 0);
+   0, 1, 0);
 
 INSERT INTO creature_template_model (CreatureID, Idx, CreatureDisplayID, DisplayScale, Probability)
 VALUES
