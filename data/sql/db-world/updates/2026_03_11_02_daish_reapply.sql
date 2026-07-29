@@ -32,7 +32,7 @@ DELETE FROM creature_formations  WHERE leaderGUID IN (@GUID_DAISH, @GUID_HEALER1
 DELETE FROM creature_addon       WHERE guid       IN (@GUID_DAISH, @GUID_HEALER1, @GUID_HEALER2);
 DELETE FROM waypoint_data        WHERE id         =  @PATH_DAISH;
 DELETE FROM creature_equip_template WHERE CreatureID IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
-DELETE FROM creature             WHERE id1        IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
+DELETE FROM creature             WHERE id          IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
 DELETE FROM creature_template_model WHERE CreatureID IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
 DELETE FROM creature_template    WHERE entry      IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
 
@@ -85,7 +85,7 @@ VALUES (@ENTRY_DAISH, 1, 19334, 0, 0);
 -- Spawns
 -- ====================================================================
 INSERT INTO creature
-  (guid, id1, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
+  (guid, id, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
    position_x, position_y, position_z, orientation,
    spawntimesecs, wander_distance, currentwaypoint,
    curhealth, curmana, MovementType)

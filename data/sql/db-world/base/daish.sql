@@ -25,21 +25,21 @@ SET @FACTION_ALLIANCE := 11;
 -- Cleanup  (children → parents)
 -- ====================================================================
 DELETE FROM creature_formations
- WHERE leaderGUID IN (SELECT guid FROM creature WHERE id1 IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2))
-    OR memberGUID IN (SELECT guid FROM creature WHERE id1 IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2));
+ WHERE leaderGUID IN (SELECT guid FROM creature WHERE id IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2))
+    OR memberGUID IN (SELECT guid FROM creature WHERE id IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2));
 
 DELETE FROM creature_addon
- WHERE guid IN (SELECT guid FROM creature WHERE id1 IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2));
+ WHERE guid IN (SELECT guid FROM creature WHERE id IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2));
 
 DELETE FROM waypoint_data
- WHERE id IN (SELECT guid FROM creature WHERE id1 = @ENTRY_DAISH);
+ WHERE id IN (SELECT guid FROM creature WHERE id = @ENTRY_DAISH);
 
 DELETE FROM smart_scripts
  WHERE entryorguid IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2) AND source_type = 0;
 
 DELETE FROM creature_text       WHERE CreatureID IN (@ENTRY_DAISH);
 DELETE FROM creature_equip_template WHERE CreatureID IN (@ENTRY_DAISH);
-DELETE FROM creature             WHERE id1 IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
+DELETE FROM creature             WHERE id IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
 DELETE FROM creature_template_model WHERE CreatureID IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
 DELETE FROM creature_template    WHERE entry IN (@ENTRY_DAISH, @ENTRY_HEALER1, @ENTRY_HEALER2);
 
@@ -99,7 +99,7 @@ SET @GUID_HEAL1  := @GUID_BASE + 1;
 SET @GUID_HEAL2  := @GUID_BASE + 2;
 
 INSERT INTO creature
-  (guid, id1, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
+  (guid, id, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
    position_x, position_y, position_z, orientation,
    spawntimesecs, wander_distance, currentwaypoint,
    curhealth, curmana, MovementType)

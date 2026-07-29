@@ -55,7 +55,7 @@ automatically on startup when the module is present in the source tree.
 |--------------------------------------|---------|--------------------------------------------------------|
 | `ModCustomNPCs.Enable`               | `1`     | Master toggle — disables all module NPC scripts        |
 | `ModCustomNPCs.Announce`             | `1`     | Show module-loaded message on player login             |
-| `ModCustomNPCs.Nubmage.PortalPriceGold` | `10` | Portal price in gold (SQL BoxMoney must match)         |
+| `ModCustomNPCs.Nubmage.PortalPriceGold` | `10` | Portal price in gold                                   |
 
 ## Project Structure
 

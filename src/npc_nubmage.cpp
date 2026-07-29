@@ -22,6 +22,10 @@
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 
+#include <algorithm>
+#include <limits>
+#include <string>
+
 /// Portal destination table --------------------------------------------------
 struct NubmagePortalDest
 {
@@ -41,6 +45,17 @@ static const NubmagePortalDest portalDests[] =
 };
 
 static constexpr uint32 PORTAL_DEST_COUNT = sizeof(portalDests) / sizeof(portalDests[0]);
+static constexpr uint32 NUBMAGE_GOSSIP_TEXT_ID = 4000000;
+static constexpr uint32 COPPER_PER_GOLD = 10000;
+static constexpr uint32 MAX_PORTAL_COST = std::numeric_limits<int32>::max();
+
+static uint32 GetPortalCost()
+{
+    uint32 const maxGold = MAX_PORTAL_COST / COPPER_PER_GOLD;
+    uint32 const priceGold = sConfigMgr->GetOption<uint32>("ModCustomNPCs.Nubmage.PortalPriceGold", 10);
+
+    return std::min(priceGold, maxGold) * COPPER_PER_GOLD;
+}
 
 /// creature_text group IDs (must match nubmage.sql)
 enum NubmageTextGroups
@@ -67,37 +82,57 @@ public:
             return true;
         }
 
-        // Let the DB-defined gossip_menu + gossip_menu_option populate the menu.
-        // Returning false tells the core to build from DB rows, which is what we want.
-        return false;
+        // DB gossip options only supply OptionType to CreatureScript::OnGossipSelect,
+        // which is identical for all three portal rows. Build the menu here so each
+        // choice has a distinct action ID when it reaches the select handler.
+        uint32 const cost = GetPortalCost();
+        std::string const priceLabel = std::to_string(cost / COPPER_PER_GOLD) + "g";
+        std::string const confirmation = "This portal costs " + priceLabel + ".";
+
+        for (NubmagePortalDest const& dest : portalDests)
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+                "Portal to " + std::string(dest.label) + " [" + priceLabel + "]",
+                GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + dest.optionId,
+                confirmation, cost, false);
+        }
+
+        SendGossipMenuFor(player, NUBMAGE_GOSSIP_TEXT_ID, creature->GetGUID());
+        return true;
     }
 
     bool OnGossipSelect(Player* player, Creature* creature, uint32 sender, uint32 action) override
     {
         ClearGossipMenuFor(player);
 
-        // DB-backed gossip can arrive here either as the raw OptionID or as a
-        // gossip list index depending on the core path. Resolve through
-        // PlayerTalkClass first so stale/shifted menu rows do not misroute the
-        // destination.
-        uint32 selectedAction = action;
-        if (player->PlayerTalkClass)
+        if (sender != GOSSIP_SENDER_MAIN || action <= GOSSIP_ACTION_INFO_DEF)
         {
-            uint32 const menuAction = player->PlayerTalkClass->GetGossipOptionAction(action);
-            if (menuAction != 0)
-                selectedAction = menuAction;
+            CloseGossipMenuFor(player);
+            return true;
         }
+
+        uint32 const selectedOptionId = action - GOSSIP_ACTION_INFO_DEF;
 
         // Walk the portal table to find the matching OptionID.
         for (uint32 i = 0; i < PORTAL_DEST_COUNT; ++i)
         {
-            if (portalDests[i].optionId != selectedAction)
+            if (portalDests[i].optionId != selectedOptionId)
                 continue;
 
             const NubmagePortalDest& dest = portalDests[i];
+            uint32 const cost = GetPortalCost();
 
-            // Gold was already deducted by the core via BoxMoney before we get
-            // here, so if we arrive in OnGossipSelect the player already paid.
+            // A script that handles gossip selection prevents the core's default
+            // money deduction, so charge here after verifying the current price.
+            if (!player->HasEnoughMoney(cost))
+            {
+                creature->AI()->Talk(TEXT_GROUP_NO_GOLD, player);
+                CloseGossipMenuFor(player);
+                return true;
+            }
+
+            player->ModifyMoney(-static_cast<int32>(cost));
+
             // Use the real teleport spells so AzerothCore resolves the landing
             // point through spell_target_position instead of duplicating coords.
             creature->AI()->Talk(TEXT_GROUP_SUCCESS, player);

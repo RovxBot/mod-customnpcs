@@ -25,7 +25,7 @@ DELETE FROM conditions              WHERE SourceTypeOrReferenceId = 15 AND Sourc
 DELETE FROM gossip_menu_option      WHERE MenuID = @GOSSIP_MENU_NUBMAGE;
 DELETE FROM gossip_menu             WHERE MenuID = @GOSSIP_MENU_NUBMAGE;
 DELETE FROM npc_text                WHERE ID     = @NPC_TEXT_NUBMAGE;
-DELETE FROM creature                WHERE id1    = @ENTRY_NUBMAGE;
+DELETE FROM creature                WHERE id     = @ENTRY_NUBMAGE;
 DELETE FROM creature_template_model WHERE CreatureID = @ENTRY_NUBMAGE;
 DELETE FROM creature_template       WHERE entry  = @ENTRY_NUBMAGE;
 
@@ -63,7 +63,7 @@ VALUES (@ENTRY_NUBMAGE, 1, 22799, 0, 0);
 SET @GUID_NUBMAGE := (SELECT IFNULL(MAX(guid), 0) + 1 FROM creature);
 
 INSERT INTO creature
-  (guid, id1, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
+  (guid, id, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
    position_x, position_y, position_z, orientation,
    spawntimesecs, wander_distance, currentwaypoint,
    curhealth, curmana, MovementType)

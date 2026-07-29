@@ -31,9 +31,9 @@ SET @ITEM_WARGLAIVE_OFFHAND := 32838;
 -- ====================================================================
 -- Cleanup
 -- ====================================================================
-DELETE FROM creature_addon          WHERE guid IN (SELECT guid FROM creature WHERE id1 = @ENTRY_KAPPA);
+DELETE FROM creature_addon          WHERE guid IN (SELECT guid FROM creature WHERE id = @ENTRY_KAPPA);
 DELETE FROM creature_equip_template WHERE CreatureID = @ENTRY_KAPPA;
-DELETE FROM creature                WHERE id1 = @ENTRY_KAPPA;
+DELETE FROM creature                WHERE id = @ENTRY_KAPPA;
 DELETE FROM creature_template_model WHERE CreatureID = @ENTRY_KAPPA;
 DELETE FROM gossip_menu            WHERE MenuID = @GOSSIP_MENU_KAPPA;
 DELETE FROM npc_text               WHERE ID = @NPC_TEXT_KAPPA;
@@ -82,7 +82,7 @@ VALUES (@ENTRY_KAPPA, 1, @ITEM_THUNDERFURY, @ITEM_WARGLAIVE_OFFHAND, 0);
 SET @GUID_KAPPA := (SELECT IFNULL(MAX(guid), 0) + 1 FROM creature);
 
 INSERT INTO creature
-  (guid, id1, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
+  (guid, id, map, zoneId, areaId, spawnMask, phaseMask, equipment_id,
    position_x, position_y, position_z, orientation,
    spawntimesecs, wander_distance, currentwaypoint,
    curhealth, curmana, MovementType)
