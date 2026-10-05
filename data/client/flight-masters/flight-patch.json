@@ -1,0 +1,17 @@
+{
+  "client_build": 12340,
+  "npc_count": 29,
+  "route_count": 110,
+  "waypoint_count": 4586,
+  "baseline_sha256": {
+    "TaxiNodes.dbc": "ba2d0c16985a5e561afa8424e1dc826ead6c8db425af127490c5f58d45429b7f",
+    "TaxiPath.dbc": "1af5ba71fca5684a432b9d3f449aaeb21e4c091532e4b5795335be200d88dd5d",
+    "TaxiPathNode.dbc": "9e330838d1a50170354485514bf2d94395339070cde883fa8d18a5a7e7ed6214"
+  },
+  "patched_sha256": {
+    "TaxiNodes.dbc": "5b761b67d53a6932154b0ec6aeca0de89cf47243d34ef11675a6df2280b964c5",
+    "TaxiPath.dbc": "dead71b093a6d8e861e1c974f0ac3136db0c1c431ecb4521ec318fe061e1816c",
+    "TaxiPathNode.dbc": "288fed23a6a5931c33d93d0eeb5c2d4126af41e308554da2e87363e2a06f49d8"
+  },
+  "mpq_sha256": "271b879c0d90fc0243345506965205682980a8a4fddc2753c546d67d2b3c4643"
+}

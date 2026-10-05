@@ -1,0 +1,3458 @@
+{
+  "client_build": 12340,
+  "scope": "Only additional flight masters at existing Wrath towns/settlements, including existing ruined towns. No later town, map or faction-occupation rebuilds.",
+  "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+  "supplemental_database": "https://github.com/The-Cataclysm-Preservation-Project/TrinityCore/releases/tag/TDB434.22011",
+  "appearance_metadata": "https://wow.zamimg.com/modelviewer/cata/meta/npc/{appearance_reference_display}.json",
+  "navigation_data": "https://github.com/wowgaming/client-data/releases/tag/v20.0",
+  "navigation_method": "Nearest connected Wrath dry ground from a stock settlement inhabitant. Flight landing positions checked separately, avoiding covered navigation surfaces. Heights are navigation surface +0.10m.",
+  "excluded": [
+    {
+      "source_entry": 34374,
+      "name": "Solais",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 34378,
+      "name": "Myre Moonglide",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 34429,
+      "name": "Thraka",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 35136,
+      "name": "Kaluna Songflight",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 35137,
+      "name": "Allana Swiftglide",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 35138,
+      "name": "Ceyora",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 35140,
+      "name": "Kormal the Swift",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 35141,
+      "name": "Orna Skywatcher",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 36728,
+      "name": "Kroum",
+      "reason": "Existing Wrath Kroum; the later Bilgewater Harbor town does not exist."
+    },
+    {
+      "source_entry": 37005,
+      "name": "Friz Groundspin",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 39211,
+      "name": "Steve Stevenson",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 39330,
+      "name": "Crador",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 39340,
+      "name": "Unega",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 40358,
+      "name": "Dyslix Silvergrub",
+      "reason": "Existing Wrath Mudsprocket flight master, rather than an additional stop."
+    },
+    {
+      "source_entry": 40558,
+      "name": "Gazrix",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 40768,
+      "name": "Tilly Topspin",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 40769,
+      "name": "Zazzix Boomride",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 40827,
+      "name": "Thurda",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 40851,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 40852,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 40866,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 40867,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 40871,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 40873,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 41214,
+      "name": "Slick Dropdip",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 41215,
+      "name": "Raina Sunglide",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 41240,
+      "name": "Fiora Moonsoar",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 41246,
+      "name": "Flok",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 41321,
+      "name": "Elgin Baelor",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 41322,
+      "name": "Halana",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 41323,
+      "name": "Damon Baelor",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43042,
+      "name": "Robert Rhodes",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43043,
+      "name": "Colin Swifthammer",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43045,
+      "name": "James Stillair",
+      "reason": "Replaces Nizzle at an existing Rebel Camp flight point."
+    },
+    {
+      "source_entry": 43052,
+      "name": "Raskha",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43053,
+      "name": "Hizzle",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43072,
+      "name": "Nora Baldwin",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43086,
+      "name": "Skeezie",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43087,
+      "name": "Paola Baldwin",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43104,
+      "name": "Rhoda Bowers",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43107,
+      "name": "Graham McAllister",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43114,
+      "name": "Salena",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43121,
+      "name": "Preda",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43216,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 43220,
+      "name": "Briglar",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 43287,
+      "name": "Swift Seahorse",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 43290,
+      "name": "Francis Greene",
+      "reason": "Vashj'ir settlements/underwater routes do not exist in Wrath."
+    },
+    {
+      "source_entry": 43328,
+      "name": "Blitz Blastospazz",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43371,
+      "name": "Arlen Marsters",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43570,
+      "name": "Brock Rockbeard",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 43573,
+      "name": "Kellen Kuhn",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44230,
+      "name": "Richard Trueflight",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44231,
+      "name": "Devon Manning",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44232,
+      "name": "Janice Myers",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44233,
+      "name": "William Kielar Jr.",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44399,
+      "name": "Nah'te",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44407,
+      "name": "Mixi Sweetride",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44408,
+      "name": "Selara",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44409,
+      "name": "Nancy Skybrew",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 44410,
+      "name": "Jake Badlands",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 46011,
+      "name": "Marge Heffman",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 46552,
+      "name": "Steven Stutzka",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 47644,
+      "name": "Darla Harris",
+      "reason": "Replaces the existing Southshore flight master and changes its faction; retains Wrath Southshore."
+    },
+    {
+      "source_entry": 47655,
+      "name": "Pamela Stutzka",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 47661,
+      "name": "Darren Longfellow",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 48273,
+      "name": "Evax Oilspark",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 48274,
+      "name": "Jock Lindsey",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 48275,
+      "name": "Kurzel",
+      "reason": "Later Uldum settlement is unavailable."
+    },
+    {
+      "source_entry": 48318,
+      "name": "Hans Oreflight",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 48321,
+      "name": "Grimly Singefeather",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 50463,
+      "name": "Franny Mertz",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    },
+    {
+      "source_entry": 52060,
+      "name": "Lognah",
+      "reason": "Later settlement/camp is absent, or this is a tower/quest transport rather than an additional flight master in an existing town."
+    }
+  ],
+  "npcs": [
+    {
+      "entry": 4000600,
+      "source_entry": 33253,
+      "name": "Delanea",
+      "subname": "Flight Master",
+      "town": "Grove of the Ancients",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "alliance",
+      "faction": 80,
+      "source_faction": 80,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 4,
+      "render_race": 4,
+      "gender": 1,
+      "source_display": 33205,
+      "appearance_reference_display": 33205,
+      "fallback_display": 1932,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 2,
+        "Hair Style": 7,
+        "Hair Color": 5,
+        "Markings": 7
+      },
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 1,
+        "skin": 3,
+        "face": 2,
+        "hair": 7,
+        "hair_color": 5,
+        "facial_hair": 7,
+        "head": 0,
+        "shoulders": -4483,
+        "shirt": -8548,
+        "chest": 0,
+        "waist": -8316,
+        "legs": -4497,
+        "feet": -8317,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        4969.77,
+        145.836,
+        51.9477,
+        0.872665
+      ],
+      "position": [
+        4969.77,
+        145.836,
+        53.6725,
+        0.872665
+      ],
+      "landing_position": [
+        4968.48,
+        144.304,
+        53.5455
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 53.5725,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 3616,
+        "name": "Onu",
+        "map": 1,
+        "position": [
+          5002.01,
+          88.8183,
+          52.7788
+        ]
+      },
+      "taxi_node_id": 338,
+      "mount_creatures": [
+        0,
+        3837
+      ],
+      "connections": [
+        26,
+        28
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000601,
+      "source_entry": 34927,
+      "name": "Gort Goreflight",
+      "subname": "Flight Master",
+      "town": "Mor'shan Rampart",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "horde",
+      "faction": 29,
+      "source_faction": 1981,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 2,
+      "render_race": 2,
+      "gender": 0,
+      "source_display": 1652,
+      "appearance_reference_display": 1652,
+      "fallback_display": 1652,
+      "source_customization": {
+        "Skin Color": 7,
+        "Face": 5,
+        "Hair Style": 0,
+        "Hair Color": 5,
+        "Facial Hair": 4
+      },
+      "outfit": {
+        "race": 2,
+        "gender": 0,
+        "class": 1,
+        "skin": 7,
+        "face": 5,
+        "hair": 0,
+        "hair_color": 5,
+        "facial_hair": 4,
+        "head": 0,
+        "shoulders": -5414,
+        "shirt": -10113,
+        "chest": -9036,
+        "waist": -8137,
+        "legs": -5947,
+        "feet": -9196,
+        "wrists": 0,
+        "hands": -9197,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        1202.19,
+        -2210.24,
+        92.2249,
+        5.86431
+      ],
+      "position": [
+        1202.19,
+        -2210.24,
+        101.447,
+        5.86431
+      ],
+      "landing_position": [
+        1203.0,
+        -2208.41,
+        101.625
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 101.347,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 8582,
+        "name": "Kadrak",
+        "map": 1,
+        "position": [
+          1246.34,
+          -2253.31,
+          108.372
+        ]
+      },
+      "taxi_node_id": 339,
+      "mount_creatures": [
+        2224,
+        0
+      ],
+      "connections": [
+        25,
+        61
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000602,
+      "source_entry": 34943,
+      "name": "Wind Tamer Shoshok",
+      "subname": "Flight Master",
+      "town": "Silverwind Refuge",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "horde",
+      "faction": 29,
+      "source_faction": 29,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 2,
+      "render_race": 2,
+      "gender": 1,
+      "source_display": 11901,
+      "appearance_reference_display": 11901,
+      "fallback_display": 11901,
+      "source_customization": {
+        "Skin Color": 7,
+        "Face": 5,
+        "Hair Style": 1,
+        "Hair Color": 1,
+        "Piercings": 2
+      },
+      "outfit": {
+        "race": 2,
+        "gender": 1,
+        "class": 1,
+        "skin": 7,
+        "face": 5,
+        "hair": 1,
+        "hair_color": 1,
+        "facial_hair": 2,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -7811,
+        "waist": -7894,
+        "legs": -7895,
+        "feet": -7815,
+        "wrists": 0,
+        "hands": -7812,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        2164.84,
+        -1142.43,
+        98.1733,
+        3.05433
+      ],
+      "position": [
+        2164.84,
+        -1142.43,
+        99.6923,
+        3.05433
+      ],
+      "landing_position": [
+        2164.67,
+        -1144.42,
+        99.5226
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 99.5923,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 3960,
+        "name": "Ulthaan",
+        "map": 1,
+        "position": [
+          2111.36,
+          -1183.69,
+          101.861
+        ]
+      },
+      "taxi_node_id": 343,
+      "mount_creatures": [
+        2224,
+        0
+      ],
+      "connections": [
+        61,
+        58
+      ],
+      "armor_substitutions": [],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved."
+      ]
+    },
+    {
+      "entry": 4000603,
+      "source_entry": 35139,
+      "name": "Zillane",
+      "subname": "Flight Master",
+      "town": "Malaka'jin",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "horde",
+      "faction": 126,
+      "source_faction": 29,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 8,
+      "render_race": 8,
+      "gender": 0,
+      "source_display": 37202,
+      "appearance_reference_display": 37202,
+      "fallback_display": 13089,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 2,
+        "Hair Style": 1,
+        "Hair Color": 7,
+        "Tusks": 8
+      },
+      "outfit": {
+        "race": 8,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 2,
+        "hair": 1,
+        "hair_color": 7,
+        "facial_hair": 8,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": -10018,
+        "chest": 0,
+        "waist": -8002,
+        "legs": -9204,
+        "feet": 0,
+        "wrists": 0,
+        "hands": -10090,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -114.644,
+        -263.901,
+        24.0857,
+        1.02974
+      ],
+      "position": [
+        -114.644,
+        -263.901,
+        24.3228,
+        1.02974
+      ],
+      "landing_position": [
+        -116.358,
+        -262.871,
+        24.3458
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 24.2228,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 12816,
+        "name": "Xen'Zilla",
+        "map": 1,
+        "position": [
+          -177.568,
+          -233.317,
+          8.87961
+        ]
+      },
+      "taxi_node_id": 344,
+      "mount_creatures": [
+        2224,
+        0
+      ],
+      "connections": [
+        29,
+        25
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000604,
+      "source_entry": 39210,
+      "name": "John Johnson",
+      "subname": "Flight Master",
+      "town": "Honor's Stand",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 1075,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 32451,
+      "appearance_reference_display": 32451,
+      "fallback_display": 1430,
+      "source_customization": {
+        "Skin Color": 4,
+        "Face": 9,
+        "Hair Style": 14,
+        "Hair Color": 2,
+        "Facial Hair": 0
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 4,
+        "face": 9,
+        "hair": 14,
+        "hair_color": 2,
+        "facial_hair": 0,
+        "head": -4651,
+        "shoulders": 0,
+        "shirt": -37783,
+        "chest": 0,
+        "waist": -3696,
+        "legs": -685,
+        "feet": -4314,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": -7690
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -333.434,
+        -1529.57,
+        87.6299,
+        3.10669
+      ],
+      "position": [
+        -333.434,
+        -1529.57,
+        94.0789,
+        3.10669
+      ],
+      "landing_position": [
+        -333.504,
+        -1531.57,
+        94.0143
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 93.9789,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 3389,
+        "name": "Regthar Deathgate",
+        "map": 1,
+        "position": [
+          -307.136,
+          -1971.95,
+          96.48
+        ]
+      },
+      "taxi_node_id": 345,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        80,
+        32
+      ],
+      "armor_substitutions": [
+        {
+          "slot": "shirt",
+          "source_display": 58323,
+          "wrath_display": 37783
+        }
+      ],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved."
+      ]
+    },
+    {
+      "entry": 4000605,
+      "source_entry": 39212,
+      "name": "Bill Williamson",
+      "subname": "Flight Master",
+      "town": "Northwatch Hold",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 1075,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 32452,
+      "appearance_reference_display": 32452,
+      "fallback_display": 6776,
+      "source_customization": {
+        "Skin Color": 4,
+        "Face": 8,
+        "Hair Style": 14,
+        "Hair Color": 3,
+        "Facial Hair": 3
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 4,
+        "face": 8,
+        "hair": 14,
+        "hair_color": 3,
+        "facial_hair": 3,
+        "head": -11976,
+        "shoulders": 0,
+        "shirt": -37783,
+        "chest": 0,
+        "waist": -3696,
+        "legs": -685,
+        "feet": -4314,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": -7690
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -2124.98,
+        -3564.37,
+        100.977,
+        1.5708
+      ],
+      "position": [
+        -2124.94,
+        -3562.17,
+        102.745,
+        1.5708
+      ],
+      "landing_position": [
+        -2126.71,
+        -3563.11,
+        102.109
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 102.645,
+      "horizontal_adjustment": 2.2004,
+      "wrath_settlement_proof": {
+        "entry": 3465,
+        "name": "Gilthares Firebough",
+        "map": 1,
+        "position": [
+          -2100.96,
+          -3656.17,
+          61.9386
+        ]
+      },
+      "taxi_node_id": 346,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        80,
+        32
+      ],
+      "armor_substitutions": [
+        {
+          "slot": "shirt",
+          "source_display": 58323,
+          "wrath_display": 37783
+        }
+      ],
+      "notes": []
+    },
+    {
+      "entry": 4000606,
+      "source_entry": 40552,
+      "name": "Leora",
+      "subname": "Hippogryph Master",
+      "town": "Darnassus",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "alliance",
+      "faction": 80,
+      "source_faction": 80,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 4,
+      "render_race": 4,
+      "gender": 1,
+      "source_display": 1717,
+      "appearance_reference_display": 1717,
+      "fallback_display": 1717,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 7,
+        "Hair Style": 5,
+        "Hair Color": 6,
+        "Markings": 8
+      },
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 1,
+        "skin": 1,
+        "face": 7,
+        "hair": 5,
+        "hair_color": 6,
+        "facial_hair": 8,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": -4305,
+        "chest": -6950,
+        "waist": -4954,
+        "legs": -6951,
+        "feet": -6220,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        9973.32,
+        2623.92,
+        1316.68,
+        3.78736
+      ],
+      "position": [
+        9973.32,
+        2623.92,
+        1316.89,
+        3.78736
+      ],
+      "landing_position": [
+        9974.52,
+        2622.32,
+        1316.92
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 1316.79,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 7316,
+        "name": "Sister Aquinne",
+        "map": 1,
+        "position": [
+          9915.08,
+          2632.12,
+          1316.87
+        ]
+      },
+      "taxi_node_id": 347,
+      "mount_creatures": [
+        0,
+        3837
+      ],
+      "connections": [
+        27
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000607,
+      "source_entry": 40553,
+      "name": "Fidelio",
+      "subname": "Hippogryph Master",
+      "town": "Dolanaar",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "alliance",
+      "faction": 80,
+      "source_faction": 80,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 4,
+      "render_race": 4,
+      "gender": 0,
+      "source_display": 1703,
+      "appearance_reference_display": 1703,
+      "fallback_display": 1703,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 1,
+        "Hair Style": 6,
+        "Hair Color": 2,
+        "Facial Hair": 3
+      },
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 1,
+        "skin": 1,
+        "face": 1,
+        "hair": 6,
+        "hair_color": 2,
+        "facial_hair": 3,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -4100,
+        "waist": -6035,
+        "legs": -6865,
+        "feet": -6866,
+        "wrists": -6867,
+        "hands": -6868,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        9873.03,
+        976.488,
+        1310.0,
+        4.29351
+      ],
+      "position": [
+        9873.03,
+        976.488,
+        1310.24,
+        4.29351
+      ],
+      "landing_position": [
+        9873.84,
+        978.315,
+        1310.32
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 1310.14,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 2078,
+        "name": "Athridas Bearmantle",
+        "map": 1,
+        "position": [
+          9887.53,
+          965.54,
+          1313.9
+        ]
+      },
+      "taxi_node_id": 349,
+      "mount_creatures": [
+        0,
+        3837
+      ],
+      "connections": [
+        27
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000608,
+      "source_entry": 40809,
+      "name": "Tak",
+      "subname": "Wind Rider Master",
+      "town": "Bloodhoof Village",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "horde",
+      "faction": 104,
+      "source_faction": 104,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 6,
+      "render_race": 6,
+      "gender": 0,
+      "source_display": 32080,
+      "appearance_reference_display": 32080,
+      "fallback_display": 9771,
+      "source_customization": {
+        "Skin Color": 8,
+        "Horn Style": 6,
+        "Horn Color": 3,
+        "Facial Hair": 4,
+        "Face": 3
+      },
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "class": 1,
+        "skin": 8,
+        "face": 3,
+        "hair": 6,
+        "hair_color": 3,
+        "facial_hair": 4,
+        "head": 0,
+        "shoulders": -12916,
+        "shirt": -12917,
+        "chest": 0,
+        "waist": -12918,
+        "legs": -5947,
+        "feet": 0,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        6680,
+        0,
+        0
+      ],
+      "source_equipment": [
+        6680,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -2299.12,
+        -381.538,
+        -8.96896,
+        2.56563
+      ],
+      "position": [
+        -2299.89,
+        -378.293,
+        -8.9281,
+        2.56563
+      ],
+      "landing_position": [
+        -2298.8,
+        -376.616,
+        -8.9503
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": -9.02805,
+      "horizontal_adjustment": 3.3351,
+      "wrath_settlement_proof": {
+        "entry": 6747,
+        "name": "Innkeeper Kauth",
+        "map": 1,
+        "position": [
+          -2365.37,
+          -347.31,
+          -8.87365
+        ]
+      },
+      "taxi_node_id": 350,
+      "mount_creatures": [
+        2224,
+        0
+      ],
+      "connections": [
+        22,
+        77
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000609,
+      "source_entry": 41140,
+      "name": "Burok",
+      "subname": "Flight Master",
+      "town": "Razor Hill",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "horde",
+      "faction": 29,
+      "source_faction": 1074,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 2,
+      "render_race": 2,
+      "gender": 0,
+      "source_display": 32324,
+      "appearance_reference_display": 32324,
+      "fallback_display": 1866,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 4,
+        "Hair Style": 2,
+        "Hair Color": 4,
+        "Facial Hair": 2
+      },
+      "outfit": {
+        "race": 2,
+        "gender": 0,
+        "class": 1,
+        "skin": 2,
+        "face": 4,
+        "hair": 2,
+        "hair_color": 4,
+        "facial_hair": 2,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -7708,
+        "waist": -7709,
+        "legs": -7710,
+        "feet": -6301,
+        "wrists": 0,
+        "hands": -7711,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        272.163,
+        -4769.88,
+        11.6275,
+        2.33874
+      ],
+      "position": [
+        271.359,
+        -4769.61,
+        12.7044,
+        2.33874
+      ],
+      "landing_position": [
+        269.97,
+        -4768.17,
+        12.6953
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 12.6044,
+      "horizontal_adjustment": 0.8481,
+      "wrath_settlement_proof": {
+        "entry": 3139,
+        "name": "Gar'Thok",
+        "map": 1,
+        "position": [
+          274.988,
+          -4709.3,
+          17.5719
+        ]
+      },
+      "taxi_node_id": 351,
+      "mount_creatures": [
+        2224,
+        0
+      ],
+      "connections": [
+        23,
+        80
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000610,
+      "source_entry": 41142,
+      "name": "Handler Marnlek",
+      "subname": "Bat Handler",
+      "town": "Sen'jin Village",
+      "continent": "Kalimdor",
+      "map": 1,
+      "team": "horde",
+      "faction": 126,
+      "source_faction": 126,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 8,
+      "render_race": 8,
+      "gender": 0,
+      "source_display": 31726,
+      "appearance_reference_display": 31726,
+      "fallback_display": 31726,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 2,
+        "Hair Style": 2,
+        "Hair Color": 6,
+        "Tusks": 3
+      },
+      "outfit": {
+        "race": 8,
+        "gender": 0,
+        "class": 1,
+        "skin": 1,
+        "face": 2,
+        "hair": 2,
+        "hair_color": 6,
+        "facial_hair": 3,
+        "head": 0,
+        "shoulders": -4594,
+        "shirt": 0,
+        "chest": -25272,
+        "waist": -22815,
+        "legs": -25273,
+        "feet": -28913,
+        "wrists": 0,
+        "hands": -25240,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        6680,
+        0,
+        0
+      ],
+      "source_equipment": [
+        6680,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -775.776,
+        -4890.74,
+        19.8988,
+        3.21141
+      ],
+      "position": [
+        -775.776,
+        -4890.74,
+        20.0973,
+        3.21141
+      ],
+      "landing_position": [
+        -773.781,
+        -4890.6,
+        20.1958
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 19.9973,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 3184,
+        "name": "Miao'zan",
+        "map": 1,
+        "position": [
+          -798.274,
+          -4892.27,
+          22.983
+        ]
+      },
+      "taxi_node_id": 354,
+      "mount_creatures": [
+        3574,
+        0
+      ],
+      "connections": [
+        23,
+        80
+      ],
+      "armor_substitutions": [],
+      "notes": [
+        "The original Wrath event/quest Handler Marnlek (40204) is preserved; this entry supplies the permanent flight service."
+      ]
+    },
+    {
+      "entry": 4000611,
+      "source_entry": 41325,
+      "name": "Caleb Baelor",
+      "subname": "Gryphon Master",
+      "town": "Dun Modr",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 55,
+      "source_faction": 55,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 3,
+      "render_race": 3,
+      "gender": 0,
+      "source_display": 32403,
+      "appearance_reference_display": 32403,
+      "fallback_display": 7250,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 6,
+        "Hair Style": 3,
+        "Hair Color": 6,
+        "Facial Hair": 3
+      },
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 6,
+        "hair": 3,
+        "hair_color": 6,
+        "facial_hair": 3,
+        "head": -13800,
+        "shoulders": -13801,
+        "shirt": -13802,
+        "chest": -13803,
+        "waist": -9045,
+        "legs": -5654,
+        "feet": -5489,
+        "wrists": 0,
+        "hands": -13804,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -2659.59,
+        -2453.15,
+        79.5679,
+        5.95157
+      ],
+      "position": [
+        -2659.59,
+        -2453.15,
+        79.8418,
+        5.95157
+      ],
+      "landing_position": [
+        -2660.24,
+        -2455.04,
+        79.8808
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 79.7418,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 1071,
+        "name": "Longbraid the Grim",
+        "map": 0,
+        "position": [
+          -2651.19,
+          -2449.16,
+          80.1164
+        ]
+      },
+      "taxi_node_id": 355,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        7,
+        16
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000612,
+      "source_entry": 41332,
+      "name": "Eeryven Grayer",
+      "subname": "Gryphon Master",
+      "town": "Farstrider Lodge",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 55,
+      "source_faction": 55,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 3,
+      "render_race": 3,
+      "gender": 1,
+      "source_display": 32414,
+      "appearance_reference_display": 32414,
+      "fallback_display": 12549,
+      "source_customization": {
+        "Skin Color": 0,
+        "Face": 0,
+        "Hair Style": 0,
+        "Hair Color": 0,
+        "Piercings": 0
+      },
+      "outfit": {
+        "race": 3,
+        "gender": 1,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "head": -13800,
+        "shoulders": -13801,
+        "shirt": -13802,
+        "chest": -13803,
+        "waist": -9045,
+        "legs": -5654,
+        "feet": -5489,
+        "wrists": 0,
+        "hands": -13804,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -5666.19,
+        -4252.22,
+        407.098,
+        3.66519
+      ],
+      "position": [
+        -5670.81,
+        -4250.31,
+        407.354,
+        3.66519
+      ],
+      "landing_position": [
+        -5671.81,
+        -4248.58,
+        407.327
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 407.254,
+      "horizontal_adjustment": 4.9992,
+      "wrath_settlement_proof": {
+        "entry": 1156,
+        "name": "Vyrin Swiftwind",
+        "map": 0,
+        "position": [
+          -5667.48,
+          -4248.17,
+          407.194
+        ]
+      },
+      "taxi_node_id": 356,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        8,
+        6
+      ],
+      "armor_substitutions": [],
+      "notes": [
+        "Source spot is under the old lodge roof; moved outside to a reachable open landing area."
+      ]
+    },
+    {
+      "entry": 4000613,
+      "source_entry": 42406,
+      "name": "Hoboair",
+      "subname": "Gryphon Master",
+      "town": "Furlbrow's Pumpkin Farm",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 12,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 32836,
+      "appearance_reference_display": 32836,
+      "fallback_display": 1758,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 4,
+        "Hair Style": 8,
+        "Hair Color": 6,
+        "Facial Hair": 8
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 2,
+        "face": 4,
+        "hair": 8,
+        "hair_color": 6,
+        "facial_hair": 8,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -7621,
+        "waist": 0,
+        "legs": -2201,
+        "feet": -945,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -9836.03,
+        1273.86,
+        40.5867,
+        3.68265
+      ],
+      "position": [
+        -9836.03,
+        1273.86,
+        41.0172,
+        3.68265
+      ],
+      "landing_position": [
+        -9835.0,
+        1272.15,
+        40.9919
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 40.9172,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 237,
+        "name": "Farmer Furlbrow",
+        "map": 0,
+        "position": [
+          -9851.68,
+          918.296,
+          30.5143
+        ]
+      },
+      "taxi_node_id": 360,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        4,
+        2
+      ],
+      "armor_substitutions": [
+        {
+          "slot": "legs",
+          "source_display": 62587,
+          "wrath_display": 2201
+        },
+        {
+          "slot": "feet",
+          "source_display": 62628,
+          "wrath_display": 945
+        }
+      ],
+      "notes": [
+        "Later Kezan trousers/boots are approximated with native simple trousers and leather boots."
+      ]
+    },
+    {
+      "entry": 4000614,
+      "source_entry": 42426,
+      "name": "Tina Skyden",
+      "subname": "Gryphon Master",
+      "town": "Moonbrook",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 12,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 1,
+      "source_display": 32896,
+      "appearance_reference_display": 32896,
+      "fallback_display": 5129,
+      "source_customization": {
+        "Skin Color": 0,
+        "Face": 0,
+        "Hair Style": 0,
+        "Hair Color": 0,
+        "Piercings": 0
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "head": -11976,
+        "shoulders": -13797,
+        "shirt": -13792,
+        "chest": -13791,
+        "waist": -8396,
+        "legs": -4439,
+        "feet": -8369,
+        "wrists": 0,
+        "hands": -11554,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -10876.5,
+        1543.66,
+        54.6127,
+        3.82227
+      ],
+      "position": [
+        -10876.5,
+        1543.66,
+        50.6874,
+        3.82227
+      ],
+      "landing_position": [
+        -10878.1,
+        1542.4,
+        50.6716
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 50.5874,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 1669,
+        "name": "Defias Profiteer",
+        "map": 0,
+        "position": [
+          -10957.7,
+          1495.12,
+          50.608
+        ]
+      },
+      "taxi_node_id": 361,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        4
+      ],
+      "armor_substitutions": [],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved."
+      ]
+    },
+    {
+      "entry": 4000615,
+      "source_entry": 42983,
+      "name": "Bartlett the Brave",
+      "subname": "Gryphon Master",
+      "town": "Goldshire",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 12,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 3263,
+      "appearance_reference_display": 3263,
+      "fallback_display": 3263,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 4,
+        "Hair Style": 2,
+        "Hair Color": 1,
+        "Facial Hair": 7
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 4,
+        "hair": 2,
+        "hair_color": 1,
+        "facial_hair": 7,
+        "head": -11976,
+        "shoulders": -13797,
+        "shirt": -13792,
+        "chest": -13791,
+        "waist": -8396,
+        "legs": -4439,
+        "feet": -8369,
+        "wrists": 0,
+        "hands": -11554,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -9435.71,
+        87.6111,
+        57.2108,
+        5.39307
+      ],
+      "position": [
+        -9435.71,
+        87.6111,
+        57.4396,
+        5.39307
+      ],
+      "landing_position": [
+        -9437.26,
+        86.3525,
+        57.55
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 57.3396,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 295,
+        "name": "Innkeeper Farley",
+        "map": 0,
+        "position": [
+          -9462.66,
+          16.1915,
+          57.0459
+        ]
+      },
+      "taxi_node_id": 362,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        2,
+        5
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000616,
+      "source_entry": 43000,
+      "name": "Goss the Swift",
+      "subname": "Gryphon Master",
+      "town": "Eastvale Logging Camp",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 12,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 33169,
+      "appearance_reference_display": 33169,
+      "fallback_display": 3263,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 4,
+        "Hair Style": 1,
+        "Hair Color": 1,
+        "Facial Hair": 0
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 4,
+        "hair": 1,
+        "hair_color": 1,
+        "facial_hair": 0,
+        "head": -11976,
+        "shoulders": -13797,
+        "shirt": -13792,
+        "chest": -13791,
+        "waist": -8396,
+        "legs": -4439,
+        "feet": -8369,
+        "wrists": 0,
+        "hands": -11554,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -9480.08,
+        -1304.79,
+        44.2329,
+        5.74213
+      ],
+      "position": [
+        -9480.08,
+        -1304.79,
+        42.2915,
+        5.74213
+      ],
+      "landing_position": [
+        -9481.11,
+        -1306.5,
+        42.1886
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 42.1915,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 10616,
+        "name": "Supervisor Raelen",
+        "map": 0,
+        "position": [
+          -9469.79,
+          -1289.22,
+          41.1855
+        ]
+      },
+      "taxi_node_id": 363,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        5,
+        2
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000617,
+      "source_entry": 43088,
+      "name": "Yedrin",
+      "subname": "Flight Master",
+      "town": "The Harborage",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 1638,
+      "source_faction": 1638,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 11,
+      "render_race": 11,
+      "gender": 0,
+      "source_display": 20969,
+      "appearance_reference_display": 20969,
+      "fallback_display": 20969,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 1,
+        "Hair Style": 0,
+        "Hair Color": 4,
+        "Facial Hair": 4
+      },
+      "outfit": {
+        "race": 11,
+        "gender": 0,
+        "class": 1,
+        "skin": 1,
+        "face": 1,
+        "hair": 0,
+        "hair_color": 4,
+        "facial_hair": 4,
+        "head": -21633,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -44342,
+        "waist": -37745,
+        "legs": -37747,
+        "feet": -39821,
+        "wrists": 0,
+        "hands": -39822,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -10114.3,
+        -2853.36,
+        23.4615,
+        2.30383
+      ],
+      "position": [
+        -10114.0,
+        -2854.0,
+        23.5457,
+        2.30383
+      ],
+      "landing_position": [
+        -10115.5,
+        -2855.34,
+        23.4717
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 23.4457,
+      "horizontal_adjustment": 0.7068,
+      "wrath_settlement_proof": {
+        "entry": 1776,
+        "name": "Magtoor",
+        "map": 0,
+        "position": [
+          -10101.0,
+          -2818.9,
+          22.1149
+        ]
+      },
+      "taxi_node_id": 364,
+      "mount_creatures": [
+        0,
+        3837
+      ],
+      "connections": [
+        45,
+        12
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000618,
+      "source_entry": 43124,
+      "name": "Anette Williams",
+      "subname": "Bat Handler",
+      "town": "Brill",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "horde",
+      "faction": 68,
+      "source_faction": 68,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 5,
+      "render_race": 5,
+      "gender": 1,
+      "source_display": 33228,
+      "appearance_reference_display": 33228,
+      "fallback_display": 2658,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 1,
+        "Hair Style": 5,
+        "Hair Color": 8,
+        "Features": 6
+      },
+      "outfit": {
+        "race": 5,
+        "gender": 1,
+        "class": 1,
+        "skin": 2,
+        "face": 1,
+        "hair": 5,
+        "hair_color": 8,
+        "facial_hair": 6,
+        "head": -4651,
+        "shoulders": 0,
+        "shirt": -8128,
+        "chest": 0,
+        "waist": -16187,
+        "legs": -2311,
+        "feet": -46582,
+        "wrists": 0,
+        "hands": -16388,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        2272.85,
+        374.516,
+        35.9254,
+        5.53269
+      ],
+      "position": [
+        2272.85,
+        374.516,
+        35.1787,
+        5.53269
+      ],
+      "landing_position": [
+        2271.39,
+        375.88,
+        35.3028
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 35.0787,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 1518,
+        "name": "Apothecary Johaan",
+        "map": 0,
+        "position": [
+          2259.04,
+          347.048,
+          36.1025
+        ]
+      },
+      "taxi_node_id": 365,
+      "mount_creatures": [
+        3574,
+        0
+      ],
+      "connections": [
+        11,
+        384
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000619,
+      "source_entry": 43697,
+      "name": "John Shelby",
+      "subname": "Gryphon Master",
+      "town": "Raven Hill",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 12,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 3263,
+      "appearance_reference_display": 3263,
+      "fallback_display": 3263,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 4,
+        "Hair Style": 2,
+        "Hair Color": 1,
+        "Facial Hair": 7
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 4,
+        "hair": 2,
+        "hair_color": 1,
+        "facial_hair": 7,
+        "head": -11976,
+        "shoulders": -13797,
+        "shirt": -13792,
+        "chest": -13791,
+        "waist": -8396,
+        "legs": -4439,
+        "feet": -8369,
+        "wrists": 0,
+        "hands": -11554,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -10732.7,
+        264.283,
+        42.4575,
+        2.40855
+      ],
+      "position": [
+        -10732.7,
+        264.283,
+        43.7851,
+        2.40855
+      ],
+      "landing_position": [
+        -10734.0,
+        262.797,
+        43.5613
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 43.6851,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 288,
+        "name": "Jitters",
+        "map": 0,
+        "position": [
+          -10731.4,
+          337.138,
+          38.4686
+        ]
+      },
+      "taxi_node_id": 366,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        12,
+        4
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000620,
+      "source_entry": 43701,
+      "name": "Brolan Galebeard",
+      "subname": "Gryphon Master",
+      "town": "Kharanos",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 55,
+      "source_faction": 2155,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 3,
+      "render_race": 3,
+      "gender": 0,
+      "source_display": 32403,
+      "appearance_reference_display": 32403,
+      "fallback_display": 7250,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 6,
+        "Hair Style": 3,
+        "Hair Color": 6,
+        "Facial Hair": 3
+      },
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 6,
+        "hair": 3,
+        "hair_color": 6,
+        "facial_hair": 3,
+        "head": -13800,
+        "shoulders": -13801,
+        "shirt": -13802,
+        "chest": -13803,
+        "waist": -9045,
+        "legs": -5654,
+        "feet": -5489,
+        "wrists": 0,
+        "hands": -13804,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -5664.08,
+        -497.684,
+        397.424,
+        0.733038
+      ],
+      "position": [
+        -5664.08,
+        -497.684,
+        399.139,
+        0.733038
+      ],
+      "landing_position": [
+        -5662.74,
+        -499.17,
+        399.303
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 399.039,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 1247,
+        "name": "Innkeeper Belm",
+        "map": 0,
+        "position": [
+          -5601.6,
+          -531.203,
+          399.737
+        ]
+      },
+      "taxi_node_id": 367,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        6,
+        8
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000621,
+      "source_entry": 43702,
+      "name": "Dominic Galebeard",
+      "subname": "Gryphon Master",
+      "town": "Gol'Bolar Quarry",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 55,
+      "source_faction": 2155,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 3,
+      "render_race": 3,
+      "gender": 0,
+      "source_display": 32403,
+      "appearance_reference_display": 32403,
+      "fallback_display": 7250,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 6,
+        "Hair Style": 3,
+        "Hair Color": 6,
+        "Facial Hair": 3
+      },
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 6,
+        "hair": 3,
+        "hair_color": 6,
+        "facial_hair": 3,
+        "head": -13800,
+        "shoulders": -13801,
+        "shirt": -13802,
+        "chest": -13803,
+        "waist": -9045,
+        "legs": -5654,
+        "feet": -5489,
+        "wrists": 0,
+        "hands": -13804,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -5718.93,
+        -1578.47,
+        383.287,
+        6.24828
+      ],
+      "position": [
+        -5718.93,
+        -1578.47,
+        383.507,
+        6.24828
+      ],
+      "landing_position": [
+        -5719.0,
+        -1580.47,
+        383.455
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 383.407,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 1977,
+        "name": "Senator Mehr Stonehallow",
+        "map": 0,
+        "position": [
+          -5714.72,
+          -1580.0,
+          383.288
+        ]
+      },
+      "taxi_node_id": 368,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        6,
+        8
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000622,
+      "source_entry": 43991,
+      "name": "Zaldaan",
+      "subname": "Flight Master",
+      "town": "Azure Watch",
+      "continent": "Kalimdor",
+      "map": 530,
+      "team": "alliance",
+      "faction": 1638,
+      "source_faction": 1694,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 11,
+      "render_race": 11,
+      "gender": 0,
+      "source_display": 33600,
+      "appearance_reference_display": 33600,
+      "fallback_display": 20969,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 3,
+        "Hair Style": 4,
+        "Hair Color": 2,
+        "Facial Hair": 4
+      },
+      "outfit": {
+        "race": 11,
+        "gender": 0,
+        "class": 1,
+        "skin": 1,
+        "face": 3,
+        "hair": 4,
+        "hair_color": 2,
+        "facial_hair": 4,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -44342,
+        "waist": -37745,
+        "legs": -37747,
+        "feet": -39821,
+        "wrists": 0,
+        "hands": -39822,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        -4126.64,
+        -12523.8,
+        44.2277,
+        2.26893
+      ],
+      "position": [
+        -4126.64,
+        -12523.8,
+        44.6235,
+        2.26893
+      ],
+      "landing_position": [
+        -4125.11,
+        -12522.5,
+        44.5579
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 44.5235,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 16553,
+        "name": "Caregiver Chellan",
+        "map": 530,
+        "position": [
+          -4129.43,
+          -12469.0,
+          44.1849
+        ]
+      },
+      "taxi_node_id": 369,
+      "mount_creatures": [
+        0,
+        3837
+      ],
+      "connections": [
+        94,
+        93
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000623,
+      "source_entry": 44036,
+      "name": "Skymaster Brightdawn",
+      "subname": "Dragonhawk Master",
+      "town": "Fairbreeze Village",
+      "continent": "Eastern Kingdoms",
+      "map": 530,
+      "team": "horde",
+      "faction": 1604,
+      "source_faction": 1604,
+      "source_database": "https://github.com/The-Cataclysm-Preservation-Project/TrinityCore/releases/tag/TDB434.22011",
+      "race": 10,
+      "render_race": 10,
+      "gender": 0,
+      "source_display": 33633,
+      "appearance_reference_display": 33633,
+      "fallback_display": 16057,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 2,
+        "Hair Style": 14,
+        "Hair Color": 1,
+        "Facial Hair": 0
+      },
+      "outfit": {
+        "race": 10,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 2,
+        "hair": 14,
+        "hair_color": 1,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -33268,
+        "waist": -33264,
+        "legs": -33381,
+        "feet": -33270,
+        "wrists": 0,
+        "hands": -33269,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        8743.85,
+        -6651.69,
+        70.2161,
+        5.41052
+      ],
+      "position": [
+        8743.85,
+        -6651.69,
+        70.5446,
+        5.41052
+      ],
+      "landing_position": [
+        8745.38,
+        -6650.4,
+        70.7141
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 70.4446,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 16210,
+        "name": "Magistrix Landra Dawnstrider",
+        "map": 530,
+        "position": [
+          8718.34,
+          -6655.9,
+          72.8381
+        ]
+      },
+      "taxi_node_id": 370,
+      "mount_creatures": [
+        19917,
+        0
+      ],
+      "connections": [
+        82,
+        83
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000624,
+      "source_entry": 44244,
+      "name": "Skymaster Skyles",
+      "subname": "Dragonhawk Master",
+      "town": "Falconwing Square",
+      "continent": "Eastern Kingdoms",
+      "map": 530,
+      "team": "horde",
+      "faction": 1604,
+      "source_faction": 1604,
+      "source_database": "https://github.com/The-Cataclysm-Preservation-Project/TrinityCore/releases/tag/TDB434.22011",
+      "race": 10,
+      "render_race": 10,
+      "gender": 0,
+      "source_display": 33749,
+      "appearance_reference_display": 33749,
+      "fallback_display": 16057,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 0,
+        "Hair Style": 8,
+        "Hair Color": 1,
+        "Facial Hair": 2
+      },
+      "outfit": {
+        "race": 10,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 0,
+        "hair": 8,
+        "hair_color": 1,
+        "facial_hair": 2,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -33268,
+        "waist": -33264,
+        "legs": -33381,
+        "feet": -33270,
+        "wrists": 0,
+        "hands": -33269,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        9505.31,
+        -6765.01,
+        16.5957,
+        4.7822
+      ],
+      "position": [
+        9505.31,
+        -6765.01,
+        16.9207,
+        4.7822
+      ],
+      "landing_position": [
+        9507.3,
+        -6764.87,
+        16.9716
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 16.8207,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 15403,
+        "name": "Aeldon Sunbrand",
+        "map": 530,
+        "position": [
+          9531.33,
+          -6859.75,
+          18.7898
+        ]
+      },
+      "taxi_node_id": 371,
+      "mount_creatures": [
+        19917,
+        0
+      ],
+      "connections": [
+        82
+      ],
+      "armor_substitutions": [],
+      "notes": []
+    },
+    {
+      "entry": 4000625,
+      "source_entry": 46004,
+      "name": "Rhonda Molver",
+      "subname": "Bat Handler",
+      "town": "Andorhal",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "horde",
+      "faction": 68,
+      "source_faction": 68,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 5,
+      "render_race": 5,
+      "gender": 1,
+      "source_display": 34817,
+      "appearance_reference_display": 34817,
+      "fallback_display": 9251,
+      "source_customization": {
+        "Skin Color": 0,
+        "Face": 9,
+        "Hair Style": 1,
+        "Hair Color": 3,
+        "Features": 2
+      },
+      "outfit": {
+        "race": 5,
+        "gender": 1,
+        "class": 1,
+        "skin": 0,
+        "face": 9,
+        "hair": 1,
+        "hair_color": 3,
+        "facial_hair": 2,
+        "head": -4651,
+        "shoulders": 0,
+        "shirt": -8128,
+        "chest": 0,
+        "waist": -16187,
+        "legs": -2311,
+        "feet": -46582,
+        "wrists": 0,
+        "hands": -16388,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        1511.6,
+        -1583.94,
+        64.6883,
+        4.76475
+      ],
+      "position": [
+        1511.6,
+        -1583.94,
+        65.0215,
+        4.76475
+      ],
+      "landing_position": [
+        1511.7,
+        -1585.94,
+        64.7982
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 64.9215,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 10667,
+        "name": "Chromie",
+        "map": 0,
+        "position": [
+          1452.81,
+          -1279.91,
+          68.6052
+        ]
+      },
+      "taxi_node_id": 372,
+      "mount_creatures": [
+        3574,
+        0
+      ],
+      "connections": [
+        384,
+        383
+      ],
+      "armor_substitutions": [],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved.",
+        "Permanent Horde service in the existing Andorhal ruins; Cataclysm rebuilding is not imported."
+      ]
+    },
+    {
+      "entry": 4000626,
+      "source_entry": 46006,
+      "name": "Ginny Goodwin",
+      "subname": "Flight Master",
+      "town": "Andorhal",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "alliance",
+      "faction": 12,
+      "source_faction": 1075,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 1,
+      "source_display": 34820,
+      "appearance_reference_display": 34820,
+      "fallback_display": 3289,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 2,
+        "Hair Style": 4,
+        "Hair Color": 0,
+        "Piercings": 0
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 1,
+        "skin": 2,
+        "face": 2,
+        "hair": 4,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "head": -4651,
+        "shoulders": -10662,
+        "shirt": -27322,
+        "chest": -27322,
+        "waist": -27323,
+        "legs": -27327,
+        "feet": -27328,
+        "wrists": -27324,
+        "hands": -27326,
+        "back": 0,
+        "tabard": 0
+      },
+      "equipment": [
+        0,
+        0,
+        5259
+      ],
+      "source_equipment": [
+        0,
+        0,
+        5259
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        1373.05,
+        -1278.89,
+        59.5853,
+        4.83456
+      ],
+      "position": [
+        1373.05,
+        -1278.89,
+        58.7922,
+        4.83456
+      ],
+      "landing_position": [
+        1372.81,
+        -1276.9,
+        58.966
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 58.6922,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 10667,
+        "name": "Chromie",
+        "map": 0,
+        "position": [
+          1452.81,
+          -1279.91,
+          68.6052
+        ]
+      },
+      "taxi_node_id": 373,
+      "mount_creatures": [
+        0,
+        541
+      ],
+      "connections": [
+        66,
+        43
+      ],
+      "armor_substitutions": [
+        {
+          "slot": "shoulders",
+          "source_display": 67398,
+          "wrath_display": 10662
+        },
+        {
+          "slot": "shirt",
+          "source_display": 67642,
+          "wrath_display": 27322
+        },
+        {
+          "slot": "chest",
+          "source_display": 67392,
+          "wrath_display": 27322
+        },
+        {
+          "slot": "waist",
+          "source_display": 67643,
+          "wrath_display": 27323
+        },
+        {
+          "slot": "legs",
+          "source_display": 67395,
+          "wrath_display": 27327
+        },
+        {
+          "slot": "feet",
+          "source_display": 67393,
+          "wrath_display": 27328
+        },
+        {
+          "slot": "wrists",
+          "source_display": 67396,
+          "wrath_display": 27324
+        },
+        {
+          "slot": "hands",
+          "source_display": 67399,
+          "wrath_display": 27326
+        }
+      ],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved.",
+        "Permanent recreation of the later living Alliance flight master; Cataclysm quest phasing/death is not imported.",
+        "Unavailable later rusty plate is approximated with coordinated native rusty plate and copper shoulders."
+      ]
+    },
+    {
+      "entry": 4000627,
+      "source_entry": 47665,
+      "name": "Phillip Harding",
+      "subname": "Bat Handler",
+      "town": "Strahnbrad",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "horde",
+      "faction": 68,
+      "source_faction": 68,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 5,
+      "render_race": 5,
+      "gender": 0,
+      "source_display": 35767,
+      "appearance_reference_display": 35767,
+      "fallback_display": 28753,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 2,
+        "Hair Style": 12,
+        "Hair Color": 3,
+        "Features": 8
+      },
+      "outfit": {
+        "race": 5,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 2,
+        "hair": 12,
+        "hair_color": 3,
+        "facial_hair": 8,
+        "head": -11976,
+        "shoulders": -37027,
+        "shirt": -39761,
+        "chest": -39761,
+        "waist": -39762,
+        "legs": -39763,
+        "feet": -39764,
+        "wrists": -52722,
+        "hands": -39765,
+        "back": 0,
+        "tabard": -58388
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        622.903,
+        -981.286,
+        168.571,
+        0.0
+      ],
+      "position": [
+        622.903,
+        -981.286,
+        169.876,
+        0.0
+      ],
+      "landing_position": [
+        622.903,
+        -979.286,
+        169.776
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 169.778,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 2316,
+        "name": "Gol'dir",
+        "map": 0,
+        "position": [
+          683.518,
+          -895.468,
+          171.889
+        ]
+      },
+      "taxi_node_id": 374,
+      "mount_creatures": [
+        3574,
+        0
+      ],
+      "connections": [
+        13,
+        384
+      ],
+      "armor_substitutions": [
+        {
+          "slot": "shirt",
+          "source_display": 68120,
+          "wrath_display": 39761
+        },
+        {
+          "slot": "chest",
+          "source_display": 66622,
+          "wrath_display": 39761
+        },
+        {
+          "slot": "waist",
+          "source_display": 65627,
+          "wrath_display": 39762
+        },
+        {
+          "slot": "legs",
+          "source_display": 66625,
+          "wrath_display": 39763
+        },
+        {
+          "slot": "feet",
+          "source_display": 65633,
+          "wrath_display": 39764
+        },
+        {
+          "slot": "wrists",
+          "source_display": 68121,
+          "wrath_display": 52722
+        },
+        {
+          "slot": "hands",
+          "source_display": 65634,
+          "wrath_display": 39765
+        }
+      ],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved.",
+        "Later purple mail is approximated with coordinated native purple mail."
+      ]
+    },
+    {
+      "entry": 4000628,
+      "source_entry": 47875,
+      "name": "William Henderson",
+      "subname": "Flight Master",
+      "town": "Hearthglen",
+      "continent": "Eastern Kingdoms",
+      "map": 0,
+      "team": "neutral",
+      "faction": 35,
+      "source_faction": 2070,
+      "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+      "race": 1,
+      "render_race": 1,
+      "gender": 0,
+      "source_display": 35877,
+      "appearance_reference_display": 35877,
+      "fallback_display": 11360,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 1,
+        "Hair Style": 1,
+        "Hair Color": 4,
+        "Facial Hair": 8
+      },
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 1,
+        "hair": 1,
+        "hair_color": 4,
+        "facial_hair": 8,
+        "head": -4651,
+        "shoulders": 0,
+        "shirt": -8041,
+        "chest": -8041,
+        "waist": -2970,
+        "legs": -2969,
+        "feet": -2971,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": -53941
+      },
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "minlevel": 80,
+      "maxlevel": 80,
+      "source_position": [
+        2837.17,
+        -1503.59,
+        146.02,
+        0.802851
+      ],
+      "position": [
+        2837.17,
+        -1503.59,
+        146.536,
+        0.802851
+      ],
+      "landing_position": [
+        2838.61,
+        -1504.98,
+        146.523
+      ],
+      "navigation_checked": true,
+      "highest_navigation_surface": 146.436,
+      "horizontal_adjustment": 0.0,
+      "wrath_settlement_proof": {
+        "entry": 1842,
+        "name": "Highlord Taelan Fordring",
+        "map": 0,
+        "position": [
+          2942.58,
+          -1390.09,
+          167.421
+        ]
+      },
+      "taxi_node_id": 378,
+      "mount_creatures": [
+        2224,
+        541
+      ],
+      "connections": [
+        383,
+        67,
+        68
+      ],
+      "armor_substitutions": [
+        {
+          "slot": "shirt",
+          "source_display": 69374,
+          "wrath_display": 8041
+        }
+      ],
+      "notes": [
+        "Uses the existing Wrath settlement footprint; its original occupants and faction control are preserved."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1650 @@
+{
+  "client_build": 12340,
+  "city": "Darnassus",
+  "slug": "darnassus",
+  "map": 1,
+  "zone": 1657,
+  "bounds": [
+    9500,
+    10500,
+    1800,
+    2900
+  ],
+  "source_database": "https://github.com/ProjectSkyfire/SkyFire_548/releases/tag/24.001",
+  "appearance_metadata": "https://wow.zamimg.com/modelviewer/cata/meta/npc/{appearance_reference_display}.json",
+  "verified_asset_names": "https://github.com/wowdev/wow-listfile",
+  "navigation_data": "https://github.com/wowgaming/client-data/releases/tag/v20.0",
+  "navigation_method": "Closest reachable dry ground to the source in three dimensions; moved points inset 0.5m. Heights are navigation surface +0.10m.",
+  "excluded": [
+    {
+      "source_entry": 47569,
+      "name": "Hammon the Jaded",
+      "reason": "Archaeology has no Wrath training system."
+    }
+  ],
+  "npcs": [
+    {
+      "entry": 4000300,
+      "source_entry": 50497,
+      "name": "Huntsman Blake",
+      "subname": "Hunter Trainer",
+      "race": 1,
+      "gender": 0,
+      "render_race": 1,
+      "source_display": 29960,
+      "appearance_reference_display": 29960,
+      "source_customization": {
+        "Skin Color": 4,
+        "Face": 0,
+        "Hair Style": 0,
+        "Hair Color": 1,
+        "Facial Hair": 5
+      },
+      "fallback_display": 27118,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 3,
+        "skin": 4,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 1,
+        "facial_hair": 5,
+        "head": -59905,
+        "shoulders": 0,
+        "shirt": -13115,
+        "chest": -13116,
+        "waist": 0,
+        "legs": -13117,
+        "feet": -38204,
+        "wrists": 0,
+        "hands": -7513,
+        "back": -43652,
+        "tabard": 0
+      },
+      "trainer_id": 7,
+      "gossip_menu_id": 4474,
+      "npcflag": 49,
+      "unit_class": 2,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        0,
+        0,
+        52052
+      ],
+      "equipment": [
+        0,
+        0,
+        25270
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10272.4,
+        2437.89,
+        1330.83,
+        1.01229
+      ],
+      "position": [
+        10272.4,
+        2437.89,
+        1336.31,
+        1.01229
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "head",
+          "source_display": 62471,
+          "wrath_display": 59905
+        },
+        {
+          "slot": "waist",
+          "source_display": 62384,
+          "wrath_display": 0
+        },
+        {
+          "slot": "shirt",
+          "source_display": 62483,
+          "wrath_display": 13115
+        },
+        {
+          "slot": "chest",
+          "source_display": 62383,
+          "wrath_display": 13116
+        },
+        {
+          "slot": "legs",
+          "source_display": 62385,
+          "wrath_display": 13117
+        },
+        {
+          "slot": "feet",
+          "source_display": 62447,
+          "wrath_display": 38204
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Carlin Redpath.",
+        "Gilnean top hat/formal clothing and rifle are absent: native Pilgrim hat, tuxedo layers, black boots and rifle 25270 approximate the silhouette."
+      ]
+    },
+    {
+      "entry": 4000301,
+      "source_entry": 50498,
+      "name": "Loren the Fence",
+      "subname": "Rogue Trainer",
+      "race": 1,
+      "gender": 1,
+      "render_race": 1,
+      "source_display": 29957,
+      "appearance_reference_display": 29957,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 9,
+        "Hair Style": 10,
+        "Hair Color": 10,
+        "Piercings": 1
+      },
+      "fallback_display": 18161,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 4,
+        "skin": 1,
+        "face": 9,
+        "hair": 10,
+        "hair_color": 10,
+        "facial_hair": 1,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -2317,
+        "waist": -5788,
+        "legs": -5346,
+        "feet": -4272,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 9,
+      "gossip_menu_id": 4502,
+      "npcflag": 49,
+      "unit_class": 4,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        2184,
+        0,
+        0
+      ],
+      "equipment": [
+        2184,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10307.4,
+        2455.99,
+        1331.6,
+        2.86234
+      ],
+      "position": [
+        10307.4,
+        2455.99,
+        1337.07,
+        2.86234
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "chest",
+          "source_display": 62436,
+          "wrath_display": 2317
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Durnholde Cook."
+      ]
+    },
+    {
+      "entry": 4000302,
+      "source_entry": 50499,
+      "name": "Myriam Spellwaker",
+      "subname": "Mage Trainer",
+      "race": 1,
+      "gender": 1,
+      "render_race": 1,
+      "source_display": 29956,
+      "appearance_reference_display": 29956,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 3,
+        "Hair Style": 2,
+        "Hair Color": 2,
+        "Piercings": 0
+      },
+      "fallback_display": 27261,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 8,
+        "skin": 1,
+        "face": 3,
+        "hair": 2,
+        "hair_color": 2,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": -62324,
+        "chest": -60793,
+        "waist": -62325,
+        "legs": -62326,
+        "feet": -9096,
+        "wrists": 0,
+        "hands": -60795,
+        "back": 0,
+        "tabard": -3454
+      },
+      "trainer_id": 16,
+      "gossip_menu_id": 4552,
+      "npcflag": 49,
+      "unit_class": 8,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        1908,
+        0,
+        0
+      ],
+      "equipment": [
+        1908,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10298.9,
+        2418.19,
+        1330.27,
+        5.25344
+      ],
+      "position": [
+        10298.9,
+        2418.19,
+        1336.35,
+        5.25344
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "shirt",
+          "source_display": 62550,
+          "wrath_display": 62324
+        },
+        {
+          "slot": "legs",
+          "source_display": 62553,
+          "wrath_display": 62326
+        },
+        {
+          "slot": "chest",
+          "source_display": 62551,
+          "wrath_display": 60793
+        },
+        {
+          "slot": "waist",
+          "source_display": 62552,
+          "wrath_display": 62325
+        },
+        {
+          "slot": "hands",
+          "source_display": 62554,
+          "wrath_display": 60795
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Catarina Stanford.",
+        "Later Gilnean robe textures are unavailable; coordinated native red/brown/black robe layers approximate their source palette."
+      ]
+    },
+    {
+      "entry": 4000303,
+      "source_entry": 50500,
+      "name": "Sergeant Cleese",
+      "subname": "Warrior Trainer",
+      "race": 1,
+      "gender": 0,
+      "render_race": 1,
+      "source_display": 29935,
+      "appearance_reference_display": 29935,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 10,
+        "Hair Style": 6,
+        "Hair Color": 3,
+        "Facial Hair": 0
+      },
+      "fallback_display": 28899,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 10,
+        "hair": 6,
+        "hair_color": 3,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": -37515,
+        "chest": -11601,
+        "waist": -34078,
+        "legs": -34084,
+        "feet": -34083,
+        "wrists": -34079,
+        "hands": -34082,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 1,
+      "gossip_menu_id": 4478,
+      "npcflag": 49,
+      "unit_class": 1,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        12944,
+        2445,
+        0
+      ],
+      "equipment": [
+        12944,
+        2445,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10275.8,
+        2440.53,
+        1330.73,
+        3.42085
+      ],
+      "position": [
+        10275.8,
+        2440.53,
+        1336.18,
+        3.42085
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "chest",
+          "source_display": 71514,
+          "wrath_display": 11601
+        },
+        {
+          "slot": "shirt",
+          "source_display": 71513,
+          "wrath_display": 37515
+        },
+        {
+          "slot": "waist",
+          "source_display": 71515,
+          "wrath_display": 34078
+        },
+        {
+          "slot": "legs",
+          "source_display": 71516,
+          "wrath_display": 34084
+        },
+        {
+          "slot": "feet",
+          "source_display": 72742,
+          "wrath_display": 34083
+        },
+        {
+          "slot": "wrists",
+          "source_display": 71518,
+          "wrath_display": 34079
+        },
+        {
+          "slot": "hands",
+          "source_display": 72702,
+          "wrath_display": 34082
+        },
+        {
+          "slot": "tabard",
+          "source_display": 75212,
+          "wrath_display": 0
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Dustin Vail.",
+        "Native blue mail approximates later armor. The unavailable Gilneas tabard is omitted to avoid wearing another faction crest."
+      ]
+    },
+    {
+      "entry": 4000304,
+      "source_entry": 50501,
+      "name": "Sister Almyra",
+      "subname": "Priest Trainer",
+      "race": 1,
+      "gender": 1,
+      "render_race": 1,
+      "source_display": 29958,
+      "appearance_reference_display": 29958,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 13,
+        "Hair Style": 11,
+        "Hair Color": 9,
+        "Piercings": 0
+      },
+      "fallback_display": 1544,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 5,
+        "skin": 3,
+        "face": 13,
+        "hair": 11,
+        "hair_color": 9,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": -58155,
+        "chest": -38961,
+        "waist": -58156,
+        "legs": -37283,
+        "feet": -10210,
+        "wrists": -58041,
+        "hands": -11016,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 11,
+      "gossip_menu_id": 4466,
+      "npcflag": 49,
+      "unit_class": 8,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        5276,
+        0,
+        0
+      ],
+      "equipment": [
+        5276,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10284.1,
+        2449.1,
+        1330.79,
+        4.27606
+      ],
+      "position": [
+        10284.1,
+        2449.1,
+        1336.34,
+        4.27606
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "shirt",
+          "source_display": 62534,
+          "wrath_display": 58155
+        },
+        {
+          "slot": "chest",
+          "source_display": 62535,
+          "wrath_display": 38961
+        },
+        {
+          "slot": "legs",
+          "source_display": 62537,
+          "wrath_display": 37283
+        },
+        {
+          "slot": "feet",
+          "source_display": 62538,
+          "wrath_display": 10210
+        },
+        {
+          "slot": "wrists",
+          "source_display": 62531,
+          "wrath_display": 58041
+        },
+        {
+          "slot": "hands",
+          "source_display": 62539,
+          "wrath_display": 11016
+        },
+        {
+          "slot": "waist",
+          "source_display": 62536,
+          "wrath_display": 58156
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Ol' Emma.",
+        "Later Gilnean robe textures are unavailable; coordinated native red/brown/black robe layers approximate their source palette."
+      ]
+    },
+    {
+      "entry": 4000305,
+      "source_entry": 50502,
+      "name": "Vitus Darkwalker",
+      "subname": "Warlock Trainer",
+      "race": 1,
+      "gender": 0,
+      "render_race": 1,
+      "source_display": 29959,
+      "appearance_reference_display": 29959,
+      "source_customization": {
+        "Skin Color": 0,
+        "Face": 1,
+        "Hair Style": 0,
+        "Hair Color": 4,
+        "Facial Hair": 4
+      },
+      "fallback_display": 31647,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 9,
+        "skin": 0,
+        "face": 1,
+        "hair": 0,
+        "hair_color": 4,
+        "facial_hair": 4,
+        "head": -1170,
+        "shoulders": 0,
+        "shirt": -47544,
+        "chest": -47544,
+        "waist": -47545,
+        "legs": -47546,
+        "feet": -53252,
+        "wrists": 0,
+        "hands": -49163,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 31,
+      "gossip_menu_id": 4566,
+      "npcflag": 49,
+      "unit_class": 1,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        2559,
+        0,
+        0
+      ],
+      "equipment": [
+        2559,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10301.8,
+        2418.08,
+        1330.26,
+        4.15388
+      ],
+      "position": [
+        10301.8,
+        2418.08,
+        1335.83,
+        4.15388
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "head",
+          "source_display": 62484,
+          "wrath_display": 1170
+        },
+        {
+          "slot": "feet",
+          "source_display": 62545,
+          "wrath_display": 53252
+        },
+        {
+          "slot": "shirt",
+          "source_display": 62541,
+          "wrath_display": 47544
+        },
+        {
+          "slot": "chest",
+          "source_display": 62542,
+          "wrath_display": 47544
+        },
+        {
+          "slot": "waist",
+          "source_display": 62543,
+          "wrath_display": 47545
+        },
+        {
+          "slot": "legs",
+          "source_display": 62544,
+          "wrath_display": 47546
+        },
+        {
+          "slot": "hands",
+          "source_display": 62546,
+          "wrath_display": 49163
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Cultist Wyman.",
+        "Later Gilnean robe textures are unavailable; coordinated native red/brown/black robe layers approximate their source palette."
+      ]
+    },
+    {
+      "entry": 4000306,
+      "source_entry": 50504,
+      "name": "Belysra Starbreeze",
+      "subname": "Priestess of the Moon",
+      "race": 4,
+      "gender": 1,
+      "render_race": 4,
+      "source_display": 33224,
+      "appearance_reference_display": 33224,
+      "source_customization": {
+        "Skin Color": 3,
+        "Face": 5,
+        "Hair Style": 8,
+        "Hair Color": 7,
+        "Markings": 5
+      },
+      "fallback_display": 1914,
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 5,
+        "skin": 3,
+        "face": 5,
+        "hair": 8,
+        "hair_color": 7,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": -23978,
+        "chest": -23978,
+        "waist": 0,
+        "legs": -9686,
+        "feet": -6909,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 11,
+      "gossip_menu_id": 4466,
+      "npcflag": 49,
+      "unit_class": 8,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10283.1,
+        2446.84,
+        1330.76,
+        1.11701
+      ],
+      "position": [
+        10282.2,
+        2446.66,
+        1336.37,
+        1.11701
+      ],
+      "horizontal_adjustment": 0.9178,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "waist",
+          "source_display": 57761,
+          "wrath_display": 0
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Aelyssa."
+      ]
+    },
+    {
+      "entry": 4000307,
+      "source_entry": 50505,
+      "name": "Lyros Swiftwind",
+      "subname": "Druid Trainer",
+      "race": 4,
+      "gender": 0,
+      "render_race": 4,
+      "source_display": 30812,
+      "appearance_reference_display": 30812,
+      "source_customization": {
+        "Skin Color": 5,
+        "Face": 2,
+        "Hair Style": 1,
+        "Hair Color": 5,
+        "Facial Hair": 3
+      },
+      "fallback_display": 4304,
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 11,
+        "skin": 5,
+        "face": 2,
+        "hair": 1,
+        "hair_color": 5,
+        "facial_hair": 3,
+        "head": 0,
+        "shoulders": -53869,
+        "shirt": -53870,
+        "chest": -53871,
+        "waist": -53872,
+        "legs": -57634,
+        "feet": -53874,
+        "wrists": -53875,
+        "hands": -53876,
+        "back": -29720,
+        "tabard": 0
+      },
+      "trainer_id": 33,
+      "gossip_menu_id": 4508,
+      "npcflag": 49,
+      "unit_class": 2,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10281.7,
+        2428.47,
+        1330.33,
+        0.855211
+      ],
+      "position": [
+        10280.3,
+        2428.95,
+        1337.68,
+        0.855211
+      ],
+      "horizontal_adjustment": 1.48,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Bolyun."
+      ]
+    },
+    {
+      "entry": 4000308,
+      "source_entry": 50506,
+      "name": "Talran of the Wild",
+      "subname": "Druid Trainer",
+      "race": 4,
+      "gender": 0,
+      "render_race": 4,
+      "source_display": 30328,
+      "appearance_reference_display": 30328,
+      "source_customization": {
+        "Skin Color": 0,
+        "Face": 0,
+        "Hair Style": 11,
+        "Hair Color": 0,
+        "Facial Hair": 5
+      },
+      "fallback_display": 4237,
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 11,
+        "skin": 0,
+        "face": 0,
+        "hair": 11,
+        "hair_color": 0,
+        "facial_hair": 5,
+        "head": 0,
+        "shoulders": -53869,
+        "shirt": -53870,
+        "chest": -53871,
+        "waist": -53872,
+        "legs": -57634,
+        "feet": -53874,
+        "wrists": -53875,
+        "hands": -53876,
+        "back": -29720,
+        "tabard": 0
+      },
+      "trainer_id": 33,
+      "gossip_menu_id": 4508,
+      "npcflag": 49,
+      "unit_class": 2,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10286.1,
+        2412.17,
+        1330.21,
+        1.01229
+      ],
+      "position": [
+        10286.1,
+        2412.17,
+        1335.79,
+        1.01229
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Melithar Staghelm."
+      ]
+    },
+    {
+      "entry": 4000309,
+      "source_entry": 50507,
+      "name": "Vassandra Stormclaw",
+      "subname": "Druid Trainer",
+      "race": 4,
+      "gender": 1,
+      "render_race": 4,
+      "source_display": 30813,
+      "appearance_reference_display": 30813,
+      "source_customization": {
+        "Skin Color": 8,
+        "Face": 6,
+        "Hair Style": 10,
+        "Hair Color": 0,
+        "Markings": 2
+      },
+      "fallback_display": 27168,
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 11,
+        "skin": 8,
+        "face": 6,
+        "hair": 10,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": -53869,
+        "shirt": -53870,
+        "chest": -53871,
+        "waist": -53872,
+        "legs": -57634,
+        "feet": -53874,
+        "wrists": -53875,
+        "hands": -53876,
+        "back": -29720,
+        "tabard": 0
+      },
+      "trainer_id": 33,
+      "gossip_menu_id": 4508,
+      "npcflag": 49,
+      "unit_class": 2,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10284.9,
+        2424.45,
+        1330.39,
+        0.698132
+      ],
+      "position": [
+        10282.3,
+        2424.13,
+        1337.53,
+        0.698132
+      ],
+      "horizontal_adjustment": 2.6196,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Arch Druid Lilliandra."
+      ]
+    },
+    {
+      "entry": 4000310,
+      "source_entry": 50690,
+      "name": "Tarelvir",
+      "subname": "Mage Trainer",
+      "race": 4,
+      "gender": 0,
+      "render_race": 4,
+      "source_display": 36875,
+      "appearance_reference_display": 36875,
+      "source_customization": {
+        "Skin Color": 5,
+        "Face": 6,
+        "Hair Style": 11,
+        "Hair Color": 4,
+        "Facial Hair": 5
+      },
+      "fallback_display": 16157,
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 8,
+        "skin": 5,
+        "face": 6,
+        "hair": 11,
+        "hair_color": 4,
+        "facial_hair": 5,
+        "head": -55053,
+        "shoulders": -41571,
+        "shirt": -37569,
+        "chest": -42270,
+        "waist": -42271,
+        "legs": -42272,
+        "feet": -42273,
+        "wrists": 0,
+        "hands": 0,
+        "back": -15040,
+        "tabard": 0
+      },
+      "trainer_id": 16,
+      "gossip_menu_id": 4552,
+      "npcflag": 49,
+      "unit_class": 8,
+      "minlevel": 60,
+      "maxlevel": 60,
+      "source_equipment": [
+        49311,
+        0,
+        0
+      ],
+      "equipment": [
+        49311,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        9638.5,
+        2608.04,
+        1337.37,
+        0.0
+      ],
+      "position": [
+        9638.5,
+        2608.04,
+        1338.21,
+        0.0
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "chest",
+          "source_display": 75370,
+          "wrath_display": 42270
+        },
+        {
+          "slot": "legs",
+          "source_display": 75371,
+          "wrath_display": 42272
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Walla's Damage Dealer."
+      ]
+    },
+    {
+      "entry": 4000311,
+      "source_entry": 50714,
+      "name": "Dyrhara",
+      "subname": "Mage Trainer",
+      "race": 4,
+      "gender": 1,
+      "render_race": 4,
+      "source_display": 36943,
+      "appearance_reference_display": 36943,
+      "source_customization": {
+        "Skin Color": 5,
+        "Face": 7,
+        "Hair Style": 7,
+        "Hair Color": 4,
+        "Markings": 9
+      },
+      "fallback_display": 10749,
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 8,
+        "skin": 5,
+        "face": 7,
+        "hair": 7,
+        "hair_color": 4,
+        "facial_hair": 0,
+        "head": -49533,
+        "shoulders": -4904,
+        "shirt": 0,
+        "chest": -13179,
+        "waist": -10501,
+        "legs": -10794,
+        "feet": -9573,
+        "wrists": 0,
+        "hands": -10376,
+        "back": -23092,
+        "tabard": 0
+      },
+      "trainer_id": 16,
+      "gossip_menu_id": 4552,
+      "npcflag": 49,
+      "unit_class": 8,
+      "minlevel": 50,
+      "maxlevel": 50,
+      "source_equipment": [
+        12421,
+        0,
+        0
+      ],
+      "equipment": [
+        12421,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        9629.12,
+        2609.46,
+        1337.37,
+        5.25344
+      ],
+      "position": [
+        9629.12,
+        2609.46,
+        1337.59,
+        5.25344
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Lyranne Feathersong."
+      ]
+    },
+    {
+      "entry": 4000312,
+      "source_entry": 50715,
+      "name": "Maelir",
+      "subname": "Mage Trainer",
+      "race": 4,
+      "gender": 0,
+      "render_race": 4,
+      "source_display": 36942,
+      "appearance_reference_display": 36942,
+      "source_customization": {
+        "Skin Color": 5,
+        "Face": 1,
+        "Hair Style": 11,
+        "Hair Color": 4,
+        "Facial Hair": 3
+      },
+      "fallback_display": 3298,
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 8,
+        "skin": 5,
+        "face": 1,
+        "hair": 11,
+        "hair_color": 4,
+        "facial_hair": 3,
+        "head": -55053,
+        "shoulders": -4904,
+        "shirt": 0,
+        "chest": -13179,
+        "waist": -10501,
+        "legs": -10794,
+        "feet": -9573,
+        "wrists": 0,
+        "hands": -10376,
+        "back": -23092,
+        "tabard": 0
+      },
+      "trainer_id": 16,
+      "gossip_menu_id": 4552,
+      "npcflag": 49,
+      "unit_class": 8,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "source_equipment": [
+        13750,
+        0,
+        0
+      ],
+      "equipment": [
+        13750,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        9631.83,
+        2605.41,
+        1337.37,
+        2.09439
+      ],
+      "position": [
+        9631.83,
+        2605.41,
+        1337.64,
+        2.09439
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Tel'Athir."
+      ]
+    },
+    {
+      "entry": 4000313,
+      "source_entry": 52292,
+      "name": "Droha",
+      "subname": "Shaman Trainer",
+      "race": 11,
+      "gender": 0,
+      "render_race": 11,
+      "source_display": 37822,
+      "appearance_reference_display": 37822,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 5,
+        "Hair Style": 2,
+        "Hair Color": 3,
+        "Facial Hair": 3
+      },
+      "fallback_display": 21265,
+      "outfit": {
+        "race": 11,
+        "gender": 0,
+        "class": 7,
+        "skin": 2,
+        "face": 5,
+        "hair": 2,
+        "hair_color": 3,
+        "facial_hair": 3,
+        "head": -5677,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -44556,
+        "waist": -43049,
+        "legs": -56237,
+        "feet": 0,
+        "wrists": -54676,
+        "hands": -42527,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 14,
+      "gossip_menu_id": 8110,
+      "npcflag": 49,
+      "unit_class": 2,
+      "minlevel": 60,
+      "maxlevel": 60,
+      "source_equipment": [
+        1908,
+        0,
+        0
+      ],
+      "equipment": [
+        1908,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        9654.44,
+        2510.81,
+        1331.68,
+        0.122173
+      ],
+      "position": [
+        9654.44,
+        2510.81,
+        1332.03,
+        0.122173
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "chest",
+          "source_display": 96108,
+          "wrath_display": 44556
+        },
+        {
+          "slot": "waist",
+          "source_display": 71162,
+          "wrath_display": 43049
+        },
+        {
+          "slot": "legs",
+          "source_display": 71163,
+          "wrath_display": 56237
+        },
+        {
+          "slot": "hands",
+          "source_display": 96109,
+          "wrath_display": 42527
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Farseer Javad.",
+        "Source glove hand texture and purple belt are absent; native purple bracers and belt retain the closest available layers."
+      ]
+    },
+    {
+      "entry": 4000314,
+      "source_entry": 52636,
+      "name": "Tana Lentner",
+      "subname": "Engineering Trainer",
+      "race": 22,
+      "gender": 1,
+      "render_race": 1,
+      "source_display": 37994,
+      "appearance_reference_display": 37994,
+      "source_customization": {
+        "Skin Color": 0,
+        "Face": 9,
+        "Hair Style": 5,
+        "Ears": 5
+      },
+      "fallback_display": 24299,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 1,
+        "skin": 1,
+        "face": 4,
+        "hair": 14,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "head": -17552,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -8414,
+        "waist": -8606,
+        "legs": -8426,
+        "feet": 0,
+        "wrists": 0,
+        "hands": -8608,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 89,
+      "gossip_menu_id": 4146,
+      "npcflag": 80,
+      "unit_class": 1,
+      "minlevel": 35,
+      "maxlevel": 35,
+      "source_equipment": [
+        4994,
+        0,
+        0
+      ],
+      "equipment": [
+        4994,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10132.0,
+        2423.56,
+        1332.04,
+        4.01426
+      ],
+      "position": [
+        10132.0,
+        2423.56,
+        1332.58,
+        4.01426
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "head",
+          "source_display": 96599,
+          "wrath_display": 17552
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Human-form approximation: modern worgen model unavailable; source has no separate human display. Human face/hair are chosen approximations, not a verified source form.",
+        "Stock fallback: Saffron Reynolds."
+      ]
+    },
+    {
+      "entry": 4000315,
+      "source_entry": 52640,
+      "name": "Rolf Karner",
+      "subname": "Blacksmithing Trainer",
+      "race": 22,
+      "gender": 0,
+      "render_race": 1,
+      "source_display": 37996,
+      "appearance_reference_display": 37996,
+      "source_customization": {
+        "Skin Color": 1,
+        "Face": 3,
+        "Hair Style": 12,
+        "Facial Hair": 8
+      },
+      "fallback_display": 25611,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 7,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 5,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -15441,
+        "waist": -14853,
+        "legs": -15673,
+        "feet": 0,
+        "wrists": -16420,
+        "hands": -14843,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 59,
+      "gossip_menu_id": 581,
+      "npcflag": 80,
+      "unit_class": 1,
+      "minlevel": 35,
+      "maxlevel": 35,
+      "source_equipment": [
+        30078,
+        13611,
+        0
+      ],
+      "equipment": [
+        30078,
+        13611,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        9923.4,
+        2309.81,
+        1330.87,
+        2.53073
+      ],
+      "position": [
+        9923.4,
+        2309.81,
+        1331.38,
+        2.53073
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Human-form approximation: modern worgen model unavailable; source has no separate human display. Human face/hair are chosen approximations, not a verified source form.",
+        "Stock fallback: Alard Schmied."
+      ]
+    },
+    {
+      "entry": 4000316,
+      "source_entry": 52642,
+      "name": "Foreman Pernic",
+      "subname": "Mining Trainer",
+      "race": 22,
+      "gender": 0,
+      "render_race": 1,
+      "source_display": 37998,
+      "appearance_reference_display": 37998,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 2,
+        "Hair Style": 0,
+        "Facial Hair": 1
+      },
+      "fallback_display": 11743,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 3,
+        "face": 7,
+        "hair": 7,
+        "hair_color": 6,
+        "facial_hair": 1,
+        "head": -15368,
+        "shoulders": 0,
+        "shirt": -58194,
+        "chest": -11213,
+        "waist": -8431,
+        "legs": -4439,
+        "feet": 0,
+        "wrists": -8423,
+        "hands": -4438,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 78,
+      "gossip_menu_id": 7690,
+      "npcflag": 80,
+      "unit_class": 1,
+      "minlevel": 35,
+      "maxlevel": 35,
+      "source_equipment": [
+        1910,
+        0,
+        0
+      ],
+      "equipment": [
+        1910,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10119.8,
+        2416.36,
+        1321.73,
+        4.59022
+      ],
+      "position": [
+        10119.8,
+        2416.36,
+        1322.0,
+        4.59022
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [],
+      "vendors": [],
+      "notes": [
+        "Human-form approximation: modern worgen model unavailable; source has no separate human display. Human face/hair are chosen approximations, not a verified source form.",
+        "Stock fallback: Erik Felixe."
+      ]
+    },
+    {
+      "entry": 4000317,
+      "source_entry": 52645,
+      "name": "Aessa Silverdew",
+      "subname": "Jewelcrafting Trainer",
+      "race": 4,
+      "gender": 1,
+      "render_race": 4,
+      "source_display": 38001,
+      "appearance_reference_display": 38001,
+      "source_customization": {
+        "Skin Color": 2,
+        "Face": 8,
+        "Hair Style": 2,
+        "Hair Color": 6,
+        "Markings": 9
+      },
+      "fallback_display": 15727,
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 1,
+        "skin": 2,
+        "face": 8,
+        "hair": 2,
+        "hair_color": 6,
+        "facial_hair": 0,
+        "head": 0,
+        "shoulders": 0,
+        "shirt": 0,
+        "chest": -33909,
+        "waist": -24527,
+        "legs": -18015,
+        "feet": -15450,
+        "wrists": 0,
+        "hands": 0,
+        "back": 0,
+        "tabard": 0
+      },
+      "trainer_id": 111,
+      "gossip_menu_id": 7815,
+      "npcflag": 80,
+      "unit_class": 1,
+      "minlevel": 30,
+      "maxlevel": 30,
+      "source_equipment": [
+        0,
+        0,
+        0
+      ],
+      "equipment": [
+        0,
+        0,
+        0
+      ],
+      "stand_state": 0,
+      "sheath_state": 1,
+      "source_position": [
+        10145.0,
+        2356.48,
+        1332.05,
+        6.07375
+      ],
+      "position": [
+        10145.0,
+        2356.48,
+        1332.24,
+        6.07375
+      ],
+      "horizontal_adjustment": 0.0,
+      "navigation_checked": true,
+      "armor_substitutions": [
+        {
+          "slot": "chest",
+          "source_display": 96595,
+          "wrath_display": 33909
+        },
+        {
+          "slot": "legs",
+          "source_display": 96596,
+          "wrath_display": 18015
+        }
+      ],
+      "vendors": [],
+      "notes": [
+        "Stock fallback: Officer Lunalight."
+      ]
+    }
+  ]
+}

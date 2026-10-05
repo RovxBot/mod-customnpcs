@@ -74,6 +74,45 @@ Existing stock Stormwind trainers are retained. Unsupported archaeology,
 battle-pet, monk, and pandaren additions are documented rather than assigned an
 unrelated training service. See [the Stormwind guide](docs/stormwind-trainers.md).
 
+### Ironforge, Darnassus, Thunder Bluff and Undercity
+
+Forty-four later additions extend the same appearance and placement framework,
+in this installation order:
+
+| City | Additions | Reserved entries | Roster and placement notes |
+|---|---:|---|---|
+| Ironforge | 8 | 4000200–4000207 | [Ironforge guide](docs/ironforge-trainers.md) |
+| Darnassus | 18 | 4000300–4000317 | [Darnassus guide](docs/darnassus-trainers.md) |
+| Thunder Bluff | 13 | 4000400–4000412 | [Thunder Bluff guide](docs/thunder_bluff-trainers.md) |
+| Undercity | 5 | 4000500–4000504 | [Undercity guide](docs/undercity-trainers.md) |
+
+Forty NPCs use researched custom outfits; four Dark Iron dwarfs retain native
+NPC-only skins with approximate costumes. Dareth, Tana, Rolf and Foreman Pernic
+use documented human-form approximations because their modern worgen models
+are unavailable. Gilnean clothing has native substitutions where needed.
+
+Forty-one retain their source X/Y; three Darnassus NPCs move less than three
+metres onto reachable ground. The Howling Oak group stays together at its later
+city footprint, with heights corrected for Wrath. Thunder Bluff's platform levels
+and Undercity's underground placements are preserved. Each NPC teaches the
+matching Wrath curriculum. Archaeology remains excluded.
+
+Names, appearances, source coordinates and substitutions live in the four
+`data/npcs/*_trainers.json` manifests. Regenerate their installation/update SQL
+with `python3 tools/generate_city_trainers.py`, or verify it using `--check`.
+
+### Additional flight masters (entries 4000600–4000628)
+
+Twenty-nine later flight masters are added at existing Wrath settlements:
+12 in Kalimdor and 17 in the Eastern Kingdoms, including Azure Watch and the
+two Eversong villages. All use researched player-style outfits and checked
+placements. The roster keeps the older towns and their existing inhabitants.
+
+The [flight-master guide](docs/flight-masters.md) lists every stop and installation
+step. The included [client patch](data/client/flight-masters/patch-F.MPQ) adds the
+stops to the normal flight map, with 110 routes connecting them to existing Wrath
+hubs. Install the client patch before enabling the matching world update.
+
 ## Custom NPC appearances
 
 The module includes a player-style appearance framework: choose a WotLK race,
@@ -123,7 +162,16 @@ mysql -u<user> -p acore_world < data/sql/db-world/base/custom_npc_appearances.sq
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_appearances.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/stormwind_trainers.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/ironforge_trainers.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/darnassus_trainers.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/thunder_bluff_trainers.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/undercity_trainers.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/flight_masters.sql
 ```
+
+The flight-master addition also requires copying
+`data/client/flight-masters/patch-F.MPQ` into the 3.3.5a client's `Data` directory
+before applying its SQL. See [the flight-master installation guide](docs/flight-masters.md).
 
 5. Rebuild and restart the worldserver.
 
@@ -155,6 +203,11 @@ mod-customNPCs/
 │   ├── custom_npc_appearances.sql ← Outfit schema (no automatic assignments)
 │   ├── later_expansion_appearances.sql ← Researched Orgrimmar looks and Wrath placements
 │   ├── stormwind_trainers.sql ← Later Stormwind additions, looks and placements
+│   ├── ironforge_trainers.sql ← Later Ironforge additions, looks and placements
+│   ├── darnassus_trainers.sql ← Later Darnassus additions, looks and placements
+│   ├── thunder_bluff_trainers.sql ← Later Thunder Bluff additions, looks and placements
+│   ├── undercity_trainers.sql ← Later Undercity additions, looks and placements
+│   ├── flight_masters.sql ← Existing-town flight additions and matching taxi network
 │   └── later_expansion_trainers.sql
 │                            ← Named Cataclysm Orgrimmar trainer recreations
 ├── data/sql/db-world/updates/
@@ -162,6 +215,11 @@ mod-customNPCs/
 │   ├── 2026_10_05_00_custom_npc_appearances.sql ← Outfit schema update
 │   ├── 2026_10_05_01_orgrimmar_appearances.sql ← Orgrimmar outfit/placement update
 │   ├── 2026_10_05_02_stormwind_trainers.sql ← Stormwind roster update
+│   ├── 2026_10_05_03_ironforge_trainers.sql ← Ironforge roster update
+│   ├── 2026_10_05_04_darnassus_trainers.sql ← Darnassus roster update
+│   ├── 2026_10_05_05_thunder_bluff_trainers.sql ← Thunder Bluff roster update
+│   ├── 2026_10_05_06_undercity_trainers.sql ← Undercity roster update
+│   ├── 2026_10_05_07_flight_masters.sql ← Flight-master/network update
 │   └── 2026_09_29_00_later_expansion_trainers.sql
 │                            ← Auto-applied Cataclysm trainer update
 ├── src/
@@ -179,6 +237,16 @@ mod-customNPCs/
 ├── data/npcs/stormwind_trainers.json ← Stormwind source/conversion definitions
 ├── tools/generate_orgrimmar_appearances.py ← Generate matching base/update SQL
 ├── tools/generate_stormwind_trainers.py ← Generate Stormwind installation/update SQL
+├── tools/generate_city_trainers.py ← Generate the remaining four capital rosters in order
+├── tools/generate_flight_masters.py ← Generate flight-master/network installation SQL
+├── tools/build_flight_patch.py ← Build the matching native flight-map client patch
+├── tools/taxi_patch.py ← Portable WDBC and MPQ helpers
+├── data/npcs/flight_masters.json ← Existing-settlement evidence, looks and positions
+├── data/taxi/later_flight_network.json ← Native taxi connections and baseline hashes
+├── data/client/flight-masters/patch-F.MPQ ← Installable flight-map client patch
+├── docs/flight-masters.md ← Roster, client/server installation and route notes
+├── tests/test_flight_masters.py ← Scope, routing, collision and preservation checks
+├── tests/test_capital_trainers.py  ← City identity, appearance, role and placement checks
 ├── tests/outfit_tests.cpp          ← Standalone protocol and assignment tests
 ├── README.md
 └── LICENSE
@@ -199,6 +267,9 @@ models or learn their new skills, spells, and profession ranks. The included
 Cataclysm NPCs therefore combine native WotLK assets with their matching WotLK
 curricula. The appearance presets reproduce clothing textures and customization
 where possible, with legacy goblin approximations and documented substitutions.
+NPC-only Dark Iron and Wildhammer skins use native fixed displays. Modern worgen
+models require client ports; human-form recreations and approximations are
+identified individually in the city guides.
 
 Custom outfits can compose additional appearances from WotLK player models and
 gear. Exact Cataclysm/Mists races and assets still require client ports; the
