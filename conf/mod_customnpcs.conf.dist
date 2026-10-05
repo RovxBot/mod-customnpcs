@@ -33,3 +33,15 @@ ModCustomNPCs.Announce = 1
 #
 
 ModCustomNPCs.Nubmage.PortalPriceGold = 10
+
+#
+#    ModCustomNPCs.Appearance.Enable
+#        Description: Render assigned NPC outfits using player race, gender,
+#                     customization, armor, and weapons. No client patch required
+#                     for native WotLK assets. Changing this option with .reload
+#                     config restores or reapplies outfits on the next NPC update.
+#                     Also requires ModCustomNPCs.Enable = 1.
+#        Default:     1
+#
+
+ModCustomNPCs.Appearance.Enable = 1

@@ -18,12 +18,14 @@
 // Defined in individual .cpp files
 void AddNubmageScripts();
 void AddModCustomNPCsWorldScripts();
+void AddModCustomNPCsAppearanceScripts();
 
 // Keep the original loader for compatibility with older build setups.
 void AddModCustomNPCsScripts()
 {
     AddNubmageScripts();
     AddModCustomNPCsWorldScripts();
+    AddModCustomNPCsAppearanceScripts();
 }
 
 // AzerothCore's static loader on this branch expects the symbol derived

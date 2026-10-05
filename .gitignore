@@ -17,6 +17,10 @@ Makefile
 Thumbs.db
 .DS_Store
 
+# Python authoring tools and content tests
+__pycache__/
+*.py[cod]
+
 # Config (keep .dist, ignore local copies)
 conf/*.conf
 !conf/*.conf.dist
