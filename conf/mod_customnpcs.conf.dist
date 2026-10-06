@@ -56,3 +56,7 @@ ModCustomNPCs.Appearance.Enable = 1
 #
 
 ModCustomNPCs.BrokenSeal.Chapter1.Enable = 1
+
+# Chapter 2 requires Chapter 1, its world SQL, and native NPC appearances.
+# Enables the cult training trials and Jarod rescue in the Charred Vale.
+ModCustomNPCs.BrokenSeal.Chapter2.Enable = 1

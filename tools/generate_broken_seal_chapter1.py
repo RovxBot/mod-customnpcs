@@ -158,7 +158,8 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
         model_rows.append([a['entry'], 0, a['fallback_display'], 1, 1])
     for a in data['hostile']:
         creatures.append([a['entry'], a['name'], '', *a['level'], 0, 14, 0, 1, 0,
-                          4 if a['key'] == 'NPC_EARTH' else 7, 'SmartAI', '', 1, 1, 1,
+                          4 if a['key'] == 'NPC_EARTH' else 7, 'SmartAI' if a['key'] == 'NPC_EARTH' else '',
+                          '' if a['key'] == 'NPC_EARTH' else 'npc_bs_c01_cult', 1, 1, 1,
                           a['entry'] if a.get('loot_item') else 0, 0])
         model_rows.append([a['entry'], 0, a['display'], 1, 1])
     creatures.append([ids['NPC_SCENE'], 'Expedition Observation Focus', '', 1, 1, 0, 35, 0,

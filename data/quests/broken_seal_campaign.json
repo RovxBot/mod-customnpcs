@@ -1021,13 +1021,14 @@
           "prerequisite_any": [],
           "giver": "devoran",
           "turn_in": "devoran",
-          "objective": "Challenge Gromm'ko with the collared hound and win the supervised match.",
+          "objective": "Challenge Gromm'ko with the collared hound, defeat Butcher first, then win the fight with Gromm'ko.",
           "npcs": [
             "devoran"
           ],
           "mobs": [
             "hound",
-            "grommko"
+            "grommko",
+            "butcher"
           ],
           "objects": [],
           "items_provided": {
@@ -14086,6 +14087,23 @@
         "role": "Scheduled sacrifice speaker removed to gain the players speaking slot",
         "donor_entry": null,
         "asset_status": "native appearance plan; combat and scale require implementation",
+        "chapters": [
+          "C02"
+        ],
+        "database_id": null,
+        "level_bands": {
+          "C02": [
+            25,
+            30
+          ]
+        }
+      },
+      "butcher": {
+        "name": "Butcher",
+        "appearance_plan": "Native Bloodfen raptor appearance; display 2571 verified for Chapter 2",
+        "role": "Gromm'ko's raptor; the opening hound match precedes his own attack",
+        "donor_entry": null,
+        "asset_status": "Native appearance and runtime implemented in Chapter 2; live combat tuning pending",
         "chapters": [
           "C02"
         ],

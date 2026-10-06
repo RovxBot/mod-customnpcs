@@ -1,0 +1,830 @@
+-- The Broken Seal, Chapter 2: Inside the Twilight (levels 25-30).
+-- Generated from data/quests/broken_seal_chapter2.json. Native 3.3.5a assets only.
+-- Requires Chapter 1, custom_npc_appearances.sql and the rebuilt module.
+-- Reapplication preserves GUIDs. Occupied IDs and missing Chapter 1 reject before content DML.
+-- See docs/broken-seal/chapter2-implementation.md.
+CREATE TABLE IF NOT EXISTS `mod_customnpcs_bs_content` (
+  `kind` VARCHAR(16) NOT NULL,
+  `entry` INT UNSIGNED NOT NULL,
+  `chapter` TINYINT UNSIGNED NOT NULL,
+  PRIMARY KEY (`kind`, `entry`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TEMPORARY TABLE IF EXISTS `bs_c02_ids`;
+CREATE TEMPORARY TABLE `bs_c02_ids` (
+  `kind` VARCHAR(16) NOT NULL, `entry` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`kind`, `entry`)
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
+  ('creature', 4001200),
+  ('creature', 4001201),
+  ('creature', 4001202),
+  ('creature', 4001203),
+  ('creature', 4001204),
+  ('creature', 4001205),
+  ('creature', 4001206),
+  ('creature', 4001207),
+  ('creature', 4001208),
+  ('creature', 4001209),
+  ('creature', 4001210),
+  ('creature', 4001211),
+  ('creature', 4001212),
+  ('creature', 4001213),
+  ('creature', 4001214),
+  ('creature', 4001215),
+  ('creature', 4001216),
+  ('creature', 4001217),
+  ('creature', 4001218),
+  ('creature', 4001219),
+  ('creature', 4001220),
+  ('creature', 4001221),
+  ('creature', 4001222),
+  ('creature', 4001223),
+  ('creature', 4001224),
+  ('creature', 4001225),
+  ('creature', 4001226),
+  ('creature', 4001227),
+  ('creature', 4001228),
+  ('creature', 4001229),
+  ('creature', 4001250),
+  ('creature', 4001251),
+  ('creature', 4001252),
+  ('creature', 4001253),
+  ('creature', 4001254),
+  ('creature', 4001255),
+  ('creature', 4001256),
+  ('creature', 4001257),
+  ('creature', 4001258),
+  ('creature', 4001259),
+  ('creature', 4001260),
+  ('creature', 4001261),
+  ('creature', 4001262),
+  ('creature', 4001263),
+  ('creature', 4001264),
+  ('creature', 4001265),
+  ('creature', 4001266),
+  ('creature', 4001267),
+  ('creature', 4001268),
+  ('creature', 4001269),
+  ('creature', 4001270),
+  ('creature', 4001271),
+  ('creature', 4001272),
+  ('creature', 4001273),
+  ('creature', 4001274),
+  ('gameobject', 4001300),
+  ('gameobject', 4001301),
+  ('gameobject', 4001302),
+  ('gameobject', 4001303),
+  ('gameobject', 4001304),
+  ('gameobject', 4001305),
+  ('gameobject', 4001306),
+  ('gameobject', 4001307),
+  ('gameobject', 4001308),
+  ('gameobject', 4001309),
+  ('gameobject', 4001310),
+  ('gameobject', 4001311),
+  ('gameobject', 4001312),
+  ('gameobject', 4001313),
+  ('gameobject', 4001314),
+  ('gameobject', 4001315),
+  ('gameobject', 4001316),
+  ('gameobject', 4001317),
+  ('gameobject', 4001318),
+  ('gameobject', 4001319),
+  ('gameobject', 4001320),
+  ('quest', 900200),
+  ('quest', 900201),
+  ('quest', 900202),
+  ('quest', 900203),
+  ('quest', 900204),
+  ('quest', 900205),
+  ('quest', 900206),
+  ('quest', 900207),
+  ('quest', 900208),
+  ('quest', 900209),
+  ('quest', 900210),
+  ('quest', 900211),
+  ('quest', 900212),
+  ('quest', 900213),
+  ('quest', 900214),
+  ('quest', 900215),
+  ('quest', 900216),
+  ('quest', 900217),
+  ('quest', 900218),
+  ('quest', 900219),
+  ('quest', 900220),
+  ('quest', 900221),
+  ('quest', 900222),
+  ('item', 900200),
+  ('item', 900201),
+  ('item', 900202),
+  ('item', 900203),
+  ('item', 900204),
+  ('item', 900205),
+  ('item', 900206),
+  ('item', 900207),
+  ('item', 900208),
+  ('item', 900209),
+  ('item', 900210),
+  ('item', 900211),
+  ('item', 900212),
+  ('item', 900213),
+  ('item', 900214),
+  ('item', 900215),
+  ('item', 900216),
+  ('item', 900217),
+  ('item', 900218),
+  ('item', 900219),
+  ('item', 900220),
+  ('item', 900221),
+  ('outfit', 4001200),
+  ('outfit', 4001201),
+  ('outfit', 4001202),
+  ('outfit', 4001203),
+  ('outfit', 4001204),
+  ('outfit', 4001205),
+  ('outfit', 4001206),
+  ('outfit', 4001207),
+  ('outfit', 4001208),
+  ('outfit', 4001209),
+  ('outfit', 4001212),
+  ('outfit', 4001215),
+  ('outfit', 4001219),
+  ('outfit', 4001220),
+  ('outfit', 4001225),
+  ('outfit', 4001227),
+  ('outfit', 4001228),
+  ('outfit_entry', 4001200),
+  ('outfit_entry', 4001201),
+  ('outfit_entry', 4001202),
+  ('outfit_entry', 4001203),
+  ('outfit_entry', 4001204),
+  ('outfit_entry', 4001205),
+  ('outfit_entry', 4001206),
+  ('outfit_entry', 4001207),
+  ('outfit_entry', 4001208),
+  ('outfit_entry', 4001209),
+  ('outfit_entry', 4001212),
+  ('outfit_entry', 4001215),
+  ('outfit_entry', 4001219),
+  ('outfit_entry', 4001220),
+  ('outfit_entry', 4001225),
+  ('outfit_entry', 4001227),
+  ('outfit_entry', 4001228),
+  ('npc_text', 4001200),
+  ('npc_text', 4001201),
+  ('npc_text', 4001202),
+  ('npc_text', 4001203),
+  ('npc_text', 4001204),
+  ('npc_text', 4001205),
+  ('npc_text', 4001206),
+  ('npc_text', 4001207),
+  ('npc_text', 4001208),
+  ('npc_text', 4001209),
+  ('npc_text', 4001210),
+  ('npc_text', 4001211),
+  ('npc_text', 4001212),
+  ('gossip_menu', 4001200),
+  ('gossip_menu', 4001201),
+  ('gossip_menu', 4001202),
+  ('gossip_menu', 4001203),
+  ('gossip_menu', 4001204),
+  ('gossip_menu', 4001205),
+  ('gossip_menu', 4001206),
+  ('gossip_menu', 4001207),
+  ('gossip_menu', 4001208),
+  ('gossip_menu', 4001209),
+  ('gossip_menu', 4001210),
+  ('gossip_menu', 4001211),
+  ('gossip_menu', 4001212),
+  ('npc_text', 4001002),
+  ('gossip_menu', 4001002);
+DROP TEMPORARY TABLE IF EXISTS `bs_c02_collision_guard`;
+CREATE TEMPORARY TABLE `bs_c02_collision_guard` (`id` TINYINT PRIMARY KEY);
+INSERT INTO `bs_c02_collision_guard` VALUES (1);
+-- Intentional duplicate-key error if the shared Chapter 1 entries are absent or unowned.
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 WHERE (SELECT COUNT(*) FROM `mod_customnpcs_bs_content`
+  WHERE `chapter` = 1 AND ((`kind` = 'creature' AND `entry` IN (4001001, 4001002))
+  OR (`kind` = 'quest' AND `entry` = 900108))) <> 3
+  OR NOT EXISTS (SELECT 1 FROM `quest_template` WHERE `ID` = 900108)
+  OR (SELECT COUNT(*) FROM `creature_template` WHERE `entry` IN (4001001, 4001002)) <> 2;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `creature_template` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'creature' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `gameobject_template` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `quest_template` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'quest' AND r.`entry` = t.`ID`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `item_template` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'item' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `mod_customnpcs_outfit` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'outfit' AND r.`entry` = t.`outfit_id`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `mod_customnpcs_outfit_entry` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'outfit_entry' AND r.`entry` = t.`creature_entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `npc_text` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'npc_text' AND r.`entry` = t.`ID`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `gossip_menu` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'gossip_menu' AND r.`entry` = t.`MenuID`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+DROP TEMPORARY TABLE `bs_c02_collision_guard`;
+START TRANSACTION;
+INSERT INTO `mod_customnpcs_bs_content` (`kind`, `entry`, `chapter`)
+SELECT `kind`, `entry`, 2 FROM `bs_c02_ids` ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
+INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `unit_class`, `unit_flags`, `type`, `AIName`, `ScriptName`, `HealthModifier`, `DamageModifier`, `ExperienceModifier`, `lootid`, `flags_extra`) VALUES
+  (4001200, 'Condenna the Pitiless', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001201, 'Instructor Cargall', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001202, 'Instructor Mylva', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001203, 'Instructor Devoran', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001204, 'Commander Jarod Shadowsong', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001205, 'Sunwalker Dezco', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001206, 'Isolated Twilight Recruit', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001207, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001208, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001209, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001210, 'Training Core Hound', 27, 27, 0, 35, 1, 1, 770, 1, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001211, 'Orb of Ascension', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_scene', 1, 1, 0, 0, 2),
+  (4001212, 'Twilight Initiate', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_scene', 1, 1, 0, 0, 2),
+  (4001213, 'Twilight Ogre Initiate', 27, 27, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001214, 'Karr''gonn', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001215, 'High Cultist Azennios', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001216, 'Garnoth, Fist of the Legion', 27, 27, 0, 14, 0, 1, 0, 3, '', 'npc_bs_c02_enemy', 1.3, 1, 0, 0, 0),
+  (4001217, 'Gromm''ko', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1.3, 1, 0, 0, 0),
+  (4001218, 'Okrog', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1.3, 1, 0, 0, 0),
+  (4001219, 'Twilight Restraint Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001220, 'Twilight Enforcer', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001221, 'Twilight Trial Focus', 27, 27, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c02_scene', 1, 1, 0, 0, 2),
+  (4001222, 'Trial Fire Elemental', 25, 25, 0, 14, 0, 1, 0, 4, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001223, 'Smolderos', 29, 29, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001224, 'Spinescale Matriarch', 27, 27, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001224, 0),
+  (4001225, 'Failed Supplicant', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001226, 'Horrorguard', 28, 28, 0, 14, 0, 1, 0, 3, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001227, 'Twilight Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001228, 'Twilight Scout', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001229, 'Butcher', 27, 27, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001250, 'Knockout', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001251, 'Identity', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001252, 'Fire', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001253, 'Supplicant A', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001254, 'Supplicant B', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001255, 'Supplicant C', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001256, 'Mylva', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001257, 'Devoran', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001258, 'Loads', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001259, 'Course', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001260, 'Mental', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001261, 'Mercy', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001262, 'Dog A', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001263, 'Dog B', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001264, 'Dog C', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001265, 'Grudge', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001266, 'Drop', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001267, 'Discord', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001268, 'Garnoth', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001269, 'Territory', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001270, 'Okrog', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001271, 'Head', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001272, 'Speech', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001273, 'Altar', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001274, 'Riot', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2)
+ON DUPLICATE KEY UPDATE
+  `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001213, 4001214, 4001215, 4001216, 4001217, 4001218, 4001219, 4001220, 4001221, 4001222, 4001223, 4001224, 4001225, 4001226, 4001227, 4001228, 4001229, 4001250, 4001251, 4001252, 4001253, 4001254, 4001255, 4001256, 4001257, 4001258, 4001259, 4001260, 4001261, 4001262, 4001263, 4001264, 4001265, 4001266, 4001267, 4001268, 4001269, 4001270, 4001271, 4001272, 4001273, 4001274);
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
+  (4001200, 0, 50, 1, 1),
+  (4001201, 0, 49, 1, 1),
+  (4001202, 0, 50, 1, 1),
+  (4001203, 0, 49, 1, 1),
+  (4001204, 0, 55, 1, 1),
+  (4001205, 0, 59, 1, 1),
+  (4001206, 0, 49, 1, 1),
+  (4001207, 0, 49, 1, 1),
+  (4001208, 0, 49, 1, 1),
+  (4001209, 0, 49, 1, 1),
+  (4001210, 0, 12168, 0.45, 1),
+  (4001211, 0, 24813, 1, 1),
+  (4001212, 0, 49, 1, 1),
+  (4001213, 0, 11584, 1, 1),
+  (4001214, 0, 11584, 1, 1),
+  (4001215, 0, 49, 1, 1),
+  (4001216, 0, 16632, 0.6, 1),
+  (4001217, 0, 11542, 1, 1),
+  (4001218, 0, 11584, 1, 1),
+  (4001219, 0, 49, 1, 1),
+  (4001220, 0, 51, 1, 1),
+  (4001221, 0, 11686, 1, 1),
+  (4001222, 0, 2172, 1, 1),
+  (4001223, 0, 12168, 0.6, 1),
+  (4001224, 0, 141, 1, 1),
+  (4001225, 0, 49, 1, 1),
+  (4001226, 0, 18621, 1, 1),
+  (4001227, 0, 51, 1, 1),
+  (4001228, 0, 55, 1, 1),
+  (4001229, 0, 2571, 1, 1),
+  (4001250, 0, 11686, 1, 1),
+  (4001251, 0, 11686, 1, 1),
+  (4001252, 0, 11686, 1, 1),
+  (4001253, 0, 11686, 1, 1),
+  (4001254, 0, 11686, 1, 1),
+  (4001255, 0, 11686, 1, 1),
+  (4001256, 0, 11686, 1, 1),
+  (4001257, 0, 11686, 1, 1),
+  (4001258, 0, 11686, 1, 1),
+  (4001259, 0, 11686, 1, 1),
+  (4001260, 0, 11686, 1, 1),
+  (4001261, 0, 11686, 1, 1),
+  (4001262, 0, 11686, 1, 1),
+  (4001263, 0, 11686, 1, 1),
+  (4001264, 0, 11686, 1, 1),
+  (4001265, 0, 11686, 1, 1),
+  (4001266, 0, 11686, 1, 1),
+  (4001267, 0, 11686, 1, 1),
+  (4001268, 0, 11686, 1, 1),
+  (4001269, 0, 11686, 1, 1),
+  (4001270, 0, 11686, 1, 1),
+  (4001271, 0, 11686, 1, 1),
+  (4001272, 0, 11686, 1, 1),
+  (4001273, 0, 11686, 1, 1),
+  (4001274, 0, 11686, 1, 1);
+INSERT INTO `mod_customnpcs_outfit` (`outfit_id`, `race`, `gender`, `class`, `skin`, `face`, `hair`, `hair_color`, `facial_hair`, `chest`, `shoulders`, `shirt`, `waist`, `legs`, `feet`, `hands`, `mainhand`, `ranged`) VALUES
+  (4001200, 1, 1, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001201, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001202, 1, 1, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001203, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001204, 4, 0, 0, 0, 0, 0, 0, 0, 6085, 6597, 0, 6594, 6596, 6573, 0, 6631, 0),
+  (4001205, 6, 0, 0, 0, 0, 0, 0, 0, 6085, 6597, 0, 6594, 6596, 6573, 0, 6631, 0),
+  (4001206, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001207, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001208, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001209, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001212, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001215, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001219, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001220, 2, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001225, 1, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001227, 2, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001228, 4, 0, 0, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0)
+ON DUPLICATE KEY UPDATE
+  `race` = VALUES(`race`), `gender` = VALUES(`gender`), `class` = VALUES(`class`), `skin` = VALUES(`skin`), `face` = VALUES(`face`), `hair` = VALUES(`hair`), `hair_color` = VALUES(`hair_color`), `facial_hair` = VALUES(`facial_hair`), `chest` = VALUES(`chest`), `shoulders` = VALUES(`shoulders`), `shirt` = VALUES(`shirt`), `waist` = VALUES(`waist`), `legs` = VALUES(`legs`), `feet` = VALUES(`feet`), `hands` = VALUES(`hands`), `mainhand` = VALUES(`mainhand`), `ranged` = VALUES(`ranged`);
+INSERT INTO `mod_customnpcs_outfit_entry` (`creature_entry`, `outfit_id`) VALUES
+  (4001200, 4001200),
+  (4001201, 4001201),
+  (4001202, 4001202),
+  (4001203, 4001203),
+  (4001204, 4001204),
+  (4001205, 4001205),
+  (4001206, 4001206),
+  (4001207, 4001207),
+  (4001208, 4001208),
+  (4001209, 4001209),
+  (4001212, 4001212),
+  (4001215, 4001215),
+  (4001219, 4001219),
+  (4001220, 4001220),
+  (4001225, 4001225),
+  (4001227, 4001227),
+  (4001228, 4001228)
+ON DUPLICATE KEY UPDATE
+  `outfit_id` = VALUES(`outfit_id`);
+INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
+  (900200, 12, 0, 'Ortell''s Blackjack', 7411, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 39865, 0, 'item_bs_c02_tool'),
+  (900201, 12, 0, 'Twilight Recruitment Papers', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900202, 12, 0, 'Altered Recruitment Papers', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 4329, 0, 'item_bs_c02_tool'),
+  (900203, 12, 0, 'Flame Blossoms', 1143, 1, 0, -1, -1, 1, 0, 8, 8, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900204, 12, 0, 'Supplicant Binding Gem', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 34665, 0, 'item_bs_c02_tool'),
+  (900205, 12, 0, 'Training Hound Leash', 7411, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 4329, 0, 'item_bs_c02_tool'),
+  (900206, 12, 0, 'Champion''s Collar', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900207, 12, 0, 'Spiked Basilisk Hide', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900208, 12, 0, 'Twilight Communique', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900209, 12, 0, 'Charred Vale Battleplans', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900210, 12, 0, 'Talisman of Flame Ascendancy', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 4329, 0, 'item_bs_c02_tool'),
+  (900211, 12, 0, 'Orb of Ascension', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 4329, 0, 'item_bs_c02_tool'),
+  (900212, 12, 0, 'Initiation Speech Notes', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900213, 12, 0, 'Cult Prison Key', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900214, 12, 0, 'Relic Buyers Ledger', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900215, 12, 0, 'Letter to the Dawnchasers', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900216, 4, 0, 'Inside the Twilight: Signet of Might', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 4, 5, 7, 4, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900217, 4, 0, 'Inside the Twilight: Signet of Precision', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 3, 5, 7, 4, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900218, 4, 0, 'Inside the Twilight: Signet of Sorcery', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 5, 5, 45, 6, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900219, 4, 0, 'Inside the Twilight: Signet of Restoration', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 6, 5, 43, 2, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900220, 4, 0, 'Inside the Twilight: Signet of Guarding', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 7, 6, 12, 4, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
+  (900221, 4, 0, 'Inside the Twilight: Signet of Balance', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 5, 4, 6, 4, 7, 4, 'The Broken Seal: Inside the Twilight', 0, 0, '')
+ON DUPLICATE KEY UPDATE
+  `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
+DELETE FROM `creature_loot_template` WHERE `Entry` = 4001224;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001224, 900207, 100, 1, 1, 0, 1, 1);
+INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`) VALUES
+  (900200, 2, 25, 25, 406, 5, 1000, 900200, 0, 0, 'Signed in Blood', 'Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.', 'Ortell keeps his voice low. A recruit makes the watch circuit below our camp. Use the rendezvous marker to lure a private recruit into the hollow, wait until he reaches cover, then use my blackjack on him. Bring back his papers. We can borrow his place without taking his life.', 'Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.', 4001250, 0, 0, 0, 1, 0, 0, 0, 'Knockout', '', '', '', 900201, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900201, 2, 25, 25, 406, 5, 1000, 900202, 0, 0, 'Your New Identity', 'Present the altered papers to Condenna and pass the identity check.', 'The recruit has a name, a sponsor and an appointment with Condenna. These altered papers now bear your description. Speak to Condenna at the western training camp to pass her identity check. Keep your cover using the papers; if the disguise is lost, Condenna or Ortell can renew it.', 'Present the altered papers to Condenna and pass the identity check.', 4001251, 0, 0, 0, 1, 0, 0, 0, 'Identity', '', '', '', 900202, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900202, 2, 25, 25, 406, 5, 1000, 0, 0, 0, 'Trial By Fire', 'Defeat 8 trial fire elementals while the disguise is active.', 'Our new recruits must face the fire. Defeat eight Trial Fire Elementals beside the western camp while wearing your disguise. This trial tests your nerve, not your loyalties. Renew your cover with Condenna if needed.', 'Defeat 8 trial fire elementals while the disguise is active.', 4001252, 0, 0, 0, 8, 0, 0, 0, 'Fire', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900203, 2, 25, 25, 406, 5, 1000, 0, 0, 0, 'In Bloom', 'Collect 8 flame blossoms while avoiding Smolderos.', 'Collect eight Flame Blossoms from the grove west of camp. Smolderos prowls among the patches. He sees through our robes; keep clear of him, and never mistake a uniform for protection.', 'Collect 8 flame blossoms while avoiding Smolderos.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900203, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900204, 2, 25, 25, 406, 5, 1000, 900204, 0, 0, 'Waste of Flesh', 'Use the binding gem to preserve 3 burning supplicants before their timers expire.', 'Cargall has left three supplicants burning in the training hollow. Ask him to begin a private trial, then use the binding gem on each before their forty-five seconds expire. The gem preserves a living recruit for the cult. Failed attempts can be restarted, and saved recruits remain credited.', 'Use the binding gem to preserve 3 burning supplicants before their timers expire.', 4001253, 4001254, 4001255, 0, 1, 1, 1, 0, 'Supplicant A', 'Supplicant B', 'Supplicant C', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900205, 2, 26, 25, 406, 4, 1040, 0, 0, 0, 'Twilight Training', 'Report completion of all three admission trials and meet the two instructors.', 'You have passed the first trials. Visit Instructor Mylva and Instructor Devoran and ask each for an introduction to their training. Return to Condenna when both have acknowledged you.', 'Report completion of all three admission trials and meet the two instructors.', 4001256, 4001257, 0, 0, 1, 1, 0, 0, 'Mylva', 'Devoran', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900206, 2, 26, 25, 406, 5, 1040, 0, 0, 0, 'Physical Training: Forced Labor', 'Carry 5 training stones between the marked work stations.', 'Use the Training Stone Pile beside Mylva to take one heavy load. Carry it on foot to the Stone Delivery Station to the south. Deliver five loads; each delivery must follow a fresh pickup. Combat, mounting or abandoning the quest drops the current load.', 'Carry 5 training stones between the marked work stations.', 4001258, 0, 0, 0, 5, 0, 0, 0, 'Loads', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900207, 2, 26, 25, 406, 5, 1040, 0, 0, 0, 'Agility Training: Run Like Hell!', 'Complete the 4-checkpoint obstacle route while avoiding trial fire.', 'Use the Agility Trial Start west of Mylva. Pass markers A, B, C and D in that order within sixty seconds, on the ground and on foot. Combat, mounting, flying or leaving the course resets this attempt. A failed attempt can be restarted at the start marker.', 'Complete the 4-checkpoint obstacle route while avoiding trial fire.', 4001259, 0, 0, 0, 1, 0, 0, 0, 'Course', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900208, 2, 26, 25, 406, 5, 1040, 900211, 0, 0, 'Mental Training: Speaking the Truth to Power', 'Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.', 'Use the Orb of Ascension near Mylva. Speak to your private questioner and answer ten simple questions correctly. You have five seconds per offered question. Wrong or late answers interrupt the attempt; answers already credited remain recorded. Use the orb again to retry.', 'Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.', 4001260, 0, 0, 0, 10, 0, 0, 0, 'Mental', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900209, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'Spiritual Training: Mercy is for the Weak', 'Defeat 5 failed supplicants in the cults lethal promotion trial.', 'The cult calls hesitation weakness. Defeat five Failed Supplicants north of the training camp while maintaining your disguise. Ortell needs you to reach the graduation platform; the price of this cover will stay with you.', 'Defeat 5 failed supplicants in the cults lethal promotion trial.', 4001261, 0, 0, 0, 5, 0, 0, 0, 'Mercy', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900210, 2, 27, 25, 406, 5, 1080, 900205, 0, 0, 'Walking the Dog', 'Take an owner-bound training hound through 3 feeding/handling stations.', 'Use the leash near Devoran to call your own training core hound. Take it to feeding stations A, B and C in order, then command it to feed at each station through its gossip menu. Stay nearby. Lost hounds can be called again with the leash, and completed stations remain credited.', 'Take an owner-bound training hound through 3 feeding/handling stations.', 4001262, 4001263, 4001264, 0, 1, 1, 1, 0, 'Dog A', 'Dog B', 'Dog C', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900211, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'A Champion''s Collar', 'Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.', 'Devoran wants a spiked hide from the Spinescale Matriarch east of his station. Defeat the matriarch and bring him the hide. He will prepare a collar for your supervised match.', 'Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900207, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900212, 2, 27, 25, 406, 5, 1080, 900205, 0, 0, 'Grudge Match', 'Defeat Butcher with your collared hound, then defeat Gromm''ko with the hound nearby.', 'Use the leash or ask Devoran to prepare your collar and supervised match. Take your hound to station A and command it to attack Gromm''ko''s raptor Butcher. When the raptor falls, Gromm''ko turns on you. Defeat him while your hound is alive and nearby. You may fight beside it.', 'Defeat Butcher with your collared hound, then defeat Gromm''ko with the hound nearby.', 4001265, 0, 0, 0, 1, 0, 0, 0, 'Grudge', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900213, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'Gather the Intelligence', 'Recover the communique and battleplans from their caches, then check the dead drop.', 'Recover the communique and battleplans from the guarded caches south of the camp. Use Ortell''s dead drop with both documents before returning to him. The caches are still watched; keep your disguise ready.', 'Recover the communique and battleplans from their caches, then check the dead drop.', 4001266, 0, 0, 0, 1, 0, 0, 0, 'Drop', '', '', '', 900208, 900209, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900214, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Seeds of Discord', 'Distract Karr''gonn, then defeat Azennios without revealing the handler.', 'Use the Discord marker near the dead drop to begin a private meeting. Speak to Karr''gonn to send him after a false order, then defeat Azennios while the distraction lasts. If Karr''gonn returns, withdraw and restart the scene. Never speak Ortell''s name.', 'Distract Karr''gonn, then defeat Azennios without revealing the handler.', 4001267, 0, 0, 0, 1, 0, 0, 0, 'Discord', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900215, 2, 28, 25, 406, 5, 1120, 900210, 0, 0, 'The Greater of Two Evils', 'Use the ascendancy talisman to assume a native fire-elemental form and defeat Garnoth.', 'Use the ascendancy talisman at Garnoth''s trial marker southwest of camp. It grants a native fire-elemental form for this private duel. Defeat Garnoth while the form remains active. The form ends when the encounter closes or you leave the valley.', 'Use the ascendancy talisman to assume a native fire-elemental form and defeat Garnoth.', 4001268, 0, 0, 0, 1, 0, 0, 0, 'Garnoth', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900216, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Twilight Territory', 'Defeat 10 Horrorguards at the camps contested Legion approach.', 'Defeat ten Horrorguards at the contested Legion approach southwest of camp. These demons are rivals to the cult, not innocent travelers. Keep your cover intact as you return.', 'Defeat 10 Horrorguards at the camps contested Legion approach.', 4001269, 0, 0, 0, 10, 0, 0, 0, 'Territory', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900217, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Speech Writing for Dummies', 'Remove the scheduled ogre speaker Okrog and receive Ortell''s cue cards so the player can speak instead.', 'Use Okrog''s challenge marker south of the camp to confront the scheduled ogre speaker. Defeat him, then speak to Ortell for your cue cards. Your opening lies in the crowd, not in another prison assault.', 'Remove the scheduled ogre speaker Okrog and receive Ortell''s cue cards so the player can speak instead.', 4001270, 0, 0, 0, 1, 0, 0, 0, 'Okrog', '', '', '', 900212, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900218, 2, 29, 25, 406, 4, 1160, 0, 0, 0, 'Head of the Class', 'Receive the handlers final instruction and report to Mylva for the speaking slot.', 'Ask Ortell for the final instruction, then report to Mylva. An initiate who can hold the crowd may approach the altar. Use their expectations to bring Jarod within reach.', 'Receive the handlers final instruction and report to Mylva for the speaking slot.', 4001271, 0, 0, 0, 1, 0, 0, 0, 'Head', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900219, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'Graduation Speech', 'Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.', 'Use the Initiation Podium beside the prisoner altar. Speak to the private crowd leader and choose the response matching its displayed mood ten times. You have ten seconds per response. Correct responses remain credited after a retry. Then speak to Jarod at the altar.', 'Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.', 4001272, 4001273, 0, 0, 10, 1, 0, 0, 'Speech', 'Altar', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900220, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'Twilight Riot', 'Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.', 'Speak to Jarod to challenge his private restraint guard. Defeat it and recover the prison key. Use Jarod''s Restraints to free your private Jarod, defeat three pairs of enforcers along the escape route, and stay with him until he reaches Ortell''s refuge. The key can be recovered again after a failed escape.', 'Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.', 4001274, 0, 0, 0, 1, 0, 0, 0, 'Riot', '', '', '', 900213, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900221, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'The Buyers Behind the Banner', 'Return to the quiet camp cache and recover the relic buyers ledger.', 'Ortell has found a name missing from the orders: the buyer. Return to the quiet ledger cache and recover the Relic Buyers Ledger. The cult''s fire is only a curtain; someone has been buying what it digs from the earth.', 'Return to the quiet camp cache and recover the relic buyers ledger.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900214, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900222, 2, 30, 25, 406, 4, 1200, 900215, 0, 0, 'A Letter Through the Marsh', 'Deliver Jarod''s introduction to Dezco at the neutral Dustwallow field camp.', 'Jarod writes an introduction to Sunwalker Dezco. Deliver it to Dezco''s neutral field camp beside the Tabetha road in Dustwallow Marsh. Travel on foot or use your usual routes. His expedition can follow the buyers, but its next chapter awaits further preparations.', 'Deliver Jarod''s introduction to Dezco at the neutral Dustwallow field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900215, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900216, 900217, 900218, 900219, 900220, 900221, 1, 1, 1, 1, 1, 1)
+ON DUPLICATE KEY UPDATE
+  `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`);
+INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `ProvidedItemCount`, `SpecialFlags`) VALUES
+  (900200, 900108, 0, 0, 1, 256),
+  (900201, 900200, 0, 0, 1, 256),
+  (900202, 900201, 0, -900205, 0, 256),
+  (900203, 900201, 0, -900205, 0, 256),
+  (900204, 900201, 0, -900205, 1, 256),
+  (900205, 900202, 0, 0, 0, 256),
+  (900206, 900205, 0, 0, 0, 256),
+  (900207, 900206, 0, 0, 0, 256),
+  (900208, 900207, 0, 0, 1, 256),
+  (900209, 900208, 0, -900215, 0, 256),
+  (900210, 900205, 0, 0, 1, 256),
+  (900211, 900210, 0, 0, 0, 256),
+  (900212, 900211, 0, -900215, 1, 256),
+  (900213, 900205, 0, 0, 0, 256),
+  (900214, 900213, 0, -900215, 0, 256),
+  (900215, 900209, 0, -900217, 1, 256),
+  (900216, 900209, 0, -900217, 0, 256),
+  (900217, 900215, 0, 0, 0, 256),
+  (900218, 900217, 0, 0, 0, 256),
+  (900219, 900218, 0, 0, 0, 256),
+  (900220, 900219, 0, 0, 0, 256),
+  (900221, 900220, 0, 0, 0, 256),
+  (900222, 900221, 0, 0, 1, 256)
+ON DUPLICATE KEY UPDATE
+  `PrevQuestID` = VALUES(`PrevQuestID`), `NextQuestID` = VALUES(`NextQuestID`), `ExclusiveGroup` = VALUES(`ExclusiveGroup`), `ProvidedItemCount` = VALUES(`ProvidedItemCount`), `SpecialFlags` = VALUES(`SpecialFlags`);
+DELETE FROM `creature_queststarter` WHERE `quest` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+  (4001001, 900200),
+  (4001001, 900201),
+  (4001200, 900202),
+  (4001200, 900203),
+  (4001201, 900204),
+  (4001200, 900205),
+  (4001202, 900206),
+  (4001202, 900207),
+  (4001202, 900208),
+  (4001202, 900209),
+  (4001203, 900210),
+  (4001203, 900211),
+  (4001203, 900212),
+  (4001001, 900213),
+  (4001001, 900214),
+  (4001202, 900215),
+  (4001202, 900216),
+  (4001001, 900217),
+  (4001001, 900218),
+  (4001202, 900219),
+  (4001002, 900220),
+  (4001001, 900221),
+  (4001204, 900222);
+DELETE FROM `creature_questender` WHERE `quest` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+  (4001001, 900200),
+  (4001200, 900201),
+  (4001200, 900202),
+  (4001200, 900203),
+  (4001201, 900204),
+  (4001200, 900205),
+  (4001202, 900206),
+  (4001202, 900207),
+  (4001202, 900208),
+  (4001202, 900209),
+  (4001203, 900210),
+  (4001203, 900211),
+  (4001203, 900212),
+  (4001001, 900213),
+  (4001001, 900214),
+  (4001202, 900215),
+  (4001202, 900216),
+  (4001001, 900217),
+  (4001202, 900218),
+  (4001002, 900219),
+  (4001001, 900220),
+  (4001001, 900221),
+  (4001205, 900222);
+INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
+  (900200, 'Your place in the camp is secure. Keep your attention on the prisoner.'),
+  (900201, 'Your place in the camp is secure. Keep your attention on the prisoner.'),
+  (900202, 'The trial is recorded. Continue your training.'),
+  (900203, 'The trial is recorded. Continue your training.'),
+  (900204, 'The trial is recorded. Continue your training.'),
+  (900205, 'Your place in the camp is secure. Keep your attention on the prisoner.'),
+  (900206, 'The trial is recorded. Continue your training.'),
+  (900207, 'The trial is recorded. Continue your training.'),
+  (900208, 'The trial is recorded. Continue your training.'),
+  (900209, 'The trial is recorded. Continue your training.'),
+  (900210, 'The trial is recorded. Continue your training.'),
+  (900211, 'The trial is recorded. Continue your training.'),
+  (900212, 'The trial is recorded. Continue your training.'),
+  (900213, 'The trial is recorded. Continue your training.'),
+  (900214, 'The trial is recorded. Continue your training.'),
+  (900215, 'The trial is recorded. Continue your training.'),
+  (900216, 'The trial is recorded. Continue your training.'),
+  (900217, 'The trial is recorded. Continue your training.'),
+  (900218, 'Your place in the camp is secure. Keep your attention on the prisoner.'),
+  (900219, 'Your place in the camp is secure. Keep your attention on the prisoner.'),
+  (900220, 'The trial is recorded. Continue your training.'),
+  (900221, 'The ledger points east, through the marsh.'),
+  (900222, 'The ledger points east, through the marsh.')
+ON DUPLICATE KEY UPDATE
+  `RewardText` = VALUES(`RewardText`);
+INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
+  (900200, 'Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.'),
+  (900201, 'Present the altered papers to Condenna and pass the identity check.'),
+  (900202, 'Defeat 8 trial fire elementals while the disguise is active.'),
+  (900203, 'Collect 8 flame blossoms while avoiding Smolderos.'),
+  (900204, 'Use the binding gem to preserve 3 burning supplicants before their timers expire.'),
+  (900205, 'Report completion of all three admission trials and meet the two instructors.'),
+  (900206, 'Carry 5 training stones between the marked work stations.'),
+  (900207, 'Complete the 4-checkpoint obstacle route while avoiding trial fire.'),
+  (900208, 'Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.'),
+  (900209, 'Defeat 5 failed supplicants in the cults lethal promotion trial.'),
+  (900210, 'Take an owner-bound training hound through 3 feeding/handling stations.'),
+  (900211, 'Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.'),
+  (900212, 'Defeat Butcher with your collared hound, then defeat Gromm''ko with the hound nearby.'),
+  (900213, 'Recover the communique and battleplans from their caches, then check the dead drop.'),
+  (900214, 'Distract Karr''gonn, then defeat Azennios without revealing the handler.'),
+  (900215, 'Use the ascendancy talisman to assume a native fire-elemental form and defeat Garnoth.'),
+  (900216, 'Defeat 10 Horrorguards at the camps contested Legion approach.'),
+  (900217, 'Remove the scheduled ogre speaker Okrog and receive Ortell''s cue cards so the player can speak instead.'),
+  (900218, 'Receive the handlers final instruction and report to Mylva for the speaking slot.'),
+  (900219, 'Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.'),
+  (900220, 'Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.'),
+  (900221, 'Return to the quiet camp cache and recover the relic buyers ledger.'),
+  (900222, 'Deliver Jarod''s introduction to Dezco at the neutral Dustwallow field camp.')
+ON DUPLICATE KEY UPDATE
+  `CompletionText` = VALUES(`CompletionText`);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceEntry`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionValue1`, `Comment`) VALUES
+  (19, 900200, 0, 8, 900108, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900201, 0, 8, 900200, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900202, 0, 8, 900201, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900203, 0, 8, 900201, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900204, 0, 8, 900201, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900205, 0, 8, 900202, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900205, 0, 8, 900203, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900205, 0, 8, 900204, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900206, 0, 8, 900205, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900207, 0, 8, 900206, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900208, 0, 8, 900207, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900209, 0, 8, 900208, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900210, 0, 8, 900205, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900211, 0, 8, 900210, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900212, 0, 8, 900211, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900213, 0, 8, 900205, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900214, 0, 8, 900213, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900215, 0, 8, 900209, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900215, 0, 8, 900212, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900215, 0, 8, 900214, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900216, 0, 8, 900209, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900216, 0, 8, 900212, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900216, 0, 8, 900214, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900217, 0, 8, 900215, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900217, 0, 8, 900216, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900218, 0, 8, 900217, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900219, 0, 8, 900218, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900220, 0, 8, 900219, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900221, 0, 8, 900220, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900222, 0, 8, 900221, 'Broken Seal C02: every listed predecessor must be rewarded');
+DELETE FROM `quest_poi_points` WHERE `QuestID` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+DELETE FROM `quest_poi` WHERE `QuestID` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`) VALUES
+  (900200, 0, -1, 1, 81, 0, 0, 0),
+  (900201, 0, -1, 1, 81, 0, 0, 0),
+  (900202, 0, -1, 1, 81, 0, 0, 0),
+  (900203, 0, -1, 1, 81, 0, 0, 0),
+  (900204, 0, -1, 1, 81, 0, 0, 0),
+  (900205, 0, -1, 1, 81, 0, 0, 0),
+  (900206, 0, -1, 1, 81, 0, 0, 0),
+  (900207, 0, -1, 1, 81, 0, 0, 0),
+  (900208, 0, -1, 1, 81, 0, 0, 0),
+  (900209, 0, -1, 1, 81, 0, 0, 0),
+  (900210, 0, -1, 1, 81, 0, 0, 0),
+  (900211, 0, -1, 1, 81, 0, 0, 0),
+  (900212, 0, -1, 1, 81, 0, 0, 0),
+  (900213, 0, -1, 1, 81, 0, 0, 0),
+  (900214, 0, -1, 1, 81, 0, 0, 0),
+  (900215, 0, -1, 1, 81, 0, 0, 0),
+  (900216, 0, -1, 1, 81, 0, 0, 0),
+  (900217, 0, -1, 1, 81, 0, 0, 0),
+  (900218, 0, -1, 1, 81, 0, 0, 0),
+  (900219, 0, -1, 1, 81, 0, 0, 0),
+  (900220, 0, -1, 1, 81, 0, 0, 0),
+  (900221, 0, -1, 1, 81, 0, 0, 0),
+  (900222, 0, -1, 1, 141, 0, 0, 0);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
+  (900200, 0, 0, 1120, 1550),
+  (900201, 0, 0, 892, 1610),
+  (900202, 0, 0, 892, 1610),
+  (900203, 0, 0, 892, 1610),
+  (900204, 0, 0, 894, 1643),
+  (900205, 0, 0, 892, 1610),
+  (900206, 0, 0, 862, 1592),
+  (900207, 0, 0, 862, 1592),
+  (900208, 0, 0, 862, 1592),
+  (900209, 0, 0, 862, 1592),
+  (900210, 0, 0, 915, 1600),
+  (900211, 0, 0, 915, 1600),
+  (900212, 0, 0, 915, 1600),
+  (900213, 0, 0, 1120, 1550),
+  (900214, 0, 0, 1120, 1550),
+  (900215, 0, 0, 862, 1592),
+  (900216, 0, 0, 862, 1592),
+  (900217, 0, 0, 1120, 1550),
+  (900218, 0, 0, 862, 1592),
+  (900219, 0, 0, 990, 1730),
+  (900220, 0, 0, 1120, 1550),
+  (900221, 0, 0, 1120, 1550),
+  (900222, 0, 0, -3970, -3350);
+INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
+  (4001200, 'Show your sponsor papers. This camp has no patience for an uncertain recruit.', 1),
+  (4001201, 'Preserve what the cult can still use. Those who falter will learn the cost.', 1),
+  (4001202, 'Your body, your mind and your words must all serve the flame.', 1),
+  (4001203, 'A hound needs a handler who can earn its trust. Gromm''ko thinks his raptor has no equal.', 1),
+  (4001204, 'The others still need us. Show Dezco what Ortell recovered, and keep moving.', 1),
+  (4001205, 'Jarod sends a trusted traveler. Let me see his letter; the Dawnchasers will follow these buyers.', 1),
+  (4001206, 'Speak quietly. Every trial is watched.', 1),
+  (4001207, 'Speak quietly. Every trial is watched.', 1),
+  (4001208, 'Speak quietly. Every trial is watched.', 1),
+  (4001209, 'Speak quietly. Every trial is watched.', 1),
+  (4001210, 'Speak quietly. Every trial is watched.', 1),
+  (4001211, 'Speak quietly. Every trial is watched.', 1),
+  (4001212, 'Speak quietly. Every trial is watched.', 1),
+  (4001002, 'Keep your voice down. My chains have a guard, and the crowd has a memory.', 1)
+ON DUPLICATE KEY UPDATE
+  `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001002);
+INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
+  (4001200, 4001200),
+  (4001201, 4001201),
+  (4001202, 4001202),
+  (4001203, 4001203),
+  (4001204, 4001204),
+  (4001205, 4001205),
+  (4001206, 4001206),
+  (4001207, 4001207),
+  (4001208, 4001208),
+  (4001209, 4001209),
+  (4001210, 4001210),
+  (4001211, 4001211),
+  (4001212, 4001212),
+  (4001002, 4001002);
+UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001002);
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
+  (4001300, 10, 22, 'Recruit Rendezvous', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001301, 10, 269, 'Flame Blossom Patch', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001302, 10, 235, 'Training Stone Pile', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001303, 10, 235, 'Stone Delivery Station', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001304, 10, 22, 'Agility Trial Start', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001305, 10, 22, 'Agility Checkpoint A', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001306, 10, 22, 'Agility Checkpoint B', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001307, 10, 22, 'Agility Checkpoint C', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001308, 10, 22, 'Agility Checkpoint D', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001309, 10, 22, 'Hound Feeding Station A', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001310, 10, 22, 'Hound Feeding Station B', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001311, 10, 22, 'Hound Feeding Station C', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001312, 10, 259, 'Communique', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001313, 10, 259, 'Plans', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001314, 10, 3332, 'Ortell''s Dead Drop', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001315, 10, 22, 'Discord', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001316, 10, 235, 'Garnoth', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001317, 10, 22, 'Okrog', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001318, 10, 227, 'Initiation Podium', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001319, 10, 676, 'Jarod''s Restraints', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001320, 10, 259, 'Buyers', 1, 0, 0, 1, 'go_bs_c02_interaction')
+ON DUPLICATE KEY UPDATE
+  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+DROP TEMPORARY TABLE IF EXISTS `bs_c02_creature_spawns`;
+CREATE TEMPORARY TABLE `bs_c02_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TEMPORARY TABLE IF EXISTS `bs_c02_gameobject_spawns`;
+CREATE TEMPORARY TABLE `bs_c02_gameobject_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `bs_c02_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
+  ('BS-C02:NPC_CONDENNA:condenna', 4001200, 406, 892.0, 1610.0, -20.975140854483726, 3.14),
+  ('BS-C02:NPC_CARGALL:cargall', 4001201, 406, 894.0, 1643.0, -12.057970640005262, 3.14),
+  ('BS-C02:NPC_MYLVA:mylva', 4001202, 406, 862.0, 1592.0, -24.190115060947168, 3.14),
+  ('BS-C02:NPC_DEVORAN:devoran', 4001203, 406, 915.0, 1600.0, -15.91023245221452, 3.14),
+  ('BS-C02:NPC_DEZCO:dezco', 4001205, 15, -3970.0, -3350.0, 39.392848, 3.14),
+  ('BS-C02:NPC_FIRE:fire_0', 4001222, 406, 867.0, 1610.0, -25.13122491717254, 3.14),
+  ('BS-C02:NPC_FIRE:fire_1', 4001222, 406, 860.0, 1618.0, -25.673426308649876, 3.14),
+  ('BS-C02:NPC_FIRE:fire_2', 4001222, 406, 856.0, 1641.0, -26.131673083304587, 3.14),
+  ('BS-C02:NPC_FIRE:fire_3', 4001222, 406, 866.0, 1655.0, -20.787135397600036, 3.14),
+  ('BS-C02:NPC_FIRE:fire_4', 4001222, 406, 841.0, 1650.0, -27.590632448081802, 3.14),
+  ('BS-C02:NPC_FIRE:fire_5', 4001222, 406, 830.0, 1640.0, -28.11736503614468, 3.14),
+  ('BS-C02:NPC_FIRE:fire_6', 4001222, 406, 826.0, 1656.0, -28.36473367878156, 3.14),
+  ('BS-C02:NPC_FIRE:fire_7', 4001222, 406, 851.0, 1669.0, -23.24178329668966, 3.14),
+  ('BS-C02:NPC_SMOLDEROS:smolderos', 4001223, 406, 784.0, 1628.0, -33.92676009625418, 3.14),
+  ('BS-C02:NPC_MATRIARCH:matriarch', 4001224, 406, 955.0, 1570.0, -10.151935222047097, 3.14),
+  ('BS-C02:NPC_FAILED:failed_0', 4001225, 406, 868.0, 1551.0, -20.36542429610063, 3.14),
+  ('BS-C02:NPC_FAILED:failed_1', 4001225, 406, 879.0, 1555.0, -19.720260401269417, 3.14),
+  ('BS-C02:NPC_FAILED:failed_2', 4001225, 406, 881.0, 1567.0, -18.45213630409088, 3.14),
+  ('BS-C02:NPC_FAILED:failed_3', 4001225, 406, 864.824, 1539.75, -18.57077272772327, 3.14),
+  ('BS-C02:NPC_FAILED:failed_4', 4001225, 406, 851.0, 1547.0, -22.17439682719306, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_0', 4001226, 406, 811.0, 1710.0, -19.971519600471012, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_1', 4001226, 406, 800.0, 1720.0, -15.045565090923311, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_2', 4001226, 406, 804.0, 1740.0, -20.744298711221294, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_3', 4001226, 406, 827.0, 1748.0, -17.96520257641237, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_4', 4001226, 406, 794.0, 1754.0, -19.573429283539635, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_5', 4001226, 406, 821.0, 1757.0, -17.224683192441777, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_6', 4001226, 406, 790.0, 1734.0, -20.412446603782218, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_7', 4001226, 406, 832.0, 1729.0, -17.318818132878526, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_8', 4001226, 406, 807.0, 1771.0, -15.74152903258026, 3.14),
+  ('BS-C02:NPC_HORRORGUARD:horrorguard_9', 4001226, 406, 829.0, 1774.0, -13.362506394628127, 3.14),
+  ('BS-C02:NPC_GUARD:guard_0', 4001227, 406, 857.0, 1664.0, -22.09087788025223, 3.14),
+  ('BS-C02:NPC_GUARD:guard_1', 4001227, 406, 835.0, 1681.0, -25.97447302125479, 3.14),
+  ('BS-C02:NPC_SCOUT:scout_0', 4001228, 406, 859.0, 1657.0, -22.558379494557123, 3.14),
+  ('BS-C02:NPC_SCOUT:scout_1', 4001228, 406, 854.0, 1662.0, -22.973789582833103, 3.14);
+INSERT INTO `bs_c02_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
+  ('BS-C02:GO_RENDEZVOUS:rendezvous', 4001300, 406, 966.0, 1660.0, -9.555197574737871, 3.14),
+  ('BS-C02:GO_FLOWER:flower_0', 4001301, 406, 776.0, 1588.0, -29.70123911062748, 3.14),
+  ('BS-C02:GO_FLOWER:flower_1', 4001301, 406, 790.0, 1580.0, -29.962446700515393, 3.14),
+  ('BS-C02:GO_FLOWER:flower_2', 4001301, 406, 805.0, 1590.0, -29.72993633581989, 3.14),
+  ('BS-C02:GO_FLOWER:flower_3', 4001301, 406, 782.0, 1603.0, -31.07785602808746, 3.14),
+  ('BS-C02:GO_FLOWER:flower_4', 4001301, 406, 798.0, 1608.0, -31.604324192160373, 3.14),
+  ('BS-C02:GO_FLOWER:flower_5', 4001301, 406, 774.0, 1620.0, -32.74756131288807, 3.14),
+  ('BS-C02:GO_FLOWER:flower_6', 4001301, 406, 808.0, 1625.0, -29.938188631224893, 3.14),
+  ('BS-C02:GO_FLOWER:flower_7', 4001301, 406, 790.0, 1638.0, -33.710064636456366, 3.14),
+  ('BS-C02:GO_STONES:stones', 4001302, 406, 850.0, 1600.0, -24.177965870719937, 3.14),
+  ('BS-C02:GO_DELIVERY:delivery', 4001303, 406, 845.0, 1630.0, -25.4678366564315, 3.14),
+  ('BS-C02:GO_COURSE_START:course_start', 4001304, 406, 850.0, 1570.0, -23.47834008866258, 3.14),
+  ('BS-C02:GO_CHECK_A:check_a', 4001305, 406, 815.0, 1570.0, -28.852262076292593, 3.14),
+  ('BS-C02:GO_CHECK_B:check_b', 4001306, 406, 795.0, 1605.0, -31.48480454868414, 3.14),
+  ('BS-C02:GO_CHECK_C:check_c', 4001307, 406, 815.0, 1630.0, -30.127648420053635, 3.14),
+  ('BS-C02:GO_CHECK_D:check_d', 4001308, 406, 851.0, 1564.0, -22.601084766729425, 3.14),
+  ('BS-C02:GO_DOG_A:dog_a', 4001309, 406, 920.0, 1570.0, -15.921753236050666, 3.14),
+  ('BS-C02:GO_DOG_B:dog_b', 4001310, 406, 944.0, 1575.0, -12.784329594237406, 3.14),
+  ('BS-C02:GO_DOG_C:dog_c', 4001311, 406, 951.006, 1610.0, -11.64599647705564, 3.14),
+  ('BS-C02:GO_COMMUNIQUE:communique', 4001312, 406, 861.0, 1660.0, -21.552246212639933, 3.14),
+  ('BS-C02:GO_PLANS:plans', 4001313, 406, 838.0, 1685.0, -25.30455484261184, 3.14),
+  ('BS-C02:GO_DROP:drop', 4001314, 406, 950.0, 1670.0, -11.730349316406638, 3.14),
+  ('BS-C02:GO_DISCORD:discord', 4001315, 406, 890.0, 1685.0, -19.676951275621253, 3.14),
+  ('BS-C02:GO_GARNOTH:garnoth', 4001316, 406, 815.0, 1725.0, -20.68440667748826, 3.14),
+  ('BS-C02:GO_OKROG:okrog', 4001317, 406, 906.0, 1714.0, -16.1351241416823, 3.14),
+  ('BS-C02:GO_PODIUM:podium', 4001318, 406, 988.0, 1710.0, -9.171121729275644, 3.14),
+  ('BS-C02:GO_PRISON:prison', 4001319, 406, 990.0, 1730.0, -9.675774914174127, 3.14),
+  ('BS-C02:GO_BUYERS:buyers', 4001320, 406, 857.0, 1676.0, -21.92204316264282, 3.14);
+SET @BS_C02_ENTRY_COLUMN := (
+  SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
+  WHERE `TABLE_SCHEMA` = DATABASE() AND `TABLE_NAME` = 'creature' AND `COLUMN_NAME` IN ('id1', 'id')
+  ORDER BY `COLUMN_NAME` DESC LIMIT 1
+);
+SET @BS_C02_INSERT := CONCAT(
+  'INSERT INTO `creature` (`', @BS_C02_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
+  '`position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
+  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, 60, 0, 0, s.`spawn_key` ',
+  'FROM `bs_c02_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
+);
+PREPARE bs_c02_stmt FROM @BS_C02_INSERT;
+EXECUTE bs_c02_stmt;
+DEALLOCATE PREPARE bs_c02_stmt;
+SET @BS_C02_UPDATE := CONCAT(
+  'UPDATE `creature` c INNER JOIN `bs_c02_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
+  'SET c.`', @BS_C02_ENTRY_COLUMN, '` = s.`entry`, c.`zoneId` = s.`zone`, c.`position_x` = s.`x`, ',
+  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`'
+);
+PREPARE bs_c02_stmt FROM @BS_C02_UPDATE;
+EXECUTE bs_c02_stmt;
+DEALLOCATE PREPARE bs_c02_stmt;
+INSERT INTO `gameobject`
+  (`id`, `map`, `zoneId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`,
+   `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `Comment`)
+SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, SIN(s.`o` / 2), COS(s.`o` / 2), 60, 100, 1, s.`spawn_key`
+FROM `bs_c02_gameobject_spawns` s LEFT JOIN `gameobject` g ON g.`Comment` = s.`spawn_key` WHERE g.`guid` IS NULL;
+UPDATE `gameobject` g INNER JOIN `bs_c02_gameobject_spawns` s ON g.`Comment` = s.`spawn_key`
+SET g.`id` = s.`entry`, g.`position_x` = s.`x`, g.`position_y` = s.`y`, g.`position_z` = s.`z`, g.`orientation` = s.`o`,
+  g.`rotation2` = SIN(s.`o` / 2), g.`rotation3` = COS(s.`o` / 2);
+DROP TEMPORARY TABLE `bs_c02_creature_spawns`;
+DROP TEMPORARY TABLE `bs_c02_gameobject_spawns`;
+DROP TEMPORARY TABLE `bs_c02_ids`;
+-- Upgrade older Chapter 1 installs without replacing their SmartAI combat rows or template stats.
+UPDATE `creature_template` c INNER JOIN `mod_customnpcs_bs_content` o
+  ON o.`kind` = 'creature' AND o.`entry` = c.`entry` AND o.`chapter` = 1
+SET c.`AIName` = '', c.`ScriptName` = 'npc_bs_c01_cult'
+WHERE c.`entry` IN (4001010, 4001011);
+COMMIT;

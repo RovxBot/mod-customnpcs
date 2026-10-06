@@ -169,8 +169,9 @@ def chapter_text(ch, data):
              'the listed givers, location, quantities and rewards are campaign design choices.', '',
              'All quests award normal level-appropriate XP and money. This is a story route alongside ordinary leveling. '
              'Prerequisites below override display order; ALL and ANY mean exactly those joins.', '']
-    if ch['id'] == 'C01':
-        lines += ['**Implementation:** [Installation, server IDs and gameplay checks](chapter1-implementation.md).', '']
+    if ch['id'] in ('C01', 'C02'):
+        number = int(ch['id'][1:])
+        lines += [f'**Implementation:** [Installation, server IDs and gameplay checks](chapter{number}-implementation.md).', '']
     lines += ['## Quest list', '', '| Quest | Title | Origin |', '|---|---|---|']
     for q in ch['quests']:
         origin = 'Adapted' if q['source']['type'] == 'adapted' else 'New'
@@ -262,11 +263,12 @@ def index_text(data, quests, paths):
              f'{item_counts["equipment_reward"]} chapter reward choices, and {len(catalog["objects"])} interactables.', '',
              '[Complete entity catalog](catalog.md) · [Machine-readable manifest](../../data/quests/broken_seal_campaign.json) '
              '· [Campaign proposal](../level-20-80-campaign-proposal.md)', '',
-             '**Chapter 1 now has runtime code and installation SQL.** '
-             'See [its implementation guide](chapter1-implementation.md). Other chapters remain design inventories.', '',
+             '**Chapters 1 and 2 have runtime code and installation SQL.** '
+             'See the [Chapter 1](chapter1-implementation.md) and [Chapter 2](chapter2-implementation.md) guides. '
+             'Chapters 3–14 remain design inventories.', '',
              'This expands the accepted proposal into a complete required path. Full training, earthen-warfront, '
              'council and vision branches make the inventory larger than the earlier 140–180 estimate. '
-             'Chapter 1 implementation is present in the repository; no realm deployment or client patch was performed.', '',
+             'Chapters 1 and 2 are implemented in the repository; no realm deployment or client patch was performed.', '',
              '## Chapters', '', '| Levels | Chapter | Quest records | Full quest list |', '|---|---|---:|---|']
     for ch in data['chapters']:
         filename = f'{ch["id"].lower()}.md'

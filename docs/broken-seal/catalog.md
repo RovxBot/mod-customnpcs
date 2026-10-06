@@ -1124,7 +1124,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Origin:** Deepholm.
 
-## Enemies, bosses and training creatures (69)
+## Enemies, bosses and training creatures (70)
 
 <a id="mobs-cult_scout"></a>
 
@@ -2063,6 +2063,18 @@ An appearance plan labeled recreation deliberately changes the original race or 
 **Role:** Scheduled sacrifice speaker removed to gain the players speaking slot.
 
 **Appearance:** Native ogre appearance.
+
+**Required level variants:** C02: 25–30.
+
+<a id="mobs-butcher"></a>
+
+### Butcher
+
+**Key:** `butcher` · **Chapters:** C02.
+
+**Role:** Gromm'ko's raptor; the opening hound match precedes his own attack.
+
+**Appearance:** Native Bloodfen raptor appearance; display 2571 verified for Chapter 2.
 
 **Required level variants:** C02: 25–30.
 

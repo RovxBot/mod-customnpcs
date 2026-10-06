@@ -3,7 +3,7 @@
 Chapter 1 implements the nine design records in [the quest list](c01.md): one
 Alliance or Horde introduction followed by seven shared quests. It uses normal
 Wrath quest progress, native items and models, and the module's NPC outfit system.
-Chapter 2 is not installed by this change.
+Install [Chapter 2](chapter2-implementation.md) separately to continue from Ortell at level 25.
 
 ## Install
 
@@ -170,5 +170,5 @@ removes them on completion. It does not accept a world database name.
 5. Compare evidence with Ortell without holding old documents. Interrupt both
    observations with combat, distance and logout. Finish quietly with line of
    sight; verify that the signal remains locked until the recruit was watched.
-6. Choose a signet, relog, and verify no repeated reward or unavailable Chapter 2
-   quest appears. Check `.reload config` with the chapter disabled and enabled.
+6. Choose a signet and relog. Verify no repeated reward. With Chapter 2 installed,
+   Signed in Blood appears at Ortell only after level 25 and reward of 900108. Check `.reload config` with the chapter disabled and enabled.

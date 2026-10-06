@@ -170,8 +170,8 @@ INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlev
   (4001004, 'Mira Ashwood', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
   (4001008, 'Dorn Stonehoof', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
   (4001009, 'Teren Valeguard', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
-  (4001010, 'Twilight Scout', '', 20, 22, 0, 14, 0, 1, 0, 7, 'SmartAI', '', 1, 1, 1, 4001010, 0),
-  (4001011, 'Twilight Guard', '', 22, 23, 0, 14, 0, 1, 0, 7, 'SmartAI', '', 1, 1, 1, 0, 0),
+  (4001010, 'Twilight Scout', '', 20, 22, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 4001010, 0),
+  (4001011, 'Twilight Guard', '', 22, 23, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 0, 0),
   (4001012, 'Unbound Earth Elemental', '', 22, 23, 0, 14, 0, 1, 0, 4, 'SmartAI', '', 1, 1, 1, 0, 0),
   (4001013, 'Expedition Observation Focus', '', 1, 1, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c01_observation', 1, 1, 0, 0, 2),
   (4001050, 'Trail A', '', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -335,7 +335,7 @@ INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
   (900105, 'Those are deliberate cuts. The new spiral interrupts the old pattern at exactly the points it needs. Ortell knows the people who use that sign.'),
   (900106, 'The hand that wrote the orders also marked the stone. That spiral is an instruction, not a decoration. We must find out what else they intend to break.'),
   (900107, 'Alive, guarded, and kept apart from the workers. They are preparing something public. A direct assault would give them time to kill him.'),
-  (900108, 'Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition''s trust. We will enter the cult when the next assignment is ready; be at least level twenty-five before attempting that training.')
+  (900108, 'Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition''s trust. Speak with me again once you reach level twenty-five; entering the cult will require a steadier hand.')
 ON DUPLICATE KEY UPDATE
   `RewardText` = VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES

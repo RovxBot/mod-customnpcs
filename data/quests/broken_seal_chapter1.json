@@ -1209,7 +1209,7 @@
       "faction": "Both",
       "description": "There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.",
       "objectives": "Watch the recruit's change from the dead drop, then agree the extraction signal with me.",
-      "completion": "Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition's trust. We will enter the cult when the next assignment is ready; be at least level twenty-five before attempting that training.",
+      "completion": "Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition's trust. Speak with me again once you reach level twenty-five; entering the cult will require a steadier hand.",
       "xp_difficulty": 2,
       "money": 600,
       "giver": "NPC_ORTELL",
@@ -1629,6 +1629,6 @@
     "Native-race clothes are Wrath approximations, not claimed exact later costumes.",
     "Captives are player-private temporary actors; the cage opening animation is shared but never grants/throttles credit.",
     "No item/model/map client patch is required.",
-    "No chapter 2 quest is inserted. The final completion dialogue explains the next assignment is not yet ready."
+    "The Chapter 1 SQL remains independently installable. Chapter 2 adds Signed in Blood (900200) to the same Ortell, requiring reward of 900108 and level 25."
   ]
 }

@@ -4,6 +4,7 @@
  */
 
 #include "BrokenSealChapter1.h"
+#include "BrokenSealChapter2Integration.h"
 
 #include "Chat.h"
 #include "Config.h"
@@ -19,6 +20,7 @@
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 #include "Spell.h"
+#include "SmartAI.h"
 #include "TemporarySummon.h"
 
 #include <chrono>
@@ -523,6 +525,7 @@ public:
     {
         if (item->GetEntry() == ITEM_TRACING_KIT)
         {
+            player->SendEquipError(EQUIP_ERR_OK, item, nullptr);
             if (GameObject* go = targets.GetGOTarget())
                 TraceWard(player, go);
             else if (Enabled() && Active(player, QUEST_WARDS))
@@ -540,7 +543,13 @@ struct npc_bs_c01_contactAI : ScriptedAI
     void RefreshFlags()
     {
         if (me->GetEntry() == NPC_JAROD)
+        {
+            if (BrokenSealChapter2Available())
+                me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
+            else
+                me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
             return;
+        }
         if (Enabled())
             me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
         else
@@ -577,7 +586,9 @@ public:
         if (!CanInteract(player, creature))
             return true;
         ClearGossipMenuFor(player);
+        BrokenSealChapter2Altar(player, creature);
         player->PrepareQuestMenu(creature->GetGUID());
+        BrokenSealChapter2Gossip(player, creature);
         if (creature->GetEntry() == NPC_ORTELL)
         {
             if (Active(player, QUEST_COMPARE))
@@ -599,6 +610,8 @@ public:
 
     bool OnGossipSelect(Player* player, Creature* creature, std::uint32_t sender, std::uint32_t action) override
     {
+        if (BrokenSealChapter2Select(player, creature, sender, action))
+            return true;
         if (sender != GOSSIP_SENDER_MAIN || !CanInteract(player, creature))
             return true;
         ClearGossipMenuFor(player);
@@ -635,7 +648,9 @@ public:
             else if (Active(player, QUEST_WAGON))
                 Tell(player, "The abandoned wagon is uphill from our camp, beside the first ash-marked trail sign.");
             else if (player->IsQuestRewarded(QUEST_RECRUIT))
-                Tell(player, "The expedition is preparing your next assignment. Continue your travels; the cult's training calls for at least level 25.");
+                Tell(player, BrokenSealChapter2Available()
+                    ? "Speak to Ortell here in camp at level 25 for Signed in Blood and your place inside the cult."
+                    : "The expedition is preparing your next assignment. The cult's training calls for at least level 25.");
             else
                 Tell(player, "Check the expedition's quest offers. Maruut's camp is on the eastern approach to the Charred Vale.");
         }
@@ -664,6 +679,23 @@ public:
     CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_observationAI(creature); }
 };
 
+// Keep Chapter 1's native SmartAI spells while recognizing a later personal cult disguise.
+struct npc_bs_c01_cultAI : SmartAI
+{
+    explicit npc_bs_c01_cultAI(Creature* creature) : SmartAI(creature) { }
+    bool CanAIAttack(Unit const* unit) const override
+    {
+        return !BrokenSealChapter2AvoidCombat(unit) && SmartAI::CanAIAttack(unit);
+    }
+};
+
+class npc_bs_c01_cult : public CreatureScript
+{
+public:
+    npc_bs_c01_cult() : CreatureScript("npc_bs_c01_cult") { }
+    CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_cultAI(creature); }
+};
+
 class bs_c01_player : public PlayerScript
 {
 public:
@@ -689,5 +721,6 @@ void AddBrokenSealChapter1Scripts()
     new npc_bs_c01_observation();
     new go_bs_c01_interaction();
     new item_bs_c01_tracing_kit();
+    new npc_bs_c01_cult();
     new bs_c01_player();
 }

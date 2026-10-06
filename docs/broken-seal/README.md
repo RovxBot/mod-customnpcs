@@ -4,13 +4,13 @@ Design inventory, 2026-10-06. **252 quest records; 251 required quests per chara
 
 **Sources:** 185 source-adapted quest records and 67 new connecting/story quests. Split vision wrappers and renamed counterpart quests count as adaptations, not as additional original Blizzard quests.
 
-**Inventory:** 86 NPC/friendly-actor roles, 69 hostile/training-creature roles, 107 quest items, 2 keepsakes, 84 chapter reward choices, and 44 interactables.
+**Inventory:** 86 NPC/friendly-actor roles, 70 hostile/training-creature roles, 107 quest items, 2 keepsakes, 84 chapter reward choices, and 44 interactables.
 
 [Complete entity catalog](catalog.md) · [Machine-readable manifest](../../data/quests/broken_seal_campaign.json) · [Campaign proposal](../level-20-80-campaign-proposal.md)
 
-**Chapter 1 now has runtime code and installation SQL.** See [its implementation guide](chapter1-implementation.md). Other chapters remain design inventories.
+**Chapters 1 and 2 have runtime code and installation SQL.** See the [Chapter 1](chapter1-implementation.md) and [Chapter 2](chapter2-implementation.md) guides. Chapters 3–14 remain design inventories.
 
-This expands the accepted proposal into a complete required path. Full training, earthen-warfront, council and vision branches make the inventory larger than the earlier 140–180 estimate. Chapter 1 implementation is present in the repository; no realm deployment or client patch was performed.
+This expands the accepted proposal into a complete required path. Full training, earthen-warfront, council and vision branches make the inventory larger than the earlier 140–180 estimate. Chapters 1 and 2 are implemented in the repository; no realm deployment or client patch was performed.
 
 ## Chapters
 

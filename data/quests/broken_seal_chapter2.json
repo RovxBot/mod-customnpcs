@@ -1,0 +1,2601 @@
+{
+  "chapter": "C02",
+  "title": "Inside the Twilight",
+  "ids": {
+    "QUEST_SIGNED": 900200,
+    "QUEST_IDENTITY": 900201,
+    "QUEST_FIRE": 900202,
+    "QUEST_BLOOM": 900203,
+    "QUEST_WASTE": 900204,
+    "QUEST_TRAINING": 900205,
+    "QUEST_LABOR": 900206,
+    "QUEST_AGILITY": 900207,
+    "QUEST_MENTAL": 900208,
+    "QUEST_MERCY": 900209,
+    "QUEST_DOG": 900210,
+    "QUEST_COLLAR": 900211,
+    "QUEST_GRUDGE": 900212,
+    "QUEST_INTELLIGENCE": 900213,
+    "QUEST_DISCORD": 900214,
+    "QUEST_GREATER": 900215,
+    "QUEST_TERRITORY": 900216,
+    "QUEST_WRITING": 900217,
+    "QUEST_HEAD": 900218,
+    "QUEST_SPEECH": 900219,
+    "QUEST_RIOT": 900220,
+    "QUEST_BUYERS": 900221,
+    "QUEST_LETTER": 900222,
+    "NPC_CONDENNA": 4001200,
+    "NPC_CARGALL": 4001201,
+    "NPC_MYLVA": 4001202,
+    "NPC_DEVORAN": 4001203,
+    "NPC_JAROD_FREE": 4001204,
+    "NPC_DEZCO": 4001205,
+    "NPC_RECRUIT": 4001206,
+    "NPC_SUPPLICANT_A": 4001207,
+    "NPC_SUPPLICANT_B": 4001208,
+    "NPC_SUPPLICANT_C": 4001209,
+    "NPC_HOUND": 4001210,
+    "NPC_ORB": 4001211,
+    "NPC_CROWD": 4001212,
+    "NPC_OGRE": 4001213,
+    "NPC_KARRGONN": 4001214,
+    "NPC_AZENNIOS": 4001215,
+    "NPC_GARNOTH": 4001216,
+    "NPC_GROMMKO": 4001217,
+    "NPC_OKROG": 4001218,
+    "NPC_RESTRAINT": 4001219,
+    "NPC_ENFORCER": 4001220,
+    "NPC_SCENE": 4001221,
+    "NPC_FIRE": 4001222,
+    "NPC_SMOLDEROS": 4001223,
+    "NPC_MATRIARCH": 4001224,
+    "NPC_FAILED": 4001225,
+    "NPC_HORRORGUARD": 4001226,
+    "NPC_GUARD": 4001227,
+    "NPC_SCOUT": 4001228,
+    "CREDIT_KNOCKOUT": 4001250,
+    "CREDIT_IDENTITY": 4001251,
+    "CREDIT_FIRE": 4001252,
+    "CREDIT_SUPPLICANT_A": 4001253,
+    "CREDIT_SUPPLICANT_B": 4001254,
+    "CREDIT_SUPPLICANT_C": 4001255,
+    "CREDIT_MYLVA": 4001256,
+    "CREDIT_DEVORAN": 4001257,
+    "CREDIT_LOADS": 4001258,
+    "CREDIT_COURSE": 4001259,
+    "CREDIT_MENTAL": 4001260,
+    "CREDIT_MERCY": 4001261,
+    "CREDIT_DOG_A": 4001262,
+    "CREDIT_DOG_B": 4001263,
+    "CREDIT_DOG_C": 4001264,
+    "CREDIT_GRUDGE": 4001265,
+    "CREDIT_DROP": 4001266,
+    "CREDIT_DISCORD": 4001267,
+    "CREDIT_GARNOTH": 4001268,
+    "CREDIT_TERRITORY": 4001269,
+    "CREDIT_OKROG": 4001270,
+    "CREDIT_HEAD": 4001271,
+    "CREDIT_SPEECH": 4001272,
+    "CREDIT_ALTAR": 4001273,
+    "CREDIT_RIOT": 4001274,
+    "GO_RENDEZVOUS": 4001300,
+    "GO_FLOWER": 4001301,
+    "GO_STONES": 4001302,
+    "GO_DELIVERY": 4001303,
+    "GO_COURSE_START": 4001304,
+    "GO_CHECK_A": 4001305,
+    "GO_CHECK_B": 4001306,
+    "GO_CHECK_C": 4001307,
+    "GO_CHECK_D": 4001308,
+    "GO_DOG_A": 4001309,
+    "GO_DOG_B": 4001310,
+    "GO_DOG_C": 4001311,
+    "GO_COMMUNIQUE": 4001312,
+    "GO_PLANS": 4001313,
+    "GO_DROP": 4001314,
+    "GO_DISCORD": 4001315,
+    "GO_GARNOTH": 4001316,
+    "GO_OKROG": 4001317,
+    "GO_PODIUM": 4001318,
+    "GO_PRISON": 4001319,
+    "GO_BUYERS": 4001320,
+    "ITEM_BLACKJACK": 900200,
+    "ITEM_PAPERS": 900201,
+    "ITEM_IDENTITY": 900202,
+    "ITEM_BLOSSOMS": 900203,
+    "ITEM_GEM": 900204,
+    "ITEM_LEASH": 900205,
+    "ITEM_COLLAR": 900206,
+    "ITEM_HIDE": 900207,
+    "ITEM_COMMUNIQUE": 900208,
+    "ITEM_PLANS": 900209,
+    "ITEM_TALISMAN": 900210,
+    "ITEM_ORB": 900211,
+    "ITEM_NOTES": 900212,
+    "ITEM_KEY": 900213,
+    "ITEM_LEDGER": 900214,
+    "ITEM_LETTER": 900215,
+    "ITEM_MIGHT": 900216,
+    "ITEM_PRECISION": 900217,
+    "ITEM_SORCERY": 900218,
+    "ITEM_RESTORATION": 900219,
+    "ITEM_GUARDING": 900220,
+    "ITEM_BALANCE": 900221,
+    "NPC_ORTELL": 4001001,
+    "NPC_PRISONER": 4001002,
+    "QUEST_C01_END": 900108,
+    "SPELL_DISGUISE": 4329,
+    "SPELL_FIRE_FORM": 4933,
+    "SPELL_BLACKJACK": 41358,
+    "SPELL_OPENING": 3365,
+    "SPELL_STRIKE": 11976,
+    "SPELL_FIREBALL": 133,
+    "SPELL_BURNING": 42726,
+    "NPC_BUTCHER": 4001229,
+    "SPELL_BLACKJACK_TARGET": 39865,
+    "SPELL_GEM_TARGET": 34665
+  },
+  "points": {
+    "condenna": [
+      892.0,
+      1610.0,
+      -20.975140854483726,
+      3.14
+    ],
+    "cargall": [
+      894.0,
+      1643.0,
+      -12.057970640005262,
+      3.14
+    ],
+    "mylva": [
+      862.0,
+      1592.0,
+      -24.190115060947168,
+      3.14
+    ],
+    "devoran": [
+      915.0,
+      1600.0,
+      -15.91023245221452,
+      3.14
+    ],
+    "ortell": [
+      1120.0,
+      1550.0,
+      34.54782268875478,
+      3.14
+    ],
+    "prison": [
+      990.0,
+      1730.0,
+      -9.675774914174127,
+      3.14
+    ],
+    "refuge": [
+      1110.0,
+      1545.0,
+      29.172535986830365,
+      3.14
+    ],
+    "rendezvous": [
+      966.0,
+      1660.0,
+      -9.555197574737871,
+      3.14
+    ],
+    "recruit_start": [
+      990.0,
+      1684.0,
+      -6.319441209214028,
+      3.14
+    ],
+    "recruit_hide": [
+      962.0,
+      1661.0,
+      -10.36843355595623,
+      3.14
+    ],
+    "supplicant_a": [
+      885.0,
+      1650.0,
+      -9.520425820053767,
+      3.14
+    ],
+    "supplicant_b": [
+      879.0,
+      1652.0,
+      -13.725824956876274,
+      3.14
+    ],
+    "supplicant_c": [
+      873.0,
+      1650.0,
+      -16.214980186659805,
+      3.14
+    ],
+    "stones": [
+      850.0,
+      1600.0,
+      -24.177965870719937,
+      3.14
+    ],
+    "delivery": [
+      845.0,
+      1630.0,
+      -25.4678366564315,
+      3.14
+    ],
+    "course_start": [
+      850.0,
+      1570.0,
+      -23.47834008866258,
+      3.14
+    ],
+    "check_a": [
+      815.0,
+      1570.0,
+      -28.852262076292593,
+      3.14
+    ],
+    "check_b": [
+      795.0,
+      1605.0,
+      -31.48480454868414,
+      3.14
+    ],
+    "check_c": [
+      815.0,
+      1630.0,
+      -30.127648420053635,
+      3.14
+    ],
+    "check_d": [
+      851.0,
+      1564.0,
+      -22.601084766729425,
+      3.14
+    ],
+    "dog_a": [
+      920.0,
+      1570.0,
+      -15.921753236050666,
+      3.14
+    ],
+    "dog_b": [
+      944.0,
+      1575.0,
+      -12.784329594237406,
+      3.14
+    ],
+    "dog_c": [
+      951.006,
+      1610.0,
+      -11.64599647705564,
+      3.14
+    ],
+    "hound": [
+      918.0,
+      1595.0,
+      -16.154473069543354,
+      3.14
+    ],
+    "communique": [
+      861.0,
+      1660.0,
+      -21.552246212639933,
+      3.14
+    ],
+    "plans": [
+      838.0,
+      1685.0,
+      -25.30455484261184,
+      3.14
+    ],
+    "drop": [
+      950.0,
+      1670.0,
+      -11.730349316406638,
+      3.14
+    ],
+    "discord": [
+      890.0,
+      1685.0,
+      -19.676951275621253,
+      3.14
+    ],
+    "karrgonn": [
+      885.0,
+      1690.0,
+      -18.80170786875002,
+      3.14
+    ],
+    "azennios": [
+      879.0,
+      1685.0,
+      -19.219894408921185,
+      3.14
+    ],
+    "garnoth": [
+      815.0,
+      1725.0,
+      -20.68440667748826,
+      3.14
+    ],
+    "okrog": [
+      906.0,
+      1714.0,
+      -16.1351241416823,
+      3.14
+    ],
+    "podium": [
+      988.0,
+      1710.0,
+      -9.171121729275644,
+      3.14
+    ],
+    "crowd_a": [
+      997.0,
+      1705.0,
+      -6.819731398277768,
+      3.14
+    ],
+    "crowd_b": [
+      992.0,
+      1701.0,
+      -7.763063982571794,
+      3.14
+    ],
+    "crowd_c": [
+      987.0,
+      1703.0,
+      -8.842310497721265,
+      3.14
+    ],
+    "buyers": [
+      857.0,
+      1676.0,
+      -21.92204316264282,
+      3.14
+    ],
+    "restraint": [
+      983.0,
+      1725.0,
+      -9.379752257378783,
+      3.14
+    ],
+    "escape_a": [
+      995.0,
+      1700.0,
+      -6.831233841842065,
+      3.14
+    ],
+    "escape_b": [
+      1010.0,
+      1655.0,
+      3.3444623529988275,
+      3.14
+    ],
+    "escape_c": [
+      1060.0,
+      1640.0,
+      23.975483112098804,
+      3.14
+    ],
+    "flower_0": [
+      776.0,
+      1588.0,
+      -29.70123911062748,
+      3.14
+    ],
+    "flower_1": [
+      790.0,
+      1580.0,
+      -29.962446700515393,
+      3.14
+    ],
+    "flower_2": [
+      805.0,
+      1590.0,
+      -29.72993633581989,
+      3.14
+    ],
+    "flower_3": [
+      782.0,
+      1603.0,
+      -31.07785602808746,
+      3.14
+    ],
+    "flower_4": [
+      798.0,
+      1608.0,
+      -31.604324192160373,
+      3.14
+    ],
+    "flower_5": [
+      774.0,
+      1620.0,
+      -32.74756131288807,
+      3.14
+    ],
+    "flower_6": [
+      808.0,
+      1625.0,
+      -29.938188631224893,
+      3.14
+    ],
+    "flower_7": [
+      790.0,
+      1638.0,
+      -33.710064636456366,
+      3.14
+    ],
+    "smolderos": [
+      784.0,
+      1628.0,
+      -33.92676009625418,
+      3.14
+    ],
+    "fire_0": [
+      867.0,
+      1610.0,
+      -25.13122491717254,
+      3.14
+    ],
+    "fire_1": [
+      860.0,
+      1618.0,
+      -25.673426308649876,
+      3.14
+    ],
+    "fire_2": [
+      856.0,
+      1641.0,
+      -26.131673083304587,
+      3.14
+    ],
+    "fire_3": [
+      866.0,
+      1655.0,
+      -20.787135397600036,
+      3.14
+    ],
+    "fire_4": [
+      841.0,
+      1650.0,
+      -27.590632448081802,
+      3.14
+    ],
+    "fire_5": [
+      830.0,
+      1640.0,
+      -28.11736503614468,
+      3.14
+    ],
+    "fire_6": [
+      826.0,
+      1656.0,
+      -28.36473367878156,
+      3.14
+    ],
+    "fire_7": [
+      851.0,
+      1669.0,
+      -23.24178329668966,
+      3.14
+    ],
+    "failed_0": [
+      868.0,
+      1551.0,
+      -20.36542429610063,
+      3.14
+    ],
+    "failed_1": [
+      879.0,
+      1555.0,
+      -19.720260401269417,
+      3.14
+    ],
+    "failed_2": [
+      881.0,
+      1567.0,
+      -18.45213630409088,
+      3.14
+    ],
+    "failed_3": [
+      864.824,
+      1539.75,
+      -18.57077272772327,
+      3.14
+    ],
+    "failed_4": [
+      851.0,
+      1547.0,
+      -22.17439682719306,
+      3.14
+    ],
+    "horrorguard_0": [
+      811.0,
+      1710.0,
+      -19.971519600471012,
+      3.14
+    ],
+    "horrorguard_1": [
+      800.0,
+      1720.0,
+      -15.045565090923311,
+      3.14
+    ],
+    "horrorguard_2": [
+      804.0,
+      1740.0,
+      -20.744298711221294,
+      3.14
+    ],
+    "horrorguard_3": [
+      827.0,
+      1748.0,
+      -17.96520257641237,
+      3.14
+    ],
+    "horrorguard_4": [
+      794.0,
+      1754.0,
+      -19.573429283539635,
+      3.14
+    ],
+    "horrorguard_5": [
+      821.0,
+      1757.0,
+      -17.224683192441777,
+      3.14
+    ],
+    "horrorguard_6": [
+      790.0,
+      1734.0,
+      -20.412446603782218,
+      3.14
+    ],
+    "horrorguard_7": [
+      832.0,
+      1729.0,
+      -17.318818132878526,
+      3.14
+    ],
+    "horrorguard_8": [
+      807.0,
+      1771.0,
+      -15.74152903258026,
+      3.14
+    ],
+    "horrorguard_9": [
+      829.0,
+      1774.0,
+      -13.362506394628127,
+      3.14
+    ],
+    "guard_0": [
+      857.0,
+      1664.0,
+      -22.09087788025223,
+      3.14
+    ],
+    "guard_1": [
+      835.0,
+      1681.0,
+      -25.97447302125479,
+      3.14
+    ],
+    "scout_0": [
+      859.0,
+      1657.0,
+      -22.558379494557123,
+      3.14
+    ],
+    "scout_1": [
+      854.0,
+      1662.0,
+      -22.973789582833103,
+      3.14
+    ],
+    "matriarch": [
+      955.0,
+      1570.0,
+      -10.151935222047097,
+      3.14
+    ],
+    "dezco": [
+      -3970.0,
+      -3350.0,
+      39.392848,
+      3.14
+    ],
+    "garnoth_foe": [
+      810.0,
+      1725.0,
+      -20.448408266421026,
+      3.14
+    ]
+  },
+  "actors": [
+    {
+      "key": "NPC_CONDENNA",
+      "entry": 4001200,
+      "name": "Condenna the Pitiless",
+      "point": "condenna",
+      "map": 1,
+      "zone": 406,
+      "world_map_area": 81,
+      "display": 50,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 30,
+      "type": 7,
+      "script": "npc_bs_c02_contact",
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "greeting": "Show your sponsor papers. This camp has no patience for an uncertain recruit.",
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_CARGALL",
+      "entry": 4001201,
+      "name": "Instructor Cargall",
+      "point": "cargall",
+      "map": 1,
+      "zone": 406,
+      "world_map_area": 81,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 30,
+      "type": 7,
+      "script": "npc_bs_c02_contact",
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "source_identity_audit": "Native human instructor recreation; source race remains unverified.",
+      "greeting": "Preserve what the cult can still use. Those who falter will learn the cost.",
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_MYLVA",
+      "entry": 4001202,
+      "name": "Instructor Mylva",
+      "point": "mylva",
+      "map": 1,
+      "zone": 406,
+      "world_map_area": 81,
+      "display": 50,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 30,
+      "type": 7,
+      "script": "npc_bs_c02_contact",
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "greeting": "Your body, your mind and your words must all serve the flame.",
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_DEVORAN",
+      "entry": 4001203,
+      "name": "Instructor Devoran",
+      "point": "devoran",
+      "map": 1,
+      "zone": 406,
+      "world_map_area": 81,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 30,
+      "type": 7,
+      "script": "npc_bs_c02_contact",
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "greeting": "A hound needs a handler who can earn its trust. Gromm'ko thinks his raptor has no equal.",
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_JAROD_FREE",
+      "entry": 4001204,
+      "name": "Commander Jarod Shadowsong",
+      "point": null,
+      "map": 1,
+      "zone": 406,
+      "world_map_area": 81,
+      "display": 55,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 30,
+      "type": 7,
+      "script": "npc_bs_c02_contact",
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "chest": 6085,
+        "shoulders": 6597,
+        "waist": 6594,
+        "legs": 6596,
+        "feet": 6573,
+        "mainhand": 6631
+      },
+      "greeting": "The others still need us. Show Dezco what Ortell recovered, and keep moving.",
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_DEZCO",
+      "entry": 4001205,
+      "name": "Sunwalker Dezco",
+      "point": "dezco",
+      "map": 1,
+      "zone": 15,
+      "world_map_area": 141,
+      "display": 59,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 30,
+      "type": 7,
+      "script": "npc_bs_c02_contact",
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "chest": 6085,
+        "shoulders": 6597,
+        "waist": 6594,
+        "legs": 6596,
+        "feet": 6573,
+        "mainhand": 6631
+      },
+      "greeting": "Jarod sends a trusted traveler. Let me see his letter; the Dawnchasers will follow these buyers.",
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_RECRUIT",
+      "entry": 4001206,
+      "name": "Isolated Twilight Recruit",
+      "point": null,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_SUPPLICANT_A",
+      "entry": 4001207,
+      "name": "Immolated Supplicant",
+      "point": null,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_SUPPLICANT_B",
+      "entry": 4001208,
+      "name": "Immolated Supplicant",
+      "point": null,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_SUPPLICANT_C",
+      "entry": 4001209,
+      "name": "Immolated Supplicant",
+      "point": null,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_HOUND",
+      "entry": 4001210,
+      "name": "Training Core Hound",
+      "point": null,
+      "display": 12168,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 1,
+      "script": "npc_bs_c02_actor",
+      "scale": 0.45,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_ORB",
+      "entry": 4001211,
+      "name": "Orb of Ascension",
+      "point": null,
+      "display": 24813,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_scene",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_CROWD",
+      "entry": 4001212,
+      "name": "Twilight Initiate",
+      "point": null,
+      "display": 49,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_scene",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_OGRE",
+      "entry": 4001213,
+      "name": "Twilight Ogre Initiate",
+      "point": null,
+      "display": 11584,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_KARRGONN",
+      "entry": 4001214,
+      "name": "Karr'gonn",
+      "point": null,
+      "display": 11584,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_AZENNIOS",
+      "entry": 4001215,
+      "name": "High Cultist Azennios",
+      "point": null,
+      "display": 49,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_GARNOTH",
+      "entry": 4001216,
+      "name": "Garnoth, Fist of the Legion",
+      "point": null,
+      "display": 16632,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 3,
+      "script": "npc_bs_c02_enemy",
+      "scale": 0.6,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_GROMMKO",
+      "entry": 4001217,
+      "name": "Gromm'ko",
+      "point": null,
+      "display": 11542,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_OKROG",
+      "entry": 4001218,
+      "name": "Okrog",
+      "point": null,
+      "display": 11584,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_RESTRAINT",
+      "entry": 4001219,
+      "name": "Twilight Restraint Guard",
+      "point": null,
+      "display": 49,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_ENFORCER",
+      "entry": 4001220,
+      "name": "Twilight Enforcer",
+      "point": null,
+      "display": 51,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "outfit": {
+        "race": 2,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_SCENE",
+      "entry": 4001221,
+      "name": "Twilight Trial Focus",
+      "point": null,
+      "display": 11686,
+      "faction": 35,
+      "flags": 33555202,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 10,
+      "script": "npc_bs_c02_scene",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_FIRE",
+      "entry": 4001222,
+      "name": "Trial Fire Elemental",
+      "point": null,
+      "display": 2172,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 25,
+      "type": 4,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "fire_0",
+        "fire_1",
+        "fire_2",
+        "fire_3",
+        "fire_4",
+        "fire_5",
+        "fire_6",
+        "fire_7"
+      ],
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_SMOLDEROS",
+      "entry": 4001223,
+      "name": "Smolderos",
+      "point": null,
+      "display": 12168,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 29,
+      "type": 1,
+      "script": "npc_bs_c02_enemy",
+      "scale": 0.6,
+      "points": [
+        "smolderos"
+      ],
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_MATRIARCH",
+      "entry": 4001224,
+      "name": "Spinescale Matriarch",
+      "point": null,
+      "display": 141,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 1,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "matriarch"
+      ],
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_FAILED",
+      "entry": 4001225,
+      "name": "Failed Supplicant",
+      "point": null,
+      "display": 49,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 26,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "failed_0",
+        "failed_1",
+        "failed_2",
+        "failed_3",
+        "failed_4"
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_HORRORGUARD",
+      "entry": 4001226,
+      "name": "Horrorguard",
+      "point": null,
+      "display": 18621,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 28,
+      "type": 3,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "horrorguard_0",
+        "horrorguard_1",
+        "horrorguard_2",
+        "horrorguard_3",
+        "horrorguard_4",
+        "horrorguard_5",
+        "horrorguard_6",
+        "horrorguard_7",
+        "horrorguard_8",
+        "horrorguard_9"
+      ],
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_GUARD",
+      "entry": 4001227,
+      "name": "Twilight Guard",
+      "point": null,
+      "display": 51,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "guard_0",
+        "guard_1"
+      ],
+      "outfit": {
+        "race": 2,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_SCOUT",
+      "entry": 4001228,
+      "name": "Twilight Scout",
+      "point": null,
+      "display": 55,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 26,
+      "type": 7,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "scout_0",
+        "scout_1"
+      ],
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575
+      },
+      "experience_multiplier": 1
+    },
+    {
+      "key": "NPC_BUTCHER",
+      "entry": 4001229,
+      "name": "Butcher",
+      "point": null,
+      "display": 2571,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 27,
+      "type": 1,
+      "script": "npc_bs_c02_enemy",
+      "experience_multiplier": 0
+    }
+  ],
+  "objects": [
+    {
+      "key": "GO_RENDEZVOUS",
+      "entry": 4001300,
+      "name": "Recruit Rendezvous",
+      "display": 22,
+      "points": [
+        "rendezvous"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_FLOWER",
+      "entry": 4001301,
+      "name": "Flame Blossom Patch",
+      "display": 269,
+      "points": [
+        "flower_0",
+        "flower_1",
+        "flower_2",
+        "flower_3",
+        "flower_4",
+        "flower_5",
+        "flower_6",
+        "flower_7"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_STONES",
+      "entry": 4001302,
+      "name": "Training Stone Pile",
+      "display": 235,
+      "points": [
+        "stones"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_DELIVERY",
+      "entry": 4001303,
+      "name": "Stone Delivery Station",
+      "display": 235,
+      "points": [
+        "delivery"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_COURSE_START",
+      "entry": 4001304,
+      "name": "Agility Trial Start",
+      "display": 22,
+      "points": [
+        "course_start"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_CHECK_A",
+      "entry": 4001305,
+      "name": "Agility Checkpoint A",
+      "display": 22,
+      "points": [
+        "check_a"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_CHECK_B",
+      "entry": 4001306,
+      "name": "Agility Checkpoint B",
+      "display": 22,
+      "points": [
+        "check_b"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_CHECK_C",
+      "entry": 4001307,
+      "name": "Agility Checkpoint C",
+      "display": 22,
+      "points": [
+        "check_c"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_CHECK_D",
+      "entry": 4001308,
+      "name": "Agility Checkpoint D",
+      "display": 22,
+      "points": [
+        "check_d"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_DOG_A",
+      "entry": 4001309,
+      "name": "Hound Feeding Station A",
+      "display": 22,
+      "points": [
+        "dog_a"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_DOG_B",
+      "entry": 4001310,
+      "name": "Hound Feeding Station B",
+      "display": 22,
+      "points": [
+        "dog_b"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_DOG_C",
+      "entry": 4001311,
+      "name": "Hound Feeding Station C",
+      "display": 22,
+      "points": [
+        "dog_c"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_COMMUNIQUE",
+      "entry": 4001312,
+      "name": "Communique",
+      "display": 259,
+      "points": [
+        "communique"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_PLANS",
+      "entry": 4001313,
+      "name": "Plans",
+      "display": 259,
+      "points": [
+        "plans"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_DROP",
+      "entry": 4001314,
+      "name": "Ortell's Dead Drop",
+      "display": 3332,
+      "points": [
+        "drop"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_DISCORD",
+      "entry": 4001315,
+      "name": "Discord",
+      "display": 22,
+      "points": [
+        "discord"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_GARNOTH",
+      "entry": 4001316,
+      "name": "Garnoth",
+      "display": 235,
+      "points": [
+        "garnoth"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_OKROG",
+      "entry": 4001317,
+      "name": "Okrog",
+      "display": 22,
+      "points": [
+        "okrog"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_PODIUM",
+      "entry": 4001318,
+      "name": "Initiation Podium",
+      "display": 227,
+      "points": [
+        "podium"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_PRISON",
+      "entry": 4001319,
+      "name": "Jarod's Restraints",
+      "display": 676,
+      "points": [
+        "prison"
+      ],
+      "scale": 1
+    },
+    {
+      "key": "GO_BUYERS",
+      "entry": 4001320,
+      "name": "Buyers",
+      "display": 259,
+      "points": [
+        "buyers"
+      ],
+      "scale": 1
+    }
+  ],
+  "items": [
+    {
+      "key": "ITEM_BLACKJACK",
+      "entry": 900200,
+      "name": "Ortell's Blackjack",
+      "display": 7411,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_BLACKJACK_TARGET"
+    },
+    {
+      "key": "ITEM_PAPERS",
+      "entry": 900201,
+      "name": "Twilight Recruitment Papers",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_IDENTITY",
+      "entry": 900202,
+      "name": "Altered Recruitment Papers",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_DISGUISE"
+    },
+    {
+      "key": "ITEM_BLOSSOMS",
+      "entry": 900203,
+      "name": "Flame Blossoms",
+      "display": 1143,
+      "maxcount": 8,
+      "stackable": 8,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_GEM",
+      "entry": 900204,
+      "name": "Supplicant Binding Gem",
+      "display": 1143,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_GEM_TARGET"
+    },
+    {
+      "key": "ITEM_LEASH",
+      "entry": 900205,
+      "name": "Training Hound Leash",
+      "display": 7411,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_DISGUISE"
+    },
+    {
+      "key": "ITEM_COLLAR",
+      "entry": 900206,
+      "name": "Champion's Collar",
+      "display": 1143,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_HIDE",
+      "entry": 900207,
+      "name": "Spiked Basilisk Hide",
+      "display": 1143,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_COMMUNIQUE",
+      "entry": 900208,
+      "name": "Twilight Communique",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_PLANS",
+      "entry": 900209,
+      "name": "Charred Vale Battleplans",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_TALISMAN",
+      "entry": 900210,
+      "name": "Talisman of Flame Ascendancy",
+      "display": 1143,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_DISGUISE"
+    },
+    {
+      "key": "ITEM_ORB",
+      "entry": 900211,
+      "name": "Orb of Ascension",
+      "display": 1143,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_DISGUISE"
+    },
+    {
+      "key": "ITEM_NOTES",
+      "entry": 900212,
+      "name": "Initiation Speech Notes",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_KEY",
+      "entry": 900213,
+      "name": "Cult Prison Key",
+      "display": 1143,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_LEDGER",
+      "entry": 900214,
+      "name": "Relic Buyers Ledger",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_LETTER",
+      "entry": 900215,
+      "name": "Letter to the Dawnchasers",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_MIGHT",
+      "entry": 900216,
+      "name": "Inside the Twilight: Signet of Might",
+      "display": 9846,
+      "equipment": true,
+      "level": 30,
+      "required_level": 25,
+      "stats": [
+        [
+          4,
+          5
+        ],
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_PRECISION",
+      "entry": 900217,
+      "name": "Inside the Twilight: Signet of Precision",
+      "display": 9846,
+      "equipment": true,
+      "level": 30,
+      "required_level": 25,
+      "stats": [
+        [
+          3,
+          5
+        ],
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_SORCERY",
+      "entry": 900218,
+      "name": "Inside the Twilight: Signet of Sorcery",
+      "display": 9846,
+      "equipment": true,
+      "level": 30,
+      "required_level": 25,
+      "stats": [
+        [
+          5,
+          5
+        ],
+        [
+          45,
+          6
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_RESTORATION",
+      "entry": 900219,
+      "name": "Inside the Twilight: Signet of Restoration",
+      "display": 9846,
+      "equipment": true,
+      "level": 30,
+      "required_level": 25,
+      "stats": [
+        [
+          6,
+          5
+        ],
+        [
+          43,
+          2
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_GUARDING",
+      "entry": 900220,
+      "name": "Inside the Twilight: Signet of Guarding",
+      "display": 9846,
+      "equipment": true,
+      "level": 30,
+      "required_level": 25,
+      "stats": [
+        [
+          7,
+          6
+        ],
+        [
+          12,
+          4
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_BALANCE",
+      "entry": 900221,
+      "name": "Inside the Twilight: Signet of Balance",
+      "display": 9846,
+      "equipment": true,
+      "level": 30,
+      "required_level": 25,
+      "stats": [
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "key": "QUEST_SIGNED",
+      "id": 900200,
+      "design_id": "BS-C02-01",
+      "title": "Signed in Blood",
+      "level": 25,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "previous": "QUEST_C01_END",
+      "prerequisites": [
+        "QUEST_C01_END"
+      ],
+      "credits": {
+        "CREDIT_KNOCKOUT": 1
+      },
+      "required_items": {
+        "ITEM_PAPERS": 1
+      },
+      "source_item": "ITEM_BLACKJACK",
+      "recovery_items": [
+        "ITEM_BLACKJACK"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1000,
+      "objectives": "Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.",
+      "description": "Ortell keeps his voice low. A recruit makes the watch circuit below our camp. Use the rendezvous marker to lure a private recruit into the hollow, wait until he reaches cover, then use my blackjack on him. Bring back his papers. We can borrow his place without taking his life.",
+      "completion": "Your place in the camp is secure. Keep your attention on the prisoner."
+    },
+    {
+      "key": "QUEST_IDENTITY",
+      "id": 900201,
+      "design_id": "BS-C02-02",
+      "title": "Your New Identity",
+      "level": 25,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_CONDENNA",
+      "previous": "QUEST_SIGNED",
+      "prerequisites": [
+        "QUEST_SIGNED"
+      ],
+      "credits": {
+        "CREDIT_IDENTITY": 1
+      },
+      "required_items": {
+        "ITEM_IDENTITY": 1
+      },
+      "source_item": "ITEM_IDENTITY",
+      "recovery_items": [
+        "ITEM_IDENTITY"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1000,
+      "objectives": "Present the altered papers to Condenna and pass the identity check.",
+      "description": "The recruit has a name, a sponsor and an appointment with Condenna. These altered papers now bear your description. Speak to Condenna at the western training camp to pass her identity check. Keep your cover using the papers; if the disguise is lost, Condenna or Ortell can renew it.",
+      "completion": "Your place in the camp is secure. Keep your attention on the prisoner."
+    },
+    {
+      "key": "QUEST_FIRE",
+      "id": 900202,
+      "design_id": "BS-C02-03",
+      "title": "Trial By Fire",
+      "level": 25,
+      "min_level": 25,
+      "giver": "NPC_CONDENNA",
+      "turn_in": "NPC_CONDENNA",
+      "previous": "QUEST_IDENTITY",
+      "prerequisites": [
+        "QUEST_IDENTITY"
+      ],
+      "credits": {
+        "CREDIT_FIRE": 8
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1000,
+      "objectives": "Defeat 8 trial fire elementals while the disguise is active.",
+      "description": "Our new recruits must face the fire. Defeat eight Trial Fire Elementals beside the western camp while wearing your disguise. This trial tests your nerve, not your loyalties. Renew your cover with Condenna if needed.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900205
+    },
+    {
+      "key": "QUEST_BLOOM",
+      "id": 900203,
+      "design_id": "BS-C02-04",
+      "title": "In Bloom",
+      "level": 25,
+      "min_level": 25,
+      "giver": "NPC_CONDENNA",
+      "turn_in": "NPC_CONDENNA",
+      "previous": "QUEST_IDENTITY",
+      "prerequisites": [
+        "QUEST_IDENTITY"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_BLOSSOMS": 8
+      },
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1000,
+      "objectives": "Collect 8 flame blossoms while avoiding Smolderos.",
+      "description": "Collect eight Flame Blossoms from the grove west of camp. Smolderos prowls among the patches. He sees through our robes; keep clear of him, and never mistake a uniform for protection.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900205
+    },
+    {
+      "key": "QUEST_WASTE",
+      "id": 900204,
+      "design_id": "BS-C02-05",
+      "title": "Waste of Flesh",
+      "level": 25,
+      "min_level": 25,
+      "giver": "NPC_CARGALL",
+      "turn_in": "NPC_CARGALL",
+      "previous": "QUEST_IDENTITY",
+      "prerequisites": [
+        "QUEST_IDENTITY"
+      ],
+      "credits": {
+        "CREDIT_SUPPLICANT_A": 1,
+        "CREDIT_SUPPLICANT_B": 1,
+        "CREDIT_SUPPLICANT_C": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_GEM",
+      "recovery_items": [
+        "ITEM_GEM"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1000,
+      "objectives": "Use the binding gem to preserve 3 burning supplicants before their timers expire.",
+      "description": "Cargall has left three supplicants burning in the training hollow. Ask him to begin a private trial, then use the binding gem on each before their forty-five seconds expire. The gem preserves a living recruit for the cult. Failed attempts can be restarted, and saved recruits remain credited.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900205
+    },
+    {
+      "key": "QUEST_TRAINING",
+      "id": 900205,
+      "design_id": "BS-C02-06",
+      "title": "Twilight Training",
+      "level": 26,
+      "min_level": 25,
+      "giver": "NPC_CONDENNA",
+      "turn_in": "NPC_CONDENNA",
+      "previous": "QUEST_FIRE",
+      "prerequisites": [
+        "QUEST_FIRE",
+        "QUEST_BLOOM",
+        "QUEST_WASTE"
+      ],
+      "credits": {
+        "CREDIT_MYLVA": 1,
+        "CREDIT_DEVORAN": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 4,
+      "money": 1040,
+      "objectives": "Report completion of all three admission trials and meet the two instructors.",
+      "description": "You have passed the first trials. Visit Instructor Mylva and Instructor Devoran and ask each for an introduction to their training. Return to Condenna when both have acknowledged you.",
+      "completion": "Your place in the camp is secure. Keep your attention on the prisoner."
+    },
+    {
+      "key": "QUEST_LABOR",
+      "id": 900206,
+      "design_id": "BS-C02-07",
+      "title": "Physical Training: Forced Labor",
+      "level": 26,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_TRAINING",
+      "prerequisites": [
+        "QUEST_TRAINING"
+      ],
+      "credits": {
+        "CREDIT_LOADS": 5
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1040,
+      "objectives": "Carry 5 training stones between the marked work stations.",
+      "description": "Use the Training Stone Pile beside Mylva to take one heavy load. Carry it on foot to the Stone Delivery Station to the south. Deliver five loads; each delivery must follow a fresh pickup. Combat, mounting or abandoning the quest drops the current load.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_AGILITY",
+      "id": 900207,
+      "design_id": "BS-C02-08",
+      "title": "Agility Training: Run Like Hell!",
+      "level": 26,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_LABOR",
+      "prerequisites": [
+        "QUEST_LABOR"
+      ],
+      "credits": {
+        "CREDIT_COURSE": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1040,
+      "objectives": "Complete the 4-checkpoint obstacle route while avoiding trial fire.",
+      "description": "Use the Agility Trial Start west of Mylva. Pass markers A, B, C and D in that order within sixty seconds, on the ground and on foot. Combat, mounting, flying or leaving the course resets this attempt. A failed attempt can be restarted at the start marker.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_MENTAL",
+      "id": 900208,
+      "design_id": "BS-C02-09",
+      "title": "Mental Training: Speaking the Truth to Power",
+      "level": 26,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_AGILITY",
+      "prerequisites": [
+        "QUEST_AGILITY"
+      ],
+      "credits": {
+        "CREDIT_MENTAL": 10
+      },
+      "required_items": {},
+      "source_item": "ITEM_ORB",
+      "recovery_items": [
+        "ITEM_ORB"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1040,
+      "objectives": "Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.",
+      "description": "Use the Orb of Ascension near Mylva. Speak to your private questioner and answer ten simple questions correctly. You have five seconds per offered question. Wrong or late answers interrupt the attempt; answers already credited remain recorded. Use the orb again to retry.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_MERCY",
+      "id": 900209,
+      "design_id": "BS-C02-10",
+      "title": "Spiritual Training: Mercy is for the Weak",
+      "level": 27,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_MENTAL",
+      "prerequisites": [
+        "QUEST_MENTAL"
+      ],
+      "credits": {
+        "CREDIT_MERCY": 5
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1080,
+      "objectives": "Defeat 5 failed supplicants in the cults lethal promotion trial.",
+      "description": "The cult calls hesitation weakness. Defeat five Failed Supplicants north of the training camp while maintaining your disguise. Ortell needs you to reach the graduation platform; the price of this cover will stay with you.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900215
+    },
+    {
+      "key": "QUEST_DOG",
+      "id": 900210,
+      "design_id": "BS-C02-11",
+      "title": "Walking the Dog",
+      "level": 27,
+      "min_level": 25,
+      "giver": "NPC_DEVORAN",
+      "turn_in": "NPC_DEVORAN",
+      "previous": "QUEST_TRAINING",
+      "prerequisites": [
+        "QUEST_TRAINING"
+      ],
+      "credits": {
+        "CREDIT_DOG_A": 1,
+        "CREDIT_DOG_B": 1,
+        "CREDIT_DOG_C": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_LEASH",
+      "recovery_items": [
+        "ITEM_LEASH"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1080,
+      "objectives": "Take an owner-bound training hound through 3 feeding/handling stations.",
+      "description": "Use the leash near Devoran to call your own training core hound. Take it to feeding stations A, B and C in order, then command it to feed at each station through its gossip menu. Stay nearby. Lost hounds can be called again with the leash, and completed stations remain credited.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_COLLAR",
+      "id": 900211,
+      "design_id": "BS-C02-12",
+      "title": "A Champion's Collar",
+      "level": 27,
+      "min_level": 25,
+      "giver": "NPC_DEVORAN",
+      "turn_in": "NPC_DEVORAN",
+      "previous": "QUEST_DOG",
+      "prerequisites": [
+        "QUEST_DOG"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_HIDE": 1
+      },
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1080,
+      "objectives": "Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.",
+      "description": "Devoran wants a spiked hide from the Spinescale Matriarch east of his station. Defeat the matriarch and bring him the hide. He will prepare a collar for your supervised match.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_GRUDGE",
+      "id": 900212,
+      "design_id": "BS-C02-13",
+      "title": "Grudge Match",
+      "level": 27,
+      "min_level": 25,
+      "giver": "NPC_DEVORAN",
+      "turn_in": "NPC_DEVORAN",
+      "previous": "QUEST_COLLAR",
+      "prerequisites": [
+        "QUEST_COLLAR"
+      ],
+      "credits": {
+        "CREDIT_GRUDGE": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_LEASH",
+      "recovery_items": [
+        "ITEM_LEASH",
+        "ITEM_COLLAR"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1080,
+      "objectives": "Defeat Butcher with your collared hound, then defeat Gromm'ko with the hound nearby.",
+      "description": "Use the leash or ask Devoran to prepare your collar and supervised match. Take your hound to station A and command it to attack Gromm'ko's raptor Butcher. When the raptor falls, Gromm'ko turns on you. Defeat him while your hound is alive and nearby. You may fight beside it.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900215
+    },
+    {
+      "key": "QUEST_INTELLIGENCE",
+      "id": 900213,
+      "design_id": "BS-C02-14",
+      "title": "Gather the Intelligence",
+      "level": 27,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "previous": "QUEST_TRAINING",
+      "prerequisites": [
+        "QUEST_TRAINING"
+      ],
+      "credits": {
+        "CREDIT_DROP": 1
+      },
+      "required_items": {
+        "ITEM_COMMUNIQUE": 1,
+        "ITEM_PLANS": 1
+      },
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1080,
+      "objectives": "Recover the communique and battleplans from their caches, then check the dead drop.",
+      "description": "Recover the communique and battleplans from the guarded caches south of the camp. Use Ortell's dead drop with both documents before returning to him. The caches are still watched; keep your disguise ready.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_DISCORD",
+      "id": 900214,
+      "design_id": "BS-C02-15",
+      "title": "Seeds of Discord",
+      "level": 28,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "previous": "QUEST_INTELLIGENCE",
+      "prerequisites": [
+        "QUEST_INTELLIGENCE"
+      ],
+      "credits": {
+        "CREDIT_DISCORD": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1120,
+      "objectives": "Distract Karr'gonn, then defeat Azennios without revealing the handler.",
+      "description": "Use the Discord marker near the dead drop to begin a private meeting. Speak to Karr'gonn to send him after a false order, then defeat Azennios while the distraction lasts. If Karr'gonn returns, withdraw and restart the scene. Never speak Ortell's name.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900215
+    },
+    {
+      "key": "QUEST_GREATER",
+      "id": 900215,
+      "design_id": "BS-C02-16",
+      "title": "The Greater of Two Evils",
+      "level": 28,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_MERCY",
+      "prerequisites": [
+        "QUEST_MERCY",
+        "QUEST_GRUDGE",
+        "QUEST_DISCORD"
+      ],
+      "credits": {
+        "CREDIT_GARNOTH": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_TALISMAN",
+      "recovery_items": [
+        "ITEM_TALISMAN"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1120,
+      "objectives": "Use the ascendancy talisman to assume a native fire-elemental form and defeat Garnoth.",
+      "description": "Use the ascendancy talisman at Garnoth's trial marker southwest of camp. It grants a native fire-elemental form for this private duel. Defeat Garnoth while the form remains active. The form ends when the encounter closes or you leave the valley.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900217
+    },
+    {
+      "key": "QUEST_TERRITORY",
+      "id": 900216,
+      "design_id": "BS-C02-17",
+      "title": "Twilight Territory",
+      "level": 28,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_MERCY",
+      "prerequisites": [
+        "QUEST_MERCY",
+        "QUEST_GRUDGE",
+        "QUEST_DISCORD"
+      ],
+      "credits": {
+        "CREDIT_TERRITORY": 10
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1120,
+      "objectives": "Defeat 10 Horrorguards at the camps contested Legion approach.",
+      "description": "Defeat ten Horrorguards at the contested Legion approach southwest of camp. These demons are rivals to the cult, not innocent travelers. Keep your cover intact as you return.",
+      "completion": "The trial is recorded. Continue your training.",
+      "exclusive_group": -900217
+    },
+    {
+      "key": "QUEST_WRITING",
+      "id": 900217,
+      "design_id": "BS-C02-18",
+      "title": "Speech Writing for Dummies",
+      "level": 28,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "previous": "QUEST_GREATER",
+      "prerequisites": [
+        "QUEST_GREATER",
+        "QUEST_TERRITORY"
+      ],
+      "credits": {
+        "CREDIT_OKROG": 1
+      },
+      "required_items": {
+        "ITEM_NOTES": 1
+      },
+      "source_item": null,
+      "recovery_items": [
+        "ITEM_NOTES"
+      ],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1120,
+      "objectives": "Remove the scheduled ogre speaker Okrog and receive Ortell's cue cards so the player can speak instead.",
+      "description": "Use Okrog's challenge marker south of the camp to confront the scheduled ogre speaker. Defeat him, then speak to Ortell for your cue cards. Your opening lies in the crowd, not in another prison assault.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_HEAD",
+      "id": 900218,
+      "design_id": "BS-C02-19",
+      "title": "Head of the Class",
+      "level": 29,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_MYLVA",
+      "previous": "QUEST_WRITING",
+      "prerequisites": [
+        "QUEST_WRITING"
+      ],
+      "credits": {
+        "CREDIT_HEAD": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 4,
+      "money": 1160,
+      "objectives": "Receive the handlers final instruction and report to Mylva for the speaking slot.",
+      "description": "Ask Ortell for the final instruction, then report to Mylva. An initiate who can hold the crowd may approach the altar. Use their expectations to bring Jarod within reach.",
+      "completion": "Your place in the camp is secure. Keep your attention on the prisoner."
+    },
+    {
+      "key": "QUEST_SPEECH",
+      "id": 900219,
+      "design_id": "BS-C02-20",
+      "title": "Graduation Speech",
+      "level": 29,
+      "min_level": 25,
+      "giver": "NPC_MYLVA",
+      "turn_in": "NPC_PRISONER",
+      "previous": "QUEST_HEAD",
+      "prerequisites": [
+        "QUEST_HEAD"
+      ],
+      "credits": {
+        "CREDIT_SPEECH": 10,
+        "CREDIT_ALTAR": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1160,
+      "objectives": "Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.",
+      "description": "Use the Initiation Podium beside the prisoner altar. Speak to the private crowd leader and choose the response matching its displayed mood ten times. You have ten seconds per response. Correct responses remain credited after a retry. Then speak to Jarod at the altar.",
+      "completion": "Your place in the camp is secure. Keep your attention on the prisoner."
+    },
+    {
+      "key": "QUEST_RIOT",
+      "id": 900220,
+      "design_id": "BS-C02-21",
+      "title": "Twilight Riot",
+      "level": 29,
+      "min_level": 25,
+      "giver": "NPC_PRISONER",
+      "turn_in": "NPC_ORTELL",
+      "previous": "QUEST_SPEECH",
+      "prerequisites": [
+        "QUEST_SPEECH"
+      ],
+      "credits": {
+        "CREDIT_RIOT": 1
+      },
+      "required_items": {
+        "ITEM_KEY": 1
+      },
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1160,
+      "objectives": "Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.",
+      "description": "Speak to Jarod to challenge his private restraint guard. Defeat it and recover the prison key. Use Jarod's Restraints to free your private Jarod, defeat three pairs of enforcers along the escape route, and stay with him until he reaches Ortell's refuge. The key can be recovered again after a failed escape.",
+      "completion": "The trial is recorded. Continue your training."
+    },
+    {
+      "key": "QUEST_BUYERS",
+      "id": 900221,
+      "design_id": "BS-C02-22",
+      "title": "The Buyers Behind the Banner",
+      "level": 29,
+      "min_level": 25,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "previous": "QUEST_RIOT",
+      "prerequisites": [
+        "QUEST_RIOT"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_LEDGER": 1
+      },
+      "source_item": null,
+      "recovery_items": [],
+      "reward_choices": [],
+      "xp_difficulty": 5,
+      "money": 1160,
+      "objectives": "Return to the quiet camp cache and recover the relic buyers ledger.",
+      "description": "Ortell has found a name missing from the orders: the buyer. Return to the quiet ledger cache and recover the Relic Buyers Ledger. The cult's fire is only a curtain; someone has been buying what it digs from the earth.",
+      "completion": "The ledger points east, through the marsh."
+    },
+    {
+      "key": "QUEST_LETTER",
+      "id": 900222,
+      "design_id": "BS-C02-23",
+      "title": "A Letter Through the Marsh",
+      "level": 30,
+      "min_level": 25,
+      "giver": "NPC_JAROD_FREE",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_BUYERS",
+      "prerequisites": [
+        "QUEST_BUYERS"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_LETTER": 1
+      },
+      "source_item": "ITEM_LETTER",
+      "recovery_items": [
+        "ITEM_LETTER"
+      ],
+      "reward_choices": [
+        "ITEM_MIGHT",
+        "ITEM_PRECISION",
+        "ITEM_SORCERY",
+        "ITEM_RESTORATION",
+        "ITEM_GUARDING",
+        "ITEM_BALANCE"
+      ],
+      "xp_difficulty": 4,
+      "money": 1200,
+      "objectives": "Deliver Jarod's introduction to Dezco at the neutral Dustwallow field camp.",
+      "description": "Jarod writes an introduction to Sunwalker Dezco. Deliver it to Dezco's neutral field camp beside the Tabetha road in Dustwallow Marsh. Travel on foot or use your usual routes. His expedition can follow the buyers, but its next chapter awaits further preparations.",
+      "completion": "The ledger points east, through the marsh."
+    }
+  ],
+  "external_entries": {
+    "NPC_ORTELL": "Chapter 1 shared handler",
+    "NPC_PRISONER": "Chapter 1 bound Jarod"
+  },
+  "routes": {
+    "Course": [
+      "check_a",
+      "check_b",
+      "check_c",
+      "check_d"
+    ],
+    "DogStations": [
+      "dog_a",
+      "dog_b",
+      "dog_c"
+    ],
+    "EscapeRoute": [
+      "escape_a",
+      "escape_b",
+      "escape_c",
+      "refuge"
+    ]
+  },
+  "native_assets": {
+    "disguise": {
+      "spell": 4329,
+      "creature": 32293,
+      "display": 27889,
+      "notes": "Pure native cosmetic transform; never changes player faction."
+    },
+    "fire_form": {
+      "spell": 4933,
+      "creature": 2760,
+      "display": 2172,
+      "notes": "Pure native fire-elemental transform; class abilities remain available."
+    },
+    "tool_targeting": {
+      "blackjack": 39865,
+      "gem": 34665,
+      "notes": "Native explicit TARGET_UNIT_TARGET_ANY definitions supply a friendly-NPC cursor; ItemScript intercepts their effects."
+    }
+  },
+  "validation": {
+    "all_ground_points_checked": true,
+    "ground_points": 80,
+    "native_dbc_assets_checked": true,
+    "native_source": "AzerothCore client-data v20 (3.3.5a)",
+    "routes": [
+      {
+        "start": "course_start",
+        "end": "check_a",
+        "complete": true,
+        "navigation_polygons": 5
+      },
+      {
+        "start": "stones",
+        "end": "delivery",
+        "complete": true,
+        "navigation_polygons": 2
+      },
+      {
+        "start": "hound",
+        "end": "dog_a",
+        "complete": true,
+        "navigation_polygons": 8
+      },
+      {
+        "start": "recruit_start",
+        "end": "recruit_hide",
+        "complete": true,
+        "navigation_polygons": 9
+      },
+      {
+        "start": "check_a",
+        "end": "check_b",
+        "complete": true,
+        "navigation_polygons": 4
+      },
+      {
+        "start": "check_b",
+        "end": "check_c",
+        "complete": true,
+        "navigation_polygons": 3
+      },
+      {
+        "start": "check_c",
+        "end": "check_d",
+        "complete": true,
+        "navigation_polygons": 6
+      },
+      {
+        "start": "dog_a",
+        "end": "dog_b",
+        "complete": true,
+        "navigation_polygons": 4
+      },
+      {
+        "start": "dog_b",
+        "end": "dog_c",
+        "complete": true,
+        "navigation_polygons": 11
+      },
+      {
+        "start": "escape_a",
+        "end": "escape_b",
+        "complete": true,
+        "navigation_polygons": 10
+      },
+      {
+        "start": "escape_b",
+        "end": "escape_c",
+        "complete": true,
+        "navigation_polygons": 9
+      },
+      {
+        "start": "escape_c",
+        "end": "refuge",
+        "complete": true,
+        "navigation_polygons": 48
+      },
+      {
+        "start": "prison",
+        "end": "escape_a",
+        "complete": true,
+        "navigation_polygons": 7
+      },
+      {
+        "start": "escape_a",
+        "end": "escape_b",
+        "complete": true,
+        "navigation_polygons": 10
+      },
+      {
+        "start": "escape_b",
+        "end": "escape_c",
+        "complete": true,
+        "navigation_polygons": 9
+      },
+      {
+        "start": "escape_c",
+        "end": "refuge",
+        "complete": true,
+        "navigation_polygons": 48
+      }
+    ]
+  },
+  "schema_version": 1,
+  "status": "Implemented; SQL, syntax, progression and native assets validated; live playthrough pending.",
+  "source_identity_references": {
+    "NPC_CONDENNA": "https://wowpedia.fandom.com/wiki/Condenna_the_Pitiless",
+    "NPC_MYLVA": "https://wowpedia.fandom.com/wiki/Instructor_Mylva",
+    "NPC_DEVORAN": "https://warcraft.wiki.gg/wiki/Instructor_Devoran",
+    "NPC_GROMMKO_AND_BUTCHER": "https://warcraft.wiki.gg/wiki/Gromm%27ko",
+    "NPC_CARGALL": "Exact source race and outfit unverified; native human reconstruction documented."
+  }
+}
