@@ -19,6 +19,7 @@
 void AddNubmageScripts();
 void AddModCustomNPCsWorldScripts();
 void AddModCustomNPCsAppearanceScripts();
+void AddBrokenSealChapter1Scripts();
 
 // Keep the original loader for compatibility with older build setups.
 void AddModCustomNPCsScripts()
@@ -26,6 +27,7 @@ void AddModCustomNPCsScripts()
     AddNubmageScripts();
     AddModCustomNPCsWorldScripts();
     AddModCustomNPCsAppearanceScripts();
+    AddBrokenSealChapter1Scripts();
 }
 
 // AzerothCore's static loader on this branch expects the symbol derived

@@ -45,3 +45,14 @@ ModCustomNPCs.Nubmage.PortalPriceGold = 10
 #
 
 ModCustomNPCs.Appearance.Enable = 1
+
+#
+#    ModCustomNPCs.BrokenSeal.Chapter1.Enable
+#        Description: Enable Chapter 1 quest interactions, private escorts,
+#                     tracing and observation scenes. Requires the Chapter 1 SQL
+#                     and ModCustomNPCs.Enable = 1. Config reloads update the
+#                     expedition contacts within two seconds.
+#        Default:     1
+#
+
+ModCustomNPCs.BrokenSeal.Chapter1.Enable = 1

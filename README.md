@@ -113,6 +113,19 @@ step. The included [client patch](data/client/flight-masters/patch-F.MPQ) adds t
 stops to the normal flight map, with 110 routes connecting them to existing Wrath
 hubs. Install the client patch before enabling the matching world update.
 
+## The Broken Seal campaign: Chapter 1
+
+Chapter 1 adds a level 20–25 investigation in Stonetalon: faction introductions,
+three distinct trail markers, six scout kills, three personal captive escorts,
+ward tracing, evidence comparison and two quiet observation stages. The shared
+route ends with a choice of six expedition signets. All assets are native to
+3.3.5a; there is no client patch.
+
+See [Chapter 1 installation and gameplay](docs/broken-seal/chapter1-implementation.md)
+for SQL ordering, quest IDs, starting locations and validation details. The
+broader [campaign inventory](docs/broken-seal/README.md) remains the design for
+later chapters. Chapter 2 is not installed yet.
+
 ## Custom NPC appearances
 
 The module includes a player-style appearance framework: choose a WotLK race,
@@ -159,6 +172,7 @@ mysql -u<user> -p acore_world < data/sql/db-world/base/nubmage.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/daish.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/kappa.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/custom_npc_appearances.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter1.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_appearances.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/stormwind_trainers.sql
@@ -187,6 +201,7 @@ automatically on startup when the module is present in the source tree.
 | `ModCustomNPCs.Announce`             | `1`     | Show module-loaded message on player login             |
 | `ModCustomNPCs.Nubmage.PortalPriceGold` | `10` | Portal price in gold                                   |
 | `ModCustomNPCs.Appearance.Enable` | `1` | Enable assigned player-style NPC outfits |
+| `ModCustomNPCs.BrokenSeal.Chapter1.Enable` | `1` | Enable the Stonetalon chapter's quest interactions and personal scenes |
 
 ## Project Structure
 

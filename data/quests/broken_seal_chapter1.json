@@ -1,0 +1,1634 @@
+{
+  "schema_version": 1,
+  "chapter": "C01",
+  "status": "implemented; syntax, content, scene-policy and isolated SQL checks passed; live-client QA pending",
+  "map": 1,
+  "zone_id": 406,
+  "world_map_area_id": 81,
+  "ids": {
+    "QUEST_COMMISSION_A": 900100,
+    "QUEST_COMMISSION_H": 900101,
+    "QUEST_WAGON": 900102,
+    "QUEST_TRAIL": 900103,
+    "QUEST_RESCUE": 900104,
+    "QUEST_WARDS": 900105,
+    "QUEST_COMPARE": 900106,
+    "QUEST_COMMANDER": 900107,
+    "QUEST_RECRUIT": 900108,
+    "NPC_MARUUT": 4001000,
+    "NPC_ORTELL": 4001001,
+    "NPC_JAROD": 4001002,
+    "NPC_RECRUIT": 4001003,
+    "NPC_CAPTIVE_A": 4001004,
+    "NPC_SCOUT": 4001005,
+    "NPC_COURIER_A": 4001006,
+    "NPC_COURIER_H": 4001007,
+    "NPC_CAPTIVE_B": 4001008,
+    "NPC_CAPTIVE_C": 4001009,
+    "NPC_CULT_SCOUT": 4001010,
+    "NPC_CULT_GUARD": 4001011,
+    "NPC_EARTH": 4001012,
+    "NPC_SCENE": 4001013,
+    "CREDIT_TRAIL_A": 4001050,
+    "CREDIT_TRAIL_B": 4001051,
+    "CREDIT_TRAIL_C": 4001052,
+    "CREDIT_CAPTIVE_A": 4001053,
+    "CREDIT_CAPTIVE_B": 4001054,
+    "CREDIT_CAPTIVE_C": 4001055,
+    "CREDIT_WARD_A": 4001056,
+    "CREDIT_WARD_B": 4001057,
+    "CREDIT_WARD_C": 4001058,
+    "CREDIT_COMPARE": 4001059,
+    "CREDIT_COMMANDER": 4001060,
+    "CREDIT_RECRUIT": 4001061,
+    "CREDIT_SIGNAL": 4001062,
+    "GO_WAGON": 4001100,
+    "GO_TRAIL_A": 4001101,
+    "GO_TRAIL_B": 4001102,
+    "GO_TRAIL_C": 4001103,
+    "GO_CAGE_A": 4001104,
+    "GO_CAGE_B": 4001105,
+    "GO_CAGE_C": 4001106,
+    "GO_WARD_A": 4001107,
+    "GO_WARD_B": 4001108,
+    "GO_WARD_C": 4001109,
+    "GO_COVER": 4001110,
+    "GO_DEAD_DROP": 4001111,
+    "GO_ALTAR": 4001112,
+    "GO_RALLY": 4001113,
+    "ITEM_INVITATION": 900100,
+    "ITEM_LOG": 900101,
+    "ITEM_ORDERS": 900102,
+    "ITEM_RUBBING": 900103,
+    "ITEM_TRACING_KIT": 900104,
+    "ITEM_MIGHT": 900110,
+    "ITEM_PRECISION": 900111,
+    "ITEM_SORCERY": 900112,
+    "ITEM_RESTORATION": 900113,
+    "ITEM_GUARDING": 900114,
+    "ITEM_BALANCE": 900115,
+    "SPELL_OPENING": 3365,
+    "SPELL_SHOOT": 6660,
+    "SPELL_STRIKE": 11976,
+    "SPELL_THUNDERCLAP": 8078,
+    "TEXT_MARUUT": 4001000,
+    "TEXT_ORTELL": 4001001,
+    "TEXT_SCOUT": 4001005,
+    "TEXT_COURIER_A": 4001006,
+    "TEXT_COURIER_H": 4001007
+  },
+  "points": {
+    "courier_a": [
+      746.0,
+      322.0,
+      63.3356,
+      3.14
+    ],
+    "courier_h": [
+      956.106,
+      1005.78,
+      102.5642,
+      3.14
+    ],
+    "maruut": [
+      1124.0,
+      1546.0,
+      33.2028,
+      3.14
+    ],
+    "scout": [
+      1118.0,
+      1551.0,
+      35.0452,
+      3.14
+    ],
+    "ortell": [
+      1120.0,
+      1550.0,
+      34.5478,
+      3.14
+    ],
+    "wagon": [
+      1152.0,
+      1516.0,
+      47.4284,
+      3.14
+    ],
+    "trail_1": [
+      1150.0,
+      1510.0,
+      47.5968,
+      3.14
+    ],
+    "trail_2": [
+      1100.0,
+      1550.0,
+      28.5585,
+      3.14
+    ],
+    "trail_3": [
+      1010.0,
+      1660.0,
+      0.0815,
+      3.14
+    ],
+    "cage_1": [
+      985.0,
+      1685.0,
+      -6.814,
+      3.14
+    ],
+    "cage_2": [
+      971.0,
+      1694.0,
+      -8.5529,
+      3.14
+    ],
+    "cage_3": [
+      952.0,
+      1690.0,
+      -12.7174,
+      3.14
+    ],
+    "safe": [
+      1012.0,
+      1655.0,
+      0.6661,
+      3.14
+    ],
+    "ward_1": [
+      935.0,
+      1690.0,
+      -16.0457,
+      3.14
+    ],
+    "ward_2": [
+      925.0,
+      1710.0,
+      -15.1322,
+      3.14
+    ],
+    "ward_3": [
+      930.0,
+      1730.0,
+      -11.9326,
+      3.14
+    ],
+    "jarod": [
+      990.0,
+      1730.0,
+      -9.6758,
+      3.14
+    ],
+    "altar": [
+      990.0,
+      1734.0,
+      -9.1447,
+      3.14
+    ],
+    "cover": [
+      958.0,
+      1700.0,
+      -13.0579,
+      3.14
+    ],
+    "guard_1": [
+      981.0,
+      1723.0,
+      -9.2015,
+      3.14
+    ],
+    "guard_2": [
+      999.0,
+      1721.0,
+      -9.9455,
+      3.14
+    ],
+    "guard_3": [
+      992.0,
+      1742.0,
+      -7.2726,
+      3.14
+    ],
+    "drop": [
+      958.0,
+      1690.0,
+      -10.9006,
+      3.14
+    ],
+    "recruit_1": [
+      997.0,
+      1710.0,
+      -7.759,
+      3.14
+    ],
+    "recruit_2": [
+      999.0,
+      1685.0,
+      -5.3542,
+      3.14
+    ],
+    "recruit_3": [
+      981.333,
+      1682.0,
+      -6.8929,
+      3.14
+    ],
+    "recruit_4": [
+      980.0,
+      1712.0,
+      -9.4181,
+      3.14
+    ],
+    "scout_1": [
+      1000.0,
+      1660.0,
+      6.3648,
+      3.14
+    ],
+    "scout_2": [
+      990.0,
+      1645.0,
+      12.4221,
+      3.14
+    ],
+    "scout_3": [
+      1020.0,
+      1640.0,
+      19.7295,
+      3.14
+    ],
+    "scout_4": [
+      1040.0,
+      1646.13,
+      11.7481,
+      3.14
+    ],
+    "scout_5": [
+      1004.0,
+      1648.0,
+      9.2767,
+      3.14
+    ],
+    "scout_6": [
+      983.0,
+      1668.0,
+      -6.5765,
+      3.14
+    ],
+    "scout_7": [
+      963.0,
+      1672.0,
+      -8.5886,
+      3.14
+    ],
+    "scout_8": [
+      942.0,
+      1655.0,
+      -12.6257,
+      3.14
+    ],
+    "earth_1": [
+      917.0,
+      1698.0,
+      -16.2688,
+      3.14
+    ],
+    "earth_2": [
+      912.0,
+      1720.0,
+      -15.0397,
+      3.14
+    ],
+    "earth_3": [
+      940.0,
+      1735.0,
+      -10.6019,
+      3.14
+    ],
+    "rescue_rally": [
+      1012.0,
+      1655.0,
+      0.6661,
+      3.14
+    ],
+    "cage_guard_1": [
+      979.0,
+      1682.0,
+      -7.026,
+      3.14
+    ],
+    "cage_guard_2": [
+      965.0,
+      1691.0,
+      -9.2075,
+      3.14
+    ],
+    "cage_guard_3": [
+      946.0,
+      1687.0,
+      -13.6669,
+      3.14
+    ]
+  },
+  "actors": [
+    {
+      "key": "NPC_MARUUT",
+      "entry": 4001000,
+      "name": "Maruut Stonebinder",
+      "race": 6,
+      "gender": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 6569,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 6631
+      },
+      "fallback_display": 59,
+      "point": "maruut",
+      "script_role": "contact",
+      "npc_flags": 3,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx"
+    },
+    {
+      "key": "NPC_ORTELL",
+      "entry": 4001001,
+      "name": "Elementalist Ortell",
+      "race": 1,
+      "gender": 0,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 9748,
+        "mainhand": 4575
+      },
+      "fallback_display": 49,
+      "point": "ortell",
+      "script_role": "contact",
+      "npc_flags": 3,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+    },
+    {
+      "key": "NPC_JAROD",
+      "entry": 4001002,
+      "name": "Commander Jarod Shadowsong",
+      "race": 4,
+      "gender": 0,
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 6085,
+        "shoulders": 6597,
+        "waist": 6594,
+        "legs": 6596,
+        "feet": 6573
+      },
+      "fallback_display": 55,
+      "point": "jarod",
+      "script_role": "contact",
+      "npc_flags": 0,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx"
+    },
+    {
+      "key": "NPC_RECRUIT",
+      "entry": 4001003,
+      "name": "Twilight Recruit",
+      "race": 1,
+      "gender": 0,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 6238
+      },
+      "fallback_display": 49,
+      "point": "recruit_1",
+      "script_role": "recruit",
+      "npc_flags": 0,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+    },
+    {
+      "key": "NPC_SCOUT",
+      "entry": 4001005,
+      "name": "Expedition Scout",
+      "race": 4,
+      "gender": 1,
+      "outfit": {
+        "race": 4,
+        "gender": 1,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 2317,
+        "waist": 6382,
+        "hands": 4248,
+        "feet": 2315
+      },
+      "fallback_display": 56,
+      "point": "scout",
+      "script_role": "contact",
+      "npc_flags": 3,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\NightElf\\Female\\NightElfFemale.mdx"
+    },
+    {
+      "key": "NPC_COURIER_A",
+      "entry": 4001006,
+      "name": "Alliance Expedition Courier",
+      "race": 1,
+      "gender": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 1433,
+        "shirt": 2576
+      },
+      "fallback_display": 50,
+      "point": "courier_a",
+      "script_role": "contact",
+      "npc_flags": 3,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx"
+    },
+    {
+      "key": "NPC_COURIER_H",
+      "entry": 4001007,
+      "name": "Horde Expedition Courier",
+      "race": 2,
+      "gender": 0,
+      "outfit": {
+        "race": 2,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 85,
+        "shirt": 38
+      },
+      "fallback_display": 51,
+      "point": "courier_h",
+      "script_role": "contact",
+      "npc_flags": 3,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Orc\\Male\\OrcMale.mdx"
+    },
+    {
+      "key": "NPC_CAPTIVE_A",
+      "entry": 4001004,
+      "name": "Mira Ashwood",
+      "race": 1,
+      "gender": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 1433
+      },
+      "fallback_display": 50,
+      "point": null,
+      "script_role": "captive",
+      "npc_flags": 0,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx"
+    },
+    {
+      "key": "NPC_CAPTIVE_B",
+      "entry": 4001008,
+      "name": "Dorn Stonehoof",
+      "race": 6,
+      "gender": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 6238
+      },
+      "fallback_display": 59,
+      "point": null,
+      "script_role": "captive",
+      "npc_flags": 0,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx"
+    },
+    {
+      "key": "NPC_CAPTIVE_C",
+      "entry": 4001009,
+      "name": "Teren Valeguard",
+      "race": 4,
+      "gender": 0,
+      "outfit": {
+        "race": 4,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 85
+      },
+      "fallback_display": 55,
+      "point": null,
+      "script_role": "captive",
+      "npc_flags": 0,
+      "level": 25,
+      "faction": 35,
+      "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx"
+    }
+  ],
+  "hostile": [
+    {
+      "key": "NPC_CULT_SCOUT",
+      "entry": 4001010,
+      "name": "Twilight Scout",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 2317,
+        "hands": 4248,
+        "feet": 2315,
+        "ranged": 2504
+      },
+      "level": [
+        20,
+        22
+      ],
+      "points": [
+        "scout_1",
+        "scout_2",
+        "scout_3",
+        "scout_4",
+        "scout_5",
+        "scout_6",
+        "scout_7",
+        "scout_8"
+      ],
+      "spell": "SPELL_SHOOT",
+      "loot_item": "ITEM_ORDERS",
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+    },
+    {
+      "key": "NPC_CULT_GUARD",
+      "entry": 4001011,
+      "name": "Twilight Guard",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 6085,
+        "shoulders": 6597,
+        "waist": 6594,
+        "legs": 6596
+      },
+      "level": [
+        22,
+        23
+      ],
+      "points": [
+        "guard_1",
+        "guard_2",
+        "guard_3",
+        "cage_guard_1",
+        "cage_guard_2",
+        "cage_guard_3"
+      ],
+      "spell": "SPELL_STRIKE",
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+    },
+    {
+      "key": "NPC_EARTH",
+      "entry": 4001012,
+      "name": "Unbound Earth Elemental",
+      "display": 453,
+      "level": [
+        22,
+        23
+      ],
+      "points": [
+        "earth_1",
+        "earth_2",
+        "earth_3"
+      ],
+      "spell": "SPELL_THUNDERCLAP",
+      "native_model_path": "Creature\\ElementalEarth\\ElementalEarth.mdx"
+    }
+  ],
+  "objects": [
+    {
+      "key": "GO_WAGON",
+      "entry": 4001100,
+      "name": "Abandoned Expedition Wagon",
+      "display": 3678,
+      "native_model": "World\\Azeroth\\Westfall\\PassiveDoodads\\Westfall Wagon\\WestfallWagon01.mdx",
+      "point": "wagon",
+      "quest": "QUEST_WAGON",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_TRAIL_A",
+      "entry": 4001101,
+      "name": "First Ash-marked Trail Sign",
+      "display": 22,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "point": "trail_1",
+      "quest": "QUEST_TRAIL",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_TRAIL_B",
+      "entry": 4001102,
+      "name": "Second Ash-marked Trail Sign",
+      "display": 22,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "point": "trail_2",
+      "quest": "QUEST_TRAIL",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_TRAIL_C",
+      "entry": 4001103,
+      "name": "Third Ash-marked Trail Sign",
+      "display": 22,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "point": "trail_3",
+      "quest": "QUEST_TRAIL",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_CAGE_A",
+      "entry": 4001104,
+      "name": "Mira's Holding Cage",
+      "display": 676,
+      "native_model": "World\\Goober\\G_Cage.mdx",
+      "point": "cage_1",
+      "quest": "QUEST_RESCUE",
+      "decorative": false,
+      "scale": 0.8
+    },
+    {
+      "key": "GO_CAGE_B",
+      "entry": 4001105,
+      "name": "Dorn's Holding Cage",
+      "display": 676,
+      "native_model": "World\\Goober\\G_Cage.mdx",
+      "point": "cage_2",
+      "quest": "QUEST_RESCUE",
+      "decorative": false,
+      "scale": 0.8
+    },
+    {
+      "key": "GO_CAGE_C",
+      "entry": 4001106,
+      "name": "Teren's Holding Cage",
+      "display": 676,
+      "native_model": "World\\Goober\\G_Cage.mdx",
+      "point": "cage_3",
+      "quest": "QUEST_RESCUE",
+      "decorative": false,
+      "scale": 0.8
+    },
+    {
+      "key": "GO_WARD_A",
+      "entry": 4001107,
+      "name": "Western Ward Stone",
+      "display": 235,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
+      "point": "ward_1",
+      "quest": "QUEST_WARDS",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_WARD_B",
+      "entry": 4001108,
+      "name": "Central Ward Stone",
+      "display": 235,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
+      "point": "ward_2",
+      "quest": "QUEST_WARDS",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_WARD_C",
+      "entry": 4001109,
+      "name": "Eastern Ward Stone",
+      "display": 235,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
+      "point": "ward_3",
+      "quest": "QUEST_WARDS",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_COVER",
+      "entry": 4001110,
+      "name": "Concealed Observation Point",
+      "display": 236,
+      "native_model": "World\\Generic\\NightElf\\Passive Doodads\\StoneRunes\\KalidarStoneRune03.mdx",
+      "point": "cover",
+      "quest": "QUEST_COMMANDER",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_DEAD_DROP",
+      "entry": 4001111,
+      "name": "Ortell's Dead Drop",
+      "display": 3332,
+      "native_model": "World\\Azeroth\\Westfall\\PassiveDoodads\\Outhouse\\OutHouse.mdx",
+      "point": "drop",
+      "quest": "QUEST_RECRUIT",
+      "decorative": false,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_ALTAR",
+      "entry": 4001112,
+      "name": "Twilight Sacrificial Altar",
+      "display": 227,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\Altars\\Altar02.mdx",
+      "point": "altar",
+      "quest": null,
+      "decorative": true,
+      "scale": 1.0
+    },
+    {
+      "key": "GO_RALLY",
+      "entry": 4001113,
+      "name": "Expedition Refuge Marker",
+      "display": 22,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "point": "rescue_rally",
+      "quest": null,
+      "decorative": true,
+      "scale": 1.0
+    }
+  ],
+  "items": [
+    {
+      "key": "ITEM_INVITATION",
+      "entry": 900100,
+      "name": "Expedition Invitation",
+      "display": 18098,
+      "page": 4001000,
+      "text": "To the bearer: report to Maruut Stonebinder at the expedition camp on the eastern approach to the Charred Vale. We need someone who can look beyond uniforms. Our people are missing, and the stones have begun to speak."
+    },
+    {
+      "key": "ITEM_LOG",
+      "entry": 900101,
+      "name": "Missing Travelers Log",
+      "display": 1143,
+      "page": 4001001,
+      "text": "Mira, Dorn and Teren departed with surveying tools. Their final note describes fresh ash beside intact trees, bootprints moving toward the old valley, and a stone marker scratched with a spiral. They did not return."
+    },
+    {
+      "key": "ITEM_ORDERS",
+      "entry": 900102,
+      "name": "Coded Twilight Orders",
+      "display": 18098,
+      "page": 4001002,
+      "text": "Collect the surveyors alive. Keep the commander apart from the other prisoners. The buyer has no use for broken tools. Rotate the watch at the marked post. The spiral is our sign."
+    },
+    {
+      "key": "ITEM_RUBBING",
+      "entry": 900103,
+      "name": "Damaged Ward Rubbing",
+      "display": 18098,
+      "page": 4001003,
+      "text": "Three impressions reveal the same spiral cut across older runes. The fractures are too regular to be weathering. Someone is teaching the stone a different command."
+    },
+    {
+      "key": "ITEM_TRACING_KIT",
+      "entry": 900104,
+      "name": "Ward Tracing Kit",
+      "display": 7411,
+      "spell": "SPELL_OPENING",
+      "script": "item_bs_c01_tracing_kit",
+      "description": "Use on a ward stone. Maruut can replace a lost kit."
+    },
+    {
+      "key": "ITEM_MIGHT",
+      "entry": 900110,
+      "name": "Vale Expedition Signet of Might",
+      "display": 9846,
+      "equipment": true,
+      "stats": [
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "level": 25,
+      "required_level": 20
+    },
+    {
+      "key": "ITEM_PRECISION",
+      "entry": 900111,
+      "name": "Vale Expedition Signet of Precision",
+      "display": 9846,
+      "equipment": true,
+      "stats": [
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "level": 25,
+      "required_level": 20
+    },
+    {
+      "key": "ITEM_SORCERY",
+      "entry": 900112,
+      "name": "Vale Expedition Signet of Sorcery",
+      "display": 9846,
+      "equipment": true,
+      "stats": [
+        [
+          5,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          45,
+          3
+        ]
+      ],
+      "level": 25,
+      "required_level": 20
+    },
+    {
+      "key": "ITEM_RESTORATION",
+      "entry": 900113,
+      "name": "Vale Expedition Signet of Restoration",
+      "display": 9846,
+      "equipment": true,
+      "stats": [
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          45,
+          4
+        ]
+      ],
+      "level": 25,
+      "required_level": 20
+    },
+    {
+      "key": "ITEM_GUARDING",
+      "entry": 900114,
+      "name": "Vale Expedition Signet of Guarding",
+      "display": 9846,
+      "equipment": true,
+      "stats": [
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          12,
+          2
+        ]
+      ],
+      "level": 25,
+      "required_level": 20
+    },
+    {
+      "key": "ITEM_BALANCE",
+      "entry": 900115,
+      "name": "Vale Expedition Signet of Balance",
+      "display": 9846,
+      "equipment": true,
+      "stats": [
+        [
+          5,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          43,
+          2
+        ]
+      ],
+      "level": 25,
+      "required_level": 20
+    }
+  ],
+  "quests": [
+    {
+      "key": "QUEST_COMMISSION_A",
+      "id": 900100,
+      "logical_id": "BS-C01-01",
+      "title": "An Unusual Commission",
+      "level": 20,
+      "min_level": 20,
+      "faction": "Alliance",
+      "description": "The expedition in Stonetalon is accepting help from anyone willing to put missing travelers before old quarrels. Take this invitation to Maruut Stonebinder. His camp is on the eastern approach to the Charred Vale.",
+      "objectives": "Follow the old road toward the Charred Vale and look for the expedition's blue-clad stonebinder.",
+      "completion": "You came. Good. Three of our people are overdue, and the trail is beginning to give answers I do not like.",
+      "xp_difficulty": 2,
+      "money": 300,
+      "giver": "NPC_COURIER_A",
+      "turn_in": "NPC_MARUUT",
+      "source_item": "ITEM_INVITATION",
+      "required_items": {
+        "ITEM_INVITATION": 1
+      },
+      "previous": null,
+      "exclusive_group": 900100
+    },
+    {
+      "key": "QUEST_COMMISSION_H",
+      "id": 900101,
+      "logical_id": "BS-C01-02",
+      "title": "An Unusual Commission",
+      "level": 20,
+      "min_level": 20,
+      "faction": "Horde",
+      "description": "Maruut Stonebinder needs help in Stonetalon. Three surveyors have vanished near the Charred Vale. This is an expedition, not a border dispute. Take this invitation to his neutral camp on the valley's eastern approach.",
+      "objectives": "Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.",
+      "completion": "You came. Good. Three of our people are overdue, and the trail is beginning to give answers I do not like.",
+      "xp_difficulty": 2,
+      "money": 300,
+      "giver": "NPC_COURIER_H",
+      "turn_in": "NPC_MARUUT",
+      "source_item": "ITEM_INVITATION",
+      "required_items": {
+        "ITEM_INVITATION": 1
+      },
+      "previous": null,
+      "exclusive_group": 900100
+    },
+    {
+      "key": "QUEST_WAGON",
+      "id": 900102,
+      "logical_id": "BS-C01-03",
+      "title": "Travelers Who Never Arrived",
+      "level": 21,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "Mira, Dorn and Teren were inspecting old trail stones. Their wagon was left uphill from our camp, near the first ash-marked sign. Search it for the travelers' log. Leave what supplies remain for the survivors.",
+      "objectives": "Inspect the abandoned wagon above camp and recover its log.",
+      "completion": "The spiral again. It was carved into stone that had stood quietly for generations. Our scout has found fresh tracks leading into the valley.",
+      "xp_difficulty": 4,
+      "money": 600,
+      "giver": "NPC_MARUUT",
+      "turn_in": "NPC_MARUUT",
+      "required_items": {
+        "ITEM_LOG": 1
+      },
+      "previous": null,
+      "prerequisite_any": [
+        "QUEST_COMMISSION_A",
+        "QUEST_COMMISSION_H"
+      ]
+    },
+    {
+      "key": "QUEST_TRAIL",
+      "id": 900103,
+      "logical_id": "BS-C01-04",
+      "title": "Follow the Ash",
+      "level": 21,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "Follow the three ash-marked signs from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.",
+      "objectives": "Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.",
+      "completion": "Prisoners, a separate commander, and a watch rotation. Those were not bandits taking whatever they could carry. Someone organized this.",
+      "xp_difficulty": 4,
+      "money": 600,
+      "giver": "NPC_SCOUT",
+      "turn_in": "NPC_SCOUT",
+      "required_items": {
+        "ITEM_ORDERS": 1
+      },
+      "credits": {
+        "NPC_CULT_SCOUT": 6,
+        "CREDIT_TRAIL_A": 1,
+        "CREDIT_TRAIL_B": 1,
+        "CREDIT_TRAIL_C": 1
+      },
+      "previous": "QUEST_WAGON"
+    },
+    {
+      "key": "QUEST_RESCUE",
+      "id": 900104,
+      "logical_id": "BS-C01-05",
+      "title": "Bring Them Home",
+      "level": 22,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "The scouts are holding Mira, Dorn and Teren in three cages below the last trail marker. Free each of them and stay nearby while they reach the expedition refuge marker. Clear trouble from the route; nobody gets left behind.",
+      "objectives": "Open each surveyor's cage and accompany them until they reach the marked refuge.",
+      "completion": "All three are safe. They remember a spiral carved into the ward stones and a prisoner called Shadowsong. Maruut needs to hear this.",
+      "xp_difficulty": 4,
+      "money": 600,
+      "giver": "NPC_SCOUT",
+      "turn_in": "NPC_SCOUT",
+      "credits": {
+        "CREDIT_CAPTIVE_A": 1,
+        "CREDIT_CAPTIVE_B": 1,
+        "CREDIT_CAPTIVE_C": 1
+      },
+      "previous": "QUEST_TRAIL"
+    },
+    {
+      "key": "QUEST_WARDS",
+      "id": 900105,
+      "logical_id": "BS-C01-06",
+      "title": "A Stone That Should Be Quiet",
+      "level": 23,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.",
+      "objectives": "Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.",
+      "completion": "Those are deliberate cuts. The new spiral interrupts the old pattern at exactly the points it needs. Ortell knows the people who use that sign.",
+      "xp_difficulty": 4,
+      "money": 600,
+      "giver": "NPC_MARUUT",
+      "turn_in": "NPC_MARUUT",
+      "source_item": "ITEM_TRACING_KIT",
+      "required_items": {
+        "ITEM_RUBBING": 1
+      },
+      "credits": {
+        "CREDIT_WARD_A": 1,
+        "CREDIT_WARD_B": 1,
+        "CREDIT_WARD_C": 1
+      },
+      "previous": "QUEST_RESCUE"
+    },
+    {
+      "key": "QUEST_COMPARE",
+      "id": 900106,
+      "logical_id": "BS-C01-07",
+      "title": "The Same Hand",
+      "level": 23,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "Ortell once knew the Twilight's Hammer from the inside. He is helping us now. Speak with him here in camp and compare the deposited orders with the ward rubbing. You do not need to carry those papers back and forth; I have sent him copies.",
+      "objectives": "Ask Ortell to compare the orders and the rubbing.",
+      "completion": "The hand that wrote the orders also marked the stone. That spiral is an instruction, not a decoration. We must find out what else they intend to break.",
+      "xp_difficulty": 2,
+      "money": 600,
+      "giver": "NPC_MARUUT",
+      "turn_in": "NPC_ORTELL",
+      "credits": {
+        "CREDIT_COMPARE": 1
+      },
+      "previous": "QUEST_WARDS"
+    },
+    {
+      "key": "QUEST_COMMANDER",
+      "id": 900107,
+      "logical_id": "BS-C01-08",
+      "title": "A Captive Commander",
+      "level": 24,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "The rescued surveyors recognized the commander's name: Jarod Shadowsong. The cult is holding him at an altar beyond their cages. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.",
+      "objectives": "Remain at the concealed observation point until you can confirm Jarod is alive.",
+      "completion": "Alive, guarded, and kept apart from the workers. They are preparing something public. A direct assault would give them time to kill him.",
+      "xp_difficulty": 4,
+      "money": 600,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "credits": {
+        "CREDIT_COMMANDER": 1
+      },
+      "previous": "QUEST_COMPARE"
+    },
+    {
+      "key": "QUEST_RECRUIT",
+      "id": 900108,
+      "logical_id": "BS-C01-09",
+      "title": "The Name on the Papers",
+      "level": 25,
+      "min_level": 20,
+      "faction": "Both",
+      "description": "There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.",
+      "objectives": "Watch the recruit's change from the dead drop, then agree the extraction signal with me.",
+      "completion": "Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition's trust. We will enter the cult when the next assignment is ready; be at least level twenty-five before attempting that training.",
+      "xp_difficulty": 2,
+      "money": 600,
+      "giver": "NPC_ORTELL",
+      "turn_in": "NPC_ORTELL",
+      "credits": {
+        "CREDIT_RECRUIT": 1,
+        "CREDIT_SIGNAL": 1
+      },
+      "reward_choices": [
+        "ITEM_MIGHT",
+        "ITEM_PRECISION",
+        "ITEM_SORCERY",
+        "ITEM_RESTORATION",
+        "ITEM_GUARDING",
+        "ITEM_BALANCE"
+      ],
+      "previous": "QUEST_COMMANDER"
+    }
+  ],
+  "npc_texts": {
+    "NPC_MARUUT": "Old stones do not start speaking without a reason. Help us find our missing people, and we will learn who disturbed them.",
+    "NPC_ORTELL": "The Twilight's Hammer rewards certainty. Inside their camps, doubt is best kept behind your teeth.",
+    "NPC_SCOUT": "Fresh ash, bootprints, and a trail nobody wants to explain. Stay alert on the descent.",
+    "NPC_COURIER_A": "A neutral expedition needs someone who can see past the color of a banner.",
+    "NPC_COURIER_H": "The invitation is for a willing traveler. The missing people need help, not another argument about borders."
+  },
+  "safe_point": "safe",
+  "recruit_patrol": [
+    "recruit_1",
+    "recruit_2",
+    "recruit_3",
+    "recruit_4"
+  ],
+  "escort_routes": [
+    {
+      "index": 0,
+      "actor": "NPC_CAPTIVE_A",
+      "cage": "GO_CAGE_A",
+      "route": [
+        "cage_1",
+        "safe"
+      ],
+      "credit": "CREDIT_CAPTIVE_A"
+    },
+    {
+      "index": 1,
+      "actor": "NPC_CAPTIVE_B",
+      "cage": "GO_CAGE_B",
+      "route": [
+        "cage_2",
+        "safe"
+      ],
+      "credit": "CREDIT_CAPTIVE_B"
+    },
+    {
+      "index": 2,
+      "actor": "NPC_CAPTIVE_C",
+      "cage": "GO_CAGE_C",
+      "route": [
+        "cage_3",
+        "safe"
+      ],
+      "credit": "CREDIT_CAPTIVE_C"
+    }
+  ],
+  "asset_validation": {
+    "terrain_and_navigation": {
+      "points": {
+        "courier_a": [
+          746.0,
+          322.0,
+          63.3356,
+          3.14
+        ],
+        "courier_h": [
+          956.106,
+          1005.78,
+          102.5642,
+          3.14
+        ],
+        "maruut": [
+          1124.0,
+          1546.0,
+          33.2028,
+          3.14
+        ],
+        "scout": [
+          1118.0,
+          1551.0,
+          35.0452,
+          3.14
+        ],
+        "ortell": [
+          1120.0,
+          1550.0,
+          34.5478,
+          3.14
+        ],
+        "wagon": [
+          1152.0,
+          1516.0,
+          47.4284,
+          3.14
+        ],
+        "trail_1": [
+          1150.0,
+          1510.0,
+          47.5968,
+          3.14
+        ],
+        "trail_2": [
+          1100.0,
+          1550.0,
+          28.5585,
+          3.14
+        ],
+        "trail_3": [
+          1010.0,
+          1660.0,
+          0.0815,
+          3.14
+        ],
+        "cage_1": [
+          985.0,
+          1685.0,
+          -6.814,
+          3.14
+        ],
+        "cage_2": [
+          971.0,
+          1694.0,
+          -8.5529,
+          3.14
+        ],
+        "cage_3": [
+          952.0,
+          1690.0,
+          -12.7174,
+          3.14
+        ],
+        "safe": [
+          1012.0,
+          1655.0,
+          0.6661,
+          3.14
+        ],
+        "ward_1": [
+          935.0,
+          1690.0,
+          -16.0457,
+          3.14
+        ],
+        "ward_2": [
+          925.0,
+          1710.0,
+          -15.1322,
+          3.14
+        ],
+        "ward_3": [
+          930.0,
+          1730.0,
+          -11.9326,
+          3.14
+        ],
+        "jarod": [
+          990.0,
+          1730.0,
+          -9.6758,
+          3.14
+        ],
+        "altar": [
+          990.0,
+          1734.0,
+          -9.1447,
+          3.14
+        ],
+        "cover": [
+          958.0,
+          1700.0,
+          -13.0579,
+          3.14
+        ],
+        "guard_1": [
+          981.0,
+          1723.0,
+          -9.2015,
+          3.14
+        ],
+        "guard_2": [
+          999.0,
+          1721.0,
+          -9.9455,
+          3.14
+        ],
+        "guard_3": [
+          992.0,
+          1742.0,
+          -7.2726,
+          3.14
+        ],
+        "drop": [
+          958.0,
+          1690.0,
+          -10.9006,
+          3.14
+        ],
+        "recruit_1": [
+          997.0,
+          1710.0,
+          -7.759,
+          3.14
+        ],
+        "recruit_2": [
+          999.0,
+          1685.0,
+          -5.3542,
+          3.14
+        ],
+        "recruit_3": [
+          981.333,
+          1682.0,
+          -6.8929,
+          3.14
+        ],
+        "recruit_4": [
+          980.0,
+          1712.0,
+          -9.4181,
+          3.14
+        ],
+        "scout_1": [
+          1000.0,
+          1660.0,
+          6.3648,
+          3.14
+        ],
+        "scout_2": [
+          990.0,
+          1645.0,
+          12.4221,
+          3.14
+        ],
+        "scout_3": [
+          1020.0,
+          1640.0,
+          19.7295,
+          3.14
+        ],
+        "scout_4": [
+          1040.0,
+          1646.13,
+          11.7481,
+          3.14
+        ],
+        "scout_5": [
+          1004.0,
+          1648.0,
+          9.2767,
+          3.14
+        ],
+        "scout_6": [
+          983.0,
+          1668.0,
+          -6.5765,
+          3.14
+        ],
+        "scout_7": [
+          963.0,
+          1672.0,
+          -8.5886,
+          3.14
+        ],
+        "scout_8": [
+          942.0,
+          1655.0,
+          -12.6257,
+          3.14
+        ],
+        "earth_1": [
+          917.0,
+          1698.0,
+          -16.2688,
+          3.14
+        ],
+        "earth_2": [
+          912.0,
+          1720.0,
+          -15.0397,
+          3.14
+        ],
+        "earth_3": [
+          940.0,
+          1735.0,
+          -10.6019,
+          3.14
+        ],
+        "rescue_rally": [
+          1012.0,
+          1655.0,
+          0.6661,
+          3.14
+        ],
+        "cage_guard_1": [
+          979.0,
+          1682.0,
+          -7.026,
+          3.14
+        ],
+        "cage_guard_2": [
+          965.0,
+          1691.0,
+          -9.2075,
+          3.14
+        ],
+        "cage_guard_3": [
+          946.0,
+          1687.0,
+          -13.6669,
+          3.14
+        ]
+      },
+      "escort_routes": [
+        {
+          "cage": 1,
+          "start": [
+            985.0,
+            1685.0,
+            -6.6021,
+            0.0
+          ],
+          "finish": [
+            1012.0,
+            1655.0,
+            1.8599,
+            0.0
+          ],
+          "navigation_polygons": 8,
+          "complete": true
+        },
+        {
+          "cage": 2,
+          "start": [
+            971.0,
+            1694.0,
+            -8.2281,
+            0.0
+          ],
+          "finish": [
+            1012.0,
+            1655.0,
+            1.8599,
+            0.0
+          ],
+          "navigation_polygons": 11,
+          "complete": true
+        },
+        {
+          "cage": 3,
+          "start": [
+            952.0,
+            1690.0,
+            -12.3693,
+            0.0
+          ],
+          "finish": [
+            1012.0,
+            1655.0,
+            1.8599,
+            0.0
+          ],
+          "navigation_polygons": 11,
+          "complete": true
+        }
+      ],
+      "source": "https://github.com/wowgaming/client-data/releases/tag/v20.0",
+      "navigation_checks": "Ground polygons, closest points within 3m horizontal and 12m vertical; complete Detour routes checked. Does not replace live client QA.",
+      "asset_sha256": {
+        "maps/0012929.map": "bb36810a6ca6460e2eabd27273dacad86832ecc72cd120a102137187e320c1de",
+        "maps/0013028.map": "5800c5e18f319499d18527a0ef9a9013488e64e24e391708878d81c03c2c9429",
+        "maps/0013030.map": "0ce9f585ca0f5593d09a64d30a4b56f90f94e3fa0c7628537b335afb4cf1677c",
+        "maps/0013031.map": "d64db1450eb6c92321f88b27b293a20ed9842adc42d06dd0112403c598548e5a",
+        "mmaps/0012929.mmtile": "0713103d824c987877200891ebb99b5c3b9072f97c8b25edaf289c83f86acb9a",
+        "mmaps/0013028.mmtile": "baf8d491e8cef0c1a57c70757c97556ee96fb8514173fc214791979acca1acf4",
+        "mmaps/0013030.mmtile": "c679322900dad92fe70c20cc91d60607b9bbbeeca04a36c19573fade61dae461",
+        "mmaps/0013031.mmtile": "72e29c251ae87fd8b3bc23a99dc83f81e82d77a52abf208da79c6edf0004ed61"
+      }
+    },
+    "native_asset_release": "https://github.com/wowgaming/client-data/releases/tag/v20.0",
+    "spells_checked": [
+      3365,
+      6660,
+      11976,
+      8078
+    ],
+    "dbc_sha256": {
+      "WorldMapArea.dbc": "90e1ec678c8226c76f4dd9f7904f05a4cb0a58c8b4d386719b24949bd55925bb",
+      "CharSections.dbc": "18fc8d23f6e66598ab1681a74f90239ebdf84b76f300db0865cdad7d042b833f",
+      "ChrRaces.dbc": "3d3e1443e8e97b1810275a45bc3f0588c83d876d04121401cc5adaa02f507bcd",
+      "ItemDisplayInfo.dbc": "42d2c67fb12cb79e1e62fee2839f5f8f8239abe4ecfd45ed6fee1021642d19bc",
+      "Item.dbc": "d455bc30b59bc368b2a972a913864dd092d50695140b9513582100dc56ed777d",
+      "GameObjectDisplayInfo.dbc": "98affbc38e647afe1318f9a92cf05ed1b4823ee9b406c72a9a13e9cbf8b55a55",
+      "Spell.dbc": "d5cce1a83550dcfa9eb2f0251dbb11fd24c272534b2b1a9b230924a44d817ab3",
+      "CreatureModelData.dbc": "2ff650f7a1b20a7edb088ffaa88f13b747b63a2a29ee6e3dc3c0d475d5ccdfe2",
+      "CreatureDisplayInfo.dbc": "a12109c610ca82af993d7c8562617ad88ab538293649f89ee0e4bed7ce85a37a"
+    },
+    "live_client_checked": false,
+    "final_spawn_walkability_checked": true,
+    "final_ground_positions_checked": 42,
+    "cxx_syntax_checked_against": "/home/Rov/Documents/Git/azerothcore-wotlk-1",
+    "sql_engine_checked": "MariaDB 10.11.18; fresh/idempotent native id1 and legacy id schemas; occupied quest ID rejected"
+  },
+  "source_identity_references": [
+    "https://warcraft.wiki.gg/wiki/Elementalist_Ortell",
+    "https://warcraft.wiki.gg/wiki/Maruut_Stonebinder"
+  ],
+  "notes": [
+    "Native-race clothes are Wrath approximations, not claimed exact later costumes.",
+    "Captives are player-private temporary actors; the cage opening animation is shared but never grants/throttles credit.",
+    "No item/model/map client patch is required.",
+    "No chapter 2 quest is inserted. The final completion dialogue explains the next assignment is not yet ready."
+  ]
+}
