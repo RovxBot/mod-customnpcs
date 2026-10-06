@@ -101,6 +101,16 @@ Names, appearances, source coordinates and substitutions live in the four
 `data/npcs/*_trainers.json` manifests. Regenerate their installation/update SQL
 with `python3 tools/generate_city_trainers.py`, or verify it using `--check`.
 
+### City guard trainer directions
+
+City guards in all six capitals list the 78 additional trainers by name under
+their class/profession directions and mark their actual Wrath locations on the
+map. Stormwind's riding, flying and hunter pet trainers appear in the guard's
+main menu. Existing directions are retained. Apply the
+[guard-direction SQL update](docs/city-guard-trainers.md) after the trainer rosters
+and restart worldserver. This uses native server gossip/POIs and requires no
+change to `patch-F.MPQ`.
+
 ### Additional flight masters (entries 4000600–4000628)
 
 Twenty-nine later flight masters are added at existing Wrath settlements:
@@ -190,6 +200,7 @@ mysql -u<user> -p acore_world < data/sql/db-world/base/ironforge_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/darnassus_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/thunder_bluff_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/undercity_trainers.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/city_guard_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/flight_masters.sql
 ```
 
