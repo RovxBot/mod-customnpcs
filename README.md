@@ -123,7 +123,7 @@ step. The included [client patch](data/client/flight-masters/patch-F.MPQ) adds t
 stops to the normal flight map, with 110 routes connecting them to existing Wrath
 hubs. Install the client patch before enabling the matching world update.
 
-## The Broken Seal campaign: Chapters 1 and 2
+## The Broken Seal campaign: Chapters 1–3
 
 Chapter 1 adds a level 20–25 investigation in Stonetalon: faction introductions,
 three distinct trail markers, six scout kills, three personal captive escorts,
@@ -143,7 +143,18 @@ through three enforcer waves. Its 23 quests use native Wrath assets and gossip
 controls, ending with a letter to Dezco's neutral Dustwallow camp and six signet
 choices. [Chapter 2 installation and gameplay](docs/broken-seal/chapter2-implementation.md)
 includes the SQL order, entity IDs, recovery behavior and in-game acceptance checks.
-Chapters 3–14 remain design inventories.
+Chapter 3 adds the level 30–35 Dawnchaser expedition in Dustwallow: search and
+medical aid, parallel raider/remedy branches, the private birth and loss scene,
+a quiet memorial, food deliveries and a settlement handoff. It keeps both sons
+alive, uses a native tauren baby model, and recreates Kang and Mei as dwarves.
+[Chapter 3 installation and gameplay](docs/broken-seal/chapter3-implementation.md)
+lists all 12 quests, recovery paths, native substitutions and remaining playtests.
+The [shared hub add-on](docs/broken-seal/hub-implementation.md) builds out eight
+resting/hand-in areas with 72 native scenery placements, 16 sentries and eight
+working residents. It protects players from ordinary ambient mobs, keeps quest
+encounters active, and conditionally clears 21 native spawn homes with backups.
+[The layout plan](docs/broken-seal/hub-layout.svg) shows camp footprints and clear routes.
+Chapters 4–14 remain design inventories.
 
 ## Custom NPC appearances
 
@@ -193,6 +204,8 @@ mysql -u<user> -p acore_world < data/sql/db-world/base/kappa.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/custom_npc_appearances.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter1.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter2.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter3.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_hubs.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_appearances.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/stormwind_trainers.sql
@@ -224,6 +237,8 @@ automatically on startup when the module is present in the source tree.
 | `ModCustomNPCs.Appearance.Enable` | `1` | Enable assigned player-style NPC outfits |
 | `ModCustomNPCs.BrokenSeal.Chapter1.Enable` | `1` | Enable the Stonetalon chapter's quest interactions and personal scenes |
 | `ModCustomNPCs.BrokenSeal.Chapter2.Enable` | `1` | Enable the cult training chapter; requires Chapter 1. |
+| `ModCustomNPCs.BrokenSeal.Chapter3.Enable` | `1` | Enable Dawnchaser medical scenes and marsh quests; requires Chapters 1/2. |
+| `ModCustomNPCs.BrokenSeal.Hubs.Enable` | `1` | Enable camp sentries and local ambient-mob protection; requires hub SQL. |
 
 ## Project Structure
 

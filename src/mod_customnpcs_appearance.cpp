@@ -375,6 +375,10 @@ private:
                 "color {} / facial hair {}.",
                 outfit->race, outfit->gender, outfit->playerClass, outfit->skin, outfit->face, outfit->hair,
                 outfit->hairColor, outfit->facialHair);
+        if (outfit)
+            for (std::size_t slot = 0; slot < CustomNpcs::ArmorSlotCount; ++slot)
+                handler->PSendSysMessage("{}: configured {}, resolved display {}.", CustomNpcs::ArmorColumns[slot],
+                    outfit->armor[slot], outfit->armorDisplays[slot]);
         return true;
     }
 

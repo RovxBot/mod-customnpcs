@@ -1,0 +1,1759 @@
+{
+  "schema_version": 1,
+  "chapter": "C03",
+  "title": "The Dawnchaser Promise",
+  "status": "Implemented; syntax, progression, SQL and native assets checked; full build and live playthrough pending.",
+  "zone": 15,
+  "world_map_area": 141,
+  "ids": {
+    "QUEST_SEARCH": 900300,
+    "QUEST_POISON": 900301,
+    "QUEST_STEW": 900302,
+    "QUEST_BLIND": 900303,
+    "QUEST_THREAT": 900304,
+    "QUEST_HERBS": 900305,
+    "QUEST_AGENDA": 900306,
+    "QUEST_POOLS": 900307,
+    "QUEST_LIFE": 900308,
+    "QUEST_VIGIL": 900309,
+    "QUEST_LIVING": 900310,
+    "QUEST_LETTER": 900311,
+    "NPC_KANG": 4001400,
+    "NPC_KOR": 4001401,
+    "NPC_NALA": 4001402,
+    "NPC_CHEZIN": 4001403,
+    "NPC_LEZA": 4001404,
+    "NPC_MEI": 4001405,
+    "NPC_REDHORN": 4001406,
+    "NPC_CLOUDHOOF": 4001407,
+    "NPC_REFUGEE_A": 4001408,
+    "NPC_REFUGEE_B": 4001409,
+    "NPC_REFUGEE_C": 4001410,
+    "NPC_DEZCO_SCENE": 4001411,
+    "NPC_NALA_SCENE": 4001412,
+    "NPC_SCENE": 4001413,
+    "NPC_RAIDER": 4001414,
+    "NPC_HEXER": 4001415,
+    "NPC_SKITTERER": 4001416,
+    "CREDIT_TREATED": 4001450,
+    "CREDIT_STEW": 4001451,
+    "CREDIT_LOOKOUT_A": 4001452,
+    "CREDIT_LOOKOUT_B": 4001453,
+    "CREDIT_LOOKOUT_C": 4001454,
+    "CREDIT_REMEDY": 4001455,
+    "CREDIT_AGENDA": 4001456,
+    "CREDIT_LIFE": 4001457,
+    "CREDIT_VIGIL": 4001458,
+    "CREDIT_REFUGEE_A": 4001459,
+    "CREDIT_REFUGEE_B": 4001460,
+    "CREDIT_REFUGEE_C": 4001461,
+    "CREDIT_PROMISE": 4001462,
+    "GO_TRACK": 4001500,
+    "GO_TENT": 4001501,
+    "GO_HEARTH": 4001502,
+    "GO_LOOKOUT_A": 4001503,
+    "GO_LOOKOUT_B": 4001504,
+    "GO_LOOKOUT_C": 4001505,
+    "GO_HERB": 4001506,
+    "GO_ORDERS": 4001507,
+    "GO_DEVICE": 4001508,
+    "GO_POOL": 4001509,
+    "GO_MEMORIAL": 4001510,
+    "GO_SUPPLY_A": 4001511,
+    "GO_SUPPLY_B": 4001512,
+    "GO_SUPPLY_C": 4001513,
+    "GO_COT_A": 4001514,
+    "GO_COT_B": 4001515,
+    "GO_RUINED_TENT": 4001516,
+    "GO_VILLAGE_SIGN": 4001517,
+    "ITEM_ORDERS": 900300,
+    "ITEM_ANTIDOTE": 900301,
+    "ITEM_MEAT": 900302,
+    "ITEM_INSIGNIA": 900303,
+    "ITEM_LEAVES": 900304,
+    "ITEM_SAMPLE": 900305,
+    "ITEM_KEEPSAKE": 900306,
+    "ITEM_FOOD": 900307,
+    "ITEM_LETTER": 900308,
+    "ITEM_MIGHT": 900309,
+    "ITEM_PRECISION": 900310,
+    "ITEM_SORCERY": 900311,
+    "ITEM_RESTORATION": 900312,
+    "ITEM_GUARDING": 900313,
+    "ITEM_BALANCE": 900314,
+    "NPC_DEZCO": 4001205,
+    "QUEST_C02_END": 900222,
+    "SPELL_ANTIDOTE_TARGET": 34665,
+    "SPELL_HEAL_VISUAL": 635,
+    "SPELL_STRIKE": 11976,
+    "SPELL_HEX": 11641,
+    "SPELL_HEX_BOLT": 20816,
+    "CREDIT_DEVICE": 4001463,
+    "TEXT_DEZCO": 4001464
+  },
+  "points": {
+    "dezco": [
+      -3970.0,
+      -3350.0,
+      39.39284809730439,
+      3.14
+    ],
+    "kang": [
+      -3955.0,
+      -3348.0,
+      39.26710815177746,
+      3.14
+    ],
+    "kor": [
+      -3970.0,
+      -3328.0,
+      37.18366264345962,
+      3.14
+    ],
+    "nala": [
+      -3982.0,
+      -3358.0,
+      40.26248685667625,
+      3.14
+    ],
+    "tent": [
+      -3986.0,
+      -3367.0,
+      40.62909437048796,
+      3.14
+    ],
+    "leza": [
+      -3988.0,
+      -3370.0,
+      40.75254748551932,
+      3.14
+    ],
+    "dezco_scene": [
+      -3980.0,
+      -3368.0,
+      40.20170718991227,
+      3.14
+    ],
+    "nala_scene": [
+      -3987.0,
+      -3372.0,
+      40.9401390496042,
+      3.14
+    ],
+    "cot_a": [
+      -3990.0,
+      -3358.0,
+      40.03269612360333,
+      3.14
+    ],
+    "cot_b": [
+      -3993.0,
+      -3358.0,
+      39.584477346483204,
+      3.14
+    ],
+    "redhorn": [
+      -3990.0,
+      -3358.0,
+      40.03269612360333,
+      3.14
+    ],
+    "cloudhoof": [
+      -3993.0,
+      -3358.0,
+      39.584477346483204,
+      3.14
+    ],
+    "hearth": [
+      -3947.0,
+      -3357.0,
+      38.161925851368146,
+      3.14
+    ],
+    "memorial": [
+      -4010.0,
+      -3340.0,
+      37.10976943307338,
+      3.14
+    ],
+    "chezin": [
+      -3785.0,
+      -3488.0,
+      30.904776469037483,
+      3.14
+    ],
+    "track": [
+      -3780.0,
+      -3484.0,
+      30.66348012003404,
+      3.14
+    ],
+    "ruined_tent": [
+      -3792.0,
+      -3486.94,
+      31.23072556590791,
+      3.14
+    ],
+    "lookout_a": [
+      -3813.92,
+      -3509.84,
+      30.14540867615935,
+      3.14
+    ],
+    "lookout_b": [
+      -3890.0,
+      -3560.0,
+      37.41813423270267,
+      3.14
+    ],
+    "lookout_c": [
+      -3999.63,
+      -3594.61,
+      30.769223162146066,
+      3.14
+    ],
+    "orders": [
+      -3940.0,
+      -3620.0,
+      35.38285509169608,
+      3.14
+    ],
+    "device": [
+      -3946.0,
+      -3620.0,
+      35.839435092815705,
+      3.14
+    ],
+    "pool": [
+      -4010.0,
+      -3660.0,
+      43.261164807370186,
+      3.14
+    ],
+    "refugee_a": [
+      -3952.0,
+      -3320.0,
+      37.45147193352007,
+      3.14
+    ],
+    "refugee_b": [
+      -3917.0,
+      -3360.0,
+      34.7054172891271,
+      3.14
+    ],
+    "refugee_c": [
+      -3965.0,
+      -3390.0,
+      34.795068190896316,
+      3.14
+    ],
+    "supply_a": [
+      -3950.0,
+      -3320.0,
+      37.802428951127986,
+      3.14
+    ],
+    "supply_b": [
+      -3915.0,
+      -3360.0,
+      34.460440572295504,
+      3.14
+    ],
+    "supply_c": [
+      -3963.0,
+      -3390.0,
+      34.49506461526585,
+      3.14
+    ],
+    "mei": [
+      -4535.0,
+      -3235.0,
+      31.005721232444824,
+      3.14
+    ],
+    "village_sign": [
+      -4533.0,
+      -3233.0,
+      30.085449329220566,
+      3.14
+    ],
+    "raider_0": [
+      -3817.0,
+      -3510.0,
+      31.64495918332671,
+      3.14
+    ],
+    "raider_1": [
+      -3807.0,
+      -3520.0,
+      31.190844671336155,
+      3.14
+    ],
+    "raider_2": [
+      -3877.0,
+      -3554.0,
+      39.87576238084944,
+      3.14
+    ],
+    "raider_3": [
+      -3898.0,
+      -3550.0,
+      37.555951501783724,
+      3.14
+    ],
+    "raider_4": [
+      -3986.0,
+      -3592.0,
+      35.14438154908573,
+      3.14
+    ],
+    "raider_5": [
+      -4007.0,
+      -3586.0,
+      30.907599275429448,
+      3.14
+    ],
+    "raider_6": [
+      -3913.27,
+      -3606.58,
+      30.739638721880294,
+      3.14
+    ],
+    "raider_7": [
+      -3888.23,
+      -3596.15,
+      30.84089242987682,
+      3.14
+    ],
+    "hexer_0": [
+      -3904.8,
+      -3586.93,
+      30.731849205504968,
+      3.14
+    ],
+    "hexer_1": [
+      -3860.0,
+      -3615.0,
+      33.65433282262704,
+      3.14
+    ],
+    "hexer_2": [
+      -4003.72,
+      -3607.27,
+      30.854969300844946,
+      3.14
+    ],
+    "skitterer_0": [
+      -3925.0,
+      -3460.0,
+      30.728261740164694,
+      3.14
+    ],
+    "skitterer_1": [
+      -3958.4,
+      -3466.67,
+      30.358569149087955,
+      3.14
+    ],
+    "skitterer_2": [
+      -3930.13,
+      -3494.93,
+      30.86725958548896,
+      3.14
+    ],
+    "skitterer_3": [
+      -3966.92,
+      -3498.05,
+      30.695467876224445,
+      3.14
+    ],
+    "skitterer_4": [
+      -4005.0,
+      -3480.0,
+      30.58926532410932,
+      3.14
+    ],
+    "skitterer_5": [
+      -4016.0,
+      -3458.0,
+      32.2797333044642,
+      3.14
+    ],
+    "skitterer_6": [
+      -4004.0,
+      -3428.0,
+      44.80791978377301,
+      3.14
+    ],
+    "skitterer_7": [
+      -3941.74,
+      -3439.96,
+      30.832398283854484,
+      3.14
+    ],
+    "herb_0": [
+      -3865.42,
+      -3471.61,
+      30.75097425479255,
+      3.14
+    ],
+    "herb_1": [
+      -3869.33,
+      -3490.67,
+      30.859048434742107,
+      3.14
+    ],
+    "herb_2": [
+      -3898.0,
+      -3472.0,
+      31.896224684021448,
+      3.14
+    ],
+    "herb_3": [
+      -3920.0,
+      -3520.0,
+      36.20807931503754,
+      3.14
+    ],
+    "herb_4": [
+      -3939.47,
+      -3548.0,
+      41.12239014984691,
+      3.14
+    ],
+    "herb_5": [
+      -3957.0,
+      -3558.0,
+      39.25788936634268,
+      3.14
+    ],
+    "herb_6": [
+      -3975.0,
+      -3540.0,
+      40.9578977176704,
+      3.14
+    ],
+    "herb_7": [
+      -4002.54,
+      -3530.12,
+      30.73718180836647,
+      3.14
+    ],
+    "herb_8": [
+      -4020.98,
+      -3554.98,
+      30.920595618990035,
+      3.14
+    ],
+    "herb_9": [
+      -4018.0,
+      -3565.0,
+      31.940067512427504,
+      3.14
+    ],
+    "herb_10": [
+      -4025.0,
+      -3505.0,
+      35.66227719286653,
+      3.14
+    ],
+    "herb_11": [
+      -3870.0,
+      -3536.0,
+      38.85394219834596,
+      3.14
+    ]
+  },
+  "actors": [
+    {
+      "key": "NPC_KANG",
+      "entry": 4001400,
+      "name": "Kang Bramblestaff",
+      "point": "kang",
+      "display": 53,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575,
+        "class": 1
+      },
+      "greeting": "A meal, a poultice and a careful test. We start with what we can do."
+    },
+    {
+      "key": "NPC_KOR",
+      "entry": 4001401,
+      "name": "Kor Bloodtusk",
+      "point": "kor",
+      "display": 51,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 2,
+        "gender": 0,
+        "chest": 6085,
+        "shoulders": 6597,
+        "waist": 6594,
+        "legs": 6596,
+        "feet": 6573,
+        "class": 1
+      },
+      "greeting": "Stay alert. The people at this camp have enough to fear already."
+    },
+    {
+      "key": "NPC_NALA",
+      "entry": 4001402,
+      "name": "Nala",
+      "point": "nala",
+      "display": 60,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 1,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575,
+        "class": 1
+      },
+      "greeting": "Give Leza privacy. I will tell you when your help is needed."
+    },
+    {
+      "key": "NPC_CHEZIN",
+      "entry": 4001403,
+      "name": "Chezin Dawnchaser",
+      "point": "chezin",
+      "display": 59,
+      "faction": 35,
+      "flags": 33555202,
+      "npc_flags": 0,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_corpse",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "chest": 2317,
+        "feet": 2315,
+        "hands": 4248,
+        "waist": 6382,
+        "legs": 6568,
+        "class": 1
+      },
+      "greeting": "Chezin lies still beside the ruined camp. His report is tucked beneath his pack."
+    },
+    {
+      "key": "NPC_LEZA",
+      "entry": 4001404,
+      "name": "Leza Farwalker",
+      "point": null,
+      "display": 60,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_actor",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 1,
+        "chest": 2317,
+        "feet": 2315,
+        "hands": 4248,
+        "waist": 6382,
+        "legs": 6568,
+        "class": 1
+      },
+      "greeting": "The expedition still has people who need our help.",
+      "corpse_delay": 60
+    },
+    {
+      "key": "NPC_MEI",
+      "entry": 4001405,
+      "name": "Mei Barrelbottom",
+      "point": "mei",
+      "display": 54,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 3,
+        "gender": 1,
+        "chest": 6238,
+        "feet": 2315,
+        "waist": 6382,
+        "class": 1,
+        "legs": 10045
+      },
+      "greeting": "We still have homes here. Some days it is harder to remember why we keep them."
+    },
+    {
+      "key": "NPC_REDHORN",
+      "entry": 4001406,
+      "name": "Redhorn",
+      "point": null,
+      "display": 23783,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 1,
+      "type": 7,
+      "script": "npc_bs_c03_actor",
+      "experience_multiplier": 0,
+      "greeting": ""
+    },
+    {
+      "key": "NPC_CLOUDHOOF",
+      "entry": 4001407,
+      "name": "Cloudhoof",
+      "point": null,
+      "display": 23783,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 1,
+      "type": 7,
+      "script": "npc_bs_c03_actor",
+      "experience_multiplier": 0,
+      "greeting": ""
+    },
+    {
+      "key": "NPC_REFUGEE_A",
+      "entry": 4001408,
+      "name": "Expedition Refugees: Group A",
+      "point": "refugee_a",
+      "display": 59,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "chest": 2317,
+        "feet": 2315,
+        "hands": 4248,
+        "waist": 6382,
+        "legs": 6568,
+        "class": 1
+      },
+      "greeting": "The expedition still has people who need our help."
+    },
+    {
+      "key": "NPC_REFUGEE_B",
+      "entry": 4001409,
+      "name": "Expedition Refugees: Group B",
+      "point": "refugee_b",
+      "display": 50,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 1,
+        "gender": 1,
+        "chest": 2317,
+        "feet": 2315,
+        "hands": 4248,
+        "waist": 6382,
+        "legs": 6568,
+        "class": 1
+      },
+      "greeting": "The expedition still has people who need our help."
+    },
+    {
+      "key": "NPC_REFUGEE_C",
+      "entry": 4001410,
+      "name": "Expedition Refugees: Group C",
+      "point": "refugee_c",
+      "display": 52,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_contact",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 2,
+        "gender": 1,
+        "chest": 2317,
+        "feet": 2315,
+        "hands": 4248,
+        "waist": 6382,
+        "legs": 6568,
+        "class": 1
+      },
+      "greeting": "The expedition still has people who need our help."
+    },
+    {
+      "key": "NPC_DEZCO_SCENE",
+      "entry": 4001411,
+      "name": "Sunwalker Dezco",
+      "point": null,
+      "display": 59,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_actor",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "chest": 6085,
+        "shoulders": 6597,
+        "waist": 6594,
+        "legs": 6596,
+        "feet": 6573,
+        "mainhand": 6631,
+        "class": 1
+      },
+      "greeting": "The expedition still has people who need our help."
+    },
+    {
+      "key": "NPC_NALA_SCENE",
+      "entry": 4001412,
+      "name": "Nala",
+      "point": null,
+      "display": 60,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 35,
+      "type": 7,
+      "script": "npc_bs_c03_actor",
+      "experience_multiplier": 0,
+      "outfit": {
+        "race": 6,
+        "gender": 1,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575,
+        "class": 1
+      },
+      "greeting": "The expedition still has people who need our help."
+    },
+    {
+      "key": "NPC_SCENE",
+      "entry": 4001413,
+      "name": "Dawnchaser Story Focus",
+      "point": null,
+      "display": 11686,
+      "faction": 35,
+      "flags": 33555202,
+      "npc_flags": 0,
+      "level": 1,
+      "type": 10,
+      "script": "npc_bs_c03_scene",
+      "experience_multiplier": 0,
+      "greeting": ""
+    },
+    {
+      "key": "NPC_RAIDER",
+      "entry": 4001414,
+      "name": "Marsh Relic Raider",
+      "point": null,
+      "points": [
+        "raider_0",
+        "raider_1",
+        "raider_2",
+        "raider_3",
+        "raider_4",
+        "raider_5",
+        "raider_6",
+        "raider_7"
+      ],
+      "display": 14402,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 31,
+      "type": 7,
+      "script": "npc_bs_c03_enemy",
+      "experience_multiplier": 1,
+      "combat_spell": "SPELL_STRIKE",
+      "greeting": ""
+    },
+    {
+      "key": "NPC_HEXER",
+      "entry": 4001415,
+      "name": "Marsh Raider Hexer",
+      "point": null,
+      "points": [
+        "hexer_0",
+        "hexer_1",
+        "hexer_2"
+      ],
+      "display": 1122,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 32,
+      "type": 7,
+      "script": "npc_bs_c03_enemy",
+      "experience_multiplier": 1,
+      "combat_spell": "SPELL_HEX_BOLT",
+      "greeting": ""
+    },
+    {
+      "key": "NPC_SKITTERER",
+      "entry": 4001416,
+      "name": "Marsh Skitterer",
+      "point": null,
+      "points": [
+        "skitterer_0",
+        "skitterer_1",
+        "skitterer_2",
+        "skitterer_3",
+        "skitterer_4",
+        "skitterer_5",
+        "skitterer_6",
+        "skitterer_7"
+      ],
+      "display": 545,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 30,
+      "type": 1,
+      "script": "npc_bs_c03_enemy",
+      "experience_multiplier": 1,
+      "combat_spell": "SPELL_STRIKE",
+      "greeting": ""
+    }
+  ],
+  "objects": [
+    {
+      "key": "GO_TRACK",
+      "entry": 4001500,
+      "name": "Lost Scouting Camp Marker",
+      "display": 22,
+      "points": [
+        "track"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_TENT",
+      "entry": 4001501,
+      "name": "Dawnchaser Medical Tent",
+      "display": 8698,
+      "points": [
+        "tent"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_HEARTH",
+      "entry": 4001502,
+      "name": "Dawnchaser Cooking Hearth",
+      "display": 192,
+      "points": [
+        "hearth"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_LOOKOUT_A",
+      "entry": 4001503,
+      "name": "Lookout A",
+      "display": 22,
+      "points": [
+        "lookout_a"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_LOOKOUT_B",
+      "entry": 4001504,
+      "name": "Lookout B",
+      "display": 22,
+      "points": [
+        "lookout_b"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_LOOKOUT_C",
+      "entry": 4001505,
+      "name": "Lookout C",
+      "display": 22,
+      "points": [
+        "lookout_c"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_HERB",
+      "entry": 4001506,
+      "name": "Marsh Lotus Leaves",
+      "display": 269,
+      "points": [
+        "herb_0",
+        "herb_1",
+        "herb_2",
+        "herb_3",
+        "herb_4",
+        "herb_5",
+        "herb_6",
+        "herb_7",
+        "herb_8",
+        "herb_9",
+        "herb_10",
+        "herb_11"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_ORDERS",
+      "entry": 4001507,
+      "name": "Raider Excavation Orders",
+      "display": 259,
+      "points": [
+        "orders"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_DEVICE",
+      "entry": 4001508,
+      "name": "Raider Relic Binding Apparatus",
+      "display": 235,
+      "points": [
+        "device"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_POOL",
+      "entry": 4001509,
+      "name": "Ward-tainted Pool Focus",
+      "display": 235,
+      "points": [
+        "pool"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_MEMORIAL",
+      "entry": 4001510,
+      "name": "Leza's Memorial",
+      "display": 192,
+      "points": [
+        "memorial"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_SUPPLY_A",
+      "entry": 4001511,
+      "name": "Supply A",
+      "display": 335,
+      "points": [
+        "supply_a"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_SUPPLY_B",
+      "entry": 4001512,
+      "name": "Supply B",
+      "display": 335,
+      "points": [
+        "supply_b"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_SUPPLY_C",
+      "entry": 4001513,
+      "name": "Supply C",
+      "display": 335,
+      "points": [
+        "supply_c"
+      ],
+      "scale": 1,
+      "decorative": false
+    },
+    {
+      "key": "GO_COT_A",
+      "entry": 4001514,
+      "name": "Cot A",
+      "display": 5993,
+      "points": [
+        "cot_a"
+      ],
+      "scale": 0.8,
+      "decorative": true
+    },
+    {
+      "key": "GO_COT_B",
+      "entry": 4001515,
+      "name": "Cot B",
+      "display": 5993,
+      "points": [
+        "cot_b"
+      ],
+      "scale": 0.8,
+      "decorative": true
+    },
+    {
+      "key": "GO_RUINED_TENT",
+      "entry": 4001516,
+      "name": "Ruined Tent",
+      "display": 8457,
+      "points": [
+        "ruined_tent"
+      ],
+      "scale": 1,
+      "decorative": true
+    },
+    {
+      "key": "GO_VILLAGE_SIGN",
+      "entry": 4001517,
+      "name": "Village Sign",
+      "display": 22,
+      "points": [
+        "village_sign"
+      ],
+      "scale": 1,
+      "decorative": true
+    }
+  ],
+  "items": [
+    {
+      "key": "ITEM_ORDERS",
+      "entry": 900300,
+      "name": "Raider Excavation Orders",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_ANTIDOTE",
+      "entry": 900301,
+      "name": "Marsh Antidote",
+      "display": 2885,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "item_bs_c03_antidote",
+      "spell": "SPELL_ANTIDOTE_TARGET",
+      "icon_donor_item": 6452
+    },
+    {
+      "key": "ITEM_MEAT",
+      "entry": 900302,
+      "name": "Skitterer Meat",
+      "display": 25466,
+      "maxcount": 8,
+      "stackable": 8,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 3173
+    },
+    {
+      "key": "ITEM_INSIGNIA",
+      "entry": 900303,
+      "name": "Relic Raider Insignia",
+      "display": 20984,
+      "maxcount": 8,
+      "stackable": 8,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 17031
+    },
+    {
+      "key": "ITEM_LEAVES",
+      "entry": 900304,
+      "name": "Marsh Lotus Leaves",
+      "display": 24688,
+      "maxcount": 12,
+      "stackable": 12,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 13468
+    },
+    {
+      "key": "ITEM_SAMPLE",
+      "entry": 900305,
+      "name": "Ward-tainted Water Sample",
+      "display": 18084,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 159
+    },
+    {
+      "key": "ITEM_KEEPSAKE",
+      "entry": 900306,
+      "name": "Leza's Memorial Totem",
+      "display": 7299,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 1,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 5175
+    },
+    {
+      "key": "ITEM_FOOD",
+      "entry": 900307,
+      "name": "Village Food Supplies",
+      "display": 6399,
+      "maxcount": 3,
+      "stackable": 3,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 4540
+    },
+    {
+      "key": "ITEM_LETTER",
+      "entry": 900308,
+      "name": "Village Introduction Letter",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_MIGHT",
+      "entry": 900309,
+      "name": "The Dawnchaser Promise: Signet of Might",
+      "display": 9846,
+      "equipment": true,
+      "level": 35,
+      "required_level": 30,
+      "stats": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_PRECISION",
+      "entry": 900310,
+      "name": "The Dawnchaser Promise: Signet of Precision",
+      "display": 9846,
+      "equipment": true,
+      "level": 35,
+      "required_level": 30,
+      "stats": [
+        [
+          3,
+          6
+        ],
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_SORCERY",
+      "entry": 900311,
+      "name": "The Dawnchaser Promise: Signet of Sorcery",
+      "display": 9846,
+      "equipment": true,
+      "level": 35,
+      "required_level": 30,
+      "stats": [
+        [
+          5,
+          6
+        ],
+        [
+          45,
+          8
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_RESTORATION",
+      "entry": 900312,
+      "name": "The Dawnchaser Promise: Signet of Restoration",
+      "display": 9846,
+      "equipment": true,
+      "level": 35,
+      "required_level": 30,
+      "stats": [
+        [
+          6,
+          6
+        ],
+        [
+          43,
+          2
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_GUARDING",
+      "entry": 900313,
+      "name": "The Dawnchaser Promise: Signet of Guarding",
+      "display": 9846,
+      "equipment": true,
+      "level": 35,
+      "required_level": 30,
+      "stats": [
+        [
+          7,
+          7
+        ],
+        [
+          12,
+          5
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_BALANCE",
+      "entry": 900314,
+      "name": "The Dawnchaser Promise: Signet of Balance",
+      "display": 9846,
+      "equipment": true,
+      "level": 35,
+      "required_level": 30,
+      "stats": [
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          4
+        ]
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "key": "QUEST_SEARCH",
+      "id": 900300,
+      "design_id": "BS-C03-01",
+      "title": "Search Party",
+      "level": 30,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_C02_END",
+      "prerequisites": [
+        "QUEST_C02_END"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_ORDERS": 1
+      },
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 4,
+      "money": 1200,
+      "objectives": "Find Chezin at the ruined scouting camp and recover his report.",
+      "description": "Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Follow the marker and find him. If he has a report, bring it back. Do not promise Leza he is coming home until you know.",
+      "completion": "Chezin is gone. I will tell Leza myself. These orders give us something we can still act on."
+    },
+    {
+      "key": "QUEST_POISON",
+      "id": 900301,
+      "design_id": "BS-C03-02",
+      "title": "Poisoned!",
+      "level": 30,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_SEARCH",
+      "prerequisites": [
+        "QUEST_SEARCH"
+      ],
+      "credits": {
+        "CREDIT_TREATED": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_ANTIDOTE",
+      "source_count": 1,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 4,
+      "money": 1200,
+      "objectives": "Obtain the supplied antidote and administer it to Leza while Nala monitors her.",
+      "description": "Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your private patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.",
+      "completion": "The fever has eased, but this is not a cure. We will keep looking, and Nala will stay with her."
+    },
+    {
+      "key": "QUEST_STEW",
+      "id": 900302,
+      "design_id": "BS-C03-03",
+      "title": "Skitterer Stew",
+      "level": 30,
+      "min_level": 30,
+      "giver": "NPC_KANG",
+      "turn_in": "NPC_KANG",
+      "previous": "QUEST_POISON",
+      "prerequisites": [
+        "QUEST_POISON"
+      ],
+      "credits": {
+        "CREDIT_STEW": 1
+      },
+      "required_items": {
+        "ITEM_MEAT": 8
+      },
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1200,
+      "objectives": "Gather 8 skitterer meat and help prepare food for the weakened camp.",
+      "description": "People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.",
+      "completion": "Hot food will do more for this camp than another empty assurance. Thank you.",
+      "exclusive_group": -900304
+    },
+    {
+      "key": "QUEST_BLIND",
+      "id": 900303,
+      "design_id": "BS-C03-04",
+      "title": "Blind Them!",
+      "level": 31,
+      "min_level": 30,
+      "giver": "NPC_KOR",
+      "turn_in": "NPC_KOR",
+      "previous": "QUEST_POISON",
+      "prerequisites": [
+        "QUEST_POISON"
+      ],
+      "credits": {
+        "NPC_RAIDER": 6,
+        "CREDIT_LOOKOUT_A": 1,
+        "CREDIT_LOOKOUT_B": 1,
+        "CREDIT_LOOKOUT_C": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1240,
+      "objectives": "Disable 3 raider lookout posts and defeat 6 guards watching the expedition.",
+      "description": "The relic raiders are watching us. Disable each of the three marked lookout posts to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; striking the same marker again will not blind another lookout. Keep their attention away from the medical tent.",
+      "completion": "Their lookout line is broken. Now we can prepare without their eyes on every movement.",
+      "exclusive_group": -900304
+    },
+    {
+      "key": "QUEST_THREAT",
+      "id": 900304,
+      "design_id": "BS-C03-05",
+      "title": "Threat from the Marsh Ruins",
+      "level": 31,
+      "min_level": 30,
+      "giver": "NPC_KOR",
+      "turn_in": "NPC_KOR",
+      "previous": "QUEST_STEW",
+      "prerequisites": [
+        "QUEST_STEW",
+        "QUEST_BLIND"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_INSIGNIA": 8
+      },
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1240,
+      "objectives": "Defeat 8 relic raiders before their next camp attack.",
+      "description": "The watchers were only the edge of the force. Defeat relic raiders and hexers at their dig, and bring back eight insignia as proof that their next attack has been broken. This expedition has families in it, and I mean to keep them alive.",
+      "completion": "They will have to regroup before they try us again. I will keep the watch.",
+      "exclusive_group": -900307
+    },
+    {
+      "key": "QUEST_HERBS",
+      "id": 900305,
+      "design_id": "BS-C03-06",
+      "title": "Herbal Remedies",
+      "level": 32,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_STEW",
+      "prerequisites": [
+        "QUEST_STEW",
+        "QUEST_BLIND"
+      ],
+      "credits": {
+        "CREDIT_REMEDY": 1
+      },
+      "required_items": {
+        "ITEM_LEAVES": 12
+      },
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1280,
+      "objectives": "Collect 12 quest lotus leaves and help Kang prepare a second treatment.",
+      "description": "The antidote eased the fever, but Leza is still weak. Collect twelve quest lotus leaves among the southern marsh paths. Ask Kang to prepare the treatment when you have them, then return the leaves to me. These are camp supplies, not a test of your herbalism.",
+      "completion": "Kang has prepared what he can from these leaves. We have bought time, not certainty.",
+      "exclusive_group": -900307
+    },
+    {
+      "key": "QUEST_AGENDA",
+      "id": 900306,
+      "design_id": "BS-C03-07",
+      "title": "The Relic Raiders Agenda",
+      "level": 32,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_STEW",
+      "prerequisites": [
+        "QUEST_STEW",
+        "QUEST_BLIND"
+      ],
+      "credits": {
+        "CREDIT_DEVICE": 1,
+        "CREDIT_AGENDA": 1
+      },
+      "required_items": {
+        "ITEM_ORDERS": 1
+      },
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1280,
+      "objectives": "Recover excavation orders and compare the raiders focus with the expedition ledger.",
+      "description": "Chezin saw the raiders excavating stones marked with the same cuts described in Jarod's ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.",
+      "completion": "The cuts match Jarod's ledger. Someone is buying relics that should have stayed buried.",
+      "exclusive_group": -900307
+    },
+    {
+      "key": "QUEST_POOLS",
+      "id": 900307,
+      "design_id": "BS-C03-08",
+      "title": "The Pools of Youth",
+      "level": 33,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_KANG",
+      "previous": "QUEST_THREAT",
+      "prerequisites": [
+        "QUEST_THREAT",
+        "QUEST_HERBS",
+        "QUEST_AGENDA"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_SAMPLE": 1
+      },
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 4,
+      "money": 1320,
+      "objectives": "Collect one water sample from the tainted pool and bring it to Kang for testing.",
+      "description": "The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.",
+      "completion": "This water drains life. I will not give it to Leza as medicine. I can explain the mark, but I cannot undo what she has already suffered."
+    },
+    {
+      "key": "QUEST_LIFE",
+      "id": 900308,
+      "design_id": "BS-C03-09",
+      "title": "Life",
+      "level": 33,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_POOLS",
+      "prerequisites": [
+        "QUEST_POOLS"
+      ],
+      "credits": {
+        "CREDIT_LIFE": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1320,
+      "objectives": "Stand by Dezco while Nala tends Leza; witness the birth, Leza's death and the two surviving sons.",
+      "description": "Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.",
+      "completion": "Leza is gone. Redhorn and Cloudhoof are here. I must be here for them, too."
+    },
+    {
+      "key": "QUEST_VIGIL",
+      "id": 900309,
+      "design_id": "BS-C03-10",
+      "title": "A Quiet Vigil",
+      "level": 34,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_LIFE",
+      "prerequisites": [
+        "QUEST_LIFE"
+      ],
+      "credits": {
+        "CREDIT_VIGIL": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "source_count": 0,
+      "reward_choices": [],
+      "fixed_rewards": {
+        "ITEM_KEEPSAKE": 1
+      },
+      "xp_difficulty": 4,
+      "money": 1360,
+      "objectives": "Attend the memorial and accept Leza's keepsake without a combat objective.",
+      "description": "Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial west of camp. Stay quietly for the vigil, then return to me for a totem in her memory.",
+      "completion": "Keep this totem. Let it remind you that the person who dies is more than the moment of their death."
+    },
+    {
+      "key": "QUEST_LIVING",
+      "id": 900310,
+      "design_id": "BS-C03-11",
+      "title": "For the Living",
+      "level": 34,
+      "min_level": 30,
+      "giver": "NPC_DEZCO",
+      "turn_in": "NPC_DEZCO",
+      "previous": "QUEST_VIGIL",
+      "prerequisites": [
+        "QUEST_VIGIL"
+      ],
+      "credits": {
+        "CREDIT_REFUGEE_A": 1,
+        "CREDIT_REFUGEE_B": 1,
+        "CREDIT_REFUGEE_C": 1,
+        "CREDIT_PROMISE": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_FOOD",
+      "source_count": 3,
+      "reward_choices": [],
+      "fixed_rewards": {},
+      "xp_difficulty": 5,
+      "money": 1360,
+      "objectives": "Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.",
+      "description": "Redhorn and Cloudhoof breathe, and others still need to eat. Take these three food bundles to our three refugee groups. Give each group one bundle, then speak with me about the boys and the people who remain. We will carry our grief; we will not leave the living behind.",
+      "completion": "We will move when the children and the wounded can move. The expedition still has a purpose."
+    },
+    {
+      "key": "QUEST_LETTER",
+      "id": 900311,
+      "design_id": "BS-C03-12",
+      "title": "Leave a Place Better",
+      "level": 35,
+      "min_level": 30,
+      "giver": "NPC_KANG",
+      "turn_in": "NPC_MEI",
+      "previous": "QUEST_LIVING",
+      "prerequisites": [
+        "QUEST_LIVING"
+      ],
+      "credits": {},
+      "required_items": {
+        "ITEM_LETTER": 1
+      },
+      "source_item": "ITEM_LETTER",
+      "source_count": 1,
+      "reward_choices": [
+        "ITEM_MIGHT",
+        "ITEM_PRECISION",
+        "ITEM_SORCERY",
+        "ITEM_RESTORATION",
+        "ITEM_GUARDING",
+        "ITEM_BALANCE"
+      ],
+      "fixed_rewards": {},
+      "xp_difficulty": 4,
+      "money": 1400,
+      "objectives": "Deliver the village introduction letter to Mei at the affected settlement.",
+      "description": "The people at the wayside settlement southwest of here have been facing the same raiders, and hope is wearing thin there. Take my introduction to Mei Barrelbottom at the relief station on the Mudsprocket road. Tell her what our camp has learned and what you are willing to do.",
+      "completion": "Kang speaks well of you. There is work to do here, and people who have forgotten that help can arrive."
+    }
+  ],
+  "external_entries": {
+    "NPC_DEZCO": "Chapter 2 shared receiver and Chapter 3 quest giver"
+  },
+  "loot": [
+    {
+      "actor": "NPC_SKITTERER",
+      "item": "ITEM_MEAT"
+    },
+    {
+      "actor": "NPC_RAIDER",
+      "item": "ITEM_INSIGNIA"
+    },
+    {
+      "actor": "NPC_HEXER",
+      "item": "ITEM_INSIGNIA"
+    }
+  ],
+  "validation": {
+    "all_ground_points_checked": true,
+    "ground_points": 62,
+    "routes": [
+      {
+        "start": "dezco",
+        "end": "chezin",
+        "complete": true,
+        "navigation_polygons": 41
+      },
+      {
+        "start": "dezco",
+        "end": "lookout_a",
+        "complete": true,
+        "navigation_polygons": 45
+      },
+      {
+        "start": "lookout_a",
+        "end": "lookout_b",
+        "complete": true,
+        "navigation_polygons": 13
+      },
+      {
+        "start": "lookout_b",
+        "end": "lookout_c",
+        "complete": true,
+        "navigation_polygons": 22
+      },
+      {
+        "start": "dezco",
+        "end": "orders",
+        "complete": true,
+        "navigation_polygons": 49
+      },
+      {
+        "start": "orders",
+        "end": "pool",
+        "complete": true,
+        "navigation_polygons": 12
+      },
+      {
+        "start": "dezco",
+        "end": "pool",
+        "complete": true,
+        "navigation_polygons": 54
+      },
+      {
+        "start": "dezco",
+        "end": "mei",
+        "complete": true,
+        "navigation_polygons": 109
+      },
+      {
+        "start": "nala",
+        "end": "leza",
+        "complete": true,
+        "navigation_polygons": 1
+      },
+      {
+        "start": "dezco",
+        "end": "memorial",
+        "complete": true,
+        "navigation_polygons": 8
+      }
+    ],
+    "native_source": "AzerothCore client-data v20 (3.3.5a)",
+    "travel_navigation_flags": "NAV_GROUND | NAV_WATER (9); stationary scene points checked on NAV_GROUND (1)",
+    "native_dbc_assets_checked": true
+  },
+  "native_assets": {
+    "infants": {
+      "display": 23783,
+      "model": "World\\GENERIC\\PASSIVEDOODADS\\BABIES\\Baby_Ta.mdx",
+      "donor_creature": 26365,
+      "notes": "Native tauren baby/Taunka Orphan model; private children are presented after the occluded delivery."
+    }
+  },
+  "source_identity_references": {
+    "Nala": "https://warcraft.wiki.gg/wiki/Nala",
+    "Kor": "https://warcraft.wiki.gg/wiki/Kor_Bloodtusk",
+    "Leza": "https://warcraft.wiki.gg/wiki/Leza_Farwalker",
+    "Life": "https://warcraft.wiki.gg/wiki/Life_(quest)"
+  }
+}

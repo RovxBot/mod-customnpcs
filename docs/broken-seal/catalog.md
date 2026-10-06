@@ -232,7 +232,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Role:** Birth scene and medical support.
 
-**Appearance:** Native midwife recreation; exact original race to verify.
+**Appearance:** Native female tauren midwife recreation; source race and gender verified.
 
 **Origin:** Krasarang.
 
@@ -244,7 +244,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Role:** Dezco and Leza's son; born in chapter 3, remains alive in this campaign.
 
-**Appearance:** Occluded infant scene proxy with a stock bundled cot; exact tauren infant visual unavailable in this plan.
+**Appearance:** Native tauren baby model (display 23783, Baby_Ta); private actor presented in a bundled cot after the occluded delivery.
 
 **Origin:** Krasarang.
 
@@ -256,7 +256,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Role:** Dezco and Leza's son; born in chapter 3, remains alive in this campaign.
 
-**Appearance:** Occluded infant scene proxy with a stock bundled cot; exact tauren infant visual unavailable in this plan.
+**Appearance:** Native tauren baby model (display 23783, Baby_Ta); private actor presented in a bundled cot after the occluded delivery.
 
 **Origin:** Krasarang.
 
@@ -280,7 +280,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Role:** Expedition security; campaign continuation preserves his later role by changing geography.
 
-**Appearance:** Native humanoid veteran outfit; exact source appearance audit pending.
+**Appearance:** Native male orc veteran outfit; source race and gender verified.
 
 **Origin:** Krasarang.
 

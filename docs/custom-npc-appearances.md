@@ -42,6 +42,8 @@ For example, make a female tauren outfit and give it a weapon:
 
 Use `set 100 chest <item entry>` and the other armor fields to dress the NPC.
 All slots initially contain zero, so a new outfit has no visible armor or weapons.
+A tunic does not supply trousers: configure the `legs` slot explicitly. A robe
+can cover the leg region, but campaign presets still define trousers underneath.
 An outfit replaces all visible equipment while assigned.
 
 Alternatively, equip your GM character and capture its look:
@@ -112,6 +114,10 @@ zero hides them. Weapons must exist in the client's `Item.dbc`. Item and display
 IDs are checked when loading or editing an outfit. A bad outfit is rejected as a
 whole and logged, rather than partly applied. Use armor suitable for the slot;
 the loader verifies the display's existence, not its inventory type.
+
+For the expedition courier and campaign preset corrections, see the
+[outfit repair guide](broken-seal/outfit-repair.md). The expanded `info` command
+prints configured armor values and their resolved native display IDs.
 
 ## Database and reusable definitions
 

@@ -5,6 +5,12 @@ Alliance or Horde introduction followed by seven shared quests. It uses normal
 Wrath quest progress, native items and models, and the module's NPC outfit system.
 Install [Chapter 2](chapter2-implementation.md) separately to continue from Ortell at level 25.
 
+The [shared hub add-on](hub-implementation.md) provides native camp dressing and
+ambient-mob safety. Its manifest records the corresponding public-enemy clearances.
+
+See the [outfit repair](outfit-repair.md) for missing courier trousers and the
+installed-preset migration.
+
 ## Install
 
 1. Include this module in the AzerothCore build and rebuild worldserver so the

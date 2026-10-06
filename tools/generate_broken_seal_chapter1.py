@@ -6,6 +6,8 @@ import json
 import math
 from pathlib import Path
 
+from broken_seal_outfits import validate_outfits
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/quests/broken_seal_chapter1.json'
 BASE = ROOT / 'data/sql/db-world/base/broken_seal_chapter1.sql'
@@ -32,6 +34,7 @@ def upsert(table, columns, values, keys):
 
 
 def validate(data):
+    validate_outfits(data['actors'] + data['hostile'])
     ids = data['ids']
     assert len(data['quests']) == 9 and data['chapter'] == 'C01'
     for prefix in ('QUEST_', 'NPC_', 'CREDIT_', 'GO_', 'ITEM_'):
@@ -179,7 +182,7 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
                    'chest', 'shoulders', 'shirt', 'waist', 'legs', 'feet', 'hands', 'mainhand', 'ranged']
     dressed = [a for a in data['actors'] + data['hostile'] if a.get('outfit')]
     for a in dressed:
-        outfit_rows.append([a['entry']] + [a['outfit'].get(c, 0) for c in outfit_cols[1:]])
+        outfit_rows.append([a['entry']] + [a['outfit'].get(c, 1 if c == 'class' else 0) for c in outfit_cols[1:]])
     text += upsert('mod_customnpcs_outfit', outfit_cols, outfit_rows, ['outfit_id'])
     text += upsert('mod_customnpcs_outfit_entry', ['creature_entry', 'outfit_id'],
                    [[a['entry'], a['entry']] for a in dressed], ['creature_entry'])

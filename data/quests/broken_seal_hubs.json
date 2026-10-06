@@ -1,0 +1,3742 @@
+{
+  "schema_version": 1,
+  "hubs": [
+    {
+      "key": "expedition",
+      "name": "Vale Expedition Camp",
+      "chapter": 1,
+      "center": [
+        1120.0,
+        1550.0,
+        34.5478,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 18,
+      "vertical_tolerance": 8,
+      "screen_radius": 36,
+      "clearance": 48,
+      "guard_entry": 4009000,
+      "contacts": [
+        4001000,
+        4001001,
+        4001005,
+        4001204
+      ],
+      "theme": "expedition"
+    },
+    {
+      "key": "refuge",
+      "name": "Surveyor Refuge",
+      "chapter": 1,
+      "center": [
+        1012.0,
+        1655.0,
+        0.6661,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 12,
+      "vertical_tolerance": 8,
+      "screen_radius": 30,
+      "clearance": 42,
+      "guard_entry": 4009001,
+      "contacts": [],
+      "theme": "refuge"
+    },
+    {
+      "key": "selection",
+      "name": "Twilight Selection Camp",
+      "chapter": 2,
+      "center": [
+        892.0,
+        1610.0,
+        -20.975140854483726,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 12,
+      "vertical_tolerance": 8,
+      "screen_radius": 30,
+      "clearance": 42,
+      "guard_entry": 4009002,
+      "contacts": [
+        4001200
+      ],
+      "theme": "cult"
+    },
+    {
+      "key": "supplicants",
+      "name": "Twilight Supplication Station",
+      "chapter": 2,
+      "center": [
+        894.0,
+        1643.0,
+        -12.057970640005262,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 12,
+      "vertical_tolerance": 8,
+      "screen_radius": 30,
+      "clearance": 42,
+      "guard_entry": 4009003,
+      "contacts": [
+        4001201
+      ],
+      "theme": "cult"
+    },
+    {
+      "key": "instruction",
+      "name": "Twilight Instructor Camp",
+      "chapter": 2,
+      "center": [
+        862.0,
+        1592.0,
+        -24.190115060947168,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 14,
+      "vertical_tolerance": 8,
+      "screen_radius": 32,
+      "clearance": 44,
+      "guard_entry": 4009004,
+      "contacts": [
+        4001202
+      ],
+      "theme": "cult"
+    },
+    {
+      "key": "kennels",
+      "name": "Twilight Kennel Station",
+      "chapter": 2,
+      "center": [
+        915.0,
+        1600.0,
+        -15.91023245221452,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 12,
+      "vertical_tolerance": 8,
+      "screen_radius": 30,
+      "clearance": 42,
+      "guard_entry": 4009005,
+      "contacts": [
+        4001203
+      ],
+      "theme": "cult"
+    },
+    {
+      "key": "dawnchasers",
+      "name": "Dawnchaser Field Camp",
+      "chapter": 3,
+      "center": [
+        -3970.0,
+        -3350.0,
+        39.39284809730439,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 58,
+      "vertical_tolerance": 8,
+      "screen_radius": 76,
+      "clearance": 88,
+      "guard_entry": 4009006,
+      "contacts": [
+        4001205,
+        4001400,
+        4001401,
+        4001402,
+        4001408,
+        4001409,
+        4001410
+      ],
+      "theme": "dawnchasers",
+      "activation_chapter": 2
+    },
+    {
+      "key": "wayside",
+      "name": "Mei's Mudsprocket Relief Station",
+      "chapter": 3,
+      "center": [
+        -4535.0,
+        -3235.0,
+        31.005721232444824,
+        3.14
+      ],
+      "map": 1,
+      "phase": 1,
+      "radius": 18,
+      "vertical_tolerance": 8,
+      "screen_radius": 36,
+      "clearance": 48,
+      "guard_entry": 4009007,
+      "contacts": [
+        4001405
+      ],
+      "theme": "wayside"
+    }
+  ],
+  "guards": [
+    {
+      "entry": 4009000,
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Sentry",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6085,
+        "legs": 6596,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 12282,
+        "class": 1
+      },
+      "points": [
+        [
+          1108.3,
+          1545.0,
+          28.774620026325632,
+          -2.7377328586824166
+        ],
+        [
+          1130.67,
+          1553.87,
+          39.97149793649448,
+          0.4738513364947603
+        ]
+      ]
+    },
+    {
+      "entry": 4009001,
+      "hub": "refuge",
+      "name": "Surveyor Refuge Sentry",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6085,
+        "legs": 6596,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 12282,
+        "class": 1
+      },
+      "points": [
+        [
+          1004.2,
+          1650.0,
+          9.421110739793843,
+          -2.571552189890083
+        ],
+        [
+          1019.8,
+          1661.0,
+          -0.43925984698384185,
+          0.6556956262415362
+        ]
+      ]
+    },
+    {
+      "entry": 4009002,
+      "hub": "selection",
+      "name": "Twilight Selection Camp Sentry",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6569,
+        "legs": 6568,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 6631,
+        "class": 1
+      },
+      "points": [
+        [
+          884.2,
+          1605.0,
+          -22.208678767793185,
+          -2.571552189890083
+        ],
+        [
+          899.8,
+          1616.0,
+          -19.266353703962803,
+          0.6556956262415362
+        ]
+      ]
+    },
+    {
+      "entry": 4009003,
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Sentry",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6569,
+        "legs": 6568,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 6631,
+        "class": 1
+      },
+      "points": [
+        [
+          886.2,
+          1638.0,
+          -18.04574612376399,
+          -2.571552189890083
+        ],
+        [
+          904.8,
+          1649.0,
+          -9.675087411799925,
+          0.6556956262415362
+        ]
+      ]
+    },
+    {
+      "entry": 4009004,
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Sentry",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6569,
+        "legs": 6568,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 6631,
+        "class": 1
+      },
+      "points": [
+        [
+          852.9,
+          1587.0,
+          -24.891290912102754,
+          -2.6391713835651625
+        ],
+        [
+          874.1,
+          1598.0,
+          -22.954961352420185,
+          0.5829135889557342
+        ]
+      ]
+    },
+    {
+      "entry": 4009005,
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Sentry",
+      "display": 49,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6569,
+        "legs": 6568,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 6631,
+        "class": 1
+      },
+      "points": [
+        [
+          907.2,
+          1595.0,
+          -17.72352004052537,
+          -2.571552189890083
+        ],
+        [
+          925.8,
+          1604.27,
+          -14.474689561971136,
+          0.6556956262415362
+        ]
+      ]
+    },
+    {
+      "entry": 4009006,
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Sentry",
+      "display": 59,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "chest": 6085,
+        "legs": 6596,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 12282,
+        "class": 1
+      },
+      "points": [
+        [
+          -4007.7,
+          -3355.0,
+          39.1219158543485,
+          -3.0097361689657305
+        ],
+        [
+          -3932.3,
+          -3344.0,
+          38.47990963176822,
+          0.15782753345665762
+        ]
+      ]
+    },
+    {
+      "entry": 4009007,
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Sentry",
+      "display": 53,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "chest": 6085,
+        "legs": 6596,
+        "feet": 6573,
+        "hands": 4248,
+        "mainhand": 12282,
+        "class": 1
+      },
+      "points": [
+        [
+          -4538.88,
+          -3244.82,
+          31.536760496289812,
+          -2.7377328586824166
+        ],
+        [
+          -4523.3,
+          -3229.0,
+          31.471600554899407,
+          0.4738513364947603
+        ]
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "entry": 4009100,
+      "key": "expedition_shelter_0",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Shelter",
+      "display": 7211,
+      "scale": 0.8,
+      "role": "shelter",
+      "point": [
+        1103.0,
+        1540.0,
+        27.161244499953167,
+        3.141592653589793
+      ],
+      "bounds": [
+        1098.9514953613282,
+        1537.3351264953612,
+        1104.9849559783936,
+        1542.5291631698608
+      ],
+      "terrain_relief": 1.142
+    },
+    {
+      "entry": 4009101,
+      "key": "expedition_bedroll_1",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        1109.0,
+        1540.0,
+        28.32227133797804,
+        3.141592653589793
+      ],
+      "bounds": [
+        1107.7,
+        1539.3,
+        1110.3,
+        1540.7
+      ],
+      "terrain_relief": 0.628
+    },
+    {
+      "entry": 4009102,
+      "key": "expedition_supplies_2",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        1096.69,
+        1552.44,
+        28.473480174029763,
+        3.141592653589793
+      ],
+      "bounds": [
+        1096.0724599981309,
+        1551.7731400156022,
+        1097.3154299879075,
+        1553.101701977253
+      ],
+      "terrain_relief": 1.175499941518865
+    },
+    {
+      "entry": 4009103,
+      "key": "expedition_supplies_3",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        1103.47,
+        1548.3,
+        28.888241730112373,
+        3.141592653589793
+      ],
+      "bounds": [
+        1102.8524599981308,
+        1547.633140015602,
+        1104.0954299879074,
+        1548.961701977253
+      ],
+      "terrain_relief": 0.8426676757766458
+    },
+    {
+      "entry": 4009104,
+      "key": "expedition_table_4",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Table",
+      "display": 581,
+      "scale": 1.0,
+      "role": "workstation",
+      "point": [
+        1129.0,
+        1546.0,
+        34.38619126079383,
+        3.141592653589793
+      ],
+      "bounds": [
+        1128.220830976963,
+        1545.1159430146217,
+        1129.779169023037,
+        1546.8840569853783
+      ],
+      "terrain_relief": 0.737
+    },
+    {
+      "entry": 4009105,
+      "key": "expedition_rack_5",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Rack",
+      "display": 130,
+      "scale": 1.0,
+      "role": "equipment",
+      "point": [
+        1129.0,
+        1542.0,
+        34.4405801266477,
+        3.141592653589793
+      ],
+      "bounds": [
+        1128.3056989908218,
+        1541.2911739945412,
+        1129.5983710289001,
+        1542.3484730124474
+      ],
+      "terrain_relief": 0.5
+    },
+    {
+      "entry": 4009106,
+      "key": "expedition_hearth_6",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Hearth",
+      "display": 192,
+      "scale": 1.0,
+      "role": "cooking",
+      "point": [
+        1101.39,
+        1545.39,
+        27.514754583207644,
+        3.141592653589793
+      ],
+      "bounds": [
+        1100.2249529504777,
+        1544.261171951294,
+        1102.2540409708024,
+        1546.3967989826203
+      ],
+      "terrain_relief": 0.817
+    },
+    {
+      "entry": 4009107,
+      "key": "expedition_lantern_7",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        1114.0,
+        1553.0,
+        34.51975101605525,
+        3.141592653589793
+      ],
+      "bounds": [
+        1113.6304790079594,
+        1552.6389670073986,
+        1114.3462800085545,
+        1553.3547680079937
+      ],
+      "terrain_relief": 0.937
+    },
+    {
+      "entry": 4009108,
+      "key": "expedition_lantern_8",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        1125.06,
+        1553.61,
+        40.5429494686621,
+        3.141592653589793
+      ],
+      "bounds": [
+        1124.6904790079593,
+        1553.2489670073985,
+        1125.4062800085544,
+        1553.9647680079936
+      ],
+      "terrain_relief": 1.147
+    },
+    {
+      "entry": 4009109,
+      "key": "expedition_boundary_9",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        1100.17,
+        1543.17,
+        26.965853582844726,
+        3.141592653589793
+      ],
+      "bounds": [
+        1100.0431485992672,
+        1543.0522719052435,
+        1103.911835641861,
+        1543.335052802861
+      ],
+      "terrain_relief": 0.7792006222306647
+    },
+    {
+      "entry": 4009110,
+      "key": "expedition_banner_10",
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Banner",
+      "display": 5191,
+      "scale": 0.8,
+      "role": "identity",
+      "point": [
+        1125.0,
+        1541.0,
+        33.1736265861736,
+        3.141592653589793
+      ],
+      "bounds": [
+        1124.6309808015824,
+        1540.1404447555542,
+        1125.2737175941468,
+        1541.8342080116272
+      ],
+      "terrain_relief": 0.319
+    },
+    {
+      "entry": 4009111,
+      "key": "refuge_shelter_0",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Shelter",
+      "display": 7211,
+      "scale": 0.8,
+      "role": "shelter",
+      "point": [
+        1008.83,
+        1682.92,
+        -4.077839482068257,
+        3.141592653589793
+      ],
+      "bounds": [
+        1004.7814953613282,
+        1680.2551264953613,
+        1010.8149559783936,
+        1685.4491631698609
+      ],
+      "terrain_relief": 0.9504823775680435
+    },
+    {
+      "entry": 4009112,
+      "key": "refuge_bedroll_1",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        1016.0,
+        1662.0,
+        -1.5395809541355348,
+        3.141592653589793
+      ],
+      "bounds": [
+        1014.7,
+        1661.3,
+        1017.3,
+        1662.7
+      ],
+      "terrain_relief": 0.892
+    },
+    {
+      "entry": 4009113,
+      "key": "refuge_bedroll_2",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        1018.0,
+        1665.0,
+        -0.15479251855125115,
+        3.141592653589793
+      ],
+      "bounds": [
+        1016.7,
+        1664.3,
+        1019.3,
+        1665.7
+      ],
+      "terrain_relief": 1.172
+    },
+    {
+      "entry": 4009114,
+      "key": "refuge_medicine_3",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Medicine",
+      "display": 6449,
+      "scale": 0.8,
+      "role": "medicine",
+      "point": [
+        1004.0,
+        1653.0,
+        10.324594628795115,
+        3.141592653589793
+      ],
+      "bounds": [
+        1003.2450767993927,
+        1652.2540400028229,
+        1004.7554016113281,
+        1653.7643640041351
+      ],
+      "terrain_relief": 1.07
+    },
+    {
+      "entry": 4009115,
+      "key": "refuge_supplies_4",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        1001.0,
+        1656.0,
+        10.073391838303603,
+        3.141592653589793
+      ],
+      "bounds": [
+        1000.3824599981308,
+        1655.333140015602,
+        1001.6254299879074,
+        1656.661701977253
+      ],
+      "terrain_relief": 1.158
+    },
+    {
+      "entry": 4009116,
+      "key": "refuge_lantern_5",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        1006.0,
+        1652.0,
+        9.032354589707683,
+        3.141592653589793
+      ],
+      "bounds": [
+        1005.6304790079594,
+        1651.6389670073986,
+        1006.3462800085545,
+        1652.3547680079937
+      ],
+      "terrain_relief": 0.826
+    },
+    {
+      "entry": 4009117,
+      "key": "refuge_boundary_6",
+      "hub": "refuge",
+      "name": "Surveyor Refuge Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        1023.24,
+        1654.64,
+        2.2692405784148333,
+        3.141592653589793
+      ],
+      "bounds": [
+        1023.113148599267,
+        1654.5222719052435,
+        1026.981835641861,
+        1654.805052802861
+      ],
+      "terrain_relief": 0.9475464801209199
+    },
+    {
+      "entry": 4009118,
+      "key": "selection_cult_shelter_0",
+      "hub": "selection",
+      "name": "Twilight Selection Camp Cult Shelter",
+      "display": 7253,
+      "scale": 0.6,
+      "role": "shelter",
+      "point": [
+        891.0,
+        1619.0,
+        -20.026784214379862,
+        0.0
+      ],
+      "bounds": [
+        888.6442763328553,
+        1615.895613861084,
+        893.6223521232605,
+        1622.1004536628723
+      ],
+      "terrain_relief": 0.681
+    },
+    {
+      "entry": 4009119,
+      "key": "selection_bedroll_1",
+      "hub": "selection",
+      "name": "Twilight Selection Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        885.0,
+        1620.0,
+        -20.88338572995666,
+        0.0
+      ],
+      "bounds": [
+        883.7,
+        1619.3,
+        886.3,
+        1620.7
+      ],
+      "terrain_relief": 0.942
+    },
+    {
+      "entry": 4009120,
+      "key": "selection_supplies_2",
+      "hub": "selection",
+      "name": "Twilight Selection Camp Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        899.0,
+        1604.0,
+        -19.926699734167986,
+        0.0
+      ],
+      "bounds": [
+        898.3745700120926,
+        1603.338298022747,
+        899.6175400018692,
+        1604.666859984398
+      ],
+      "terrain_relief": 0.348
+    },
+    {
+      "entry": 4009121,
+      "key": "selection_table_3",
+      "hub": "selection",
+      "name": "Twilight Selection Camp Table",
+      "display": 581,
+      "scale": 1.0,
+      "role": "workstation",
+      "point": [
+        896.0,
+        1606.0,
+        -20.423287987371825,
+        0.0
+      ],
+      "bounds": [
+        895.220830976963,
+        1605.1159430146217,
+        896.779169023037,
+        1606.8840569853783
+      ],
+      "terrain_relief": 0.269
+    },
+    {
+      "entry": 4009122,
+      "key": "selection_lantern_4",
+      "hub": "selection",
+      "name": "Twilight Selection Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        900.0,
+        1614.0,
+        -19.521469969506278,
+        0.0
+      ],
+      "bounds": [
+        899.6537199914455,
+        1613.6452319920063,
+        900.3695209920406,
+        1614.3610329926014
+      ],
+      "terrain_relief": 0.189
+    },
+    {
+      "entry": 4009123,
+      "key": "selection_boundary_5",
+      "hub": "selection",
+      "name": "Twilight Selection Camp Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        883.0,
+        1609.0,
+        -22.334147951044176,
+        0.0
+      ],
+      "bounds": [
+        879.2581643581391,
+        1608.8349471971392,
+        883.126851400733,
+        1609.1177280947566
+      ],
+      "terrain_relief": 0.877411689959068
+    },
+    {
+      "entry": 4009124,
+      "key": "supplicants_cult_shelter_0",
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Cult Shelter",
+      "display": 7253,
+      "scale": 0.6,
+      "role": "shelter",
+      "point": [
+        908.485,
+        1645.49,
+        -8.924219794981212,
+        0.0
+      ],
+      "bounds": [
+        906.1292763328553,
+        1642.385613861084,
+        911.1073521232605,
+        1648.5904536628723
+      ],
+      "terrain_relief": 1.093
+    },
+    {
+      "entry": 4009125,
+      "key": "supplicants_medicine_1",
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Medicine",
+      "display": 6449,
+      "scale": 0.8,
+      "role": "medicine",
+      "point": [
+        903.0,
+        1644.0,
+        -10.881812732524864,
+        0.0
+      ],
+      "bounds": [
+        902.2445983886719,
+        1643.2356359958649,
+        903.7549232006073,
+        1644.7459599971771
+      ],
+      "terrain_relief": 0.774
+    },
+    {
+      "entry": 4009126,
+      "key": "supplicants_table_2",
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Table",
+      "display": 581,
+      "scale": 1.0,
+      "role": "workstation",
+      "point": [
+        900.0,
+        1648.0,
+        -10.443133333128934,
+        0.0
+      ],
+      "bounds": [
+        899.220830976963,
+        1647.1159430146217,
+        900.779169023037,
+        1648.8840569853783
+      ],
+      "terrain_relief": 1.072
+    },
+    {
+      "entry": 4009127,
+      "key": "supplicants_supplies_3",
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        903.0,
+        1650.0,
+        -9.729188560152284,
+        0.0
+      ],
+      "bounds": [
+        902.3745700120926,
+        1649.338298022747,
+        903.6175400018692,
+        1650.666859984398
+      ],
+      "terrain_relief": 0.18
+    },
+    {
+      "entry": 4009128,
+      "key": "supplicants_lantern_4",
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        889.0,
+        1638.0,
+        -17.249935683486157,
+        0.0
+      ],
+      "bounds": [
+        888.6537199914455,
+        1637.6452319920063,
+        889.3695209920406,
+        1638.3610329926014
+      ],
+      "terrain_relief": 0.844
+    },
+    {
+      "entry": 4009129,
+      "key": "supplicants_boundary_5",
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        883.0,
+        1644.0,
+        -14.47678908845182,
+        0.0
+      ],
+      "bounds": [
+        879.2581643581391,
+        1643.8349471971392,
+        883.126851400733,
+        1644.1177280947566
+      ],
+      "terrain_relief": 0.455
+    },
+    {
+      "entry": 4009130,
+      "key": "instruction_cult_shelter_0",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Cult Shelter",
+      "display": 7253,
+      "scale": 0.6,
+      "role": "shelter",
+      "point": [
+        857.0,
+        1596.0,
+        -24.71253024072307,
+        0.0
+      ],
+      "bounds": [
+        854.6442763328553,
+        1592.895613861084,
+        859.6223521232605,
+        1599.1004536628723
+      ],
+      "terrain_relief": 0.702
+    },
+    {
+      "entry": 4009131,
+      "key": "instruction_bedroll_1",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        850.0,
+        1597.0,
+        -24.43058523993,
+        0.0
+      ],
+      "bounds": [
+        848.7,
+        1596.3,
+        851.3,
+        1597.7
+      ],
+      "terrain_relief": 0.353
+    },
+    {
+      "entry": 4009132,
+      "key": "instruction_table_2",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Table",
+      "display": 581,
+      "scale": 1.0,
+      "role": "workstation",
+      "point": [
+        866.0,
+        1600.0,
+        -24.766363721558037,
+        0.0
+      ],
+      "bounds": [
+        865.220830976963,
+        1599.1159430146217,
+        866.779169023037,
+        1600.8840569853783
+      ],
+      "terrain_relief": 0.3549127115878221
+    },
+    {
+      "entry": 4009133,
+      "key": "instruction_rack_3",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Rack",
+      "display": 130,
+      "scale": 1.0,
+      "role": "equipment",
+      "point": [
+        867.0,
+        1585.0,
+        -21.956549278289078,
+        0.0
+      ],
+      "bounds": [
+        866.4016289710999,
+        1584.6515269875526,
+        867.6943010091782,
+        1585.7088260054588
+      ],
+      "terrain_relief": 0.403
+    },
+    {
+      "entry": 4009134,
+      "key": "instruction_lantern_4",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        860.0,
+        1584.0,
+        -23.590405895069654,
+        0.0
+      ],
+      "bounds": [
+        859.6537199914455,
+        1583.6452319920063,
+        860.3695209920406,
+        1584.3610329926014
+      ],
+      "terrain_relief": 0.342
+    },
+    {
+      "entry": 4009135,
+      "key": "instruction_supplies_5",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        871.531,
+        1602.7,
+        -24.14925132381511,
+        0.0
+      ],
+      "bounds": [
+        870.9055700120925,
+        1602.038298022747,
+        872.1485400018692,
+        1603.366859984398
+      ],
+      "terrain_relief": 0.3522309052652588
+    },
+    {
+      "entry": 4009136,
+      "key": "instruction_boundary_6",
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        852.0,
+        1586.0,
+        -24.918438068196913,
+        0.0
+      ],
+      "bounds": [
+        848.2581643581391,
+        1585.8349471971392,
+        852.126851400733,
+        1586.1177280947566
+      ],
+      "terrain_relief": 0.4
+    },
+    {
+      "entry": 4009137,
+      "key": "kennels_cult_shelter_0",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Cult Shelter",
+      "display": 7253,
+      "scale": 0.6,
+      "role": "shelter",
+      "point": [
+        922.0,
+        1604.27,
+        -14.67697127007466,
+        0.0
+      ],
+      "bounds": [
+        919.6442763328553,
+        1601.165613861084,
+        924.6223521232605,
+        1607.3704536628723
+      ],
+      "terrain_relief": 0.874
+    },
+    {
+      "entry": 4009138,
+      "key": "kennels_bedroll_1",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        922.225,
+        1610.24,
+        -14.458401044187688,
+        0.0
+      ],
+      "bounds": [
+        920.9250000000001,
+        1609.54,
+        923.525,
+        1610.94
+      ],
+      "terrain_relief": 0.245
+    },
+    {
+      "entry": 4009139,
+      "key": "kennels_supplies_2",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        910.0,
+        1605.0,
+        -16.96991067808481,
+        0.0
+      ],
+      "bounds": [
+        909.3745700120926,
+        1604.338298022747,
+        910.6175400018692,
+        1605.666859984398
+      ],
+      "terrain_relief": 0.485
+    },
+    {
+      "entry": 4009140,
+      "key": "kennels_supplies_3",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        910.0,
+        1607.0,
+        -17.193481161622454,
+        0.0
+      ],
+      "bounds": [
+        909.3745700120926,
+        1606.338298022747,
+        910.6175400018692,
+        1607.666859984398
+      ],
+      "terrain_relief": 0.561
+    },
+    {
+      "entry": 4009141,
+      "key": "kennels_rack_4",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Rack",
+      "display": 130,
+      "scale": 1.0,
+      "role": "equipment",
+      "point": [
+        922.0,
+        1593.0,
+        -16.02669710335936,
+        0.0
+      ],
+      "bounds": [
+        921.4016289710999,
+        1592.6515269875526,
+        922.6943010091782,
+        1593.7088260054588
+      ],
+      "terrain_relief": 0.217
+    },
+    {
+      "entry": 4009142,
+      "key": "kennels_lantern_5",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        909.0,
+        1596.0,
+        -17.39850825506439,
+        0.0
+      ],
+      "bounds": [
+        908.6537199914455,
+        1595.6452319920063,
+        909.3695209920406,
+        1596.3610329926014
+      ],
+      "terrain_relief": 0.243
+    },
+    {
+      "entry": 4009143,
+      "key": "kennels_boundary_6",
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        927.0,
+        1590.0,
+        -15.630382139391482,
+        0.0
+      ],
+      "bounds": [
+        923.2581643581391,
+        1589.8349471971392,
+        927.126851400733,
+        1590.1177280947566
+      ],
+      "terrain_relief": 0.499748611878708
+    },
+    {
+      "entry": 4009144,
+      "key": "dawnchasers_shelter_0",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Shelter",
+      "display": 7211,
+      "scale": 0.8,
+      "role": "shelter",
+      "point": [
+        -3952.0,
+        -3331.0,
+        36.81055195542569,
+        0.0
+      ],
+      "bounds": [
+        -3953.9849559783934,
+        -3333.529163169861,
+        -3947.951495361328,
+        -3328.3351264953612
+      ],
+      "terrain_relief": 0.841
+    },
+    {
+      "entry": 4009145,
+      "key": "dawnchasers_bedroll_1",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        -3953.0,
+        -3335.0,
+        37.783133818821824,
+        0.0
+      ],
+      "bounds": [
+        -3954.3,
+        -3335.7,
+        -3951.7,
+        -3334.3
+      ],
+      "terrain_relief": 0.596
+    },
+    {
+      "entry": 4009146,
+      "key": "dawnchasers_bedroll_2",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        -3947.0,
+        -3335.0,
+        37.26920439668177,
+        0.0
+      ],
+      "bounds": [
+        -3948.3,
+        -3335.7,
+        -3945.7,
+        -3334.3
+      ],
+      "terrain_relief": 0.589
+    },
+    {
+      "entry": 4009147,
+      "key": "dawnchasers_shelter_3",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Shelter",
+      "display": 7211,
+      "scale": 0.8,
+      "role": "shelter",
+      "point": [
+        -3989.0,
+        -3334.0,
+        35.76800737155726,
+        0.0
+      ],
+      "bounds": [
+        -3990.9849559783934,
+        -3336.529163169861,
+        -3984.951495361328,
+        -3331.3351264953612
+      ],
+      "terrain_relief": 0.892
+    },
+    {
+      "entry": 4009148,
+      "key": "dawnchasers_bedroll_4",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        -3993.0,
+        -3336.0,
+        36.66101468005499,
+        0.0
+      ],
+      "bounds": [
+        -3994.3,
+        -3336.7,
+        -3991.7,
+        -3335.3
+      ],
+      "terrain_relief": 0.718
+    },
+    {
+      "entry": 4009149,
+      "key": "dawnchasers_bedroll_5",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        -3990.0,
+        -3339.0,
+        36.76460095515633,
+        0.0
+      ],
+      "bounds": [
+        -3991.3,
+        -3339.7,
+        -3988.7,
+        -3338.3
+      ],
+      "terrain_relief": 0.511
+    },
+    {
+      "entry": 4009150,
+      "key": "dawnchasers_supplies_6",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        -3983.0,
+        -3335.0,
+        36.7970096310847,
+        0.0
+      ],
+      "bounds": [
+        -3983.6254299879074,
+        -3335.661701977253,
+        -3982.382459998131,
+        -3334.333140015602
+      ],
+      "terrain_relief": 0.817
+    },
+    {
+      "entry": 4009151,
+      "key": "dawnchasers_supplies_7",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        -3983.0,
+        -3332.0,
+        36.09938340304793,
+        0.0
+      ],
+      "bounds": [
+        -3983.6254299879074,
+        -3332.661701977253,
+        -3982.382459998131,
+        -3331.333140015602
+      ],
+      "terrain_relief": 0.321
+    },
+    {
+      "entry": 4009152,
+      "key": "dawnchasers_medicine_8",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Medicine",
+      "display": 6449,
+      "scale": 0.8,
+      "role": "medicine",
+      "point": [
+        -3978.0,
+        -3362.0,
+        39.38559455682659,
+        0.0
+      ],
+      "bounds": [
+        -3978.755401611328,
+        -3362.764364004135,
+        -3977.245076799393,
+        -3361.254040002823
+      ],
+      "terrain_relief": 0.377
+    },
+    {
+      "entry": 4009153,
+      "key": "dawnchasers_medicine_9",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Medicine",
+      "display": 6449,
+      "scale": 0.8,
+      "role": "medicine",
+      "point": [
+        -3975.0,
+        -3362.0,
+        38.73867164868163,
+        0.0
+      ],
+      "bounds": [
+        -3975.755401611328,
+        -3362.764364004135,
+        -3974.245076799393,
+        -3361.254040002823
+      ],
+      "terrain_relief": 0.309
+    },
+    {
+      "entry": 4009154,
+      "key": "dawnchasers_table_10",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Table",
+      "display": 581,
+      "scale": 1.0,
+      "role": "workstation",
+      "point": [
+        -3953.0,
+        -3354.0,
+        38.576521073859254,
+        0.0
+      ],
+      "bounds": [
+        -3953.779169023037,
+        -3354.8840569853783,
+        -3952.220830976963,
+        -3353.1159430146217
+      ],
+      "terrain_relief": 0.346
+    },
+    {
+      "entry": 4009155,
+      "key": "dawnchasers_rack_11",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Rack",
+      "display": 130,
+      "scale": 1.0,
+      "role": "equipment",
+      "point": [
+        -3953.0,
+        -3362.0,
+        37.9674023323435,
+        0.0
+      ],
+      "bounds": [
+        -3953.5983710289,
+        -3362.3484730124474,
+        -3952.305698990822,
+        -3361.291173994541
+      ],
+      "terrain_relief": 0.114
+    },
+    {
+      "entry": 4009156,
+      "key": "dawnchasers_lantern_12",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        -3985.0,
+        -3355.0,
+        40.41977791669558,
+        0.0
+      ],
+      "bounds": [
+        -3985.3462800085545,
+        -3355.3547680079937,
+        -3984.6304790079594,
+        -3354.6389670073986
+      ],
+      "terrain_relief": 0.057
+    },
+    {
+      "entry": 4009157,
+      "key": "dawnchasers_lantern_13",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        -3962.0,
+        -3338.0,
+        39.46449020892156,
+        0.0
+      ],
+      "bounds": [
+        -3962.3462800085545,
+        -3338.3547680079937,
+        -3961.6304790079594,
+        -3337.6389670073986
+      ],
+      "terrain_relief": 0.172
+    },
+    {
+      "entry": 4009158,
+      "key": "dawnchasers_lantern_14",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        -3998.99,
+        -3342.51,
+        38.25389788609044,
+        0.0
+      ],
+      "bounds": [
+        -3999.3362800085542,
+        -3342.864768007994,
+        -3998.620479007959,
+        -3342.148967007399
+      ],
+      "terrain_relief": 0.11
+    },
+    {
+      "entry": 4009159,
+      "key": "dawnchasers_boundary_15",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        -3943.0,
+        -3344.0,
+        37.6708647341825,
+        0.0
+      ],
+      "bounds": [
+        -3946.741835641861,
+        -3344.165052802861,
+        -3942.873148599267,
+        -3343.882271905243
+      ],
+      "terrain_relief": 0.931
+    },
+    {
+      "entry": 4009160,
+      "key": "dawnchasers_boundary_16",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        -4002.0,
+        -3365.0,
+        38.31017678458511,
+        0.0
+      ],
+      "bounds": [
+        -4005.741835641861,
+        -3365.165052802861,
+        -4001.873148599267,
+        -3364.882271905243
+      ],
+      "terrain_relief": 0.12
+    },
+    {
+      "entry": 4009161,
+      "key": "dawnchasers_banner_17",
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Banner",
+      "display": 5191,
+      "scale": 0.8,
+      "role": "identity",
+      "point": [
+        -3950.0,
+        -3342.0,
+        39.07451414598363,
+        0.0
+      ],
+      "bounds": [
+        -3950.2737175941465,
+        -3342.834208011627,
+        -3949.630980801582,
+        -3341.140444755554
+      ],
+      "terrain_relief": 0.212
+    },
+    {
+      "entry": 4009162,
+      "key": "wayside_shelter_0",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Shelter",
+      "display": 7211,
+      "scale": 0.8,
+      "role": "shelter",
+      "point": [
+        -4554.4,
+        -3242.61,
+        30.611652701467065,
+        0.0
+      ],
+      "bounds": [
+        -4556.384955978393,
+        -3245.139163169861,
+        -4550.351495361328,
+        -3239.9451264953614
+      ],
+      "terrain_relief": 1.131
+    },
+    {
+      "entry": 4009163,
+      "key": "wayside_bedroll_1",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Bedroll",
+      "display": 6739,
+      "scale": 1.0,
+      "role": "sleeping",
+      "point": [
+        -4540.27,
+        -3223.47,
+        30.71857401148607,
+        0.0
+      ],
+      "bounds": [
+        -4541.570000000001,
+        -3224.1699999999996,
+        -4538.97,
+        -3222.77
+      ],
+      "terrain_relief": 0.676
+    },
+    {
+      "entry": 4009164,
+      "key": "wayside_table_2",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Table",
+      "display": 581,
+      "scale": 1.0,
+      "role": "workstation",
+      "point": [
+        -4530.61,
+        -3228.39,
+        30.781079476144694,
+        0.0
+      ],
+      "bounds": [
+        -4531.389169023037,
+        -3229.274056985378,
+        -4529.830830976963,
+        -3227.5059430146216
+      ],
+      "terrain_relief": 0.884
+    },
+    {
+      "entry": 4009165,
+      "key": "wayside_hearth_3",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Hearth",
+      "display": 192,
+      "scale": 1.0,
+      "role": "cooking",
+      "point": [
+        -4530.88,
+        -3241.44,
+        30.789205479715122,
+        0.0
+      ],
+      "bounds": [
+        -4531.744040970802,
+        -3242.4467989826203,
+        -4529.714952950478,
+        -3240.311171951294
+      ],
+      "terrain_relief": 1.158
+    },
+    {
+      "entry": 4009166,
+      "key": "wayside_supplies_4",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        -4538.99,
+        -3241.01,
+        30.686144621048175,
+        0.0
+      ],
+      "bounds": [
+        -4539.615429987907,
+        -3241.671701977253,
+        -4538.372459998131,
+        -3240.3431400156023
+      ],
+      "terrain_relief": 0.667
+    },
+    {
+      "entry": 4009167,
+      "key": "wayside_supplies_5",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Supplies",
+      "display": 335,
+      "scale": 1.0,
+      "role": "supplies",
+      "point": [
+        -4537.0,
+        -3241.0,
+        31.272834616461672,
+        0.0
+      ],
+      "bounds": [
+        -4537.625429987907,
+        -3241.661701977253,
+        -4536.382459998131,
+        -3240.333140015602
+      ],
+      "terrain_relief": 0.244
+    },
+    {
+      "entry": 4009168,
+      "key": "wayside_lantern_6",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Lantern",
+      "display": 6038,
+      "scale": 1.0,
+      "role": "lighting",
+      "point": [
+        -4525.07,
+        -3230.67,
+        30.719709359968537,
+        0.0
+      ],
+      "bounds": [
+        -4525.416280008554,
+        -3231.0247680079938,
+        -4524.700479007959,
+        -3230.3089670073987
+      ],
+      "terrain_relief": 0.443
+    },
+    {
+      "entry": 4009169,
+      "key": "wayside_rack_7",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Rack",
+      "display": 130,
+      "scale": 1.0,
+      "role": "equipment",
+      "point": [
+        -4541.03,
+        -3243.97,
+        30.692722179857057,
+        0.0
+      ],
+      "bounds": [
+        -4541.6283710289,
+        -3244.318473012447,
+        -4540.335698990822,
+        -3243.261173994541
+      ],
+      "terrain_relief": 0.676
+    },
+    {
+      "entry": 4009170,
+      "key": "wayside_boundary_8",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Boundary",
+      "display": 6151,
+      "scale": 0.9,
+      "role": "boundary",
+      "point": [
+        -4523.14,
+        -3243.63,
+        30.775629270403766,
+        0.0
+      ],
+      "bounds": [
+        -4526.8818356418615,
+        -3243.795052802861,
+        -4523.013148599267,
+        -3243.5122719052433
+      ],
+      "terrain_relief": 0.549
+    },
+    {
+      "entry": 4009171,
+      "key": "wayside_banner_9",
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Banner",
+      "display": 5191,
+      "scale": 0.8,
+      "role": "identity",
+      "point": [
+        -4536.77,
+        -3225.62,
+        30.701033410469293,
+        0.0
+      ],
+      "bounds": [
+        -4537.043717594147,
+        -3226.454208011627,
+        -4536.400980801583,
+        -3224.760444755554
+      ],
+      "terrain_relief": 0.688
+    }
+  ],
+  "relocations": [
+    {
+      "guid": 30420,
+      "entry": 4022,
+      "name": "Bloodfury Harpy",
+      "map": 1,
+      "original": [
+        1003.41,
+        1691.52,
+        -4.956,
+        1.82264
+      ],
+      "point": [
+        997.575,
+        1716.33,
+        -8.83055,
+        1.82264
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "refuge"
+      ]
+    },
+    {
+      "guid": 30421,
+      "entry": 4022,
+      "name": "Bloodfury Harpy",
+      "map": 1,
+      "original": [
+        941.307,
+        1655.49,
+        -12.7333,
+        0.472381
+      ],
+      "point": [
+        954.913,
+        1659.08,
+        -10.84,
+        0.472381
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "supplicants"
+      ]
+    },
+    {
+      "guid": 30422,
+      "entry": 4022,
+      "name": "Bloodfury Harpy",
+      "map": 1,
+      "original": [
+        936.874,
+        1560.52,
+        -13.6834,
+        0.501217
+      ],
+      "point": [
+        945.532,
+        1544.89,
+        -9.73562,
+        0.501217
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "kennels"
+      ]
+    },
+    {
+      "guid": 31180,
+      "entry": 4345,
+      "name": "Drywallow Daggermaw",
+      "map": 1,
+      "original": [
+        -4495.28,
+        -3212.71,
+        30.1475,
+        5.92335
+      ],
+      "point": [
+        -4477.53,
+        -3204.9,
+        31.158,
+        5.92335
+      ],
+      "wander": 10.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "wayside"
+      ]
+    },
+    {
+      "guid": 31454,
+      "entry": 4412,
+      "name": "Darkfang Creeper",
+      "map": 1,
+      "original": [
+        -3931.82,
+        -3264.18,
+        36.642,
+        1.64113
+      ],
+      "point": [
+        -3927.73,
+        -3254.98,
+        36.717,
+        1.64113
+      ],
+      "wander": 10.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "dawnchasers"
+      ]
+    },
+    {
+      "guid": 31914,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        938.699,
+        1639.8,
+        -13.5585,
+        5.22154
+      ],
+      "point": [
+        956.839,
+        1638.5,
+        -10.6948,
+        5.22154
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "supplicants",
+        "kennels"
+      ]
+    },
+    {
+      "guid": 31939,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        898.094,
+        1564.78,
+        -16.8351,
+        6.02495
+      ],
+      "point": [
+        902.636,
+        1538.23,
+        -15.4736,
+        6.02495
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "selection",
+        "instruction",
+        "kennels"
+      ]
+    },
+    {
+      "guid": 31952,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        915.674,
+        1557.62,
+        -15.561,
+        0.209711
+      ],
+      "point": [
+        916.002,
+        1537.01,
+        -13.6553,
+        0.209711
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "kennels"
+      ]
+    },
+    {
+      "guid": 31954,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        920.355,
+        1552.8,
+        -14.4482,
+        4.24683
+      ],
+      "point": [
+        922.102,
+        1537.4,
+        -12.4988,
+        4.24683
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "kennels"
+      ]
+    },
+    {
+      "guid": 32016,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        997.654,
+        1681.26,
+        -5.32134,
+        5.17718
+      ],
+      "point": [
+        981.796,
+        1710.29,
+        -9.12789,
+        5.17718
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "refuge"
+      ]
+    },
+    {
+      "guid": 32090,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        992.583,
+        1642.01,
+        14.1659,
+        3.90456
+      ],
+      "point": [
+        967.949,
+        1625.53,
+        -9.7444,
+        3.90456
+      ],
+      "wander": 5.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "refuge"
+      ]
+    },
+    {
+      "guid": 32111,
+      "entry": 4026,
+      "name": "Bloodfury Windcaller",
+      "map": 1,
+      "original": [
+        854.836,
+        1638.82,
+        -26.3465,
+        4.58113
+      ],
+      "point": [
+        831.649,
+        1652.02,
+        -28.0625,
+        4.58113
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "selection",
+        "supplicants",
+        "instruction"
+      ]
+    },
+    {
+      "guid": 32130,
+      "entry": 4028,
+      "name": "Charred Ancient",
+      "map": 1,
+      "original": [
+        850.528,
+        1643.93,
+        -26.7928,
+        4.61361
+      ],
+      "point": [
+        831.014,
+        1644.35,
+        -28.1172,
+        4.61361
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "selection",
+        "supplicants",
+        "instruction"
+      ]
+    },
+    {
+      "guid": 32134,
+      "entry": 4029,
+      "name": "Blackened Ancient",
+      "map": 1,
+      "original": [
+        858.662,
+        1639.48,
+        -25.6678,
+        1.65219
+      ],
+      "point": [
+        831.714,
+        1652.46,
+        -28.0569,
+        1.65219
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "selection",
+        "supplicants",
+        "instruction"
+      ]
+    },
+    {
+      "guid": 32150,
+      "entry": 4036,
+      "name": "Rogue Flame Spirit",
+      "map": 1,
+      "original": [
+        843.635,
+        1578.72,
+        -25.4069,
+        4.00718
+      ],
+      "point": [
+        809.328,
+        1553.91,
+        -27.0461,
+        4.00718
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "instruction"
+      ]
+    },
+    {
+      "guid": 32184,
+      "entry": 4044,
+      "name": "Blackened Basilisk",
+      "map": 1,
+      "original": [
+        896.602,
+        1610.85,
+        -20.293,
+        6.10456
+      ],
+      "point": [
+        971.819,
+        1604.62,
+        -6.50354,
+        6.10456
+      ],
+      "wander": 15.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "selection",
+        "supplicants",
+        "instruction",
+        "kennels"
+      ]
+    },
+    {
+      "guid": 33797,
+      "entry": 4348,
+      "name": "Noxious Shredder",
+      "map": 1,
+      "original": [
+        -3910.2,
+        -3309.3,
+        43.2623,
+        4.05015
+      ],
+      "point": [
+        -3888.16,
+        -3294.3,
+        51.5782,
+        4.05015
+      ],
+      "wander": 5.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "dawnchasers"
+      ]
+    },
+    {
+      "guid": 33825,
+      "entry": 4412,
+      "name": "Darkfang Creeper",
+      "map": 1,
+      "original": [
+        -3937.28,
+        -3274.18,
+        38.145,
+        3.83283
+      ],
+      "point": [
+        -3928.79,
+        -3254.51,
+        36.5249,
+        3.83283
+      ],
+      "wander": 10.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "dawnchasers"
+      ]
+    },
+    {
+      "guid": 33868,
+      "entry": 4412,
+      "name": "Darkfang Creeper",
+      "map": 1,
+      "original": [
+        -3969.05,
+        -3434.76,
+        40.0915,
+        2.97676
+      ],
+      "point": [
+        -3968.83,
+        -3453.99,
+        35.9621,
+        2.97676
+      ],
+      "wander": 10.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "dawnchasers"
+      ]
+    },
+    {
+      "guid": 33892,
+      "entry": 4345,
+      "name": "Drywallow Daggermaw",
+      "map": 1,
+      "original": [
+        -3914.41,
+        -3393.57,
+        30.5224,
+        1.43423
+      ],
+      "point": [
+        -3888.15,
+        -3414.4,
+        39.1712,
+        1.43423
+      ],
+      "wander": 10.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "dawnchasers"
+      ]
+    },
+    {
+      "guid": 33911,
+      "entry": 4344,
+      "name": "Mottled Drywallow Crocolisk",
+      "map": 1,
+      "original": [
+        -3886.49,
+        -3389.57,
+        32.9654,
+        4.56137
+      ],
+      "point": [
+        -3876.02,
+        -3394.53,
+        35.7632,
+        4.56137
+      ],
+      "wander": 10.0,
+      "movement": 1,
+      "detection": 18.0,
+      "hubs": [
+        "dawnchasers"
+      ]
+    }
+  ],
+  "native_audit": {
+    "source": "AzerothCore base-world snapshot; runtime protection also covers ordinary stock additions",
+    "creature_sha256": "f54ddfe7ee00080b4b0bc970a809d6f947f6fb2627dbcd67e92b402fb34cb701",
+    "threats": [
+      {
+        "guid": 30420,
+        "entry": 4022,
+        "name": "Bloodfury Harpy",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "refuge"
+        ],
+        "origin": [
+          1003.41,
+          1691.52,
+          -4.956,
+          1.82264
+        ]
+      },
+      {
+        "guid": 30421,
+        "entry": 4022,
+        "name": "Bloodfury Harpy",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "supplicants"
+        ],
+        "origin": [
+          941.307,
+          1655.49,
+          -12.7333,
+          0.472381
+        ]
+      },
+      {
+        "guid": 30422,
+        "entry": 4022,
+        "name": "Bloodfury Harpy",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "kennels"
+        ],
+        "origin": [
+          936.874,
+          1560.52,
+          -13.6834,
+          0.501217
+        ]
+      },
+      {
+        "guid": 31180,
+        "entry": 4345,
+        "name": "Drywallow Daggermaw",
+        "movement": 1,
+        "wander": 10.0,
+        "detection": 18.0,
+        "hubs": [
+          "wayside"
+        ],
+        "origin": [
+          -4495.28,
+          -3212.71,
+          30.1475,
+          5.92335
+        ]
+      },
+      {
+        "guid": 31454,
+        "entry": 4412,
+        "name": "Darkfang Creeper",
+        "movement": 1,
+        "wander": 10.0,
+        "detection": 18.0,
+        "hubs": [
+          "dawnchasers"
+        ],
+        "origin": [
+          -3931.82,
+          -3264.18,
+          36.642,
+          1.64113
+        ]
+      },
+      {
+        "guid": 31914,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "supplicants",
+          "kennels"
+        ],
+        "origin": [
+          938.699,
+          1639.8,
+          -13.5585,
+          5.22154
+        ]
+      },
+      {
+        "guid": 31939,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "selection",
+          "instruction",
+          "kennels"
+        ],
+        "origin": [
+          898.094,
+          1564.78,
+          -16.8351,
+          6.02495
+        ]
+      },
+      {
+        "guid": 31952,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "kennels"
+        ],
+        "origin": [
+          915.674,
+          1557.62,
+          -15.561,
+          0.209711
+        ]
+      },
+      {
+        "guid": 31954,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "kennels"
+        ],
+        "origin": [
+          920.355,
+          1552.8,
+          -14.4482,
+          4.24683
+        ]
+      },
+      {
+        "guid": 32016,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "refuge"
+        ],
+        "origin": [
+          997.654,
+          1681.26,
+          -5.32134,
+          5.17718
+        ]
+      },
+      {
+        "guid": 32090,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 5.0,
+        "detection": 18.0,
+        "hubs": [
+          "refuge"
+        ],
+        "origin": [
+          992.583,
+          1642.01,
+          14.1659,
+          3.90456
+        ]
+      },
+      {
+        "guid": 32111,
+        "entry": 4026,
+        "name": "Bloodfury Windcaller",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "selection",
+          "supplicants",
+          "instruction"
+        ],
+        "origin": [
+          854.836,
+          1638.82,
+          -26.3465,
+          4.58113
+        ]
+      },
+      {
+        "guid": 32130,
+        "entry": 4028,
+        "name": "Charred Ancient",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "selection",
+          "supplicants",
+          "instruction"
+        ],
+        "origin": [
+          850.528,
+          1643.93,
+          -26.7928,
+          4.61361
+        ]
+      },
+      {
+        "guid": 32134,
+        "entry": 4029,
+        "name": "Blackened Ancient",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "selection",
+          "supplicants",
+          "instruction"
+        ],
+        "origin": [
+          858.662,
+          1639.48,
+          -25.6678,
+          1.65219
+        ]
+      },
+      {
+        "guid": 32150,
+        "entry": 4036,
+        "name": "Rogue Flame Spirit",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "instruction"
+        ],
+        "origin": [
+          843.635,
+          1578.72,
+          -25.4069,
+          4.00718
+        ]
+      },
+      {
+        "guid": 32184,
+        "entry": 4044,
+        "name": "Blackened Basilisk",
+        "movement": 1,
+        "wander": 15.0,
+        "detection": 18.0,
+        "hubs": [
+          "selection",
+          "supplicants",
+          "instruction",
+          "kennels"
+        ],
+        "origin": [
+          896.602,
+          1610.85,
+          -20.293,
+          6.10456
+        ]
+      },
+      {
+        "guid": 33797,
+        "entry": 4348,
+        "name": "Noxious Shredder",
+        "movement": 1,
+        "wander": 5.0,
+        "detection": 18.0,
+        "hubs": [
+          "dawnchasers"
+        ],
+        "origin": [
+          -3910.2,
+          -3309.3,
+          43.2623,
+          4.05015
+        ]
+      },
+      {
+        "guid": 33825,
+        "entry": 4412,
+        "name": "Darkfang Creeper",
+        "movement": 1,
+        "wander": 10.0,
+        "detection": 18.0,
+        "hubs": [
+          "dawnchasers"
+        ],
+        "origin": [
+          -3937.28,
+          -3274.18,
+          38.145,
+          3.83283
+        ]
+      },
+      {
+        "guid": 33868,
+        "entry": 4412,
+        "name": "Darkfang Creeper",
+        "movement": 1,
+        "wander": 10.0,
+        "detection": 18.0,
+        "hubs": [
+          "dawnchasers"
+        ],
+        "origin": [
+          -3969.05,
+          -3434.76,
+          40.0915,
+          2.97676
+        ]
+      },
+      {
+        "guid": 33892,
+        "entry": 4345,
+        "name": "Drywallow Daggermaw",
+        "movement": 1,
+        "wander": 10.0,
+        "detection": 18.0,
+        "hubs": [
+          "dawnchasers"
+        ],
+        "origin": [
+          -3914.41,
+          -3393.57,
+          30.5224,
+          1.43423
+        ]
+      },
+      {
+        "guid": 33911,
+        "entry": 4344,
+        "name": "Mottled Drywallow Crocolisk",
+        "movement": 1,
+        "wander": 10.0,
+        "detection": 18.0,
+        "hubs": [
+          "dawnchasers"
+        ],
+        "origin": [
+          -3886.49,
+          -3389.57,
+          32.9654,
+          4.56137
+        ]
+      }
+    ],
+    "patrol_crossings": []
+  },
+  "chapter_moves": [
+    {
+      "chapter": 3,
+      "kind": "creature",
+      "entry": 4001405,
+      "point": "mei",
+      "old": [
+        -4380.53,
+        -3344.8,
+        35.20544456028339,
+        3.14
+      ],
+      "new": [
+        -4535.0,
+        -3235.0,
+        31.005721232444824,
+        3.14
+      ],
+      "spawn_key": "BS-C03:NPC_MEI:mei"
+    },
+    {
+      "chapter": 3,
+      "kind": "gameobject",
+      "entry": 4001517,
+      "point": "village_sign",
+      "new": [
+        -4533.0,
+        -3233.0,
+        30.085449329220566,
+        3.14
+      ],
+      "spawn_key": "BS-C03:GO_VILLAGE_SIGN:village_sign"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_1",
+      "old": [
+        1000.0,
+        1660.0,
+        6.3648,
+        3.14
+      ],
+      "new": [
+        1052.0,
+        1646.0,
+        15.459047454452229,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_1"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_2",
+      "old": [
+        990.0,
+        1645.0,
+        12.4221,
+        3.14
+      ],
+      "new": [
+        1038.0,
+        1616.0,
+        79.35763348383723,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_2"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_3",
+      "old": [
+        1020.0,
+        1640.0,
+        19.7295,
+        3.14
+      ],
+      "new": [
+        1032.0,
+        1604.0,
+        87.11358574626871,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_3"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_4",
+      "old": [
+        1040.0,
+        1646.13,
+        11.7481,
+        3.14
+      ],
+      "new": [
+        1048.73,
+        1630.73,
+        29.246997468726835,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_4"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_5",
+      "old": [
+        1004.0,
+        1648.0,
+        9.2767,
+        3.14
+      ],
+      "new": [
+        1052.0,
+        1653.0,
+        14.391567806857072,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_5"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_6",
+      "old": [
+        983.0,
+        1668.0,
+        -6.5765,
+        3.14
+      ],
+      "new": [
+        1060.0,
+        1626.0,
+        34.23473728777762,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_6"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_7",
+      "old": [
+        963.0,
+        1672.0,
+        -8.5886,
+        3.14
+      ],
+      "new": [
+        963.0,
+        1660.0,
+        -10.141557772543873,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_7"
+    },
+    {
+      "chapter": 1,
+      "kind": "creature",
+      "entry": 4001010,
+      "point": "scout_8",
+      "old": [
+        942.0,
+        1655.0,
+        -12.6257,
+        3.14
+      ],
+      "new": [
+        942.0,
+        1655.0,
+        -12.625688946517286,
+        3.14
+      ],
+      "spawn_key": "BS-C01:NPC_CULT_SCOUT:scout_8"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_0",
+      "old": [
+        867.0,
+        1610.0,
+        -25.13122491717254,
+        3.14
+      ],
+      "new": [
+        835.0,
+        1664.0,
+        -27.059933500169194,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_0"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_1",
+      "old": [
+        860.0,
+        1618.0,
+        -25.673426308649876,
+        3.14
+      ],
+      "new": [
+        824.0,
+        1669.0,
+        -28.40598382122006,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_1"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_2",
+      "old": [
+        856.0,
+        1641.0,
+        -26.131673083304587,
+        3.14
+      ],
+      "new": [
+        819.0,
+        1682.0,
+        -26.401782189081,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_2"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_3",
+      "old": [
+        866.0,
+        1655.0,
+        -20.787135397600036,
+        3.14
+      ],
+      "new": [
+        839.0,
+        1679.0,
+        -25.57625049232782,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_3"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_4",
+      "old": [
+        841.0,
+        1650.0,
+        -27.590632448081802,
+        3.14
+      ],
+      "new": [
+        852.0,
+        1697.0,
+        -22.180517612859283,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_4"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_5",
+      "old": [
+        830.0,
+        1640.0,
+        -28.11736503614468,
+        3.14
+      ],
+      "new": [
+        825.0,
+        1694.0,
+        -24.325921655653925,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_5"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_6",
+      "old": [
+        826.0,
+        1656.0,
+        -28.36473367878156,
+        3.14
+      ],
+      "new": [
+        810.0,
+        1672.0,
+        -29.03081770956997,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_6"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001222,
+      "point": "fire_7",
+      "old": [
+        851.0,
+        1669.0,
+        -23.24178329668966,
+        3.14
+      ],
+      "new": [
+        844.0,
+        1712.0,
+        -20.64566856295442,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FIRE:fire_7"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001225,
+      "point": "failed_0",
+      "old": [
+        868.0,
+        1551.0,
+        -20.36542429610063,
+        3.14
+      ],
+      "new": [
+        846.0,
+        1534.0,
+        -19.41653064558561,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FAILED:failed_0"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001225,
+      "point": "failed_1",
+      "old": [
+        879.0,
+        1555.0,
+        -19.720260401269417,
+        3.14
+      ],
+      "new": [
+        862.0,
+        1528.0,
+        -17.89641558558829,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FAILED:failed_1"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001225,
+      "point": "failed_2",
+      "old": [
+        881.0,
+        1567.0,
+        -18.45213630409088,
+        3.14
+      ],
+      "new": [
+        880.0,
+        1527.0,
+        -16.2160568958683,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FAILED:failed_2"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001225,
+      "point": "failed_3",
+      "old": [
+        864.824,
+        1539.75,
+        -18.57077272772327,
+        3.14
+      ],
+      "new": [
+        885.0,
+        1541.0,
+        -18.675011104123634,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FAILED:failed_3"
+    },
+    {
+      "chapter": 2,
+      "kind": "creature",
+      "entry": 4001225,
+      "point": "failed_4",
+      "old": [
+        851.0,
+        1547.0,
+        -22.17439682719306,
+        3.14
+      ],
+      "new": [
+        842.0,
+        1548.0,
+        -23.47708327588033,
+        3.14
+      ],
+      "spawn_key": "BS-C02:NPC_FAILED:failed_4"
+    }
+  ],
+  "residents": [
+    {
+      "entry": 4009050,
+      "hub": "expedition",
+      "name": "Vale Expedition Camp Camp Volunteer",
+      "display": 49,
+      "point": [
+        1098.62,
+        1552.44,
+        29.52582169522304,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009051,
+      "hub": "refuge",
+      "name": "Surveyor Refuge Camp Volunteer",
+      "display": 49,
+      "point": [
+        1001.95,
+        1653.01,
+        11.223482758767357,
+        0.0
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009052,
+      "hub": "selection",
+      "name": "Twilight Selection Camp Quartermaster",
+      "display": 49,
+      "point": [
+        900.918,
+        1604.0,
+        -19.62194978214146,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009053,
+      "hub": "supplicants",
+      "name": "Twilight Supplication Station Quartermaster",
+      "display": 49,
+      "point": [
+        905.055,
+        1643.99,
+        -10.105770543769161,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009054,
+      "hub": "instruction",
+      "name": "Twilight Instructor Camp Quartermaster",
+      "display": 49,
+      "point": [
+        868.079,
+        1600.0,
+        -24.461889942955864,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009055,
+      "hub": "kennels",
+      "name": "Twilight Kennel Station Quartermaster",
+      "display": 49,
+      "point": [
+        911.918,
+        1605.0,
+        -16.43364583042969,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009056,
+      "hub": "dawnchasers",
+      "name": "Dawnchaser Field Camp Camp Volunteer",
+      "display": 59,
+      "point": [
+        -3981.08,
+        -3335.0,
+        37.44540655266874,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    },
+    {
+      "entry": 4009057,
+      "hub": "wayside",
+      "name": "Mei's Mudsprocket Relief Station Camp Volunteer",
+      "display": 53,
+      "point": [
+        -4528.53,
+        -3228.39,
+        31.033901026964227,
+        3.141592653589793
+      ],
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089,
+        "class": 1
+      },
+      "emote": 69
+    }
+  ],
+  "corridors": [
+    {
+      "start": "cage_1",
+      "end": "safe",
+      "a": [
+        985.0,
+        1685.0,
+        -6.814,
+        3.14
+      ],
+      "b": [
+        1012.0,
+        1655.0,
+        0.6661,
+        3.14
+      ]
+    },
+    {
+      "start": "cage_2",
+      "end": "safe",
+      "a": [
+        971.0,
+        1694.0,
+        -8.5529,
+        3.14
+      ],
+      "b": [
+        1012.0,
+        1655.0,
+        0.6661,
+        3.14
+      ]
+    },
+    {
+      "start": "cage_3",
+      "end": "safe",
+      "a": [
+        952.0,
+        1690.0,
+        -12.7174,
+        3.14
+      ],
+      "b": [
+        1012.0,
+        1655.0,
+        0.6661,
+        3.14
+      ]
+    },
+    {
+      "start": "check_a",
+      "end": "check_b",
+      "a": [
+        815.0,
+        1570.0,
+        -28.852262076292593,
+        3.14
+      ],
+      "b": [
+        795.0,
+        1605.0,
+        -31.48480454868414,
+        3.14
+      ]
+    },
+    {
+      "start": "check_b",
+      "end": "check_c",
+      "a": [
+        795.0,
+        1605.0,
+        -31.48480454868414,
+        3.14
+      ],
+      "b": [
+        815.0,
+        1630.0,
+        -30.127648420053635,
+        3.14
+      ]
+    },
+    {
+      "start": "check_c",
+      "end": "check_d",
+      "a": [
+        815.0,
+        1630.0,
+        -30.127648420053635,
+        3.14
+      ],
+      "b": [
+        851.0,
+        1564.0,
+        -22.601084766729425,
+        3.14
+      ]
+    },
+    {
+      "start": "dog_a",
+      "end": "dog_b",
+      "a": [
+        920.0,
+        1570.0,
+        -15.921753236050666,
+        3.14
+      ],
+      "b": [
+        944.0,
+        1575.0,
+        -12.784329594237406,
+        3.14
+      ]
+    },
+    {
+      "start": "dog_b",
+      "end": "dog_c",
+      "a": [
+        944.0,
+        1575.0,
+        -12.784329594237406,
+        3.14
+      ],
+      "b": [
+        951.006,
+        1610.0,
+        -11.64599647705564,
+        3.14
+      ]
+    },
+    {
+      "start": "escape_a",
+      "end": "escape_b",
+      "a": [
+        995.0,
+        1700.0,
+        -6.831233841842065,
+        3.14
+      ],
+      "b": [
+        1010.0,
+        1655.0,
+        3.3444623529988275,
+        3.14
+      ]
+    },
+    {
+      "start": "escape_b",
+      "end": "escape_c",
+      "a": [
+        1010.0,
+        1655.0,
+        3.3444623529988275,
+        3.14
+      ],
+      "b": [
+        1060.0,
+        1640.0,
+        23.975483112098804,
+        3.14
+      ]
+    },
+    {
+      "start": "escape_c",
+      "end": "refuge",
+      "a": [
+        1060.0,
+        1640.0,
+        23.975483112098804,
+        3.14
+      ],
+      "b": [
+        1110.0,
+        1545.0,
+        29.172535986830365,
+        3.14
+      ]
+    },
+    {
+      "start": "mylva",
+      "end": "condenna",
+      "a": [
+        862.0,
+        1592.0,
+        -24.190115060947168,
+        3.14
+      ],
+      "b": [
+        892.0,
+        1610.0,
+        -20.975140854483726,
+        3.14
+      ]
+    },
+    {
+      "start": "hound",
+      "end": "dog_a",
+      "a": [
+        918.0,
+        1595.0,
+        -16.154473069543354,
+        3.14
+      ],
+      "b": [
+        920.0,
+        1570.0,
+        -15.921753236050666,
+        3.14
+      ]
+    }
+  ],
+  "validation": {
+    "corridors_clear": true,
+    "scenery_ground_and_footprints_checked": true,
+    "native_source": "AzerothCore client-data v20"
+  },
+  "exceptions": {
+    "4001006": "Alliance introduction uses Kaela's existing faction settlement.",
+    "4001007": "Horde introduction uses the existing Sun Rock Retreat settlement.",
+    "4001002": "Bound Jarod is a deliberate hostile-zone quest encounter, not a resting hub."
+  }
+}

@@ -10,6 +10,9 @@ Implementation is present in the repository. A full worldserver build, deploymen
 and stock-client playthrough have **not** been performed. Balance, visibility,
 item targeting and scene presentation still need the acceptance run below.
 
+The [shared hub add-on](hub-implementation.md) provides native camp dressing and
+ambient-mob safety. Its manifest records the corresponding public-enemy clearances.
+
 ## Install
 
 1. Rebuild AzerothCore with this module, including `AddBrokenSealChapter2Scripts`
@@ -56,8 +59,9 @@ instructors stand farther west in the valley. All positions are native map **1**
 The freed Jarod is personal. After rewarding Twilight Riot, ask Ortell to call him
 at the refuge. This remains available after relogging and replaces an expired actor.
 Dezco's neutral field camp is beside the Tabetha road in Dustwallow; he accepts the
-letter from either faction. Chapter 3's quests are not inserted yet, and 900222 has
-no dangling `NextQuestID`. Its planned follow-up requires level 30.
+letter from either faction. Install [Chapter 3](chapter3-implementation.md) to continue with Dezco at level 30
+after rewarding 900222. Chapter 3 uses an explicit prerequisite; Chapter 2 keeps
+its standalone `NextQuestID` at zero.
 
 The [implementation manifest](../../data/quests/broken_seal_chapter2.json) records
 all coordinates, outfits, IDs, native asset choices and navigation results.

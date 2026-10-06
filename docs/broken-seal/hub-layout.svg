@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="1200" height="700" fill="#121d26"/>
+<text x="20" y="28" fill="#edf5f4" font-size="20" font-family="sans-serif">The Broken Seal — hub layout plan</text>
+<text x="20" y="49" fill="#b8c7c8" font-size="12" font-family="sans-serif">Native scenery • cyan: contacts / clear routes • gold: sentries • light circles: protected hand-in areas</text>
+<rect x="15" y="65" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="25" y="85" fill="#edf5f4" font-size="13" font-family="sans-serif">Vale Expedition Camp</text>
+<circle cx="150" cy="220" r="56.25" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 20.00 95.00 L 118.75 235.62" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="84.22" y="243.35" width="18.85" height="16.23" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Shelter</title></rect>
+<rect x="111.56" y="249.06" width="8.12" height="4.38" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Bedroll</title></rect>
+<rect x="75.23" y="210.31" width="3.88" height="4.15" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Supplies</title></rect>
+<rect x="96.41" y="223.24" width="3.88" height="4.15" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Supplies</title></rect>
+<rect x="175.69" y="229.74" width="4.87" height="5.53" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Table</title></rect>
+<rect x="175.96" y="243.91" width="4.04" height="3.30" fill="#ad824e" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Rack</title></rect>
+<rect x="88.20" y="231.26" width="6.34" height="6.67" fill="#c86e46" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Hearth</title></rect>
+<rect x="130.10" y="209.52" width="2.24" height="2.24" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Lantern</title></rect>
+<rect x="164.66" y="207.61" width="2.24" height="2.24" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Lantern</title></rect>
+<rect x="87.63" y="240.83" width="12.09" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Boundary</title></rect>
+<rect x="164.47" y="245.52" width="2.01" height="5.29" fill="#a19d65" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition Camp Banner</title></rect>
+<circle cx="162.50" cy="232.50" r="3" fill="#8cd3d6"><title>Maruut Stonebinder</title></circle>
+<circle cx="150.00" cy="220.00" r="3" fill="#8cd3d6"><title>Elementalist Ortell</title></circle>
+<circle cx="143.75" cy="216.88" r="3" fill="#8cd3d6"><title>Expedition Scout</title></circle>
+<path d="M 113.44 231.62 L 117.44 238.62 L 109.44 238.62 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 183.34 203.91 L 187.34 210.91 L 179.34 210.91 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="25" y="349" fill="#b8c7c8" font-size="11" font-family="sans-serif">11 props • 2 sentries • 1 working resident</text>
+<rect x="310" y="65" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="320" y="85" fill="#edf5f4" font-size="13" font-family="sans-serif">Surveyor Refuge</text>
+<circle cx="445" cy="220" r="38.46153846153847" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 358.46 123.85 L 445.00 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 315.00 95.00 L 445.00 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 315.00 107.82 L 445.00 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 390.51 95.00 L 438.59 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 438.59 220.00 L 590.00 268.08" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="421.86" y="122.41" width="19.34" height="16.65" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Shelter</title></rect>
+<rect x="453.65" y="195.32" width="8.33" height="4.49" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Bedroll</title></rect>
+<rect x="460.06" y="185.71" width="8.33" height="4.49" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Bedroll</title></rect>
+<rect x="416.94" y="223.96" width="4.84" height="4.84" fill="#5d9c93" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Medicine</title></rect>
+<rect x="407.76" y="214.67" width="3.98" height="4.26" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Supplies</title></rect>
+<rect x="424.58" y="228.48" width="2.29" height="2.29" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Lantern</title></rect>
+<rect x="480.62" y="220.62" width="12.40" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Surveyor Refuge Boundary</title></rect>
+<path d="M 420.00 232.03 L 424.00 239.03 L 416.00 239.03 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 470.00 196.77 L 474.00 203.77 L 466.00 203.77 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="320" y="349" fill="#b8c7c8" font-size="11" font-family="sans-serif">7 props • 2 sentries • 1 working resident</text>
+<rect x="605" y="65" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="615" y="85" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Selection Camp</text>
+<circle cx="740" cy="220" r="38.46153846153847" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 643.85 277.69 L 740.00 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 823.33 268.08 L 829.74 348.21" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="729.24" y="181.22" width="15.96" height="19.89" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Selection Camp Cult Shelter</title></rect>
+<rect x="713.40" y="185.71" width="8.33" height="4.49" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Selection Camp Bedroll</title></rect>
+<rect x="760.43" y="237.09" width="3.98" height="4.26" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Selection Camp Supplies</title></rect>
+<rect x="750.32" y="229.99" width="4.99" height="5.67" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Selection Camp Table</title></rect>
+<rect x="764.53" y="206.02" width="2.29" height="2.29" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Selection Camp Lantern</title></rect>
+<rect x="699.16" y="222.83" width="12.40" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Selection Camp Boundary</title></rect>
+<circle cx="740.00" cy="220.00" r="3" fill="#8cd3d6"><title>Condenna the Pitiless</title></circle>
+<path d="M 715.00 232.03 L 719.00 239.03 L 711.00 239.03 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 765.00 196.77 L 769.00 203.77 L 761.00 203.77 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="615" y="349" fill="#b8c7c8" font-size="11" font-family="sans-serif">6 props • 2 sentries • 1 working resident</text>
+<rect x="900" y="65" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="910" y="85" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Supplication Station</text>
+<circle cx="1035" cy="220" r="38.46153846153847" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 932.44 355.00 L 1028.59 325.77" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="1073.88" y="202.08" width="15.96" height="19.89" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Supplication Station Cult Shelter</title></rect>
+<rect x="1061.42" y="214.40" width="4.84" height="4.84" fill="#5d9c93" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Supplication Station Medicine</title></rect>
+<rect x="1051.73" y="201.14" width="4.99" height="5.67" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Supplication Station Table</title></rect>
+<rect x="1061.84" y="195.43" width="3.98" height="4.26" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Supplication Station Supplies</title></rect>
+<rect x="1017.86" y="234.87" width="2.29" height="2.29" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Supplication Station Lantern</title></rect>
+<rect x="987.75" y="216.42" width="12.40" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Supplication Station Boundary</title></rect>
+<circle cx="1035.00" cy="220.00" r="3" fill="#8cd3d6"><title>Instructor Cargall</title></circle>
+<path d="M 1010.00 232.03 L 1014.00 239.03 L 1006.00 239.03 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 1069.62 196.77 L 1073.62 203.77 L 1065.62 203.77 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="910" y="349" fill="#b8c7c8" font-size="11" font-family="sans-serif">6 props • 2 sentries • 1 working resident</text>
+<rect x="15" y="375" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="25" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Instructor Camp</text>
+<circle cx="150" cy="530" r="44.871794871794876" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 20.00 408.21 L 114.74 619.74" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 150.00 530.00 L 246.15 472.31" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="126.42" y="507.24" width="15.96" height="19.89" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Cult Shelter</title></rect>
+<rect x="107.37" y="511.73" width="8.33" height="4.49" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Bedroll</title></rect>
+<rect x="160.32" y="501.53" width="4.99" height="5.67" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Table</title></rect>
+<rect x="164.11" y="550.16" width="4.14" height="3.39" fill="#ad824e" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Rack</title></rect>
+<rect x="142.48" y="554.48" width="2.29" height="2.29" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Lantern</title></rect>
+<rect x="178.54" y="493.57" width="3.98" height="4.26" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Supplies</title></rect>
+<rect x="105.96" y="548.85" width="12.40" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Instructor Camp Boundary</title></rect>
+<circle cx="150.00" cy="530.00" r="3" fill="#8cd3d6"><title>Instructor Mylva</title></circle>
+<path d="M 120.83 542.03 L 124.83 549.03 L 116.83 549.03 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 188.78 506.77 L 192.78 513.77 L 184.78 513.77 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="25" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">7 props • 2 sentries • 1 working resident</text>
+<rect x="310" y="375" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="320" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Kennel Station</text>
+<circle cx="445" cy="530" r="38.46153846153847" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 461.03 626.15 L 537.95 610.13" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 537.95 610.13 L 560.40 497.95" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 315.00 555.64 L 371.28 497.95" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 454.62 546.03 L 461.03 626.15" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="459.89" y="506.38" width="15.96" height="19.89" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Cult Shelter</title></rect>
+<rect x="463.99" y="494.94" width="8.33" height="4.49" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Bedroll</title></rect>
+<rect x="426.97" y="511.84" width="3.98" height="4.26" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Supplies</title></rect>
+<rect x="426.97" y="505.43" width="3.98" height="4.26" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Supplies</title></rect>
+<rect x="465.52" y="550.16" width="4.14" height="3.39" fill="#ad824e" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Rack</title></rect>
+<rect x="424.66" y="541.66" width="2.29" height="2.29" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Lantern</title></rect>
+<rect x="471.47" y="561.67" width="12.40" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Kennel Station Boundary</title></rect>
+<circle cx="445.00" cy="530.00" r="3" fill="#8cd3d6"><title>Instructor Devoran</title></circle>
+<path d="M 420.00 542.03 L 424.00 549.03 L 416.00 549.03 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 479.62 512.31 L 483.62 519.31 L 475.62 519.31 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="320" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">7 props • 2 sentries • 1 working resident</text>
+<rect x="605" y="375" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="615" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Dawnchaser Field Camp</text>
+<circle cx="740" cy="530" r="90.625" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<rect x="765.02" y="496.15" width="9.43" height="8.12" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Shelter</title></rect>
+<rect x="764.53" y="505.47" width="4.06" height="2.19" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Bedroll</title></rect>
+<rect x="773.91" y="505.47" width="4.06" height="2.19" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Bedroll</title></rect>
+<rect x="707.21" y="500.84" width="9.43" height="8.12" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Shelter</title></rect>
+<rect x="702.03" y="507.03" width="4.06" height="2.19" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Bedroll</title></rect>
+<rect x="706.72" y="511.72" width="4.06" height="2.19" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Bedroll</title></rect>
+<rect x="718.71" y="505.52" width="2.00" height="2.08" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Supplies</title></rect>
+<rect x="718.71" y="500.83" width="2.00" height="2.08" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Supplies</title></rect>
+<rect x="726.32" y="547.58" width="2.36" height="2.36" fill="#5d9c93" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Medicine</title></rect>
+<rect x="731.01" y="547.58" width="2.36" height="2.36" fill="#5d9c93" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Medicine</title></rect>
+<rect x="765.35" y="534.87" width="2.43" height="2.76" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Table</title></rect>
+<rect x="765.63" y="547.64" width="2.02" height="2.00" fill="#ad824e" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Rack</title></rect>
+<rect x="716.02" y="537.25" width="2.00" height="2.00" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Lantern</title></rect>
+<rect x="751.96" y="510.69" width="2.00" height="2.00" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Lantern</title></rect>
+<rect x="694.16" y="517.73" width="2.00" height="2.00" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Lantern</title></rect>
+<rect x="776.34" y="520.44" width="6.04" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Boundary</title></rect>
+<rect x="684.15" y="553.25" width="6.04" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Boundary</title></rect>
+<rect x="770.82" y="516.16" width="2.00" height="2.65" fill="#a19d65" stroke="#cfdbd4" stroke-width=".5"><title>Dawnchaser Field Camp Banner</title></rect>
+<circle cx="740.00" cy="530.00" r="3" fill="#8cd3d6"><title>Sunwalker Dezco</title></circle>
+<circle cx="763.44" cy="526.88" r="3" fill="#8cd3d6"><title>Kang Bramblestaff</title></circle>
+<circle cx="740.00" cy="495.62" r="3" fill="#8cd3d6"><title>Kor Bloodtusk</title></circle>
+<circle cx="721.25" cy="542.50" r="3" fill="#8cd3d6"><title>Nala</title></circle>
+<circle cx="768.12" cy="483.12" r="3" fill="#8cd3d6"><title>Expedition Refugees: Group A</title></circle>
+<circle cx="822.81" cy="545.62" r="3" fill="#8cd3d6"><title>Expedition Refugees: Group B</title></circle>
+<circle cx="747.81" cy="592.50" r="3" fill="#8cd3d6"><title>Expedition Refugees: Group C</title></circle>
+<path d="M 681.09 533.81 L 685.09 540.81 L 677.09 540.81 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 798.91 516.62 L 802.91 523.62 L 794.91 523.62 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="615" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">18 props • 2 sentries • 1 working resident</text>
+<rect x="900" y="375" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="910" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Mei&#x27;s Mudsprocket Relief Station</text>
+<circle cx="1035" cy="530" r="56.25" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<rect x="968.17" y="545.45" width="18.85" height="16.23" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Shelter</title></rect>
+<rect x="1014.47" y="491.78" width="8.13" height="4.37" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Bedroll</title></rect>
+<rect x="1046.28" y="506.58" width="4.87" height="5.53" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Table</title></rect>
+<rect x="1045.17" y="546.60" width="6.34" height="6.67" fill="#c86e46" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Hearth</title></rect>
+<rect x="1020.58" y="546.70" width="3.88" height="4.15" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Supplies</title></rect>
+<rect x="1026.80" y="546.67" width="3.88" height="4.15" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Supplies</title></rect>
+<rect x="1064.95" y="515.34" width="2.24" height="2.24" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Lantern</title></rect>
+<rect x="1014.29" y="555.82" width="4.04" height="3.30" fill="#ad824e" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Rack</title></rect>
+<rect x="1060.37" y="556.60" width="12.09" height="2.00" fill="#657368" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Boundary</title></rect>
+<rect x="1028.61" y="498.00" width="2.01" height="5.29" fill="#a19d65" stroke="#cfdbd4" stroke-width=".5"><title>Mei&#x27;s Mudsprocket Relief Station Banner</title></rect>
+<circle cx="1035.00" cy="530.00" r="3" fill="#8cd3d6"><title>Mei Barrelbottom</title></circle>
+<path d="M 1022.87 556.69 L 1026.87 563.69 L 1018.87 563.69 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<path d="M 1071.56 507.25 L 1075.56 514.25 L 1067.56 514.25 Z" fill="#f0cf7a"><title>Sentry</title></path>
+<text x="910" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">10 props • 2 sentries • 1 working resident</text>
+<text x="20" y="690" fill="#b8c7c8" font-size="11" font-family="sans-serif">Layout and clearance review. In-game terrain, model rendering and NPC behavior still need a live acceptance pass.</text>
+</svg>

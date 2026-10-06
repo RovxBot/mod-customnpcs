@@ -1896,7 +1896,7 @@
             "original_title": "Life",
             "quest_id": 30131
           },
-          "scene_notes": "Native actor staging with an occluded birth; no forced camera or new cinematic file. Children are staged props pending asset audit.",
+          "scene_notes": "Private native actor staging with an occluded birth; no forced camera or cinematic file. Redhorn and Cloudhoof use the verified native Baby_Ta model, with scene credit only after Leza dies and both sons survive.",
           "reward": {
             "xp": "normal quest XP for the chapter; tune on server",
             "money": "normal level-appropriate quest money",
@@ -11409,7 +11409,7 @@
       "nala": {
         "name": "Nala",
         "origin": "Krasarang",
-        "appearance_plan": "Native midwife recreation; exact original race to verify",
+        "appearance_plan": "Native female tauren midwife recreation; source race and gender verified",
         "role": "Birth scene and medical support",
         "donor_entry": null,
         "asset_status": "native appearance plan; outfit/animation audit pending",
@@ -11422,10 +11422,10 @@
       "redhorn": {
         "name": "Redhorn",
         "origin": "Krasarang",
-        "appearance_plan": "Occluded infant scene proxy with a stock bundled cot; exact tauren infant visual unavailable in this plan",
+        "appearance_plan": "Native tauren baby model (display 23783, Baby_Ta); private actor presented in a bundled cot after the occluded delivery",
         "role": "Dezco and Leza's son; born in chapter 3, remains alive in this campaign",
         "donor_entry": null,
-        "asset_status": "native appearance plan; outfit/animation audit pending",
+        "asset_status": "Native DBC model and Taunka Orphan donor verified for Chapter 3; live visual QA pending",
         "chapters": [
           "C03"
         ],
@@ -11434,10 +11434,10 @@
       "cloudhoof": {
         "name": "Cloudhoof",
         "origin": "Krasarang",
-        "appearance_plan": "Occluded infant scene proxy with a stock bundled cot; exact tauren infant visual unavailable in this plan",
+        "appearance_plan": "Native tauren baby model (display 23783, Baby_Ta); private actor presented in a bundled cot after the occluded delivery",
         "role": "Dezco and Leza's son; born in chapter 3, remains alive in this campaign",
         "donor_entry": null,
-        "asset_status": "native appearance plan; outfit/animation audit pending",
+        "asset_status": "Native DBC model and Taunka Orphan donor verified for Chapter 3; live visual QA pending",
         "chapters": [
           "C03"
         ],
@@ -11458,7 +11458,7 @@
       "kor": {
         "name": "Kor Bloodtusk",
         "origin": "Krasarang",
-        "appearance_plan": "Native humanoid veteran outfit; exact source appearance audit pending",
+        "appearance_plan": "Native male orc veteran outfit; source race and gender verified",
         "role": "Expedition security; campaign continuation preserves his later role by changing geography",
         "donor_entry": null,
         "asset_status": "native appearance plan; outfit/animation audit pending",

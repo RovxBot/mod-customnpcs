@@ -8,9 +8,9 @@ Design inventory, 2026-10-06. **252 quest records; 251 required quests per chara
 
 [Complete entity catalog](catalog.md) · [Machine-readable manifest](../../data/quests/broken_seal_campaign.json) · [Campaign proposal](../level-20-80-campaign-proposal.md)
 
-**Chapters 1 and 2 have runtime code and installation SQL.** See the [Chapter 1](chapter1-implementation.md) and [Chapter 2](chapter2-implementation.md) guides. Chapters 3–14 remain design inventories.
+**Chapters 1–3 have runtime code and installation SQL.** See the [Chapter 1](chapter1-implementation.md), [Chapter 2](chapter2-implementation.md) and [Chapter 3](chapter3-implementation.md) guides. Chapters 4–14 remain design inventories.
 
-This expands the accepted proposal into a complete required path. Full training, earthen-warfront, council and vision branches make the inventory larger than the earlier 140–180 estimate. Chapters 1 and 2 are implemented in the repository; no realm deployment or client patch was performed.
+This expands the accepted proposal into a complete required path. Full training, earthen-warfront, council and vision branches make the inventory larger than the earlier 140–180 estimate. Chapters 1–3 are implemented in the repository; no realm deployment or client patch was performed.
 
 ## Chapters
 

@@ -5,6 +5,7 @@
 
 #include "BrokenSealChapter2.h"
 #include "BrokenSealChapter2Integration.h"
+#include "BrokenSealChapter3Integration.h"
 #include "Chat.h"
 #include "Config.h"
 #include "Creature.h"
@@ -1284,11 +1285,13 @@ class npc_bs_c02_contact : public CreatureScript
         ClearGossipMenuFor(p);
         p->PrepareQuestMenu(c->GetGUID());
         ContactMenu(p, c);
-        SendGossipMenuFor(p, c->GetEntry(), c->GetGUID());
+        SendGossipMenuFor(p, BrokenSealChapter3Gossip(p, c), c->GetGUID());
         return true;
     }
     bool OnGossipSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action) override
     {
+        if (BrokenSealChapter3Select(p, c, sender, action))
+            return true;
         ContactSelect(p, c, sender, action);
         return true;
     }

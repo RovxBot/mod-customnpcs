@@ -74,6 +74,23 @@ void TestEquipment()
     assert(display == 2147483648u); // No signed overflow even for corrupt SQL input.
 }
 
+void TestCourierLegDisplay()
+{
+    CustomNpcs::Outfit outfit;
+    outfit.armor[CustomNpcs::Legs] = 1431;
+    std::uint32_t& display = outfit.armorDisplays[CustomNpcs::Legs];
+    assert(CustomNpcs::ResolveArmor(outfit.armor[CustomNpcs::Legs], display,
+        [](std::uint32_t entry) { return entry == 1431 ? 16796u : 0u; },
+        [](std::uint32_t id) { return id == 16796; }));
+    Packet packet;
+    CustomNpcs::WriteMirrorImageData(packet, std::uint64_t(1), outfit);
+    constexpr std::size_t legOffset = 24 + CustomNpcs::Legs * sizeof(std::uint32_t);
+    std::uint32_t wireDisplay = 0;
+    for (std::size_t i = 0; i < 4; ++i)
+        wireDisplay |= std::uint32_t(packet.bytes[legOffset + i]) << (i * 8);
+    assert(wireDisplay == 16796);
+}
+
 void TestAssignments()
 {
     CustomNpcs::OutfitCatalog catalog;
@@ -118,6 +135,7 @@ int main()
 {
     TestPacket();
     TestEquipment();
+    TestCourierLegDisplay();
     TestAssignments();
     TestStockClientIds();
     std::cout << "Outfit protocol, equipment, assignment, and stock-client ID tests passed.\n";

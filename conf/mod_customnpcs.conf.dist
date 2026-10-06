@@ -60,3 +60,11 @@ ModCustomNPCs.BrokenSeal.Chapter1.Enable = 1
 # Chapter 2 requires Chapter 1, its world SQL, and native NPC appearances.
 # Enables the cult training trials and Jarod rescue in the Charred Vale.
 ModCustomNPCs.BrokenSeal.Chapter2.Enable = 1
+
+# Chapter 3 requires Chapters 1/2 and its world SQL.
+# Enables the Dawnchaser medical story and marsh expedition in Dustwallow.
+ModCustomNPCs.BrokenSeal.Chapter3.Enable = 1
+
+# Shared camp sentries and localized ambient-NPC protection. Requires broken_seal_hubs.sql.
+# Scripted encounters, bosses, player pets and PvP retain their normal behavior.
+ModCustomNPCs.BrokenSeal.Hubs.Enable = 1
