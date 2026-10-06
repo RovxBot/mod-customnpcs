@@ -9,7 +9,9 @@
 #include "CustomNpcOutfit.h"
 #include "ObjectGuid.h"
 
+#include <atomic>
 #include <map>
+#include <memory>
 #include <mutex>
 #include <string>
 #include <tuple>
@@ -55,7 +57,7 @@ private:
     static void Apply(Creature* creature, Outfit const& outfit, AppliedAppearance const& appearance);
     static void Restore(Creature* creature, AppliedAppearance const& appearance);
 
-    std::shared_ptr<OutfitCatalog const> _catalog = std::make_shared<OutfitCatalog>();
+    std::atomic<std::shared_ptr<OutfitCatalog const>> _catalog{ std::make_shared<OutfitCatalog>() };
     // Keys include the instance; neither raw creature nor map pointers outlive a hook.
     std::mutex _appliedMutex;
     std::map<CreatureKey, AppliedAppearance> _applied;

@@ -20,8 +20,6 @@
 #include "WorldPacket.h"
 #include "WorldSession.h"
 
-#include <atomic>
-
 namespace CustomNpcs
 {
 namespace
@@ -166,19 +164,19 @@ void AppearanceMgr::Reload()
 
     LOG_INFO("module.customnpcs", "Loaded {} outfits, {} entry assignments and {} spawn overrides (enabled: {}).",
         catalog->outfits.size(), catalog->entries.size(), catalog->spawns.size(), catalog->enabled);
-    std::atomic_store(&_catalog, std::shared_ptr<OutfitCatalog const>(std::move(catalog)));
+    _catalog.store(std::move(catalog));
 }
 
 std::shared_ptr<Outfit const> AppearanceMgr::GetOutfit(std::uint32_t id) const
 {
-    auto catalog = std::atomic_load(&_catalog);
+    auto catalog = _catalog.load();
     auto const itr = catalog->outfits.find(id);
     return itr != catalog->outfits.end() ? itr->second : nullptr;
 }
 
 std::shared_ptr<Outfit const> AppearanceMgr::GetOutfitFor(Creature const* creature) const
 {
-    return std::atomic_load(&_catalog)->Find(creature->GetEntry(), creature->GetSpawnId());
+    return _catalog.load()->Find(creature->GetEntry(), creature->GetSpawnId());
 }
 
 AppearanceMgr::CreatureKey AppearanceMgr::Key(Creature const* creature)

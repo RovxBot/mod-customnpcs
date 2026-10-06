@@ -155,12 +155,11 @@ LIMIT 1;
 -- Guard against exceeding the client's 32-option gossip menu limit.
 INSERT INTO `mod_customnpcs_guard_check`
 SELECT 1 FROM (
-  SELECT `MenuID`, `OptionID` FROM `gossip_menu_option`
-  UNION
-  SELECT `menu`, `option` FROM `mod_customnpcs_guard_directions`
+  SELECT `MenuID`, `OptionID`, 0 AS `added` FROM `gossip_menu_option`
+  UNION ALL
+  SELECT `menu`, `option`, 1 FROM `mod_customnpcs_guard_directions`
 ) planned
-WHERE `MenuID` IN (SELECT `menu` FROM `mod_customnpcs_guard_directions`)
-GROUP BY `MenuID` HAVING COUNT(*) > 32 LIMIT 1;
+GROUP BY `MenuID` HAVING MAX(`added`) = 1 AND COUNT(DISTINCT `OptionID`) > 32 LIMIT 1;
 DROP TEMPORARY TABLE `mod_customnpcs_guard_check`;
 
 START TRANSACTION;
@@ -200,7 +199,14 @@ INSERT INTO `gossip_menu_option`
    `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`)
 SELECT `direction_id`, 0, 0, 'Back to trainers.', 0, 1, 1, `menu`, 0
 FROM `mod_customnpcs_guard_directions`
-UNION ALL
+ON DUPLICATE KEY UPDATE
+  `OptionIcon` = 0, `OptionText` = VALUES(`OptionText`), `OptionBroadcastTextID` = 0,
+  `OptionType` = 1, `OptionNpcFlag` = 1,
+  `ActionMenuID` = VALUES(`ActionMenuID`), `ActionPoiID` = 0;
+
+INSERT INTO `gossip_menu_option`
+  (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`,
+   `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`)
 SELECT `direction_id`, 1, 0, 'Other city services.', 0, 1, 1, `root_menu`, 0
 FROM `mod_customnpcs_guard_directions`
 ON DUPLICATE KEY UPDATE

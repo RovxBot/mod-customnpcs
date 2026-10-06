@@ -64,7 +64,7 @@ def main():
             queries = []
             for table in TABLES:
                 key = "MenuID" if table.startswith("gossip_menu") else "ID"
-                where = f" WHERE `{key}` < 4100000" if native_only else ""
+                where = f" WHERE `{key}` NOT BETWEEN 4100005 AND 4100599" if native_only else ""
                 if native_only and table == "gossip_menu_option":
                     menus = ",".join(str(menu) for city in CITIES for menu in city[2:])
                     where += f" AND NOT (MenuID IN ({menus}) AND OptionID BETWEEN 100 AND 199)"
