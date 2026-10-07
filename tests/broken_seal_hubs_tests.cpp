@@ -7,6 +7,10 @@ int main()
 {
     IntruderPolicy ordinary{true, true, false, false, false, false, false, true};
     assert(IsAmbient(ordinary));
+    assert(!ShouldRepel(false, false)); // Outside quest fights must remain untouched.
+    assert(ShouldRepel(true, false));
+    assert(ShouldRepel(false, true));
+    assert(ShouldRepel(true, true));
     for (unsigned i = 0; i < 8; ++i)
     {
         IntruderPolicy excluded = ordinary;

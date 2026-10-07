@@ -48,7 +48,7 @@ ModCustomNPCs.Appearance.Enable = 1
 
 #
 #    ModCustomNPCs.BrokenSeal.Chapter1.Enable
-#        Description: Enable Chapter 1 quest interactions, private escorts,
+#        Description: Enable Chapter 1 quest interactions, shared captive escorts,
 #                     tracing and observation scenes. Requires the Chapter 1 SQL
 #                     and ModCustomNPCs.Enable = 1. Config reloads update the
 #                     expedition contacts within two seconds.

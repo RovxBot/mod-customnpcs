@@ -287,7 +287,7 @@
           "prerequisite_any": [],
           "giver": "scout",
           "turn_in": "scout",
-          "objective": "Open 3 cages and escort 3 expedition captives to the marked safe point.",
+          "objective": "Speak to the 3 guarded surveyors and escort each to the expedition camp.",
           "npcs": [
             "captive",
             "scout"
@@ -307,7 +307,7 @@
             "original_title": null,
             "quest_id": null
           },
-          "scene_notes": "Personal captives; credit at safe arrival, not cage opening.",
+          "scene_notes": "Visible kneeling captives with one owner per escort; credit at safe arrival, not on speaking. Interrupted escorts return home; successful escorts despawn briefly before respawning.",
           "reward": {
             "xp": "normal quest XP for the chapter; tune on server",
             "money": "normal level-appropriate quest money",
@@ -16715,8 +16715,8 @@
         "database_id": null
       },
       "tracks": {
-        "name": "Marked trail sign",
-        "appearance_plan": "Stock signpost or invisible credit marker",
+        "name": "Marked trail clue",
+        "appearance_plan": "Grounded native evidence crate or carved tablet",
         "interaction": "Reach and inspect",
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
@@ -16752,9 +16752,9 @@
         "database_id": null
       },
       "prison": {
-        "name": "Captive cage",
-        "appearance_plan": "Stock cage",
-        "interaction": "Release/escort",
+        "name": "Guarded prisoner post",
+        "appearance_plan": "Visible kneeling prisoner with guards; native bindings or tablet only where an object interaction is required",
+        "interaction": "Speak to the prisoner to release/escort",
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
           "C01",

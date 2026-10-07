@@ -2,6 +2,9 @@
 
 AzerothCore 3.3.5a module — custom NPCs for a private server.
 
+For AI contributors, [AGENT.md](AGENT.md) records the project handoff, campaign
+design rules and validation workflow.
+
 ## NPCs
 
 ### Nubmage (entry 4000000)
@@ -126,7 +129,7 @@ hubs. Install the client patch before enabling the matching world update.
 ## The Broken Seal campaign: Chapters 1–4
 
 Chapter 1 adds a level 20–25 investigation in Stonetalon: faction introductions,
-three distinct trail markers, six scout kills, three personal captive escorts,
+three distinct trail markers, six scout kills, three shared captive escorts,
 ward tracing, evidence comparison and two quiet observation stages. The shared
 route ends with a choice of six expedition signets. All assets are native to
 3.3.5a; there is no client patch.
@@ -156,11 +159,14 @@ handoff in the Hinterlands. Ken-Ken uses a native gorilla approximation; all 12
 quests use saved native progress and supported Wrath assets.
 [Chapter 4 installation and gameplay](docs/broken-seal/chapter4-implementation.md)
 lists its controls, prerequisites, recovery and pending live checks.
-The [shared hub add-on](docs/broken-seal/hub-implementation.md) builds out ten
-resting/hand-in areas with 96 native scenery placements, 20 sentries and ten working
-residents. It protects players from ordinary ambient mobs, keeps personal encounters
-active, and conditionally clears 22 native spawn homes with backups.
+The [shared hub add-on](docs/broken-seal/hub-implementation.md) builds out six
+resting/hand-in areas with 59 resting-area props, six holding-camp props, 12 sentries
+and six working residents. It protects players from ordinary ambient mobs, keeps personal encounters
+active, and preserves native spawn homes and quests.
 [The layout plan](docs/broken-seal/hub-layout.svg) shows camp footprints and clear routes.
+The [world polish upgrade](docs/broken-seal/world-polish.md) replaces placeholder signs,
+fixes native texture fallbacks and weapons, adds normal cult loot, and consolidates
+the Charred Vale into two small compounds in the normal world.
 Chapters 5–14 remain design inventories.
 
 ## Custom NPC appearances
@@ -212,6 +218,7 @@ mysql -u<user> -p acore_world < data/sql/db-world/base/custom_npc_appearances.sq
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter1.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter2.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter3.sql
+mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_chapter4.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_hubs.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_trainers.sql
 mysql -u<user> -p acore_world < data/sql/db-world/base/later_expansion_appearances.sql

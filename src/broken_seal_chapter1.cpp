@@ -19,8 +19,8 @@
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
-#include "Spell.h"
 #include "SmartAI.h"
+#include "Spell.h"
 #include "TemporarySummon.h"
 
 #include <chrono>
@@ -71,7 +71,7 @@ enum GossipAction : std::uint32_t
 bool Enabled()
 {
     return sConfigMgr->GetOption<bool>("ModCustomNPCs.Enable", true) &&
-        sConfigMgr->GetOption<bool>("ModCustomNPCs.BrokenSeal.Chapter1.Enable", true);
+           sConfigMgr->GetOption<bool>("ModCustomNPCs.BrokenSeal.Chapter1.Enable", true);
 }
 
 bool Active(Player const* player, std::uint32_t quest)
@@ -86,14 +86,14 @@ void Tell(Player* player, std::string_view text)
 
 bool SameWorld(Player const* player, WorldObject const* object)
 {
-    return player && object && player->IsInWorld() && object->IsInWorld() &&
-        player->FindMap() == object->FindMap() && (player->GetPhaseMask() & object->GetPhaseMask());
+    return player && object && player->IsInWorld() && object->IsInWorld() && player->FindMap() == object->FindMap() &&
+           (player->GetPhaseMask() & object->GetPhaseMask());
 }
 
 bool CanInteract(Player const* player, WorldObject const* object)
 {
-    return Enabled() && SameWorld(player, object) && player->IsAlive() &&
-        !player->IsInCombat() && player->IsWithinDistInMap(object, 7.0f);
+    return Enabled() && SameWorld(player, object) && player->IsAlive() && !player->IsInCombat() &&
+           player->IsWithinDistInMap(object, 7.0f);
 }
 
 Counts ReadCounts(Player* player, std::uint32_t quest, std::array<std::uint32_t, 3> const& credits)
@@ -195,7 +195,10 @@ struct npc_bs_c01_captiveAI : ScriptedAI
         events.Reset();
         events.ScheduleEvent(EVENT_CHECK, 1s);
     }
-    ObjectGuid GetGUID(std::int32_t) const override { return owner; }
+    ObjectGuid GetGUID(std::int32_t) const override
+    {
+        return owner;
+    }
     void ReturnHome()
     {
         owner.Clear();
@@ -247,7 +250,10 @@ struct npc_bs_c01_captiveAI : ScriptedAI
                 me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
         }
     }
-    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override { damage = 0; }
+    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
+    {
+        damage = 0;
+    }
     void UpdateAI(std::uint32_t diff) override
     {
         events.Update(diff);
@@ -257,8 +263,10 @@ struct npc_bs_c01_captiveAI : ScriptedAI
             {
                 if (!returning)
                 {
-                    if (Enabled()) me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
-                    else me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                    if (Enabled())
+                        me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                    else
+                        me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
                 }
                 events.ScheduleEvent(EVENT_CHECK, 1s);
                 continue;
@@ -269,8 +277,8 @@ struct npc_bs_c01_captiveAI : ScriptedAI
                 ReturnHome();
                 return;
             }
-            SceneSafety safety{Enabled(), Active(p, QUEST_RESCUE), p->IsAlive(),
-                               SameWorld(p, me), p->IsInCombat(), me->GetDistance(p)};
+            SceneSafety safety{Enabled(),        Active(p, QUEST_RESCUE), p->IsAlive(),
+                               SameWorld(p, me), p->IsInCombat(),         me->GetDistance(p)};
             if (!CanEscort(safety))
             {
                 ReturnHome();
@@ -281,7 +289,11 @@ struct npc_bs_c01_captiveAI : ScriptedAI
             {
                 CreditOnce(p, QUEST_RESCUE, CaptiveCredits[index]);
                 me->Whisper("We're safe. The others are still counting on you.", LANG_UNIVERSAL, p);
-                ReturnHome();
+                owner.Clear();
+                started = paused = reached = false;
+                returning = true;
+                events.Reset();
+                me->DespawnOrUnsummon(5s, 60s);
                 return;
             }
             if (safety.inCombat && !paused)
@@ -301,7 +313,7 @@ struct npc_bs_c01_captiveAI : ScriptedAI
 
 struct npc_bs_c01_recruitAI : ScriptedAI
 {
-    explicit npc_bs_c01_recruitAI(Creature* creature) : ScriptedAI(creature) { }
+    explicit npc_bs_c01_recruitAI(Creature* creature) : ScriptedAI(creature) {}
 
     EventMap events;
     std::size_t next = 1;
@@ -348,7 +360,7 @@ struct npc_bs_c01_recruitAI : ScriptedAI
 
 struct npc_bs_c01_observationAI : ScriptedAI
 {
-    explicit npc_bs_c01_observationAI(Creature* creature) : ScriptedAI(creature) { }
+    explicit npc_bs_c01_observationAI(Creature* creature) : ScriptedAI(creature) {}
 
     ObjectGuid owner;
     ObjectGuid anchor;
@@ -358,7 +370,10 @@ struct npc_bs_c01_observationAI : ScriptedAI
     std::uint32_t initialSerial = 0;
     bool minimumWatch = false;
 
-    void Reset() override { me->SetReactState(REACT_PASSIVE); }
+    void Reset() override
+    {
+        me->SetReactState(REACT_PASSIVE);
+    }
 
     void IsSummonedBy(WorldObject* summoner) override
     {
@@ -414,8 +429,12 @@ struct npc_bs_c01_observationAI : ScriptedAI
                 return;
             }
             std::uint32_t quest = kind == SCENE_COMMANDER ? QUEST_COMMANDER : QUEST_RECRUIT;
-            SceneSafety safety{Enabled(), Active(player, quest), player->IsAlive(),
-                SameWorld(player, point), player->IsInCombat(), point->GetDistance(player)};
+            SceneSafety safety{Enabled(),
+                               Active(player, quest),
+                               player->IsAlive(),
+                               SameWorld(player, point),
+                               player->IsInCombat(),
+                               point->GetDistance(player)};
             if (!CanObserve(safety))
             {
                 Tell(player, "The observation is interrupted. Return quietly to the marked point and try again.");
@@ -432,13 +451,14 @@ struct npc_bs_c01_observationAI : ScriptedAI
             }
             else if (Creature* actor = ObjectAccessor::GetCreature(*me, recruit))
                 witnessed = actor->IsAlive() && player->IsWithinLOSInMap(actor) &&
-                    actor->AI()->GetData(DATA_SHIFT_SERIAL) != initialSerial;
+                            actor->AI()->GetData(DATA_SHIFT_SERIAL) != initialSerial;
             if (minimumWatch && witnessed)
             {
                 CreditOnce(player, quest, kind == SCENE_COMMANDER ? CREDIT_COMMANDER : CREDIT_RECRUIT);
-                Tell(player, kind == SCENE_COMMANDER ?
-                    "Jarod shifts against his restraints. He is alive. Return to Ortell before the guards notice you." :
-                    "The recruit reaches the next watch post. You have seen the change. Return to Ortell to agree the signal.");
+                Tell(player, kind == SCENE_COMMANDER ? "Jarod shifts against his restraints. He is alive. Return to "
+                                                       "Ortell before the guards notice you."
+                                                     : "The recruit reaches the next watch post. You have seen the "
+                                                       "change. Return to Ortell to agree the signal.");
                 me->DespawnOrUnsummon();
                 return;
             }
@@ -452,11 +472,11 @@ void StartObservation(Player* player, GameObject* go, std::uint32_t kind)
 {
     std::uint32_t quest = kind == SCENE_COMMANDER ? QUEST_COMMANDER : QUEST_RECRUIT;
     std::uint32_t credit = kind == SCENE_COMMANDER ? CREDIT_COMMANDER : CREDIT_RECRUIT;
-    if (!CanInteract(player, go) || !Active(player, quest) ||
-        player->GetReqKillOrCastCurrentCount(quest, credit) || FindOwned(player, NPC_SCENE))
+    if (!CanInteract(player, go) || !Active(player, quest) || player->GetReqKillOrCastCurrentCount(quest, credit) ||
+        FindOwned(player, NPC_SCENE))
         return;
-    if (TempSummon* observer = player->SummonCreature(NPC_SCENE, go->GetPosition(),
-        TEMPSUMMON_TIMED_DESPAWN, 50000, 0, nullptr, true))
+    if (TempSummon* observer =
+            player->SummonCreature(NPC_SCENE, go->GetPosition(), TEMPSUMMON_TIMED_DESPAWN, 50000, 0, nullptr, true))
     {
         observer->AI()->SetGUID(go->GetGUID(), DATA_ANCHOR);
         observer->AI()->SetData(DATA_KIND, kind);
@@ -468,8 +488,7 @@ void StartObservation(Player* player, GameObject* go, std::uint32_t kind)
 class go_bs_c01_interaction : public GameObjectScript
 {
 public:
-    go_bs_c01_interaction() : GameObjectScript("go_bs_c01_interaction") { }
-
+    go_bs_c01_interaction() : GameObjectScript("go_bs_c01_interaction") {}
 
     bool OnGossipHello(Player* player, GameObject* go) override
     {
@@ -504,7 +523,7 @@ public:
 class item_bs_c01_tracing_kit : public ItemScript
 {
 public:
-    item_bs_c01_tracing_kit() : ItemScript("item_bs_c01_tracing_kit") { }
+    item_bs_c01_tracing_kit() : ItemScript("item_bs_c01_tracing_kit") {}
 
     bool OnUse(Player* player, Item* item, SpellCastTargets const& targets) override
     {
@@ -522,7 +541,7 @@ public:
 
 struct npc_bs_c01_contactAI : ScriptedAI
 {
-    explicit npc_bs_c01_contactAI(Creature* creature) : ScriptedAI(creature) { }
+    explicit npc_bs_c01_contactAI(Creature* creature) : ScriptedAI(creature) {}
     EventMap events;
 
     void RefreshFlags()
@@ -563,8 +582,11 @@ struct npc_bs_c01_contactAI : ScriptedAI
 class npc_bs_c01_contact : public CreatureScript
 {
 public:
-    npc_bs_c01_contact() : CreatureScript("npc_bs_c01_contact") { }
-    CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_contactAI(creature); }
+    npc_bs_c01_contact() : CreatureScript("npc_bs_c01_contact") {}
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_bs_c01_contactAI(creature);
+    }
 
     bool OnGossipHello(Player* player, Creature* creature) override
     {
@@ -578,16 +600,15 @@ public:
         {
             if (Active(player, QUEST_COMPARE))
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Compare the orders with the ward rubbing.",
-                    GOSSIP_SENDER_MAIN, GOSSIP_COMPARE);
-            if (Active(player, QUEST_RECRUIT) &&
-                player->GetReqKillOrCastCurrentCount(QUEST_RECRUIT, CREDIT_RECRUIT))
+                                 GOSSIP_SENDER_MAIN, GOSSIP_COMPARE);
+            if (Active(player, QUEST_RECRUIT) && player->GetReqKillOrCastCurrentCount(QUEST_RECRUIT, CREDIT_RECRUIT))
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I saw the watch change. Let us agree the signal.",
-                    GOSSIP_SENDER_MAIN, GOSSIP_SIGNAL);
+                                 GOSSIP_SENDER_MAIN, GOSSIP_SIGNAL);
         }
         if (creature->GetEntry() == NPC_MARUUT && Active(player, QUEST_WARDS) &&
             !player->HasItemCount(ITEM_TRACING_KIT, 1, true))
-            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I need a replacement tracing kit.",
-                GOSSIP_SENDER_MAIN, GOSSIP_REPLACE_KIT);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I need a replacement tracing kit.", GOSSIP_SENDER_MAIN,
+                             GOSSIP_REPLACE_KIT);
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Where should I go next?", GOSSIP_SENDER_MAIN, GOSSIP_HELP);
         SendGossipMenuFor(player, creature->GetEntry(), creature->GetGUID());
         return true;
@@ -604,14 +625,16 @@ public:
         if (action == GOSSIP_COMPARE && creature->GetEntry() == NPC_ORTELL && Active(player, QUEST_COMPARE))
         {
             creature->Whisper("The spiral in the orders matches the cuts in the ward. One hand is directing both. "
-                "Find the guarded altar, but watch from cover. We need Jarod alive.", LANG_UNIVERSAL, player);
+                              "Find the guarded altar, but watch from cover. We need Jarod alive.",
+                              LANG_UNIVERSAL, player);
             CreditOnce(player, QUEST_COMPARE, CREDIT_COMPARE);
         }
         else if (action == GOSSIP_SIGNAL && creature->GetEntry() == NPC_ORTELL && Active(player, QUEST_RECRUIT) &&
-            player->GetReqKillOrCastCurrentCount(QUEST_RECRUIT, CREDIT_RECRUIT))
+                 player->GetReqKillOrCastCurrentCount(QUEST_RECRUIT, CREDIT_RECRUIT))
         {
             creature->Whisper("Two short knocks, then a pause. If the wrong person answers, you walk away. "
-                "Do not let courage become noise.", LANG_UNIVERSAL, player);
+                              "Do not let courage become noise.",
+                              LANG_UNIVERSAL, player);
             CreditOnce(player, QUEST_RECRUIT, CREDIT_SIGNAL);
         }
         else if (action == GOSSIP_REPLACE_KIT && creature->GetEntry() == NPC_MARUUT && Active(player, QUEST_WARDS))
@@ -619,25 +642,35 @@ public:
         else if (action == GOSSIP_HELP)
         {
             if (Active(player, QUEST_RECRUIT))
-                Tell(player, "Watch the moving recruit from Ortell's dead drop south of the concealed observation stone, then speak to Ortell.");
+                Tell(player, "Watch the moving recruit from Ortell's dead drop south of the concealed observation "
+                             "stone, then speak to Ortell.");
             else if (Active(player, QUEST_COMMANDER))
-                Tell(player, "Use the concealed observation stone west of Jarod's altar. Stay there quietly and out of combat.");
+                Tell(
+                    player,
+                    "Use the concealed observation stone west of Jarod's altar. Stay there quietly and out of combat.");
             else if (Active(player, QUEST_COMPARE))
                 Tell(player, "Ask Ortell here in camp to compare the deposited orders and rubbing.");
             else if (Active(player, QUEST_WARDS))
-                Tell(player, "Trace each of the three ward stones west of the cages. A repeated stone does not count twice.");
+                Tell(player,
+                     "Trace each of the three ward stones west of the holding camp. A repeated stone does not count twice.");
             else if (Active(player, QUEST_RESCUE))
-                Tell(player, "Open Mira's, Dorn's and Teren's cages below the last trail clue. Stay near each surveyor until they reach the refuge marker.");
+                Tell(player, "Clear the guards around Mira, Dorn and Teren, then speak to each surveyor. Stay nearby "
+                             "until they reach our camp.");
             else if (Active(player, QUEST_TRAIL))
-                Tell(player, "Inspect all three ash-marked signs on the descent. Defeat six Twilight Scouts and recover their orders.");
+                Tell(player, "Inspect all three ash-marked trail clues. Defeat six Twilight Scouts and "
+                             "recover their orders.");
             else if (Active(player, QUEST_WAGON))
-                Tell(player, "The abandoned wagon is uphill from our camp, beside the first ash-marked trail clue.");
+                Tell(player, "Inspect the abandoned wagon beside our camp.");
             else if (player->IsQuestRewarded(QUEST_RECRUIT))
-                Tell(player, BrokenSealChapter2Available()
-                    ? "Speak to Ortell here in camp at level 25 for Signed in Blood and your place inside the cult."
-                    : "The expedition is preparing your next assignment. The cult's training calls for at least level 25.");
+                Tell(
+                    player,
+                    BrokenSealChapter2Available()
+                        ? "Speak to Ortell here in camp at level 25 for Signed in Blood and your place inside the cult."
+                        : "The expedition is preparing your next assignment. The cult's training calls for at least "
+                          "level 25.");
             else
-                Tell(player, "Check the expedition's quest offers. Maruut's camp is on the eastern approach to the Charred Vale.");
+                Tell(player, "Check the expedition's quest offers. Maruut's camp is on the eastern approach to the "
+                             "Charred Vale.");
         }
         return true;
     }
@@ -646,14 +679,19 @@ public:
 class npc_bs_c01_captive : public CreatureScript
 {
 public:
-    npc_bs_c01_captive() : CreatureScript("npc_bs_c01_captive") { }
-    CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_captiveAI(creature); }
+    npc_bs_c01_captive() : CreatureScript("npc_bs_c01_captive") {}
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_bs_c01_captiveAI(creature);
+    }
     bool OnGossipHello(Player* p, Creature* c) override
     {
-        if (!CanInteract(p, c)) return true;
+        if (!CanInteract(p, c))
+            return true;
         ClearGossipMenuFor(p);
         if (Active(p, QUEST_RESCUE))
-            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Stand up. I will escort you to the expedition camp.", GOSSIP_SENDER_MAIN, ACTION_ESCORT);
+            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Stand up. I will escort you to the expedition camp.",
+                             GOSSIP_SENDER_MAIN, ACTION_ESCORT);
         SendGossipMenuFor(p, c->GetEntry(), c->GetGUID());
         return true;
     }
@@ -661,30 +699,36 @@ public:
     {
         CloseGossipMenuFor(p);
         if (sender == GOSSIP_SENDER_MAIN && action == ACTION_ESCORT)
-            if (auto* ai = dynamic_cast<npc_bs_c01_captiveAI*>(c->AI())) ai->Begin(p);
+            if (auto* ai = dynamic_cast<npc_bs_c01_captiveAI*>(c->AI()))
+                ai->Begin(p);
         return true;
     }
-
 };
 
 class npc_bs_c01_recruit : public CreatureScript
 {
 public:
-    npc_bs_c01_recruit() : CreatureScript("npc_bs_c01_recruit") { }
-    CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_recruitAI(creature); }
+    npc_bs_c01_recruit() : CreatureScript("npc_bs_c01_recruit") {}
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_bs_c01_recruitAI(creature);
+    }
 };
 
 class npc_bs_c01_observation : public CreatureScript
 {
 public:
-    npc_bs_c01_observation() : CreatureScript("npc_bs_c01_observation") { }
-    CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_observationAI(creature); }
+    npc_bs_c01_observation() : CreatureScript("npc_bs_c01_observation") {}
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_bs_c01_observationAI(creature);
+    }
 };
 
 // Keep Chapter 1's native SmartAI spells while recognizing a later personal cult disguise.
 struct npc_bs_c01_cultAI : SmartAI
 {
-    explicit npc_bs_c01_cultAI(Creature* creature) : SmartAI(creature) { }
+    explicit npc_bs_c01_cultAI(Creature* creature) : SmartAI(creature) {}
     bool CanAIAttack(Unit const* unit) const override
     {
         return !BrokenSealChapter2AvoidCombat(unit) && SmartAI::CanAIAttack(unit);
@@ -694,17 +738,22 @@ struct npc_bs_c01_cultAI : SmartAI
 class npc_bs_c01_cult : public CreatureScript
 {
 public:
-    npc_bs_c01_cult() : CreatureScript("npc_bs_c01_cult") { }
-    CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_cultAI(creature); }
+    npc_bs_c01_cult() : CreatureScript("npc_bs_c01_cult") {}
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_bs_c01_cultAI(creature);
+    }
 };
 
 class bs_c01_player : public PlayerScript
 {
 public:
-    bs_c01_player() : PlayerScript("bs_c01_player",
-        {PLAYERHOOK_ON_LOGOUT, PLAYERHOOK_ON_QUEST_ABANDON}) { }
+    bs_c01_player() : PlayerScript("bs_c01_player", {PLAYERHOOK_ON_LOGOUT, PLAYERHOOK_ON_QUEST_ABANDON}) {}
 
-    void OnPlayerLogout(Player* player) override { CleanPersonalActors(player); }
+    void OnPlayerLogout(Player* player) override
+    {
+        CleanPersonalActors(player);
+    }
 
     void OnPlayerQuestAbandon(Player* player, std::uint32_t quest) override
     {
@@ -712,7 +761,7 @@ public:
             CleanPersonalActors(player);
     }
 };
-}
+} // namespace BrokenSeal::Chapter1
 
 void AddBrokenSealChapter1Scripts()
 {

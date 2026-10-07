@@ -33,5 +33,9 @@ inline bool IsAmbient(IntruderPolicy const& p)
     return p.staticSpawn && p.alive && !p.playerControlled && !p.summoned && !p.scripted && !p.questOrServiceNpc &&
            !p.bossOrElite && p.hostileToPlayers;
 }
+inline bool ShouldRepel(bool insideRestingArea, bool attackingProtectedPlayer)
+{
+    return insideRestingArea || attackingProtectedPlayer;
+}
 } // namespace BrokenSeal::Hubs
 #endif

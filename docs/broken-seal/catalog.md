@@ -4410,11 +4410,11 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 <a id="objects-tracks"></a>
 
-### Marked trail sign
+### Marked trail clue
 
 **Key:** `tracks` · **Chapters:** C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13.
 
-**Native representation:** Stock signpost or invisible credit marker.
+**Native representation:** Grounded native evidence crate or carved tablet.
 
 **Interaction:** Reach and inspect.
 
@@ -4430,13 +4430,13 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 <a id="objects-prison"></a>
 
-### Captive cage
+### Guarded prisoner post
 
 **Key:** `prison` · **Chapters:** C01, C02, C13.
 
-**Native representation:** Stock cage.
+**Native representation:** Visible kneeling prisoner with guards; native bindings or tablet only where an object interaction is required.
 
-**Interaction:** Release/escort.
+**Interaction:** Speak to the prisoner to release/escort.
 
 <a id="objects-flower"></a>
 

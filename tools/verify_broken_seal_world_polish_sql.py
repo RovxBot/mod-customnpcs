@@ -54,7 +54,7 @@ def main():
                 assert run('SELECT COUNT(*) FROM mod_customnpcs_outfit_entry WHERE creature_entry IN (4001200,4001201,4001202,4001203,4001225,4001227,4001228) AND outfit_id=0;',db).strip()=='7'
                 assert run('SELECT COUNT(*) FROM creature_equip_template WHERE CreatureID IN (4001010,4001011,4001200,4001201,4001202,4001203,4001225,4001227,4001228) AND ItemID1>0;',db).strip()=='9'
                 assert run('SELECT COUNT(*) FROM creature_template WHERE entry IN (4001010,4001011,4001225,4001227,4001228) AND mingold>0 AND maxgold>=mingold AND lootid=entry;',db).strip()=='5'
-                assert run('SELECT COUNT(*) FROM creature_loot_template WHERE Entry=4001010 AND Item=900101 AND QuestRequired=1;',db).strip()=='1'
+                assert run('SELECT COUNT(*) FROM creature_loot_template WHERE Entry=4001010 AND Item=900102 AND QuestRequired=1;',db).strip()=='1'
                 assert run('SELECT COUNT(*) FROM creature_loot_template WHERE Entry IN (4001010,4001011,4001225,4001227,4001228) AND QuestRequired=0;',db).strip()=='15'
                 assert run('SELECT COUNT(*) FROM mod_customnpcs_bs_hub_native;',db).strip()=='0'
             print('Passed',col,'shipped-world upgrade/reimport, 154 native NPCs, 155 native objects/quest links, textured stock bindings, armed NPCs, regular loot, no permanent trial spawns and three visible captives.')

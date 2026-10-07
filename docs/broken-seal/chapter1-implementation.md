@@ -1,12 +1,16 @@
 # Chapter 1: installation and gameplay
 
+Current layouts, appearance defaults and captive/trial controls are described in the
+[world polish upgrade](world-polish.md). Its install and recovery instructions take precedence over older placement notes.
+
 Chapter 1 implements the nine design records in [the quest list](c01.md): one
 Alliance or Horde introduction followed by seven shared quests. It uses normal
 Wrath quest progress, native items and models, and the module's NPC outfit system.
 Install [Chapter 2](chapter2-implementation.md) separately to continue from Ortell at level 25.
 
 The [shared hub add-on](hub-implementation.md) provides native camp dressing and
-ambient-mob safety. Its manifest records the corresponding public-enemy clearances.
+ambient-mob safety. Campaign encounters remain outside that protection; native
+spawns are not relocated.
 
 See the [outfit repair](outfit-repair.md) for missing courier trousers and the
 installed-preset migration.
@@ -42,15 +46,15 @@ either invitation opens the shared route after it has been turned in.
 |---|---:|---:|---:|---|
 | Alliance courier, beside the Kaela Shadowspear camp | 746.0000 | 322.0000 | 63.3356 | Alliance introduction |
 | Horde courier, Sun Rock Retreat | 956.1060 | 1005.7800 | 102.5642 | Horde introduction |
-| Maruut's camp, eastern Charred Vale approach | 1124.0000 | 1546.0000 | 33.2028 | Investigation and tracing |
-| Expedition scout | 1118.0000 | 1551.0000 | 35.0452 | Trail and captive quests |
-| Ortell | 1120.0000 | 1550.0000 | 34.5478 | Evidence, observation and finale |
-| Captive refuge marker | 1012.0000 | 1655.0000 | 0.6661 | Escort completion point |
+| Maruut's camp, eastern Charred Vale approach | 1102.0000 | 1542.0000 | 27.0862 | Investigation and tracing |
+| Expedition scout | 1102.0000 | 1538.0000 | 26.9476 | Trail and captive quests |
+| Ortell | 1100.0000 | 1540.0000 | 26.6937 | Evidence, observation and finale |
+| Captive refuge banner | 1098.0000 | 1540.0000 | 26.3195 | Escort completion point |
 
 The table gives the final ground-adjusted values used by SQL. For example:
 
 ```text
-.go xyz 1124.0 1546.0 33.2028 1
+.go xyz 1102.0 1542.0 27.086243166456008 1
 ```
 
 The full placements, model evidence and navigation checks are in
@@ -62,9 +66,9 @@ The full placements, model evidence and navigation checks are in
 |---:|---|---|
 | 900100 | BS-C01-01 | Alliance: take the invitation to Maruut |
 | 900101 | BS-C01-02 | Horde: take the invitation to Maruut |
-| 900102 | BS-C01-03 | Inspect the abandoned wagon uphill from camp; obtain the log |
-| 900103 | BS-C01-04 | Inspect all three distinct signs, defeat six Twilight Scouts, loot one orders document |
-| 900104 | BS-C01-05 | Open Mira's, Dorn's and Teren's cages; accompany each to the refuge |
+| 900102 | BS-C01-03 | Inspect the abandoned wagon beside camp; obtain the log |
+| 900103 | BS-C01-04 | Inspect all three distinct clues, defeat six Twilight Scouts, loot one orders document |
+| 900104 | BS-C01-05 | Speak to Mira, Dorn and Teren under guard; accompany each to the expedition |
 | 900105 | BS-C01-06 | Use the supplied tracing kit on all three distinct ward stones; obtain the rubbing |
 | 900106 | BS-C01-07 | Ask Ortell to compare the deposited evidence |
 | 900107 | BS-C01-08 | Use the concealed observation stone west of the altar and watch Jarod quietly |
@@ -76,16 +80,18 @@ six level-appropriate expedition signets, usable from level 20.
 
 ## Progress and recovery
 
-- Each sign, ward and captive has a separate persistent native quest objective.
+- Each clue, ward and captive has a separate persistent native quest objective.
   Repeating one location cannot complete another objective.
-- Cages summon a player-private captive. The brief door-opening animation is
-  shared, but it does not consume the cage, lock another player out, or grant credit.
+- Captives are visible, kneeling saved spawns. Gossip reserves that NPC for one
+  escort at a time; speaking alone grants no credit.
 - Captives are protected scene actors. They wait while their owner fights and
   resume afterward. Credit requires arrival at the refuge, a living nearby owner,
   the active quest, and matching map/phase.
 - Captives time out after three minutes. Death, logout, abandonment, leaving the
-  map/phase or moving more than 80 metres away ends the current actor. Open the
-  relevant cage again to retry. Previously rescued people remain credited.
+  map/phase or moving more than 80 metres away returns the NPC to its guard post.
+  Speak to it again once it is home to retry. Successful escorts remain at camp
+  briefly, then despawn and respawn at home after a minute. Previously rescued
+  people remain credited.
 - Each observation is a private timed controller. Remain within eight metres,
   alive, out of combat, and able to see the subject. Commander observation lasts
   at least five seconds. Recruit observation additionally waits for an actual
@@ -108,11 +114,11 @@ It is not an uninstall command: the SQL-defined world content remains present.
 | Kind | Allocated IDs / contents |
 |---|---|
 | Quests | 900100–900108 |
-| Friendly actors | 4001000–4001009; three captives are temporary rather than static spawns |
+| Friendly actors | 4001000–4001009; includes three visible, saved captive spawns |
 | Enemy actors | 4001010–4001012: Twilight Scout, Twilight Guard, Unbound Earth Elemental |
 | Private observation controller | 4001013, invisible native display |
 | Objective credit templates | 4001050–4001062, never statically spawned |
-| Objects | 4001100–4001113: wagon, signs, cages, wards, observation/dead drop, altar and refuge marker |
+| Objects | 4001100–4001113: wagon, clues, wards, observation/dead drop, altar and refuge banner; former cage IDs are reserved |
 | Quest items | 900100–900104: invitation, log, orders, rubbing and tracing kit |
 | Rewards | 900110–900115: Might, Precision, Sorcery, Restoration, Guarding and Balance signets |
 | Appearance presets | The corresponding dressed creature entry IDs |
@@ -166,11 +172,12 @@ removes them on completion. It does not accept a world database name.
 1. Start once as an Alliance level-20 character and once as a Horde level-20 character.
    Confirm the other faction's introduction is not offered and the shared route
    stays locked until the invitation is rewarded.
-2. Delete/recover the wagon log; inspect one sign repeatedly; complete all three
-   signs and six scout kills; verify the guaranteed quest-only orders loot.
-3. Run two players through the same cages. Verify private captive visibility,
-   independent credit, no credit on opening, combat pause/resume, and successful
-   arrival. Retry after death/logout/abandonment; confirm prior rescues persist.
+2. Delete/recover the wagon log; inspect one clue repeatedly; complete all three
+   clues and six scout kills; verify the guaranteed quest-only orders loot.
+3. Run two players through the same captives. Verify visible kneeling NPCs and one
+   owner per escort, independent credit, no credit on speaking, combat pause/resume,
+   successful arrival and delayed respawn. Retry after death/logout/abandonment;
+   confirm prior rescues persist.
 4. Delete the tracing kit and replace it from Maruut. Repeat one ward, then trace
    all three. Fill bags before the final rubbing and recover it after freeing space.
 5. Compare evidence with Ortell without holding old documents. Interrupt both

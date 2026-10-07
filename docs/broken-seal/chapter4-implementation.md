@@ -1,5 +1,8 @@
 # Chapter 4: installation and gameplay
 
+Current layouts, appearance defaults and captive/trial controls are described in the
+[world polish upgrade](world-polish.md). Its install and recovery instructions take precedence over older placement notes.
+
 **The Village That Gave Up** implements the accepted **12 quests**, levels **35–40**,
 continuing through Chapter 3's existing Mei Barrelbottom. The story follows Ken-Ken's
 village investigation, Yi-Mo's rescue, medicine and mask treatment, the well encounter,
@@ -75,7 +78,7 @@ design inventory, with only its receiving contact staged here.
 ## Contacts, hubs and native substitutions
 
 The village relief compound sits on Mudsprocket's southern edge, with three canvas
-shelters, bedding, stores, lanterns, a work table and equipment rack. Its **14 scenery
+shelters, bedding, stores, lanterns, a work table and equipment rack. Its **11 scenery
 placements, two sentries and working volunteer** connect it to the existing settlement.
 Mei's earlier station remains nearby, with a clear approach around its tent. The
 neutral Wildhammer gathering has **10 props, two sentries and a volunteer**.
@@ -149,7 +152,7 @@ Offline checks cover the accepted graph, level gates and ALL join; the eight-res
 sequence, saved-count retries, service order and boss gates; generated SQL/header
 consistency; native model paths, icon donors and clothing slots; **49 ground points,
 12 travel connections and every quest prop's foundation**. Shared hub checks cover
-126 prop/staff ground positions and 24 clear corridor segments. All **73** campaign
+77 prop/staff ground positions and 26 clear corridor segments. All **65** campaign
 and hub outfits have explicit trousers and valid rendering classes.
 
 Disposable MariaDB fixtures pass native/legacy imports, reimports, occupied-ID and

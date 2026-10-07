@@ -60,7 +60,7 @@ item-to-display conversion and leg bytes, slot ordering, positive/negative/empty
 armor values, assignment precedence and stock-client race/class validation.
 
 The original **56 campaign/hub outfits** passed native item existence, inventory-slot
-and display checks. Chapter 4 expands the current audit to **73** valid outfits; the
+and display checks. Chapter 4 expands the current audit to **65** valid outfits; the
 historical repair stays limited to its original presets. The SQL fixture verified repair/reapplication and preservation of
 custom classes, clothing, replacement costumes, overrides and unowned records.
 The appearance manager and command source passed syntax checks against the core.

@@ -1,5 +1,8 @@
 # Chapter 2: installation and gameplay
 
+Current layouts, appearance defaults and captive/trial controls are described in the
+[world polish upgrade](world-polish.md). Its install and recovery instructions take precedence over older placement notes.
+
 Chapter 2 implements all **23 quests** in [Inside the Twilight](c02.md), for levels
 **25–30**. The three training branches remain parallel and all are required.
 The campaign continues from Chapter 1's existing Ortell and bound Jarod, with
@@ -11,7 +14,8 @@ and stock-client playthrough have **not** been performed. Balance, visibility,
 item targeting and scene presentation still need the acceptance run below.
 
 The [shared hub add-on](hub-implementation.md) provides native camp dressing and
-ambient-mob safety. Its manifest records the corresponding public-enemy clearances.
+ambient-mob safety. Campaign encounters remain outside that protection; native
+spawns are not relocated.
 
 ## Install
 
@@ -47,14 +51,14 @@ instructors stand farther west in the valley. All positions are native map **1**
 
 | Contact | Entry | World X | World Y | World Z |
 |---|---:|---:|---:|---:|
-| Ortell | 4001001 | 1120.0000 | 1550.0000 | 34.5478 |
-| Condenna | 4001200 | 892.0000 | 1610.0000 | -20.9751 |
-| Cargall | 4001201 | 894.0000 | 1643.0000 | -12.0580 |
-| Mylva | 4001202 | 862.0000 | 1592.0000 | -24.1901 |
-| Devoran | 4001203 | 915.0000 | 1600.0000 | -15.9102 |
-| Prisoner | 4001002 | 990.0000 | 1730.0000 | -9.6758 |
-| Jarod Free | 4001204 | 1110.0000 | 1545.0000 | 29.1725 |
-| Dezco | 4001205 | -3970.0000 | -3350.0000 | 39.3928 |
+| Ortell | 4001001 | 1100.0000 | 1540.0000 | 26.6937 |
+| Condenna | 4001200 | 635.0000 | 1624.0000 | -17.6592 |
+| Cargall | 4001201 | 636.0000 | 1632.0000 | -17.6717 |
+| Mylva | 4001202 | 644.0000 | 1620.0000 | -18.0993 |
+| Devoran | 4001203 | 646.0000 | 1630.0000 | -17.7682 |
+| Prisoner | 4001002 | 895.0000 | 1682.0000 | -18.9859 |
+| Jarod Free | 4001204 | 1098.0000 | 1540.0000 | 26.3195 |
+| Dezco | 4001205 | -3970.0000 | -3350.0000 | 39.3428 |
 
 The freed Jarod is personal. After rewarding Twilight Riot, ask Ortell to call him
 at the refuge. This remains available after relogging and replaces an expired actor.
@@ -76,7 +80,7 @@ one branch never opens the graduation stage by itself.
 |---:|---|---|---|
 | 900200 | Signed in Blood | 900108 | Use Recruit Rendezvous; wait for the private recruit to reach cover, then target him with the blackjack. |
 | 900201 | Your New Identity | 900200 | Present altered papers through Condenna gossip. Renew cover with the papers or a handler. |
-| 900202 | Trial By Fire | 900201 | Defeat 8 Trial Fire Elementals while disguised; ordinary hostile combat. |
+| 900202 | Trial By Fire | 900201 | Ask Condenna to start or resume; defeat 8 private Trial Fire Elementals, one at a time, while disguised. |
 | 900203 | In Bloom | 900201 | Gather 8 blossom items from the western grove. Each patch regrows for that player after 60 seconds. |
 | 900204 | Waste of Flesh | 900201 | Ask Cargall to start; target each of 3 distinct burning recruits with the gem within 45 seconds. |
 | 900205 | Twilight Training | 900202, 900203, 900204 | Ask Mylva and Devoran for their introductions, then return to Condenna. |
@@ -90,11 +94,11 @@ one branch never opens the graduation stage by itself.
 | 900213 | Gather the Intelligence | 900205 | Gather both documents from separate caches and check the dedicated dead drop. |
 | 900214 | Seeds of Discord | 900213 | Use Discord marker, distract private Karr'gonn through gossip, then defeat Azennios within 60 seconds. |
 | 900215 | The Greater of Two Evils | 900209, 900212, 900214 | Use the talisman beside Garnoth's marker; defeat the private opponent while in fire form. |
-| 900216 | Twilight Territory | 900209, 900212, 900214 | Defeat 10 Horrorguards at the contested Legion approach. |
+| 900216 | Twilight Territory | 900209, 900212, 900214 | Use the holding camp's calling tablet; defeat 10 private Horrorguards, one at a time, while disguised. |
 | 900217 | Speech Writing for Dummies | 900215, 900216 | Use Okrog's marker, defeat him, receive cue cards; Ortell replaces cards after the recorded kill. |
 | 900218 | Head of the Class | 900217 | Ask Ortell for final instruction, then report to Mylva. |
 | 900219 | Graduation Speech | 900218 | Use podium; match 10 crowd moods with Inspire/Incite/Pander, then speak to Jarod at the altar. |
-| 900220 | Twilight Riot | 900219 | Ask bound Jarod to challenge the guard. Recover key, use restraints, defeat 3 pairs of enforcers, escort Jarod to refuge. |
+| 900220 | Twilight Riot | 900219 | Ask bound Jarod to challenge the guard. Recover the key, speak to Jarod again, defeat 3 pairs of enforcers and escort him to refuge. |
 | 900221 | The Buyers Behind the Banner | 900220 | Recover the ledger from its own cache south of the document chest. |
 | 900222 | A Letter Through the Marsh | 900221 | Call freed Jarod through Ortell; accept his letter and deliver it to Dezco. Choose one of 6 signets. |
 
@@ -111,7 +115,7 @@ attempt. New yes/no prompts use original short questions written for this adapta
 | Quests | 900200–900222 | All 23 records |
 | Creatures | 4001200–4001229 | Instructors, private scene actors and combat mobs |
 | Credit creatures | 4001250–4001274 | 25 invisible objective records; no static spawns |
-| Gameobjects | 4001300–4001320 | 21 templates, including eight flower patches |
+| Gameobjects | 4001300–4001321 | 22 templates, including eight flower patches and the calling tablet |
 | Items | 900200–900215 | 16 quest items and tools |
 | Reward items | 900216–900221 | Six level-30 signets, usable from level 25 |
 | Outfits/text/menus | Corresponding actor entry | Chapter-owned resources; bound Jarod also gets text/menu 4001002 |
@@ -160,9 +164,10 @@ combat tuning in a running realm.
   explicit owner checks for commands, damage, kill credit and scene safety. Shared
   markers/caches never consume another player's scene or progress.
 - Public combat credit follows the tagged player and nearby living group members in
-  the same map/phase. Each member must have the active quest, and public trial
-  fire/supplicant kills require that member's disguise for credit. The two chapters' custom
-  cult scouts and guards suppress their own aggro against a disguised player; Smolderos,
+  the same map/phase. Each member must have the active quest, and public supplicant
+  kills require that member's disguise for credit. Fire and Horrorguard trials use
+  private owner credit. Public cult contacts, staff, scouts and guards accept only
+  valid disguised participants; Smolderos,
   elemental trials, rival demons and the existing world retain their normal behavior.
 - Combat, mounting, flight, death, departure, quest abandonment, logout or a disabled
   chapter end incompatible trials. Completed native counters survive. The course
@@ -210,8 +215,11 @@ the DBC audit can run independently without that probe.
 2. Run two players together through the recruit knockout and burning recruits.
    Verify personal visibility, targeted-item cursors, unlocked item icons, distinct
    credit, timed deaths and retry after saving only one or two recruits.
-3. Pass identity, cancel/reapply the disguise, gather blossoms and fight the trial
-   elementals. Verify guards ignore covered players but Smolderos remains hostile.
+3. Pass identity, cancel/reapply the disguise and gather blossoms. Ask Condenna to
+   start the fire trial; verify one opponent at a time and eight saved kills. Check
+   covered and uncovered players together: cult contacts accept only covered players,
+   while Smolderos remains hostile to both. Later use the calling tablet and verify
+   ten saved Horrorguard kills, including interruption and resumption.
 4. Finish the first trials in different orders. Verify Training requires all three,
    then verify both instructor introductions. Complete the three training branches
    in different orders; Greater/Territory must require all three terminal quests.

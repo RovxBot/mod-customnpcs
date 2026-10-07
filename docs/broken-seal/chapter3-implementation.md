@@ -1,5 +1,8 @@
 # Chapter 3: installation and gameplay
 
+Current layouts, appearance defaults and captive/trial controls are described in the
+[world polish upgrade](world-polish.md). Its install and recovery instructions take precedence over older placement notes.
+
 The Dawnchaser Promise implements all **12 quests**, for levels **30–35**, in
 [the accepted Chapter 3 design](c03.md). It continues through Chapter 2's existing
 Dezco in Dustwallow, keeps both parallel quest groups, and ends with Kang's letter
@@ -61,13 +64,13 @@ is now implemented in [its installation guide](chapter4-implementation.md).
 
 | Contact/marker | Entry | World X | World Y | World Z |
 |---|---:|---:|---:|---:|
-| Dezco | 4001205 | -3970.0000 | -3350.0000 | 39.3928 |
-| Kang | 4001400 | -3955.0000 | -3348.0000 | 39.2671 |
-| Kor | 4001401 | -3970.0000 | -3328.0000 | 37.1837 |
-| Nala | 4001402 | -3982.0000 | -3358.0000 | 40.2625 |
+| Dezco | 4001205 | -3970.0000 | -3350.0000 | 39.3428 |
+| Kang | 4001400 | -3960.0000 | -3347.0000 | 39.3213 |
+| Kor | 4001401 | -3965.0000 | -3359.0000 | 37.7857 |
+| Nala | 4001402 | -3977.0000 | -3348.0000 | 40.3156 |
 | Chezin | 4001403 | -3785.0000 | -3488.0000 | 30.9048 |
-| Tent | 4001501 | -3986.0000 | -3367.0000 | 40.6291 |
-| Memorial | 4001510 | -4010.0000 | -3340.0000 | 37.1098 |
+| Tent | 4001501 | -3980.0000 | -3358.0000 | 39.9213 |
+| Memorial | 4001510 | -3973.0000 | -3338.0000 | 40.6141 |
 | Mei | 4001405 | -4535.0000 | -3235.0000 | 31.0057 |
 
 The [implementation manifest](../../data/quests/broken_seal_chapter3.json) lists

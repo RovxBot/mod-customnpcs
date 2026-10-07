@@ -6,7 +6,6 @@
 #include "BrokenSealChapter2.h"
 #include "BrokenSealChapter2Integration.h"
 #include "BrokenSealChapter3Integration.h"
-#include "UnitScript.h"
 #include "Chat.h"
 #include "Config.h"
 #include "Creature.h"
@@ -24,6 +23,7 @@
 #include "Spell.h"
 #include "SpellAuras.h"
 #include "TemporarySummon.h"
+#include "UnitScript.h"
 
 #include <algorithm>
 #include <chrono>
@@ -260,35 +260,35 @@ std::uint32_t QuestFor(Mode mode)
 {
     switch (mode)
     {
-    case RECRUIT:
-        return QUEST_SIGNED;
-    case SUPPLICANTS:
-        return QUEST_WASTE;
-    case COURSE:
-        return QUEST_AGILITY;
-    case MENTAL:
-        return QUEST_MENTAL;
-    case DOG:
-        return QUEST_DOG;
-    case GRUDGE:
-        return QUEST_GRUDGE;
-    case DISCORD:
-        return QUEST_DISCORD;
-    case GARNOTH:
-        return QUEST_GREATER;
-    case OKROG:
-        return QUEST_WRITING;
-    case RESTRAINT:
-    case RIOT:
-        return QUEST_RIOT;
-    case SPEECH:
-        return QUEST_SPEECH;
-    case FIRE_TRIAL:
-        return QUEST_FIRE;
-    case TERRITORY_TRIAL:
-        return QUEST_TERRITORY;
-    default:
-        return 0;
+        case RECRUIT:
+            return QUEST_SIGNED;
+        case SUPPLICANTS:
+            return QUEST_WASTE;
+        case COURSE:
+            return QUEST_AGILITY;
+        case MENTAL:
+            return QUEST_MENTAL;
+        case DOG:
+            return QUEST_DOG;
+        case GRUDGE:
+            return QUEST_GRUDGE;
+        case DISCORD:
+            return QUEST_DISCORD;
+        case GARNOTH:
+            return QUEST_GREATER;
+        case OKROG:
+            return QUEST_WRITING;
+        case RESTRAINT:
+        case RIOT:
+            return QUEST_RIOT;
+        case SPEECH:
+            return QUEST_SPEECH;
+        case FIRE_TRIAL:
+            return QUEST_FIRE;
+        case TERRITORY_TRIAL:
+            return QUEST_TERRITORY;
+        default:
+            return 0;
     }
 }
 
@@ -327,13 +327,19 @@ struct npc_bs_c02_actorAI : ScriptedAI
         if (type == DATA_PARENT)
             parent = guid;
     }
-    ObjectGuid GetGUID(std::int32_t type) const override { return type == DATA_PARENT ? parent : owner; }
+    ObjectGuid GetGUID(std::int32_t type) const override
+    {
+        return type == DATA_PARENT ? parent : owner;
+    }
     void SetData(std::uint32_t type, std::uint32_t value) override
     {
         if (type == DATA_ROLE)
             role = value;
     }
-    std::uint32_t GetData(std::uint32_t type) const override { return type == DATA_ROLE ? role : arrived; }
+    std::uint32_t GetData(std::uint32_t type) const override
+    {
+        return type == DATA_ROLE ? role : arrived;
+    }
     bool CanAIAttack(Unit const* target) const override
     {
         Creature const* c = target ? target->ToCreature() : nullptr;
@@ -410,7 +416,10 @@ struct npc_bs_c02_enemyAI : ScriptedAI
         if (type == DATA_PARENT)
             parent = guid;
     }
-    ObjectGuid GetGUID(std::int32_t type) const override { return type == DATA_PARENT ? parent : owner; }
+    ObjectGuid GetGUID(std::int32_t type) const override
+    {
+        return type == DATA_PARENT ? parent : owner;
+    }
     void SetData(std::uint32_t type, std::uint32_t value) override
     {
         if (type == DATA_ROLE)
@@ -545,9 +554,18 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             owner = summoner->GetGUID();
         me->setActive(true);
     }
-    std::uint32_t GetData(std::uint32_t type) const override { return type == DATA_ROLE ? mode : courseStep; }
-    Creature* Resolve(ObjectGuid const& guid) { return ObjectAccessor::GetCreature(*me, guid); }
-    Player* Owner() { return ObjectAccessor::GetPlayer(*me, owner); }
+    std::uint32_t GetData(std::uint32_t type) const override
+    {
+        return type == DATA_ROLE ? mode : courseStep;
+    }
+    Creature* Resolve(ObjectGuid const& guid)
+    {
+        return ObjectAccessor::GetCreature(*me, guid);
+    }
+    Player* Owner()
+    {
+        return ObjectAccessor::GetPlayer(*me, owner);
+    }
 
     Creature* Child(std::uint32_t entry, Point const& point, std::uint32_t role)
     {
@@ -614,10 +632,21 @@ struct npc_bs_c02_sceneAI : ScriptedAI
                                                               : 90.0f);
     }
 
+    std::uint32_t TrialGoal() const
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(QuestFor(mode));
+        std::uint32_t target = mode == FIRE_TRIAL ? CREDIT_FIRE : CREDIT_TERRITORY;
+        if (quest)
+            for (std::size_t i = 0; i < 4; ++i)
+                if (quest->RequiredNpcOrGo[i] == static_cast<std::int32_t>(target))
+                    return quest->RequiredNpcOrGoCount[i];
+        return 0;
+    }
+
     void NextTrialOpponent(Player* p)
     {
         std::uint32_t credit = mode == FIRE_TRIAL ? CREDIT_FIRE : CREDIT_TERRITORY;
-        if (!Active(p, QuestFor(mode)) || HasCredit(p, QuestFor(mode), credit, 8))
+        if (!TrialGoal() || !Active(p, QuestFor(mode)) || HasCredit(p, QuestFor(mode), credit, TrialGoal()))
         {
             Stop();
             return;
@@ -987,7 +1016,7 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         {
             if ((mode == FIRE_TRIAL || mode == TERRITORY_TRIAL) && value == 1)
             {
-                Credit(p, QuestFor(mode), mode == FIRE_TRIAL ? CREDIT_FIRE : CREDIT_TERRITORY, 8);
+                Credit(p, QuestFor(mode), mode == FIRE_TRIAL ? CREDIT_FIRE : CREDIT_TERRITORY, TrialGoal());
                 NextTrialOpponent(p);
                 return;
             }
@@ -1223,7 +1252,8 @@ bool ContactSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t a
 {
     if (sender != Sender)
         return false;
-    if ((IsCultContact(c->GetEntry()) && !Covered(p)) || !Interact(p, c) || (!IsCampContact(c->GetEntry()) && c->GetEntry() != NPC_PRISONER))
+    if ((IsCultContact(c->GetEntry()) && !Covered(p)) || !Interact(p, c) ||
+        (!IsCampContact(c->GetEntry()) && c->GetEntry() != NPC_PRISONER))
         return true;
     if (c->GetEntry() == NPC_JAROD_FREE && !Owned(c, p))
         return true;
@@ -1334,14 +1364,20 @@ struct npc_bs_c02_contactAI : ScriptedAI
         if (type == DATA_PARENT)
             parent = guid;
     }
-    ObjectGuid GetGUID(std::int32_t type) const override { return type == DATA_PARENT ? parent : owner; }
+    ObjectGuid GetGUID(std::int32_t type) const override
+    {
+        return type == DATA_PARENT ? parent : owner;
+    }
 };
 
 class npc_bs_c02_contact : public CreatureScript
 {
-  public:
+public:
     npc_bs_c02_contact() : CreatureScript("npc_bs_c02_contact") {}
-    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_c02_contactAI(c); }
+    CreatureAI* GetAI(Creature* c) const override
+    {
+        return new npc_bs_c02_contactAI(c);
+    }
     bool OnGossipHello(Player* p, Creature* c) override
     {
         if (!Interact(p, c) || (c->GetEntry() == NPC_JAROD_FREE && !Owned(c, p)))
@@ -1363,9 +1399,12 @@ class npc_bs_c02_contact : public CreatureScript
 
 class npc_bs_c02_actor : public CreatureScript
 {
-  public:
+public:
     npc_bs_c02_actor() : CreatureScript("npc_bs_c02_actor") {}
-    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_c02_actorAI(c); }
+    CreatureAI* GetAI(Creature* c) const override
+    {
+        return new npc_bs_c02_actorAI(c);
+    }
     bool OnGossipHello(Player* p, Creature* c) override
     {
         if (!Interact(p, c, true) || !Owned(c, p) || c->GetEntry() != NPC_HOUND)
@@ -1395,9 +1434,12 @@ class npc_bs_c02_actor : public CreatureScript
 
 class npc_bs_c02_enemy : public CreatureScript
 {
-  public:
+public:
     npc_bs_c02_enemy() : CreatureScript("npc_bs_c02_enemy") {}
-    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_c02_enemyAI(c); }
+    CreatureAI* GetAI(Creature* c) const override
+    {
+        return new npc_bs_c02_enemyAI(c);
+    }
     bool OnGossipHello(Player* p, Creature* c) override
     {
         if (c->GetEntry() != NPC_KARRGONN || !Owned(c, p) || !Interact(p, c))
@@ -1422,9 +1464,12 @@ class npc_bs_c02_enemy : public CreatureScript
 
 class npc_bs_c02_scene : public CreatureScript
 {
-  public:
+public:
     npc_bs_c02_scene() : CreatureScript("npc_bs_c02_scene") {}
-    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_c02_sceneAI(c); }
+    CreatureAI* GetAI(Creature* c) const override
+    {
+        return new npc_bs_c02_sceneAI(c);
+    }
     bool OnGossipHello(Player* p, Creature* c) override
     {
         if (auto* ai = dynamic_cast<npc_bs_c02_sceneAI*>(c->AI()))
@@ -1442,7 +1487,7 @@ class npc_bs_c02_scene : public CreatureScript
 
 class go_bs_c02_interaction : public GameObjectScript
 {
-  public:
+public:
     go_bs_c02_interaction() : GameObjectScript("go_bs_c02_interaction") {}
     bool OnGossipHello(Player* p, GameObject* go) override
     {
@@ -1511,7 +1556,7 @@ class go_bs_c02_interaction : public GameObjectScript
 
 class item_bs_c02_tool : public ItemScript
 {
-  public:
+public:
     item_bs_c02_tool() : ItemScript("item_bs_c02_tool") {}
     bool OnUse(Player* p, Item* item, SpellCastTargets const& targets) override
     {
@@ -1572,7 +1617,7 @@ class item_bs_c02_tool : public ItemScript
 
 class bs_c02_player : public PlayerScript
 {
-  public:
+public:
     bs_c02_player()
         : PlayerScript("bs_c02_player",
                        {PLAYERHOOK_ON_LOGIN, PLAYERHOOK_ON_LOGOUT, PLAYERHOOK_ON_QUEST_ABANDON, PLAYERHOOK_ON_UPDATE})
@@ -1587,7 +1632,10 @@ class bs_c02_player : public PlayerScript
             p->RemoveAurasDueToSpell(SPELL_FIRE_FORM);
         }
     }
-    void OnPlayerLogout(Player* p) override { Cleanup(p); }
+    void OnPlayerLogout(Player* p) override
+    {
+        Cleanup(p);
+    }
     void OnPlayerQuestAbandon(Player* p, std::uint32_t quest) override
     {
         if (quest >= QUEST_SIGNED && quest <= QUEST_LETTER)
@@ -1654,10 +1702,11 @@ bool BrokenSealChapter2AvoidCombat(Unit const* unit)
 bool BrokenSealChapter2CultCreature(Creature const* c)
 {
     using namespace BrokenSeal::Chapter2;
-    if (!c || c->IsSummon()) return false;
+    if (!c || c->IsSummon())
+        return false;
     std::uint32_t e = c->GetEntry();
-    return IsCultContact(e) || e == NPC_GUARD || e == NPC_SCOUT ||
-           e == 4001003 || e == 4001010 || e == 4001011 || e == 4009002 || e == 4009052;
+    return IsCultContact(e) || e == NPC_GUARD || e == NPC_SCOUT || e == 4001003 || e == 4001010 || e == 4001011 ||
+           e == 4009002 || e == 4009052;
 }
 void BrokenSealChapter2Gossip(Player* p, Creature* c)
 {

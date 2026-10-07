@@ -24,7 +24,7 @@ def ordinary_loot_sql(actors):
         # Coin always comes from creature_template. Cloth and consumables complement it.
         result+=rows('creature_loot_template',['Entry','Item','Reference','Chance','QuestRequired','LootMode','GroupId','MinCount','MaxCount'],
                      [[e,2592 if level<30 else 4306,0,40,0,1,0,1,2],[e,3770,0,8,0,1,0,1,1],[e,1205,0,8,0,1,0,1,1]])
-        donor=437 if level<25 else 431 if level<30 else 435
+        donor=437 if level<25 else 431 if level<30 else 2586
         result+=f'''-- Reuse the stock donor's level-appropriate world-drop references when installed.
 INSERT INTO `creature_loot_template`
   (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)

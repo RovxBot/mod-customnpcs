@@ -70,7 +70,7 @@ def main():
         # Do not rewrite shared/scripted paths. The localized runtime rule handles ordinary passing patrols.
         if not touched or int(row['MovementType']) not in [0, 1] or int(row['guid']) in paths:
             continue
-        if not args.nav_probe:
+        if not args.nav_probe or not d.get('policy',{}).get('native_spawn_edits',True):
             continue
         near = min(touched, key=lambda h: distance(row, h))
         angle = math.atan2(float(row['position_y'])-near['center'][1], float(row['position_x'])-near['center'][0])

@@ -23,8 +23,8 @@ int main()
     alice[2] = 1;
     assert(AllDistinctDone(alice));
     assert(!AllDistinctDone(bob));
-    assert(IndexOf(CageEntries, GO_CAGE_B) == 1);
-    assert(IndexOf(CageEntries, GO_WAGON) == DistinctCount);
+    assert(IndexOf(CaptiveEntries, NPC_CAPTIVE_B) == 1);
+    assert(IndexOf(CaptiveEntries, NPC_SCOUT) == DistinctCount);
     assert(IndexOf(WardEntries, GO_CAGE_A) == DistinctCount);
 
     SceneSafety safety{true, true, true, true, false, 5.0f};

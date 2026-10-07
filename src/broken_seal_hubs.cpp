@@ -2,8 +2,8 @@
  * Copyright (C) mod-customNPCs contributors.
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-#include "BrokenSealHubs.h"
 #include "BrokenSealChapter2Integration.h"
+#include "BrokenSealHubs.h"
 #include "CellImpl.h"
 #include "Config.h"
 #include "Creature.h"
@@ -43,13 +43,11 @@ Hub const* RestingArea(Unit const* unit)
     if (!(unit->GetPhaseMask() & 1))
         return nullptr;
     for (Hub const& hub : Areas)
-        if (unit->GetMapId() == hub.map &&
-            (!hub.cult || BrokenSealChapter2AvoidCombat(unit)) &&
+        if (unit->GetMapId() == hub.map && (!hub.cult || BrokenSealChapter2AvoidCombat(unit)) &&
             Contains(hub, unit->GetPositionX(), unit->GetPositionY(), unit->GetPositionZ(), hub.radius) && Enabled(hub))
             return &hub;
     for (Footprint const& f : Footprints)
-        if (unit->GetMapId() == Areas[f.area].map &&
-            (!Areas[f.area].cult || BrokenSealChapter2AvoidCombat(unit)) &&
+        if (unit->GetMapId() == Areas[f.area].map && (!Areas[f.area].cult || BrokenSealChapter2AvoidCombat(unit)) &&
             ContainsFootprint(f, unit->GetPositionX(), unit->GetPositionY(), unit->GetPositionZ()) &&
             Enabled(Areas[f.area]))
             return &Areas[f.area];
@@ -122,8 +120,8 @@ struct npc_bs_hub_sentryAI : ScriptedAI
     bool CanAIAttack(Unit const* target) const override
     {
         Hub const* hub = Area();
-        return hub && hub->cult && Enabled(*hub) && target &&
-               target->GetCharmerOrOwnerPlayerOrPlayerItself() && !BrokenSealChapter2AvoidCombat(target);
+        return hub && hub->cult && Enabled(*hub) && target && target->GetCharmerOrOwnerPlayerOrPlayerItself() &&
+               !BrokenSealChapter2AvoidCombat(target);
     }
     void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
     {
@@ -148,8 +146,8 @@ struct npc_bs_hub_sentryAI : ScriptedAI
             Cell::VisitObjects(me, searcher, hub->screen + hub->radius);
             for (Creature* c : creatures)
             {
-                if (!(c->GetPhaseMask() & me->GetPhaseMask()) || !Ambient(c) || c->IsInEvadeMode() ||
-                    !c->IsAIEnabled || !me->IsWithinLOSInMap(c) ||
+                if (!(c->GetPhaseMask() & me->GetPhaseMask()) || !Ambient(c) || c->IsInEvadeMode() || !c->IsAIEnabled ||
+                    !me->IsWithinLOSInMap(c) ||
                     !Contains(*hub, c->GetPositionX(), c->GetPositionY(), c->GetPositionZ(), hub->screen))
                     continue;
                 if (hub->cult && BrokenSealChapter2CultCreature(c))
@@ -157,9 +155,10 @@ struct npc_bs_hub_sentryAI : ScriptedAI
                 // Leave ordinary quest fights outside camp alone. Repel only physical intruders
                 // or NPCs whose current target is a protected resting player.
                 bool inside = Contains(*hub, c->GetPositionX(), c->GetPositionY(), c->GetPositionZ(), hub->radius);
-                Player const* target = c->GetVictim() ? c->GetVictim()->GetCharmerOrOwnerPlayerOrPlayerItself() : nullptr;
+                Player const* target =
+                    c->GetVictim() ? c->GetVictim()->GetCharmerOrOwnerPlayerOrPlayerItself() : nullptr;
                 bool protectedTarget = target && RestingArea(target) == hub;
-                if (!inside && !protectedTarget)
+                if (!ShouldRepel(inside, protectedTarget))
                     continue;
                 me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
                 // Send ordinary intruders home. Evade clears loot/tag/threat, so these cannot be farmed via guards.
@@ -173,19 +172,31 @@ class npc_bs_hub_sentry : public CreatureScript
 {
 public:
     npc_bs_hub_sentry() : CreatureScript("npc_bs_hub_sentry") {}
-    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_hub_sentryAI(c); }
+    CreatureAI* GetAI(Creature* c) const override
+    {
+        return new npc_bs_hub_sentryAI(c);
+    }
 };
 struct npc_bs_hub_residentAI : ScriptedAI
 {
     explicit npc_bs_hub_residentAI(Creature* c) : ScriptedAI(c) {}
-    void Reset() override { me->SetReactState(REACT_PASSIVE); }
-    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override { damage = 0; }
+    void Reset() override
+    {
+        me->SetReactState(REACT_PASSIVE);
+    }
+    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
+    {
+        damage = 0;
+    }
 };
 class npc_bs_hub_resident : public CreatureScript
 {
 public:
     npc_bs_hub_resident() : CreatureScript("npc_bs_hub_resident") {}
-    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_hub_residentAI(c); }
+    CreatureAI* GetAI(Creature* c) const override
+    {
+        return new npc_bs_hub_residentAI(c);
+    }
 };
 } // namespace BrokenSeal::Hubs
 void AddBrokenSealHubScripts()

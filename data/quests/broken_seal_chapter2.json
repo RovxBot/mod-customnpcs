@@ -1945,7 +1945,7 @@
       "xp_difficulty": 5,
       "money": 1000,
       "objectives": "Defeat 8 trial fire elementals while the disguise is active.",
-      "description": "Our new recruits must face the fire. Defeat eight Trial Fire Elementals beside the western camp while wearing your disguise. This trial tests your nerve, not your loyalties. Renew your cover with Condenna if needed.",
+      "description": "Our new recruits must face the fire. Speak to Condenna to begin or resume your trial, then defeat eight Trial Fire Elementals while wearing your disguise. They will be called one at a time. This trial tests your nerve, not your loyalties. Renew your cover with Ortell or your papers if needed.",
       "completion": "The trial is recorded. Continue your training.",
       "exclusive_group": -900205
     },
@@ -2340,8 +2340,8 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1120,
-      "objectives": "Defeat 10 Horrorguards at the camps contested Legion approach.",
-      "description": "Defeat ten Horrorguards at the contested Legion approach southwest of camp. These demons are rivals to the cult, not innocent travelers. Keep your cover intact as you return.",
+      "objectives": "Use the calling tablet at the holding camp and defeat 10 Horrorguards while disguised.",
+      "description": "Use the calling tablet at the holding camp to challenge ten Horrorguards. They will be called one at a time; return to the tablet if your challenge is interrupted. These demons are rivals to the cult, not innocent travelers. Keep your cover intact throughout the challenge and as you return.",
       "completion": "The trial is recorded. Continue your training.",
       "exclusive_group": -900217
     },
@@ -2454,7 +2454,7 @@
       "xp_difficulty": 5,
       "money": 1160,
       "objectives": "Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.",
-      "description": "Speak to Jarod to challenge his private restraint guard. Defeat it and recover the prison key. Use Jarod's Restraints to free your private Jarod, defeat three pairs of enforcers along the escape route, and stay with him until he reaches Ortell's refuge. The key can be recovered again after a failed escape.",
+      "description": "Speak to Jarod to challenge his restraint guard. Defeat it and recover the prison key, then speak to Jarod again to unlock his bindings and begin the escape. Defeat three pairs of enforcers along the route and stay with him until he reaches Ortell's refuge. The key can be recovered again after a failed escape.",
       "completion": "The trial is recorded. Continue your training."
     },
     {
