@@ -60,6 +60,10 @@ def header(d):
     for o in d['objects']:
         values=o['bounds']+[o['point'][2]]
         lines+=['    {'+', '.join(f'{v:.4f}f' for v in values)+f', {indexes[o["hub"]]}'+'},']
+    lines+=['}};', '', 'struct Resident', '{', '    std::uint32_t entry;', '    std::uint32_t area;', '};', '',
+            f'inline constexpr std::array<Resident, {len(d["residents"])}> Residents =', '{{']
+    for actor in d['residents']:
+        lines += [f'    {{{actor["entry"]}, {indexes[actor["hub"]]}}},']
     lines+=['}};', '',  '}', '', '#endif', '']
     return '\n'.join(lines)
 
@@ -69,6 +73,7 @@ def sql(d):
     objects=d['objects']+d.get('encounter_scenery',[])
     owned=[('creature',a['entry']) for a in actors]+[('gameobject',o['entry']) for o in objects]
     owned += [(kind,a['entry']) for kind in ['outfit','outfit_entry'] for a in actors]
+    owned += [(kind,a['entry']) for kind in ['npc_text','gossip_menu'] for a in d['residents']]
     text='''-- The Broken Seal: quest hub safety and camp dressing, Chapters 1-4.
 -- Generated from data/quests/broken_seal_hubs.json. Requires all four chapters and rebuilt module.
 -- Occupied-ID checks precede content DML. Ordinary stock spawn moves are backed up and conditional.
@@ -95,7 +100,8 @@ INSERT INTO `bs_hub_guard` SELECT 1 WHERE
         text=text.replace("OR (`entry`=900311 AND `chapter`=3) OR (`entry`=900411 AND `chapter`=4)", "")
         text=text.replace(") <> 4", ") <> 2").replace("IN (900108,900222,900311,900411)", "IN (900108,900222)")
     for kind,table,col in [('creature','creature_template','entry'),('gameobject','gameobject_template','entry'),
-                           ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry')]:
+                           ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry'),
+                           ('npc_text','npc_text','ID'),('gossip_menu','gossip_menu','MenuID')]:
         text+=f'''INSERT INTO `bs_hub_guard`
 SELECT 1 FROM `{table}` t INNER JOIN `bs_hub_ids` h ON h.`kind`='{kind}' AND h.`entry`=t.`{col}`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
@@ -114,7 +120,7 @@ SELECT `kind`,`entry`,0 FROM `bs_hub_ids` ON DUPLICATE KEY UPDATE `chapter`=VALU
     cols=['entry','name','minlevel','maxlevel','faction','npcflag','unit_class','unit_flags','type','AIName',
           'ScriptName','HealthModifier','DamageModifier','ExperienceModifier','lootid','flags_extra']
     text+=upsert('creature_template',cols,
-        [[a['entry'],a['name'],27 if a.get('cult') else 45,27 if a.get('cult') else 45,14 if a.get('cult') else 250 if a in d['guards'] else 35,0,1,0 if a.get('cult') and a in d['guards'] else 770,7,'',
+        [[a['entry'],a['name'],27 if a.get('cult') else 45,27 if a.get('cult') else 45,14 if a.get('cult') else 250 if a in d['guards'] else 35,1 if a in d['residents'] else 0,1,0 if a.get('cult') and a in d['guards'] else 770,7,'',
           'npc_bs_hub_sentry' if a in d['guards'] else 'npc_bs_hub_resident',1.4 if a.get('cult') else 5,1,1 if a.get('cult') and a in d['guards'] else 0,a['entry'] if a.get('ordinary_loot') else 0,0 if a.get('cult') else 2] for a in actors],['entry'])
     ids=', '.join(str(a['entry']) for a in actors)
     text+=f'DELETE FROM `creature_template_model` WHERE `CreatureID` IN ({ids});\n'
@@ -127,6 +133,12 @@ SELECT `kind`,`entry`,0 FROM `bs_hub_ids` ON DUPLICATE KEY UPDATE `chapter`=VALU
     text+=ordinary_loot_sql(actors)
     text+=f'DELETE FROM `creature_template_addon` WHERE `entry` IN ({ids});\n'
     text+=rows('creature_template_addon',['entry','emote'],[[a['entry'],a['emote']] for a in d['residents']])
+    text+=upsert('npc_text',['ID','text0_0','Probability0'],
+                 [[a['entry'],a['greeting'],1] for a in d['residents']],['ID'])
+    menus=', '.join(str(a['entry']) for a in d['residents'])
+    text+=f'DELETE FROM `gossip_menu` WHERE `MenuID` IN ({menus});\n'
+    text+=rows('gossip_menu',['MenuID','TextID'],[[a['entry'],a['entry']] for a in d['residents']])
+    text+=f'UPDATE `creature_template` SET `gossip_menu_id`=`entry` WHERE `entry` IN ({menus});\n'
     text+=upsert('gameobject_template',['entry','type','displayId','name','size'],
                 [[o['entry'],5,o['display'],o['name'],o['scale']] for o in objects],['entry'])
     for kind in ['creature','gameobject']:

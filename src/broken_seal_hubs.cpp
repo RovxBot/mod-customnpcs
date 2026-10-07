@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
+#include "ScriptedGossip.h"
 
 #include <algorithm>
 #include <chrono>
@@ -77,7 +78,7 @@ bool ProtectedPair(Unit const* first, Unit const* second, bool damage = false)
     // Only PCs and their actual controlled units get the resting-area rule.
     Player const* player = first->GetCharmerOrOwnerPlayerOrPlayerItself();
     Creature const* intruder = second->ToCreature();
-    return player && Ambient(intruder, damage) && RestingArea(player);
+    return player && Ambient(intruder, damage) && RestingArea(first);
 }
 class bs_hub_safety : public UnitScript
 {
@@ -157,7 +158,7 @@ struct npc_bs_hub_sentryAI : ScriptedAI
                 bool inside = Contains(*hub, c->GetPositionX(), c->GetPositionY(), c->GetPositionZ(), hub->radius);
                 Player const* target =
                     c->GetVictim() ? c->GetVictim()->GetCharmerOrOwnerPlayerOrPlayerItself() : nullptr;
-                bool protectedTarget = target && RestingArea(target) == hub;
+                bool protectedTarget = target && RestingArea(c->GetVictim()) == hub;
                 if (!ShouldRepel(inside, protectedTarget))
                     continue;
                 me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
@@ -180,13 +181,41 @@ public:
 struct npc_bs_hub_residentAI : ScriptedAI
 {
     explicit npc_bs_hub_residentAI(Creature* c) : ScriptedAI(c) {}
+    EventMap events;
+    Hub const* Area() const
+    {
+        for (Resident const& resident : Residents)
+            if (resident.entry == me->GetEntry())
+                return &Areas[resident.area];
+        return nullptr;
+    }
+    void RefreshFlags()
+    {
+        Hub const* hub = Area();
+        if (hub && Enabled(*hub))
+            me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+        else
+            me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+    }
     void Reset() override
     {
         me->SetReactState(REACT_PASSIVE);
+        RefreshFlags();
+        events.Reset();
+        events.ScheduleEvent(1, 2s);
     }
     void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
     {
         damage = 0;
+    }
+    void UpdateAI(std::uint32_t diff) override
+    {
+        events.Update(diff);
+        if (events.ExecuteEvent() == 1)
+        {
+            RefreshFlags();
+            events.ScheduleEvent(1, 2s);
+        }
     }
 };
 class npc_bs_hub_resident : public CreatureScript
@@ -196,6 +225,18 @@ public:
     CreatureAI* GetAI(Creature* c) const override
     {
         return new npc_bs_hub_residentAI(c);
+    }
+    bool OnGossipHello(Player* p, Creature* c) override
+    {
+        auto* ai = dynamic_cast<npc_bs_hub_residentAI*>(c->AI());
+        Hub const* hub = ai ? ai->Area() : nullptr;
+        if (!hub || !Enabled(*hub) || !p->IsAlive() || p->IsInCombat() || !c->IsAlive() ||
+            p->FindMap() != c->FindMap() || !(p->GetPhaseMask() & c->GetPhaseMask()) ||
+            !p->IsWithinDistInMap(c, 7.0f) || (hub->cult && !BrokenSealChapter2AvoidCombat(p)))
+            return true;
+        ClearGossipMenuFor(p);
+        SendGossipMenuFor(p, c->GetEntry(), c->GetGUID());
+        return true;
     }
 };
 } // namespace BrokenSeal::Hubs

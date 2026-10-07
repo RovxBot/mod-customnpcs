@@ -111,7 +111,19 @@ INSERT INTO `bs_hub_ids` (`kind`, `entry`) VALUES
   ('outfit_entry', 4009058),
   ('outfit_entry', 4009059),
   ('outfit_entry', 4009050),
-  ('outfit_entry', 4009052);
+  ('outfit_entry', 4009052),
+  ('npc_text', 4009056),
+  ('npc_text', 4009057),
+  ('npc_text', 4009058),
+  ('npc_text', 4009059),
+  ('npc_text', 4009050),
+  ('npc_text', 4009052),
+  ('gossip_menu', 4009056),
+  ('gossip_menu', 4009057),
+  ('gossip_menu', 4009058),
+  ('gossip_menu', 4009059),
+  ('gossip_menu', 4009050),
+  ('gossip_menu', 4009052);
 DROP TEMPORARY TABLE IF EXISTS `bs_hub_guard`;
 CREATE TEMPORARY TABLE `bs_hub_guard` (`id` TINYINT PRIMARY KEY);
 INSERT INTO `bs_hub_guard` VALUES (1);
@@ -135,6 +147,14 @@ INSERT INTO `bs_hub_guard`
 SELECT 1 FROM `mod_customnpcs_outfit_entry` t INNER JOIN `bs_hub_ids` h ON h.`kind`='outfit_entry' AND h.`entry`=t.`creature_entry`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
 WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_hub_guard`
+SELECT 1 FROM `npc_text` t INNER JOIN `bs_hub_ids` h ON h.`kind`='npc_text' AND h.`entry`=t.`ID`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_hub_guard`
+SELECT 1 FROM `gossip_menu` t INNER JOIN `bs_hub_ids` h ON h.`kind`='gossip_menu' AND h.`entry`=t.`MenuID`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
+WHERE o.`entry` IS NULL LIMIT 1;
 DROP TEMPORARY TABLE `bs_hub_guard`;
 CREATE TABLE IF NOT EXISTS `mod_customnpcs_bs_hub_native` (
   `guid` INT UNSIGNED PRIMARY KEY, `entry` INT UNSIGNED NOT NULL, `map` SMALLINT UNSIGNED NOT NULL,
@@ -151,12 +171,12 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `facti
   (4009009, 'Neutral Wildhammer Gathering Sentry', 45, 45, 250, 0, 1, 770, 7, '', 'npc_bs_hub_sentry', 5, 1, 0, 0, 2),
   (4009000, 'Expedition Sentry', 45, 45, 250, 0, 1, 770, 7, '', 'npc_bs_hub_sentry', 5, 1, 0, 0, 2),
   (4009002, 'Twilight Camp Sentry', 27, 27, 14, 0, 1, 0, 7, '', 'npc_bs_hub_sentry', 1.4, 1, 1, 4009002, 0),
-  (4009056, 'Dawnchaser Field Camp Camp Volunteer', 45, 45, 35, 0, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
-  (4009057, 'Mei''s Mudsprocket Relief Station Camp Volunteer', 45, 45, 35, 0, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
-  (4009058, 'Southern Village Relief Camp Camp Volunteer', 45, 45, 35, 0, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
-  (4009059, 'Neutral Wildhammer Gathering Camp Volunteer', 45, 45, 35, 0, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
-  (4009050, 'Expedition Quartermaster', 45, 45, 35, 0, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
-  (4009052, 'Twilight Quartermaster', 27, 27, 14, 0, 1, 770, 7, '', 'npc_bs_hub_resident', 1.4, 1, 0, 0, 0)
+  (4009056, 'Dawnchaser Medical Volunteer', 45, 45, 35, 1, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
+  (4009057, 'Barrelbottom Supply Clerk', 45, 45, 35, 1, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
+  (4009058, 'Village Relief Carpenter', 45, 45, 35, 1, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
+  (4009059, 'Wildhammer Table Steward', 45, 45, 35, 1, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
+  (4009050, 'Expedition Quartermaster', 45, 45, 35, 1, 1, 770, 7, '', 'npc_bs_hub_resident', 5, 1, 0, 0, 2),
+  (4009052, 'Twilight Quartermaster', 27, 27, 14, 1, 1, 770, 7, '', 'npc_bs_hub_resident', 1.4, 1, 0, 0, 0)
 ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4009006, 4009007, 4009008, 4009009, 4009000, 4009002, 4009056, 4009057, 4009058, 4009059, 4009050, 4009052);
@@ -235,6 +255,24 @@ INSERT INTO `creature_template_addon` (`entry`, `emote`) VALUES
   (4009059, 69),
   (4009050, 69),
   (4009052, 69);
+INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
+  (4009056, 'Nala is beside the medical tent. Kang cooks at the hearth, and Kor watches the road. Ask Dezco if you need another antidote or food for the families.', 1),
+  (4009057, 'Mei is keeping the relief wagons moving. Ken-Ken is with the families in the small camp southwest of here; follow the road before turning toward their tents.', 1),
+  (4009058, 'Ken-Ken tends the families, Kang prepares their medicine, and Maruut studies the well. The provisioner, herbalist and toolkeeper are here among the tents.', 1),
+  (4009059, 'Iain welcomes travelers of either banner at this table. You can meet him here without entering Aerie Peak. Take a seat and catch your breath.', 1),
+  (4009050, 'Maruut and Ortell are beside the supply wagon. Bring any rescued surveyors to our banner; I will see that they have food and dry blankets.', 1),
+  (4009052, 'Papers first. Condenna handles admission and fire trials; Cargall preserves supplicants. Mylva drills body and mind, and Devoran trains the hounds.', 1)
+ON DUPLICATE KEY UPDATE
+  `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (4009056, 4009057, 4009058, 4009059, 4009050, 4009052);
+INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
+  (4009056, 4009056),
+  (4009057, 4009057),
+  (4009058, 4009058),
+  (4009059, 4009059),
+  (4009050, 4009050),
+  (4009052, 4009052);
+UPDATE `creature_template` SET `gossip_menu_id`=`entry` WHERE `entry` IN (4009056, 4009057, 4009058, 4009059, 4009050, 4009052);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`) VALUES
   (4009162, 5, 7211, 'Mei''s Mudsprocket Relief Station Shelter', 0.8),
   (4009163, 5, 6739, 'Mei''s Mudsprocket Relief Station Bedroll', 1.0),

@@ -685,8 +685,8 @@ struct npc_bs_c04_enemyAI : ScriptedAI
             }
             else if (event == COMBAT_SPELL)
             {
-                if (UpdateVictim())
-                    DoCastVictim(me->GetEntry() == NPC_STALKER ? SPELL_STRIKE : SPELL_SHADOW_BOLT);
+                if (UpdateVictim() && !me->HasUnitState(UNIT_STATE_CASTING))
+                    DoCastVictim(me->GetEntry() == NPC_STALKER ? SPELL_POISON : SPELL_SHADOW_BOLT);
                 events.ScheduleEvent(COMBAT_SPELL, 8s);
             }
         }

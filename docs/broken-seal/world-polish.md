@@ -9,6 +9,11 @@ quest content.
 A stock-client visual/playthrough pass is still pending. The SQL and source have been
 checked offline; this work has not been installed on the realm by the coding agent.
 
+The subsequent [implemented-chapter quality review](quality-review.md) supplies
+authored quest labels/maps, suitable item icons, fuller enemy loot/combat roles and
+hub directions. Existing realms also apply its `2026_10_07_04` update after
+completing the layout sequence below.
+
 ## What changed
 
 - **Floating signs:** all placeholder signpost models in Chapters 1–4 are replaced

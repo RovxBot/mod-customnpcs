@@ -7,7 +7,7 @@ import math
 from pathlib import Path
 
 from broken_seal_outfits import validate_outfits
-from broken_seal_content import equipment_sql, ordinary_loot_sql
+from broken_seal_content import equipment_sql, ordinary_loot_sql, quest_poi_rows, validate_quest_polish
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/quests/broken_seal_chapter1.json'
@@ -35,6 +35,7 @@ def upsert(table, columns, values, keys):
 
 
 def validate(data):
+    validate_quest_polish(data)
     validate_outfits(data['actors'] + data['hostile'])
     ids = data['ids']
     assert len(data['quests']) == 9 and data['chapter'] == 'C01'
@@ -233,18 +234,15 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
     qcols += [f'RequiredItemId{i}' for i in range(1, 7)] + [f'RequiredItemCount{i}' for i in range(1, 7)]
     qcols += [f'RewardChoiceItemID{i}' for i in range(1, 7)] + [f'RewardChoiceItemQuantity{i}' for i in range(1, 7)]
     qr, addons, starters, enders, offers, requests = [], [], [], [], [], []
-    names = {'NPC_CULT_SCOUT': 'Twilight Scouts defeated', 'CREDIT_COMPARE': 'Orders and rubbing compared',
-             'CREDIT_COMMANDER': 'Jarod observed safely', 'CREDIT_RECRUIT': 'Recruit watch change observed',
-             'CREDIT_SIGNAL': 'Extraction signal agreed'}
     for q in data['quests']:
         credits = list(q.get('credits', {}).items())
         required = list(q.get('required_items', {}).items())
         rewards = q.get('reward_choices', [])
-        labels = [names.get(k, k.replace('CREDIT_', '').replace('_', ' ').title() + ' completed') for k, _ in credits]
+        labels = [q['objective_labels'][k] for k, _ in credits]
         qr.append([q['id'], 2, q['level'], q['min_level'], 406, q['xp_difficulty'], q['money'],
                    ids[q['source_item']] if q.get('source_item') else 0, 0,
                    1101 if q['faction'] == 'Alliance' else 690 if q['faction'] == 'Horde' else 0,
-                   q['title'], q['objectives'], q['description'], q['objectives'],
+                   q['title'], q['objectives'], q['description'], q['return_text'],
                    *([ids[k] for k, _ in credits] + [0] * (4 - len(credits))),
                    *([v for _, v in credits] + [0] * (4 - len(credits))),
                    *(labels + [''] * (4 - len(labels))),
@@ -258,7 +256,7 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
         starters.append([ids[q['giver']], q['id']])
         enders.append([ids[q['turn_in']], q['id']])
         offers.append([q['id'], q['completion']])
-        requests.append([q['id'], q['objectives']])
+        requests.append([q['id'], q['request_text']])
     text += upsert('quest_template', qcols, qr, ['ID'])
     text += upsert('quest_template_addon', ['ID', 'PrevQuestID', 'NextQuestID', 'ExclusiveGroup', 'ProvidedItemCount', 'SpecialFlags'], addons, ['ID'])
     quest_ids = ', '.join(str(q['id']) for q in data['quests'])
@@ -277,21 +275,7 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
     text += f'DELETE FROM `quest_poi_points` WHERE `QuestID` IN ({quest_ids});\n'
     text += f'DELETE FROM `quest_poi` WHERE `QuestID` IN ({quest_ids});\n'
     actor_points = {a['key']: a['point'] for a in data['actors'] if a['point']}
-    objective_points = {
-        'QUEST_WAGON': [(0, 'wagon')],
-        'QUEST_TRAIL': [(0, 'scout_5'), (1, 'trail_1'), (2, 'trail_2'), (3, 'trail_3')],
-        'QUEST_RESCUE': [(0, 'cage_1'), (1, 'cage_2'), (2, 'cage_3')],
-        'QUEST_WARDS': [(0, 'ward_1'), (1, 'ward_2'), (2, 'ward_3')],
-        'QUEST_COMPARE': [(0, 'ortell')], 'QUEST_COMMANDER': [(0, 'cover')],
-        'QUEST_RECRUIT': [(0, 'drop'), (1, 'ortell')],
-    }
-    poi_rows, poi_points = [], []
-    for q in data['quests']:
-        choices = [(-1, actor_points[q['turn_in']])] + objective_points.get(q['key'], [])
-        for index, (objective, name) in enumerate(choices):
-            p = data['points'][name]
-            poi_rows.append([q['id'], index, objective, 1, data['world_map_area_id'], 0, 0, 0])
-            poi_points.append([q['id'], index, 0, round(p[0]), round(p[1])])
+    poi_rows, poi_points = quest_poi_rows(data, actor_points)
     text += rows('quest_poi', ['QuestID', 'id', 'ObjectiveIndex', 'MapID', 'WorldMapAreaId', 'Floor', 'Priority', 'Flags'], poi_rows)
     text += rows('quest_poi_points', ['QuestID', 'Idx1', 'Idx2', 'X', 'Y'], poi_points)
 

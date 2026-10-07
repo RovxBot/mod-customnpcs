@@ -175,7 +175,7 @@ INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlev
   (4001009, 'Teren Valeguard', '', 25, 25, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
   (4001010, 'Twilight Scout', '', 20, 22, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 4001010, 0),
   (4001011, 'Twilight Guard', '', 22, 23, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 4001011, 0),
-  (4001012, 'Unbound Earth Elemental', '', 22, 23, 0, 14, 0, 1, 0, 4, 'SmartAI', '', 1, 1, 1, 0, 0),
+  (4001012, 'Unbound Earth Elemental', '', 22, 23, 0, 14, 0, 1, 0, 4, 'SmartAI', '', 1, 1, 1, 4001012, 0),
   (4001013, 'Expedition Observation Focus', '', 1, 1, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c01_observation', 1, 1, 0, 0, 2),
   (4001050, 'Trail A', '', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001051, 'Trail B', '', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -285,6 +285,11 @@ SELECT 4001011, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`
 FROM `creature_loot_template` l
 WHERE l.`Entry`=437 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
   AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=17,`maxgold`=79,`lootid`=4001012 WHERE `entry`=4001012;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001012;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001012, 2772, 0, 65, 0, 1, 0, 1, 2),
+  (4001012, 1705, 0, 8, 0, 1, 0, 1, 1);
 DELETE FROM `creature_template_addon` WHERE `entry` = 4001002;
 INSERT INTO `creature_template_addon` (`entry`, `emote`) VALUES
   (4001002, 68);
@@ -294,17 +299,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
   (4001011, 0, 0, 0, 0, 0, 100, 0, 2500, 4000, 7000, 10000, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 'Broken Seal C01: Twilight Guard - native combat spell'),
   (4001012, 0, 0, 0, 0, 0, 100, 0, 2500, 4000, 7000, 10000, 11, 8078, 0, 0, 0, 0, 0, 2, 0, 0, 0, 'Broken Seal C01: Unbound Earth Elemental - native combat spell');
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `PageText`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
-  (900100, 12, 0, 'Expedition Invitation', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001000, 'The Vale Expedition', 0, 0, ''),
-  (900101, 12, 0, 'Missing Travelers Log', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001001, 'The Vale Expedition', 0, 0, ''),
-  (900102, 12, 0, 'Coded Twilight Orders', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001002, 'The Vale Expedition', 0, 0, ''),
-  (900103, 12, 0, 'Damaged Ward Rubbing', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001003, 'The Vale Expedition', 0, 0, ''),
+  (900100, 12, 0, 'Expedition Invitation', 7233, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001000, 'The expedition seal admits its bearer to Maruut''s camp.', 0, 0, ''),
+  (900101, 12, 0, 'Missing Travelers Log', 1143, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001001, 'The final entries name three surveyors who never returned.', 0, 0, ''),
+  (900102, 12, 0, 'Coded Twilight Orders', 4110, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001002, 'A spiral seal marks the cult''s instructions.', 0, 0, ''),
+  (900103, 12, 0, 'Damaged Ward Rubbing', 4110, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 4001003, 'Three ward tracings reveal the same spiral beneath the ash.', 0, 0, ''),
   (900104, 12, 0, 'Ward Tracing Kit', 7411, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 0, 'Use on a ward stone. Maruut can replace a lost kit.', 3365, 0, 'item_bs_c01_tracing_kit'),
-  (900110, 4, 0, 'Vale Expedition Signet of Might', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 4, 4, 7, 3, 0, 0, 0, 'The Vale Expedition', 0, 0, ''),
-  (900111, 4, 0, 'Vale Expedition Signet of Precision', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 3, 4, 7, 3, 0, 0, 0, 'The Vale Expedition', 0, 0, ''),
-  (900112, 4, 0, 'Vale Expedition Signet of Sorcery', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 4, 7, 3, 45, 3, 0, 'The Vale Expedition', 0, 0, ''),
-  (900113, 4, 0, 'Vale Expedition Signet of Restoration', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 6, 4, 45, 4, 0, 'The Vale Expedition', 0, 0, ''),
-  (900114, 4, 0, 'Vale Expedition Signet of Guarding', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 7, 6, 4, 2, 12, 2, 0, 'The Vale Expedition', 0, 0, ''),
-  (900115, 4, 0, 'Vale Expedition Signet of Balance', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 7, 3, 43, 2, 0, 'The Vale Expedition', 0, 0, '')
+  (900110, 4, 0, 'Vale Expedition Signet of Might', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 4, 4, 7, 3, 0, 0, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
+  (900111, 4, 0, 'Vale Expedition Signet of Precision', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 3, 4, 7, 3, 0, 0, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
+  (900112, 4, 0, 'Vale Expedition Signet of Sorcery', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 4, 7, 3, 45, 3, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
+  (900113, 4, 0, 'Vale Expedition Signet of Restoration', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 6, 4, 45, 4, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
+  (900114, 4, 0, 'Vale Expedition Signet of Guarding', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 7, 6, 4, 2, 12, 2, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
+  (900115, 4, 0, 'Vale Expedition Signet of Balance', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 7, 3, 43, 2, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, '')
 ON DUPLICATE KEY UPDATE
   `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `PageText` = VALUES(`PageText`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
 INSERT INTO `page_text` (`ID`, `Text`, `NextPageID`) VALUES
@@ -317,15 +322,15 @@ ON DUPLICATE KEY UPDATE
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
   (4001010, 900102, 0, 100, 1, 1, 0, 1, 1);
 INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`) VALUES
-  (900100, 2, 20, 20, 406, 2, 300, 900100, 0, 1101, 'An Unusual Commission', 'Follow the old road toward the Charred Vale and look for the expedition''s blue-clad stonebinder.', 'The expedition in Stonetalon is accepting help from anyone willing to put missing travelers before old quarrels. Take this invitation to Maruut Stonebinder. His camp is on the eastern approach to the Charred Vale.', 'Follow the old road toward the Charred Vale and look for the expedition''s blue-clad stonebinder.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900101, 2, 20, 20, 406, 2, 300, 900100, 0, 690, 'An Unusual Commission', 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.', 'Maruut Stonebinder needs help in Stonetalon. Three surveyors have vanished near the Charred Vale. This is an expedition, not a border dispute. Take this invitation to his neutral camp on the valley''s eastern approach.', 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900102, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Travelers Who Never Arrived', 'Inspect the abandoned wagon above camp and recover its log.', 'Mira, Dorn and Teren were inspecting old trail stones. Their abandoned wagon is beside our camp. Search it for the travelers'' log. Leave what supplies remain for the survivors.', 'Inspect the abandoned wagon above camp and recover its log.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900101, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900103, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Follow the Ash', 'Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.', 'Follow the three ash-marked signs from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.', 'Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.', 4001010, 4001050, 4001051, 4001052, 6, 1, 1, 1, 'Twilight Scouts defeated', 'Trail A completed', 'Trail B completed', 'Trail C completed', 900102, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900104, 2, 22, 20, 406, 4, 600, 0, 0, 0, 'Bring Them Home', 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 'The scouts are holding Mira, Dorn and Teren under guard at the holding camp. Clear their guards and speak to each surveyor, then stay nearby until they reach our expedition camp. Clear trouble from the route; nobody gets left behind.', 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 4001053, 4001054, 4001055, 0, 1, 1, 1, 0, 'Captive A completed', 'Captive B completed', 'Captive C completed', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900105, 2, 23, 20, 406, 4, 600, 900104, 0, 0, 'A Stone That Should Be Quiet', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 4001056, 4001057, 4001058, 0, 1, 1, 1, 0, 'Ward A completed', 'Ward B completed', 'Ward C completed', '', 900103, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900106, 2, 23, 20, 406, 2, 600, 0, 0, 0, 'The Same Hand', 'Ask Ortell to compare the orders and the rubbing.', 'Ortell once knew the Twilight''s Hammer from the inside. He is helping us now. Speak with him here in camp and compare the deposited orders with the ward rubbing. You do not need to carry those papers back and forth; I have sent him copies.', 'Ask Ortell to compare the orders and the rubbing.', 4001059, 0, 0, 0, 1, 0, 0, 0, 'Orders and rubbing compared', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900107, 2, 24, 20, 406, 4, 600, 0, 0, 0, 'A Captive Commander', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 'The rescued surveyors recognized the commander''s name: Jarod Shadowsong. The cult is holding him at the altar in their holding camp. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 4001060, 0, 0, 0, 1, 0, 0, 0, 'Jarod observed safely', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900108, 2, 25, 20, 406, 2, 600, 0, 0, 0, 'The Name on the Papers', 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 'There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.', 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 4001061, 4001062, 0, 0, 1, 1, 0, 0, 'Recruit watch change observed', 'Extraction signal agreed', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900110, 900111, 900112, 900113, 900114, 900115, 1, 1, 1, 1, 1, 1)
+  (900100, 2, 20, 20, 406, 2, 300, 900100, 0, 1101, 'An Unusual Commission', 'Follow the old road toward the Charred Vale and look for the expedition''s blue-clad stonebinder.', 'The expedition in Stonetalon is accepting help from anyone willing to put missing travelers before old quarrels. Take this invitation to Maruut Stonebinder. His camp is on the eastern approach to the Charred Vale.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900101, 2, 20, 20, 406, 2, 300, 900100, 0, 690, 'An Unusual Commission', 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.', 'Maruut Stonebinder needs help in Stonetalon. Three surveyors have vanished near the Charred Vale. This is an expedition, not a border dispute. Take this invitation to his neutral camp on the valley''s eastern approach.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900102, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Travelers Who Never Arrived', 'Inspect the abandoned wagon above camp and recover its log.', 'Mira, Dorn and Teren were inspecting old trail stones. Their abandoned wagon is beside our camp. Search it for the travelers'' log. Leave what supplies remain for the survivors.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900101, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900103, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Follow the Ash', 'Inspect all three distinct tablets, defeat six Twilight Scouts and recover their coded orders.', 'Follow the three ash-marked tablets from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 4001010, 4001050, 4001051, 4001052, 6, 1, 1, 1, 'Twilight Scouts defeated', 'Western trail tablet examined', 'Central trail tablet examined', 'Eastern trail tablet examined', 900102, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900104, 2, 22, 20, 406, 4, 600, 0, 0, 0, 'Bring Them Home', 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 'The scouts are holding Mira, Dorn and Teren under guard at the holding camp. Clear their guards and speak to each surveyor, then stay nearby until they reach our expedition camp. Clear trouble from the route; nobody gets left behind.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 4001053, 4001054, 4001055, 0, 1, 1, 1, 0, 'Mira escorted to the expedition', 'Dorn escorted to the expedition', 'Teren escorted to the expedition', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900105, 2, 23, 20, 406, 4, 600, 900104, 0, 0, 'A Stone That Should Be Quiet', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 4001056, 4001057, 4001058, 0, 1, 1, 1, 0, 'Western ward traced', 'Central ward traced', 'Eastern ward traced', '', 900103, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900106, 2, 23, 20, 406, 2, 600, 0, 0, 0, 'The Same Hand', 'Ask Ortell to compare the orders and the rubbing.', 'Ortell once knew the Twilight''s Hammer from the inside. He is helping us now. Speak with him here in camp and compare the deposited orders with the ward rubbing. You do not need to carry those papers back and forth; I have sent him copies.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001059, 0, 0, 0, 1, 0, 0, 0, 'Evidence compared with Ortell', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900107, 2, 24, 20, 406, 4, 600, 0, 0, 0, 'A Captive Commander', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 'The rescued surveyors recognized the commander''s name: Jarod Shadowsong. The cult is holding him at the altar in their holding camp. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001060, 0, 0, 0, 1, 0, 0, 0, 'Jarod observed from cover', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900108, 2, 25, 20, 406, 2, 600, 0, 0, 0, 'The Name on the Papers', 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 'There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001061, 4001062, 0, 0, 1, 1, 0, 0, 'Recruit watch change observed', 'Extraction signal agreed with Ortell', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900110, 900111, 900112, 900113, 900114, 900115, 1, 1, 1, 1, 1, 1)
 ON DUPLICATE KEY UPDATE
   `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`);
 INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `ProvidedItemCount`, `SpecialFlags`) VALUES
@@ -375,15 +380,15 @@ INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
 ON DUPLICATE KEY UPDATE
   `RewardText` = VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
-  (900100, 'Follow the old road toward the Charred Vale and look for the expedition''s blue-clad stonebinder.'),
-  (900101, 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.'),
-  (900102, 'Inspect the abandoned wagon above camp and recover its log.'),
-  (900103, 'Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.'),
-  (900104, 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.'),
-  (900105, 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.'),
-  (900106, 'Ask Ortell to compare the orders and the rubbing.'),
-  (900107, 'Remain at the concealed observation point until you can confirm Jarod is alive.'),
-  (900108, 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.')
+  (900100, 'Do you carry the expedition''s invitation?'),
+  (900101, 'Let me see the invitation before we begin.'),
+  (900102, 'Did anything survive in the wagon''s strongbox?'),
+  (900103, 'Show me the orders, and tell me what you found at all three tablets.'),
+  (900104, 'Mira, Dorn and Teren are still missing. Have all three reached our banner?'),
+  (900105, 'Have you traced all three ward stones? I need the complete rubbing.'),
+  (900106, 'Ortell can compare the evidence we have already deposited. What did he find?'),
+  (900107, 'Did you see Jarod clearly? Keep your voice low.'),
+  (900108, 'Have you watched the recruit finish his circuit and agreed our signal?')
 ON DUPLICATE KEY UPDATE
   `CompletionText` = VALUES(`CompletionText`);
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (900100, 900101, 900102, 900103, 900104, 900105, 900106, 900107, 900108);
@@ -394,14 +399,21 @@ DELETE FROM `quest_poi_points` WHERE `QuestID` IN (900100, 900101, 900102, 90010
 DELETE FROM `quest_poi` WHERE `QuestID` IN (900100, 900101, 900102, 900103, 900104, 900105, 900106, 900107, 900108);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`) VALUES
   (900100, 0, -1, 1, 81, 0, 0, 0),
+  (900100, 1, 4, 1, 81, 0, 0, 0),
   (900101, 0, -1, 1, 81, 0, 0, 0),
+  (900101, 1, 4, 1, 81, 0, 0, 0),
   (900102, 0, -1, 1, 81, 0, 0, 0),
-  (900102, 1, 0, 1, 81, 0, 0, 0),
+  (900102, 1, 4, 1, 81, 0, 0, 0),
   (900103, 0, -1, 1, 81, 0, 0, 0),
   (900103, 1, 0, 1, 81, 0, 0, 0),
-  (900103, 2, 1, 1, 81, 0, 0, 0),
-  (900103, 3, 2, 1, 81, 0, 0, 0),
-  (900103, 4, 3, 1, 81, 0, 0, 0),
+  (900103, 2, 0, 1, 81, 0, 0, 0),
+  (900103, 3, 0, 1, 81, 0, 0, 0),
+  (900103, 4, 1, 1, 81, 0, 0, 0),
+  (900103, 5, 2, 1, 81, 0, 0, 0),
+  (900103, 6, 3, 1, 81, 0, 0, 0),
+  (900103, 7, 4, 1, 81, 0, 0, 0),
+  (900103, 8, 4, 1, 81, 0, 0, 0),
+  (900103, 9, 4, 1, 81, 0, 0, 0),
   (900104, 0, -1, 1, 81, 0, 0, 0),
   (900104, 1, 0, 1, 81, 0, 0, 0),
   (900104, 2, 1, 1, 81, 0, 0, 0),
@@ -410,6 +422,9 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900105, 1, 0, 1, 81, 0, 0, 0),
   (900105, 2, 1, 1, 81, 0, 0, 0),
   (900105, 3, 2, 1, 81, 0, 0, 0),
+  (900105, 4, 4, 1, 81, 0, 0, 0),
+  (900105, 5, 4, 1, 81, 0, 0, 0),
+  (900105, 6, 4, 1, 81, 0, 0, 0),
   (900106, 0, -1, 1, 81, 0, 0, 0),
   (900106, 1, 0, 1, 81, 0, 0, 0),
   (900107, 0, -1, 1, 81, 0, 0, 0),
@@ -419,14 +434,21 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900108, 2, 1, 1, 81, 0, 0, 0);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900100, 0, 0, 1102, 1542),
+  (900100, 1, 0, 1102, 1542),
   (900101, 0, 0, 1102, 1542),
+  (900101, 1, 0, 1102, 1542),
   (900102, 0, 0, 1102, 1542),
   (900102, 1, 0, 1098, 1538),
   (900103, 0, 0, 1102, 1538),
-  (900103, 1, 0, 1052, 1653),
-  (900103, 2, 0, 1086, 1540),
-  (900103, 3, 0, 955, 1625),
-  (900103, 4, 0, 895, 1670),
+  (900103, 1, 0, 879, 1675),
+  (900103, 2, 0, 901, 1681),
+  (900103, 3, 0, 899, 1669),
+  (900103, 4, 0, 1086, 1540),
+  (900103, 5, 0, 955, 1625),
+  (900103, 6, 0, 895, 1670),
+  (900103, 7, 0, 879, 1675),
+  (900103, 8, 0, 901, 1681),
+  (900103, 9, 0, 899, 1669),
   (900104, 0, 0, 1102, 1538),
   (900104, 1, 0, 882, 1680),
   (900104, 2, 0, 886, 1683),
@@ -435,6 +457,9 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900105, 1, 0, 885, 1674),
   (900105, 2, 0, 892, 1673),
   (900105, 3, 0, 898, 1674),
+  (900105, 4, 0, 885, 1674),
+  (900105, 5, 0, 892, 1673),
+  (900105, 6, 0, 898, 1674),
   (900106, 0, 0, 1100, 1540),
   (900106, 1, 0, 1100, 1540),
   (900107, 0, 0, 1100, 1540),
@@ -466,9 +491,9 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
 UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001000, 4001001, 4001005, 4001006, 4001007, 4001004, 4001008, 4001009);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data1`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
   (4001100, 10, 3678, 'Abandoned Expedition Wagon', 0.7, 900102, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001101, 10, 6420, 'Ash-marked Twilight Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001102, 10, 6419, 'Ash-marked Twilight Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001103, 10, 6420, 'Ash-marked Twilight Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001101, 10, 6420, 'Western Ash-marked Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001102, 10, 6419, 'Central Ash-marked Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001103, 10, 6420, 'Eastern Ash-marked Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
   (4001107, 10, 235, 'Western Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
   (4001108, 10, 235, 'Central Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
   (4001109, 10, 235, 'Eastern Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),

@@ -505,8 +505,33 @@ struct npc_bs_c02_enemyAI : ScriptedAI
             }
             else if (event == COMBAT_CAST)
             {
-                if (me->GetVictim())
-                    DoCastVictim(me->GetEntry() == NPC_FIRE ? SPELL_FIREBALL : SPELL_STRIKE);
+                if (Enabled() && me->GetVictim() && !me->HasUnitState(UNIT_STATE_CASTING))
+                {
+                    std::uint32_t spell = SPELL_STRIKE;
+                    switch (me->GetEntry())
+                    {
+                        case NPC_FIRE:
+                        case NPC_SMOLDEROS:
+                        case NPC_GARNOTH:
+                            spell = SPELL_FIREBALL;
+                            break;
+                        case NPC_SCOUT:
+                            spell = SPELL_SHOOT;
+                            break;
+                        case NPC_AZENNIOS:
+                        case NPC_FAILED:
+                        case NPC_HORRORGUARD:
+                            spell = SPELL_SHADOW_BOLT;
+                            break;
+                        case NPC_MATRIARCH:
+                        case NPC_BUTCHER:
+                            spell = SPELL_POISON;
+                            break;
+                        default:
+                            break;
+                    }
+                    DoCastVictim(spell);
+                }
                 events.ScheduleEvent(COMBAT_CAST, 7000ms);
             }
         }

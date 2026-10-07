@@ -105,7 +105,8 @@ def main():
             personal=','.join(str(ids[k]) for k in data['arrays']['PersonalEntries'])
             assert run('SELECT COUNT(*) FROM creature WHERE '+col+' IN ('+personal+');', database).stdout.strip() == '0'
             assert run('SELECT map,zoneId FROM creature WHERE '+col+'=4001604;',database).stdout.split() == ['0','47']
-            assert run('SELECT MapID,WorldMapAreaId FROM quest_poi WHERE QuestID=900411;',database).stdout.split() == ['0','26']
+            assert run('SELECT MapID,WorldMapAreaId FROM quest_poi WHERE QuestID=900411 AND ObjectiveIndex=-1;',database).stdout.split() == ['0','26']
+            assert run('SELECT MapID,WorldMapAreaId FROM quest_poi WHERE QuestID=900411 AND ObjectiveIndex=4;',database).stdout.split() == ['0','26']
             assert run('SELECT maxcount FROM item_template WHERE entry IN (900307,900401) ORDER BY entry;',database).stdout.split() == ['3','6']
             assert run('SELECT Chapter FROM mod_customnpcs_bs_content WHERE kind="creature" AND entry=4001405;', database).stdout.strip() == '3'
             print('Passed', 'legacy creature.id' if legacy else 'native creature.id1', 'Chapter 4 import/reimport, ALL join, shared Mei, both maps, quest progress and C01-C03 GUID preservation.')

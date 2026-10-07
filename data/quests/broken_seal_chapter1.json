@@ -714,7 +714,26 @@
         "earth_2"
       ],
       "spell": "SPELL_THUNDERCLAP",
-      "native_model_path": "Creature\\ElementalEarth\\ElementalEarth.mdx"
+      "native_model_path": "Creature\\ElementalEarth\\ElementalEarth.mdx",
+      "ordinary_loot": {
+        "level": 23,
+        "mingold": 17,
+        "maxgold": 79,
+        "items": [
+          [
+            2772,
+            65,
+            1,
+            2
+          ],
+          [
+            1705,
+            8,
+            1,
+            1
+          ]
+        ]
+      }
     }
   ],
   "objects": [
@@ -732,7 +751,7 @@
     {
       "key": "GO_TRAIL_A",
       "entry": 4001101,
-      "name": "Ash-marked Twilight Tablet",
+      "name": "Western Ash-marked Tablet",
       "display": 6420,
       "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx",
       "point": "trail_1",
@@ -743,7 +762,7 @@
     {
       "key": "GO_TRAIL_B",
       "entry": 4001102,
-      "name": "Ash-marked Twilight Tablet",
+      "name": "Central Ash-marked Tablet",
       "display": 6419,
       "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx",
       "point": "trail_2",
@@ -754,7 +773,7 @@
     {
       "key": "GO_TRAIL_C",
       "entry": 4001103,
-      "name": "Ash-marked Twilight Tablet",
+      "name": "Eastern Ash-marked Tablet",
       "display": 6420,
       "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx",
       "point": "trail_3",
@@ -845,9 +864,11 @@
       "key": "ITEM_INVITATION",
       "entry": 900100,
       "name": "Expedition Invitation",
-      "display": 18098,
+      "display": 7233,
       "page": 4001000,
-      "text": "To the bearer: report to Maruut Stonebinder at the expedition camp on the eastern approach to the Charred Vale. We need someone who can look beyond uniforms. Our people are missing, and the stones have begun to speak."
+      "text": "To the bearer: report to Maruut Stonebinder at the expedition camp on the eastern approach to the Charred Vale. We need someone who can look beyond uniforms. Our people are missing, and the stones have begun to speak.",
+      "description": "The expedition seal admits its bearer to Maruut's camp.",
+      "icon_donor_item": 4494
     },
     {
       "key": "ITEM_LOG",
@@ -855,23 +876,28 @@
       "name": "Missing Travelers Log",
       "display": 1143,
       "page": 4001001,
-      "text": "Mira, Dorn and Teren departed with surveying tools. Their final note describes fresh ash beside intact trees, bootprints moving toward the old valley, and a stone marker scratched with a spiral. They did not return."
+      "text": "Mira, Dorn and Teren departed with surveying tools. Their final note describes fresh ash beside intact trees, bootprints moving toward the old valley, and a stone marker scratched with a spiral. They did not return.",
+      "description": "The final entries name three surveyors who never returned."
     },
     {
       "key": "ITEM_ORDERS",
       "entry": 900102,
       "name": "Coded Twilight Orders",
-      "display": 18098,
+      "display": 4110,
       "page": 4001002,
-      "text": "Collect the surveyors alive. Keep the commander apart from the other prisoners. The buyer has no use for broken tools. Rotate the watch at the marked post. The spiral is our sign."
+      "text": "Collect the surveyors alive. Keep the commander apart from the other prisoners. The buyer has no use for broken tools. Rotate the watch at the marked post. The spiral is our sign.",
+      "description": "A spiral seal marks the cult's instructions.",
+      "icon_donor_item": 3767
     },
     {
       "key": "ITEM_RUBBING",
       "entry": 900103,
       "name": "Damaged Ward Rubbing",
-      "display": 18098,
+      "display": 4110,
       "page": 4001003,
-      "text": "Three impressions reveal the same spiral cut across older runes. The fractures are too regular to be weathering. Someone is teaching the stone a different command."
+      "text": "Three impressions reveal the same spiral cut across older runes. The fractures are too regular to be weathering. Someone is teaching the stone a different command.",
+      "description": "Three ward tracings reveal the same spiral beneath the ash.",
+      "icon_donor_item": 3767
     },
     {
       "key": "ITEM_TRACING_KIT",
@@ -899,7 +925,8 @@
         ]
       ],
       "level": 25,
-      "required_level": 20
+      "required_level": 20,
+      "description": "A signet of the Vale expedition, given for bringing its missing people home."
     },
     {
       "key": "ITEM_PRECISION",
@@ -918,7 +945,8 @@
         ]
       ],
       "level": 25,
-      "required_level": 20
+      "required_level": 20,
+      "description": "A signet of the Vale expedition, given for bringing its missing people home."
     },
     {
       "key": "ITEM_SORCERY",
@@ -941,7 +969,8 @@
         ]
       ],
       "level": 25,
-      "required_level": 20
+      "required_level": 20,
+      "description": "A signet of the Vale expedition, given for bringing its missing people home."
     },
     {
       "key": "ITEM_RESTORATION",
@@ -964,7 +993,8 @@
         ]
       ],
       "level": 25,
-      "required_level": 20
+      "required_level": 20,
+      "description": "A signet of the Vale expedition, given for bringing its missing people home."
     },
     {
       "key": "ITEM_GUARDING",
@@ -987,7 +1017,8 @@
         ]
       ],
       "level": 25,
-      "required_level": 20
+      "required_level": 20,
+      "description": "A signet of the Vale expedition, given for bringing its missing people home."
     },
     {
       "key": "ITEM_BALANCE",
@@ -1010,7 +1041,8 @@
         ]
       ],
       "level": 25,
-      "required_level": 20
+      "required_level": 20,
+      "description": "A signet of the Vale expedition, given for bringing its missing people home."
     }
   ],
   "quests": [
@@ -1034,7 +1066,15 @@
         "ITEM_INVITATION": 1
       },
       "previous": null,
-      "exclusive_group": 900100
+      "exclusive_group": 900100,
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_INVITATION": [
+          "maruut"
+        ]
+      },
+      "request_text": "Do you carry the expedition's invitation?",
+      "return_text": "Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_COMMISSION_H",
@@ -1056,7 +1096,15 @@
         "ITEM_INVITATION": 1
       },
       "previous": null,
-      "exclusive_group": 900100
+      "exclusive_group": 900100,
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_INVITATION": [
+          "maruut"
+        ]
+      },
+      "request_text": "Let me see the invitation before we begin.",
+      "return_text": "Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_WAGON",
@@ -1080,7 +1128,15 @@
       "prerequisite_any": [
         "QUEST_COMMISSION_A",
         "QUEST_COMMISSION_H"
-      ]
+      ],
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_LOG": [
+          "wagon"
+        ]
+      },
+      "request_text": "Did anything survive in the wagon's strongbox?",
+      "return_text": "Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_TRAIL",
@@ -1090,8 +1146,8 @@
       "level": 21,
       "min_level": 20,
       "faction": "Both",
-      "description": "Follow the three ash-marked signs from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.",
-      "objectives": "Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.",
+      "description": "Follow the three ash-marked tablets from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.",
+      "objectives": "Inspect all three distinct tablets, defeat six Twilight Scouts and recover their coded orders.",
       "completion": "Prisoners, a separate commander, and a watch rotation. Those were not bandits taking whatever they could carry. Someone organized this.",
       "xp_difficulty": 4,
       "money": 600,
@@ -1106,7 +1162,36 @@
         "CREDIT_TRAIL_B": 1,
         "CREDIT_TRAIL_C": 1
       },
-      "previous": "QUEST_WAGON"
+      "previous": "QUEST_WAGON",
+      "objective_labels": {
+        "NPC_CULT_SCOUT": "Twilight Scouts defeated",
+        "CREDIT_TRAIL_A": "Western trail tablet examined",
+        "CREDIT_TRAIL_B": "Central trail tablet examined",
+        "CREDIT_TRAIL_C": "Eastern trail tablet examined"
+      },
+      "objective_locations": {
+        "NPC_CULT_SCOUT": [
+          "scout_1",
+          "scout_2",
+          "scout_3"
+        ],
+        "CREDIT_TRAIL_A": [
+          "trail_1"
+        ],
+        "CREDIT_TRAIL_B": [
+          "trail_2"
+        ],
+        "CREDIT_TRAIL_C": [
+          "trail_3"
+        ],
+        "ITEM_ORDERS": [
+          "scout_1",
+          "scout_2",
+          "scout_3"
+        ]
+      },
+      "request_text": "Show me the orders, and tell me what you found at all three tablets.",
+      "return_text": "Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_RESCUE",
@@ -1128,7 +1213,25 @@
         "CREDIT_CAPTIVE_B": 1,
         "CREDIT_CAPTIVE_C": 1
       },
-      "previous": "QUEST_TRAIL"
+      "previous": "QUEST_TRAIL",
+      "objective_labels": {
+        "CREDIT_CAPTIVE_A": "Mira escorted to the expedition",
+        "CREDIT_CAPTIVE_B": "Dorn escorted to the expedition",
+        "CREDIT_CAPTIVE_C": "Teren escorted to the expedition"
+      },
+      "objective_locations": {
+        "CREDIT_CAPTIVE_A": [
+          "cage_1"
+        ],
+        "CREDIT_CAPTIVE_B": [
+          "cage_2"
+        ],
+        "CREDIT_CAPTIVE_C": [
+          "cage_3"
+        ]
+      },
+      "request_text": "Mira, Dorn and Teren are still missing. Have all three reached our banner?",
+      "return_text": "Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_WARDS",
@@ -1154,7 +1257,30 @@
         "CREDIT_WARD_B": 1,
         "CREDIT_WARD_C": 1
       },
-      "previous": "QUEST_RESCUE"
+      "previous": "QUEST_RESCUE",
+      "objective_labels": {
+        "CREDIT_WARD_A": "Western ward traced",
+        "CREDIT_WARD_B": "Central ward traced",
+        "CREDIT_WARD_C": "Eastern ward traced"
+      },
+      "objective_locations": {
+        "CREDIT_WARD_A": [
+          "ward_1"
+        ],
+        "CREDIT_WARD_B": [
+          "ward_2"
+        ],
+        "CREDIT_WARD_C": [
+          "ward_3"
+        ],
+        "ITEM_RUBBING": [
+          "ward_1",
+          "ward_2",
+          "ward_3"
+        ]
+      },
+      "request_text": "Have you traced all three ward stones? I need the complete rubbing.",
+      "return_text": "Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_COMPARE",
@@ -1174,7 +1300,17 @@
       "credits": {
         "CREDIT_COMPARE": 1
       },
-      "previous": "QUEST_WARDS"
+      "previous": "QUEST_WARDS",
+      "objective_labels": {
+        "CREDIT_COMPARE": "Evidence compared with Ortell"
+      },
+      "objective_locations": {
+        "CREDIT_COMPARE": [
+          "ortell"
+        ]
+      },
+      "request_text": "Ortell can compare the evidence we have already deposited. What did he find?",
+      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_COMMANDER",
@@ -1194,7 +1330,17 @@
       "credits": {
         "CREDIT_COMMANDER": 1
       },
-      "previous": "QUEST_COMPARE"
+      "previous": "QUEST_COMPARE",
+      "objective_labels": {
+        "CREDIT_COMMANDER": "Jarod observed from cover"
+      },
+      "objective_locations": {
+        "CREDIT_COMMANDER": [
+          "cover"
+        ]
+      },
+      "request_text": "Did you see Jarod clearly? Keep your voice low.",
+      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale."
     },
     {
       "key": "QUEST_RECRUIT",
@@ -1223,7 +1369,21 @@
         "ITEM_GUARDING",
         "ITEM_BALANCE"
       ],
-      "previous": "QUEST_COMMANDER"
+      "previous": "QUEST_COMMANDER",
+      "objective_labels": {
+        "CREDIT_RECRUIT": "Recruit watch change observed",
+        "CREDIT_SIGNAL": "Extraction signal agreed with Ortell"
+      },
+      "objective_locations": {
+        "CREDIT_RECRUIT": [
+          "drop"
+        ],
+        "CREDIT_SIGNAL": [
+          "ortell"
+        ]
+      },
+      "request_text": "Have you watched the recruit finish his circuit and agreed our signal?",
+      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale."
     }
   ],
   "npc_texts": {
@@ -1635,6 +1795,7 @@
     "normal_world": true,
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
-    "placeholder_signs_removed": true
+    "placeholder_signs_removed": true,
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
   }
 }

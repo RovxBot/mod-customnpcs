@@ -125,7 +125,8 @@ exposed; the sample is not silently administered as a cure.
   Completing or rewarding Life prevents another living Leza scene. Deliberately
   abandoning an unturned-in quest resets its native progress, as with other quests.
   All quests after Life require its reward, so later story stages cannot spawn her alive.
-- Nala can present the living twins again after Life is complete/rewarded, including
+- Nala's later greeting acknowledges the surviving twins. She can present them
+  again after Life is complete/rewarded, including
   after relogging. Their private appearances expire naturally and can be recalled;
   they are never killed by scene cleanup. No later Cloudhoof death is inserted.
 - A Quiet Vigil has no combat objective. Its totem is a fixed native quest reward,
@@ -178,7 +179,7 @@ ordinary campfire/ruined-tent/rune/chest models supply the camp and dig. Chezin 
 an unselectable, protected dead-pose actor; his report comes from the nearby marker,
 and he has no rescue or living dialogue. The antidote's **34665** definition supplies
 an any-unit target cursor; its item script owns the treatment. Healing visual **635**
-is native Holy Light. Icon donors include Anti-Venom, meat, lotus, water, bread and
+is native Holy Light. Icon donors include potion vials, meat, lotus, water, bread and
 Earth Totem; their native abilities are not copied onto these custom quest items.
 
 ## Verification and remaining live checks

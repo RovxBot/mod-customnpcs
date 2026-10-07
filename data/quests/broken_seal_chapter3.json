@@ -89,7 +89,9 @@
     "SPELL_HEX": 11641,
     "SPELL_HEX_BOLT": 20816,
     "CREDIT_DEVICE": 4001463,
-    "TEXT_DEZCO": 4001464
+    "TEXT_DEZCO": 4001464,
+    "SPELL_POISON": 744,
+    "TEXT_NALA_TWINS": 4001465
   },
   "points": {
     "dezco": [
@@ -567,7 +569,7 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "Chezin lies still beside the ruined camp. His report is tucked beneath his pack.",
+      "greeting": "",
       "fallback_texture_extra": 2018
     },
     {
@@ -593,7 +595,7 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help.",
+      "greeting": "",
       "corpse_delay": 60,
       "fallback_texture_extra": 687
     },
@@ -655,7 +657,7 @@
     {
       "key": "NPC_REFUGEE_A",
       "entry": 4001408,
-      "name": "Expedition Refugees: Group A",
+      "name": "Dawnchaser Family Elder",
       "point": "refugee_a",
       "display": 3770,
       "faction": 35,
@@ -675,13 +677,13 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help.",
+      "greeting": "The little ones eat first. We can wait, but they should not have to.",
       "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_REFUGEE_B",
       "entry": 4001409,
-      "name": "Expedition Refugees: Group B",
+      "name": "Displaced Caravan Traveler",
       "point": "refugee_b",
       "display": 4888,
       "faction": 35,
@@ -701,13 +703,13 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help.",
+      "greeting": "We lost the wagons on the road. I never thought a place to sit could mean so much.",
       "fallback_texture_extra": 3103
     },
     {
       "key": "NPC_REFUGEE_C",
       "entry": 4001410,
-      "name": "Expedition Refugees: Group C",
+      "name": "Wounded Expedition Scout",
       "point": "refugee_c",
       "display": 1322,
       "faction": 35,
@@ -727,7 +729,7 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help.",
+      "greeting": "Nala says I must rest. It is easier when I know someone is watching the road.",
       "fallback_texture_extra": 84
     },
     {
@@ -754,7 +756,7 @@
         "mainhand": 6631,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help.",
+      "greeting": "",
       "fallback_texture_extra": 2018
     },
     {
@@ -780,7 +782,7 @@
         "mainhand": 4575,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help.",
+      "greeting": "",
       "fallback_texture_extra": 687
     },
     {
@@ -817,7 +819,17 @@
       "script": "npc_bs_c03_enemy",
       "experience_multiplier": 1,
       "combat_spell": "SPELL_STRIKE",
-      "greeting": ""
+      "greeting": "",
+      "ordinary_loot": {
+        "level": 31,
+        "mingold": 27,
+        "maxgold": 181
+      },
+      "weapons": [
+        12282,
+        0,
+        0
+      ]
     },
     {
       "key": "NPC_HEXER",
@@ -836,7 +848,17 @@
       "script": "npc_bs_c03_enemy",
       "experience_multiplier": 1,
       "combat_spell": "SPELL_HEX_BOLT",
-      "greeting": ""
+      "greeting": "",
+      "ordinary_loot": {
+        "level": 32,
+        "mingold": 27,
+        "maxgold": 181
+      },
+      "weapons": [
+        4575,
+        0,
+        0
+      ]
     },
     {
       "key": "NPC_SKITTERER",
@@ -861,15 +883,40 @@
       "type": 1,
       "script": "npc_bs_c03_enemy",
       "experience_multiplier": 1,
-      "combat_spell": "SPELL_STRIKE",
-      "greeting": ""
+      "combat_spell": "SPELL_POISON",
+      "greeting": "",
+      "ordinary_loot": {
+        "level": 30,
+        "mingold": 27,
+        "maxgold": 181,
+        "items": [
+          [
+            2251,
+            65,
+            1,
+            2
+          ],
+          [
+            1475,
+            25,
+            1,
+            1
+          ],
+          [
+            3174,
+            35,
+            1,
+            1
+          ]
+        ]
+      }
     }
   ],
   "objects": [
     {
       "key": "GO_TRACK",
       "entry": 4001500,
-      "name": "Expedition Evidence Crate",
+      "name": "Chezin's Abandoned Pack",
       "display": 6737,
       "points": [
         "track"
@@ -905,7 +952,7 @@
     {
       "key": "GO_LOOKOUT_A",
       "entry": 4001503,
-      "name": "Expedition Evidence Crate",
+      "name": "Western Raider Lookout Supplies",
       "display": 6737,
       "points": [
         "lookout_a"
@@ -917,7 +964,7 @@
     {
       "key": "GO_LOOKOUT_B",
       "entry": 4001504,
-      "name": "Expedition Evidence Crate",
+      "name": "Central Raider Lookout Supplies",
       "display": 6737,
       "points": [
         "lookout_b"
@@ -929,7 +976,7 @@
     {
       "key": "GO_LOOKOUT_C",
       "entry": 4001505,
-      "name": "Expedition Evidence Crate",
+      "name": "Eastern Raider Lookout Supplies",
       "display": 6737,
       "points": [
         "lookout_c"
@@ -1012,7 +1059,7 @@
     {
       "key": "GO_SUPPLY_A",
       "entry": 4001511,
-      "name": "Supply A",
+      "name": "Dawnchaser Family Provisions",
       "display": 335,
       "points": [
         "supply_a"
@@ -1024,7 +1071,7 @@
     {
       "key": "GO_SUPPLY_B",
       "entry": 4001512,
-      "name": "Supply B",
+      "name": "Traveler Provisions",
       "display": 335,
       "points": [
         "supply_b"
@@ -1036,7 +1083,7 @@
     {
       "key": "GO_SUPPLY_C",
       "entry": 4001513,
-      "name": "Supply C",
+      "name": "Field Hospital Provisions",
       "display": 335,
       "points": [
         "supply_c"
@@ -1048,7 +1095,7 @@
     {
       "key": "GO_COT_A",
       "entry": 4001514,
-      "name": "Cot A",
+      "name": "Redhorn's Bundled Cot",
       "display": 5993,
       "points": [
         "cot_a"
@@ -1060,7 +1107,7 @@
     {
       "key": "GO_COT_B",
       "entry": 4001515,
-      "name": "Cot B",
+      "name": "Cloudhoof's Bundled Cot",
       "display": 5993,
       "points": [
         "cot_b"
@@ -1072,7 +1119,7 @@
     {
       "key": "GO_RUINED_TENT",
       "entry": 4001516,
-      "name": "Ruined Tent",
+      "name": "Ruined Scouting Shelter",
       "display": 8457,
       "points": [
         "ruined_tent"
@@ -1084,7 +1131,7 @@
     {
       "key": "GO_VILLAGE_SIGN",
       "entry": 4001517,
-      "name": "Expedition Evidence Crate",
+      "name": "Barrelbottom Relief Supplies",
       "display": 6737,
       "points": [
         "village_sign"
@@ -1099,24 +1146,27 @@
       "key": "ITEM_ORDERS",
       "entry": 900300,
       "name": "Raider Excavation Orders",
-      "display": 18098,
+      "display": 4110,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "",
-      "spell": null
+      "spell": null,
+      "description": "Chezin followed the raiders' trail. These orders name the excavation they guarded.",
+      "icon_donor_item": 3767
     },
     {
       "key": "ITEM_ANTIDOTE",
       "entry": 900301,
       "name": "Marsh Antidote",
-      "display": 2885,
+      "display": 15710,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "item_bs_c03_antidote",
       "spell": "SPELL_ANTIDOTE_TARGET",
-      "icon_donor_item": 6452
+      "icon_donor_item": 118,
+      "description": "Ask Nala to prepare Leza, then use on the patient and stay for her response."
     },
     {
       "key": "ITEM_MEAT",
@@ -1128,7 +1178,8 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 3173
+      "icon_donor_item": 3173,
+      "description": "Fresh meat for Kang's camp stew."
     },
     {
       "key": "ITEM_INSIGNIA",
@@ -1140,7 +1191,8 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 17031
+      "icon_donor_item": 17031,
+      "description": "The same buyer's mark is stamped on every raider badge."
     },
     {
       "key": "ITEM_LEAVES",
@@ -1152,7 +1204,8 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 13468
+      "icon_donor_item": 13468,
+      "description": "Fresh marsh leaves for Kang's strengthening tea."
     },
     {
       "key": "ITEM_SAMPLE",
@@ -1164,7 +1217,8 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 159
+      "icon_donor_item": 159,
+      "description": "Taken from the tainted pool. Bring it to Kang before anyone drinks it."
     },
     {
       "key": "ITEM_KEEPSAKE",
@@ -1176,7 +1230,8 @@
       "bonding": 1,
       "script": "",
       "spell": null,
-      "icon_donor_item": 5175
+      "icon_donor_item": 5175,
+      "description": "In memory of Leza, who led her people toward a better life."
     },
     {
       "key": "ITEM_FOOD",
@@ -1188,18 +1243,21 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 4540
+      "icon_donor_item": 4540,
+      "description": "One warm bundle for each group of families, travelers and wounded."
     },
     {
       "key": "ITEM_LETTER",
       "entry": 900308,
       "name": "Village Introduction Letter",
-      "display": 18098,
+      "display": 7233,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "",
-      "spell": null
+      "spell": null,
+      "description": "Kang asks Mei Barrelbottom to welcome a friend of the Dawnchasers.",
+      "icon_donor_item": 4494
     },
     {
       "key": "ITEM_MIGHT",
@@ -1218,7 +1276,8 @@
           7,
           5
         ]
-      ]
+      ],
+      "description": "A reminder of the Dawnchasers' promise to care for the living."
     },
     {
       "key": "ITEM_PRECISION",
@@ -1237,7 +1296,8 @@
           7,
           5
         ]
-      ]
+      ],
+      "description": "A reminder of the Dawnchasers' promise to care for the living."
     },
     {
       "key": "ITEM_SORCERY",
@@ -1256,7 +1316,8 @@
           45,
           8
         ]
-      ]
+      ],
+      "description": "A reminder of the Dawnchasers' promise to care for the living."
     },
     {
       "key": "ITEM_RESTORATION",
@@ -1275,7 +1336,8 @@
           43,
           2
         ]
-      ]
+      ],
+      "description": "A reminder of the Dawnchasers' promise to care for the living."
     },
     {
       "key": "ITEM_GUARDING",
@@ -1294,7 +1356,8 @@
           12,
           5
         ]
-      ]
+      ],
+      "description": "A reminder of the Dawnchasers' promise to care for the living."
     },
     {
       "key": "ITEM_BALANCE",
@@ -1317,7 +1380,8 @@
           7,
           4
         ]
-      ]
+      ],
+      "description": "A reminder of the Dawnchasers' promise to care for the living."
     }
   ],
   "quests": [
@@ -1345,8 +1409,16 @@
       "xp_difficulty": 4,
       "money": 1200,
       "objectives": "Find Chezin at the ruined scouting camp and recover his report.",
-      "description": "Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Follow the marker and find him. If he has a report, bring it back. Do not promise Leza he is coming home until you know.",
-      "completion": "Chezin is gone. I will tell Leza myself. These orders give us something we can still act on."
+      "description": "Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Find his abandoned pack beside the ruined scouting shelter. If he has a report, bring it back. Do not promise Leza he is coming home until you know.",
+      "completion": "Chezin is gone. I will tell Leza myself. These orders give us something we can still act on.",
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_ORDERS": [
+          "track"
+        ]
+      },
+      "request_text": "What happened to Chezin? Bring me the report he left behind.",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_POISON",
@@ -1372,8 +1444,18 @@
       "xp_difficulty": 4,
       "money": 1200,
       "objectives": "Obtain the supplied antidote and administer it to Leza while Nala monitors her.",
-      "description": "Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your private patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.",
-      "completion": "The fever has eased, but this is not a cure. We will keep looking, and Nala will stay with her."
+      "description": "Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.",
+      "completion": "The fever has eased, but this is not a cure. We will keep looking, and Nala will stay with her.",
+      "objective_labels": {
+        "CREDIT_TREATED": "Leza treated under Nala's care"
+      },
+      "objective_locations": {
+        "CREDIT_TREATED": [
+          "tent"
+        ]
+      },
+      "request_text": "Did Leza respond to the antidote? Nala must watch the treatment.",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_STEW",
@@ -1403,7 +1485,27 @@
       "objectives": "Gather 8 skitterer meat and help prepare food for the weakened camp.",
       "description": "People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.",
       "completion": "Hot food will do more for this camp than another empty assurance. Thank you.",
-      "exclusive_group": -900304
+      "exclusive_group": -900304,
+      "objective_labels": {
+        "CREDIT_STEW": "Skitterer stew prepared"
+      },
+      "objective_locations": {
+        "CREDIT_STEW": [
+          "hearth"
+        ],
+        "ITEM_MEAT": [
+          "skitterer_0",
+          "skitterer_1",
+          "skitterer_2",
+          "skitterer_3",
+          "skitterer_4",
+          "skitterer_5",
+          "skitterer_6",
+          "skitterer_7"
+        ]
+      },
+      "request_text": "Eight portions of meat, and a pot ready for the camp. Have you prepared them?",
+      "return_text": "Speak with Kang Bramblestaff at the Dawnchaser cooking hearth."
     },
     {
       "key": "QUEST_BLIND",
@@ -1432,9 +1534,33 @@
       "xp_difficulty": 5,
       "money": 1240,
       "objectives": "Disable 3 raider lookout posts and defeat 6 guards watching the expedition.",
-      "description": "The relic raiders are watching us. Disable each of the three marked lookout posts to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; striking the same marker again will not blind another lookout. Keep their attention away from the medical tent.",
+      "description": "The relic raiders are watching us. Disable each of the three raider lookout supply crates to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; disabling the same post again will not blind another lookout. Keep their attention away from the medical tent.",
       "completion": "Their lookout line is broken. Now we can prepare without their eyes on every movement.",
-      "exclusive_group": -900304
+      "exclusive_group": -900304,
+      "objective_labels": {
+        "NPC_RAIDER": "Marsh Relic Raiders defeated",
+        "CREDIT_LOOKOUT_A": "Western lookout disabled",
+        "CREDIT_LOOKOUT_B": "Central lookout disabled",
+        "CREDIT_LOOKOUT_C": "Eastern lookout disabled"
+      },
+      "objective_locations": {
+        "NPC_RAIDER": [
+          "raider_0",
+          "raider_1",
+          "raider_2"
+        ],
+        "CREDIT_LOOKOUT_A": [
+          "lookout_a"
+        ],
+        "CREDIT_LOOKOUT_B": [
+          "lookout_b"
+        ],
+        "CREDIT_LOOKOUT_C": [
+          "lookout_c"
+        ]
+      },
+      "request_text": "Are all three lookout posts disabled, and their guards driven back?",
+      "return_text": "Speak with Kor Bloodtusk at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_THREAT",
@@ -1463,7 +1589,18 @@
       "objectives": "Defeat 8 relic raiders before their next camp attack.",
       "description": "The watchers were only the edge of the force. Defeat relic raiders and hexers at their dig, and bring back eight insignia as proof that their next attack has been broken. This expedition has families in it, and I mean to keep them alive.",
       "completion": "They will have to regroup before they try us again. I will keep the watch.",
-      "exclusive_group": -900307
+      "exclusive_group": -900307,
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_INSIGNIA": [
+          "raider_0",
+          "raider_1",
+          "raider_2",
+          "hexer_0"
+        ]
+      },
+      "request_text": "Bring eight raider insignia. I need to know the next attack has been broken.",
+      "return_text": "Speak with Kor Bloodtusk at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_HERBS",
@@ -1491,16 +1628,40 @@
       "fixed_rewards": {},
       "xp_difficulty": 5,
       "money": 1280,
-      "objectives": "Collect 12 quest lotus leaves and help Kang prepare a second treatment.",
-      "description": "The antidote eased the fever, but Leza is still weak. Collect twelve quest lotus leaves among the southern marsh paths. Ask Kang to prepare the treatment when you have them, then return the leaves to me. These are camp supplies, not a test of your herbalism.",
+      "objectives": "Collect 12 marsh lotus leaves and help Kang prepare a second treatment.",
+      "description": "The antidote eased the fever, but Leza is still weak. Collect twelve marsh lotus leaves among the southern marsh paths. Ask Kang to prepare the treatment when you have them, then return the leaves to me. These are camp supplies, not a test of your herbalism.",
       "completion": "Kang has prepared what he can from these leaves. We have bought time, not certainty.",
-      "exclusive_group": -900307
+      "exclusive_group": -900307,
+      "objective_labels": {
+        "CREDIT_REMEDY": "Lotus remedy prepared with Kang"
+      },
+      "objective_locations": {
+        "CREDIT_REMEDY": [
+          "kang"
+        ],
+        "ITEM_LEAVES": [
+          "herb_0",
+          "herb_1",
+          "herb_2",
+          "herb_3",
+          "herb_4",
+          "herb_5",
+          "herb_6",
+          "herb_7",
+          "herb_8",
+          "herb_9",
+          "herb_10",
+          "herb_11"
+        ]
+      },
+      "request_text": "Have you gathered twelve leaves and helped Kang prepare the remedy?",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_AGENDA",
       "id": 900306,
       "design_id": "BS-C03-07",
-      "title": "The Relic Raiders Agenda",
+      "title": "The Relic Raiders' Agenda",
       "level": 32,
       "min_level": 30,
       "giver": "NPC_DEZCO",
@@ -1523,10 +1684,27 @@
       "fixed_rewards": {},
       "xp_difficulty": 5,
       "money": 1280,
-      "objectives": "Recover excavation orders and compare the raiders focus with the expedition ledger.",
+      "objectives": "Recover excavation orders and compare the raiders' focus with the expedition ledger.",
       "description": "Chezin saw the raiders excavating stones marked with the same cuts described in Jarod's ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.",
       "completion": "The cuts match Jarod's ledger. Someone is buying relics that should have stayed buried.",
-      "exclusive_group": -900307
+      "exclusive_group": -900307,
+      "objective_labels": {
+        "CREDIT_DEVICE": "Binding apparatus inspected",
+        "CREDIT_AGENDA": "Orders compared with Dezco"
+      },
+      "objective_locations": {
+        "CREDIT_DEVICE": [
+          "device"
+        ],
+        "CREDIT_AGENDA": [
+          "dezco"
+        ],
+        "ITEM_ORDERS": [
+          "orders"
+        ]
+      },
+      "request_text": "Bring fresh orders, inspect the apparatus, then we can compare the buyer's mark.",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_POOLS",
@@ -1555,7 +1733,15 @@
       "money": 1320,
       "objectives": "Collect one water sample from the tainted pool and bring it to Kang for testing.",
       "description": "The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.",
-      "completion": "This water drains life. I will not give it to Leza as medicine. I can explain the mark, but I cannot undo what she has already suffered."
+      "completion": "This water drains life. I will not give it to Leza as medicine. I can explain the mark, but I cannot undo what she has already suffered.",
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_SAMPLE": [
+          "pool"
+        ]
+      },
+      "request_text": "Bring the pool sample here. I will test it before anyone drinks it.",
+      "return_text": "Speak with Kang Bramblestaff at the Dawnchaser cooking hearth."
     },
     {
       "key": "QUEST_LIFE",
@@ -1580,9 +1766,19 @@
       "fixed_rewards": {},
       "xp_difficulty": 5,
       "money": 1320,
-      "objectives": "Stand by Dezco while Nala tends Leza; witness the birth, Leza's death and the two surviving sons.",
+      "objectives": "Stay near the medical tent through Leza's delivery and Nala's care for the family.",
       "description": "Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.",
-      "completion": "Leza is gone. Redhorn and Cloudhoof are here. I must be here for them, too."
+      "completion": "Leza is gone. Redhorn and Cloudhoof are here. I must be here for them, too.",
+      "objective_labels": {
+        "CREDIT_LIFE": "Leza's delivery witnessed"
+      },
+      "objective_locations": {
+        "CREDIT_LIFE": [
+          "tent"
+        ]
+      },
+      "request_text": "Stay with Nala through the delivery. I will be beside Leza.",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_VIGIL",
@@ -1610,8 +1806,18 @@
       "xp_difficulty": 4,
       "money": 1360,
       "objectives": "Attend the memorial and accept Leza's keepsake without a combat objective.",
-      "description": "Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial west of camp. Stay quietly for the vigil, then return to me for a totem in her memory.",
-      "completion": "Keep this totem. Let it remind you that the person who dies is more than the moment of their death."
+      "description": "Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial at the northern edge of camp. Stay quietly for the vigil, then return to me for a totem in her memory.",
+      "completion": "Keep this totem. Let it remind you that the person who dies is more than the moment of their death.",
+      "objective_labels": {
+        "CREDIT_VIGIL": "Vigil attended"
+      },
+      "objective_locations": {
+        "CREDIT_VIGIL": [
+          "memorial"
+        ]
+      },
+      "request_text": "Have you spent a little time at Leza's memorial?",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_LIVING",
@@ -1640,8 +1846,30 @@
       "xp_difficulty": 5,
       "money": 1360,
       "objectives": "Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.",
-      "description": "Redhorn and Cloudhoof breathe, and others still need to eat. Take these three food bundles to our three refugee groups. Give each group one bundle, then speak with me about the boys and the people who remain. We will carry our grief; we will not leave the living behind.",
-      "completion": "We will move when the children and the wounded can move. The expedition still has a purpose."
+      "description": "Redhorn and Cloudhoof breathe, and others still need to eat. Take these three food bundles to the Dawnchaser families, displaced travelers and expedition wounded. Give each group one bundle, then speak with me about the boys and the people who remain. We will carry our grief; we will not leave the living behind.",
+      "completion": "We will move when the children and the wounded can move. The expedition still has a purpose.",
+      "objective_labels": {
+        "CREDIT_REFUGEE_A": "Dawnchaser families supplied",
+        "CREDIT_REFUGEE_B": "Displaced travelers supplied",
+        "CREDIT_REFUGEE_C": "Expedition wounded supplied",
+        "CREDIT_PROMISE": "Expedition plans discussed with Dezco"
+      },
+      "objective_locations": {
+        "CREDIT_REFUGEE_A": [
+          "refugee_a"
+        ],
+        "CREDIT_REFUGEE_B": [
+          "refugee_b"
+        ],
+        "CREDIT_REFUGEE_C": [
+          "refugee_c"
+        ],
+        "CREDIT_PROMISE": [
+          "dezco"
+        ]
+      },
+      "request_text": "Each group needs one bundle. When all three have eaten, we can speak about the journey ahead.",
+      "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
       "key": "QUEST_LETTER",
@@ -1675,7 +1903,15 @@
       "money": 1400,
       "objectives": "Deliver the village introduction letter to Mei at the affected settlement.",
       "description": "The people at the wayside settlement southwest of here have been facing the same raiders, and hope is wearing thin there. Take my introduction to Mei Barrelbottom at the relief station on the Mudsprocket road. Tell her what our camp has learned and what you are willing to do.",
-      "completion": "Kang speaks well of you. There is work to do here, and people who have forgotten that help can arrive."
+      "completion": "Kang speaks well of you. There is work to do here, and people who have forgotten that help can arrive.",
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_LETTER": [
+          "mei"
+        ]
+      },
+      "request_text": "Have you brought Kang's introduction?",
+      "return_text": "Speak with Mei Barrelbottom at the relief station on the Mudsprocket road."
     }
   ],
   "external_entries": {
@@ -1782,6 +2018,13 @@
     "normal_world": true,
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
-    "placeholder_signs_removed": true
+    "placeholder_signs_removed": true,
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
+  },
+  "story_greetings": {
+    "TEXT_NALA_TWINS": {
+      "actor": "NPC_NALA",
+      "text": "Redhorn and Cloudhoof are resting. Both boys are strong, and I will stay beside them. When you are ready, I can show you how they are doing."
+    }
   }
 }

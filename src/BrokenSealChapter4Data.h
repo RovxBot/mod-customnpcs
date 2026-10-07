@@ -91,6 +91,7 @@ enum Id : std::uint32_t
     SPELL_STRIKE = 11976,
     NPC_HEARTH_FLAME = 4001619,
     TEXT_RECOVERED = 4001671,
+    SPELL_POISON = 744,
 };
 
 struct Point

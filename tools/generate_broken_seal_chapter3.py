@@ -7,7 +7,7 @@ from pathlib import Path
 from generate_broken_seal_chapter1 import rows, upsert
 
 from broken_seal_outfits import validate_outfits
-from broken_seal_content import equipment_sql, ordinary_loot_sql
+from broken_seal_content import equipment_sql, ordinary_loot_sql, quest_poi_rows, validate_quest_polish
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/quests/broken_seal_chapter3.json'
@@ -17,6 +17,7 @@ HEADER = ROOT / 'src/BrokenSealChapter3Data.h'
 
 
 def validate(d):
+    validate_quest_polish(d)
     validate_outfits(d['actors'])
     ids = d['ids']
     assert d['chapter'] == 'C03' and len(d['quests']) == 12
@@ -75,6 +76,7 @@ def sql(d):
     owned += [(kind, a['entry']) for kind in ('outfit', 'outfit_entry') for a in d['actors'] if a.get('outfit')]
     owned += [(kind, a['entry']) for kind in ('npc_text', 'gossip_menu') for a in d['actors'] if a['npc_flags']]
     owned += [(kind, ids['TEXT_DEZCO']) for kind in ('npc_text', 'gossip_menu')]
+    owned += [('npc_text', ids[key]) for key in d.get('story_greetings',{})]
     text = '''-- The Broken Seal, Chapter 3: The Dawnchaser Promise (levels 30-35).
 -- Generated from data/quests/broken_seal_chapter3.json. Native 3.3.5a assets only.
 -- Requires Chapters 1 and 2, custom_npc_appearances.sql and the rebuilt module.
@@ -137,7 +139,6 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     text += upsert('mod_customnpcs_outfit',ocols,[[a['entry']]+[a['outfit'].get(c,1 if c == 'class' else 0) for c in ocols[1:]] for a in dressed],['outfit_id'])
     text += upsert('mod_customnpcs_outfit_entry',['creature_entry','outfit_id'],[[a['entry'],0 if a.get('native_appearance') else a['entry']] for a in dressed],['creature_entry'])
     text += equipment_sql(d['actors'])
-    text += ordinary_loot_sql(d['actors'])
     icols=['entry','class','subclass','name','displayid','Quality','InventoryType','AllowableClass','AllowableRace',
            'ItemLevel','RequiredLevel','maxcount','stackable','bonding','stat_type1','stat_value1','stat_type2',
            'stat_value2','stat_type3','stat_value3','description','spellid_1','spelltrigger_1','ScriptName']
@@ -146,11 +147,12 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
         eq=item.get('equipment',False);stats=item.get('stats',[])+[[0,0]]*3
         iv.append([item['entry'],4 if eq else 12,0,item['name'],item['display'],2 if eq else 1,11 if eq else 0,-1,-1,
                    item.get('level',1),item.get('required_level',0),item.get('maxcount',1),item.get('stackable',1),
-                   item.get('bonding', 1 if eq else 4),*stats[0],*stats[1],*stats[2],'The Broken Seal: The Dawnchaser Promise',
+                   item.get('bonding', 1 if eq else 4),*stats[0],*stats[1],*stats[2],item['description'],
                    ids[item['spell']] if item.get('spell') else 0,0,item.get('script','')])
     text += upsert('item_template',icols,iv,['entry'])
     loot_actors = sorted({ids[v['actor']] for v in d['loot']})
     text += f'DELETE FROM `creature_loot_template` WHERE `Entry` IN ({", ".join(map(str, loot_actors))});\n'
+    text += ordinary_loot_sql(d['actors'])
     text += rows('creature_loot_template',['Entry','Item','Chance','QuestRequired','LootMode','GroupId','MinCount','MaxCount'],
                  [[ids[v['actor']],ids[v['item']],100,1,1,0,1,1] for v in d['loot']])
     qcols=['ID','QuestType','QuestLevel','MinLevel','QuestSortID','RewardXPDifficulty','RewardMoney','StartItem',
@@ -163,9 +165,9 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
         cr=list(q['credits'].items());req=list(q['required_items'].items());rewards=q['reward_choices']
         fixed=list(q['fixed_rewards'].items())
         qr.append([q['id'],2,q['level'],q['min_level'],15,q['xp_difficulty'],q['money'],ids[q['source_item']] if q['source_item'] else 0,
-                   0,0,q['title'],q['objectives'],q['description'],q['objectives'],
+                   0,0,q['title'],q['objectives'],q['description'],q['return_text'],
                    *([ids[k] for k,v in cr]+[0]*(4-len(cr))),*([v for k,v in cr]+[0]*(4-len(cr))),
-                   *([k.replace('CREDIT_','').replace('_',' ').title() for k,v in cr]+['']*(4-len(cr))),
+                   *([q['objective_labels'][k] for k,v in cr]+['']*(4-len(cr))),
                    *([ids[k] for k,v in req]+[0]*(6-len(req))),*([v for k,v in req]+[0]*(6-len(req))),
                    *([ids[k] for k in rewards]+[0]*(6-len(rewards))),*([1]*len(rewards)+[0]*(6-len(rewards))),
                    *([ids[k] for k,v in fixed]+[0]*(4-len(fixed))),*([v for k,v in fixed]+[0]*(4-len(fixed)))])
@@ -178,7 +180,7 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
         field='giver' if table.endswith('starter') else 'turn_in'
         text += rows(table,['id','quest'],[[ids[q[field]],q['id']] for q in d['quests']])
     text += upsert('quest_offer_reward',['ID','RewardText'],[[q['id'],q['completion']] for q in d['quests']],['ID'])
-    text += upsert('quest_request_items',['ID','CompletionText'],[[q['id'],q['objectives']] for q in d['quests']],['ID'])
+    text += upsert('quest_request_items',['ID','CompletionText'],[[q['id'],q['request_text']] for q in d['quests']],['ID'])
     text += f'DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN ({qids});\n'
     text += rows('conditions',['SourceTypeOrReferenceId','SourceEntry','ElseGroup','ConditionTypeOrReference','ConditionValue1','Comment'],
                  [[19,q['id'],0,8,ids[k],'Broken Seal C03: every listed predecessor must be rewarded'] for q in d['quests'] for k in q['prerequisites']])
@@ -186,15 +188,14 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
         text += f'DELETE FROM `{table}` WHERE `QuestID` IN ({qids});\n'
     actor_points={a['key']:a['point'] for a in d['actors'] if a['point']}
     actor_points.update(NPC_DEZCO='dezco')
-    poi=[];pp=[]
-    for q in d['quests']:
-        point=actor_points[q['turn_in']];p=d['points'][point]
-        poi.append([q['id'],0,-1,1,141,0,0,0]);pp.append([q['id'],0,0,round(p[0]),round(p[1])])
+    poi,pp = quest_poi_rows(d, actor_points)
     text += rows('quest_poi',['QuestID','id','ObjectiveIndex','MapID','WorldMapAreaId','Floor','Priority','Flags'],poi)
     text += rows('quest_poi_points',['QuestID','Idx1','Idx2','X','Y'],pp)
     talkers=[a for a in d['actors'] if a['npc_flags']]
     talkers += [dict(entry=ids['TEXT_DEZCO'], greeting='Jarod sent you to follow the buyers. My people need you here as well.')]
     text += upsert('npc_text',['ID','text0_0','Probability0'],[[a['entry'],a.get('greeting', 'Speak quietly. Every trial is watched.'),1] for a in talkers],['ID'])
+    text += upsert('npc_text',['ID','text0_0','Probability0'],
+                   [[ids[key],value['text'],1] for key,value in d.get('story_greetings',{}).items()],['ID'])
     menus=', '.join(str(a['entry']) for a in talkers)
     text += f'DELETE FROM `gossip_menu` WHERE `MenuID` IN ({menus});\n'
     text += rows('gossip_menu',['MenuID','TextID'],[[a['entry'],a['entry']] for a in talkers])

@@ -2048,7 +2048,7 @@
     {
       "entry": 4009056,
       "hub": "dawnchasers",
-      "name": "Dawnchaser Field Camp Camp Volunteer",
+      "name": "Dawnchaser Medical Volunteer",
       "display": 3770,
       "point": [
         -3970,
@@ -2065,12 +2065,13 @@
         "hands": 14089,
         "class": 1
       },
-      "emote": 69
+      "emote": 69,
+      "greeting": "Nala is beside the medical tent. Kang cooks at the hearth, and Kor watches the road. Ask Dezco if you need another antidote or food for the families."
     },
     {
       "entry": 4009057,
       "hub": "wayside",
-      "name": "Mei's Mudsprocket Relief Station Camp Volunteer",
+      "name": "Barrelbottom Supply Clerk",
       "display": 3406,
       "point": [
         -4528.53,
@@ -2087,12 +2088,13 @@
         "hands": 14089,
         "class": 1
       },
-      "emote": 69
+      "emote": 69,
+      "greeting": "Mei is keeping the relief wagons moving. Ken-Ken is with the families in the small camp southwest of here; follow the road before turning toward their tents."
     },
     {
       "entry": 4009058,
       "hub": "village",
-      "name": "Southern Village Relief Camp Camp Volunteer",
+      "name": "Village Relief Carpenter",
       "display": 3406,
       "outfit": {
         "race": 3,
@@ -2109,12 +2111,13 @@
         32.9671003386268,
         0
       ],
-      "emote": 69
+      "emote": 69,
+      "greeting": "Ken-Ken tends the families, Kang prepares their medicine, and Maruut studies the well. The provisioner, herbalist and toolkeeper are here among the tents."
     },
     {
       "entry": 4009059,
       "hub": "wildhammer",
-      "name": "Neutral Wildhammer Gathering Camp Volunteer",
+      "name": "Wildhammer Table Steward",
       "display": 3406,
       "outfit": {
         "race": 3,
@@ -2131,7 +2134,8 @@
         115.269,
         0
       ],
-      "emote": 69
+      "emote": 69,
+      "greeting": "Iain welcomes travelers of either banner at this table. You can meet him here without entering Aerie Peak. Take a seat and catch your breath."
     },
     {
       "entry": 4009050,
@@ -2156,7 +2160,8 @@
       ],
       "emote": 69,
       "native_appearance": false,
-      "cult": false
+      "cult": false,
+      "greeting": "Maruut and Ortell are beside the supply wagon. Bring any rescued surveyors to our banner; I will see that they have food and dry blankets."
     },
     {
       "entry": 4009052,
@@ -2181,7 +2186,8 @@
       ],
       "emote": 69,
       "native_appearance": true,
-      "cult": true
+      "cult": true,
+      "greeting": "Papers first. Condenna handles admission and fire trials; Cargall preserves supplicants. Mylva drills body and mind, and Devoran trains the hounds."
     }
   ],
   "corridors": [
@@ -2814,5 +2820,6 @@
       ],
       "terrain_relief": 0.131
     }
-  ]
+  ],
+  "polish_review": "2026-10-07: resident roles and local directions; no additional native placement edits"
 }

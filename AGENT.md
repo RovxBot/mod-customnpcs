@@ -37,6 +37,8 @@ later chapters as playable or installable until their runtime and SQL exist.
 - [README](README.md): module features, installation and configuration.
 - [World polish upgrade](docs/broken-seal/world-polish.md): current layouts,
   appearance defaults, trial/captive controls and existing-realm upgrade steps.
+- [Implemented-chapter quality review](docs/broken-seal/quality-review.md): authored
+  quests, item icons, enemy rewards, hub dialogue and the optional-chapter upgrade.
 - [Campaign inventory](docs/broken-seal/README.md): complete design and source references.
 - `docs/broken-seal/chapter{1,2,3,4}-implementation.md`: controls, recovery,
   coordinates, installation and remaining client acceptance checks.
@@ -125,6 +127,7 @@ commits and SQL can contain retired cage, signpost and native-clearance behavior
 | `data/quests/broken_seal_hubs.json` | `tools/generate_broken_seal_hubs.py` renders hub SQL/data; `tools/render_broken_seal_hubs.py` renders the layout SVG |
 | `data/quests/broken_seal_legacy_outfits.json` | Frozen original 56-preset input for the historical outfit repair generator |
 | Current Chapter 1/2 and hub manifests | `tools/generate_broken_seal_polish.py` renders the compatible existing-realm polish update |
+| Current Chapter 1–4 and hub manifests | `tools/generate_broken_seal_quality.py` renders the ownership-gated quality update for installed chapters |
 
 Edit manifests/generators, then regenerate; do not hand-edit generated artifacts.
 Changing current manifests must not expand or rewrite the frozen historical outfit
@@ -164,6 +167,11 @@ Inspect the actual core hook signatures before implementing new integrations.
   to receive their compact layouts. Follow the world-polish guide for the sequence.
 - The polish migration restores only unchanged native homes moved by the old hub
   add-on. Preserve later administrator edits and the native backup records.
+- Existing realms then apply `2026_10_07_04_broken_seal_campaign_quality.sql` for
+  authored quest text/maps, item presentation, ordinary loot and hub directions.
+  Later chapters and hubs are optional; only installed module-owned content is updated.
+  Quest requirements, branch gates, spawns and outfit overrides remain intact. New
+  hub text/menu IDs and Chapter 3 Nala text 4001465 are collision-guarded.
 - Source changes require a rebuilt/restarted worldserver. SQL-only changes and
   appearance reloads do not replace a new runtime binary. Configuration disable
   stops interactions/scenes; it is not a content uninstall.
@@ -183,7 +191,7 @@ python3 -m unittest discover -s tests -p 'test_broken_seal*.py'
 git diff --check
 ```
 
-The Python suite checks generated chapter/hub/polish SQL, headers, outfits and
+The Python suite checks generated chapter/hub/polish/quality SQL, headers, outfits and
 progression. For changed behavioral helpers, compile/run the appropriate standalone
 test; all six use this form:
 
@@ -208,17 +216,22 @@ python3 tools/audit_broken_seal_world_polish.py --client-data /path/to/native/da
 python3 tools/verify_broken_seal_hub_assets.py --client-data /path/to/native/data --nav-probe /path/to/nav_probe
 python3 tools/verify_broken_seal_world_polish_sql.py --core-root /path/to/core --socket /path/to/disposable/test.sock
 python3 tools/verify_broken_seal_hub_sql.py --core-root /path/to/core --socket /path/to/disposable/test.sock
+python3 tools/verify_broken_seal_quality_sql.py --core-root /path/to/core --socket /path/to/disposable/test.sock
 ```
 
 SQL fixtures create/drop randomly named test databases; run them against a disposable
 MariaDB instance, not the live realm. The polish fixture loads shipped Chapter 1/2
-SQL from commit `1f7c966`, so it needs that Git history. The native navigation probe
+SQL from commit `1f7c966`, so it needs that Git history. The quality fixture needs
+the prior implemented revision `3eccb67`. The native navigation probe
 source is `tools/broken_seal_nav_probe.cpp`; client-data/MMAP inputs are external.
 
-Latest recorded validation: 35 campaign Python tests; six standalone C++ tests;
+Latest recorded validation: 40 campaign Python tests; six standalone C++ tests;
 runtime syntax checks; native asset/terrain/navigation audits; and SQL imports and
 reimports on both creature schemas. Upgrade fixtures preserved 154 native NPCs,
-155 native objects and their quest links. These results describe the tested revision,
+155 native objects and their quest links. Quality upgrades also passed twice with
+Chapters 1–2, 1–3 and 1–4 installed, preserving spawns, progression definitions
+and outfit overrides while checking text, icons, map slots and ordinary/quest loot.
+These results describe the tested revision,
 not a permanent guarantee for future edits.
 
 **Still pending:** full worldserver build, realm installation and stock-client

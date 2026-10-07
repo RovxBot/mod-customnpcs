@@ -167,6 +167,10 @@ active, and preserves native spawn homes and quests.
 The [world polish upgrade](docs/broken-seal/world-polish.md) replaces placeholder signs,
 fixes native texture fallbacks and weapons, adds normal cult loot, and consolidates
 the Charred Vale into two small compounds in the normal world.
+The [implemented-chapter quality review](docs/broken-seal/quality-review.md) adds
+authored objective text and map locations to all 56 records, suitable item icons,
+fuller ordinary loot and combat roles, distinct residents and local hub directions.
+Its ownership-gated `2026_10_07_04` update supports installed Chapters 1–2 alone.
 Chapters 5–14 remain design inventories.
 
 ## Custom NPC appearances

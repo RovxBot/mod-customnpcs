@@ -87,7 +87,8 @@
     "SPELL_HEAL_VISUAL": 635,
     "SPELL_STRIKE": 11976,
     "NPC_HEARTH_FLAME": 4001619,
-    "TEXT_RECOVERED": 4001671
+    "TEXT_RECOVERED": 4001671,
+    "SPELL_POISON": 744
   },
   "points": {
     "mei": [
@@ -547,7 +548,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "I count the sacks every morning. Then I sit down, and none of it seems to matter.",
       "fallback_texture_extra": 1657
     },
     {
@@ -574,7 +575,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "The herbs are drying on their racks. I know what each one is for. I cannot make myself reach for them.",
       "fallback_texture_extra": 463
     },
     {
@@ -601,7 +602,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "Yi-Mo left his tools here. I should have followed him. I should have done something.",
       "fallback_texture_extra": 1657
     },
     {
@@ -628,7 +629,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "The hearth is cold. Yesterday I meant to light it. Perhaps yesterday was longer ago than I remember.",
       "fallback_texture_extra": 463
     },
     {
@@ -655,7 +656,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "There are beams to mend and paths to clear. Every task feels heavier than the last.",
       "fallback_texture_extra": 1657
     },
     {
@@ -682,7 +683,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "The ward used to quiet the well. Now I hear it even when I close my eyes.",
       "fallback_texture_extra": 463
     },
     {
@@ -709,7 +710,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "They need blankets before the rain. The needle is still where I left it.",
       "fallback_texture_extra": 1657
     },
     {
@@ -736,7 +737,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "I have walked these paths for years. Lately I cannot bear to look beyond the next bend.",
       "fallback_texture_extra": 463
     },
     {
@@ -763,7 +764,7 @@
         "feet": 2315,
         "hands": 14089
       },
-      "greeting": "There is so much to do. I cannot seem to begin.",
+      "greeting": "",
       "fallback_texture_extra": 1657
     },
     {
@@ -781,7 +782,7 @@
       "experience_multiplier": 0,
       "map": 1,
       "zone": 15,
-      "greeting": "There is so much to do. I cannot seem to begin."
+      "greeting": ""
     },
     {
       "key": "NPC_SCENE",
@@ -798,7 +799,7 @@
       "experience_multiplier": 0,
       "map": 1,
       "zone": 15,
-      "greeting": "There is so much to do. I cannot seem to begin."
+      "greeting": ""
     },
     {
       "key": "NPC_STALKER",
@@ -815,7 +816,7 @@
       "experience_multiplier": 0,
       "map": 1,
       "zone": 15,
-      "greeting": "There is so much to do. I cannot seem to begin."
+      "greeting": ""
     },
     {
       "key": "NPC_ESSENCE",
@@ -832,7 +833,7 @@
       "experience_multiplier": 0,
       "map": 1,
       "zone": 15,
-      "greeting": "There is so much to do. I cannot seem to begin."
+      "greeting": ""
     },
     {
       "key": "NPC_QUINTESSENCE",
@@ -852,7 +853,7 @@
       "scale": 1.8,
       "health_multiplier": 2.5,
       "damage_multiplier": 0.8,
-      "greeting": "There is so much to do. I cannot seem to begin."
+      "greeting": ""
     },
     {
       "key": "NPC_HEARTH_FLAME",
@@ -869,7 +870,8 @@
       "script": "npc_bs_c04_flame",
       "experience_multiplier": 0,
       "map": 1,
-      "zone": 15
+      "zone": 15,
+      "greeting": ""
     }
   ],
   "objects": [
@@ -893,7 +895,7 @@
     {
       "key": "GO_HERB",
       "entry": 4001701,
-      "name": "Medicinal marsh herb",
+      "name": "Fresh Marsh Herb",
       "display": 269,
       "scale": 0.7,
       "decorative": false,
@@ -938,7 +940,7 @@
     {
       "key": "GO_WELL",
       "entry": 4001702,
-      "name": "Old village well",
+      "name": "Old Village Well",
       "display": 8503,
       "scale": 0.75,
       "decorative": false,
@@ -955,7 +957,7 @@
     {
       "key": "GO_WARD",
       "entry": 4001703,
-      "name": "Damaged village ward",
+      "name": "Damaged Village Ward",
       "display": 235,
       "scale": 0.4,
       "decorative": false,
@@ -972,7 +974,7 @@
     {
       "key": "GO_SUPPLY",
       "entry": 4001704,
-      "name": "Safe village provisions",
+      "name": "Sound Village Provisions",
       "display": 335,
       "scale": 0.8,
       "decorative": false,
@@ -989,7 +991,7 @@
     {
       "key": "GO_LOST_SUPPLY",
       "entry": 4001705,
-      "name": "Yi-Mo's lost provisions",
+      "name": "Yi-Mo's Lost Provisions",
       "display": 335,
       "scale": 1,
       "decorative": false,
@@ -1006,7 +1008,7 @@
     {
       "key": "GO_HEARTH_A",
       "entry": 4001706,
-      "name": "Cold household hearth",
+      "name": "Provisioner Hearth",
       "display": 199,
       "scale": 1,
       "decorative": false,
@@ -1023,7 +1025,7 @@
     {
       "key": "GO_HEARTH_B",
       "entry": 4001707,
-      "name": "Cold household hearth",
+      "name": "Herbalist Hearth",
       "display": 199,
       "scale": 1,
       "decorative": false,
@@ -1040,7 +1042,7 @@
     {
       "key": "GO_HEARTH_C",
       "entry": 4001708,
-      "name": "Cold household hearth",
+      "name": "Cooking Hearth",
       "display": 199,
       "scale": 1,
       "decorative": false,
@@ -1060,12 +1062,14 @@
       "key": "ITEM_WARD",
       "entry": 900400,
       "name": "Damaged Ward Rubbing",
-      "display": 18098,
+      "display": 4110,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "",
-      "spell": null
+      "spell": null,
+      "description": "The broken rune turns the village's fear toward its old well.",
+      "icon_donor_item": 3767
     },
     {
       "key": "ITEM_FOOD",
@@ -1077,19 +1081,21 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 4540
+      "icon_donor_item": 4540,
+      "description": "Sound provisions recovered from the village stores."
     },
     {
       "key": "ITEM_MEDICINE",
       "entry": 900402,
       "name": "Prepared Herbal Medicine",
-      "display": 2885,
+      "display": 15711,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 6452
+      "icon_donor_item": 858,
+      "description": "Kang has warmed the gathered herbs for Ken-Ken's treatment."
     },
     {
       "key": "ITEM_MASK",
@@ -1101,7 +1107,8 @@
       "bonding": 4,
       "script": "item_bs_c04_mask",
       "spell": "SPELL_MASK_TARGET",
-      "icon_donor_item": 10025
+      "icon_donor_item": 10025,
+      "description": "Use on the next patient Ken-Ken names. Defeat the despair it releases."
     },
     {
       "key": "ITEM_RESIDUE",
@@ -1113,29 +1120,34 @@
       "bonding": 4,
       "script": "",
       "spell": null,
-      "icon_donor_item": 159
+      "icon_donor_item": 159,
+      "description": "The same dark residue was drawn from three afflicted residents."
     },
     {
       "key": "ITEM_PLEDGE",
       "entry": 900405,
       "name": "Village Pledge of Aid",
-      "display": 18098,
+      "display": 4110,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "",
-      "spell": null
+      "spell": null,
+      "description": "The village promises seeds, supplies and defenders to its friends.",
+      "icon_donor_item": 3767
     },
     {
       "key": "ITEM_LETTER",
       "entry": 900406,
       "name": "Letter of Introduction to the Wildhammer",
-      "display": 18098,
+      "display": 7233,
       "maxcount": 1,
       "stackable": 1,
       "bonding": 4,
       "script": "",
-      "spell": null
+      "spell": null,
+      "description": "Maruut asks Iain Firebeard to receive a trusted traveler of either faction.",
+      "icon_donor_item": 4494
     },
     {
       "key": "ITEM_MIGHT",
@@ -1154,7 +1166,8 @@
           7,
           7
         ]
-      ]
+      ],
+      "description": "The village remembers those who stayed when hope was hardest to find."
     },
     {
       "key": "ITEM_PRECISION",
@@ -1173,7 +1186,8 @@
           7,
           7
         ]
-      ]
+      ],
+      "description": "The village remembers those who stayed when hope was hardest to find."
     },
     {
       "key": "ITEM_SORCERY",
@@ -1192,7 +1206,8 @@
           45,
           10
         ]
-      ]
+      ],
+      "description": "The village remembers those who stayed when hope was hardest to find."
     },
     {
       "key": "ITEM_RESTORATION",
@@ -1211,7 +1226,8 @@
           43,
           4
         ]
-      ]
+      ],
+      "description": "The village remembers those who stayed when hope was hardest to find."
     },
     {
       "key": "ITEM_GUARDING",
@@ -1230,7 +1246,8 @@
           12,
           7
         ]
-      ]
+      ],
+      "description": "The village remembers those who stayed when hope was hardest to find."
     },
     {
       "key": "ITEM_BALANCE",
@@ -1253,7 +1270,8 @@
           7,
           6
         ]
-      ]
+      ],
+      "description": "The village remembers those who stayed when hope was hardest to find."
     }
   ],
   "quests": [
@@ -1286,7 +1304,14 @@
       "money": 7000,
       "objective_labels": {
         "CREDIT_INSPECT": "Village inspected with Ken-Ken"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_INSPECT": [
+          "ken"
+        ]
+      },
+      "request_text": "Did Ken-Ken show you what has happened to the families?",
+      "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
       "key": "QUEST_FOOD",
@@ -1323,7 +1348,23 @@
         "CREDIT_QUESTION_A": "Village Provisioner questioned",
         "CREDIT_QUESTION_B": "Village Herbalist questioned",
         "CREDIT_QUESTION_C": "Village Toolkeeper questioned"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_QUESTION_A": [
+          "villager_0"
+        ],
+        "CREDIT_QUESTION_B": [
+          "villager_1"
+        ],
+        "CREDIT_QUESTION_C": [
+          "villager_2"
+        ],
+        "ITEM_FOOD": [
+          "supply"
+        ]
+      },
+      "request_text": "Have you checked the food and heard all three residents' troubles?",
+      "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
       "key": "QUEST_FIND",
@@ -1348,13 +1389,20 @@
       "fixed_rewards": {},
       "reward_choices": [],
       "objectives": "Find Yi-Mo at the marked marsh trail and escort him away from the predators.",
-      "description": "Yi-Mo has wandered down the marsh trail alone. Read the marked trail sign southeast of the village to find him. Stay beside him, protect him from the stalker, and lead him back through the marked path.",
+      "description": "Yi-Mo has wandered down the marsh trail alone. Read the discarded pack southeast of the village to find him. Stay beside him, protect him from the stalker, and lead him back through the marked path.",
       "completion": "You came all that way for me? I cannot understand it yet.",
       "xp_difficulty": 5,
       "money": 8000,
       "objective_labels": {
         "CREDIT_ESCORT": "Yi-Mo escorted to safety"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_ESCORT": [
+          "trail"
+        ]
+      },
+      "request_text": "Did Yi-Mo reach the village safely?",
+      "return_text": "Speak with Yi-Mo Longbrow at the village relief camp."
     },
     {
       "key": "QUEST_CHEER",
@@ -1380,14 +1428,24 @@
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Recover Yi-Mos lost supplies and persuade him to return to the village.",
+      "objectives": "Recover Yi-Mo's lost supplies and persuade him to return to the village.",
       "description": "You found me. I do not know why you bothered. My supplies are still beside that trail. Bring back three bundles and talk to me again; perhaps there is still a reason to return to my neighbors.",
       "completion": "He has returned. Now we can begin treating the village together.",
       "xp_difficulty": 5,
       "money": 8500,
       "objective_labels": {
         "CREDIT_CHEER": "Yi-Mo persuaded to return"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_CHEER": [
+          "yimo"
+        ],
+        "ITEM_FOOD": [
+          "lost_supply"
+        ]
+      },
+      "request_text": "Did you recover my supplies and speak with me?",
+      "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
       "key": "QUEST_MEDICINE",
@@ -1421,7 +1479,24 @@
       "money": 9000,
       "objective_labels": {
         "CREDIT_HERBS": "Medicinal herbs gathered"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_HERBS": [
+          "herb_0",
+          "herb_1",
+          "herb_2",
+          "herb_3",
+          "herb_4",
+          "herb_5",
+          "herb_6",
+          "herb_7"
+        ],
+        "ITEM_MEDICINE": [
+          "kang"
+        ]
+      },
+      "request_text": "Have you gathered eight sprigs and asked me to prepare them?",
+      "return_text": "Speak with Kang Bramblestaff at the village cooking hearth."
     },
     {
       "key": "QUEST_TEST",
@@ -1458,7 +1533,23 @@
         "CREDIT_TEST_A": "Village Provisioner tested",
         "CREDIT_TEST_B": "Village Herbalist tested",
         "CREDIT_TEST_C": "Village Toolkeeper tested"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_TEST_A": [
+          "villager_0"
+        ],
+        "CREDIT_TEST_B": [
+          "villager_1"
+        ],
+        "CREDIT_TEST_C": [
+          "villager_2"
+        ],
+        "ITEM_RESIDUE": [
+          "ken"
+        ]
+      },
+      "request_text": "Test all three residents before asking me to bottle the residue.",
+      "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
       "key": "QUEST_TREAT",
@@ -1489,7 +1580,14 @@
       "money": 10000,
       "objective_labels": {
         "CREDIT_TREATED": "Villagers freed from despair"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_TREATED": [
+          "ken"
+        ]
+      },
+      "request_text": "Eight villagers need help. Have you defeated the despair released from every patient?",
+      "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
       "key": "QUEST_WARD",
@@ -1522,7 +1620,17 @@
       "money": 10500,
       "objective_labels": {
         "CREDIT_WELL": "Old well inspected"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_WELL": [
+          "well"
+        ],
+        "ITEM_WARD": [
+          "ward"
+        ]
+      },
+      "request_text": "Inspect the well first, then bring me the ward rubbing.",
+      "return_text": "Speak with Maruut Stonebinder at the village relief camp."
     },
     {
       "key": "QUEST_DESPAIR",
@@ -1548,7 +1656,7 @@
       "source_count": 1,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Kens help.",
+      "objectives": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken's help.",
       "description": "The broken ward has gathered the village's despair around Yi-Mo. Meet Ken-Ken at the well southeast of camp and use the well to begin the confrontation. Defeat eight lesser manifestations there, use the mask on Yi-Mo, and defeat the Quintessence it releases. Ken-Ken will stand beside you.",
       "completion": "You saved me twice. My thoughts are my own again. We will repair what we neglected.",
       "xp_difficulty": 5,
@@ -1557,7 +1665,20 @@
         "CREDIT_ESSENCES": "Lesser manifestations defeated",
         "CREDIT_YIMO": "Yi-Mo treated at the well",
         "CREDIT_BOSS": "Quintessence of Despair defeated"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_ESSENCES": [
+          "well"
+        ],
+        "CREDIT_YIMO": [
+          "well"
+        ],
+        "CREDIT_BOSS": [
+          "well"
+        ]
+      },
+      "request_text": "Clear the eight lesser manifestations, treat me with the mask, and face what it releases.",
+      "return_text": "Speak with Yi-Mo Longbrow at the village relief camp."
     },
     {
       "key": "QUEST_WORK",
@@ -1594,7 +1715,25 @@
         "CREDIT_HEARTH_B": "Household hearth 2 relit",
         "CREDIT_HEARTH_C": "Household hearth 3 relit",
         "CREDIT_SERVICES": "Village services restarted"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_HEARTH_A": [
+          "hearth_a"
+        ],
+        "CREDIT_HEARTH_B": [
+          "hearth_b"
+        ],
+        "CREDIT_HEARTH_C": [
+          "hearth_c"
+        ],
+        "CREDIT_SERVICES": [
+          "villager_0",
+          "villager_1",
+          "villager_2"
+        ]
+      },
+      "request_text": "Are the three hearths lit and the first three services working again?",
+      "return_text": "Speak with Mei Barrelbottom at the relief station on the Mudsprocket road."
     },
     {
       "key": "QUEST_PLEDGE",
@@ -1620,14 +1759,24 @@
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Accept the villages pledge of aid and nominate Mei as its future supply liaison.",
+      "objectives": "Accept the village's pledge of aid and nominate Mei as its future supply liaison.",
       "description": "You stayed when we could not help ourselves. Let me put the village's promise in writing. Ask Mei to become our supply liaison, then return to me to accept our pledge.",
       "completion": "When you need seeds, supplies or defenders, remember that this village owes you aid.",
       "xp_difficulty": 5,
       "money": 12000,
       "objective_labels": {
         "CREDIT_LIAISON": "Mei named supply liaison"
-      }
+      },
+      "objective_locations": {
+        "CREDIT_LIAISON": [
+          "mei"
+        ],
+        "ITEM_PLEDGE": [
+          "yimo"
+        ]
+      },
+      "request_text": "Have you accepted our pledge and asked Mei to keep our supply route open?",
+      "return_text": "Speak with Yi-Mo Longbrow at the village relief camp."
     },
     {
       "key": "QUEST_LETTER",
@@ -1663,7 +1812,14 @@
       "completion": "Maruut's friends are welcome here. Rest at our table before we speak of the families.",
       "xp_difficulty": 5,
       "money": 12500,
-      "objective_labels": {}
+      "objective_labels": {},
+      "objective_locations": {
+        "ITEM_LETTER": [
+          "iain"
+        ]
+      },
+      "request_text": "Do you carry Maruut's letter? There is room at our table.",
+      "return_text": "Speak with Iain Firebeard at the neutral gathering outside Aerie Peak in the Hinterlands."
     }
   ],
   "external_entries": [
@@ -1835,6 +1991,7 @@
     "normal_world": true,
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
-    "placeholder_signs_removed": true
+    "placeholder_signs_removed": true,
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
   }
 }

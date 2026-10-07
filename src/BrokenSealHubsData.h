@@ -104,6 +104,22 @@ inline constexpr std::array<Footprint, 59> Footprints =
     {-4570.2564f, -3252.9697f, -4565.3542f, -3248.7495f, 31.5232f, 4},
 }};
 
+struct Resident
+{
+    std::uint32_t entry;
+    std::uint32_t area;
+};
+
+inline constexpr std::array<Resident, 6> Residents =
+{{
+    {4009056, 2},
+    {4009057, 3},
+    {4009058, 4},
+    {4009059, 5},
+    {4009050, 0},
+    {4009052, 1},
+}};
+
 }
 
 #endif

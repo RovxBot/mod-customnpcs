@@ -642,7 +642,10 @@ public:
         ClearGossipMenuFor(p);
         p->PrepareQuestMenu(c->GetGUID());
         Menu(p, c);
-        SendGossipMenuFor(p, BrokenSealChapter4Gossip(p, c), c->GetGUID());
+        std::uint32_t greeting = BrokenSealChapter4Gossip(p, c);
+        if (c->GetEntry() == NPC_NALA && LifeFinished(p))
+            greeting = TEXT_NALA_TWINS;
+        SendGossipMenuFor(p, greeting, c->GetGUID());
         return true;
     }
     bool OnGossipSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action) override
@@ -698,7 +701,10 @@ struct npc_bs_c03_enemyAI : ScriptedAI
         events.Update(diff);
         if (events.ExecuteEvent() == COMBAT_SPELL)
         {
-            DoCastVictim(me->GetEntry() == NPC_HEXER ? SPELL_HEX_BOLT : SPELL_STRIKE);
+            if (!me->HasUnitState(UNIT_STATE_CASTING))
+                DoCastVictim(me->GetEntry() == NPC_HEXER        ? SPELL_HEX_BOLT
+                             : me->GetEntry() == NPC_SKITTERER ? SPELL_POISON
+                                                              : SPELL_STRIKE);
             events.ScheduleEvent(COMBAT_SPELL, 8000ms);
         }
         DoMeleeAttackIfReady();

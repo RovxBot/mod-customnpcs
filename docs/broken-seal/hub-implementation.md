@@ -31,8 +31,8 @@ reserved movement lanes and checked prop foundations keep it coherent.
 
 ## Protection and hostility
 
-Eligible ordinary ambient NPCs cannot damage PCs or controlled units while the
-player rests inside a registered circle or a scenery access margin. Outside fights
+Eligible ordinary ambient NPCs cannot damage PCs or controlled units while that
+unit rests inside a registered circle or a scenery access margin. Outside fights
 remain normal. Scripted campaign enemies, private summons, bosses, service NPCs,
 PvP and pets are excluded from ambient protection.
 
@@ -61,6 +61,11 @@ use the polish upgrade instead of reinstalling its former camp layout.
 Enable the module, chapter options and `ModCustomNPCs.BrokenSeal.Hubs.Enable`, then
 restart worldserver. Native cult skins and equipment work without an outfit packet;
 custom wardrobe NPCs use `ModCustomNPCs.Appearance.Enable`.
+
+The [quality update](quality-review.md) gives residents distinct working roles and
+local gossip directions. Controlled-unit protection and sentry intervention use
+the unit's own location, including pets sent outside camp. Resident gossip follows
+hub/chapter configuration and requires cover in the cult camp.
 
 Imports reject unowned custom-ID collisions before content changes and keep surviving
 campaign spawn GUIDs. Only recorded obsolete campaign placements are retired. No

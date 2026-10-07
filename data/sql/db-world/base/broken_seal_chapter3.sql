@@ -128,7 +128,8 @@ INSERT INTO `bs_c03_ids` (`kind`, `entry`) VALUES
   ('gossip_menu', 4001409),
   ('gossip_menu', 4001410),
   ('npc_text', 4001464),
-  ('gossip_menu', 4001464);
+  ('gossip_menu', 4001464),
+  ('npc_text', 4001465);
 DROP TEMPORARY TABLE IF EXISTS `bs_c03_collision_guard`;
 CREATE TEMPORARY TABLE `bs_c03_collision_guard` (`id` TINYINT PRIMARY KEY);
 INSERT INTO `bs_c03_collision_guard` VALUES (1);
@@ -184,9 +185,9 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001405, 'Mei Barrelbottom', 35, 35, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
   (4001406, 'Redhorn', 1, 1, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c03_actor', 1, 1, 0, 0, 2),
   (4001407, 'Cloudhoof', 1, 1, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c03_actor', 1, 1, 0, 0, 2),
-  (4001408, 'Expedition Refugees: Group A', 35, 35, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
-  (4001409, 'Expedition Refugees: Group B', 35, 35, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
-  (4001410, 'Expedition Refugees: Group C', 35, 35, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
+  (4001408, 'Dawnchaser Family Elder', 35, 35, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
+  (4001409, 'Displaced Caravan Traveler', 35, 35, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
+  (4001410, 'Wounded Expedition Scout', 35, 35, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
   (4001411, 'Sunwalker Dezco', 35, 35, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c03_actor', 1, 1, 0, 0, 2),
   (4001412, 'Nala', 35, 35, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c03_actor', 1, 1, 0, 0, 2),
   (4001413, 'Dawnchaser Story Focus', 1, 1, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c03_scene', 1, 1, 0, 0, 2),
@@ -274,45 +275,79 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
   (4001400, 1, 4575, 0, 0),
   (4001402, 1, 4575, 0, 0),
   (4001411, 1, 6631, 0, 0),
-  (4001412, 1, 4575, 0, 0)
+  (4001412, 1, 4575, 0, 0),
+  (4001414, 1, 12282, 0, 0),
+  (4001415, 1, 4575, 0, 0)
 ON DUPLICATE KEY UPDATE
   `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
-  (900300, 12, 0, 'Raider Excavation Orders', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900301, 12, 0, 'Marsh Antidote', 2885, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 34665, 0, 'item_bs_c03_antidote'),
-  (900302, 12, 0, 'Skitterer Meat', 25466, 1, 0, -1, -1, 1, 0, 8, 8, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900303, 12, 0, 'Relic Raider Insignia', 20984, 1, 0, -1, -1, 1, 0, 8, 8, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900304, 12, 0, 'Marsh Lotus Leaves', 24688, 1, 0, -1, -1, 1, 0, 12, 12, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900305, 12, 0, 'Ward-tainted Water Sample', 18084, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900306, 12, 0, 'Leza''s Memorial Totem', 7299, 1, 0, -1, -1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900307, 12, 0, 'Village Food Supplies', 6399, 1, 0, -1, -1, 1, 0, 3, 3, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900308, 12, 0, 'Village Introduction Letter', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900309, 4, 0, 'The Dawnchaser Promise: Signet of Might', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 4, 6, 7, 5, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900310, 4, 0, 'The Dawnchaser Promise: Signet of Precision', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 3, 6, 7, 5, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900311, 4, 0, 'The Dawnchaser Promise: Signet of Sorcery', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 6, 45, 8, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900312, 4, 0, 'The Dawnchaser Promise: Signet of Restoration', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 6, 6, 43, 2, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900313, 4, 0, 'The Dawnchaser Promise: Signet of Guarding', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 7, 7, 12, 5, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
-  (900314, 4, 0, 'The Dawnchaser Promise: Signet of Balance', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 5, 6, 5, 7, 4, 'The Broken Seal: The Dawnchaser Promise', 0, 0, '')
+  (900300, 12, 0, 'Raider Excavation Orders', 4110, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Chezin followed the raiders'' trail. These orders name the excavation they guarded.', 0, 0, ''),
+  (900301, 12, 0, 'Marsh Antidote', 15710, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Ask Nala to prepare Leza, then use on the patient and stay for her response.', 34665, 0, 'item_bs_c03_antidote'),
+  (900302, 12, 0, 'Skitterer Meat', 25466, 1, 0, -1, -1, 1, 0, 8, 8, 4, 0, 0, 0, 0, 0, 0, 'Fresh meat for Kang''s camp stew.', 0, 0, ''),
+  (900303, 12, 0, 'Relic Raider Insignia', 20984, 1, 0, -1, -1, 1, 0, 8, 8, 4, 0, 0, 0, 0, 0, 0, 'The same buyer''s mark is stamped on every raider badge.', 0, 0, ''),
+  (900304, 12, 0, 'Marsh Lotus Leaves', 24688, 1, 0, -1, -1, 1, 0, 12, 12, 4, 0, 0, 0, 0, 0, 0, 'Fresh marsh leaves for Kang''s strengthening tea.', 0, 0, ''),
+  (900305, 12, 0, 'Ward-tainted Water Sample', 18084, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Taken from the tainted pool. Bring it to Kang before anyone drinks it.', 0, 0, ''),
+  (900306, 12, 0, 'Leza''s Memorial Totem', 7299, 1, 0, -1, -1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 'In memory of Leza, who led her people toward a better life.', 0, 0, ''),
+  (900307, 12, 0, 'Village Food Supplies', 6399, 1, 0, -1, -1, 1, 0, 3, 3, 4, 0, 0, 0, 0, 0, 0, 'One warm bundle for each group of families, travelers and wounded.', 0, 0, ''),
+  (900308, 12, 0, 'Village Introduction Letter', 7233, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Kang asks Mei Barrelbottom to welcome a friend of the Dawnchasers.', 0, 0, ''),
+  (900309, 4, 0, 'The Dawnchaser Promise: Signet of Might', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 4, 6, 7, 5, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
+  (900310, 4, 0, 'The Dawnchaser Promise: Signet of Precision', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 3, 6, 7, 5, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
+  (900311, 4, 0, 'The Dawnchaser Promise: Signet of Sorcery', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 6, 45, 8, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
+  (900312, 4, 0, 'The Dawnchaser Promise: Signet of Restoration', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 6, 6, 43, 2, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
+  (900313, 4, 0, 'The Dawnchaser Promise: Signet of Guarding', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 7, 7, 12, 5, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
+  (900314, 4, 0, 'The Dawnchaser Promise: Signet of Balance', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 5, 6, 5, 7, 4, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, '')
 ON DUPLICATE KEY UPDATE
   `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (4001414, 4001415, 4001416);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001414 WHERE `entry`=4001414;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001414;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001414, 4306, 0, 40, 0, 1, 0, 1, 2),
+  (4001414, 3771, 0, 8, 0, 1, 0, 1, 1),
+  (4001414, 1708, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001414, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=2586 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001415 WHERE `entry`=4001415;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001415;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001415, 4306, 0, 40, 0, 1, 0, 1, 2),
+  (4001415, 3771, 0, 8, 0, 1, 0, 1, 1),
+  (4001415, 1708, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001415, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=2586 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001416 WHERE `entry`=4001416;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001416;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001416, 2251, 0, 65, 0, 1, 0, 1, 2),
+  (4001416, 1475, 0, 25, 0, 1, 0, 1, 1),
+  (4001416, 3174, 0, 35, 0, 1, 0, 1, 1);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
   (4001416, 900302, 100, 1, 1, 0, 1, 1),
   (4001414, 900303, 100, 1, 1, 0, 1, 1),
   (4001415, 900303, 100, 1, 1, 0, 1, 1);
 INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`, `RewardItem1`, `RewardItem2`, `RewardItem3`, `RewardItem4`, `RewardAmount1`, `RewardAmount2`, `RewardAmount3`, `RewardAmount4`) VALUES
-  (900300, 2, 30, 30, 15, 4, 1200, 0, 0, 0, 'Search Party', 'Find Chezin at the ruined scouting camp and recover his report.', 'Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Follow the marker and find him. If he has a report, bring it back. Do not promise Leza he is coming home until you know.', 'Find Chezin at the ruined scouting camp and recover his report.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900301, 2, 30, 30, 15, 4, 1200, 900301, 0, 0, 'Poisoned!', 'Obtain the supplied antidote and administer it to Leza while Nala monitors her.', 'Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your private patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.', 'Obtain the supplied antidote and administer it to Leza while Nala monitors her.', 4001450, 0, 0, 0, 1, 0, 0, 0, 'Treated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900302, 2, 30, 30, 15, 5, 1200, 0, 0, 0, 'Skitterer Stew', 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 'People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.', 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 4001451, 0, 0, 0, 1, 0, 0, 0, 'Stew', '', '', '', 900302, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900303, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Blind Them!', 'Disable 3 raider lookout posts and defeat 6 guards watching the expedition.', 'The relic raiders are watching us. Disable each of the three marked lookout posts to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; striking the same marker again will not blind another lookout. Keep their attention away from the medical tent.', 'Disable 3 raider lookout posts and defeat 6 guards watching the expedition.', 4001414, 4001452, 4001453, 4001454, 6, 1, 1, 1, 'Npc Raider', 'Lookout A', 'Lookout B', 'Lookout C', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900304, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Threat from the Marsh Ruins', 'Defeat 8 relic raiders before their next camp attack.', 'The watchers were only the edge of the force. Defeat relic raiders and hexers at their dig, and bring back eight insignia as proof that their next attack has been broken. This expedition has families in it, and I mean to keep them alive.', 'Defeat 8 relic raiders before their next camp attack.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900303, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900305, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'Herbal Remedies', 'Collect 12 quest lotus leaves and help Kang prepare a second treatment.', 'The antidote eased the fever, but Leza is still weak. Collect twelve quest lotus leaves among the southern marsh paths. Ask Kang to prepare the treatment when you have them, then return the leaves to me. These are camp supplies, not a test of your herbalism.', 'Collect 12 quest lotus leaves and help Kang prepare a second treatment.', 4001455, 0, 0, 0, 1, 0, 0, 0, 'Remedy', '', '', '', 900304, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900306, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'The Relic Raiders Agenda', 'Recover excavation orders and compare the raiders focus with the expedition ledger.', 'Chezin saw the raiders excavating stones marked with the same cuts described in Jarod''s ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.', 'Recover excavation orders and compare the raiders focus with the expedition ledger.', 4001463, 4001456, 0, 0, 1, 1, 0, 0, 'Device', 'Agenda', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900307, 2, 33, 30, 15, 4, 1320, 0, 0, 0, 'The Pools of Youth', 'Collect one water sample from the tainted pool and bring it to Kang for testing.', 'The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.', 'Collect one water sample from the tainted pool and bring it to Kang for testing.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900305, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900308, 2, 33, 30, 15, 5, 1320, 0, 0, 0, 'Life', 'Stand by Dezco while Nala tends Leza; witness the birth, Leza''s death and the two surviving sons.', 'Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.', 'Stand by Dezco while Nala tends Leza; witness the birth, Leza''s death and the two surviving sons.', 4001457, 0, 0, 0, 1, 0, 0, 0, 'Life', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900309, 2, 34, 30, 15, 4, 1360, 0, 0, 0, 'A Quiet Vigil', 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 'Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial west of camp. Stay quietly for the vigil, then return to me for a totem in her memory.', 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 4001458, 0, 0, 0, 1, 0, 0, 0, 'Vigil', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900306, 0, 0, 0, 1, 0, 0, 0),
-  (900310, 2, 34, 30, 15, 5, 1360, 900307, 0, 0, 'For the Living', 'Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.', 'Redhorn and Cloudhoof breathe, and others still need to eat. Take these three food bundles to our three refugee groups. Give each group one bundle, then speak with me about the boys and the people who remain. We will carry our grief; we will not leave the living behind.', 'Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.', 4001459, 4001460, 4001461, 4001462, 1, 1, 1, 1, 'Refugee A', 'Refugee B', 'Refugee C', 'Promise', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900311, 2, 35, 30, 15, 4, 1400, 900308, 0, 0, 'Leave a Place Better', 'Deliver the village introduction letter to Mei at the affected settlement.', 'The people at the wayside settlement southwest of here have been facing the same raiders, and hope is wearing thin there. Take my introduction to Mei Barrelbottom at the relief station on the Mudsprocket road. Tell her what our camp has learned and what you are willing to do.', 'Deliver the village introduction letter to Mei at the affected settlement.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900308, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900309, 900310, 900311, 900312, 900313, 900314, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+  (900300, 2, 30, 30, 15, 4, 1200, 0, 0, 0, 'Search Party', 'Find Chezin at the ruined scouting camp and recover his report.', 'Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Find his abandoned pack beside the ruined scouting shelter. If he has a report, bring it back. Do not promise Leza he is coming home until you know.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900301, 2, 30, 30, 15, 4, 1200, 900301, 0, 0, 'Poisoned!', 'Obtain the supplied antidote and administer it to Leza while Nala monitors her.', 'Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001450, 0, 0, 0, 1, 0, 0, 0, 'Leza treated under Nala''s care', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900302, 2, 30, 30, 15, 5, 1200, 0, 0, 0, 'Skitterer Stew', 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 'People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 4001451, 0, 0, 0, 1, 0, 0, 0, 'Skitterer stew prepared', '', '', '', 900302, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900303, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Blind Them!', 'Disable 3 raider lookout posts and defeat 6 guards watching the expedition.', 'The relic raiders are watching us. Disable each of the three raider lookout supply crates to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; disabling the same post again will not blind another lookout. Keep their attention away from the medical tent.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 4001414, 4001452, 4001453, 4001454, 6, 1, 1, 1, 'Marsh Relic Raiders defeated', 'Western lookout disabled', 'Central lookout disabled', 'Eastern lookout disabled', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900304, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Threat from the Marsh Ruins', 'Defeat 8 relic raiders before their next camp attack.', 'The watchers were only the edge of the force. Defeat relic raiders and hexers at their dig, and bring back eight insignia as proof that their next attack has been broken. This expedition has families in it, and I mean to keep them alive.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900303, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900305, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'Herbal Remedies', 'Collect 12 marsh lotus leaves and help Kang prepare a second treatment.', 'The antidote eased the fever, but Leza is still weak. Collect twelve marsh lotus leaves among the southern marsh paths. Ask Kang to prepare the treatment when you have them, then return the leaves to me. These are camp supplies, not a test of your herbalism.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001455, 0, 0, 0, 1, 0, 0, 0, 'Lotus remedy prepared with Kang', '', '', '', 900304, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900306, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'The Relic Raiders'' Agenda', 'Recover excavation orders and compare the raiders'' focus with the expedition ledger.', 'Chezin saw the raiders excavating stones marked with the same cuts described in Jarod''s ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001463, 4001456, 0, 0, 1, 1, 0, 0, 'Binding apparatus inspected', 'Orders compared with Dezco', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900307, 2, 33, 30, 15, 4, 1320, 0, 0, 0, 'The Pools of Youth', 'Collect one water sample from the tainted pool and bring it to Kang for testing.', 'The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900305, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900308, 2, 33, 30, 15, 5, 1320, 0, 0, 0, 'Life', 'Stay near the medical tent through Leza''s delivery and Nala''s care for the family.', 'Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001457, 0, 0, 0, 1, 0, 0, 0, 'Leza''s delivery witnessed', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900309, 2, 34, 30, 15, 4, 1360, 0, 0, 0, 'A Quiet Vigil', 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 'Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial at the northern edge of camp. Stay quietly for the vigil, then return to me for a totem in her memory.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001458, 0, 0, 0, 1, 0, 0, 0, 'Vigil attended', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900306, 0, 0, 0, 1, 0, 0, 0),
+  (900310, 2, 34, 30, 15, 5, 1360, 900307, 0, 0, 'For the Living', 'Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.', 'Redhorn and Cloudhoof breathe, and others still need to eat. Take these three food bundles to the Dawnchaser families, displaced travelers and expedition wounded. Give each group one bundle, then speak with me about the boys and the people who remain. We will carry our grief; we will not leave the living behind.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001459, 4001460, 4001461, 4001462, 1, 1, 1, 1, 'Dawnchaser families supplied', 'Displaced travelers supplied', 'Expedition wounded supplied', 'Expedition plans discussed with Dezco', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900311, 2, 35, 30, 15, 4, 1400, 900308, 0, 0, 'Leave a Place Better', 'Deliver the village introduction letter to Mei at the affected settlement.', 'The people at the wayside settlement southwest of here have been facing the same raiders, and hope is wearing thin there. Take my introduction to Mei Barrelbottom at the relief station on the Mudsprocket road. Tell her what our camp has learned and what you are willing to do.', 'Speak with Mei Barrelbottom at the relief station on the Mudsprocket road.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900308, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900309, 900310, 900311, 900312, 900313, 900314, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 ON DUPLICATE KEY UPDATE
   `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`), `RewardItem1` = VALUES(`RewardItem1`), `RewardItem2` = VALUES(`RewardItem2`), `RewardItem3` = VALUES(`RewardItem3`), `RewardItem4` = VALUES(`RewardItem4`), `RewardAmount1` = VALUES(`RewardAmount1`), `RewardAmount2` = VALUES(`RewardAmount2`), `RewardAmount3` = VALUES(`RewardAmount3`), `RewardAmount4` = VALUES(`RewardAmount4`);
 INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `ProvidedItemCount`, `SpecialFlags`) VALUES
@@ -374,18 +409,18 @@ INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
 ON DUPLICATE KEY UPDATE
   `RewardText` = VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
-  (900300, 'Find Chezin at the ruined scouting camp and recover his report.'),
-  (900301, 'Obtain the supplied antidote and administer it to Leza while Nala monitors her.'),
-  (900302, 'Gather 8 skitterer meat and help prepare food for the weakened camp.'),
-  (900303, 'Disable 3 raider lookout posts and defeat 6 guards watching the expedition.'),
-  (900304, 'Defeat 8 relic raiders before their next camp attack.'),
-  (900305, 'Collect 12 quest lotus leaves and help Kang prepare a second treatment.'),
-  (900306, 'Recover excavation orders and compare the raiders focus with the expedition ledger.'),
-  (900307, 'Collect one water sample from the tainted pool and bring it to Kang for testing.'),
-  (900308, 'Stand by Dezco while Nala tends Leza; witness the birth, Leza''s death and the two surviving sons.'),
-  (900309, 'Attend the memorial and accept Leza''s keepsake without a combat objective.'),
-  (900310, 'Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.'),
-  (900311, 'Deliver the village introduction letter to Mei at the affected settlement.')
+  (900300, 'What happened to Chezin? Bring me the report he left behind.'),
+  (900301, 'Did Leza respond to the antidote? Nala must watch the treatment.'),
+  (900302, 'Eight portions of meat, and a pot ready for the camp. Have you prepared them?'),
+  (900303, 'Are all three lookout posts disabled, and their guards driven back?'),
+  (900304, 'Bring eight raider insignia. I need to know the next attack has been broken.'),
+  (900305, 'Have you gathered twelve leaves and helped Kang prepare the remedy?'),
+  (900306, 'Bring fresh orders, inspect the apparatus, then we can compare the buyer''s mark.'),
+  (900307, 'Bring the pool sample here. I will test it before anyone drinks it.'),
+  (900308, 'Stay with Nala through the delivery. I will be beside Leza.'),
+  (900309, 'Have you spent a little time at Leza''s memorial?'),
+  (900310, 'Each group needs one bundle. When all three have eaten, we can speak about the journey ahead.'),
+  (900311, 'Have you brought Kang''s introduction?')
 ON DUPLICATE KEY UPDATE
   `CompletionText` = VALUES(`CompletionText`);
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (900300, 900301, 900302, 900303, 900304, 900305, 900306, 900307, 900308, 900309, 900310, 900311);
@@ -411,39 +446,133 @@ DELETE FROM `quest_poi_points` WHERE `QuestID` IN (900300, 900301, 900302, 90030
 DELETE FROM `quest_poi` WHERE `QuestID` IN (900300, 900301, 900302, 900303, 900304, 900305, 900306, 900307, 900308, 900309, 900310, 900311);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`) VALUES
   (900300, 0, -1, 1, 141, 0, 0, 0),
+  (900300, 1, 4, 1, 141, 0, 0, 0),
   (900301, 0, -1, 1, 141, 0, 0, 0),
+  (900301, 1, 0, 1, 141, 0, 0, 0),
   (900302, 0, -1, 1, 141, 0, 0, 0),
+  (900302, 1, 0, 1, 141, 0, 0, 0),
+  (900302, 2, 4, 1, 141, 0, 0, 0),
+  (900302, 3, 4, 1, 141, 0, 0, 0),
+  (900302, 4, 4, 1, 141, 0, 0, 0),
+  (900302, 5, 4, 1, 141, 0, 0, 0),
+  (900302, 6, 4, 1, 141, 0, 0, 0),
+  (900302, 7, 4, 1, 141, 0, 0, 0),
+  (900302, 8, 4, 1, 141, 0, 0, 0),
+  (900302, 9, 4, 1, 141, 0, 0, 0),
   (900303, 0, -1, 1, 141, 0, 0, 0),
+  (900303, 1, 0, 1, 141, 0, 0, 0),
+  (900303, 2, 0, 1, 141, 0, 0, 0),
+  (900303, 3, 0, 1, 141, 0, 0, 0),
+  (900303, 4, 1, 1, 141, 0, 0, 0),
+  (900303, 5, 2, 1, 141, 0, 0, 0),
+  (900303, 6, 3, 1, 141, 0, 0, 0),
   (900304, 0, -1, 1, 141, 0, 0, 0),
+  (900304, 1, 4, 1, 141, 0, 0, 0),
+  (900304, 2, 4, 1, 141, 0, 0, 0),
+  (900304, 3, 4, 1, 141, 0, 0, 0),
+  (900304, 4, 4, 1, 141, 0, 0, 0),
   (900305, 0, -1, 1, 141, 0, 0, 0),
+  (900305, 1, 0, 1, 141, 0, 0, 0),
+  (900305, 2, 4, 1, 141, 0, 0, 0),
+  (900305, 3, 4, 1, 141, 0, 0, 0),
+  (900305, 4, 4, 1, 141, 0, 0, 0),
+  (900305, 5, 4, 1, 141, 0, 0, 0),
+  (900305, 6, 4, 1, 141, 0, 0, 0),
+  (900305, 7, 4, 1, 141, 0, 0, 0),
+  (900305, 8, 4, 1, 141, 0, 0, 0),
+  (900305, 9, 4, 1, 141, 0, 0, 0),
+  (900305, 10, 4, 1, 141, 0, 0, 0),
+  (900305, 11, 4, 1, 141, 0, 0, 0),
+  (900305, 12, 4, 1, 141, 0, 0, 0),
+  (900305, 13, 4, 1, 141, 0, 0, 0),
   (900306, 0, -1, 1, 141, 0, 0, 0),
+  (900306, 1, 0, 1, 141, 0, 0, 0),
+  (900306, 2, 1, 1, 141, 0, 0, 0),
+  (900306, 3, 4, 1, 141, 0, 0, 0),
   (900307, 0, -1, 1, 141, 0, 0, 0),
+  (900307, 1, 4, 1, 141, 0, 0, 0),
   (900308, 0, -1, 1, 141, 0, 0, 0),
+  (900308, 1, 0, 1, 141, 0, 0, 0),
   (900309, 0, -1, 1, 141, 0, 0, 0),
+  (900309, 1, 0, 1, 141, 0, 0, 0),
   (900310, 0, -1, 1, 141, 0, 0, 0),
-  (900311, 0, -1, 1, 141, 0, 0, 0);
+  (900310, 1, 0, 1, 141, 0, 0, 0),
+  (900310, 2, 1, 1, 141, 0, 0, 0),
+  (900310, 3, 2, 1, 141, 0, 0, 0),
+  (900310, 4, 3, 1, 141, 0, 0, 0),
+  (900311, 0, -1, 1, 141, 0, 0, 0),
+  (900311, 1, 4, 1, 141, 0, 0, 0);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900300, 0, 0, -3970, -3350),
+  (900300, 1, 0, -3780, -3484),
   (900301, 0, 0, -3970, -3350),
+  (900301, 1, 0, -3980, -3358),
   (900302, 0, 0, -3960, -3347),
+  (900302, 1, 0, -3960, -3355),
+  (900302, 2, 0, -3925, -3460),
+  (900302, 3, 0, -3958, -3467),
+  (900302, 4, 0, -3930, -3495),
+  (900302, 5, 0, -3967, -3498),
+  (900302, 6, 0, -4005, -3480),
+  (900302, 7, 0, -4016, -3458),
+  (900302, 8, 0, -4004, -3428),
+  (900302, 9, 0, -3942, -3440),
   (900303, 0, 0, -3965, -3359),
+  (900303, 1, 0, -3940, -3620),
+  (900303, 2, 0, -3935, -3617),
+  (900303, 3, 0, -3938, -3627),
+  (900303, 4, 0, -3932, -3624),
+  (900303, 5, 0, -3948, -3625),
+  (900303, 6, 0, -3940, -3610),
   (900304, 0, 0, -3965, -3359),
+  (900304, 1, 0, -3940, -3620),
+  (900304, 2, 0, -3935, -3617),
+  (900304, 3, 0, -3938, -3627),
+  (900304, 4, 0, -3945, -3621),
   (900305, 0, 0, -3970, -3350),
+  (900305, 1, 0, -3960, -3347),
+  (900305, 2, 0, -3865, -3472),
+  (900305, 3, 0, -3869, -3491),
+  (900305, 4, 0, -3898, -3472),
+  (900305, 5, 0, -3920, -3520),
+  (900305, 6, 0, -3939, -3548),
+  (900305, 7, 0, -3957, -3558),
+  (900305, 8, 0, -3975, -3540),
+  (900305, 9, 0, -4003, -3530),
+  (900305, 10, 0, -4021, -3555),
+  (900305, 11, 0, -4018, -3565),
+  (900305, 12, 0, -4025, -3505),
+  (900305, 13, 0, -3870, -3536),
   (900306, 0, 0, -3970, -3350),
+  (900306, 1, 0, -3948, -3618),
+  (900306, 2, 0, -3970, -3350),
+  (900306, 3, 0, -3935, -3624),
   (900307, 0, 0, -3960, -3347),
+  (900307, 1, 0, -4012, -3660),
   (900308, 0, 0, -3970, -3350),
+  (900308, 1, 0, -3980, -3358),
   (900309, 0, 0, -3970, -3350),
+  (900309, 1, 0, -3973, -3338),
   (900310, 0, 0, -3970, -3350),
-  (900311, 0, 0, -4535, -3235);
+  (900310, 1, 0, -3955, -3344),
+  (900310, 2, 0, -3958, -3360),
+  (900310, 3, 0, -3976, -3338),
+  (900310, 4, 0, -3970, -3350),
+  (900311, 0, 0, -4535, -3235),
+  (900311, 1, 0, -4535, -3235);
 INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001400, 'A meal, a poultice and a careful test. We start with what we can do.', 1),
   (4001401, 'Stay alert. The people at this camp have enough to fear already.', 1),
   (4001402, 'Give Leza privacy. I will tell you when your help is needed.', 1),
   (4001405, 'We still have homes here. Some days it is harder to remember why we keep them.', 1),
-  (4001408, 'The expedition still has people who need our help.', 1),
-  (4001409, 'The expedition still has people who need our help.', 1),
-  (4001410, 'The expedition still has people who need our help.', 1),
+  (4001408, 'The little ones eat first. We can wait, but they should not have to.', 1),
+  (4001409, 'We lost the wagons on the road. I never thought a place to sit could mean so much.', 1),
+  (4001410, 'Nala says I must rest. It is easier when I know someone is watching the road.', 1),
   (4001464, 'Jarod sent you to follow the buyers. My people need you here as well.', 1)
+ON DUPLICATE KEY UPDATE
+  `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
+INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
+  (4001465, 'Redhorn and Cloudhoof are resting. Both boys are strong, and I will stay beside them. When you are ready, I can show you how they are doing.', 1)
 ON DUPLICATE KEY UPDATE
   `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
 DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001464);
@@ -458,24 +587,24 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001464, 4001464);
 UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001464);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
-  (4001500, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001500, 10, 6737, 'Chezin''s Abandoned Pack', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001501, 10, 8698, 'Dawnchaser Medical Tent', 0.75, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001502, 10, 192, 'Dawnchaser Cooking Hearth', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001503, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001504, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001505, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001503, 10, 6737, 'Western Raider Lookout Supplies', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001504, 10, 6737, 'Central Raider Lookout Supplies', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001505, 10, 6737, 'Eastern Raider Lookout Supplies', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001506, 10, 269, 'Marsh Lotus Leaves', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001507, 10, 259, 'Raider Excavation Orders', 1, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001508, 10, 235, 'Raider Relic Binding Apparatus', 0.35, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001509, 10, 235, 'Ward-tainted Pool Focus', 0.35, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001510, 10, 192, 'Leza''s Memorial', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001511, 10, 335, 'Supply A', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001512, 10, 335, 'Supply B', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001513, 10, 335, 'Supply C', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001514, 5, 5993, 'Cot A', 0.8, 0, 0, 1, ''),
-  (4001515, 5, 5993, 'Cot B', 0.8, 0, 0, 1, ''),
-  (4001516, 5, 8457, 'Ruined Tent', 1, 0, 0, 1, ''),
-  (4001517, 5, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, '')
+  (4001511, 10, 335, 'Dawnchaser Family Provisions', 1, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001512, 10, 335, 'Traveler Provisions', 1, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001513, 10, 335, 'Field Hospital Provisions', 1, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001514, 5, 5993, 'Redhorn''s Bundled Cot', 0.8, 0, 0, 1, ''),
+  (4001515, 5, 5993, 'Cloudhoof''s Bundled Cot', 0.8, 0, 0, 1, ''),
+  (4001516, 5, 8457, 'Ruined Scouting Shelter', 1, 0, 0, 1, ''),
+  (4001517, 5, 6737, 'Barrelbottom Relief Supplies', 0.6, 0, 0, 1, '')
 ON DUPLICATE KEY UPDATE
   `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c03_creature_spawns`;

@@ -93,6 +93,8 @@ enum Id : std::uint32_t
     SPELL_HEX_BOLT = 20816,
     CREDIT_DEVICE = 4001463,
     TEXT_DEZCO = 4001464,
+    SPELL_POISON = 744,
+    TEXT_NALA_TWINS = 4001465,
 };
 
 struct Point

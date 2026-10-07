@@ -17,9 +17,14 @@ def main():
     chapters=[json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text()) for n in [1,2,3,4]]
     hubs=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text())
     models=Dbc(a.client_data/'dbc/CreatureDisplayInfo.dbc');objects=Dbc(a.client_data/'dbc/GameObjectDisplayInfo.dbc');gear=Dbc(a.client_data/'dbc/Item.dbc')
+    item_displays=Dbc(a.client_data/'dbc/ItemDisplayInfo.dbc')
     native_go=[r for r in table_rows(a.core_root,'gameobject') if int(r['map']) in [0,1]]
     count=0;props=0
     for n,c in enumerate(chapters,1):
+        for item in c['items']:
+            assert item['display'] in item_displays.rows,(n,item['key'],'missing item icon')
+            if item.get('icon_donor_item'):
+                assert gear.rows[item['icon_donor_item']][5] == item['display'],(n,item['key'],'icon donor mismatch')
         for actor in c['actors']+c.get('hostile',[]):
             outfit=actor.get('outfit')
             if not outfit:continue
@@ -28,6 +33,11 @@ def main():
             count+=1
             for slot in ['mainhand','offhand','ranged']:
                 if outfit.get(slot):assert outfit[slot] in gear.rows,(actor['key'],slot)
+        for actor in c['actors']+c.get('hostile',[]):
+            for weapon in actor.get('weapons',[]):
+                assert not weapon or weapon in gear.rows,(n,actor['key'],'missing held weapon')
+            for item,chance,low,high in actor.get('ordinary_loot',{}).get('items',[]):
+                assert item in gear.rows and 0<chance<=100 and 0<low<=high,(n,actor['key'],'invalid incidental loot')
         for o in c['objects']:
             assert o['display'] != 22,(n,o['key'],'placeholder sign')
             assert not (n<=2 and o['display']==676),(n,o['key'],'empty cage')
