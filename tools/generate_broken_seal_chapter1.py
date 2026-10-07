@@ -7,6 +7,7 @@ import math
 from pathlib import Path
 
 from broken_seal_outfits import validate_outfits
+from broken_seal_content import equipment_sql, ordinary_loot_sql
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/quests/broken_seal_chapter1.json'
@@ -70,7 +71,6 @@ def header(data):
                        ('WardCredits', ['CREDIT_WARD_A', 'CREDIT_WARD_B', 'CREDIT_WARD_C']),
                        ('CaptiveCredits', ['CREDIT_CAPTIVE_A', 'CREDIT_CAPTIVE_B', 'CREDIT_CAPTIVE_C']),
                        ('CaptiveEntries', ['NPC_CAPTIVE_A', 'NPC_CAPTIVE_B', 'NPC_CAPTIVE_C']),
-                       ('CageEntries', ['GO_CAGE_A', 'GO_CAGE_B', 'GO_CAGE_C']),
                        ('WardEntries', ['GO_WARD_A', 'GO_WARD_B', 'GO_WARD_C']),
                        ('TrailEntries', ['GO_TRAIL_A', 'GO_TRAIL_B', 'GO_TRAIL_C'])]:
         lines += [f'inline constexpr std::array<std::uint32_t, 3> {name} =',
@@ -157,13 +157,13 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
         script = {'contact': 'npc_bs_c01_contact', 'captive': 'npc_bs_c01_captive',
                   'recruit': 'npc_bs_c01_recruit'}[a['script_role']]
         creatures.append([a['entry'], a['name'], 'The Vale Expedition' if a['script_role'] == 'contact' else '',
-                          25, 25, 0, 35, a['npc_flags'], 1, 770, 7, '', script, 1, 1, 0, 0, 2])
+                          25, 25, 0, a.get('faction',35), a['npc_flags'], 1, 770, 7, '', script, 1, 1, 0, 0, 2])
         model_rows.append([a['entry'], 0, a['fallback_display'], 1, 1])
     for a in data['hostile']:
         creatures.append([a['entry'], a['name'], '', *a['level'], 0, 14, 0, 1, 0,
                           4 if a['key'] == 'NPC_EARTH' else 7, 'SmartAI' if a['key'] == 'NPC_EARTH' else '',
                           '' if a['key'] == 'NPC_EARTH' else 'npc_bs_c01_cult', 1, 1, 1,
-                          a['entry'] if a.get('loot_item') else 0, 0])
+                          a['entry'] if a.get('loot_item') or a.get('ordinary_loot') else 0, 0])
         model_rows.append([a['entry'], 0, a['display'], 1, 1])
     creatures.append([ids['NPC_SCENE'], 'Expedition Observation Focus', '', 1, 1, 0, 35, 0,
                       1, 33555202, 10, '', 'npc_bs_c01_observation', 1, 1, 0, 0, 2])
@@ -185,7 +185,9 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
         outfit_rows.append([a['entry']] + [a['outfit'].get(c, 1 if c == 'class' else 0) for c in outfit_cols[1:]])
     text += upsert('mod_customnpcs_outfit', outfit_cols, outfit_rows, ['outfit_id'])
     text += upsert('mod_customnpcs_outfit_entry', ['creature_entry', 'outfit_id'],
-                   [[a['entry'], a['entry']] for a in dressed], ['creature_entry'])
+                   [[a['entry'], 0 if a.get('native_appearance') else a['entry']] for a in dressed], ['creature_entry'])
+    text += equipment_sql(data['actors'] + data['hostile'])
+    text += ordinary_loot_sql(data['hostile'])
     text += f'DELETE FROM `creature_template_addon` WHERE `entry` = {ids["NPC_JAROD"]};\n'
     text += rows('creature_template_addon', ['entry', 'emote'], [[ids['NPC_JAROD'], 68]])
 
@@ -218,7 +220,7 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
     text += upsert('item_template', icols, ir, ['entry'])
     pages = [[i['page'], i['text'], 0] for i in data['items'] if i.get('page')]
     text += upsert('page_text', ['ID', 'Text', 'NextPageID'], pages, ['ID'])
-    text += f'DELETE FROM `creature_loot_template` WHERE `Entry` = {ids["NPC_CULT_SCOUT"]};\n'
+    
     text += rows('creature_loot_template', ['Entry', 'Item', 'Reference', 'Chance', 'QuestRequired', 'LootMode',
                                           'GroupId', 'MinCount', 'MaxCount'],
                  [[ids['NPC_CULT_SCOUT'], ids['ITEM_ORDERS'], 0, 100, 1, 1, 0, 1, 1]])
@@ -328,8 +330,8 @@ SET @BS_C01_ENTRY_COLUMN := (
 );
 SET @BS_C01_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C01_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
-  '`position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, 90, 0, 0, s.`spawn_key` ',
+  '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
+  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 90, 0, 0, s.`spawn_key` ',
   'FROM `bs_c01_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_INSERT;
@@ -338,7 +340,7 @@ DEALLOCATE PREPARE bs_c01_stmt;
 SET @BS_C01_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c01_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C01_ENTRY_COLUMN, '` = s.`entry`, c.`position_x` = s.`x`, c.`position_y` = s.`y`, ',
-  'c.`position_z` = s.`z`, c.`orientation` = s.`o`'
+  'c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_UPDATE;
 EXECUTE bs_c01_stmt;
@@ -351,6 +353,18 @@ FROM `bs_c01_gameobject_spawns` s LEFT JOIN `gameobject` g ON g.`Comment` = s.`s
 UPDATE `gameobject` g INNER JOIN `bs_c01_gameobject_spawns` s ON g.`Comment` = s.`spawn_key`
 SET g.`id` = s.`entry`, g.`position_x` = s.`x`, g.`position_y` = s.`y`, g.`position_z` = s.`z`, g.`orientation` = s.`o`,
   g.`rotation2` = SIN(s.`o` / 2), g.`rotation3` = COS(s.`o` / 2);
+-- Retire obsolete owned campaign placements; surviving spawn keys keep their GUIDs.
+SET @BS_C01_PRUNE := CONCAT(
+  'DELETE c FROM `creature` c LEFT JOIN `bs_c01_creature_spawns` s ON s.`spawn_key`=c.`Comment` ',
+  'INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`=\\'creature\\' AND owner.`entry`=c.`',@BS_C01_ENTRY_COLUMN,'` AND owner.`chapter`=1 ',
+  'WHERE c.`Comment` LIKE \\'BS-C01:%\\' AND s.`spawn_key` IS NULL'
+);
+PREPARE bs_c01_stmt FROM @BS_C01_PRUNE;
+EXECUTE bs_c01_stmt;
+DEALLOCATE PREPARE bs_c01_stmt;
+DELETE g FROM `gameobject` g LEFT JOIN `bs_c01_gameobject_spawns` s ON s.`spawn_key`=g.`Comment`
+INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`='gameobject' AND owner.`entry`=g.`id` AND owner.`chapter`=1
+WHERE g.`Comment` LIKE 'BS-C01:%' AND s.`spawn_key` IS NULL;
 DROP TEMPORARY TABLE `bs_c01_creature_spawns`;
 DROP TEMPORARY TABLE `bs_c01_gameobject_spawns`;
 DROP TEMPORARY TABLE `bs_c01_ids`;

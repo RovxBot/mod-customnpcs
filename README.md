@@ -123,7 +123,7 @@ step. The included [client patch](data/client/flight-masters/patch-F.MPQ) adds t
 stops to the normal flight map, with 110 routes connecting them to existing Wrath
 hubs. Install the client patch before enabling the matching world update.
 
-## The Broken Seal campaign: Chapters 1–3
+## The Broken Seal campaign: Chapters 1–4
 
 Chapter 1 adds a level 20–25 investigation in Stonetalon: faction introductions,
 three distinct trail markers, six scout kills, three personal captive escorts,
@@ -149,12 +149,19 @@ a quiet memorial, food deliveries and a settlement handoff. It keeps both sons
 alive, uses a native tauren baby model, and recreates Kang and Mei as dwarves.
 [Chapter 3 installation and gameplay](docs/broken-seal/chapter3-implementation.md)
 lists all 12 quests, recovery paths, native substitutions and remaining playtests.
-The [shared hub add-on](docs/broken-seal/hub-implementation.md) builds out eight
-resting/hand-in areas with 72 native scenery placements, 16 sentries and eight
-working residents. It protects players from ordinary ambient mobs, keeps quest
-encounters active, and conditionally clears 21 native spawn homes with backups.
+Chapter 4 adds the level 35–40 village recovery story: Yi-Mo's private rescue,
+medicine and mask testing, eight distinct resident treatments, the ordered despair
+finale, three hearths and rebuilding services, a pledge and a neutral Wildhammer
+handoff in the Hinterlands. Ken-Ken uses a native gorilla approximation; all 12
+quests use saved native progress and supported Wrath assets.
+[Chapter 4 installation and gameplay](docs/broken-seal/chapter4-implementation.md)
+lists its controls, prerequisites, recovery and pending live checks.
+The [shared hub add-on](docs/broken-seal/hub-implementation.md) builds out ten
+resting/hand-in areas with 96 native scenery placements, 20 sentries and ten working
+residents. It protects players from ordinary ambient mobs, keeps personal encounters
+active, and conditionally clears 22 native spawn homes with backups.
 [The layout plan](docs/broken-seal/hub-layout.svg) shows camp footprints and clear routes.
-Chapters 4–14 remain design inventories.
+Chapters 5–14 remain design inventories.
 
 ## Custom NPC appearances
 
@@ -238,6 +245,7 @@ automatically on startup when the module is present in the source tree.
 | `ModCustomNPCs.BrokenSeal.Chapter1.Enable` | `1` | Enable the Stonetalon chapter's quest interactions and personal scenes |
 | `ModCustomNPCs.BrokenSeal.Chapter2.Enable` | `1` | Enable the cult training chapter; requires Chapter 1. |
 | `ModCustomNPCs.BrokenSeal.Chapter3.Enable` | `1` | Enable Dawnchaser medical scenes and marsh quests; requires Chapters 1/2. |
+| `ModCustomNPCs.BrokenSeal.Chapter4.Enable` | `1` | Enable village treatment, despair encounters and the Wildhammer handoff; requires Chapters 1–3. |
 | `ModCustomNPCs.BrokenSeal.Hubs.Enable` | `1` | Enable camp sentries and local ambient-mob protection; requires hub SQL. |
 
 ## Project Structure

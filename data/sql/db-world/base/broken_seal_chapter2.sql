@@ -91,6 +91,7 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('gameobject', 4001318),
   ('gameobject', 4001319),
   ('gameobject', 4001320),
+  ('gameobject', 4001321),
   ('quest', 900200),
   ('quest', 900201),
   ('quest', 900202),
@@ -245,10 +246,10 @@ START TRANSACTION;
 INSERT INTO `mod_customnpcs_bs_content` (`kind`, `entry`, `chapter`)
 SELECT `kind`, `entry`, 2 FROM `bs_c02_ids` ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
 INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `unit_class`, `unit_flags`, `type`, `AIName`, `ScriptName`, `HealthModifier`, `DamageModifier`, `ExperienceModifier`, `lootid`, `flags_extra`) VALUES
-  (4001200, 'Condenna the Pitiless', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
-  (4001201, 'Instructor Cargall', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
-  (4001202, 'Instructor Mylva', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
-  (4001203, 'Instructor Devoran', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
+  (4001200, 'Condenna the Pitiless', 30, 30, 0, 14, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 0),
+  (4001201, 'Instructor Cargall', 30, 30, 0, 14, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 0),
+  (4001202, 'Instructor Mylva', 30, 30, 0, 14, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 0),
+  (4001203, 'Instructor Devoran', 30, 30, 0, 14, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 0),
   (4001204, 'Commander Jarod Shadowsong', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
   (4001205, 'Sunwalker Dezco', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
   (4001206, 'Isolated Twilight Recruit', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
@@ -267,13 +268,13 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001219, 'Twilight Restraint Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
   (4001220, 'Twilight Enforcer', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
   (4001221, 'Twilight Trial Focus', 27, 27, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c02_scene', 1, 1, 0, 0, 2),
-  (4001222, 'Trial Fire Elemental', 25, 25, 0, 14, 0, 1, 0, 4, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001222, 'Trial Fire Elemental', 25, 25, 0, 14, 0, 1, 0, 4, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
   (4001223, 'Smolderos', 29, 29, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
   (4001224, 'Spinescale Matriarch', 27, 27, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001224, 0),
-  (4001225, 'Failed Supplicant', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
-  (4001226, 'Horrorguard', 28, 28, 0, 14, 0, 1, 0, 3, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
-  (4001227, 'Twilight Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
-  (4001228, 'Twilight Scout', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 0, 0),
+  (4001225, 'Failed Supplicant', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001225, 0),
+  (4001226, 'Horrorguard', 28, 28, 0, 14, 0, 1, 0, 3, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001227, 'Twilight Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001227, 0),
+  (4001228, 'Twilight Scout', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001228, 0),
   (4001229, 'Butcher', 27, 27, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
   (4001250, 'Knockout', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001251, 'Identity', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -304,35 +305,35 @@ ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001213, 4001214, 4001215, 4001216, 4001217, 4001218, 4001219, 4001220, 4001221, 4001222, 4001223, 4001224, 4001225, 4001226, 4001227, 4001228, 4001229, 4001250, 4001251, 4001252, 4001253, 4001254, 4001255, 4001256, 4001257, 4001258, 4001259, 4001260, 4001261, 4001262, 4001263, 4001264, 4001265, 4001266, 4001267, 4001268, 4001269, 4001270, 4001271, 4001272, 4001273, 4001274);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
-  (4001200, 0, 50, 1, 1),
-  (4001201, 0, 49, 1, 1),
-  (4001202, 0, 50, 1, 1),
-  (4001203, 0, 49, 1, 1),
-  (4001204, 0, 55, 1, 1),
-  (4001205, 0, 59, 1, 1),
-  (4001206, 0, 49, 1, 1),
-  (4001207, 0, 49, 1, 1),
-  (4001208, 0, 49, 1, 1),
-  (4001209, 0, 49, 1, 1),
+  (4001200, 0, 11815, 1, 1),
+  (4001201, 0, 11811, 1, 1),
+  (4001202, 0, 11815, 1, 1),
+  (4001203, 0, 11824, 1, 1),
+  (4001204, 0, 5070, 1, 1),
+  (4001205, 0, 3770, 1, 1),
+  (4001206, 0, 11824, 1, 1),
+  (4001207, 0, 11824, 1, 1),
+  (4001208, 0, 11824, 1, 1),
+  (4001209, 0, 11824, 1, 1),
   (4001210, 0, 12168, 0.45, 1),
   (4001211, 0, 24813, 1, 1),
-  (4001212, 0, 49, 1, 1),
+  (4001212, 0, 11824, 1, 1),
   (4001213, 0, 11584, 1, 1),
   (4001214, 0, 11584, 1, 1),
-  (4001215, 0, 49, 1, 1),
+  (4001215, 0, 11824, 1, 1),
   (4001216, 0, 16632, 0.6, 1),
   (4001217, 0, 11542, 1, 1),
   (4001218, 0, 11584, 1, 1),
-  (4001219, 0, 49, 1, 1),
-  (4001220, 0, 51, 1, 1),
+  (4001219, 0, 11824, 1, 1),
+  (4001220, 0, 11812, 1, 1),
   (4001221, 0, 11686, 1, 1),
   (4001222, 0, 2172, 1, 1),
   (4001223, 0, 12168, 0.6, 1),
   (4001224, 0, 141, 1, 1),
-  (4001225, 0, 49, 1, 1),
+  (4001225, 0, 11824, 1, 1),
   (4001226, 0, 18621, 1, 1),
-  (4001227, 0, 51, 1, 1),
-  (4001228, 0, 55, 1, 1),
+  (4001227, 0, 11812, 1, 1),
+  (4001228, 0, 11816, 1, 1),
   (4001229, 0, 2571, 1, 1),
   (4001250, 0, 11686, 1, 1),
   (4001251, 0, 11686, 1, 1),
@@ -372,33 +373,92 @@ INSERT INTO `mod_customnpcs_outfit` (`outfit_id`, `race`, `gender`, `class`, `sk
   (4001209, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
   (4001212, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
   (4001215, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
-  (4001219, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
-  (4001220, 2, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001219, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 0),
+  (4001220, 2, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 0),
   (4001225, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
-  (4001227, 2, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
-  (4001228, 4, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0)
+  (4001227, 2, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 0),
+  (4001228, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 2504)
 ON DUPLICATE KEY UPDATE
   `race` = VALUES(`race`), `gender` = VALUES(`gender`), `class` = VALUES(`class`), `skin` = VALUES(`skin`), `face` = VALUES(`face`), `hair` = VALUES(`hair`), `hair_color` = VALUES(`hair_color`), `facial_hair` = VALUES(`facial_hair`), `chest` = VALUES(`chest`), `shoulders` = VALUES(`shoulders`), `shirt` = VALUES(`shirt`), `waist` = VALUES(`waist`), `legs` = VALUES(`legs`), `feet` = VALUES(`feet`), `hands` = VALUES(`hands`), `mainhand` = VALUES(`mainhand`), `ranged` = VALUES(`ranged`);
 INSERT INTO `mod_customnpcs_outfit_entry` (`creature_entry`, `outfit_id`) VALUES
-  (4001200, 4001200),
-  (4001201, 4001201),
-  (4001202, 4001202),
-  (4001203, 4001203),
+  (4001200, 0),
+  (4001201, 0),
+  (4001202, 0),
+  (4001203, 0),
   (4001204, 4001204),
   (4001205, 4001205),
-  (4001206, 4001206),
-  (4001207, 4001207),
-  (4001208, 4001208),
-  (4001209, 4001209),
-  (4001212, 4001212),
-  (4001215, 4001215),
-  (4001219, 4001219),
-  (4001220, 4001220),
-  (4001225, 4001225),
-  (4001227, 4001227),
-  (4001228, 4001228)
+  (4001206, 0),
+  (4001207, 0),
+  (4001208, 0),
+  (4001209, 0),
+  (4001212, 0),
+  (4001215, 0),
+  (4001219, 0),
+  (4001220, 0),
+  (4001225, 0),
+  (4001227, 0),
+  (4001228, 0)
 ON DUPLICATE KEY UPDATE
   `outfit_id` = VALUES(`outfit_id`);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
+  (4001200, 1, 4575, 0, 0),
+  (4001201, 1, 4575, 0, 0),
+  (4001202, 1, 4575, 0, 0),
+  (4001203, 1, 4575, 0, 0),
+  (4001204, 1, 6631, 0, 0),
+  (4001205, 1, 6631, 0, 0),
+  (4001206, 1, 4575, 0, 0),
+  (4001207, 1, 4575, 0, 0),
+  (4001208, 1, 4575, 0, 0),
+  (4001209, 1, 4575, 0, 0),
+  (4001212, 1, 4575, 0, 0),
+  (4001215, 1, 4575, 0, 0),
+  (4001219, 1, 12282, 0, 0),
+  (4001220, 1, 12282, 0, 0),
+  (4001225, 1, 4575, 0, 0),
+  (4001227, 1, 12282, 0, 0),
+  (4001228, 1, 12282, 0, 2504)
+ON DUPLICATE KEY UPDATE
+  `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
+UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001225 WHERE `entry`=4001225;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001225;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001225, 2592, 0, 40, 0, 1, 0, 1, 2),
+  (4001225, 3770, 0, 8, 0, 1, 0, 1, 1),
+  (4001225, 1205, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001225, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=431 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001227 WHERE `entry`=4001227;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001227;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001227, 2592, 0, 40, 0, 1, 0, 1, 2),
+  (4001227, 3770, 0, 8, 0, 1, 0, 1, 1),
+  (4001227, 1205, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001227, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=431 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001228 WHERE `entry`=4001228;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001228;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001228, 2592, 0, 40, 0, 1, 0, 1, 2),
+  (4001228, 3770, 0, 8, 0, 1, 0, 1, 1),
+  (4001228, 1205, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001228, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=431 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
   (900200, 12, 0, 'Ortell''s Blackjack', 7411, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 39865, 0, 'item_bs_c02_tool'),
   (900201, 12, 0, 'Twilight Recruitment Papers', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: Inside the Twilight', 0, 0, ''),
@@ -640,28 +700,28 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900221, 0, -1, 1, 81, 0, 0, 0),
   (900222, 0, -1, 1, 141, 0, 0, 0);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
-  (900200, 0, 0, 1120, 1550),
-  (900201, 0, 0, 892, 1610),
-  (900202, 0, 0, 892, 1610),
-  (900203, 0, 0, 892, 1610),
-  (900204, 0, 0, 894, 1643),
-  (900205, 0, 0, 892, 1610),
-  (900206, 0, 0, 862, 1592),
-  (900207, 0, 0, 862, 1592),
-  (900208, 0, 0, 862, 1592),
-  (900209, 0, 0, 862, 1592),
-  (900210, 0, 0, 915, 1600),
-  (900211, 0, 0, 915, 1600),
-  (900212, 0, 0, 915, 1600),
-  (900213, 0, 0, 1120, 1550),
-  (900214, 0, 0, 1120, 1550),
-  (900215, 0, 0, 862, 1592),
-  (900216, 0, 0, 862, 1592),
-  (900217, 0, 0, 1120, 1550),
-  (900218, 0, 0, 862, 1592),
-  (900219, 0, 0, 990, 1730),
-  (900220, 0, 0, 1120, 1550),
-  (900221, 0, 0, 1120, 1550),
+  (900200, 0, 0, 1100, 1540),
+  (900201, 0, 0, 635, 1624),
+  (900202, 0, 0, 635, 1624),
+  (900203, 0, 0, 635, 1624),
+  (900204, 0, 0, 636, 1632),
+  (900205, 0, 0, 635, 1624),
+  (900206, 0, 0, 644, 1620),
+  (900207, 0, 0, 644, 1620),
+  (900208, 0, 0, 644, 1620),
+  (900209, 0, 0, 644, 1620),
+  (900210, 0, 0, 646, 1630),
+  (900211, 0, 0, 646, 1630),
+  (900212, 0, 0, 646, 1630),
+  (900213, 0, 0, 1100, 1540),
+  (900214, 0, 0, 1100, 1540),
+  (900215, 0, 0, 644, 1620),
+  (900216, 0, 0, 644, 1620),
+  (900217, 0, 0, 1100, 1540),
+  (900218, 0, 0, 644, 1620),
+  (900219, 0, 0, 895, 1682),
+  (900220, 0, 0, 1100, 1540),
+  (900221, 0, 0, 1100, 1540),
   (900222, 0, 0, -3970, -3350);
 INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001200, 'Show your sponsor papers. This camp has no patience for an uncertain recruit.', 1),
@@ -698,27 +758,28 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001002, 4001002);
 UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001002);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
-  (4001300, 10, 22, 'Recruit Rendezvous', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001300, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
   (4001301, 10, 269, 'Flame Blossom Patch', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001302, 10, 235, 'Training Stone Pile', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001303, 10, 235, 'Stone Delivery Station', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001304, 10, 22, 'Agility Trial Start', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001305, 10, 22, 'Agility Checkpoint A', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001306, 10, 22, 'Agility Checkpoint B', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001307, 10, 22, 'Agility Checkpoint C', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001308, 10, 22, 'Agility Checkpoint D', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001309, 10, 22, 'Hound Feeding Station A', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001310, 10, 22, 'Hound Feeding Station B', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001311, 10, 22, 'Hound Feeding Station C', 1, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001302, 10, 235, 'Training Stone Pile', 0.3, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001303, 10, 6737, 'Training Load Crate', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001304, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001305, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001306, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001307, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001308, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001309, 5, 6737, 'Hound Feeding Supplies', 0.5, 0, 0, 1, ''),
+  (4001310, 5, 6737, 'Hound Feeding Supplies', 0.5, 0, 0, 1, ''),
+  (4001311, 5, 6737, 'Hound Feeding Supplies', 0.5, 0, 0, 1, ''),
   (4001312, 10, 259, 'Communique', 1, 0, 0, 1, 'go_bs_c02_interaction'),
   (4001313, 10, 259, 'Plans', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001314, 10, 3332, 'Ortell''s Dead Drop', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001315, 10, 22, 'Discord', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001316, 10, 235, 'Garnoth', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001317, 10, 22, 'Okrog', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001318, 10, 227, 'Initiation Podium', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001319, 10, 676, 'Jarod''s Restraints', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001320, 10, 259, 'Buyers', 1, 0, 0, 1, 'go_bs_c02_interaction')
+  (4001314, 10, 6737, 'Ortell''s Sealed Message Crate', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001315, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001316, 10, 235, 'Garnoth', 0.3, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001317, 10, 6420, 'Twilight Training Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001318, 10, 227, 'Initiation Podium', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001319, 10, 6419, 'Broken Restraint Tablet', 0.55, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001320, 10, 6737, 'Buyer Correspondence Crate', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001321, 10, 6419, 'Horrorguard Calling Tablet', 0.55, 0, 0, 1, 'go_bs_c02_interaction')
 ON DUPLICATE KEY UPDATE
   `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c02_creature_spawns`;
@@ -726,69 +787,49 @@ CREATE TEMPORARY TABLE `bs_c02_creature_spawns` (`spawn_key` VARCHAR(100) PRIMAR
 DROP TEMPORARY TABLE IF EXISTS `bs_c02_gameobject_spawns`;
 CREATE TEMPORARY TABLE `bs_c02_gameobject_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO `bs_c02_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C02:NPC_CONDENNA:condenna', 4001200, 406, 892.0, 1610.0, -20.975140854483726, 3.14),
-  ('BS-C02:NPC_CARGALL:cargall', 4001201, 406, 894.0, 1643.0, -12.057970640005262, 3.14),
-  ('BS-C02:NPC_MYLVA:mylva', 4001202, 406, 862.0, 1592.0, -24.190115060947168, 3.14),
-  ('BS-C02:NPC_DEVORAN:devoran', 4001203, 406, 915.0, 1600.0, -15.91023245221452, 3.14),
-  ('BS-C02:NPC_DEZCO:dezco', 4001205, 15, -3970.0, -3350.0, 39.392848, 3.14),
-  ('BS-C02:NPC_FIRE:fire_0', 4001222, 406, 835.0, 1664.0, -27.059933500169194, 3.14),
-  ('BS-C02:NPC_FIRE:fire_1', 4001222, 406, 824.0, 1669.0, -28.40598382122006, 3.14),
-  ('BS-C02:NPC_FIRE:fire_2', 4001222, 406, 819.0, 1682.0, -26.401782189081, 3.14),
-  ('BS-C02:NPC_FIRE:fire_3', 4001222, 406, 839.0, 1679.0, -25.57625049232782, 3.14),
-  ('BS-C02:NPC_FIRE:fire_4', 4001222, 406, 852.0, 1697.0, -22.180517612859283, 3.14),
-  ('BS-C02:NPC_FIRE:fire_5', 4001222, 406, 825.0, 1694.0, -24.325921655653925, 3.14),
-  ('BS-C02:NPC_FIRE:fire_6', 4001222, 406, 810.0, 1672.0, -29.03081770956997, 3.14),
-  ('BS-C02:NPC_FIRE:fire_7', 4001222, 406, 844.0, 1712.0, -20.64566856295442, 3.14),
+  ('BS-C02:NPC_CONDENNA:condenna', 4001200, 406, 635.0, 1624.0, -17.659155673889078, 3.14),
+  ('BS-C02:NPC_CARGALL:cargall', 4001201, 406, 636.0, 1632.0, -17.671715813413623, 3.14),
+  ('BS-C02:NPC_MYLVA:mylva', 4001202, 406, 644.0, 1620.0, -18.099289405229584, 3.14),
+  ('BS-C02:NPC_DEVORAN:devoran', 4001203, 406, 646.0, 1630.0, -17.768230569760494, 3.14),
+  ('BS-C02:NPC_DEZCO:dezco', 4001205, 15, -3970, -3350, 39.34284809730439, 3.14),
   ('BS-C02:NPC_SMOLDEROS:smolderos', 4001223, 406, 784.0, 1628.0, -33.92676009625418, 3.14),
   ('BS-C02:NPC_MATRIARCH:matriarch', 4001224, 406, 955.0, 1570.0, -10.151935222047097, 3.14),
-  ('BS-C02:NPC_FAILED:failed_0', 4001225, 406, 846.0, 1534.0, -19.41653064558561, 3.14),
-  ('BS-C02:NPC_FAILED:failed_1', 4001225, 406, 862.0, 1528.0, -17.89641558558829, 3.14),
-  ('BS-C02:NPC_FAILED:failed_2', 4001225, 406, 880.0, 1527.0, -16.2160568958683, 3.14),
-  ('BS-C02:NPC_FAILED:failed_3', 4001225, 406, 885.0, 1541.0, -18.675011104123634, 3.14),
-  ('BS-C02:NPC_FAILED:failed_4', 4001225, 406, 842.0, 1548.0, -23.47708327588033, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_0', 4001226, 406, 811.0, 1710.0, -19.971519600471012, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_1', 4001226, 406, 800.0, 1720.0, -15.045565090923311, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_2', 4001226, 406, 804.0, 1740.0, -20.744298711221294, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_3', 4001226, 406, 827.0, 1748.0, -17.96520257641237, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_4', 4001226, 406, 794.0, 1754.0, -19.573429283539635, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_5', 4001226, 406, 821.0, 1757.0, -17.224683192441777, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_6', 4001226, 406, 790.0, 1734.0, -20.412446603782218, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_7', 4001226, 406, 832.0, 1729.0, -17.318818132878526, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_8', 4001226, 406, 807.0, 1771.0, -15.74152903258026, 3.14),
-  ('BS-C02:NPC_HORRORGUARD:horrorguard_9', 4001226, 406, 829.0, 1774.0, -13.362506394628127, 3.14),
-  ('BS-C02:NPC_GUARD:guard_0', 4001227, 406, 857.0, 1664.0, -22.09087788025223, 3.14),
-  ('BS-C02:NPC_GUARD:guard_1', 4001227, 406, 835.0, 1681.0, -25.97447302125479, 3.14),
-  ('BS-C02:NPC_SCOUT:scout_0', 4001228, 406, 859.0, 1657.0, -22.558379494557123, 3.14),
-  ('BS-C02:NPC_SCOUT:scout_1', 4001228, 406, 854.0, 1662.0, -22.973789582833103, 3.14);
+  ('BS-C02:NPC_FAILED:failed_0', 4001225, 406, 600, 1648, -14.609421585323975, 3.14),
+  ('BS-C02:NPC_FAILED:failed_1', 4001225, 406, 600, 1654, -15.662886761449489, 3.14),
+  ('BS-C02:NPC_GUARD:guard_0', 4001227, 406, 643.0, 1627.0, -17.777485409410172, 3.14),
+  ('BS-C02:NPC_GUARD:guard_1', 4001227, 406, 633.0, 1627.0, -17.611030507710623, 3.14),
+  ('BS-C02:NPC_SCOUT:scout_0', 4001228, 406, 638.0, 1627.0, -17.76466084589558, 3.14),
+  ('BS-C02:NPC_SCOUT:scout_1', 4001228, 406, 640.0, 1629.0, -17.700405816327685, 3.14);
 INSERT INTO `bs_c02_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C02:GO_RENDEZVOUS:rendezvous', 4001300, 406, 966.0, 1660.0, -9.555197574737871, 3.14),
-  ('BS-C02:GO_FLOWER:flower_0', 4001301, 406, 776.0, 1588.0, -29.70123911062748, 3.14),
-  ('BS-C02:GO_FLOWER:flower_1', 4001301, 406, 790.0, 1580.0, -29.962446700515393, 3.14),
-  ('BS-C02:GO_FLOWER:flower_2', 4001301, 406, 805.0, 1590.0, -29.72993633581989, 3.14),
-  ('BS-C02:GO_FLOWER:flower_3', 4001301, 406, 782.0, 1603.0, -31.07785602808746, 3.14),
-  ('BS-C02:GO_FLOWER:flower_4', 4001301, 406, 798.0, 1608.0, -31.604324192160373, 3.14),
-  ('BS-C02:GO_FLOWER:flower_5', 4001301, 406, 774.0, 1620.0, -32.74756131288807, 3.14),
-  ('BS-C02:GO_FLOWER:flower_6', 4001301, 406, 808.0, 1625.0, -29.938188631224893, 3.14),
-  ('BS-C02:GO_FLOWER:flower_7', 4001301, 406, 790.0, 1638.0, -33.710064636456366, 3.14),
-  ('BS-C02:GO_STONES:stones', 4001302, 406, 850.0, 1600.0, -24.177965870719937, 3.14),
-  ('BS-C02:GO_DELIVERY:delivery', 4001303, 406, 845.0, 1630.0, -25.4678366564315, 3.14),
-  ('BS-C02:GO_COURSE_START:course_start', 4001304, 406, 850.0, 1570.0, -23.47834008866258, 3.14),
-  ('BS-C02:GO_CHECK_A:check_a', 4001305, 406, 815.0, 1570.0, -28.852262076292593, 3.14),
-  ('BS-C02:GO_CHECK_B:check_b', 4001306, 406, 795.0, 1605.0, -31.48480454868414, 3.14),
-  ('BS-C02:GO_CHECK_C:check_c', 4001307, 406, 815.0, 1630.0, -30.127648420053635, 3.14),
-  ('BS-C02:GO_CHECK_D:check_d', 4001308, 406, 851.0, 1564.0, -22.601084766729425, 3.14),
-  ('BS-C02:GO_DOG_A:dog_a', 4001309, 406, 920.0, 1570.0, -15.921753236050666, 3.14),
-  ('BS-C02:GO_DOG_B:dog_b', 4001310, 406, 944.0, 1575.0, -12.784329594237406, 3.14),
-  ('BS-C02:GO_DOG_C:dog_c', 4001311, 406, 951.006, 1610.0, -11.64599647705564, 3.14),
-  ('BS-C02:GO_COMMUNIQUE:communique', 4001312, 406, 861.0, 1660.0, -21.552246212639933, 3.14),
-  ('BS-C02:GO_PLANS:plans', 4001313, 406, 838.0, 1685.0, -25.30455484261184, 3.14),
-  ('BS-C02:GO_DROP:drop', 4001314, 406, 950.0, 1670.0, -11.730349316406638, 3.14),
-  ('BS-C02:GO_DISCORD:discord', 4001315, 406, 890.0, 1685.0, -19.676951275621253, 3.14),
-  ('BS-C02:GO_GARNOTH:garnoth', 4001316, 406, 815.0, 1725.0, -20.68440667748826, 3.14),
-  ('BS-C02:GO_OKROG:okrog', 4001317, 406, 906.0, 1714.0, -16.1351241416823, 3.14),
-  ('BS-C02:GO_PODIUM:podium', 4001318, 406, 988.0, 1710.0, -9.171121729275644, 3.14),
-  ('BS-C02:GO_PRISON:prison', 4001319, 406, 990.0, 1730.0, -9.675774914174127, 3.14),
-  ('BS-C02:GO_BUYERS:buyers', 4001320, 406, 857.0, 1676.0, -21.92204316264282, 3.14);
+  ('BS-C02:GO_RENDEZVOUS:rendezvous', 4001300, 406, 869.0, 1666.0, -19.745591491613013, 3.14),
+  ('BS-C02:GO_FLOWER:flower_0', 4001301, 406, 776.0, 1588.0, -29.084771086373635, 3.14),
+  ('BS-C02:GO_FLOWER:flower_1', 4001301, 406, 790.0, 1580.0, -29.34597867626155, 3.14),
+  ('BS-C02:GO_FLOWER:flower_2', 4001301, 406, 805.0, 1590.0, -29.113468311566045, 3.14),
+  ('BS-C02:GO_FLOWER:flower_3', 4001301, 406, 782.0, 1603.0, -30.461388003833616, 3.14),
+  ('BS-C02:GO_FLOWER:flower_4', 4001301, 406, 798.0, 1608.0, -30.98785616790653, 3.14),
+  ('BS-C02:GO_FLOWER:flower_5', 4001301, 406, 774.0, 1620.0, -32.13109328863422, 3.14),
+  ('BS-C02:GO_FLOWER:flower_6', 4001301, 406, 808.0, 1625.0, -29.32172060697105, 3.14),
+  ('BS-C02:GO_FLOWER:flower_7', 4001301, 406, 790.0, 1638.0, -33.09359661220252, 3.14),
+  ('BS-C02:GO_STONES:stones', 4001302, 406, 636.0, 1617.0, -16.288507813269582, 3.14),
+  ('BS-C02:GO_DELIVERY:delivery', 4001303, 406, 649.0, 1626.0, -18.28848477006856, 3.14),
+  ('BS-C02:GO_COURSE_START:course_start', 4001304, 406, 650.0, 1637.0, -17.694322389255138, 3.14),
+  ('BS-C02:GO_CHECK_A:check_a', 4001305, 406, 657.0, 1637.0, -18.62469819803956, 3.14),
+  ('BS-C02:GO_CHECK_B:check_b', 4001306, 406, 657.0, 1616.0, -19.319736655731827, 3.14),
+  ('BS-C02:GO_CHECK_C:check_c', 4001307, 406, 625.0, 1616.0, -16.07512208654335, 3.14),
+  ('BS-C02:GO_CHECK_D:check_d', 4001308, 406, 625.0, 1635.0, -16.688717955318157, 3.14),
+  ('BS-C02:GO_DOG_A:dog_a', 4001309, 406, 647.0, 1636.0, -17.6551893140392, 3.14),
+  ('BS-C02:GO_DOG_B:dog_b', 4001310, 406, 640.0, 1640.0, -17.79996144855941, 3.14),
+  ('BS-C02:GO_DOG_C:dog_c', 4001311, 406, 628.0, 1638.0, -17.53937160642281, 3.14),
+  ('BS-C02:GO_COMMUNIQUE:communique', 4001312, 406, 632.0, 1626.0, -17.55953349355738, 3.14),
+  ('BS-C02:GO_PLANS:plans', 4001313, 406, 895.0, 1687.0, -19.327736714629424, 3.14),
+  ('BS-C02:GO_DROP:drop', 4001314, 406, 1089.0, 1537.0, 24.93897951494475, 3.14),
+  ('BS-C02:GO_DISCORD:discord', 4001315, 406, 883.0, 1675.0, -19.740699647798067, 3.14),
+  ('BS-C02:GO_GARNOTH:garnoth', 4001316, 406, 654.0, 1624.0, -17.974739597444334, 3.14),
+  ('BS-C02:GO_OKROG:okrog', 4001317, 406, 887.0, 1677.0, -19.722322180493663, 3.14),
+  ('BS-C02:GO_PODIUM:podium', 4001318, 406, 895.0, 1675.0, -19.593739876628337, 3.14),
+  ('BS-C02:GO_PRISON:prison', 4001319, 406, 895.0, 1682.0, -18.985879877982, 3.14),
+  ('BS-C02:GO_BUYERS:buyers', 4001320, 406, 894.0, 1688.0, -19.284569940365806, 3.14),
+  ('BS-C02:GO_TERRITORY:horrorguard_0', 4001321, 406, 887.0, 1677.0, -19.86974023021657, 3.14);
 SET @BS_C02_ENTRY_COLUMN := (
   SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
   WHERE `TABLE_SCHEMA` = DATABASE() AND `TABLE_NAME` = 'creature' AND `COLUMN_NAME` IN ('id1', 'id')
@@ -796,8 +837,8 @@ SET @BS_C02_ENTRY_COLUMN := (
 );
 SET @BS_C02_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C02_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
-  '`position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, 60, 0, 0, s.`spawn_key` ',
+  '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
+  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 60, 0, 0, s.`spawn_key` ',
   'FROM `bs_c02_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c02_stmt FROM @BS_C02_INSERT;
@@ -806,7 +847,7 @@ DEALLOCATE PREPARE bs_c02_stmt;
 SET @BS_C02_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c02_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C02_ENTRY_COLUMN, '` = s.`entry`, c.`zoneId` = s.`zone`, c.`position_x` = s.`x`, ',
-  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`'
+  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
 );
 PREPARE bs_c02_stmt FROM @BS_C02_UPDATE;
 EXECUTE bs_c02_stmt;
@@ -819,6 +860,18 @@ FROM `bs_c02_gameobject_spawns` s LEFT JOIN `gameobject` g ON g.`Comment` = s.`s
 UPDATE `gameobject` g INNER JOIN `bs_c02_gameobject_spawns` s ON g.`Comment` = s.`spawn_key`
 SET g.`id` = s.`entry`, g.`position_x` = s.`x`, g.`position_y` = s.`y`, g.`position_z` = s.`z`, g.`orientation` = s.`o`,
   g.`rotation2` = SIN(s.`o` / 2), g.`rotation3` = COS(s.`o` / 2);
+-- Retire obsolete owned campaign placements; surviving spawn keys keep their GUIDs.
+SET @BS_C02_PRUNE := CONCAT(
+  'DELETE c FROM `creature` c LEFT JOIN `bs_c02_creature_spawns` s ON s.`spawn_key`=c.`Comment` ',
+  'INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`=\'creature\' AND owner.`entry`=c.`',@BS_C02_ENTRY_COLUMN,'` AND owner.`chapter`=2 ',
+  'WHERE c.`Comment` LIKE \'BS-C02:%\' AND s.`spawn_key` IS NULL'
+);
+PREPARE bs_c02_stmt FROM @BS_C02_PRUNE;
+EXECUTE bs_c02_stmt;
+DEALLOCATE PREPARE bs_c02_stmt;
+DELETE g FROM `gameobject` g LEFT JOIN `bs_c02_gameobject_spawns` s ON s.`spawn_key`=g.`Comment`
+INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`='gameobject' AND owner.`entry`=g.`id` AND owner.`chapter`=2
+WHERE g.`Comment` LIKE 'BS-C02:%' AND s.`spawn_key` IS NULL;
 DROP TEMPORARY TABLE `bs_c02_creature_spawns`;
 DROP TEMPORARY TABLE `bs_c02_gameobject_spawns`;
 DROP TEMPORARY TABLE `bs_c02_ids`;

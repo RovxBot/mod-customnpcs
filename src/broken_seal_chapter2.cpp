@@ -6,6 +6,7 @@
 #include "BrokenSealChapter2.h"
 #include "BrokenSealChapter2Integration.h"
 #include "BrokenSealChapter3Integration.h"
+#include "UnitScript.h"
 #include "Chat.h"
 #include "Config.h"
 #include "Creature.h"
@@ -59,7 +60,9 @@ enum Mode : std::uint32_t
     OKROG,
     RESTRAINT,
     SPEECH,
-    RIOT
+    RIOT,
+    FIRE_TRIAL,
+    TERRITORY_TRIAL
 };
 enum Event : std::uint32_t
 {
@@ -84,6 +87,8 @@ enum Action : std::uint32_t
     SUMMON_JAROD,
     START_RESTRAINT,
     START_RIOT,
+    START_FIRE,
+    START_TERRITORY,
     QUESTION = 50,
     DISTRACT_GUARD,
     HOUND_ATTACK,
@@ -278,6 +283,10 @@ std::uint32_t QuestFor(Mode mode)
         return QUEST_RIOT;
     case SPEECH:
         return QUEST_SPEECH;
+    case FIRE_TRIAL:
+        return QUEST_FIRE;
+    case TERRITORY_TRIAL:
+        return QUEST_TERRITORY;
     default:
         return 0;
     }
@@ -285,7 +294,8 @@ std::uint32_t QuestFor(Mode mode)
 
 bool CombatTrial(Mode m)
 {
-    return m == GRUDGE || m == DISCORD || m == GARNOTH || m == OKROG || m == RESTRAINT || m == RIOT;
+    return m == GRUDGE || m == DISCORD || m == GARNOTH || m == OKROG || m == RESTRAINT || m == RIOT ||
+           m == FIRE_TRIAL || m == TERRITORY_TRIAL;
 }
 
 struct npc_bs_c02_sceneAI;
@@ -604,6 +614,24 @@ struct npc_bs_c02_sceneAI : ScriptedAI
                                                               : 90.0f);
     }
 
+    void NextTrialOpponent(Player* p)
+    {
+        std::uint32_t credit = mode == FIRE_TRIAL ? CREDIT_FIRE : CREDIT_TERRITORY;
+        if (!Active(p, QuestFor(mode)) || HasCredit(p, QuestFor(mode), credit, 8))
+        {
+            Stop();
+            return;
+        }
+        Point const& where = mode == FIRE_TRIAL ? Locations::fire_0 : Locations::horrorguard_0;
+        if (Creature* c = Child(mode == FIRE_TRIAL ? NPC_FIRE : NPC_HORRORGUARD, where, 1))
+        {
+            opponent = c->GetGUID();
+            c->AI()->AttackStart(p);
+        }
+        else
+            Stop("The trial could not be prepared. Speak to your instructor to retry.");
+    }
+
     void Begin(Mode value)
     {
         mode = value;
@@ -611,7 +639,12 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         Player* p = Owner();
         if (!p)
             return;
-        if (mode == RECRUIT)
+        if (mode == FIRE_TRIAL || mode == TERRITORY_TRIAL)
+        {
+            NextTrialOpponent(p);
+            Tell(p, "The instructor calls one opponent into the trial ground. Defeat it to continue the round.");
+        }
+        else if (mode == RECRUIT)
         {
             if (Creature* c = Child(NPC_RECRUIT, Locations::recruit_start, 1))
             {
@@ -952,6 +985,12 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         }
         else if (type == DATA_KILLED)
         {
+            if ((mode == FIRE_TRIAL || mode == TERRITORY_TRIAL) && value == 1)
+            {
+                Credit(p, QuestFor(mode), mode == FIRE_TRIAL ? CREDIT_FIRE : CREDIT_TERRITORY, 8);
+                NextTrialOpponent(p);
+                return;
+            }
             if (mode == RIOT && value >= 10 + wave * 2 && value < 12 + wave * 2 && waveActive)
             {
                 ++kills;
@@ -1121,6 +1160,11 @@ void Start(Player* p, Mode mode, Point const& location)
             ai->Begin(mode);
 }
 
+bool IsCultContact(std::uint32_t entry)
+{
+    return entry == NPC_CONDENNA || entry == NPC_CARGALL || entry == NPC_MYLVA || entry == NPC_DEVORAN;
+}
+
 bool IsCampContact(std::uint32_t entry)
 {
     return entry == NPC_ORTELL || entry == NPC_CONDENNA || entry == NPC_CARGALL || entry == NPC_MYLVA ||
@@ -1129,7 +1173,7 @@ bool IsCampContact(std::uint32_t entry)
 
 void ContactMenu(Player* p, Creature* c)
 {
-    if (!Interact(p, c))
+    if (!Interact(p, c) || (IsCultContact(c->GetEntry()) && !Covered(p)))
         return;
     std::uint32_t entry = c->GetEntry();
     if (!IsCampContact(entry) && entry != NPC_PRISONER)
@@ -1144,6 +1188,10 @@ void ContactMenu(Player* p, Creature* c)
     }
     if (entry == NPC_CONDENNA && Active(p, QUEST_IDENTITY))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Present the altered recruitment papers.", Sender, IDENTITY);
+    if (entry == NPC_CONDENNA && Active(p, QUEST_FIRE))
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin or resume my fire trial.", Sender, START_FIRE);
+    if (entry == NPC_MYLVA && Active(p, QUEST_TERRITORY))
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin or resume the Horrorguard challenge.", Sender, START_TERRITORY);
     if (entry == NPC_CARGALL && Active(p, QUEST_WASTE))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin the supplicant preservation trial.", Sender, START_SUPPLICANTS);
     if (entry == NPC_MYLVA || entry == NPC_DEVORAN)
@@ -1163,6 +1211,8 @@ void ContactMenu(Player* p, Creature* c)
         if (p->IsQuestRewarded(QUEST_RIOT))
             AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Ask Jarod to join us at the refuge.", Sender, SUMMON_JAROD);
     }
+    if (entry == NPC_PRISONER && Active(p, QUEST_RIOT) && p->HasItemCount(ITEM_KEY, 1))
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Unlock your restraints. Let us get out of here.", Sender, START_RIOT);
     if (entry == NPC_PRISONER && Held(p, QUEST_RIOT))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Challenge your restraint guard.", Sender, START_RESTRAINT);
     if (entry == NPC_JAROD_FREE && Held(p, QUEST_LETTER))
@@ -1173,7 +1223,7 @@ bool ContactSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t a
 {
     if (sender != Sender)
         return false;
-    if (!Interact(p, c) || (!IsCampContact(c->GetEntry()) && c->GetEntry() != NPC_PRISONER))
+    if ((IsCultContact(c->GetEntry()) && !Covered(p)) || !Interact(p, c) || (!IsCampContact(c->GetEntry()) && c->GetEntry() != NPC_PRISONER))
         return true;
     if (c->GetEntry() == NPC_JAROD_FREE && !Owned(c, p))
         return true;
@@ -1201,6 +1251,12 @@ bool ContactSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t a
         Credit(p, QUEST_TRAINING, CREDIT_MYLVA);
     else if (action == INTRO_DEVORAN && entry == NPC_DEVORAN)
         Credit(p, QUEST_TRAINING, CREDIT_DEVORAN);
+    else if (action == START_FIRE && entry == NPC_CONDENNA)
+        Start(p, FIRE_TRIAL, Locations::condenna);
+    else if (action == START_TERRITORY && entry == NPC_MYLVA)
+        Tell(p, "Use the calling tablet at the holding camp to summon the Horrorguards one at a time.");
+    else if (action == START_RIOT && entry == NPC_PRISONER && p->HasItemCount(ITEM_KEY, 1))
+        Start(p, RIOT, Locations::prison);
     else if (action == START_SUPPLICANTS && entry == NPC_CARGALL && p->HasItemCount(ITEM_GEM, 1))
         Start(p, SUPPLICANTS, Locations::cargall);
     else if (action == START_GRUDGE && entry == NPC_DEVORAN && Active(p, QUEST_GRUDGE))
@@ -1232,9 +1288,15 @@ struct npc_bs_c02_contactAI : ScriptedAI
     ObjectGuid owner;
     void Reset() override
     {
-        me->SetReactState(REACT_PASSIVE);
+        me->SetReactState(IsCultContact(me->GetEntry()) ? REACT_AGGRESSIVE : REACT_PASSIVE);
+        me->SetSheath(SHEATH_STATE_MELEE);
         events.Reset();
         events.ScheduleEvent(CHECK, 2000ms);
+    }
+    bool CanAIAttack(Unit const* target) const override
+    {
+        return Enabled() && IsCultContact(me->GetEntry()) && target &&
+               target->GetCharmerOrOwnerPlayerOrPlayerItself() && !BrokenSealChapter2AvoidCombat(target);
     }
     void IsSummonedBy(WorldObject* summoner) override
     {
@@ -1244,6 +1306,8 @@ struct npc_bs_c02_contactAI : ScriptedAI
     }
     void UpdateAI(std::uint32_t diff) override
     {
+        if (Enabled() && IsCultContact(me->GetEntry()) && UpdateVictim())
+            DoMeleeAttackIfReady();
         events.Update(diff);
         if (events.ExecuteEvent() == CHECK)
         {
@@ -1387,6 +1451,8 @@ class go_bs_c02_interaction : public GameObjectScript
         std::uint32_t entry = go->GetEntry();
         if (entry == GO_RENDEZVOUS && p->HasItemCount(ITEM_BLACKJACK, 1))
             Start(p, RECRUIT, Locations::recruit_start);
+        else if (entry == GO_TERRITORY)
+            Start(p, TERRITORY_TRIAL, Locations::horrorguard_0);
         else if (entry == GO_FLOWER && Active(p, QUEST_BLOOM) && Covered(p) && !p->IsMounted())
         {
             auto& flowers = State(p).flowers;
@@ -1551,6 +1617,24 @@ class bs_c02_player : public PlayerScript
         }
     }
 };
+class bs_c02_cult_reaction : public UnitScript
+{
+public:
+    bs_c02_cult_reaction() : UnitScript("bs_c02_cult_reaction", true, {UNITHOOK_IF_NORMAL_REACTION}) {}
+    bool IfNormalReaction(Unit const* first, Unit const* second, ReputationRank& reaction) override
+    {
+        auto cult = [](Unit const* u) { return BrokenSealChapter2CultCreature(u ? u->ToCreature() : nullptr); };
+        if (!first || !second || first->FindMap() != second->FindMap())
+            return true;
+        if ((cult(first) && BrokenSealChapter2AvoidCombat(second)) ||
+            (cult(second) && BrokenSealChapter2AvoidCombat(first)))
+        {
+            reaction = REP_FRIENDLY;
+            return false;
+        }
+        return true;
+    }
+};
 } // namespace BrokenSeal::Chapter2
 
 bool BrokenSealChapter2Available()
@@ -1566,6 +1650,14 @@ bool BrokenSealChapter2AvoidCombat(Unit const* unit)
             if (TempSummon const* summon = c->ToTempSummon())
                 p = ObjectAccessor::GetPlayer(*unit, summon->GetSummonerGUID());
     return Enabled() && CoverAllowed(p) && Covered(p) && InVale(p);
+}
+bool BrokenSealChapter2CultCreature(Creature const* c)
+{
+    using namespace BrokenSeal::Chapter2;
+    if (!c || c->IsSummon()) return false;
+    std::uint32_t e = c->GetEntry();
+    return IsCultContact(e) || e == NPC_GUARD || e == NPC_SCOUT ||
+           e == 4001003 || e == 4001010 || e == 4001011 || e == 4009002 || e == 4009052;
 }
 void BrokenSealChapter2Gossip(Player* p, Creature* c)
 {
@@ -1595,4 +1687,5 @@ void AddBrokenSealChapter2Scripts()
     new go_bs_c02_interaction();
     new item_bs_c02_tool();
     new bs_c02_player();
+    new bs_c02_cult_reaction();
 }

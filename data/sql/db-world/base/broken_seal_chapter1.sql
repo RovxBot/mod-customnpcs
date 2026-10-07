@@ -50,9 +50,6 @@ INSERT INTO `bs_c01_ids` (`kind`, `entry`) VALUES
   ('gameobject', 4001101),
   ('gameobject', 4001102),
   ('gameobject', 4001103),
-  ('gameobject', 4001104),
-  ('gameobject', 4001105),
-  ('gameobject', 4001106),
   ('gameobject', 4001107),
   ('gameobject', 4001108),
   ('gameobject', 4001109),
@@ -97,11 +94,17 @@ INSERT INTO `bs_c01_ids` (`kind`, `entry`) VALUES
   ('npc_text', 4001005),
   ('npc_text', 4001006),
   ('npc_text', 4001007),
+  ('npc_text', 4001004),
+  ('npc_text', 4001008),
+  ('npc_text', 4001009),
   ('gossip_menu', 4001000),
   ('gossip_menu', 4001001),
   ('gossip_menu', 4001005),
   ('gossip_menu', 4001006),
   ('gossip_menu', 4001007),
+  ('gossip_menu', 4001004),
+  ('gossip_menu', 4001008),
+  ('gossip_menu', 4001009),
   ('page', 4001000),
   ('page', 4001001),
   ('page', 4001002),
@@ -163,15 +166,15 @@ INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlev
   (4001000, 'Maruut Stonebinder', 'The Vale Expedition', 25, 25, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c01_contact', 1, 1, 0, 0, 2),
   (4001001, 'Elementalist Ortell', 'The Vale Expedition', 25, 25, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c01_contact', 1, 1, 0, 0, 2),
   (4001002, 'Commander Jarod Shadowsong', 'The Vale Expedition', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_contact', 1, 1, 0, 0, 2),
-  (4001003, 'Twilight Recruit', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_recruit', 1, 1, 0, 0, 2),
+  (4001003, 'Twilight Recruit', '', 25, 25, 0, 14, 0, 1, 770, 7, '', 'npc_bs_c01_recruit', 1, 1, 0, 0, 2),
   (4001005, 'Expedition Scout', 'The Vale Expedition', 25, 25, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c01_contact', 1, 1, 0, 0, 2),
   (4001006, 'Alliance Expedition Courier', 'The Vale Expedition', 25, 25, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c01_contact', 1, 1, 0, 0, 2),
   (4001007, 'Horde Expedition Courier', 'The Vale Expedition', 25, 25, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c01_contact', 1, 1, 0, 0, 2),
-  (4001004, 'Mira Ashwood', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
-  (4001008, 'Dorn Stonehoof', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
-  (4001009, 'Teren Valeguard', '', 25, 25, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
+  (4001004, 'Mira Ashwood', '', 25, 25, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
+  (4001008, 'Dorn Stonehoof', '', 25, 25, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
+  (4001009, 'Teren Valeguard', '', 25, 25, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c01_captive', 1, 1, 0, 0, 2),
   (4001010, 'Twilight Scout', '', 20, 22, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 4001010, 0),
-  (4001011, 'Twilight Guard', '', 22, 23, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 0, 0),
+  (4001011, 'Twilight Guard', '', 22, 23, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c01_cult', 1, 1, 1, 4001011, 0),
   (4001012, 'Unbound Earth Elemental', '', 22, 23, 0, 14, 0, 1, 0, 4, 'SmartAI', '', 1, 1, 1, 0, 0),
   (4001013, 'Expedition Observation Focus', '', 1, 1, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c01_observation', 1, 1, 0, 0, 2),
   (4001050, 'Trail A', '', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -191,18 +194,18 @@ ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `subname` = VALUES(`subname`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001000, 4001001, 4001002, 4001003, 4001005, 4001006, 4001007, 4001004, 4001008, 4001009, 4001010, 4001011, 4001012, 4001013, 4001050, 4001051, 4001052, 4001053, 4001054, 4001055, 4001056, 4001057, 4001058, 4001059, 4001060, 4001061, 4001062);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
-  (4001000, 0, 59, 1, 1),
-  (4001001, 0, 49, 1, 1),
-  (4001002, 0, 55, 1, 1),
-  (4001003, 0, 49, 1, 1),
-  (4001005, 0, 56, 1, 1),
-  (4001006, 0, 50, 1, 1),
-  (4001007, 0, 51, 1, 1),
-  (4001004, 0, 50, 1, 1),
-  (4001008, 0, 59, 1, 1),
-  (4001009, 0, 55, 1, 1),
-  (4001010, 0, 49, 1, 1),
-  (4001011, 0, 49, 1, 1),
+  (4001000, 0, 3770, 1, 1),
+  (4001001, 0, 5075, 1, 1),
+  (4001002, 0, 5070, 1, 1),
+  (4001003, 0, 11824, 1, 1),
+  (4001005, 0, 7934, 1, 1),
+  (4001006, 0, 4888, 1, 1),
+  (4001007, 0, 3865, 1, 1),
+  (4001004, 0, 4888, 1, 1),
+  (4001008, 0, 3770, 1, 1),
+  (4001009, 0, 5070, 1, 1),
+  (4001010, 0, 11816, 1, 1),
+  (4001011, 0, 11811, 1, 1),
   (4001012, 0, 453, 1, 1),
   (4001013, 0, 11686, 1, 1),
   (4001050, 0, 11686, 1, 1),
@@ -222,32 +225,66 @@ INSERT INTO `mod_customnpcs_outfit` (`outfit_id`, `race`, `gender`, `class`, `sk
   (4001000, 6, 0, 1, 0, 0, 0, 0, 0, 6569, 0, 0, 6570, 6568, 0, 14089, 6631, 0),
   (4001001, 1, 0, 1, 0, 0, 0, 0, 0, 9748, 0, 0, 0, 9747, 0, 0, 4575, 0),
   (4001002, 4, 0, 1, 0, 0, 0, 0, 0, 6085, 6597, 0, 6594, 6596, 6573, 0, 0, 0),
-  (4001003, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 0, 10045, 0, 0, 0, 0),
+  (4001003, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 0, 10045, 0, 0, 4575, 0),
   (4001005, 4, 1, 1, 0, 0, 0, 0, 0, 2317, 0, 0, 6382, 5961, 2315, 4248, 0, 0),
   (4001006, 1, 1, 1, 0, 0, 0, 0, 0, 1433, 0, 2576, 0, 1431, 1427, 0, 0, 0),
   (4001007, 2, 0, 1, 0, 0, 0, 0, 0, 85, 0, 38, 0, 139, 140, 0, 0, 0),
   (4001004, 1, 1, 1, 0, 0, 0, 0, 0, 1433, 0, 0, 0, 1431, 0, 0, 0, 0),
   (4001008, 6, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 0, 10045, 0, 0, 0, 0),
   (4001009, 4, 0, 1, 0, 0, 0, 0, 0, 85, 0, 0, 0, 139, 0, 0, 0, 0),
-  (4001010, 1, 0, 1, 0, 0, 0, 0, 0, 2317, 0, 0, 0, 5961, 2315, 4248, 0, 2504),
-  (4001011, 1, 0, 1, 0, 0, 0, 0, 0, 6085, 6597, 0, 6594, 6596, 0, 0, 0, 0)
+  (4001010, 1, 0, 1, 0, 0, 0, 0, 0, 2317, 0, 0, 0, 5961, 2315, 4248, 12282, 2504),
+  (4001011, 1, 0, 1, 0, 0, 0, 0, 0, 6085, 6597, 0, 6594, 6596, 0, 0, 12282, 0)
 ON DUPLICATE KEY UPDATE
   `race` = VALUES(`race`), `gender` = VALUES(`gender`), `class` = VALUES(`class`), `skin` = VALUES(`skin`), `face` = VALUES(`face`), `hair` = VALUES(`hair`), `hair_color` = VALUES(`hair_color`), `facial_hair` = VALUES(`facial_hair`), `chest` = VALUES(`chest`), `shoulders` = VALUES(`shoulders`), `shirt` = VALUES(`shirt`), `waist` = VALUES(`waist`), `legs` = VALUES(`legs`), `feet` = VALUES(`feet`), `hands` = VALUES(`hands`), `mainhand` = VALUES(`mainhand`), `ranged` = VALUES(`ranged`);
 INSERT INTO `mod_customnpcs_outfit_entry` (`creature_entry`, `outfit_id`) VALUES
   (4001000, 4001000),
   (4001001, 4001001),
   (4001002, 4001002),
-  (4001003, 4001003),
+  (4001003, 0),
   (4001005, 4001005),
   (4001006, 4001006),
   (4001007, 4001007),
   (4001004, 4001004),
   (4001008, 4001008),
   (4001009, 4001009),
-  (4001010, 4001010),
-  (4001011, 4001011)
+  (4001010, 0),
+  (4001011, 0)
 ON DUPLICATE KEY UPDATE
   `outfit_id` = VALUES(`outfit_id`);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
+  (4001000, 1, 6631, 0, 0),
+  (4001001, 1, 4575, 0, 0),
+  (4001003, 1, 4575, 0, 0),
+  (4001010, 1, 12282, 0, 2504),
+  (4001011, 1, 12282, 0, 0)
+ON DUPLICATE KEY UPDATE
+  `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
+UPDATE `creature_template` SET `mingold`=17,`maxgold`=79,`lootid`=4001010 WHERE `entry`=4001010;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001010;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001010, 2592, 0, 40, 0, 1, 0, 1, 2),
+  (4001010, 3770, 0, 8, 0, 1, 0, 1, 1),
+  (4001010, 1205, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001010, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=437 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=17,`maxgold`=79,`lootid`=4001011 WHERE `entry`=4001011;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001011;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001011, 2592, 0, 40, 0, 1, 0, 1, 2),
+  (4001011, 3770, 0, 8, 0, 1, 0, 1, 1),
+  (4001011, 1205, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001011, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=437 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
 DELETE FROM `creature_template_addon` WHERE `entry` = 4001002;
 INSERT INTO `creature_template_addon` (`entry`, `emote`) VALUES
   (4001002, 68);
@@ -277,7 +314,6 @@ INSERT INTO `page_text` (`ID`, `Text`, `NextPageID`) VALUES
   (4001003, 'Three impressions reveal the same spiral cut across older runes. The fractures are too regular to be weathering. Someone is teaching the stone a different command.', 0)
 ON DUPLICATE KEY UPDATE
   `Text` = VALUES(`Text`), `NextPageID` = VALUES(`NextPageID`);
-DELETE FROM `creature_loot_template` WHERE `Entry` = 4001010;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
   (4001010, 900102, 0, 100, 1, 1, 0, 1, 1);
 INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`) VALUES
@@ -285,10 +321,10 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
   (900101, 2, 20, 20, 406, 2, 300, 900100, 0, 690, 'An Unusual Commission', 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.', 'Maruut Stonebinder needs help in Stonetalon. Three surveyors have vanished near the Charred Vale. This is an expedition, not a border dispute. Take this invitation to his neutral camp on the valley''s eastern approach.', 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900102, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Travelers Who Never Arrived', 'Inspect the abandoned wagon above camp and recover its log.', 'Mira, Dorn and Teren were inspecting old trail stones. Their wagon was left uphill from our camp, near the first ash-marked sign. Search it for the travelers'' log. Leave what supplies remain for the survivors.', 'Inspect the abandoned wagon above camp and recover its log.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900101, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900103, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Follow the Ash', 'Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.', 'Follow the three ash-marked signs from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.', 'Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.', 4001010, 4001050, 4001051, 4001052, 6, 1, 1, 1, 'Twilight Scouts defeated', 'Trail A completed', 'Trail B completed', 'Trail C completed', 900102, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900104, 2, 22, 20, 406, 4, 600, 0, 0, 0, 'Bring Them Home', 'Open each surveyor''s cage and accompany them until they reach the marked refuge.', 'The scouts are holding Mira, Dorn and Teren in three cages below the last trail marker. Free each of them and stay nearby while they reach the expedition refuge marker. Clear trouble from the route; nobody gets left behind.', 'Open each surveyor''s cage and accompany them until they reach the marked refuge.', 4001053, 4001054, 4001055, 0, 1, 1, 1, 0, 'Captive A completed', 'Captive B completed', 'Captive C completed', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900104, 2, 22, 20, 406, 4, 600, 0, 0, 0, 'Bring Them Home', 'Open each surveyor''s guard post and accompany them until they reach the marked refuge.', 'The scouts are holding Mira, Dorn and Teren in three captives below the last trail marker. Free each of them and stay nearby while they reach the expedition refuge marker. Clear trouble from the route; nobody gets left behind.', 'Open each surveyor''s guard post and accompany them until they reach the marked refuge.', 4001053, 4001054, 4001055, 0, 1, 1, 1, 0, 'Captive A completed', 'Captive B completed', 'Captive C completed', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900105, 2, 23, 20, 406, 4, 600, 900104, 0, 0, 'A Stone That Should Be Quiet', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 4001056, 4001057, 4001058, 0, 1, 1, 1, 0, 'Ward A completed', 'Ward B completed', 'Ward C completed', '', 900103, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900106, 2, 23, 20, 406, 2, 600, 0, 0, 0, 'The Same Hand', 'Ask Ortell to compare the orders and the rubbing.', 'Ortell once knew the Twilight''s Hammer from the inside. He is helping us now. Speak with him here in camp and compare the deposited orders with the ward rubbing. You do not need to carry those papers back and forth; I have sent him copies.', 'Ask Ortell to compare the orders and the rubbing.', 4001059, 0, 0, 0, 1, 0, 0, 0, 'Orders and rubbing compared', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900107, 2, 24, 20, 406, 4, 600, 0, 0, 0, 'A Captive Commander', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 'The rescued surveyors recognized the commander''s name: Jarod Shadowsong. The cult is holding him at an altar beyond their cages. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 4001060, 0, 0, 0, 1, 0, 0, 0, 'Jarod observed safely', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900107, 2, 24, 20, 406, 4, 600, 0, 0, 0, 'A Captive Commander', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 'The rescued surveyors recognized the commander''s name: Jarod Shadowsong. The cult is holding him at an altar beyond their captives. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 4001060, 0, 0, 0, 1, 0, 0, 0, 'Jarod observed safely', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900108, 2, 25, 20, 406, 2, 600, 0, 0, 0, 'The Name on the Papers', 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 'There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.', 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 4001061, 4001062, 0, 0, 1, 1, 0, 0, 'Recruit watch change observed', 'Extraction signal agreed', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900110, 900111, 900112, 900113, 900114, 900115, 1, 1, 1, 1, 1, 1)
 ON DUPLICATE KEY UPDATE
   `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`);
@@ -343,7 +379,7 @@ INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
   (900101, 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.'),
   (900102, 'Inspect the abandoned wagon above camp and recover its log.'),
   (900103, 'Inspect all three distinct signs, defeat six Twilight Scouts and recover their coded orders.'),
-  (900104, 'Open each surveyor''s cage and accompany them until they reach the marked refuge.'),
+  (900104, 'Open each surveyor''s guard post and accompany them until they reach the marked refuge.'),
   (900105, 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.'),
   (900106, 'Ask Ortell to compare the orders and the rubbing.'),
   (900107, 'Remain at the concealed observation point until you can confirm Jarod is alive.'),
@@ -382,61 +418,64 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900108, 1, 0, 1, 81, 0, 0, 0),
   (900108, 2, 1, 1, 81, 0, 0, 0);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
-  (900100, 0, 0, 1124, 1546),
-  (900101, 0, 0, 1124, 1546),
-  (900102, 0, 0, 1124, 1546),
-  (900102, 1, 0, 1152, 1516),
-  (900103, 0, 0, 1118, 1551),
+  (900100, 0, 0, 1102, 1542),
+  (900101, 0, 0, 1102, 1542),
+  (900102, 0, 0, 1102, 1542),
+  (900102, 1, 0, 1078, 1532),
+  (900103, 0, 0, 1102, 1538),
   (900103, 1, 0, 1052, 1653),
-  (900103, 2, 0, 1150, 1510),
-  (900103, 3, 0, 1100, 1550),
-  (900103, 4, 0, 1010, 1660),
-  (900104, 0, 0, 1118, 1551),
-  (900104, 1, 0, 985, 1685),
-  (900104, 2, 0, 971, 1694),
-  (900104, 3, 0, 952, 1690),
-  (900105, 0, 0, 1124, 1546),
-  (900105, 1, 0, 935, 1690),
-  (900105, 2, 0, 925, 1710),
-  (900105, 3, 0, 930, 1730),
-  (900106, 0, 0, 1120, 1550),
-  (900106, 1, 0, 1120, 1550),
-  (900107, 0, 0, 1120, 1550),
-  (900107, 1, 0, 958, 1700),
-  (900108, 0, 0, 1120, 1550),
-  (900108, 1, 0, 958, 1690),
-  (900108, 2, 0, 1120, 1550);
+  (900103, 2, 0, 1086, 1540),
+  (900103, 3, 0, 955, 1625),
+  (900103, 4, 0, 895, 1670),
+  (900104, 0, 0, 1102, 1538),
+  (900104, 1, 0, 882, 1680),
+  (900104, 2, 0, 886, 1683),
+  (900104, 3, 0, 890, 1684),
+  (900105, 0, 0, 1102, 1542),
+  (900105, 1, 0, 885, 1674),
+  (900105, 2, 0, 892, 1673),
+  (900105, 3, 0, 898, 1674),
+  (900106, 0, 0, 1100, 1540),
+  (900106, 1, 0, 1100, 1540),
+  (900107, 0, 0, 1100, 1540),
+  (900107, 1, 0, 882, 1669),
+  (900108, 0, 0, 1100, 1540),
+  (900108, 1, 0, 882, 1672),
+  (900108, 2, 0, 1100, 1540);
 INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001000, 'Old stones do not start speaking without a reason. Help us find our missing people, and we will learn who disturbed them.', 1),
   (4001001, 'The Twilight''s Hammer rewards certainty. Inside their camps, doubt is best kept behind your teeth.', 1),
   (4001005, 'Fresh ash, bootprints, and a trail nobody wants to explain. Stay alert on the descent.', 1),
   (4001006, 'A neutral expedition needs someone who can see past the color of a banner.', 1),
-  (4001007, 'The invitation is for a willing traveler. The missing people need help, not another argument about borders.', 1)
+  (4001007, 'The invitation is for a willing traveler. The missing people need help, not another argument about borders.', 1),
+  (4001004, 'The cult took our notes and put us under guard. If the path is clear, I can walk.', 1),
+  (4001008, 'The cult took our notes and put us under guard. If the path is clear, I can walk.', 1),
+  (4001009, 'The cult took our notes and put us under guard. If the path is clear, I can walk.', 1)
 ON DUPLICATE KEY UPDATE
   `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
-DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001000, 4001001, 4001005, 4001006, 4001007);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001000, 4001001, 4001005, 4001006, 4001007, 4001004, 4001008, 4001009);
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001000, 4001000),
   (4001001, 4001001),
   (4001005, 4001005),
   (4001006, 4001006),
-  (4001007, 4001007);
-UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001000, 4001001, 4001005, 4001006, 4001007);
+  (4001007, 4001007),
+  (4001004, 4001004),
+  (4001008, 4001008),
+  (4001009, 4001009);
+UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001000, 4001001, 4001005, 4001006, 4001007, 4001004, 4001008, 4001009);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data1`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
   (4001100, 10, 3678, 'Abandoned Expedition Wagon', 1.0, 900102, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001101, 10, 22, 'First Ash-marked Trail Sign', 1.0, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001102, 10, 22, 'Second Ash-marked Trail Sign', 1.0, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001103, 10, 22, 'Third Ash-marked Trail Sign', 1.0, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001104, 10, 676, 'Mira''s Holding Cage', 0.8, 900104, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001105, 10, 676, 'Dorn''s Holding Cage', 0.8, 900104, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001106, 10, 676, 'Teren''s Holding Cage', 0.8, 900104, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001107, 10, 235, 'Western Ward Stone', 1.0, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001108, 10, 235, 'Central Ward Stone', 1.0, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001109, 10, 235, 'Eastern Ward Stone', 1.0, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001110, 10, 236, 'Concealed Observation Point', 1.0, 900107, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001111, 10, 3332, 'Ortell''s Dead Drop', 1.0, 900108, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001112, 5, 227, 'Twilight Sacrificial Altar', 1.0, 0, 0, 0, 1, ''),
-  (4001113, 5, 22, 'Expedition Refuge Marker', 1.0, 0, 0, 0, 1, '')
+  (4001101, 10, 6420, 'Ash-marked Twilight Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001102, 10, 6419, 'Ash-marked Twilight Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001103, 10, 6420, 'Ash-marked Twilight Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001107, 10, 235, 'Western Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001108, 10, 235, 'Central Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001109, 10, 235, 'Eastern Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001110, 10, 236, 'Concealed Observation Point', 0.65, 900107, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001111, 10, 6737, 'Ortell''s Sealed Message Crate', 0.65, 900108, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001112, 5, 227, 'Twilight Sacrificial Altar', 0.65, 0, 0, 0, 1, ''),
+  (4001113, 5, 5191, 'Expedition Refuge Banner', 0.65, 0, 0, 0, 1, '')
 ON DUPLICATE KEY UPDATE
   `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data1` = VALUES(`Data1`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c01_creature_spawns`;
@@ -444,45 +483,36 @@ CREATE TEMPORARY TABLE `bs_c01_creature_spawns` (`spawn_key` VARCHAR(100) PRIMAR
 DROP TEMPORARY TABLE IF EXISTS `bs_c01_gameobject_spawns`;
 CREATE TEMPORARY TABLE `bs_c01_gameobject_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO `bs_c01_creature_spawns` (`spawn_key`, `entry`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C01:NPC_MARUUT:maruut', 4001000, 1124.0, 1546.0, 33.2028, 3.14),
-  ('BS-C01:NPC_ORTELL:ortell', 4001001, 1120.0, 1550.0, 34.5478, 3.14),
-  ('BS-C01:NPC_JAROD:jarod', 4001002, 990.0, 1730.0, -9.6758, 3.14),
-  ('BS-C01:NPC_RECRUIT:recruit_1', 4001003, 997.0, 1710.0, -7.759, 3.14),
-  ('BS-C01:NPC_SCOUT:scout', 4001005, 1118.0, 1551.0, 35.0452, 3.14),
+  ('BS-C01:NPC_MARUUT:maruut', 4001000, 1102.0, 1542.0, 27.086243166456008, 3.14),
+  ('BS-C01:NPC_ORTELL:ortell', 4001001, 1100.0, 1540.0, 26.693678368559475, 3.14),
+  ('BS-C01:NPC_JAROD:jarod', 4001002, 895.0, 1682.0, -19.67909053343282, 3.14),
+  ('BS-C01:NPC_RECRUIT:recruit_1', 4001003, 891.0, 1678.0, -19.828225663787876, 3.14),
+  ('BS-C01:NPC_SCOUT:scout', 4001005, 1102.0, 1538.0, 26.94763928250599, 3.14),
   ('BS-C01:NPC_COURIER_A:courier_a', 4001006, 746.0, 322.0, 63.3356, 3.14),
   ('BS-C01:NPC_COURIER_H:courier_h', 4001007, 956.106, 1005.78, 102.5642, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_1', 4001010, 1052.0, 1646.0, 15.459047454452229, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_2', 4001010, 1038.0, 1616.0, 79.35763348383723, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_3', 4001010, 1032.0, 1604.0, 87.11358574626871, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_4', 4001010, 1048.73, 1630.73, 29.246997468726835, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_5', 4001010, 1052.0, 1653.0, 14.391567806857072, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_6', 4001010, 1060.0, 1626.0, 34.23473728777762, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_7', 4001010, 963.0, 1660.0, -10.141557772543873, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_8', 4001010, 942.0, 1655.0, -12.625688946517286, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:guard_1', 4001011, 981.0, 1723.0, -9.2015, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:guard_2', 4001011, 999.0, 1721.0, -9.9455, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:guard_3', 4001011, 992.0, 1742.0, -7.2726, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:cage_guard_1', 4001011, 979.0, 1682.0, -7.026, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:cage_guard_2', 4001011, 965.0, 1691.0, -9.2075, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:cage_guard_3', 4001011, 946.0, 1687.0, -13.6669, 3.14),
-  ('BS-C01:NPC_EARTH:earth_1', 4001012, 917.0, 1698.0, -16.2688, 3.14),
-  ('BS-C01:NPC_EARTH:earth_2', 4001012, 912.0, 1720.0, -15.0397, 3.14),
-  ('BS-C01:NPC_EARTH:earth_3', 4001012, 940.0, 1735.0, -10.6019, 3.14);
+  ('BS-C01:NPC_CAPTIVE_A:cage_1', 4001004, 882.0, 1680.0, -19.920641848289904, 3.14),
+  ('BS-C01:NPC_CAPTIVE_B:cage_2', 4001008, 886.0, 1683.0, -19.82492036391301, 3.14),
+  ('BS-C01:NPC_CAPTIVE_C:cage_3', 4001009, 890.0, 1684.0, -19.76820141805994, 3.14),
+  ('BS-C01:NPC_CULT_SCOUT:scout_1', 4001010, 879.0, 1675.0, -19.910858160660233, 3.14),
+  ('BS-C01:NPC_CULT_SCOUT:scout_2', 4001010, 901.0, 1681.0, -19.31815178709473, 3.14),
+  ('BS-C01:NPC_CULT_SCOUT:scout_3', 4001010, 899.0, 1669.0, -18.537572168639834, 3.14),
+  ('BS-C01:NPC_CULT_GUARD:cage_guard_1', 4001011, 880.0, 1682.0, -19.711218048216764, 3.14),
+  ('BS-C01:NPC_CULT_GUARD:cage_guard_2', 4001011, 889.0, 1688.0, -19.323704690884536, 3.14),
+  ('BS-C01:NPC_CULT_GUARD:cage_guard_3', 4001011, 898.0, 1683.0, -19.433176222740876, 3.14),
+  ('BS-C01:NPC_EARTH:earth_1', 4001012, 885.0, 1694.0, -18.570360743399192, 3.14),
+  ('BS-C01:NPC_EARTH:earth_2', 4001012, 897.0, 1692.0, -18.67546927942086, 3.14);
 INSERT INTO `bs_c01_gameobject_spawns` (`spawn_key`, `entry`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C01:GO_WAGON', 4001100, 1152.0, 1516.0, 47.4284, 3.14),
-  ('BS-C01:GO_TRAIL_A', 4001101, 1150.0, 1510.0, 47.5968, 3.14),
-  ('BS-C01:GO_TRAIL_B', 4001102, 1100.0, 1550.0, 28.5585, 3.14),
-  ('BS-C01:GO_TRAIL_C', 4001103, 1010.0, 1660.0, 0.0815, 3.14),
-  ('BS-C01:GO_CAGE_A', 4001104, 985.0, 1685.0, -6.814, 3.14),
-  ('BS-C01:GO_CAGE_B', 4001105, 971.0, 1694.0, -8.5529, 3.14),
-  ('BS-C01:GO_CAGE_C', 4001106, 952.0, 1690.0, -12.7174, 3.14),
-  ('BS-C01:GO_WARD_A', 4001107, 935.0, 1690.0, -16.0457, 3.14),
-  ('BS-C01:GO_WARD_B', 4001108, 925.0, 1710.0, -15.1322, 3.14),
-  ('BS-C01:GO_WARD_C', 4001109, 930.0, 1730.0, -11.9326, 3.14),
-  ('BS-C01:GO_COVER', 4001110, 958.0, 1700.0, -13.0579, 3.14),
-  ('BS-C01:GO_DEAD_DROP', 4001111, 958.0, 1690.0, -10.9006, 3.14),
-  ('BS-C01:GO_ALTAR', 4001112, 990.0, 1734.0, -9.1447, 3.14),
-  ('BS-C01:GO_RALLY', 4001113, 1012.0, 1655.0, 0.6661, 3.14);
+  ('BS-C01:GO_WAGON', 4001100, 1078.0, 1532.0, 23.67916041149389, 3.14),
+  ('BS-C01:GO_TRAIL_A', 4001101, 1086.0, 1540.0, 24.084525478175753, 3.14),
+  ('BS-C01:GO_TRAIL_B', 4001102, 955.0, 1625.0, -10.625724499778299, 3.14),
+  ('BS-C01:GO_TRAIL_C', 4001103, 895.0, 1670.0, -18.820534544219413, 3.14),
+  ('BS-C01:GO_WARD_A', 4001107, 885.0, 1674.0, -18.646728079259265, 3.14),
+  ('BS-C01:GO_WARD_B', 4001108, 892.0, 1673.0, -18.273758041376333, 3.14),
+  ('BS-C01:GO_WARD_C', 4001109, 898.0, 1674.0, -18.549552262937393, 3.14),
+  ('BS-C01:GO_COVER', 4001110, 882.0, 1669.0, -19.190444458766294, 3.14),
+  ('BS-C01:GO_DEAD_DROP', 4001111, 882.0, 1672.0, -19.55970310195156, 3.14),
+  ('BS-C01:GO_ALTAR', 4001112, 895.0, 1685.0, -19.391455524284886, 3.14),
+  ('BS-C01:GO_RALLY', 4001113, 1098.0, 1540.0, 26.500125748181112, 3.14);
 
 SET @BS_C01_ENTRY_COLUMN := (
   SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
@@ -491,8 +521,8 @@ SET @BS_C01_ENTRY_COLUMN := (
 );
 SET @BS_C01_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C01_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
-  '`position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, 90, 0, 0, s.`spawn_key` ',
+  '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
+  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 90, 0, 0, s.`spawn_key` ',
   'FROM `bs_c01_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_INSERT;
@@ -501,7 +531,7 @@ DEALLOCATE PREPARE bs_c01_stmt;
 SET @BS_C01_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c01_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C01_ENTRY_COLUMN, '` = s.`entry`, c.`position_x` = s.`x`, c.`position_y` = s.`y`, ',
-  'c.`position_z` = s.`z`, c.`orientation` = s.`o`'
+  'c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_UPDATE;
 EXECUTE bs_c01_stmt;
@@ -514,6 +544,18 @@ FROM `bs_c01_gameobject_spawns` s LEFT JOIN `gameobject` g ON g.`Comment` = s.`s
 UPDATE `gameobject` g INNER JOIN `bs_c01_gameobject_spawns` s ON g.`Comment` = s.`spawn_key`
 SET g.`id` = s.`entry`, g.`position_x` = s.`x`, g.`position_y` = s.`y`, g.`position_z` = s.`z`, g.`orientation` = s.`o`,
   g.`rotation2` = SIN(s.`o` / 2), g.`rotation3` = COS(s.`o` / 2);
+-- Retire obsolete owned campaign placements; surviving spawn keys keep their GUIDs.
+SET @BS_C01_PRUNE := CONCAT(
+  'DELETE c FROM `creature` c LEFT JOIN `bs_c01_creature_spawns` s ON s.`spawn_key`=c.`Comment` ',
+  'INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`=\'creature\' AND owner.`entry`=c.`',@BS_C01_ENTRY_COLUMN,'` AND owner.`chapter`=1 ',
+  'WHERE c.`Comment` LIKE \'BS-C01:%\' AND s.`spawn_key` IS NULL'
+);
+PREPARE bs_c01_stmt FROM @BS_C01_PRUNE;
+EXECUTE bs_c01_stmt;
+DEALLOCATE PREPARE bs_c01_stmt;
+DELETE g FROM `gameobject` g LEFT JOIN `bs_c01_gameobject_spawns` s ON s.`spawn_key`=g.`Comment`
+INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`='gameobject' AND owner.`entry`=g.`id` AND owner.`chapter`=1
+WHERE g.`Comment` LIKE 'BS-C01:%' AND s.`spawn_key` IS NULL;
 DROP TEMPORARY TABLE `bs_c01_creature_spawns`;
 DROP TEMPORARY TABLE `bs_c01_gameobject_spawns`;
 DROP TEMPORARY TABLE `bs_c01_ids`;

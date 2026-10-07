@@ -134,301 +134,302 @@
     "SPELL_BURNING": 42726,
     "NPC_BUTCHER": 4001229,
     "SPELL_BLACKJACK_TARGET": 39865,
-    "SPELL_GEM_TARGET": 34665
+    "SPELL_GEM_TARGET": 34665,
+    "GO_TERRITORY": 4001321
   },
   "points": {
     "condenna": [
-      892.0,
-      1610.0,
-      -20.975140854483726,
+      635.0,
+      1624.0,
+      -17.659155673889078,
       3.14
     ],
     "cargall": [
-      894.0,
-      1643.0,
-      -12.057970640005262,
+      636.0,
+      1632.0,
+      -17.671715813413623,
       3.14
     ],
     "mylva": [
-      862.0,
-      1592.0,
-      -24.190115060947168,
+      644.0,
+      1620.0,
+      -18.099289405229584,
       3.14
     ],
     "devoran": [
-      915.0,
-      1600.0,
-      -15.91023245221452,
+      646.0,
+      1630.0,
+      -17.768230569760494,
       3.14
     ],
     "ortell": [
-      1120.0,
-      1550.0,
-      34.54782268875478,
+      1100.0,
+      1540.0,
+      26.693678368559475,
       3.14
     ],
     "prison": [
-      990.0,
-      1730.0,
-      -9.675774914174127,
+      895.0,
+      1682.0,
+      -18.985879877982,
       3.14
     ],
     "refuge": [
-      1110.0,
-      1545.0,
-      29.172535986830365,
+      1098.0,
+      1540.0,
+      26.319535605871447,
       3.14
     ],
     "rendezvous": [
-      966.0,
-      1660.0,
-      -9.555197574737871,
+      869.0,
+      1666.0,
+      -19.745591491613013,
       3.14
     ],
     "recruit_start": [
-      990.0,
-      1684.0,
-      -6.319441209214028,
+      885.0,
+      1670.0,
+      -19.126708818341015,
       3.14
     ],
     "recruit_hide": [
-      962.0,
-      1661.0,
-      -10.36843355595623,
+      874.0,
+      1666.0,
+      -17.63443203082455,
       3.14
     ],
     "supplicant_a": [
-      885.0,
-      1650.0,
-      -9.520425820053767,
+      636.0,
+      1635.0,
+      -17.698951484382732,
       3.14
     ],
     "supplicant_b": [
-      879.0,
-      1652.0,
-      -13.725824956876274,
+      640.0,
+      1636.0,
+      -17.647388806334423,
       3.14
     ],
     "supplicant_c": [
-      873.0,
-      1650.0,
-      -16.214980186659805,
+      643.0,
+      1635.0,
+      -17.56581400542209,
       3.14
     ],
     "stones": [
-      850.0,
-      1600.0,
-      -24.177965870719937,
+      636.0,
+      1617.0,
+      -16.288507813269582,
       3.14
     ],
     "delivery": [
-      845.0,
-      1630.0,
-      -25.4678366564315,
+      649.0,
+      1626.0,
+      -18.28848477006856,
       3.14
     ],
     "course_start": [
-      850.0,
-      1570.0,
-      -23.47834008866258,
+      650.0,
+      1637.0,
+      -17.694322389255138,
       3.14
     ],
     "check_a": [
-      815.0,
-      1570.0,
-      -28.852262076292593,
+      657.0,
+      1637.0,
+      -18.62469819803956,
       3.14
     ],
     "check_b": [
-      795.0,
-      1605.0,
-      -31.48480454868414,
+      657.0,
+      1616.0,
+      -19.319736655731827,
       3.14
     ],
     "check_c": [
-      815.0,
-      1630.0,
-      -30.127648420053635,
+      625.0,
+      1616.0,
+      -16.07512208654335,
       3.14
     ],
     "check_d": [
-      851.0,
-      1564.0,
-      -22.601084766729425,
+      625.0,
+      1635.0,
+      -16.688717955318157,
       3.14
     ],
     "dog_a": [
-      920.0,
-      1570.0,
-      -15.921753236050666,
+      647.0,
+      1636.0,
+      -17.6551893140392,
       3.14
     ],
     "dog_b": [
-      944.0,
-      1575.0,
-      -12.784329594237406,
+      640.0,
+      1640.0,
+      -17.79996144855941,
       3.14
     ],
     "dog_c": [
-      951.006,
-      1610.0,
-      -11.64599647705564,
+      628.0,
+      1638.0,
+      -17.53937160642281,
       3.14
     ],
     "hound": [
-      918.0,
-      1595.0,
-      -16.154473069543354,
+      645.0,
+      1632.0,
+      -17.608782903795753,
       3.14
     ],
     "communique": [
-      861.0,
-      1660.0,
-      -21.552246212639933,
+      632.0,
+      1626.0,
+      -17.55953349355738,
       3.14
     ],
     "plans": [
-      838.0,
-      1685.0,
-      -25.30455484261184,
+      895.0,
+      1687.0,
+      -19.327736714629424,
       3.14
     ],
     "drop": [
-      950.0,
-      1670.0,
-      -11.730349316406638,
+      1089.0,
+      1537.0,
+      24.93897951494475,
       3.14
     ],
     "discord": [
-      890.0,
-      1685.0,
-      -19.676951275621253,
+      883.0,
+      1675.0,
+      -19.740699647798067,
       3.14
     ],
     "karrgonn": [
-      885.0,
-      1690.0,
-      -18.80170786875002,
+      881.0,
+      1674.0,
+      -19.796891420974063,
       3.14
     ],
     "azennios": [
-      879.0,
-      1685.0,
-      -19.219894408921185,
+      885.0,
+      1675.0,
+      -19.836026171492676,
       3.14
     ],
     "garnoth": [
-      815.0,
-      1725.0,
-      -20.68440667748826,
+      654.0,
+      1624.0,
+      -17.974739597444334,
       3.14
     ],
     "okrog": [
-      906.0,
-      1714.0,
-      -16.1351241416823,
+      887.0,
+      1677.0,
+      -19.722322180493663,
       3.14
     ],
     "podium": [
-      988.0,
-      1710.0,
-      -9.171121729275644,
+      895.0,
+      1675.0,
+      -19.593739876628337,
       3.14
     ],
     "crowd_a": [
-      997.0,
-      1705.0,
-      -6.819731398277768,
+      897.0,
+      1678.0,
+      -19.707383900361926,
       3.14
     ],
     "crowd_b": [
-      992.0,
-      1701.0,
-      -7.763063982571794,
+      900.0,
+      1677.0,
+      -19.58019596117607,
       3.14
     ],
     "crowd_c": [
-      987.0,
-      1703.0,
-      -8.842310497721265,
+      900.0,
+      1680.0,
+      -19.486325444729204,
       3.14
     ],
     "buyers": [
-      857.0,
-      1676.0,
-      -21.92204316264282,
+      894.0,
+      1688.0,
+      -19.284569940365806,
       3.14
     ],
     "restraint": [
-      983.0,
-      1725.0,
-      -9.379752257378783,
+      892.0,
+      1682.0,
+      -19.786975521349316,
       3.14
     ],
     "escape_a": [
-      995.0,
-      1700.0,
-      -6.831233841842065,
+      922.438,
+      1679.24,
+      -15.92043572770104,
       3.14
     ],
     "escape_b": [
-      1010.0,
-      1655.0,
-      3.3444623529988275,
+      985.0,
+      1625.0,
+      6.218991682303731,
       3.14
     ],
     "escape_c": [
-      1060.0,
-      1640.0,
-      23.975483112098804,
+      1050,
+      1550,
+      21.78709211535027,
       3.14
     ],
     "flower_0": [
       776.0,
       1588.0,
-      -29.70123911062748,
+      -29.084771086373635,
       3.14
     ],
     "flower_1": [
       790.0,
       1580.0,
-      -29.962446700515393,
+      -29.34597867626155,
       3.14
     ],
     "flower_2": [
       805.0,
       1590.0,
-      -29.72993633581989,
+      -29.113468311566045,
       3.14
     ],
     "flower_3": [
       782.0,
       1603.0,
-      -31.07785602808746,
+      -30.461388003833616,
       3.14
     ],
     "flower_4": [
       798.0,
       1608.0,
-      -31.604324192160373,
+      -30.98785616790653,
       3.14
     ],
     "flower_5": [
       774.0,
       1620.0,
-      -32.74756131288807,
+      -32.13109328863422,
       3.14
     ],
     "flower_6": [
       808.0,
       1625.0,
-      -29.938188631224893,
+      -29.32172060697105,
       3.14
     ],
     "flower_7": [
       790.0,
       1638.0,
-      -33.710064636456366,
+      -33.09359661220252,
       3.14
     ],
     "smolderos": [
@@ -438,9 +439,9 @@
       3.14
     ],
     "fire_0": [
-      835.0,
-      1664.0,
-      -27.059933500169194,
+      650.0,
+      1627.0,
+      -18.30435020946788,
       3.14
     ],
     "fire_1": [
@@ -486,15 +487,15 @@
       3.14
     ],
     "failed_0": [
-      846.0,
-      1534.0,
-      -19.41653064558561,
+      600,
+      1648,
+      -14.609421585323975,
       3.14
     ],
     "failed_1": [
-      862.0,
-      1528.0,
-      -17.89641558558829,
+      600,
+      1654,
+      -15.662886761449489,
       3.14
     ],
     "failed_2": [
@@ -516,15 +517,15 @@
       3.14
     ],
     "horrorguard_0": [
-      811.0,
-      1710.0,
-      -19.971519600471012,
+      887.0,
+      1677.0,
+      -19.176529574765752,
       3.14
     ],
     "horrorguard_1": [
-      800.0,
-      1720.0,
-      -15.045565090923311,
+      888.0,
+      1683.0,
+      -19.84911515899725,
       3.14
     ],
     "horrorguard_2": [
@@ -576,27 +577,27 @@
       3.14
     ],
     "guard_0": [
-      857.0,
-      1664.0,
-      -22.09087788025223,
+      643.0,
+      1627.0,
+      -17.777485409410172,
       3.14
     ],
     "guard_1": [
-      835.0,
-      1681.0,
-      -25.97447302125479,
+      633.0,
+      1627.0,
+      -17.611030507710623,
       3.14
     ],
     "scout_0": [
-      859.0,
-      1657.0,
-      -22.558379494557123,
+      638.0,
+      1627.0,
+      -17.76466084589558,
       3.14
     ],
     "scout_1": [
-      854.0,
-      1662.0,
-      -22.973789582833103,
+      640.0,
+      1629.0,
+      -17.700405816327685,
       3.14
     ],
     "matriarch": [
@@ -606,15 +607,15 @@
       3.14
     ],
     "dezco": [
-      -3970.0,
-      -3350.0,
-      39.392848,
+      -3970,
+      -3350,
+      39.34284809730439,
       3.14
     ],
     "garnoth_foe": [
-      810.0,
-      1725.0,
-      -20.448408266421026,
+      657.0,
+      1624.0,
+      -19.0086435068097,
       3.14
     ]
   },
@@ -627,8 +628,8 @@
       "map": 1,
       "zone": 406,
       "world_map_area": 81,
-      "display": 50,
-      "faction": 35,
+      "display": 11815,
+      "faction": 14,
       "flags": 770,
       "npc_flags": 3,
       "level": 30,
@@ -645,7 +646,9 @@
         "class": 1
       },
       "greeting": "Show your sponsor papers. This camp has no patience for an uncertain recruit.",
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8389
     },
     {
       "key": "NPC_CARGALL",
@@ -655,8 +658,8 @@
       "map": 1,
       "zone": 406,
       "world_map_area": 81,
-      "display": 49,
-      "faction": 35,
+      "display": 11811,
+      "faction": 14,
       "flags": 770,
       "npc_flags": 3,
       "level": 30,
@@ -674,7 +677,9 @@
       },
       "source_identity_audit": "Native human instructor recreation; source race remains unverified.",
       "greeting": "Preserve what the cult can still use. Those who falter will learn the cost.",
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8384
     },
     {
       "key": "NPC_MYLVA",
@@ -684,8 +689,8 @@
       "map": 1,
       "zone": 406,
       "world_map_area": 81,
-      "display": 50,
-      "faction": 35,
+      "display": 11815,
+      "faction": 14,
       "flags": 770,
       "npc_flags": 3,
       "level": 30,
@@ -702,7 +707,9 @@
         "class": 1
       },
       "greeting": "Your body, your mind and your words must all serve the flame.",
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8389
     },
     {
       "key": "NPC_DEVORAN",
@@ -712,8 +719,8 @@
       "map": 1,
       "zone": 406,
       "world_map_area": 81,
-      "display": 49,
-      "faction": 35,
+      "display": 11824,
+      "faction": 14,
       "flags": 770,
       "npc_flags": 3,
       "level": 30,
@@ -730,7 +737,9 @@
         "class": 1
       },
       "greeting": "A hound needs a handler who can earn its trust. Gromm'ko thinks his raptor has no equal.",
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_JAROD_FREE",
@@ -740,7 +749,7 @@
       "map": 1,
       "zone": 406,
       "world_map_area": 81,
-      "display": 55,
+      "display": 5070,
       "faction": 35,
       "flags": 770,
       "npc_flags": 3,
@@ -759,7 +768,8 @@
         "class": 1
       },
       "greeting": "The others still need us. Show Dezco what Ortell recovered, and keep moving.",
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "fallback_texture_extra": 3281
     },
     {
       "key": "NPC_DEZCO",
@@ -769,7 +779,7 @@
       "map": 1,
       "zone": 15,
       "world_map_area": 141,
-      "display": 59,
+      "display": 3770,
       "faction": 35,
       "flags": 770,
       "npc_flags": 3,
@@ -788,14 +798,15 @@
         "class": 1
       },
       "greeting": "Jarod sends a trusted traveler. Let me see his letter; the Dawnchasers will follow these buyers.",
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_RECRUIT",
       "entry": 4001206,
       "name": "Isolated Twilight Recruit",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -813,14 +824,16 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_SUPPLICANT_A",
       "entry": 4001207,
       "name": "Immolated Supplicant",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -838,14 +851,16 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_SUPPLICANT_B",
       "entry": 4001208,
       "name": "Immolated Supplicant",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -863,14 +878,16 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_SUPPLICANT_C",
       "entry": 4001209,
       "name": "Immolated Supplicant",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -888,7 +905,9 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_HOUND",
@@ -925,7 +944,7 @@
       "entry": 4001212,
       "name": "Twilight Initiate",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -943,7 +962,9 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_OGRE",
@@ -980,7 +1001,7 @@
       "entry": 4001215,
       "name": "High Cultist Azennios",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 14,
       "flags": 0,
       "npc_flags": 0,
@@ -998,7 +1019,9 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_GARNOTH",
@@ -1050,7 +1073,7 @@
       "entry": 4001219,
       "name": "Twilight Restraint Guard",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 14,
       "flags": 0,
       "npc_flags": 0,
@@ -1065,17 +1088,19 @@
         "waist": 6570,
         "legs": 6568,
         "hands": 14089,
-        "mainhand": 4575,
+        "mainhand": 12282,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_ENFORCER",
       "entry": 4001220,
       "name": "Twilight Enforcer",
       "point": null,
-      "display": 51,
+      "display": 11812,
       "faction": 14,
       "flags": 0,
       "npc_flags": 0,
@@ -1090,10 +1115,12 @@
         "waist": 6570,
         "legs": 6568,
         "hands": 14089,
-        "mainhand": 4575,
+        "mainhand": 12282,
         "class": 1
       },
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8386
     },
     {
       "key": "NPC_SCENE",
@@ -1123,17 +1150,7 @@
       "type": 4,
       "script": "npc_bs_c02_enemy",
       "scale": 1,
-      "points": [
-        "fire_0",
-        "fire_1",
-        "fire_2",
-        "fire_3",
-        "fire_4",
-        "fire_5",
-        "fire_6",
-        "fire_7"
-      ],
-      "experience_multiplier": 1
+      "experience_multiplier": 0
     },
     {
       "key": "NPC_SMOLDEROS",
@@ -1176,7 +1193,7 @@
       "entry": 4001225,
       "name": "Failed Supplicant",
       "point": null,
-      "display": 49,
+      "display": 11824,
       "faction": 14,
       "flags": 0,
       "npc_flags": 0,
@@ -1186,10 +1203,7 @@
       "scale": 1,
       "points": [
         "failed_0",
-        "failed_1",
-        "failed_2",
-        "failed_3",
-        "failed_4"
+        "failed_1"
       ],
       "outfit": {
         "race": 1,
@@ -1201,7 +1215,14 @@
         "mainhand": 4575,
         "class": 1
       },
-      "experience_multiplier": 1
+      "experience_multiplier": 1,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393,
+      "ordinary_loot": {
+        "level": 26,
+        "mingold": 28,
+        "maxgold": 94
+      }
     },
     {
       "key": "NPC_HORRORGUARD",
@@ -1216,26 +1237,14 @@
       "type": 3,
       "script": "npc_bs_c02_enemy",
       "scale": 1,
-      "points": [
-        "horrorguard_0",
-        "horrorguard_1",
-        "horrorguard_2",
-        "horrorguard_3",
-        "horrorguard_4",
-        "horrorguard_5",
-        "horrorguard_6",
-        "horrorguard_7",
-        "horrorguard_8",
-        "horrorguard_9"
-      ],
-      "experience_multiplier": 1
+      "experience_multiplier": 0
     },
     {
       "key": "NPC_GUARD",
       "entry": 4001227,
       "name": "Twilight Guard",
       "point": null,
-      "display": 51,
+      "display": 11812,
       "faction": 14,
       "flags": 0,
       "npc_flags": 0,
@@ -1254,17 +1263,24 @@
         "waist": 6570,
         "legs": 6568,
         "hands": 14089,
-        "mainhand": 4575,
+        "mainhand": 12282,
         "class": 1
       },
-      "experience_multiplier": 1
+      "experience_multiplier": 1,
+      "native_appearance": true,
+      "fallback_texture_extra": 8386,
+      "ordinary_loot": {
+        "level": 26,
+        "mingold": 28,
+        "maxgold": 94
+      }
     },
     {
       "key": "NPC_SCOUT",
       "entry": 4001228,
       "name": "Twilight Scout",
       "point": null,
-      "display": 55,
+      "display": 11816,
       "faction": 14,
       "flags": 0,
       "npc_flags": 0,
@@ -1277,16 +1293,24 @@
         "scout_1"
       ],
       "outfit": {
-        "race": 4,
+        "race": 1,
         "gender": 0,
         "chest": 6238,
         "waist": 6570,
         "legs": 6568,
         "hands": 14089,
-        "mainhand": 4575,
-        "class": 1
+        "mainhand": 12282,
+        "class": 1,
+        "ranged": 2504
       },
-      "experience_multiplier": 1
+      "experience_multiplier": 1,
+      "native_appearance": true,
+      "fallback_texture_extra": 8388,
+      "ordinary_loot": {
+        "level": 26,
+        "mingold": 28,
+        "maxgold": 94
+      }
     },
     {
       "key": "NPC_BUTCHER",
@@ -1307,12 +1331,13 @@
     {
       "key": "GO_RENDEZVOUS",
       "entry": 4001300,
-      "name": "Recruit Rendezvous",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "rendezvous"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_FLOWER",
@@ -1329,7 +1354,8 @@
         "flower_6",
         "flower_7"
       ],
-      "scale": 1
+      "scale": 1,
+      "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx"
     },
     {
       "key": "GO_STONES",
@@ -1339,97 +1365,110 @@
       "points": [
         "stones"
       ],
-      "scale": 1
+      "scale": 0.3,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
     },
     {
       "key": "GO_DELIVERY",
       "entry": 4001303,
-      "name": "Stone Delivery Station",
-      "display": 235,
+      "name": "Training Load Crate",
+      "display": 6737,
       "points": [
         "delivery"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_COURSE_START",
       "entry": 4001304,
-      "name": "Agility Trial Start",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "course_start"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_CHECK_A",
       "entry": 4001305,
-      "name": "Agility Checkpoint A",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "check_a"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_CHECK_B",
       "entry": 4001306,
-      "name": "Agility Checkpoint B",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "check_b"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_CHECK_C",
       "entry": 4001307,
-      "name": "Agility Checkpoint C",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "check_c"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_CHECK_D",
       "entry": 4001308,
-      "name": "Agility Checkpoint D",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "check_d"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_DOG_A",
       "entry": 4001309,
-      "name": "Hound Feeding Station A",
-      "display": 22,
+      "name": "Hound Feeding Supplies",
+      "display": 6737,
       "points": [
         "dog_a"
       ],
-      "scale": 1
+      "scale": 0.5,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
+      "decorative": true
     },
     {
       "key": "GO_DOG_B",
       "entry": 4001310,
-      "name": "Hound Feeding Station B",
-      "display": 22,
+      "name": "Hound Feeding Supplies",
+      "display": 6737,
       "points": [
         "dog_b"
       ],
-      "scale": 1
+      "scale": 0.5,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
+      "decorative": true
     },
     {
       "key": "GO_DOG_C",
       "entry": 4001311,
-      "name": "Hound Feeding Station C",
-      "display": 22,
+      "name": "Hound Feeding Supplies",
+      "display": 6737,
       "points": [
         "dog_c"
       ],
-      "scale": 1
+      "scale": 0.5,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
+      "decorative": true
     },
     {
       "key": "GO_COMMUNIQUE",
@@ -1439,7 +1478,8 @@
       "points": [
         "communique"
       ],
-      "scale": 1
+      "scale": 1,
+      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx"
     },
     {
       "key": "GO_PLANS",
@@ -1449,27 +1489,30 @@
       "points": [
         "plans"
       ],
-      "scale": 1
+      "scale": 1,
+      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx"
     },
     {
       "key": "GO_DROP",
       "entry": 4001314,
-      "name": "Ortell's Dead Drop",
-      "display": 3332,
+      "name": "Ortell's Sealed Message Crate",
+      "display": 6737,
       "points": [
         "drop"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_DISCORD",
       "entry": 4001315,
-      "name": "Discord",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "discord"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_GARNOTH",
@@ -1479,17 +1522,19 @@
       "points": [
         "garnoth"
       ],
-      "scale": 1
+      "scale": 0.3,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
     },
     {
       "key": "GO_OKROG",
       "entry": 4001317,
-      "name": "Okrog",
-      "display": 22,
+      "name": "Twilight Training Tablet",
+      "display": 6420,
       "points": [
         "okrog"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
     },
     {
       "key": "GO_PODIUM",
@@ -1499,27 +1544,41 @@
       "points": [
         "podium"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\Altars\\Altar02.mdx"
     },
     {
       "key": "GO_PRISON",
       "entry": 4001319,
-      "name": "Jarod's Restraints",
-      "display": 676,
+      "name": "Broken Restraint Tablet",
+      "display": 6419,
       "points": [
         "prison"
       ],
-      "scale": 1
+      "scale": 0.55,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx"
     },
     {
       "key": "GO_BUYERS",
       "entry": 4001320,
-      "name": "Buyers",
-      "display": 259,
+      "name": "Buyer Correspondence Crate",
+      "display": 6737,
       "points": [
         "buyers"
       ],
-      "scale": 1
+      "scale": 0.65,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
+    },
+    {
+      "key": "GO_TERRITORY",
+      "entry": 4001321,
+      "name": "Horrorguard Calling Tablet",
+      "display": 6419,
+      "scale": 0.55,
+      "points": [
+        "horrorguard_0"
+      ],
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx"
     }
   ],
   "items": [
@@ -2614,5 +2673,11 @@
     "NPC_DEVORAN": "https://warcraft.wiki.gg/wiki/Instructor_Devoran",
     "NPC_GROMMKO_AND_BUTCHER": "https://warcraft.wiki.gg/wiki/Gromm%27ko",
     "NPC_CARGALL": "Exact source race and outfit unverified; native human reconstruction documented."
+  },
+  "polish": {
+    "normal_world": true,
+    "stock_spawns_preserved": true,
+    "textured_fallbacks": true,
+    "placeholder_signs_removed": true
   }
 }

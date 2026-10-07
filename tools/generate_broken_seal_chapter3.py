@@ -7,6 +7,7 @@ from pathlib import Path
 from generate_broken_seal_chapter1 import rows, upsert
 
 from broken_seal_outfits import validate_outfits
+from broken_seal_content import equipment_sql, ordinary_loot_sql
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/quests/broken_seal_chapter3.json'
@@ -121,7 +122,7 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     cols = ['entry','name','minlevel','maxlevel','exp','faction','npcflag','unit_class','unit_flags','type',
             'AIName','ScriptName','HealthModifier','DamageModifier','ExperienceModifier','lootid','flags_extra']
     values = [[a['entry'],a['name'],a['level'],a['level'],0,a['faction'],a['npc_flags'],1,a['flags'],a['type'],'',
-               a['script'],1,1,a['experience_multiplier'],a['entry'] if a.get('combat_spell') else 0,
+               a['script'],1,1,a['experience_multiplier'],a['entry'] if a.get('combat_spell') or a.get('ordinary_loot') else 0,
                2 if a['faction']==35 else 0] for a in d['actors']]
     values += [[v,k.replace('CREDIT_','').replace('_',' ').title(),1,1,0,35,0,1,33555202,10,
                 'NullCreatureAI','',1,1,0,0,2] for k,v in ids.items() if k.startswith('CREDIT_')]
@@ -134,7 +135,9 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
            'shirt','waist','legs','feet','hands','mainhand','ranged']
     dressed=[a for a in d['actors'] if a.get('outfit')]
     text += upsert('mod_customnpcs_outfit',ocols,[[a['entry']]+[a['outfit'].get(c,1 if c == 'class' else 0) for c in ocols[1:]] for a in dressed],['outfit_id'])
-    text += upsert('mod_customnpcs_outfit_entry',['creature_entry','outfit_id'],[[a['entry'],a['entry']] for a in dressed],['creature_entry'])
+    text += upsert('mod_customnpcs_outfit_entry',['creature_entry','outfit_id'],[[a['entry'],0 if a.get('native_appearance') else a['entry']] for a in dressed],['creature_entry'])
+    text += equipment_sql(d['actors'])
+    text += ordinary_loot_sql(d['actors'])
     icols=['entry','class','subclass','name','displayid','Quality','InventoryType','AllowableClass','AllowableRace',
            'ItemLevel','RequiredLevel','maxcount','stackable','bonding','stat_type1','stat_value1','stat_type2',
            'stat_value2','stat_type3','stat_value3','description','spellid_1','spelltrigger_1','ScriptName']
@@ -215,8 +218,8 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
 );
 SET @BS_C03_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C03_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
-  '`position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, 60, 0, 0, s.`spawn_key` ',
+  '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
+  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 60, 0, 0, s.`spawn_key` ',
   'FROM `bs_c03_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c03_stmt FROM @BS_C03_INSERT;
@@ -225,7 +228,7 @@ DEALLOCATE PREPARE bs_c03_stmt;
 SET @BS_C03_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c03_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C03_ENTRY_COLUMN, '` = s.`entry`, c.`zoneId` = s.`zone`, c.`position_x` = s.`x`, ',
-  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`'
+  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
 );
 PREPARE bs_c03_stmt FROM @BS_C03_UPDATE;
 EXECUTE bs_c03_stmt;
@@ -238,6 +241,18 @@ FROM `bs_c03_gameobject_spawns` s LEFT JOIN `gameobject` g ON g.`Comment` = s.`s
 UPDATE `gameobject` g INNER JOIN `bs_c03_gameobject_spawns` s ON g.`Comment` = s.`spawn_key`
 SET g.`id` = s.`entry`, g.`position_x` = s.`x`, g.`position_y` = s.`y`, g.`position_z` = s.`z`, g.`orientation` = s.`o`,
   g.`rotation2` = SIN(s.`o` / 2), g.`rotation3` = COS(s.`o` / 2);
+-- Retire obsolete owned campaign placements; surviving spawn keys keep their GUIDs.
+SET @BS_C03_PRUNE := CONCAT(
+  'DELETE c FROM `creature` c LEFT JOIN `bs_c03_creature_spawns` s ON s.`spawn_key`=c.`Comment` ',
+  'INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`=\\'creature\\' AND owner.`entry`=c.`',@BS_C03_ENTRY_COLUMN,'` AND owner.`chapter`=3 ',
+  'WHERE c.`Comment` LIKE \\'BS-C03:%\\' AND s.`spawn_key` IS NULL'
+);
+PREPARE bs_c03_stmt FROM @BS_C03_PRUNE;
+EXECUTE bs_c03_stmt;
+DEALLOCATE PREPARE bs_c03_stmt;
+DELETE g FROM `gameobject` g LEFT JOIN `bs_c03_gameobject_spawns` s ON s.`spawn_key`=g.`Comment`
+INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`='gameobject' AND owner.`entry`=g.`id` AND owner.`chapter`=3
+WHERE g.`Comment` LIKE 'BS-C03:%' AND s.`spawn_key` IS NULL;
 DROP TEMPORARY TABLE `bs_c03_creature_spawns`;
 DROP TEMPORARY TABLE `bs_c03_gameobject_spawns`;
 DROP TEMPORARY TABLE `bs_c03_ids`;

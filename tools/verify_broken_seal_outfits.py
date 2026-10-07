@@ -10,11 +10,13 @@ ROOT=Path(__file__).resolve().parents[1]
 SLOTS={'head':{1},'shoulders':{3},'shirt':{4},'chest':{5,20},'waist':{6},'legs':{7},'feet':{8},'wrists':{9},'hands':{10},'back':{16},'tabard':{19}}
 
 
-def inventory():
+def inventory(chapters=(1,2,3,4), legacy_hubs=False):
     actors=[]
-    for n in [1,2,3]:
+    for n in chapters:
         d=json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text());actors+=d.get('actors',[])+d.get('hostile',[])
-    d=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text());actors+=d['guards']+d['residents']
+    d=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text())
+    actors += [a for a in d['guards'] if not legacy_hubs or a['entry'] < 4009008]
+    actors += [a for a in d['residents'] if not legacy_hubs or a['entry'] < 4009058]
     return actors
 
 

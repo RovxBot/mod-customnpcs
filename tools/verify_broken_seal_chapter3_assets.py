@@ -53,7 +53,7 @@ def main():
         print(f'{len(points)} dry ground positions checked.')
     if args.travel_probe:
         routes = d['validation']['routes']
-        result = subprocess.run([str(args.travel_probe), str(args.client_data / 'mmaps')],
+        result = subprocess.run([str(args.travel_probe), str(args.client_data / 'mmaps'),'9'],
                                 input=''.join('r ' + ' '.join(map(str, d['points'][r['start']][:3] +
                                         d['points'][r['end']][:3])) + '\n' for r in routes),
                                 text=True, capture_output=True, check=True)

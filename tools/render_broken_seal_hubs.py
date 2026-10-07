@@ -10,10 +10,10 @@ COLORS={'shelter':'#766394','sleeping':'#87775b','supplies':'#aa754c','workstati
 
 
 def main():
-    d=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text());chapters=[json.loads((ROOT/f'data/quests/broken_seal_chapter{i}.json').read_text()) for i in [1,2,3]]
+    d=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text());chapters=[json.loads((ROOT/f'data/quests/broken_seal_chapter{i}.json').read_text()) for i in [1,2,3,4]]
     actors={a['entry']:(a['name'],c['points'][a['point']]) for c in chapters for a in c['actors'] if a.get('point')}
-    out=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">',
-         '<rect width="1200" height="700" fill="#121d26"/>',
+    out=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1010" viewBox="0 0 1200 1010">',
+         '<rect width="1200" height="1010" fill="#121d26"/>',
          '<text x="20" y="28" fill="#edf5f4" font-size="20" font-family="sans-serif">The Broken Seal — hub layout plan</text>',
          '<text x="20" y="49" fill="#b8c7c8" font-size="12" font-family="sans-serif">Native scenery • cyan: contacts / clear routes • gold: sentries • light circles: protected hand-in areas</text>']
     for i,h in enumerate(d['hubs']):
@@ -40,7 +40,7 @@ def main():
             for p in g['points']:
                 x,y=xy(*p[:2]);out.append(f'<path d="M {x:.2f} {y-4:.2f} L {x+4:.2f} {y+3:.2f} L {x-4:.2f} {y+3:.2f} Z" fill="#f0cf7a"><title>Sentry</title></path>')
         out.append(f'<text x="{left+10}" y="{top+284}" fill="#b8c7c8" font-size="11" font-family="sans-serif">{len([o for o in d["objects"] if o["hub"]==h["key"]])} props • 2 sentries • 1 working resident</text>')
-    out += ['<text x="20" y="690" fill="#b8c7c8" font-size="11" font-family="sans-serif">Layout and clearance review. In-game terrain, model rendering and NPC behavior still need a live acceptance pass.</text>','</svg>']
+    out += ['<text x="20" y="1000" fill="#b8c7c8" font-size="11" font-family="sans-serif">Layout and clearance review. In-game terrain, model rendering and NPC behavior still need a live acceptance pass.</text>','</svg>']
     (ROOT/'docs/broken-seal/hub-layout.svg').write_text('\n'.join(out)+'\n')
 
 

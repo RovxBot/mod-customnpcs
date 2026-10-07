@@ -211,19 +211,19 @@ ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001400, 4001401, 4001402, 4001403, 4001404, 4001405, 4001406, 4001407, 4001408, 4001409, 4001410, 4001411, 4001412, 4001413, 4001414, 4001415, 4001416, 4001450, 4001451, 4001452, 4001453, 4001454, 4001455, 4001456, 4001457, 4001458, 4001459, 4001460, 4001461, 4001462, 4001463);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
-  (4001400, 0, 53, 1, 1),
-  (4001401, 0, 51, 1, 1),
-  (4001402, 0, 60, 1, 1),
-  (4001403, 0, 59, 1, 1),
-  (4001404, 0, 60, 1, 1),
-  (4001405, 0, 54, 1, 1),
+  (4001400, 0, 3406, 1, 1),
+  (4001401, 0, 3865, 1, 1),
+  (4001402, 0, 2126, 1, 1),
+  (4001403, 0, 3770, 1, 1),
+  (4001404, 0, 2126, 1, 1),
+  (4001405, 0, 2585, 1, 1),
   (4001406, 0, 23783, 1, 1),
   (4001407, 0, 23783, 1, 1),
-  (4001408, 0, 59, 1, 1),
-  (4001409, 0, 50, 1, 1),
-  (4001410, 0, 52, 1, 1),
-  (4001411, 0, 59, 1, 1),
-  (4001412, 0, 60, 1, 1),
+  (4001408, 0, 3770, 1, 1),
+  (4001409, 0, 4888, 1, 1),
+  (4001410, 0, 1322, 1, 1),
+  (4001411, 0, 3770, 1, 1),
+  (4001412, 0, 2126, 1, 1),
   (4001413, 0, 11686, 1, 1),
   (4001414, 0, 14402, 1, 1),
   (4001415, 0, 1122, 1, 1),
@@ -270,6 +270,13 @@ INSERT INTO `mod_customnpcs_outfit_entry` (`creature_entry`, `outfit_id`) VALUES
   (4001412, 4001412)
 ON DUPLICATE KEY UPDATE
   `outfit_id` = VALUES(`outfit_id`);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
+  (4001400, 1, 4575, 0, 0),
+  (4001402, 1, 4575, 0, 0),
+  (4001411, 1, 6631, 0, 0),
+  (4001412, 1, 4575, 0, 0)
+ON DUPLICATE KEY UPDATE
+  `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
   (900300, 12, 0, 'Raider Excavation Orders', 18098, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 0, 0, ''),
   (900301, 12, 0, 'Marsh Antidote', 2885, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The Broken Seal: The Dawnchaser Promise', 34665, 0, 'item_bs_c03_antidote'),
@@ -418,12 +425,12 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900300, 0, 0, -3970, -3350),
   (900301, 0, 0, -3970, -3350),
-  (900302, 0, 0, -3955, -3348),
-  (900303, 0, 0, -3970, -3328),
-  (900304, 0, 0, -3970, -3328),
+  (900302, 0, 0, -3960, -3347),
+  (900303, 0, 0, -3965, -3359),
+  (900304, 0, 0, -3965, -3359),
   (900305, 0, 0, -3970, -3350),
   (900306, 0, 0, -3970, -3350),
-  (900307, 0, 0, -3955, -3348),
+  (900307, 0, 0, -3960, -3347),
   (900308, 0, 0, -3970, -3350),
   (900309, 0, 0, -3970, -3350),
   (900310, 0, 0, -3970, -3350),
@@ -451,16 +458,16 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001464, 4001464);
 UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001464);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
-  (4001500, 10, 22, 'Lost Scouting Camp Marker', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001501, 10, 8698, 'Dawnchaser Medical Tent', 1, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001500, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001501, 10, 8698, 'Dawnchaser Medical Tent', 0.75, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001502, 10, 192, 'Dawnchaser Cooking Hearth', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001503, 10, 22, 'Lookout A', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001504, 10, 22, 'Lookout B', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001505, 10, 22, 'Lookout C', 1, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001503, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001504, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001505, 10, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001506, 10, 269, 'Marsh Lotus Leaves', 1, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001507, 10, 259, 'Raider Excavation Orders', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001508, 10, 235, 'Raider Relic Binding Apparatus', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001509, 10, 235, 'Ward-tainted Pool Focus', 1, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001508, 10, 235, 'Raider Relic Binding Apparatus', 0.35, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001509, 10, 235, 'Ward-tainted Pool Focus', 0.35, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001510, 10, 192, 'Leza''s Memorial', 1, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001511, 10, 335, 'Supply A', 1, 0, 0, 1, 'go_bs_c03_interaction'),
   (4001512, 10, 335, 'Supply B', 1, 0, 0, 1, 'go_bs_c03_interaction'),
@@ -468,7 +475,7 @@ INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`,
   (4001514, 5, 5993, 'Cot A', 0.8, 0, 0, 1, ''),
   (4001515, 5, 5993, 'Cot B', 0.8, 0, 0, 1, ''),
   (4001516, 5, 8457, 'Ruined Tent', 1, 0, 0, 1, ''),
-  (4001517, 5, 22, 'Village Sign', 1, 0, 0, 1, '')
+  (4001517, 5, 6737, 'Expedition Evidence Crate', 0.6, 0, 0, 1, '')
 ON DUPLICATE KEY UPDATE
   `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c03_creature_spawns`;
@@ -476,25 +483,18 @@ CREATE TEMPORARY TABLE `bs_c03_creature_spawns` (`spawn_key` VARCHAR(100) PRIMAR
 DROP TEMPORARY TABLE IF EXISTS `bs_c03_gameobject_spawns`;
 CREATE TEMPORARY TABLE `bs_c03_gameobject_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO `bs_c03_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C03:NPC_KANG:kang', 4001400, 15, -3955.0, -3348.0, 39.26710815177746, 3.14),
-  ('BS-C03:NPC_KOR:kor', 4001401, 15, -3970.0, -3328.0, 37.18366264345962, 3.14),
-  ('BS-C03:NPC_NALA:nala', 4001402, 15, -3982.0, -3358.0, 40.26248685667625, 3.14),
+  ('BS-C03:NPC_KANG:kang', 4001400, 15, -3960, -3347, 39.321337597956, 3.14),
+  ('BS-C03:NPC_KOR:kor', 4001401, 15, -3965, -3359, 37.785730920218995, 3.14),
+  ('BS-C03:NPC_NALA:nala', 4001402, 15, -3977, -3348, 40.315644351059206, 3.14),
   ('BS-C03:NPC_CHEZIN:chezin', 4001403, 15, -3785.0, -3488.0, 30.904776469037483, 3.14),
   ('BS-C03:NPC_MEI:mei', 4001405, 15, -4535.0, -3235.0, 31.005721232444824, 3.14),
-  ('BS-C03:NPC_REFUGEE_A:refugee_a', 4001408, 15, -3952.0, -3320.0, 37.45147193352007, 3.14),
-  ('BS-C03:NPC_REFUGEE_B:refugee_b', 4001409, 15, -3917.0, -3360.0, 34.7054172891271, 3.14),
-  ('BS-C03:NPC_REFUGEE_C:refugee_c', 4001410, 15, -3965.0, -3390.0, 34.795068190896316, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_0', 4001414, 15, -3817.0, -3510.0, 31.64495918332671, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_1', 4001414, 15, -3807.0, -3520.0, 31.190844671336155, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_2', 4001414, 15, -3877.0, -3554.0, 39.87576238084944, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_3', 4001414, 15, -3898.0, -3550.0, 37.555951501783724, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_4', 4001414, 15, -3986.0, -3592.0, 35.14438154908573, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_5', 4001414, 15, -4007.0, -3586.0, 30.907599275429448, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_6', 4001414, 15, -3913.27, -3606.58, 30.739638721880294, 3.14),
-  ('BS-C03:NPC_RAIDER:raider_7', 4001414, 15, -3888.23, -3596.15, 30.84089242987682, 3.14),
-  ('BS-C03:NPC_HEXER:hexer_0', 4001415, 15, -3904.8, -3586.93, 30.731849205504968, 3.14),
-  ('BS-C03:NPC_HEXER:hexer_1', 4001415, 15, -3860.0, -3615.0, 33.65433282262704, 3.14),
-  ('BS-C03:NPC_HEXER:hexer_2', 4001415, 15, -4003.72, -3607.27, 30.854969300844946, 3.14),
+  ('BS-C03:NPC_REFUGEE_A:refugee_a', 4001408, 15, -3955, -3344, 39.39205068468427, 3.14),
+  ('BS-C03:NPC_REFUGEE_B:refugee_b', 4001409, 15, -3958, -3360, 38.11800024487176, 3.14),
+  ('BS-C03:NPC_REFUGEE_C:refugee_c', 4001410, 15, -3976, -3338, 40.112902534941895, 3.14),
+  ('BS-C03:NPC_RAIDER:raider_0', 4001414, 15, -3940, -3620, 35.33285509169608, 3.14),
+  ('BS-C03:NPC_RAIDER:raider_1', 4001414, 15, -3935, -3617, 35.16534475789969, 3.14),
+  ('BS-C03:NPC_RAIDER:raider_2', 4001414, 15, -3938, -3627, 34.96592599234592, 3.14),
+  ('BS-C03:NPC_HEXER:hexer_0', 4001415, 15, -3945, -3621, 35.698176263354235, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_0', 4001416, 15, -3925.0, -3460.0, 30.728261740164694, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_1', 4001416, 15, -3958.4, -3466.67, 30.358569149087955, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_2', 4001416, 15, -3930.13, -3494.93, 30.86725958548896, 3.14),
@@ -504,35 +504,35 @@ INSERT INTO `bs_c03_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z
   ('BS-C03:NPC_SKITTERER:skitterer_6', 4001416, 15, -4004.0, -3428.0, 44.80791978377301, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_7', 4001416, 15, -3941.74, -3439.96, 30.832398283854484, 3.14);
 INSERT INTO `bs_c03_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C03:GO_TRACK:track', 4001500, 15, -3780.0, -3484.0, 30.66348012003404, 3.14),
-  ('BS-C03:GO_TENT:tent', 4001501, 15, -3986.0, -3367.0, 40.62909437048796, 3.14),
-  ('BS-C03:GO_HEARTH:hearth', 4001502, 15, -3947.0, -3357.0, 38.161925851368146, 3.14),
-  ('BS-C03:GO_LOOKOUT_A:lookout_a', 4001503, 15, -3813.92, -3509.84, 30.14540867615935, 3.14),
-  ('BS-C03:GO_LOOKOUT_B:lookout_b', 4001504, 15, -3890.0, -3560.0, 37.41813423270267, 3.14),
-  ('BS-C03:GO_LOOKOUT_C:lookout_c', 4001505, 15, -3999.63, -3594.61, 30.769223162146066, 3.14),
-  ('BS-C03:GO_HERB:herb_0', 4001506, 15, -3865.42, -3471.61, 30.75097425479255, 3.14),
-  ('BS-C03:GO_HERB:herb_1', 4001506, 15, -3869.33, -3490.67, 30.859048434742107, 3.14),
-  ('BS-C03:GO_HERB:herb_2', 4001506, 15, -3898.0, -3472.0, 31.896224684021448, 3.14),
-  ('BS-C03:GO_HERB:herb_3', 4001506, 15, -3920.0, -3520.0, 36.20807931503754, 3.14),
-  ('BS-C03:GO_HERB:herb_4', 4001506, 15, -3939.47, -3548.0, 41.12239014984691, 3.14),
-  ('BS-C03:GO_HERB:herb_5', 4001506, 15, -3957.0, -3558.0, 39.25788936634268, 3.14),
-  ('BS-C03:GO_HERB:herb_6', 4001506, 15, -3975.0, -3540.0, 40.9578977176704, 3.14),
-  ('BS-C03:GO_HERB:herb_7', 4001506, 15, -4002.54, -3530.12, 30.73718180836647, 3.14),
-  ('BS-C03:GO_HERB:herb_8', 4001506, 15, -4020.98, -3554.98, 30.920595618990035, 3.14),
-  ('BS-C03:GO_HERB:herb_9', 4001506, 15, -4018.0, -3565.0, 31.940067512427504, 3.14),
-  ('BS-C03:GO_HERB:herb_10', 4001506, 15, -4025.0, -3505.0, 35.66227719286653, 3.14),
-  ('BS-C03:GO_HERB:herb_11', 4001506, 15, -3870.0, -3536.0, 38.85394219834596, 3.14),
-  ('BS-C03:GO_ORDERS:orders', 4001507, 15, -3940.0, -3620.0, 35.38285509169608, 3.14),
-  ('BS-C03:GO_DEVICE:device', 4001508, 15, -3946.0, -3620.0, 35.839435092815705, 3.14),
-  ('BS-C03:GO_POOL:pool', 4001509, 15, -4010.0, -3660.0, 43.261164807370186, 3.14),
-  ('BS-C03:GO_MEMORIAL:memorial', 4001510, 15, -4010.0, -3340.0, 37.10976943307338, 3.14),
-  ('BS-C03:GO_SUPPLY_A:supply_a', 4001511, 15, -3950.0, -3320.0, 37.802428951127986, 3.14),
-  ('BS-C03:GO_SUPPLY_B:supply_b', 4001512, 15, -3915.0, -3360.0, 34.460440572295504, 3.14),
-  ('BS-C03:GO_SUPPLY_C:supply_c', 4001513, 15, -3963.0, -3390.0, 34.49506461526585, 3.14),
-  ('BS-C03:GO_COT_A:cot_a', 4001514, 15, -3990.0, -3358.0, 40.03269612360333, 3.14),
-  ('BS-C03:GO_COT_B:cot_b', 4001515, 15, -3993.0, -3358.0, 39.584477346483204, 3.14),
-  ('BS-C03:GO_RUINED_TENT:ruined_tent', 4001516, 15, -3792.0, -3486.94, 31.23072556590791, 3.14),
-  ('BS-C03:GO_VILLAGE_SIGN:village_sign', 4001517, 15, -4533.0, -3233.0, 30.085449329220566, 3.14);
+  ('BS-C03:GO_TRACK:track', 4001500, 15, -3780.0, -3484.0, 30.61348012003404, 3.14),
+  ('BS-C03:GO_TENT:tent', 4001501, 15, -3980, -3358, 39.921344749215976, 3.14),
+  ('BS-C03:GO_HEARTH:hearth', 4001502, 15, -3960, -3355, 38.360619737504265, 3.14),
+  ('BS-C03:GO_LOOKOUT_A:lookout_a', 4001503, 15, -3932, -3624, 35.10099191848694, 3.14),
+  ('BS-C03:GO_LOOKOUT_B:lookout_b', 4001504, 15, -3948, -3625, 34.624152028445735, 3.14),
+  ('BS-C03:GO_LOOKOUT_C:lookout_c', 4001505, 15, -3940, -3610, 35.31177337306542, 3.14),
+  ('BS-C03:GO_HERB:herb_0', 4001506, 15, -3865.42, -3471.61, 31.367442279046394, 3.14),
+  ('BS-C03:GO_HERB:herb_1', 4001506, 15, -3869.33, -3490.67, 31.47551645899595, 3.14),
+  ('BS-C03:GO_HERB:herb_2', 4001506, 15, -3898.0, -3472.0, 32.512692708275296, 3.14),
+  ('BS-C03:GO_HERB:herb_3', 4001506, 15, -3920.0, -3520.0, 36.824547339291385, 3.14),
+  ('BS-C03:GO_HERB:herb_4', 4001506, 15, -3939.47, -3548.0, 41.738858174100756, 3.14),
+  ('BS-C03:GO_HERB:herb_5', 4001506, 15, -3957.0, -3558.0, 39.87435739059653, 3.14),
+  ('BS-C03:GO_HERB:herb_6', 4001506, 15, -3975.0, -3540.0, 41.57436574192425, 3.14),
+  ('BS-C03:GO_HERB:herb_7', 4001506, 15, -4002.54, -3530.12, 31.353649832620313, 3.14),
+  ('BS-C03:GO_HERB:herb_8', 4001506, 15, -4020.98, -3554.98, 31.53706364324388, 3.14),
+  ('BS-C03:GO_HERB:herb_9', 4001506, 15, -4018.0, -3565.0, 32.55653553668135, 3.14),
+  ('BS-C03:GO_HERB:herb_10', 4001506, 15, -4025.0, -3505.0, 36.27874521712038, 3.14),
+  ('BS-C03:GO_HERB:herb_11', 4001506, 15, -3870.0, -3536.0, 39.47041022259981, 3.14),
+  ('BS-C03:GO_ORDERS:orders', 4001507, 15, -3935, -3624, 35.22432230021393, 3.14),
+  ('BS-C03:GO_DEVICE:device', 4001508, 15, -3948, -3618, 37.10546891980462, 3.14),
+  ('BS-C03:GO_POOL:pool', 4001509, 15, -4010.0, -3660.0, 44.26560666470814, 3.14),
+  ('BS-C03:GO_MEMORIAL:memorial', 4001510, 15, -3973, -3338, 40.61414826392581, 3.14),
+  ('BS-C03:GO_SUPPLY_A:supply_a', 4001511, 15, -3953, -3344, 39.28991743525222, 3.14),
+  ('BS-C03:GO_SUPPLY_B:supply_b', 4001512, 15, -3956, -3360, 38.11291436459301, 3.14),
+  ('BS-C03:GO_SUPPLY_C:supply_c', 4001513, 15, -3974, -3338, 40.41521669767683, 3.14),
+  ('BS-C03:GO_COT_A:cot_a', 4001514, 15, -3978, -3346, 40.4470484007398, 3.14),
+  ('BS-C03:GO_COT_B:cot_b', 4001515, 15, -3981, -3346, 40.13746872241002, 3.14),
+  ('BS-C03:GO_RUINED_TENT:ruined_tent', 4001516, 15, -3792.0, -3486.94, 31.18072556590791, 3.14),
+  ('BS-C03:GO_VILLAGE_SIGN:village_sign', 4001517, 15, -4533.0, -3233.0, 30.035449329220565, 3.14);
 SET @BS_C03_ENTRY_COLUMN := (
   SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
   WHERE `TABLE_SCHEMA` = DATABASE() AND `TABLE_NAME` = 'creature' AND `COLUMN_NAME` IN ('id1', 'id')
@@ -540,8 +540,8 @@ SET @BS_C03_ENTRY_COLUMN := (
 );
 SET @BS_C03_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C03_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
-  '`position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, 60, 0, 0, s.`spawn_key` ',
+  '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
+  'SELECT s.`entry`, 1, s.`zone`, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 60, 0, 0, s.`spawn_key` ',
   'FROM `bs_c03_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c03_stmt FROM @BS_C03_INSERT;
@@ -550,7 +550,7 @@ DEALLOCATE PREPARE bs_c03_stmt;
 SET @BS_C03_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c03_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C03_ENTRY_COLUMN, '` = s.`entry`, c.`zoneId` = s.`zone`, c.`position_x` = s.`x`, ',
-  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`'
+  'c.`position_y` = s.`y`, c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
 );
 PREPARE bs_c03_stmt FROM @BS_C03_UPDATE;
 EXECUTE bs_c03_stmt;
@@ -563,6 +563,18 @@ FROM `bs_c03_gameobject_spawns` s LEFT JOIN `gameobject` g ON g.`Comment` = s.`s
 UPDATE `gameobject` g INNER JOIN `bs_c03_gameobject_spawns` s ON g.`Comment` = s.`spawn_key`
 SET g.`id` = s.`entry`, g.`position_x` = s.`x`, g.`position_y` = s.`y`, g.`position_z` = s.`z`, g.`orientation` = s.`o`,
   g.`rotation2` = SIN(s.`o` / 2), g.`rotation3` = COS(s.`o` / 2);
+-- Retire obsolete owned campaign placements; surviving spawn keys keep their GUIDs.
+SET @BS_C03_PRUNE := CONCAT(
+  'DELETE c FROM `creature` c LEFT JOIN `bs_c03_creature_spawns` s ON s.`spawn_key`=c.`Comment` ',
+  'INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`=\'creature\' AND owner.`entry`=c.`',@BS_C03_ENTRY_COLUMN,'` AND owner.`chapter`=3 ',
+  'WHERE c.`Comment` LIKE \'BS-C03:%\' AND s.`spawn_key` IS NULL'
+);
+PREPARE bs_c03_stmt FROM @BS_C03_PRUNE;
+EXECUTE bs_c03_stmt;
+DEALLOCATE PREPARE bs_c03_stmt;
+DELETE g FROM `gameobject` g LEFT JOIN `bs_c03_gameobject_spawns` s ON s.`spawn_key`=g.`Comment`
+INNER JOIN `mod_customnpcs_bs_content` owner ON owner.`kind`='gameobject' AND owner.`entry`=g.`id` AND owner.`chapter`=3
+WHERE g.`Comment` LIKE 'BS-C03:%' AND s.`spawn_key` IS NULL;
 DROP TEMPORARY TABLE `bs_c03_creature_spawns`;
 DROP TEMPORARY TABLE `bs_c03_gameobject_spawns`;
 DROP TEMPORARY TABLE `bs_c03_ids`;

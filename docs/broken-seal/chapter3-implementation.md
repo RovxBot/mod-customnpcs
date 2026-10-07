@@ -49,14 +49,15 @@ gossip quest menu and stops its scripted interactions; its other contacts lose
 quest/gossip flags. Installed world objects and templates remain in the database.
 
 The [shared hub add-on](hub-implementation.md) supplies camp scenery, sentries and
-local ambient-mob protection for this chapter. Install its SQL after all three chapters.
+local ambient-mob protection for this chapter. For Chapters 1–3 only, use the historical `2026_10_06_03` hub update.
+The current full hub base and expansion update follow Chapter 4.
 
 ## Locations
 
 All positions are on map **1**, in Dustwallow. The main camp sits beside the Tabetha
 road; the raider dig and pool are south/southeast. Mei's relief station is
 southwest, on the Mudsprocket approach, moved out of the original Firemane spawn pocket. Chapter 4's full settlement story
-remains a design inventory; only its receiving contact is staged here.
+is now implemented in [its installation guide](chapter4-implementation.md).
 
 | Contact/marker | Entry | World X | World Y | World Z |
 |---|---:|---:|---:|---:|

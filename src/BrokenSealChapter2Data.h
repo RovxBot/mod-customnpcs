@@ -142,6 +142,7 @@ enum Id : std::uint32_t
     NPC_BUTCHER = 4001229,
     SPELL_BLACKJACK_TARGET = 39865,
     SPELL_GEM_TARGET = 34665,
+    GO_TERRITORY = 4001321,
 };
 
 inline constexpr std::uint32_t FireDisplay = 2172;
@@ -156,57 +157,57 @@ struct Point
 
 namespace Locations
 {
-inline constexpr Point condenna = {892.0000f, 1610.0000f, -20.9751f, 3.1400f};
-inline constexpr Point cargall = {894.0000f, 1643.0000f, -12.0580f, 3.1400f};
-inline constexpr Point mylva = {862.0000f, 1592.0000f, -24.1901f, 3.1400f};
-inline constexpr Point devoran = {915.0000f, 1600.0000f, -15.9102f, 3.1400f};
-inline constexpr Point ortell = {1120.0000f, 1550.0000f, 34.5478f, 3.1400f};
-inline constexpr Point prison = {990.0000f, 1730.0000f, -9.6758f, 3.1400f};
-inline constexpr Point refuge = {1110.0000f, 1545.0000f, 29.1725f, 3.1400f};
-inline constexpr Point rendezvous = {966.0000f, 1660.0000f, -9.5552f, 3.1400f};
-inline constexpr Point recruit_start = {990.0000f, 1684.0000f, -6.3194f, 3.1400f};
-inline constexpr Point recruit_hide = {962.0000f, 1661.0000f, -10.3684f, 3.1400f};
-inline constexpr Point supplicant_a = {885.0000f, 1650.0000f, -9.5204f, 3.1400f};
-inline constexpr Point supplicant_b = {879.0000f, 1652.0000f, -13.7258f, 3.1400f};
-inline constexpr Point supplicant_c = {873.0000f, 1650.0000f, -16.2150f, 3.1400f};
-inline constexpr Point stones = {850.0000f, 1600.0000f, -24.1780f, 3.1400f};
-inline constexpr Point delivery = {845.0000f, 1630.0000f, -25.4678f, 3.1400f};
-inline constexpr Point course_start = {850.0000f, 1570.0000f, -23.4783f, 3.1400f};
-inline constexpr Point check_a = {815.0000f, 1570.0000f, -28.8523f, 3.1400f};
-inline constexpr Point check_b = {795.0000f, 1605.0000f, -31.4848f, 3.1400f};
-inline constexpr Point check_c = {815.0000f, 1630.0000f, -30.1276f, 3.1400f};
-inline constexpr Point check_d = {851.0000f, 1564.0000f, -22.6011f, 3.1400f};
-inline constexpr Point dog_a = {920.0000f, 1570.0000f, -15.9218f, 3.1400f};
-inline constexpr Point dog_b = {944.0000f, 1575.0000f, -12.7843f, 3.1400f};
-inline constexpr Point dog_c = {951.0060f, 1610.0000f, -11.6460f, 3.1400f};
-inline constexpr Point hound = {918.0000f, 1595.0000f, -16.1545f, 3.1400f};
-inline constexpr Point communique = {861.0000f, 1660.0000f, -21.5522f, 3.1400f};
-inline constexpr Point plans = {838.0000f, 1685.0000f, -25.3046f, 3.1400f};
-inline constexpr Point drop = {950.0000f, 1670.0000f, -11.7303f, 3.1400f};
-inline constexpr Point discord = {890.0000f, 1685.0000f, -19.6770f, 3.1400f};
-inline constexpr Point karrgonn = {885.0000f, 1690.0000f, -18.8017f, 3.1400f};
-inline constexpr Point azennios = {879.0000f, 1685.0000f, -19.2199f, 3.1400f};
-inline constexpr Point garnoth = {815.0000f, 1725.0000f, -20.6844f, 3.1400f};
-inline constexpr Point okrog = {906.0000f, 1714.0000f, -16.1351f, 3.1400f};
-inline constexpr Point podium = {988.0000f, 1710.0000f, -9.1711f, 3.1400f};
-inline constexpr Point crowd_a = {997.0000f, 1705.0000f, -6.8197f, 3.1400f};
-inline constexpr Point crowd_b = {992.0000f, 1701.0000f, -7.7631f, 3.1400f};
-inline constexpr Point crowd_c = {987.0000f, 1703.0000f, -8.8423f, 3.1400f};
-inline constexpr Point buyers = {857.0000f, 1676.0000f, -21.9220f, 3.1400f};
-inline constexpr Point restraint = {983.0000f, 1725.0000f, -9.3798f, 3.1400f};
-inline constexpr Point escape_a = {995.0000f, 1700.0000f, -6.8312f, 3.1400f};
-inline constexpr Point escape_b = {1010.0000f, 1655.0000f, 3.3445f, 3.1400f};
-inline constexpr Point escape_c = {1060.0000f, 1640.0000f, 23.9755f, 3.1400f};
-inline constexpr Point flower_0 = {776.0000f, 1588.0000f, -29.7012f, 3.1400f};
-inline constexpr Point flower_1 = {790.0000f, 1580.0000f, -29.9624f, 3.1400f};
-inline constexpr Point flower_2 = {805.0000f, 1590.0000f, -29.7299f, 3.1400f};
-inline constexpr Point flower_3 = {782.0000f, 1603.0000f, -31.0779f, 3.1400f};
-inline constexpr Point flower_4 = {798.0000f, 1608.0000f, -31.6043f, 3.1400f};
-inline constexpr Point flower_5 = {774.0000f, 1620.0000f, -32.7476f, 3.1400f};
-inline constexpr Point flower_6 = {808.0000f, 1625.0000f, -29.9382f, 3.1400f};
-inline constexpr Point flower_7 = {790.0000f, 1638.0000f, -33.7101f, 3.1400f};
+inline constexpr Point condenna = {635.0000f, 1624.0000f, -17.6592f, 3.1400f};
+inline constexpr Point cargall = {636.0000f, 1632.0000f, -17.6717f, 3.1400f};
+inline constexpr Point mylva = {644.0000f, 1620.0000f, -18.0993f, 3.1400f};
+inline constexpr Point devoran = {646.0000f, 1630.0000f, -17.7682f, 3.1400f};
+inline constexpr Point ortell = {1100.0000f, 1540.0000f, 26.6937f, 3.1400f};
+inline constexpr Point prison = {895.0000f, 1682.0000f, -18.9859f, 3.1400f};
+inline constexpr Point refuge = {1098.0000f, 1540.0000f, 26.3195f, 3.1400f};
+inline constexpr Point rendezvous = {869.0000f, 1666.0000f, -19.7456f, 3.1400f};
+inline constexpr Point recruit_start = {885.0000f, 1670.0000f, -19.1267f, 3.1400f};
+inline constexpr Point recruit_hide = {874.0000f, 1666.0000f, -17.6344f, 3.1400f};
+inline constexpr Point supplicant_a = {636.0000f, 1635.0000f, -17.6990f, 3.1400f};
+inline constexpr Point supplicant_b = {640.0000f, 1636.0000f, -17.6474f, 3.1400f};
+inline constexpr Point supplicant_c = {643.0000f, 1635.0000f, -17.5658f, 3.1400f};
+inline constexpr Point stones = {636.0000f, 1617.0000f, -16.2885f, 3.1400f};
+inline constexpr Point delivery = {649.0000f, 1626.0000f, -18.2885f, 3.1400f};
+inline constexpr Point course_start = {650.0000f, 1637.0000f, -17.6943f, 3.1400f};
+inline constexpr Point check_a = {657.0000f, 1637.0000f, -18.6247f, 3.1400f};
+inline constexpr Point check_b = {657.0000f, 1616.0000f, -19.3197f, 3.1400f};
+inline constexpr Point check_c = {625.0000f, 1616.0000f, -16.0751f, 3.1400f};
+inline constexpr Point check_d = {625.0000f, 1635.0000f, -16.6887f, 3.1400f};
+inline constexpr Point dog_a = {647.0000f, 1636.0000f, -17.6552f, 3.1400f};
+inline constexpr Point dog_b = {640.0000f, 1640.0000f, -17.8000f, 3.1400f};
+inline constexpr Point dog_c = {628.0000f, 1638.0000f, -17.5394f, 3.1400f};
+inline constexpr Point hound = {645.0000f, 1632.0000f, -17.6088f, 3.1400f};
+inline constexpr Point communique = {632.0000f, 1626.0000f, -17.5595f, 3.1400f};
+inline constexpr Point plans = {895.0000f, 1687.0000f, -19.3277f, 3.1400f};
+inline constexpr Point drop = {1089.0000f, 1537.0000f, 24.9390f, 3.1400f};
+inline constexpr Point discord = {883.0000f, 1675.0000f, -19.7407f, 3.1400f};
+inline constexpr Point karrgonn = {881.0000f, 1674.0000f, -19.7969f, 3.1400f};
+inline constexpr Point azennios = {885.0000f, 1675.0000f, -19.8360f, 3.1400f};
+inline constexpr Point garnoth = {654.0000f, 1624.0000f, -17.9747f, 3.1400f};
+inline constexpr Point okrog = {887.0000f, 1677.0000f, -19.7223f, 3.1400f};
+inline constexpr Point podium = {895.0000f, 1675.0000f, -19.5937f, 3.1400f};
+inline constexpr Point crowd_a = {897.0000f, 1678.0000f, -19.7074f, 3.1400f};
+inline constexpr Point crowd_b = {900.0000f, 1677.0000f, -19.5802f, 3.1400f};
+inline constexpr Point crowd_c = {900.0000f, 1680.0000f, -19.4863f, 3.1400f};
+inline constexpr Point buyers = {894.0000f, 1688.0000f, -19.2846f, 3.1400f};
+inline constexpr Point restraint = {892.0000f, 1682.0000f, -19.7870f, 3.1400f};
+inline constexpr Point escape_a = {922.4380f, 1679.2400f, -15.9204f, 3.1400f};
+inline constexpr Point escape_b = {985.0000f, 1625.0000f, 6.2190f, 3.1400f};
+inline constexpr Point escape_c = {1050.0000f, 1550.0000f, 21.7871f, 3.1400f};
+inline constexpr Point flower_0 = {776.0000f, 1588.0000f, -29.0848f, 3.1400f};
+inline constexpr Point flower_1 = {790.0000f, 1580.0000f, -29.3460f, 3.1400f};
+inline constexpr Point flower_2 = {805.0000f, 1590.0000f, -29.1135f, 3.1400f};
+inline constexpr Point flower_3 = {782.0000f, 1603.0000f, -30.4614f, 3.1400f};
+inline constexpr Point flower_4 = {798.0000f, 1608.0000f, -30.9879f, 3.1400f};
+inline constexpr Point flower_5 = {774.0000f, 1620.0000f, -32.1311f, 3.1400f};
+inline constexpr Point flower_6 = {808.0000f, 1625.0000f, -29.3217f, 3.1400f};
+inline constexpr Point flower_7 = {790.0000f, 1638.0000f, -33.0936f, 3.1400f};
 inline constexpr Point smolderos = {784.0000f, 1628.0000f, -33.9268f, 3.1400f};
-inline constexpr Point fire_0 = {835.0000f, 1664.0000f, -27.0599f, 3.1400f};
+inline constexpr Point fire_0 = {650.0000f, 1627.0000f, -18.3044f, 3.1400f};
 inline constexpr Point fire_1 = {824.0000f, 1669.0000f, -28.4060f, 3.1400f};
 inline constexpr Point fire_2 = {819.0000f, 1682.0000f, -26.4018f, 3.1400f};
 inline constexpr Point fire_3 = {839.0000f, 1679.0000f, -25.5763f, 3.1400f};
@@ -214,13 +215,13 @@ inline constexpr Point fire_4 = {852.0000f, 1697.0000f, -22.1805f, 3.1400f};
 inline constexpr Point fire_5 = {825.0000f, 1694.0000f, -24.3259f, 3.1400f};
 inline constexpr Point fire_6 = {810.0000f, 1672.0000f, -29.0308f, 3.1400f};
 inline constexpr Point fire_7 = {844.0000f, 1712.0000f, -20.6457f, 3.1400f};
-inline constexpr Point failed_0 = {846.0000f, 1534.0000f, -19.4165f, 3.1400f};
-inline constexpr Point failed_1 = {862.0000f, 1528.0000f, -17.8964f, 3.1400f};
+inline constexpr Point failed_0 = {600.0000f, 1648.0000f, -14.6094f, 3.1400f};
+inline constexpr Point failed_1 = {600.0000f, 1654.0000f, -15.6629f, 3.1400f};
 inline constexpr Point failed_2 = {880.0000f, 1527.0000f, -16.2161f, 3.1400f};
 inline constexpr Point failed_3 = {885.0000f, 1541.0000f, -18.6750f, 3.1400f};
 inline constexpr Point failed_4 = {842.0000f, 1548.0000f, -23.4771f, 3.1400f};
-inline constexpr Point horrorguard_0 = {811.0000f, 1710.0000f, -19.9715f, 3.1400f};
-inline constexpr Point horrorguard_1 = {800.0000f, 1720.0000f, -15.0456f, 3.1400f};
+inline constexpr Point horrorguard_0 = {887.0000f, 1677.0000f, -19.8697f, 3.1400f};
+inline constexpr Point horrorguard_1 = {888.0000f, 1683.0000f, -19.8491f, 3.1400f};
 inline constexpr Point horrorguard_2 = {804.0000f, 1740.0000f, -20.7443f, 3.1400f};
 inline constexpr Point horrorguard_3 = {827.0000f, 1748.0000f, -17.9652f, 3.1400f};
 inline constexpr Point horrorguard_4 = {794.0000f, 1754.0000f, -19.5734f, 3.1400f};
@@ -229,13 +230,13 @@ inline constexpr Point horrorguard_6 = {790.0000f, 1734.0000f, -20.4124f, 3.1400
 inline constexpr Point horrorguard_7 = {832.0000f, 1729.0000f, -17.3188f, 3.1400f};
 inline constexpr Point horrorguard_8 = {807.0000f, 1771.0000f, -15.7415f, 3.1400f};
 inline constexpr Point horrorguard_9 = {829.0000f, 1774.0000f, -13.3625f, 3.1400f};
-inline constexpr Point guard_0 = {857.0000f, 1664.0000f, -22.0909f, 3.1400f};
-inline constexpr Point guard_1 = {835.0000f, 1681.0000f, -25.9745f, 3.1400f};
-inline constexpr Point scout_0 = {859.0000f, 1657.0000f, -22.5584f, 3.1400f};
-inline constexpr Point scout_1 = {854.0000f, 1662.0000f, -22.9738f, 3.1400f};
+inline constexpr Point guard_0 = {643.0000f, 1627.0000f, -17.7775f, 3.1400f};
+inline constexpr Point guard_1 = {633.0000f, 1627.0000f, -17.6110f, 3.1400f};
+inline constexpr Point scout_0 = {638.0000f, 1627.0000f, -17.7647f, 3.1400f};
+inline constexpr Point scout_1 = {640.0000f, 1629.0000f, -17.7004f, 3.1400f};
 inline constexpr Point matriarch = {955.0000f, 1570.0000f, -10.1519f, 3.1400f};
-inline constexpr Point dezco = {-3970.0000f, -3350.0000f, 39.3928f, 3.1400f};
-inline constexpr Point garnoth_foe = {810.0000f, 1725.0000f, -20.4484f, 3.1400f};
+inline constexpr Point dezco = {-3970.0000f, -3350.0000f, 39.3428f, 3.1400f};
+inline constexpr Point garnoth_foe = {657.0000f, 1624.0000f, -19.0086f, 3.1400f};
 }
 
 inline constexpr std::array<Point, 4> Course =
@@ -276,9 +277,9 @@ inline constexpr std::array<std::uint32_t, 23> Quests =
 {
     QUEST_SIGNED, QUEST_IDENTITY, QUEST_FIRE, QUEST_BLOOM, QUEST_WASTE, QUEST_TRAINING, QUEST_LABOR, QUEST_AGILITY, QUEST_MENTAL, QUEST_MERCY, QUEST_DOG, QUEST_COLLAR, QUEST_GRUDGE, QUEST_INTELLIGENCE, QUEST_DISCORD, QUEST_GREATER, QUEST_TERRITORY, QUEST_WRITING, QUEST_HEAD, QUEST_SPEECH, QUEST_RIOT, QUEST_BUYERS, QUEST_LETTER
 };
-inline constexpr std::array<std::uint32_t, 18> PersonalEntries =
+inline constexpr std::array<std::uint32_t, 20> PersonalEntries =
 {
-    NPC_JAROD_FREE, NPC_RECRUIT, NPC_SUPPLICANT_A, NPC_SUPPLICANT_B, NPC_SUPPLICANT_C, NPC_HOUND, NPC_ORB, NPC_CROWD, NPC_OGRE, NPC_KARRGONN, NPC_AZENNIOS, NPC_GARNOTH, NPC_GROMMKO, NPC_OKROG, NPC_RESTRAINT, NPC_ENFORCER, NPC_SCENE, NPC_BUTCHER
+    NPC_JAROD_FREE, NPC_RECRUIT, NPC_SUPPLICANT_A, NPC_SUPPLICANT_B, NPC_SUPPLICANT_C, NPC_HOUND, NPC_ORB, NPC_CROWD, NPC_OGRE, NPC_KARRGONN, NPC_AZENNIOS, NPC_GARNOTH, NPC_GROMMKO, NPC_OKROG, NPC_RESTRAINT, NPC_ENFORCER, NPC_SCENE, NPC_FIRE, NPC_HORRORGUARD, NPC_BUTCHER
 };
 }
 

@@ -65,6 +65,9 @@ ModCustomNPCs.BrokenSeal.Chapter2.Enable = 1
 # Enables the Dawnchaser medical story and marsh expedition in Dustwallow.
 ModCustomNPCs.BrokenSeal.Chapter3.Enable = 1
 
+# Enable village recovery, mask treatment and the Hinterlands handoff; requires Chapters 1-3.
+ModCustomNPCs.BrokenSeal.Chapter4.Enable = 1
+
 # Shared camp sentries and localized ambient-NPC protection. Requires broken_seal_hubs.sql.
 # Scripted encounters, bosses, player pets and PvP retain their normal behavior.
 ModCustomNPCs.BrokenSeal.Hubs.Enable = 1

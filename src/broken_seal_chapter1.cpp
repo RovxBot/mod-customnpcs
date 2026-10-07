@@ -42,7 +42,7 @@ enum Action : std::int32_t
 {
     ACTION_ESCORT = 1,
     ACTION_OBSERVE = 2,
-    ACTION_OPEN_CAGE = 3,
+    ACTION_RESET_CAPTIVE = 3,
 };
 
 enum Event : std::uint32_t
@@ -167,107 +167,134 @@ void CleanPersonalActors(Player* player)
         std::list<Creature*> creatures;
         player->GetCreatureListWithEntryInGrid(creatures, entry, 400.0f);
         for (Creature* creature : creatures)
-            if (IsOwnedBy(creature, player))
+            if (entry != NPC_SCENE && creature->AI()->GetGUID(0) == player->GetGUID())
+                creature->AI()->DoAction(ACTION_RESET_CAPTIVE);
+            else if (IsOwnedBy(creature, player))
                 creature->DespawnOrUnsummon();
     }
 }
 
 struct npc_bs_c01_captiveAI : ScriptedAI
 {
-    explicit npc_bs_c01_captiveAI(Creature* creature) : ScriptedAI(creature) { }
-
+    explicit npc_bs_c01_captiveAI(Creature* creature) : ScriptedAI(creature) {}
     ObjectGuid owner;
     EventMap events;
     bool started = false;
     bool paused = false;
+    bool returning = false;
     bool reached = false;
 
     void Reset() override
     {
         me->SetReactState(REACT_PASSIVE);
         me->SetWalk(true);
+        me->SetStandState(UNIT_STAND_STATE_KNEEL);
+        me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+        owner.Clear();
+        started = paused = returning = reached = false;
         events.Reset();
-        events.ScheduleEvent(EVENT_CHECK, 1000ms);
-        events.ScheduleEvent(EVENT_TIMEOUT, 180000ms);
+        events.ScheduleEvent(EVENT_CHECK, 1s);
     }
-
-    void IsSummonedBy(WorldObject* summoner) override
+    ObjectGuid GetGUID(std::int32_t) const override { return owner; }
+    void ReturnHome()
     {
-        if (summoner->ToPlayer())
-            owner = summoner->GetGUID();
-        me->setActive(true);
+        owner.Clear();
+        started = paused = reached = false;
+        returning = true;
+        me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+        me->SetStandState(UNIT_STAND_STATE_STAND);
+        Position const& home = me->GetHomePosition();
+        me->GetMotionMaster()->MovePoint(2, home.GetPositionX(), home.GetPositionY(), home.GetPositionZ());
+        events.Reset();
+        events.ScheduleEvent(EVENT_CHECK, 1s);
     }
-
-    void MoveToRefuge()
-    {
-        me->GetMotionMaster()->MovePoint(1, Refuge.x, Refuge.y, Refuge.z);
-    }
-
     void DoAction(std::int32_t action) override
     {
-        if (action != ACTION_ESCORT || started || owner.IsEmpty())
-            return;
-        started = true;
-        if (Player* player = ObjectAccessor::GetPlayer(*me, owner))
-            me->Whisper("I can walk. Stay nearby until we reach the expedition's refuge marker.",
-                LANG_UNIVERSAL, player);
-        MoveToRefuge();
+        if (action == ACTION_RESET_CAPTIVE)
+            ReturnHome();
     }
-
+    bool Begin(Player* p)
+    {
+        std::size_t index = IndexOf(CaptiveEntries, me->GetEntry());
+        if (!Enabled() || !CanInteract(p, me) || !Active(p, QUEST_RESCUE) || index >= DistinctCount ||
+            !NeedsDistinct(ReadCounts(p, QUEST_RESCUE, CaptiveCredits), index))
+            return false;
+        if (started || returning)
+        {
+            Tell(p, "This surveyor is already being escorted or returning to the guard post. Try another captive.");
+            return false;
+        }
+        owner = p->GetGUID();
+        started = true;
+        me->SetStandState(UNIT_STAND_STATE_STAND);
+        me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+        me->Whisper("I can walk. Stay with me until we reach the expedition camp.", LANG_UNIVERSAL, p);
+        me->GetMotionMaster()->MovePoint(1, Refuge.x, Refuge.y, Refuge.z);
+        events.RescheduleEvent(EVENT_TIMEOUT, 180s);
+        return true;
+    }
     void MovementInform(std::uint32_t type, std::uint32_t id) override
     {
-        if (type == POINT_MOTION_TYPE && id == 1)
+        if (type != POINT_MOTION_TYPE)
+            return;
+        if (id == 1 && started)
             reached = me->GetDistance(Refuge.x, Refuge.y, Refuge.z) <= 3.0f;
+        else if (id == 2 && returning)
+        {
+            returning = false;
+            me->SetStandState(UNIT_STAND_STATE_KNEEL);
+            if (Enabled())
+                me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+        }
     }
-
+    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override { damage = 0; }
     void UpdateAI(std::uint32_t diff) override
     {
         events.Update(diff);
         while (std::uint32_t event = events.ExecuteEvent())
         {
-            Player* player = ObjectAccessor::GetPlayer(*me, owner);
-            if (event == EVENT_TIMEOUT || !player)
+            if (!started)
             {
-                me->DespawnOrUnsummon();
+                if (!returning)
+                {
+                    if (Enabled()) me->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                    else me->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                }
+                events.ScheduleEvent(EVENT_CHECK, 1s);
+                continue;
+            }
+            Player* p = ObjectAccessor::FindConnectedPlayer(owner);
+            if (event == EVENT_TIMEOUT || !p)
+            {
+                ReturnHome();
                 return;
             }
-            SceneSafety safety{Enabled(), Active(player, QUEST_RESCUE), player->IsAlive(),
-                SameWorld(player, me), player->IsInCombat(), me->GetDistance(player)};
+            SceneSafety safety{Enabled(), Active(p, QUEST_RESCUE), p->IsAlive(),
+                               SameWorld(p, me), p->IsInCombat(), me->GetDistance(p)};
             if (!CanEscort(safety))
             {
-                me->DespawnOrUnsummon();
+                ReturnHome();
                 return;
             }
             std::size_t index = IndexOf(CaptiveEntries, me->GetEntry());
-            if (index == DistinctCount)
-            {
-                me->DespawnOrUnsummon();
-                return;
-            }
             if (CanCreditArrival(safety, reached, me->GetDistance(Refuge.x, Refuge.y, Refuge.z)))
             {
-                CreditOnce(player, QUEST_RESCUE, CaptiveCredits[index]);
-                me->Whisper("We're safe. Tell the scout I made it. The others are still counting on you.",
-                    LANG_UNIVERSAL, player);
-                me->DespawnOrUnsummon(1000ms);
-                events.Reset();
+                CreditOnce(p, QUEST_RESCUE, CaptiveCredits[index]);
+                me->Whisper("We're safe. The others are still counting on you.", LANG_UNIVERSAL, p);
+                ReturnHome();
                 return;
             }
-            if (started && !reached)
+            if (safety.inCombat && !paused)
             {
-                if (safety.inCombat && !paused)
-                {
-                    me->GetMotionMaster()->Clear();
-                    me->GetMotionMaster()->MoveIdle();
-                    paused = true;
-                }
-                else if (!safety.inCombat && paused)
-                {
-                    paused = false;
-                    MoveToRefuge();
-                }
+                me->GetMotionMaster()->MoveIdle();
+                paused = true;
             }
-            events.ScheduleEvent(EVENT_CHECK, 1000ms);
+            else if (!safety.inCombat && paused)
+            {
+                paused = false;
+                me->GetMotionMaster()->MovePoint(1, Refuge.x, Refuge.y, Refuge.z);
+            }
+            events.ScheduleEvent(EVENT_CHECK, 1s);
         }
     }
 };
@@ -438,34 +465,11 @@ void StartObservation(Player* player, GameObject* go, std::uint32_t kind)
     }
 }
 
-struct go_bs_c01_interactionAI : GameObjectAI
-{
-    explicit go_bs_c01_interactionAI(GameObject* object) : GameObjectAI(object) { }
-    EventMap events;
-
-    void DoAction(std::int32_t action) override
-    {
-        if (action == ACTION_OPEN_CAGE)
-        {
-            me->SetGoState(GO_STATE_ACTIVE);
-            events.RescheduleEvent(EVENT_CLOSE_CAGE, 4000ms);
-        }
-    }
-
-    void UpdateAI(std::uint32_t diff) override
-    {
-        events.Update(diff);
-        if (events.ExecuteEvent() == EVENT_CLOSE_CAGE)
-            me->SetGoState(GO_STATE_READY);
-    }
-};
-
 class go_bs_c01_interaction : public GameObjectScript
 {
 public:
     go_bs_c01_interaction() : GameObjectScript("go_bs_c01_interaction") { }
 
-    GameObjectAI* GetAI(GameObject* go) const override { return new go_bs_c01_interactionAI(go); }
 
     bool OnGossipHello(Player* player, GameObject* go) override
     {
@@ -483,26 +487,7 @@ public:
             if (NeedsDistinct(ReadCounts(player, QUEST_TRAIL, TrailCredits), trail))
             {
                 CreditOnce(player, QUEST_TRAIL, TrailCredits[trail]);
-                Tell(player, "The ash hides a spiral cut into the trail sign. You record this distinct marker.");
-            }
-            return true;
-        }
-        std::size_t cage = IndexOf(CageEntries, go->GetEntry());
-        if (cage != DistinctCount && Active(player, QUEST_RESCUE))
-        {
-            if (!NeedsDistinct(ReadCounts(player, QUEST_RESCUE, CaptiveCredits), cage))
-                return true;
-            if (FindOwned(player, CaptiveEntries[cage]))
-            {
-                Tell(player, "That surveyor is already making for the refuge. Stay nearby.");
-                return true;
-            }
-            Point const& p = CaptiveStarts[cage];
-            if (TempSummon* captive = player->SummonCreature(CaptiveEntries[cage],
-                Position(p.x, p.y, p.z, p.orientation), TEMPSUMMON_TIMED_DESPAWN, 185000, 0, nullptr, true))
-            {
-                go->AI()->DoAction(ACTION_OPEN_CAGE);
-                captive->AI()->DoAction(ACTION_ESCORT);
+                Tell(player, "The ash hides a spiral etched into the damaged tablet. You record this distinct marker.");
             }
             return true;
         }
@@ -642,11 +627,11 @@ public:
             else if (Active(player, QUEST_WARDS))
                 Tell(player, "Trace each of the three ward stones west of the cages. A repeated stone does not count twice.");
             else if (Active(player, QUEST_RESCUE))
-                Tell(player, "Open Mira's, Dorn's and Teren's cages below the last trail sign. Stay near each surveyor until they reach the refuge marker.");
+                Tell(player, "Open Mira's, Dorn's and Teren's cages below the last trail clue. Stay near each surveyor until they reach the refuge marker.");
             else if (Active(player, QUEST_TRAIL))
                 Tell(player, "Inspect all three ash-marked signs on the descent. Defeat six Twilight Scouts and recover their orders.");
             else if (Active(player, QUEST_WAGON))
-                Tell(player, "The abandoned wagon is uphill from our camp, beside the first ash-marked trail sign.");
+                Tell(player, "The abandoned wagon is uphill from our camp, beside the first ash-marked trail clue.");
             else if (player->IsQuestRewarded(QUEST_RECRUIT))
                 Tell(player, BrokenSealChapter2Available()
                     ? "Speak to Ortell here in camp at level 25 for Signed in Blood and your place inside the cult."
@@ -663,6 +648,23 @@ class npc_bs_c01_captive : public CreatureScript
 public:
     npc_bs_c01_captive() : CreatureScript("npc_bs_c01_captive") { }
     CreatureAI* GetAI(Creature* creature) const override { return new npc_bs_c01_captiveAI(creature); }
+    bool OnGossipHello(Player* p, Creature* c) override
+    {
+        if (!CanInteract(p, c)) return true;
+        ClearGossipMenuFor(p);
+        if (Active(p, QUEST_RESCUE))
+            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Stand up. I will escort you to the expedition camp.", GOSSIP_SENDER_MAIN, ACTION_ESCORT);
+        SendGossipMenuFor(p, c->GetEntry(), c->GetGUID());
+        return true;
+    }
+    bool OnGossipSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action) override
+    {
+        CloseGossipMenuFor(p);
+        if (sender == GOSSIP_SENDER_MAIN && action == ACTION_ESCORT)
+            if (auto* ai = dynamic_cast<npc_bs_c01_captiveAI*>(c->AI())) ai->Begin(p);
+        return true;
+    }
+
 };
 
 class npc_bs_c01_recruit : public CreatureScript

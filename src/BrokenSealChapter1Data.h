@@ -112,11 +112,6 @@ inline constexpr std::array<std::uint32_t, 3> CaptiveEntries =
     NPC_CAPTIVE_A, NPC_CAPTIVE_B, NPC_CAPTIVE_C
 };
 
-inline constexpr std::array<std::uint32_t, 3> CageEntries =
-{
-    GO_CAGE_A, GO_CAGE_B, GO_CAGE_C
-};
-
 inline constexpr std::array<std::uint32_t, 3> WardEntries =
 {
     GO_WARD_A, GO_WARD_B, GO_WARD_C
@@ -129,20 +124,20 @@ inline constexpr std::array<std::uint32_t, 3> TrailEntries =
 
 inline constexpr std::array<Point, 3> CaptiveStarts =
 {{
-    {985.0000f, 1685.0000f, -6.8140f, 3.1400f},
-    {971.0000f, 1694.0000f, -8.5529f, 3.1400f},
-    {952.0000f, 1690.0000f, -12.7174f, 3.1400f},
+    {882.0000f, 1680.0000f, -19.9206f, 3.1400f},
+    {886.0000f, 1683.0000f, -19.8249f, 3.1400f},
+    {890.0000f, 1684.0000f, -19.7682f, 3.1400f},
 }};
 
 inline constexpr std::array<Point, 4> RecruitPatrol =
 {{
-    {997.0000f, 1710.0000f, -7.7590f, 3.1400f},
-    {999.0000f, 1685.0000f, -5.3542f, 3.1400f},
-    {981.3330f, 1682.0000f, -6.8929f, 3.1400f},
-    {980.0000f, 1712.0000f, -9.4181f, 3.1400f},
+    {891.0000f, 1678.0000f, -19.8282f, 3.1400f},
+    {892.0000f, 1682.0000f, -19.7870f, 3.1400f},
+    {896.0000f, 1681.0000f, -19.6735f, 3.1400f},
+    {898.0000f, 1678.0000f, -19.6566f, 3.1400f},
 }};
 
-inline constexpr Point Refuge = {1012.0000f, 1655.0000f, 0.6661f, 3.1400f};
+inline constexpr Point Refuge = {1098.0000f, 1540.0000f, 26.3195f, 3.1400f};
 }
 
 #endif

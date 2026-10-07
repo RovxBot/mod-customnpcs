@@ -29,7 +29,7 @@ def main():
     factions = {int(r['ID']): r for r in table_rows(args.core_root, 'factiontemplate_dbc')}
     candidates = []
     for row in table_rows(args.core_root, 'creature'):
-        if int(row['map']) != 1:
+        if int(row['map']) not in {h['map'] for h in d['hubs']}:
             continue
         tpl = templates[int(row['id1'])]
         faction = factions.get(int(tpl['faction']), {})
@@ -48,14 +48,15 @@ def main():
     for row, tpl in candidates:
         radius = float(row['wander_distance'])
         detection = float(tpl['detection_range'])
-        touched = [h for h in d['hubs'] if abs(float(row['position_z']) - h['center'][2]) <= 30 and
+        map_id=int(row['map'])
+        touched = [h for h in d['hubs'] if h['map']==map_id and abs(float(row['position_z']) - h['center'][2]) <= 30 and
                    distance(row, h) <= h['radius'] + radius + detection + 10]
         if touched:
             original_report.append(dict(guid=int(row['guid']), entry=int(row['id1']), name=tpl['name'],
                 movement=int(row['MovementType']), wander=radius, detection=detection,
                 hubs=[h['key'] for h in touched], origin=[float(row[k]) for k in ['position_x','position_y','position_z','orientation']]))
         path = waypoints.get(paths.get(int(row['guid']), 0), [])
-        for hub in d['hubs']:
+        for hub in [h for h in d['hubs'] if h['map']==map_id]:
             for a, b in zip(path, path[1:] + path[:1]):
                 ax, ay = float(a['position_x']), float(a['position_y'])
                 bx, by = float(b['position_x']), float(b['position_y'])
@@ -78,17 +79,17 @@ def main():
         for extent in [near['radius']+radius+detection+18, near['radius']+radius+detection+35, near['radius']+radius+detection+55]:
             for turn in [0,.25,-.25,.5,-.5,.75,-.75,1,-1,1.5,-1.5,math.pi]:
                 x=near['center'][0]+extent*math.cos(angle+turn);y=near['center'][1]+extent*math.sin(angle+turn)
-                z=map_height(args.client_data,x,y)+.05
-                result=subprocess.run([str(args.nav_probe),str(args.client_data/'mmaps')],input=f'p {x} {y} {z}\n',text=True,capture_output=True,check=True).stdout.split()
+                z=map_height(args.client_data,x,y,map_id)+.05
+                result=subprocess.run([str(args.nav_probe),str(args.client_data/'mmaps'),'1',str(map_id)],input=f'p {x} {y} {z}\n',text=True,capture_output=True,check=True).stdout.split()
                 if not int(result[0]):continue
                 x,y,z=map(float,result[1:])
-                if any(math.hypot(x-h['center'][0],y-h['center'][1])<h['radius']+radius+detection+10 for h in d['hubs']):continue
-                route=subprocess.run([str(args.travel_probe or args.nav_probe),str(args.client_data/'mmaps')],input=f'r {row["position_x"]} {row["position_y"]} {row["position_z"]} {x} {y} {z}\n',text=True,capture_output=True,check=True).stdout.split()
+                if any(math.hypot(x-h['center'][0],y-h['center'][1])<h['radius']+radius+detection+10 for h in d['hubs'] if h['map']==map_id):continue
+                route=subprocess.run([str(args.travel_probe or args.nav_probe),str(args.client_data/'mmaps'),'9',str(map_id)],input=f'r {row["position_x"]} {row["position_y"]} {row["position_z"]} {x} {y} {z}\n',text=True,capture_output=True,check=True).stdout.split()
                 if route[0]!='1':continue
                 found=[x,y,z,float(row['orientation'])];break
             if found:break
         assert found, ('No connected clearance home', row['guid'], tpl['name'])
-        relocations.append(dict(guid=int(row['guid']),entry=int(row['id1']),name=tpl['name'],map=1,
+        relocations.append(dict(guid=int(row['guid']),entry=int(row['id1']),name=tpl['name'],map=map_id,
             original=[float(row[k]) for k in ['position_x','position_y','position_z','orientation']],
             point=found,wander=radius,movement=int(row['MovementType']),detection=detection,
             hubs=[h['key'] for h in touched]))

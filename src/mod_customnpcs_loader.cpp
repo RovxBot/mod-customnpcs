@@ -22,6 +22,7 @@ void AddModCustomNPCsAppearanceScripts();
 void AddBrokenSealChapter1Scripts();
 void AddBrokenSealChapter2Scripts();
 void AddBrokenSealChapter3Scripts();
+void AddBrokenSealChapter4Scripts();
 void AddBrokenSealHubScripts();
 
 // Keep the original loader for compatibility with older build setups.
@@ -33,6 +34,7 @@ void AddModCustomNPCsScripts()
     AddBrokenSealChapter1Scripts();
     AddBrokenSealChapter2Scripts();
     AddBrokenSealChapter3Scripts();
+    AddBrokenSealChapter4Scripts();
     AddBrokenSealHubScripts();
 }
 

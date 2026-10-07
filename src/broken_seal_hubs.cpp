@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 #include "BrokenSealHubs.h"
+#include "BrokenSealChapter2Integration.h"
 #include "CellImpl.h"
 #include "Config.h"
 #include "Creature.h"
@@ -31,26 +32,32 @@ bool Enabled(Hub const& hub)
         return false;
     if (hub.chapter >= 2 && !sConfigMgr->GetOption<bool>("ModCustomNPCs.BrokenSeal.Chapter2.Enable", true))
         return false;
-    return hub.chapter < 3 || sConfigMgr->GetOption<bool>("ModCustomNPCs.BrokenSeal.Chapter3.Enable", true);
+    if (hub.chapter >= 3 && !sConfigMgr->GetOption<bool>("ModCustomNPCs.BrokenSeal.Chapter3.Enable", true))
+        return false;
+    return hub.chapter < 4 || sConfigMgr->GetOption<bool>("ModCustomNPCs.BrokenSeal.Chapter4.Enable", true);
 }
 Hub const* RestingArea(Unit const* unit)
 {
-    if (!unit || !unit->IsInWorld() || unit->GetMapId() != 1)
+    if (!unit || !unit->IsInWorld())
         return nullptr;
     if (!(unit->GetPhaseMask() & 1))
         return nullptr;
     for (Hub const& hub : Areas)
-        if (Contains(hub, unit->GetPositionX(), unit->GetPositionY(), unit->GetPositionZ(), hub.radius) && Enabled(hub))
+        if (unit->GetMapId() == hub.map &&
+            (!hub.cult || BrokenSealChapter2AvoidCombat(unit)) &&
+            Contains(hub, unit->GetPositionX(), unit->GetPositionY(), unit->GetPositionZ(), hub.radius) && Enabled(hub))
             return &hub;
     for (Footprint const& f : Footprints)
-        if (ContainsFootprint(f, unit->GetPositionX(), unit->GetPositionY(), unit->GetPositionZ()) &&
+        if (unit->GetMapId() == Areas[f.area].map &&
+            (!Areas[f.area].cult || BrokenSealChapter2AvoidCombat(unit)) &&
+            ContainsFootprint(f, unit->GetPositionX(), unit->GetPositionY(), unit->GetPositionZ()) &&
             Enabled(Areas[f.area]))
             return &Areas[f.area];
     return nullptr;
 }
 bool Ambient(Creature const* creature, bool allowDeadSource = false)
 {
-    if (!creature || creature->GetMapId() != 1)
+    if (!creature)
         return false;
     CreatureTemplate const* tpl = creature->GetCreatureTemplate();
     FactionTemplateEntry const* faction = creature->GetFactionTemplateEntry();
@@ -58,8 +65,7 @@ bool Ambient(Creature const* creature, bool allowDeadSource = false)
                      allowDeadSource || creature->IsAlive(),
                      creature->GetCharmerOrOwnerPlayerOrPlayerItself() != nullptr,
                      creature->IsSummon(),
-                     creature->GetScriptId() != 0 && std::find(PublicQuestMobs.begin(), PublicQuestMobs.end(),
-                                                               creature->GetEntry()) == PublicQuestMobs.end(),
+                     creature->GetScriptId() != 0,
                      creature->GetNpcFlags() != 0,
                      tpl->rank != CREATURE_ELITE_NORMAL || creature->isWorldBoss() || creature->IsDungeonBoss(),
                      faction && (faction->hostileMask & 1)};
@@ -107,20 +113,34 @@ struct npc_bs_hub_sentryAI : ScriptedAI
     }
     void Reset() override
     {
-        me->SetReactState(REACT_PASSIVE);
+        Hub const* hub = Area();
+        me->SetReactState(hub && hub->cult ? REACT_AGGRESSIVE : REACT_PASSIVE);
         me->SetSheath(SHEATH_STATE_MELEE);
         events.Reset();
         events.ScheduleEvent(1, 1000ms);
     }
-    bool CanAIAttack(Unit const*) const override { return false; }
-    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override { damage = 0; }
+    bool CanAIAttack(Unit const* target) const override
+    {
+        Hub const* hub = Area();
+        return hub && hub->cult && Enabled(*hub) && target &&
+               target->GetCharmerOrOwnerPlayerOrPlayerItself() && !BrokenSealChapter2AvoidCombat(target);
+    }
+    void DamageTaken(Unit*, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
+    {
+        Hub const* hub = Area();
+        if (!hub || !hub->cult)
+            damage = 0;
+    }
     void UpdateAI(std::uint32_t diff) override
     {
+        Hub const* combatArea = Area();
+        if (combatArea && combatArea->cult && Enabled(*combatArea) && UpdateVictim())
+            DoMeleeAttackIfReady();
         events.Update(diff);
         if (events.ExecuteEvent() != 1)
             return;
         Hub const* hub = Area();
-        if (hub && Enabled(*hub))
+        if (hub && hub->map == me->GetMapId() && Enabled(*hub))
         {
             std::list<Creature*> creatures;
             Acore::AnyUnitInObjectRangeCheck check(me, hub->screen + hub->radius);
@@ -128,8 +148,18 @@ struct npc_bs_hub_sentryAI : ScriptedAI
             Cell::VisitObjects(me, searcher, hub->screen + hub->radius);
             for (Creature* c : creatures)
             {
-                if (!Ambient(c) || c->IsInEvadeMode() || !c->IsAIEnabled || !me->IsWithinLOSInMap(c) ||
+                if (!(c->GetPhaseMask() & me->GetPhaseMask()) || !Ambient(c) || c->IsInEvadeMode() ||
+                    !c->IsAIEnabled || !me->IsWithinLOSInMap(c) ||
                     !Contains(*hub, c->GetPositionX(), c->GetPositionY(), c->GetPositionZ(), hub->screen))
+                    continue;
+                if (hub->cult && BrokenSealChapter2CultCreature(c))
+                    continue;
+                // Leave ordinary quest fights outside camp alone. Repel only physical intruders
+                // or NPCs whose current target is a protected resting player.
+                bool inside = Contains(*hub, c->GetPositionX(), c->GetPositionY(), c->GetPositionZ(), hub->radius);
+                Player const* target = c->GetVictim() ? c->GetVictim()->GetCharmerOrOwnerPlayerOrPlayerItself() : nullptr;
+                bool protectedTarget = target && RestingArea(target) == hub;
+                if (!inside && !protectedTarget)
                     continue;
                 me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
                 // Send ordinary intruders home. Evade clears loot/tag/threat, so these cannot be farmed via guards.

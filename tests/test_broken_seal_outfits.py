@@ -26,7 +26,7 @@ class OutfitRegressionTests(unittest.TestCase):
     def test_campaign_outfits_are_clothed_and_valid(self):
         actors=inventory();validate_outfits(actors)
         dressed=[a for a in actors if a.get('outfit')]
-        self.assertEqual(len(dressed),56)
+        self.assertEqual(len(dressed),65)
         self.assertTrue(all(a['outfit']['class'] in set(range(1,10))|{11} for a in dressed))
         self.assertTrue(all(a['outfit']['legs'] for a in dressed))
         presets={a['entry']:a['outfit'] for a in dressed}
@@ -36,7 +36,7 @@ class OutfitRegressionTests(unittest.TestCase):
         self.assertEqual(presets[4001007]['feet'],140)
 
     def test_generators_default_missing_rendering_class_to_valid_one(self):
-        for suffix in ['chapter1','chapter2','chapter3','hubs']:
+        for suffix in ['chapter1','chapter2','chapter3','chapter4','hubs']:
             module=importlib.import_module('generate_broken_seal_'+suffix)
             data=json.loads((ROOT/f'data/quests/broken_seal_{suffix}.json').read_text())
             modified=copy.deepcopy(data)

@@ -59,8 +59,9 @@ objects so changed clothing is requested again. Tests exercise the courier's act
 item-to-display conversion and leg bytes, slot ordering, positive/negative/empty
 armor values, assignment precedence and stock-client race/class validation.
 
-All **56 campaign/hub outfits** passed native item existence, inventory-slot and
-display checks. The SQL fixture verified repair/reapplication and preservation of
+The original **56 campaign/hub outfits** passed native item existence, inventory-slot
+and display checks. Chapter 4 expands the current audit to **73** valid outfits; the
+historical repair stays limited to its original presets. The SQL fixture verified repair/reapplication and preservation of
 custom classes, clothing, replacement costumes, overrides and unowned records.
 The appearance manager and command source passed syntax checks against the core.
 A live client check of the corrected outfits remains necessary; no realm database

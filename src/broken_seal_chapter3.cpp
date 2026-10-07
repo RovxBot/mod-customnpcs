@@ -5,6 +5,7 @@
 
 #include "BrokenSealChapter3.h"
 #include "BrokenSealChapter3Integration.h"
+#include "BrokenSealChapter4Integration.h"
 #include "Chat.h"
 #include "Config.h"
 #include "Creature.h"
@@ -641,12 +642,13 @@ public:
         ClearGossipMenuFor(p);
         p->PrepareQuestMenu(c->GetGUID());
         Menu(p, c);
-        SendGossipMenuFor(p, c->GetEntry(), c->GetGUID());
+        SendGossipMenuFor(p, BrokenSealChapter4Gossip(p, c), c->GetGUID());
         return true;
     }
     bool OnGossipSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action) override
     {
-        Select(p, c, sender, action);
+        if (!BrokenSealChapter4Select(p, c, sender, action))
+            Select(p, c, sender, action);
         return true;
     }
 };

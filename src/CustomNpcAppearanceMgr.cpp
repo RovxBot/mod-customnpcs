@@ -134,7 +134,7 @@ void AppearanceMgr::Reload()
                 Field* fields = rows->Fetch();
                 uint32 entry = fields[0].Get<uint32>();
                 uint32 outfit = fields[1].Get<uint32>();
-                if (!sObjectMgr->GetCreatureTemplate(entry) || !catalog->outfits.count(outfit))
+                if (!sObjectMgr->GetCreatureTemplate(entry) || (outfit && !catalog->outfits.count(outfit)))
                 {
                     LOG_ERROR("module.customnpcs", "Ignoring outfit assignment for NPC {}: invalid entry/outfit {}.",
                         entry, outfit);
@@ -195,6 +195,8 @@ void AppearanceMgr::Apply(Creature* creature, Outfit const& outfit, AppliedAppea
     creature->SetUnitFlag2(UNIT_FLAG2_MIRROR_IMAGE);
     for (std::size_t slot = 0; slot < outfit.weapons.size(); ++slot)
         creature->SetVirtualItem(slot, outfit.weapons[slot]);
+    if (outfit.weapons[0] || outfit.weapons[1])
+        creature->SetSheath(SHEATH_STATE_MELEE);
 }
 
 void AppearanceMgr::Restore(Creature* creature, AppliedAppearance const& appearance)

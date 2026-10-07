@@ -8,7 +8,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
 DATA=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text())
-CHAPTERS=[json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text()) for n in [1,2,3]]
+CHAPTERS=[json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text()) for n in [1,2,3,4]]
 
 
 class HubTests(unittest.TestCase):
@@ -24,8 +24,8 @@ class HubTests(unittest.TestCase):
             for actor in data.get('hostile',[]) or [a for a in data['actors'] if a['faction']==14 and a.get('points')]:
                 for name in actor['points']:
                     p=data['points'][name]
-                    for h in DATA['hubs']:
-                        if abs(p[2]-h['center'][2])<=20:
+                    for h in [h for h in DATA['hubs'] if not h.get('cult')]:
+                        if h['map']==data.get('point_maps',{}).get(name,1) and abs(p[2]-h['center'][2])<=20:
                             self.assertGreaterEqual(math.hypot(p[0]-h['center'][0],p[1]-h['center'][1]),h['radius']+25,(actor['key'],name,h['key']))
 
     def test_each_hub_has_functional_scenery_and_staff(self):
@@ -45,12 +45,13 @@ class HubTests(unittest.TestCase):
 
     def test_stock_clearances_keep_identity_and_wander_envelope(self):
         self.assertEqual(len(DATA['relocations']),len({r['guid'] for r in DATA['relocations']}))
-        self.assertTrue(DATA['native_audit']['threats'])
+        self.assertFalse(DATA['relocations'])
+        self.assertFalse(DATA['policy']['native_spawn_edits'])
         for r in DATA['relocations']:
             self.assertIn(r['movement'],[0,1]);self.assertNotEqual(r['point'][:3],r['original'][:3])
-            for h in DATA['hubs']:
+            for h in [h for h in DATA['hubs'] if h['map']==r['map']]:
                 self.assertGreaterEqual(math.hypot(r['point'][0]-h['center'][0],r['point'][1]-h['center'][1]),h['radius']+r['wander']+r['detection']+10)
-        self.assertEqual(DATA['hubs'][-1]['center'],CHAPTERS[2]['points']['mei'])
+        self.assertEqual(next(h for h in DATA['hubs'] if h['key']=='wayside')['center'],CHAPTERS[2]['points']['mei'])
 
     def test_owned_ids_do_not_overlap_chapter_assets(self):
         actors=[a['entry'] for a in DATA['guards']+DATA['residents']]
@@ -62,7 +63,7 @@ class HubTests(unittest.TestCase):
 
     def test_scene_corridors_and_full_camp_coverage(self):
         self.assertTrue(DATA['validation']['corridors_clear'])
-        self.assertEqual(len(DATA['corridors']),13)
+        self.assertEqual(len(DATA['corridors']),26)
         from sys import path
         path.insert(0,str(ROOT/'tools'))
         from verify_broken_seal_hub_assets import intersects_route
@@ -73,7 +74,7 @@ class HubTests(unittest.TestCase):
     def test_generated_files_current(self):
         subprocess.run([sys.executable,str(ROOT/'tools/generate_broken_seal_hubs.py'),'--check'],check=True)
         self.assertEqual((ROOT/'data/sql/db-world/base/broken_seal_hubs.sql').read_text(),
-                         (ROOT/'data/sql/db-world/updates/2026_10_06_03_broken_seal_hubs.sql').read_text())
+                         (ROOT/'data/sql/db-world/updates/2026_10_07_02_broken_seal_chapter4_hubs.sql').read_text())
 
 
 if __name__=='__main__':unittest.main()

@@ -4,14 +4,15 @@ import argparse
 import json
 from pathlib import Path
 from generate_broken_seal_chapter1 import rows, upsert
-from generate_broken_seal_chapter3 import sql as chapter_sql
+from generate_broken_seal_chapter4 import sql as chapter_sql
+from broken_seal_content import equipment_sql, ordinary_loot_sql
 
 from broken_seal_outfits import validate_outfits
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data/quests/broken_seal_hubs.json'
 BASE = ROOT / 'data/sql/db-world/base/broken_seal_hubs.sql'
-UPDATE = ROOT / 'data/sql/db-world/updates/2026_10_06_03_broken_seal_hubs.sql'
+UPDATE = ROOT / 'data/sql/db-world/updates/2026_10_07_02_broken_seal_chapter4_hubs.sql'
 HEADER = ROOT / 'src/BrokenSealHubsData.h'
 
 
@@ -32,7 +33,7 @@ def validate(d):
         assert all(o['terrain_relief'] <= 1.2 for o in props)
     covered={entry for hub in d['hubs'] for entry in hub['contacts']}
     exceptions={int(entry) for entry in d['exceptions']}
-    for n in [1,2,3]:
+    for n in range(1,d.get('max_chapter',4)+1):
         chapter=json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text())
         public={a['entry'] for a in chapter['actors'] if a.get('point')}
         givers={chapter['ids'][q[k]] for q in chapter['quests'] for k in ['giver','turn_in']}
@@ -47,11 +48,11 @@ def header(d):
            '#ifndef MOD_CUSTOMNPCS_BROKEN_SEAL_HUBS_DATA_H','#define MOD_CUSTOMNPCS_BROKEN_SEAL_HUBS_DATA_H',
            '', '#include <array>', '#include <cstdint>', '', 'namespace BrokenSeal::Hubs', '{',
            'struct Hub', '{', '    float x;', '    float y;', '    float z;', '    float radius;',
-           '    float screen;', '    float height;', '    std::uint32_t chapter;', '    std::uint32_t guard;',
+           '    float screen;', '    float height;', '    std::uint32_t chapter;', '    std::uint32_t guard;', '    std::uint32_t map;', '    bool cult;',
            '};', '', f'inline constexpr std::array<Hub, {len(d["hubs"])}> Areas =', '{{']
     for h in d['hubs']:
         values=h['center'][:3]+[h['radius'],h['screen_radius'],h['vertical_tolerance']]
-        lines += ['    {'+', '.join(f'{v:.4f}f' for v in values)+f', {h.get("activation_chapter",h["chapter"])}, {h["guard_entry"]}'+'},']
+        lines += ['    {'+', '.join(f'{v:.4f}f' for v in values)+f', {h.get("activation_chapter",h["chapter"])}, {h["guard_entry"]}, {h["map"]}, {str(h.get("cult",False)).lower()}'+'},']
     lines+=['}};', '', 'struct Footprint', '{', '    float left;', '    float bottom;',
             '    float right;', '    float top;', '    float z;', '    std::uint32_t area;', '};', '',
             f'inline constexpr std::array<Footprint, {len(d["objects"])}> Footprints =', '{{']
@@ -59,18 +60,17 @@ def header(d):
     for o in d['objects']:
         values=o['bounds']+[o['point'][2]]
         lines+=['    {'+', '.join(f'{v:.4f}f' for v in values)+f', {indexes[o["hub"]]}'+'},']
-    lines+=['}};', '', 'inline constexpr std::array<std::uint32_t, 9> PublicQuestMobs =',
-            '{', '    4001010, 4001011, 4001222, 4001225, 4001227, 4001228, 4001414, 4001415, 4001416',
-            '};', '}', '', '#endif', '']
+    lines+=['}};', '',  '}', '', '#endif', '']
     return '\n'.join(lines)
 
 
 def sql(d):
     actors=d['guards']+d['residents']
-    owned=[('creature',a['entry']) for a in actors]+[('gameobject',o['entry']) for o in d['objects']]
+    objects=d['objects']+d.get('encounter_scenery',[])
+    owned=[('creature',a['entry']) for a in actors]+[('gameobject',o['entry']) for o in objects]
     owned += [(kind,a['entry']) for kind in ['outfit','outfit_entry'] for a in actors]
-    text='''-- The Broken Seal: quest hub safety and camp dressing, Chapters 1-3.
--- Generated from data/quests/broken_seal_hubs.json. Requires all three chapters and rebuilt module.
+    text='''-- The Broken Seal: quest hub safety and camp dressing, Chapters 1-4.
+-- Generated from data/quests/broken_seal_hubs.json. Requires all four chapters and rebuilt module.
 -- Occupied-ID checks precede content DML. Ordinary stock spawn moves are backed up and conditional.
 -- No native spawn is deleted, no shared path or stock creature template is modified.
 -- See docs/broken-seal/hub-implementation.md.
@@ -88,9 +88,12 @@ CREATE TEMPORARY TABLE `bs_hub_guard` (`id` TINYINT PRIMARY KEY);
 INSERT INTO `bs_hub_guard` VALUES (1);
 INSERT INTO `bs_hub_guard` SELECT 1 WHERE
   (SELECT COUNT(*) FROM `mod_customnpcs_bs_content` WHERE `kind`='quest' AND
-    ((`entry`=900108 AND `chapter`=1) OR (`entry`=900222 AND `chapter`=2) OR (`entry`=900311 AND `chapter`=3))) <> 3
-  OR (SELECT COUNT(*) FROM `quest_template` WHERE `ID` IN (900108,900222,900311)) <> 3;
+    ((`entry`=900108 AND `chapter`=1) OR (`entry`=900222 AND `chapter`=2) OR (`entry`=900311 AND `chapter`=3) OR (`entry`=900411 AND `chapter`=4))) <> 4
+  OR (SELECT COUNT(*) FROM `quest_template` WHERE `ID` IN (900108,900222,900311,900411)) <> 4;
 '''
+    if d.get('max_chapter')==2:
+        text=text.replace("OR (`entry`=900311 AND `chapter`=3) OR (`entry`=900411 AND `chapter`=4)", "")
+        text=text.replace(") <> 4", ") <> 2").replace("IN (900108,900222,900311,900411)", "IN (900108,900222)")
     for kind,table,col in [('creature','creature_template','entry'),('gameobject','gameobject_template','entry'),
                            ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry')]:
         text+=f'''INSERT INTO `bs_hub_guard`
@@ -111,47 +114,49 @@ SELECT `kind`,`entry`,0 FROM `bs_hub_ids` ON DUPLICATE KEY UPDATE `chapter`=VALU
     cols=['entry','name','minlevel','maxlevel','faction','npcflag','unit_class','unit_flags','type','AIName',
           'ScriptName','HealthModifier','DamageModifier','ExperienceModifier','lootid','flags_extra']
     text+=upsert('creature_template',cols,
-        [[a['entry'],a['name'],45,45,250 if a in d['guards'] else 35,0,1,770,7,'',
-          'npc_bs_hub_sentry' if a in d['guards'] else 'npc_bs_hub_resident',5,1,0,0,2] for a in actors],['entry'])
+        [[a['entry'],a['name'],27 if a.get('cult') else 45,27 if a.get('cult') else 45,14 if a.get('cult') else 250 if a in d['guards'] else 35,0,1,0 if a.get('cult') and a in d['guards'] else 770,7,'',
+          'npc_bs_hub_sentry' if a in d['guards'] else 'npc_bs_hub_resident',1.4 if a.get('cult') else 5,1,1 if a.get('cult') and a in d['guards'] else 0,a['entry'] if a.get('ordinary_loot') else 0,0 if a.get('cult') else 2] for a in actors],['entry'])
     ids=', '.join(str(a['entry']) for a in actors)
     text+=f'DELETE FROM `creature_template_model` WHERE `CreatureID` IN ({ids});\n'
     text+=rows('creature_template_model',['CreatureID','Idx','CreatureDisplayID','DisplayScale','Probability'],
                [[a['entry'],0,a['display'],1,1] for a in actors])
     outfit=['outfit_id','race','gender','class','skin','face','hair','hair_color','facial_hair','chest','legs','feet','hands','mainhand']
     text+=upsert('mod_customnpcs_outfit',outfit,[[a['entry']]+[a['outfit'].get(k,1 if k == 'class' else 0) for k in outfit[1:]] for a in actors],['outfit_id'])
-    text+=upsert('mod_customnpcs_outfit_entry',['creature_entry','outfit_id'],[[a['entry'],a['entry']] for a in actors],['creature_entry'])
+    text+=upsert('mod_customnpcs_outfit_entry',['creature_entry','outfit_id'],[[a['entry'],0 if a.get('native_appearance') else a['entry']] for a in actors],['creature_entry'])
+    text+=equipment_sql(actors)
+    text+=ordinary_loot_sql(actors)
     text+=f'DELETE FROM `creature_template_addon` WHERE `entry` IN ({ids});\n'
     text+=rows('creature_template_addon',['entry','emote'],[[a['entry'],a['emote']] for a in d['residents']])
     text+=upsert('gameobject_template',['entry','type','displayId','name','size'],
-                [[o['entry'],5,o['display'],o['name'],o['scale']] for o in d['objects']],['entry'])
+                [[o['entry'],5,o['display'],o['name'],o['scale']] for o in objects],['entry'])
     for kind in ['creature','gameobject']:
         text+=f'DROP TEMPORARY TABLE IF EXISTS `bs_hub_{kind}_spawns`;\n'
-        text+=f'CREATE TEMPORARY TABLE `bs_hub_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'
-    hubmap={h['key']:h for h in d['hubs']}
+        text+=f'CREATE TEMPORARY TABLE `bs_hub_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `map` SMALLINT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'
+    hubmap={h['key']:h for h in d['hubs']+d.get('encounter_camps',[])}
     spawns=[]
     for a in actors:
         for n,p in enumerate(a.get('points') or [a['point']]):
-            spawns.append([f'BS-HUB:{a["entry"]}:{n}',a['entry'],15 if hubmap[a['hub']]['chapter']==3 else 406,*p])
-    text+=rows('bs_hub_creature_spawns',['spawn_key','entry','zone','x','y','z','o'],spawns)
-    text+=rows('bs_hub_gameobject_spawns',['spawn_key','entry','zone','x','y','z','o'],
-                [[f'BS-HUB:{o["key"]}',o['entry'],15 if hubmap[o['hub']]['chapter']==3 else 406,*o['point']] for o in d['objects']])
+            spawns.append([f'BS-HUB:{a["entry"]}:{n}',a['entry'],hubmap[a['hub']]['map'],47 if hubmap[a['hub']]['map']==0 else 15 if hubmap[a['hub']]['chapter']>=3 else 406,*p])
+    text+=rows('bs_hub_creature_spawns',['spawn_key','entry','map','zone','x','y','z','o'],spawns)
+    text+=rows('bs_hub_gameobject_spawns',['spawn_key','entry','map','zone','x','y','z','o'],
+                [[f'BS-HUB:{o["key"]}',o['entry'],hubmap[o['hub']]['map'],47 if hubmap[o['hub']]['map']==0 else 15 if hubmap[o['hub']].get('chapter',2)>=3 else 406,*o['point']] for o in objects])
     # Use the already-tested native/legacy GUID-preserving spawn implementation.
-    source=chapter_sql(json.loads((ROOT/'data/quests/broken_seal_chapter3.json').read_text()))
-    part=source[source.index('SET @BS_C03_ENTRY_COLUMN'):source.index('DROP TEMPORARY TABLE `bs_c03_creature_spawns`')]
-    part=part.replace('BS_C03','BS_HUB').replace('bs_c03','bs_hub');text+=part
+    source=chapter_sql(json.loads((ROOT/'data/quests/broken_seal_chapter4.json').read_text()))
+    part=source[source.index('SET @BS_C04_ENTRY_COLUMN'):source.index('-- Retire obsolete owned campaign placements')]
+    part=part.replace('BS_C04','BS_HUB').replace('bs_c04','bs_hub');text+=part
     text+='''DROP TEMPORARY TABLE IF EXISTS `bs_hub_native_moves`;
-CREATE TEMPORARY TABLE `bs_hub_native_moves` (`guid` INT UNSIGNED PRIMARY KEY, `entry` INT UNSIGNED,
+CREATE TEMPORARY TABLE `bs_hub_native_moves` (`guid` INT UNSIGNED PRIMARY KEY, `entry` INT UNSIGNED, `map` SMALLINT UNSIGNED,
   `ox` FLOAT, `oy` FLOAT, `oz` FLOAT, `oo` FLOAT, `nx` FLOAT, `ny` FLOAT, `nz` FLOAT, `no` FLOAT);
 '''
     if d['relocations']:
-        text+=rows('bs_hub_native_moves',['guid','entry','ox','oy','oz','oo','nx','ny','nz','no'],
-                    [[r['guid'],r['entry'],*r['original'],*r['point']] for r in d['relocations']])
+        text+=rows('bs_hub_native_moves',['guid','entry','map','ox','oy','oz','oo','nx','ny','nz','no'],
+                    [[r['guid'],r['entry'],r['map'],*r['original'],*r['point']] for r in d['relocations']])
     text+='''-- Claim only the audited original spawn: changed realm placements are left alone.
 SET @BS_HUB_BACKUP := CONCAT(
  'INSERT IGNORE INTO `mod_customnpcs_bs_hub_native` (`guid`,`entry`,`map`,`x`,`y`,`z`,`o`,`applied_x`,`applied_y`,`applied_z`,`applied_o`) ',
  'SELECT c.`guid`,m.`entry`,c.`map`,c.`position_x`,c.`position_y`,c.`position_z`,c.`orientation`,m.`nx`,m.`ny`,m.`nz`,m.`no` ',
  'FROM `creature` c INNER JOIN `bs_hub_native_moves` m ON c.`guid`=m.`guid` INNER JOIN `creature_template` t ON t.`entry`=m.`entry` ',
- 'WHERE c.`',@BS_HUB_ENTRY_COLUMN,'`=m.`entry` AND c.`map`=1 AND ',
+ 'WHERE c.`',@BS_HUB_ENTRY_COLUMN,'`=m.`entry` AND c.`map`=m.`map` AND ',
  "t.`ScriptName`='' AND t.`rank`=0 AND t.`npcflag`=0 AND (c.`ScriptName`='' OR c.`ScriptName` IS NULL) AND c.`npcflag`=0 AND c.`MovementType` IN (0,1) AND ",
  'ABS(c.`position_x`-m.`ox`)<0.1 AND ABS(c.`position_y`-m.`oy`)<0.1 AND ABS(c.`position_z`-m.`oz`)<0.1'
 );
@@ -170,6 +175,17 @@ SET @BS_HUB_MOVE := CONCAT(
 PREPARE bs_hub_stmt FROM @BS_HUB_MOVE;
 EXECUTE bs_hub_stmt;
 DEALLOCATE PREPARE bs_hub_stmt;
+-- Track a successfully applied revised clearance while retaining the original home for restoration.
+SET @BS_HUB_TRACK := CONCAT(
+ 'UPDATE `mod_customnpcs_bs_hub_native` b INNER JOIN `bs_hub_native_moves` m ON m.`guid`=b.`guid` AND m.`entry`=b.`entry` ',
+ 'INNER JOIN `creature` c ON c.`guid`=b.`guid` ',
+ 'SET b.`applied_x`=m.`nx`,b.`applied_y`=m.`ny`,b.`applied_z`=m.`nz`,b.`applied_o`=m.`no` ',
+ 'WHERE c.`',@BS_HUB_ENTRY_COLUMN,'`=m.`entry` AND c.`map`=b.`map` AND ',
+ 'ABS(c.`position_x`-m.`nx`)<0.1 AND ABS(c.`position_y`-m.`ny`)<0.1 AND ABS(c.`position_z`-m.`nz`)<0.1'
+);
+PREPARE bs_hub_stmt FROM @BS_HUB_TRACK;
+EXECUTE bs_hub_stmt;
+DEALLOCATE PREPARE bs_hub_stmt;
 '''
     # Older installed chapter files get the same safe positions without replacing GUIDs or template behavior.
     for m in d['chapter_moves']:
@@ -178,6 +194,9 @@ DEALLOCATE PREPARE bs_hub_stmt;
             text+=f"UPDATE `creature` SET `position_x`={p[0]},`position_y`={p[1]},`position_z`={p[2]},`orientation`={p[3]} WHERE `Comment`='{m['spawn_key']}';\n"
         else:
             text+=f"UPDATE `gameobject` SET `position_x`={p[0]},`position_y`={p[1]},`position_z`={p[2]},`orientation`={p[3]},`rotation2`=SIN({p[3]}/2),`rotation3`=COS({p[3]}/2) WHERE `Comment`='{m['spawn_key']}';\n"
+    if d.get('retired_spawn_keys'):
+        keys=', '.join("'"+k.replace("'","''")+"'" for k in d['retired_spawn_keys'])
+        text+=f"DELETE FROM `creature` WHERE `Comment` IN ({keys});\nDELETE FROM `gameobject` WHERE `Comment` IN ({keys});\n"
     text+='''DROP TEMPORARY TABLE `bs_hub_creature_spawns`;
 DROP TEMPORARY TABLE `bs_hub_gameobject_spawns`;
 DROP TEMPORARY TABLE `bs_hub_native_moves`;

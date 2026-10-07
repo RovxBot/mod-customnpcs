@@ -28,9 +28,9 @@ def main():
         raw=(ROOT/'data/sql/db-world/base/custom_npc_appearances.sql').read_text()
         for table in ['mod_customnpcs_outfit','mod_customnpcs_outfit_entry','mod_customnpcs_outfit_spawn']:
             run(re.search(r'CREATE TABLE IF NOT EXISTS `'+table+r'` \(.*?\) ENGINE=[^;]+;',raw,re.S).group())
-        for name in ['chapter1','chapter2','chapter3','hubs']:run((ROOT/f'data/sql/db-world/base/broken_seal_{name}.sql').read_text())
+        for name in ['chapter1','chapter2','chapter3','chapter4','hubs']:run((ROOT/f'data/sql/db-world/base/broken_seal_{name}.sql').read_text())
         # Simulate the two exact installation bugs and intentional edits/overrides.
-        run('UPDATE mod_customnpcs_outfit SET class=0 WHERE outfit_id BETWEEN 4001200 AND 4009057;'
+        run('UPDATE mod_customnpcs_outfit SET class=0 WHERE (outfit_id BETWEEN 4001200 AND 4001599) OR (outfit_id BETWEEN 4009000 AND 4009007) OR (outfit_id BETWEEN 4009050 AND 4009057);'
             'UPDATE mod_customnpcs_outfit SET legs=0 WHERE outfit_id=4001006;'
             'UPDATE mod_customnpcs_outfit SET feet=0 WHERE outfit_id=4001006;'
             'UPDATE mod_customnpcs_outfit SET class=2 WHERE outfit_id=4001200;'

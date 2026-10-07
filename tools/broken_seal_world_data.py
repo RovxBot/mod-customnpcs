@@ -1,5 +1,6 @@
 """Read AzerothCore base-world dumps without importing or modifying a database."""
 import csv
+from functools import lru_cache
 import re
 from pathlib import Path
 
@@ -20,18 +21,24 @@ def table_rows(core_root, table):
             yield dict(zip(columns, values))
 
 
-def map_height(client_data, x, y):
-    """Read native map-1 ground height (terrain only; navigation also checks model surfaces)."""
+@lru_cache(maxsize=64)
+def _height_grid(path):
     import struct
-    gx, gy = int(32-x/(1600/3)), int(32-y/(1600/3))
-    data = (Path(client_data) / f'maps/001{gx:02}{gy:02}.map').read_bytes()
-    offset = struct.unpack_from('<11I', data)[5]
-    _, flags, low, high = struct.unpack_from('<IIff', data, offset)
-    if flags & 1:
-        return low
-    fmt = 'H' if flags & 2 else 'B' if flags & 4 else 'f'
-    v9 = struct.unpack_from('<' + fmt*16641, data, offset+16)
-    v8 = struct.unpack_from('<' + fmt*16384, data, offset+16+struct.calcsize(fmt)*16641)
+    data=path.read_bytes()
+    offset=struct.unpack_from('<11I',data)[5]
+    _,flags,low,high=struct.unpack_from('<IIff',data,offset)
+    if flags & 1:return flags,low,high,(),()
+    fmt='H' if flags & 2 else 'B' if flags & 4 else 'f'
+    v9=struct.unpack_from('<'+fmt*16641,data,offset+16)
+    v8=struct.unpack_from('<'+fmt*16384,data,offset+16+struct.calcsize(fmt)*16641)
+    return flags,low,high,v9,v8
+
+
+def map_height(client_data,x,y,map_id=1):
+    """Native terrain height, separately from model/nav-mesh surfaces such as stump tops."""
+    gx,gy=int(32-x/(1600/3)),int(32-y/(1600/3))
+    flags,low,high,v9,v8=_height_grid(Path(client_data)/f'maps/{map_id:03}{gx:02}{gy:02}.map')
+    if flags & 1:return low
     xx, yy = 128*(32-x/(1600/3)), 128*(32-y/(1600/3))
     ix, iy = int(xx), int(yy)
     xx, yy = xx-ix, yy-iy

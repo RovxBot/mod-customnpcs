@@ -1,8 +1,8 @@
 # Quest hubs: safety, camp layout and installation
 
-The shared hub add-on upgrades the implemented Chapters 1–3: **eight protected
-hand-in/resting areas**, **72 native scenery placements**, **16 sentries** and
-**eight working residents**. Shelters, bedding, storage, work areas, lights and
+The shared hub add-on upgrades the implemented Chapters 1–4: **ten protected
+hand-in/resting areas**, **96 native scenery placements**, **20 sentries** and
+**ten working residents**. Shelters, bedding, storage, work areas, lights and
 entrance markers give each camp a purpose. Camp guards and a localized ambient-mob
 rule protect the quest contacts, resting circles and the scenery footprints.
 
@@ -28,11 +28,14 @@ worldserver build, realm deployment or in-game visual inspection was performed.
   remains active for Chapter 2's Dezco handoff even if Chapter 3 is disabled.
 - Mei's relief station was moved from the Firemane pocket onto the Mudsprocket
   approach. A shelter, kitchen, table, stores and lighting connect her role to the
-  existing settlement setting. Chapter 4's full story remains a design inventory.
+  existing settlement setting.
+- Chapter 4 adds a village relief compound on Mudsprocket's southern edge and a
+  neutral Wildhammer gathering in the Hinterlands, each with native dwarf canvas
+  shelters, working supplies, lamps, equipment and two sentries.
 
 The native-spawn audit found a basilisk about five metres from Condenna, overlapping
 harpy roam envelopes near the refuge, and a Firemane about eleven metres from Mei's
-old position. **21 ordinary native spawn homes** receive conditional clearances,
+old position. **22 ordinary native spawn homes** receive conditional clearances,
 with their identities, movement types and wander radii preserved. Shared patrol
 paths are audited and retained. The audited snapshot had no eligible patrol segments
 crossing these resting areas; the runtime rule handles ordinary later additions too.
@@ -55,7 +58,7 @@ no player owner, summon status, quest/service flags or boss/elite status. Unknow
 custom-scripted creatures are excluded. The explicitly listed ordinary public
 campaign mobs can also be driven away; private summoned quest enemies remain active.
 This preserves the hound match, Garnoth duel, prisoner rescue and enforcer waves,
-including the wave at the refuge. Opposing-faction town guards, PvP, pets, bosses,
+including the wave at the refuge and Chapter 4 mask/boss encounters. Opposing-faction town guards, PvP, pets, bosses,
 rare encounters and other scripted events retain their normal behavior.
 
 The camp geometry uses horizontal range plus vertical tolerance and matching map/
@@ -75,26 +78,32 @@ native settlements; bound Jarod's altar is recorded as a deliberate encounter ar
 | Twilight Kennel Station | Chapter 2 | 12 m | 30 m | 7 |
 | Dawnchaser Field Camp | Chapter 2 | 58 m | 76 m | 18 |
 | Mei's Mudsprocket Relief Station | Chapter 3 | 18 m | 36 m | 10 |
+| Southern Village Relief Camp | Chapter 4 | 34 m | 52 m | 14 |
+| Neutral Wildhammer Gathering | Chapter 4 | 22 m | 40 m | 10 |
 
 Scenery footprints extend coverage beyond the small central circles where needed.
-Sentry template IDs are **4009000–4009007**, resident IDs **4009050–4009057**, and
-scenery IDs **4009100–4009171**. The add-on owns these resources as chapter `0` in
+Sentry template IDs are **4009000–4009009**, resident IDs **4009050–4009059**, and
+scenery IDs **4009100–4009195**. The add-on owns these resources as chapter `0` in
 `mod_customnpcs_bs_content`. Each model and outfit item exists in native Wrath data.
 
 ## Install
 
 1. Include the updated module in a worldserver rebuild. The loader registers
    `AddBrokenSealHubScripts`.
-2. Install the appearance schema and all three chapter SQL files, then apply
+2. Install the appearance schema and all four chapter SQL files, then apply
    [broken_seal_hubs.sql](../../data/sql/db-world/base/broken_seal_hubs.sql) to the
    **world** database. Existing installations can use the identical
-   [hub update](../../data/sql/db-world/updates/2026_10_06_03_broken_seal_hubs.sql).
+   [hub update](../../data/sql/db-world/updates/2026_10_07_02_broken_seal_chapter4_hubs.sql).
 3. Enable `ModCustomNPCs.Enable`, `ModCustomNPCs.Appearance.Enable`, the relevant
    chapter options and **`ModCustomNPCs.BrokenSeal.Hubs.Enable = 1`**, then restart.
 
 ```bash
 mysql -u<user> -p acore_world < data/sql/db-world/base/broken_seal_hubs.sql
 ```
+
+For Chapters 1–3 only, the historical `2026_10_06_03` update remains unchanged.
+Install Chapter 4 before the current full hub base or expansion update. Older hub
+GUIDs and original native backups are retained during the upgrade.
 
 No client patch is required. With appearances disabled, sentries/residents retain
 valid fallback displays. Disabling the hub option stops runtime protection and
@@ -121,9 +130,9 @@ This support file is outside the automatic base/update import folders.
 
 ## Verification
 
-Passed: **21 content/progression/hub tests**, standalone camp boundary/exclusion
-checks, C++ syntax checks against the local core, native assets, **96 scenery/staff
-ground positions**, footprint slope/overlap checks, contact access and **13 clear
+Passed: **30 campaign/hub/outfit tests**, standalone camp boundary/exclusion
+checks, C++ syntax checks against the local core, native assets, **126 scenery/staff
+ground positions**, footprint slope/overlap checks, contact access and **24 clear
 escort/course/hound/approach segments**. SQL fixtures passed both creature schemas,
 GUID preservation, native identity and wander/movement preservation, operator
 placement overrides, backup/restoration/reimport, occupied-ID guards and missing-
@@ -140,7 +149,8 @@ python3 tools/verify_broken_seal_hub_sql.py --core-root /path/to/core --socket /
 
 The standalone [navigation probe](../../tools/broken_seal_nav_probe.cpp) can be
 compiled against the core's Detour headers/sources. Filter `1` checks ground;
-filter `9` allows ground/water travel. The source audit is rerunnable with
+filter `9` allows ground/water travel. The optional third probe argument selects
+map `0` or `1`; the default remains map `1`. The source audit is rerunnable with
 [the hub audit tool](../../tools/audit_broken_seal_hubs.py); `--write` updates its
 manifest evidence and selected clearances. The core base snapshot hash is recorded.
 
@@ -158,7 +168,9 @@ A full stock-client acceptance run is still required:
    feeding route with the new scenery. Check navigation around real collision models.
 5. Play the Dawnchaser birth/vigil scenes and food deliveries. Confirm the tent still
    screens the delivery and Mei's updated route/quest map agrees with her placement.
-6. Reapply SQL on a staging realm and test `.reload config`. Inspect custom realm
+6. Run Chapter 4's escort, all eight mask treatments, finale and hearth restoration.
+   Verify private fights remain active and Horde can reach Iain without town-guard aggro.
+7. Reapply SQL on a staging realm and test `.reload config`. Inspect custom realm
    patrols or spawns beyond the audited snapshot before deploying to that realm.
 
 ## Standard for future hubs

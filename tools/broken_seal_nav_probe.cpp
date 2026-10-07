@@ -1,4 +1,4 @@
-// Standalone native map-1 navigation verifier. Arguments: mmap directory, include flags (1 or 9).
+// Standalone native navigation verifier. Arguments: mmap directory, include flags (1 or 9), map ID.
 #include "DetourAlloc.h"
 #include "DetourNavMesh.h"
 #include "DetourNavMeshQuery.h"
@@ -6,6 +6,8 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <vector>
 
 static std::vector<char> Read(std::filesystem::path const& path)
@@ -15,16 +17,18 @@ static std::vector<char> Read(std::filesystem::path const& path)
 }
 int main(int argc, char** argv)
 {
-    if (argc < 2 || argc > 3)
+    if (argc < 2 || argc > 4)
         return 1;
-    auto parameters = Read(std::filesystem::path(argv[1]) / "001.mmap");
+    std::ostringstream prefix;
+    prefix << std::setw(3) << std::setfill('0') << (argc == 4 ? std::stoi(argv[3]) : 1);
+    auto parameters = Read(std::filesystem::path(argv[1]) / (prefix.str() + ".mmap"));
     if (parameters.size() != sizeof(dtNavMeshParams))
         return 2;
     dtNavMesh* mesh = dtAllocNavMesh();
     if (dtStatusFailed(mesh->init(reinterpret_cast<dtNavMeshParams*>(parameters.data()))))
         return 3;
     for (auto const& entry : std::filesystem::directory_iterator(argv[1]))
-        if (entry.path().extension() == ".mmtile")
+        if (entry.path().extension() == ".mmtile" && entry.path().filename().string().starts_with(prefix.str()))
         {
             auto blob = Read(entry.path());
             unsigned size = 0;
@@ -41,7 +45,7 @@ int main(int argc, char** argv)
     if (dtStatusFailed(query->init(mesh, 8192)))
         return 6;
     dtQueryFilter filter;
-    filter.setIncludeFlags(argc == 3 ? std::stoi(argv[2]) : 1);
+    filter.setIncludeFlags(argc >= 3 ? std::stoi(argv[2]) : 1);
     float extent[3] = {3, 12, 3};
     char mode;
     float x, y, z, endX, endY, endZ;

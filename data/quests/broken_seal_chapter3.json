@@ -93,87 +93,87 @@
   },
   "points": {
     "dezco": [
-      -3970.0,
-      -3350.0,
-      39.39284809730439,
+      -3970,
+      -3350,
+      39.34284809730439,
       3.14
     ],
     "kang": [
-      -3955.0,
-      -3348.0,
-      39.26710815177746,
+      -3960,
+      -3347,
+      39.321337597956,
       3.14
     ],
     "kor": [
-      -3970.0,
-      -3328.0,
-      37.18366264345962,
+      -3965,
+      -3359,
+      37.785730920218995,
       3.14
     ],
     "nala": [
-      -3982.0,
-      -3358.0,
-      40.26248685667625,
+      -3977,
+      -3348,
+      40.315644351059206,
       3.14
     ],
     "tent": [
-      -3986.0,
-      -3367.0,
-      40.62909437048796,
+      -3980,
+      -3358,
+      39.921344749215976,
       3.14
     ],
     "leza": [
-      -3988.0,
-      -3370.0,
-      40.75254748551932,
+      -3981,
+      -3360,
+      40.033327980043026,
       3.14
     ],
     "dezco_scene": [
-      -3980.0,
-      -3368.0,
-      40.20170718991227,
+      -3973,
+      -3356,
+      38.666768100342345,
       3.14
     ],
     "nala_scene": [
-      -3987.0,
-      -3372.0,
-      40.9401390496042,
+      -3980,
+      -3362,
+      39.7557996603767,
       3.14
     ],
     "cot_a": [
-      -3990.0,
-      -3358.0,
-      40.03269612360333,
+      -3978,
+      -3346,
+      40.4470484007398,
       3.14
     ],
     "cot_b": [
-      -3993.0,
-      -3358.0,
-      39.584477346483204,
+      -3981,
+      -3346,
+      40.13746872241002,
       3.14
     ],
     "redhorn": [
-      -3990.0,
-      -3358.0,
-      40.03269612360333,
+      -3978,
+      -3346,
+      40.361988400320186,
       3.14
     ],
     "cloudhoof": [
-      -3993.0,
-      -3358.0,
-      39.584477346483204,
+      -3981,
+      -3346,
+      40.0524087219904,
       3.14
     ],
     "hearth": [
-      -3947.0,
-      -3357.0,
-      38.161925851368146,
+      -3960,
+      -3355,
+      38.360619737504265,
       3.14
     ],
     "memorial": [
-      -4010.0,
-      -3340.0,
-      37.10976943307338,
+      -3973,
+      -3338,
+      40.61414826392581,
       3.14
     ],
     "chezin": [
@@ -185,85 +185,85 @@
     "track": [
       -3780.0,
       -3484.0,
-      30.66348012003404,
+      30.61348012003404,
       3.14
     ],
     "ruined_tent": [
       -3792.0,
       -3486.94,
-      31.23072556590791,
+      31.18072556590791,
       3.14
     ],
     "lookout_a": [
-      -3813.92,
-      -3509.84,
-      30.14540867615935,
+      -3932,
+      -3624,
+      35.10099191848694,
       3.14
     ],
     "lookout_b": [
-      -3890.0,
-      -3560.0,
-      37.41813423270267,
+      -3948,
+      -3625,
+      34.624152028445735,
       3.14
     ],
     "lookout_c": [
-      -3999.63,
-      -3594.61,
-      30.769223162146066,
+      -3940,
+      -3610,
+      35.31177337306542,
       3.14
     ],
     "orders": [
-      -3940.0,
-      -3620.0,
-      35.38285509169608,
+      -3935,
+      -3624,
+      35.22432230021393,
       3.14
     ],
     "device": [
-      -3946.0,
-      -3620.0,
-      35.839435092815705,
+      -3948,
+      -3618,
+      37.10546891980462,
       3.14
     ],
     "pool": [
-      -4010.0,
+      -4012.0,
       -3660.0,
-      43.261164807370186,
+      44.65293857988611,
       3.14
     ],
     "refugee_a": [
-      -3952.0,
-      -3320.0,
-      37.45147193352007,
+      -3955,
+      -3344,
+      39.39205068468427,
       3.14
     ],
     "refugee_b": [
-      -3917.0,
-      -3360.0,
-      34.7054172891271,
+      -3958,
+      -3360,
+      38.11800024487176,
       3.14
     ],
     "refugee_c": [
-      -3965.0,
-      -3390.0,
-      34.795068190896316,
+      -3976,
+      -3338,
+      40.112902534941895,
       3.14
     ],
     "supply_a": [
-      -3950.0,
-      -3320.0,
-      37.802428951127986,
+      -3953,
+      -3344,
+      39.28991743525222,
       3.14
     ],
     "supply_b": [
-      -3915.0,
-      -3360.0,
-      34.460440572295504,
+      -3956,
+      -3360,
+      38.11291436459301,
       3.14
     ],
     "supply_c": [
-      -3963.0,
-      -3390.0,
-      34.49506461526585,
+      -3974,
+      -3338,
+      40.41521669767683,
       3.14
     ],
     "mei": [
@@ -275,25 +275,25 @@
     "village_sign": [
       -4533.0,
       -3233.0,
-      30.085449329220566,
+      30.035449329220565,
       3.14
     ],
     "raider_0": [
-      -3817.0,
-      -3510.0,
-      31.64495918332671,
+      -3940,
+      -3620,
+      35.33285509169608,
       3.14
     ],
     "raider_1": [
-      -3807.0,
-      -3520.0,
-      31.190844671336155,
+      -3935,
+      -3617,
+      35.16534475789969,
       3.14
     ],
     "raider_2": [
-      -3877.0,
-      -3554.0,
-      39.87576238084944,
+      -3938,
+      -3627,
+      34.96592599234592,
       3.14
     ],
     "raider_3": [
@@ -327,9 +327,9 @@
       3.14
     ],
     "hexer_0": [
-      -3904.8,
-      -3586.93,
-      30.731849205504968,
+      -3945,
+      -3621,
+      35.698176263354235,
       3.14
     ],
     "hexer_1": [
@@ -395,73 +395,73 @@
     "herb_0": [
       -3865.42,
       -3471.61,
-      30.75097425479255,
+      31.100855069344856,
       3.14
     ],
     "herb_1": [
       -3869.33,
       -3490.67,
-      30.859048434742107,
+      31.208929249294414,
       3.14
     ],
     "herb_2": [
       -3898.0,
       -3472.0,
-      31.896224684021448,
+      32.246105498573755,
       3.14
     ],
     "herb_3": [
       -3920.0,
       -3520.0,
-      36.20807931503754,
+      36.557960129589844,
       3.14
     ],
     "herb_4": [
       -3939.47,
       -3548.0,
-      41.12239014984691,
+      41.472270964399215,
       3.14
     ],
     "herb_5": [
       -3957.0,
       -3558.0,
-      39.25788936634268,
+      39.60777018089499,
       3.14
     ],
     "herb_6": [
       -3975.0,
       -3540.0,
-      40.9578977176704,
+      41.307778532222706,
       3.14
     ],
     "herb_7": [
       -4002.54,
       -3530.12,
-      30.73718180836647,
+      31.087062622918776,
       3.14
     ],
     "herb_8": [
       -4020.98,
       -3554.98,
-      30.920595618990035,
+      31.270476433542342,
       3.14
     ],
     "herb_9": [
       -4018.0,
       -3565.0,
-      31.940067512427504,
+      32.28994832697981,
       3.14
     ],
     "herb_10": [
       -4025.0,
       -3505.0,
-      35.66227719286653,
+      36.01215800741884,
       3.14
     ],
     "herb_11": [
       -3870.0,
       -3536.0,
-      38.85394219834596,
+      39.20382301289827,
       3.14
     ]
   },
@@ -471,7 +471,7 @@
       "entry": 4001400,
       "name": "Kang Bramblestaff",
       "point": "kang",
-      "display": 53,
+      "display": 3406,
       "faction": 35,
       "flags": 770,
       "npc_flags": 3,
@@ -489,14 +489,15 @@
         "mainhand": 4575,
         "class": 1
       },
-      "greeting": "A meal, a poultice and a careful test. We start with what we can do."
+      "greeting": "A meal, a poultice and a careful test. We start with what we can do.",
+      "fallback_texture_extra": 1657
     },
     {
       "key": "NPC_KOR",
       "entry": 4001401,
       "name": "Kor Bloodtusk",
       "point": "kor",
-      "display": 51,
+      "display": 3865,
       "faction": 35,
       "flags": 770,
       "npc_flags": 3,
@@ -514,14 +515,15 @@
         "feet": 6573,
         "class": 1
       },
-      "greeting": "Stay alert. The people at this camp have enough to fear already."
+      "greeting": "Stay alert. The people at this camp have enough to fear already.",
+      "fallback_texture_extra": 2121
     },
     {
       "key": "NPC_NALA",
       "entry": 4001402,
       "name": "Nala",
       "point": "nala",
-      "display": 60,
+      "display": 2126,
       "faction": 35,
       "flags": 770,
       "npc_flags": 3,
@@ -539,14 +541,15 @@
         "mainhand": 4575,
         "class": 1
       },
-      "greeting": "Give Leza privacy. I will tell you when your help is needed."
+      "greeting": "Give Leza privacy. I will tell you when your help is needed.",
+      "fallback_texture_extra": 687
     },
     {
       "key": "NPC_CHEZIN",
       "entry": 4001403,
       "name": "Chezin Dawnchaser",
       "point": "chezin",
-      "display": 59,
+      "display": 3770,
       "faction": 35,
       "flags": 33555202,
       "npc_flags": 0,
@@ -564,14 +567,15 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "Chezin lies still beside the ruined camp. His report is tucked beneath his pack."
+      "greeting": "Chezin lies still beside the ruined camp. His report is tucked beneath his pack.",
+      "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_LEZA",
       "entry": 4001404,
       "name": "Leza Farwalker",
       "point": null,
-      "display": 60,
+      "display": 2126,
       "faction": 35,
       "flags": 770,
       "npc_flags": 0,
@@ -590,14 +594,15 @@
         "class": 1
       },
       "greeting": "The expedition still has people who need our help.",
-      "corpse_delay": 60
+      "corpse_delay": 60,
+      "fallback_texture_extra": 687
     },
     {
       "key": "NPC_MEI",
       "entry": 4001405,
       "name": "Mei Barrelbottom",
       "point": "mei",
-      "display": 54,
+      "display": 2585,
       "faction": 35,
       "flags": 770,
       "npc_flags": 3,
@@ -614,7 +619,8 @@
         "class": 1,
         "legs": 10045
       },
-      "greeting": "We still have homes here. Some days it is harder to remember why we keep them."
+      "greeting": "We still have homes here. Some days it is harder to remember why we keep them.",
+      "fallback_texture_extra": 463
     },
     {
       "key": "NPC_REDHORN",
@@ -651,7 +657,7 @@
       "entry": 4001408,
       "name": "Expedition Refugees: Group A",
       "point": "refugee_a",
-      "display": 59,
+      "display": 3770,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -669,14 +675,15 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help."
+      "greeting": "The expedition still has people who need our help.",
+      "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_REFUGEE_B",
       "entry": 4001409,
       "name": "Expedition Refugees: Group B",
       "point": "refugee_b",
-      "display": 50,
+      "display": 4888,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -694,14 +701,15 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help."
+      "greeting": "The expedition still has people who need our help.",
+      "fallback_texture_extra": 3103
     },
     {
       "key": "NPC_REFUGEE_C",
       "entry": 4001410,
       "name": "Expedition Refugees: Group C",
       "point": "refugee_c",
-      "display": 52,
+      "display": 1322,
       "faction": 35,
       "flags": 770,
       "npc_flags": 1,
@@ -719,14 +727,15 @@
         "legs": 6568,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help."
+      "greeting": "The expedition still has people who need our help.",
+      "fallback_texture_extra": 84
     },
     {
       "key": "NPC_DEZCO_SCENE",
       "entry": 4001411,
       "name": "Sunwalker Dezco",
       "point": null,
-      "display": 59,
+      "display": 3770,
       "faction": 35,
       "flags": 770,
       "npc_flags": 0,
@@ -745,14 +754,15 @@
         "mainhand": 6631,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help."
+      "greeting": "The expedition still has people who need our help.",
+      "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_NALA_SCENE",
       "entry": 4001412,
       "name": "Nala",
       "point": null,
-      "display": 60,
+      "display": 2126,
       "faction": 35,
       "flags": 770,
       "npc_flags": 0,
@@ -770,7 +780,8 @@
         "mainhand": 4575,
         "class": 1
       },
-      "greeting": "The expedition still has people who need our help."
+      "greeting": "The expedition still has people who need our help.",
+      "fallback_texture_extra": 687
     },
     {
       "key": "NPC_SCENE",
@@ -795,12 +806,7 @@
       "points": [
         "raider_0",
         "raider_1",
-        "raider_2",
-        "raider_3",
-        "raider_4",
-        "raider_5",
-        "raider_6",
-        "raider_7"
+        "raider_2"
       ],
       "display": 14402,
       "faction": 14,
@@ -819,9 +825,7 @@
       "name": "Marsh Raider Hexer",
       "point": null,
       "points": [
-        "hexer_0",
-        "hexer_1",
-        "hexer_2"
+        "hexer_0"
       ],
       "display": 1122,
       "faction": 14,
@@ -865,13 +869,14 @@
     {
       "key": "GO_TRACK",
       "entry": 4001500,
-      "name": "Lost Scouting Camp Marker",
-      "display": 22,
+      "name": "Expedition Evidence Crate",
+      "display": 6737,
       "points": [
         "track"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.6,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_TENT",
@@ -881,8 +886,9 @@
       "points": [
         "tent"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.75,
+      "decorative": false,
+      "native_model": "world\\expansion02\\doodads\\generic\\human\\tents\\hu_tent01.mdx"
     },
     {
       "key": "GO_HEARTH",
@@ -893,40 +899,44 @@
         "hearth"
       ],
       "scale": 1,
-      "decorative": false
+      "decorative": false,
+      "native_model": "World\\Azeroth\\Elwynn\\PassiveDoodads\\Campfire\\ElwynnCampfire.mdx"
     },
     {
       "key": "GO_LOOKOUT_A",
       "entry": 4001503,
-      "name": "Lookout A",
-      "display": 22,
+      "name": "Expedition Evidence Crate",
+      "display": 6737,
       "points": [
         "lookout_a"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.6,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_LOOKOUT_B",
       "entry": 4001504,
-      "name": "Lookout B",
-      "display": 22,
+      "name": "Expedition Evidence Crate",
+      "display": 6737,
       "points": [
         "lookout_b"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.6,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_LOOKOUT_C",
       "entry": 4001505,
-      "name": "Lookout C",
-      "display": 22,
+      "name": "Expedition Evidence Crate",
+      "display": 6737,
       "points": [
         "lookout_c"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.6,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_HERB",
@@ -947,8 +957,9 @@
         "herb_10",
         "herb_11"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.6,
+      "decorative": false,
+      "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx"
     },
     {
       "key": "GO_ORDERS",
@@ -959,7 +970,8 @@
         "orders"
       ],
       "scale": 1,
-      "decorative": false
+      "decorative": false,
+      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx"
     },
     {
       "key": "GO_DEVICE",
@@ -969,8 +981,9 @@
       "points": [
         "device"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.35,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
     },
     {
       "key": "GO_POOL",
@@ -980,8 +993,9 @@
       "points": [
         "pool"
       ],
-      "scale": 1,
-      "decorative": false
+      "scale": 0.35,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
     },
     {
       "key": "GO_MEMORIAL",
@@ -992,7 +1006,8 @@
         "memorial"
       ],
       "scale": 1,
-      "decorative": false
+      "decorative": false,
+      "native_model": "World\\Azeroth\\Elwynn\\PassiveDoodads\\Campfire\\ElwynnCampfire.mdx"
     },
     {
       "key": "GO_SUPPLY_A",
@@ -1003,7 +1018,8 @@
         "supply_a"
       ],
       "scale": 1,
-      "decorative": false
+      "decorative": false,
+      "native_model": "World\\Goober\\G_Crate01.mdx"
     },
     {
       "key": "GO_SUPPLY_B",
@@ -1014,7 +1030,8 @@
         "supply_b"
       ],
       "scale": 1,
-      "decorative": false
+      "decorative": false,
+      "native_model": "World\\Goober\\G_Crate01.mdx"
     },
     {
       "key": "GO_SUPPLY_C",
@@ -1025,7 +1042,8 @@
         "supply_c"
       ],
       "scale": 1,
-      "decorative": false
+      "decorative": false,
+      "native_model": "World\\Goober\\G_Crate01.mdx"
     },
     {
       "key": "GO_COT_A",
@@ -1036,7 +1054,8 @@
         "cot_a"
       ],
       "scale": 0.8,
-      "decorative": true
+      "decorative": true,
+      "native_model": "World\\Generic\\Tauren\\Passive Doodads\\Baskets\\SmallBasket01.mdx"
     },
     {
       "key": "GO_COT_B",
@@ -1047,7 +1066,8 @@
         "cot_b"
       ],
       "scale": 0.8,
-      "decorative": true
+      "decorative": true,
+      "native_model": "World\\Generic\\Tauren\\Passive Doodads\\Baskets\\SmallBasket01.mdx"
     },
     {
       "key": "GO_RUINED_TENT",
@@ -1058,18 +1078,20 @@
         "ruined_tent"
       ],
       "scale": 1,
-      "decorative": true
+      "decorative": true,
+      "native_model": "world\\generic\\dwarf\\passive doodads\\excavationtents\\excavationtentruined01.mdx"
     },
     {
       "key": "GO_VILLAGE_SIGN",
       "entry": 4001517,
-      "name": "Village Sign",
-      "display": 22,
+      "name": "Expedition Evidence Crate",
+      "display": 6737,
       "points": [
         "village_sign"
       ],
-      "scale": 1,
-      "decorative": true
+      "scale": 0.6,
+      "decorative": true,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     }
   ],
   "items": [
@@ -1755,5 +1777,11 @@
     "Kor": "https://warcraft.wiki.gg/wiki/Kor_Bloodtusk",
     "Leza": "https://warcraft.wiki.gg/wiki/Leza_Farwalker",
     "Life": "https://warcraft.wiki.gg/wiki/Life_(quest)"
+  },
+  "polish": {
+    "normal_world": true,
+    "stock_spawns_preserved": true,
+    "textured_fallbacks": true,
+    "placeholder_signs_removed": true
   }
 }

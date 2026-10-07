@@ -29,21 +29,24 @@ def main():
     gear={v for a in actors for k,v in a['outfit'].items() if k in ['chest','legs','feet','hands','mainhand']}
     assert gear<=tables['Item'].rows.keys()
     contacts=[]
-    for n in [1,2,3]:
+    for n in [1,2,3,4]:
         c=json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text())
-        contacts += [c['points'][a['point']] for a in c['actors'] if a.get('point')]
+        contacts += [(a.get('map',1),c['points'][a['point']]) for a in c['actors'] if a.get('point')]
     for o in d['objects']:
-        box=o['bounds'];z=o['point'][2]
-        assert not intersects_route(box,z,d['corridors']),o['key']
-        assert not any(abs(z-p[2])<5 and box[0]-2<=p[0]<=box[2]+2 and box[1]-2<=p[1]<=box[3]+2 for p in contacts),o['key']
-        heights=[map_height(args.client_data,x,y) for x in [box[0],box[2]] for y in [box[1],box[3]]]
+        box=o['bounds'];z=o['point'][2];map_id=next(h['map'] for h in d['hubs'] if h['key']==o['hub'])
+        assert not intersects_route(box,z,[s for s in d['corridors'] if s.get('map',1)==map_id]),o['key']
+        assert not any(abs(z-p[2])<5 and box[0]-2<=p[0]<=box[2]+2 and box[1]-2<=p[1]<=box[3]+2 for m,p in contacts if m==map_id),o['key']
+        heights=[map_height(args.client_data,x,y,map_id) for x in [box[0],box[2]] for y in [box[1],box[3]]]
         assert max(heights)-min(heights)<=1.21,o['key']
-    positions=[o['point'] for o in d['objects']]+[p for a in actors for p in a.get('points') or [a['point']]]
+    maps={h['key']:h['map'] for h in d['hubs']}
+    positions=[(maps[o['hub']],o['point']) for o in d['objects']]+[(maps[a['hub']],p) for a in actors for p in a.get('points') or [a['point']]]
     if args.nav_probe:
-        result=subprocess.run([str(args.nav_probe),str(args.client_data/'mmaps')],input=''.join('p '+' '.join(map(str,p[:3]))+'\n' for p in positions),text=True,capture_output=True,check=True)
-        assert len(result.stdout.splitlines())==len(positions)
-        for p,line in zip(positions,result.stdout.splitlines()):
-            values=line.split();assert int(values[0]) and abs(float(values[3])-p[2])<2,(p,line)
+        for map_id in sorted(set(m for m,p in positions)):
+            batch=[p for m,p in positions if m==map_id]
+            result=subprocess.run([str(args.nav_probe),str(args.client_data/'mmaps'),'1',str(map_id)],input=''.join('p '+' '.join(map(str,p[:3]))+'\n' for p in batch),text=True,capture_output=True,check=True)
+            assert len(result.stdout.splitlines())==len(batch)
+            for p,line in zip(batch,result.stdout.splitlines()):
+                values=line.split();assert int(values[0]) and abs(float(values[3])-p[2])<2,(p,line)
     print(f"Native assets, {len(positions)} ground positions, {len(d['corridors'])} clear corridor segments and quest-NPC access checked.")
 
 

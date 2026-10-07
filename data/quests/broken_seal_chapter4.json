@@ -1,0 +1,1840 @@
+{
+  "schema_version": 1,
+  "chapter": "C04",
+  "title": "The Village That Gave Up",
+  "status": "implementation",
+  "zone": 15,
+  "world_map_area": 141,
+  "ids": {
+    "QUEST_INTRO": 900400,
+    "QUEST_FOOD": 900401,
+    "QUEST_FIND": 900402,
+    "QUEST_CHEER": 900403,
+    "QUEST_MEDICINE": 900404,
+    "QUEST_TEST": 900405,
+    "QUEST_TREAT": 900406,
+    "QUEST_WARD": 900407,
+    "QUEST_DESPAIR": 900408,
+    "QUEST_WORK": 900409,
+    "QUEST_PLEDGE": 900410,
+    "QUEST_LETTER": 900411,
+    "NPC_KEN": 4001600,
+    "NPC_YIMO": 4001601,
+    "NPC_KANG": 4001602,
+    "NPC_MARUUT": 4001603,
+    "NPC_IAIN": 4001604,
+    "NPC_VILLAGER_0": 4001605,
+    "NPC_VILLAGER_1": 4001606,
+    "NPC_VILLAGER_2": 4001607,
+    "NPC_VILLAGER_3": 4001608,
+    "NPC_VILLAGER_4": 4001609,
+    "NPC_VILLAGER_5": 4001610,
+    "NPC_VILLAGER_6": 4001611,
+    "NPC_VILLAGER_7": 4001612,
+    "NPC_YIMO_SCENE": 4001613,
+    "NPC_KEN_SCENE": 4001614,
+    "NPC_SCENE": 4001615,
+    "NPC_STALKER": 4001616,
+    "NPC_ESSENCE": 4001617,
+    "NPC_QUINTESSENCE": 4001618,
+    "CREDIT_INSPECT": 4001650,
+    "CREDIT_QUESTION_A": 4001651,
+    "CREDIT_QUESTION_B": 4001652,
+    "CREDIT_QUESTION_C": 4001653,
+    "CREDIT_ESCORT": 4001654,
+    "CREDIT_CHEER": 4001655,
+    "CREDIT_HERBS": 4001656,
+    "CREDIT_TEST_A": 4001657,
+    "CREDIT_TEST_B": 4001658,
+    "CREDIT_TEST_C": 4001659,
+    "CREDIT_TREATED": 4001660,
+    "CREDIT_WELL": 4001661,
+    "CREDIT_ESSENCES": 4001662,
+    "CREDIT_YIMO": 4001663,
+    "CREDIT_BOSS": 4001664,
+    "CREDIT_HEARTH_A": 4001665,
+    "CREDIT_HEARTH_B": 4001666,
+    "CREDIT_HEARTH_C": 4001667,
+    "CREDIT_SERVICES": 4001668,
+    "CREDIT_LIAISON": 4001669,
+    "TEXT_MEI": 4001670,
+    "GO_TRAIL": 4001700,
+    "GO_HERB": 4001701,
+    "GO_WELL": 4001702,
+    "GO_WARD": 4001703,
+    "GO_SUPPLY": 4001704,
+    "GO_LOST_SUPPLY": 4001705,
+    "GO_HEARTH_A": 4001706,
+    "GO_HEARTH_B": 4001707,
+    "GO_HEARTH_C": 4001708,
+    "ITEM_WARD": 900400,
+    "ITEM_FOOD": 900401,
+    "ITEM_MEDICINE": 900402,
+    "ITEM_MASK": 900403,
+    "ITEM_RESIDUE": 900404,
+    "ITEM_PLEDGE": 900405,
+    "ITEM_LETTER": 900406,
+    "ITEM_MIGHT": 900410,
+    "ITEM_PRECISION": 900411,
+    "ITEM_SORCERY": 900412,
+    "ITEM_RESTORATION": 900413,
+    "ITEM_GUARDING": 900414,
+    "ITEM_BALANCE": 900415,
+    "NPC_MEI": 4001405,
+    "QUEST_C03_END": 900311,
+    "SPELL_MASK_TARGET": 34665,
+    "SPELL_SHADOW_BOLT": 20816,
+    "SPELL_HEAL_VISUAL": 635,
+    "SPELL_STRIKE": 11976,
+    "NPC_HEARTH_FLAME": 4001619,
+    "TEXT_RECOVERED": 4001671
+  },
+  "points": {
+    "mei": [
+      -4535.0,
+      -3235.0,
+      31.005721232444824,
+      3.14
+    ],
+    "ken": [
+      -4580.0,
+      -3250.0,
+      33.42,
+      3.14
+    ],
+    "yimo": [
+      -4588.0,
+      -3252.0,
+      32.2169,
+      3.14
+    ],
+    "kang": [
+      -4575.0,
+      -3255.0,
+      32.578,
+      3.14
+    ],
+    "maruut": [
+      -4582.0,
+      -3260.0,
+      32.2219,
+      3.14
+    ],
+    "trail": [
+      -4515.0,
+      -3300.0,
+      31.406462575141678,
+      3.14
+    ],
+    "escort_0": [
+      -4512.0,
+      -3300.0,
+      30.9483,
+      3.14
+    ],
+    "escort_1": [
+      -4525.0,
+      -3290.0,
+      34.8251,
+      3.14
+    ],
+    "escort_2": [
+      -4545.0,
+      -3280.0,
+      35.8583,
+      3.14
+    ],
+    "escort_3": [
+      -4560.0,
+      -3270.0,
+      36.6152,
+      3.14
+    ],
+    "escort_4": [
+      -4570.0,
+      -3260.0,
+      35.0564,
+      3.14
+    ],
+    "stalker": [
+      -4521.0,
+      -3284.0,
+      37.3333,
+      3.14
+    ],
+    "well": [
+      -4532.0,
+      -3324.0,
+      34.55830546961555,
+      3.14
+    ],
+    "ward": [
+      -4535.0,
+      -3326.0,
+      36.631565430174355,
+      3.14
+    ],
+    "boss": [
+      -4540.0,
+      -3316.8,
+      36.3334,
+      3.14
+    ],
+    "ken_scene": [
+      -4528.0,
+      -3320.0,
+      33.4474,
+      3.14
+    ],
+    "yimo_scene": [
+      -4527.0,
+      -3319.0,
+      32.7556,
+      3.14
+    ],
+    "supply": [
+      -4565.0,
+      -3258.0,
+      34.19550885274701,
+      3.14
+    ],
+    "lost_supply": [
+      -4516.57,
+      -3301.57,
+      30.776066786906007,
+      3.14
+    ],
+    "hearth_a": [
+      -4590.0,
+      -3260.0,
+      30.644549028402572,
+      3.14
+    ],
+    "hearth_b": [
+      -4565.0,
+      -3245.0,
+      31.78189636318811,
+      3.14
+    ],
+    "hearth_c": [
+      -4575.0,
+      -3259.0,
+      33.21154262929703,
+      3.14
+    ],
+    "villager_0": [
+      -4586.0,
+      -3240.0,
+      35.0152,
+      3.14
+    ],
+    "villager_1": [
+      -4588.0,
+      -3246.0,
+      33.4952,
+      3.14
+    ],
+    "villager_2": [
+      -4590.0,
+      -3250.0,
+      32.4036,
+      3.14
+    ],
+    "villager_3": [
+      -4590.0,
+      -3256.0,
+      31.0324,
+      3.14
+    ],
+    "villager_4": [
+      -4586.0,
+      -3264.0,
+      31.4333,
+      3.14
+    ],
+    "villager_5": [
+      -4575.0,
+      -3264.0,
+      35.1583,
+      3.14
+    ],
+    "villager_6": [
+      -4568.0,
+      -3255.0,
+      33.0767,
+      3.14
+    ],
+    "villager_7": [
+      -4568.0,
+      -3242.0,
+      34.083,
+      3.14
+    ],
+    "essence_0": [
+      -4511.51,
+      -3288.82,
+      31.2,
+      3.14
+    ],
+    "essence_1": [
+      -4520.38,
+      -3309.92,
+      30.9333,
+      3.14
+    ],
+    "essence_2": [
+      -4525.0,
+      -3325.0,
+      33.168,
+      3.14
+    ],
+    "essence_3": [
+      -4535.0,
+      -3335.0,
+      37.4952,
+      3.14
+    ],
+    "essence_4": [
+      -4550.0,
+      -3335.0,
+      40.2314,
+      3.14
+    ],
+    "essence_5": [
+      -4560.0,
+      -3325.0,
+      40.0296,
+      3.14
+    ],
+    "essence_6": [
+      -4560.0,
+      -3310.0,
+      37.2032,
+      3.14
+    ],
+    "essence_7": [
+      -4550.0,
+      -3300.0,
+      32.5238,
+      3.14
+    ],
+    "herb_0": [
+      -4570.0,
+      -3280.0,
+      35.25804768150197,
+      3.14
+    ],
+    "herb_1": [
+      -4578.0,
+      -3280.0,
+      35.73284188816158,
+      3.14
+    ],
+    "herb_2": [
+      -4586.0,
+      -3280.0,
+      36.67769968280612,
+      3.14
+    ],
+    "herb_3": [
+      -4594.0,
+      -3280.0,
+      36.62206494205952,
+      3.14
+    ],
+    "herb_4": [
+      -4595.0,
+      -3290.0,
+      37.97382257112362,
+      3.14
+    ],
+    "herb_5": [
+      -4585.0,
+      -3290.0,
+      35.82872020185444,
+      3.14
+    ],
+    "herb_6": [
+      -4574.0,
+      -3290.0,
+      32.85002951943496,
+      3.14
+    ],
+    "herb_7": [
+      -4565.0,
+      -3290.0,
+      31.541513742759985,
+      3.14
+    ],
+    "iain": [
+      80.0,
+      -2050.0,
+      117.231,
+      3.14
+    ],
+    "hinterlands_road": [
+      -100.0,
+      -2200.0,
+      227.229,
+      3.14
+    ],
+    "mei_approach": [
+      -4559.0,
+      -3238.0,
+      32.1796,
+      3.14
+    ]
+  },
+  "point_maps": {
+    "iain": 0,
+    "hinterlands_road": 0
+  },
+  "actors": [
+    {
+      "key": "NPC_KEN",
+      "entry": 4001600,
+      "name": "Ken-Ken",
+      "point": "ken",
+      "display": 843,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "greeting": "Too many sads here. Ken-Ken has medicine, but medicine needs brave hands."
+    },
+    {
+      "key": "NPC_YIMO",
+      "entry": 4001601,
+      "name": "Yi-Mo Longbrow",
+      "point": "yimo",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "I left everything behind. Even the thought of going home feels heavy.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_KANG",
+      "entry": 4001602,
+      "name": "Kang Bramblestaff",
+      "point": "kang",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575,
+        "class": 1
+      },
+      "greeting": "Bring me fresh marsh leaves. We will begin with something warm.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_MARUUT",
+      "entry": 4001603,
+      "name": "Maruut Stonebinder",
+      "point": "maruut",
+      "display": 3770,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 6,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 6569,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 6631
+      },
+      "greeting": "A damaged ward can draw fear into itself. We must find where this one is broken.",
+      "fallback_texture_extra": 2018
+    },
+    {
+      "key": "NPC_IAIN",
+      "entry": 4001604,
+      "name": "Iain Firebeard",
+      "point": "iain",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 3,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 0,
+      "zone": 47,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6085,
+        "legs": 6596,
+        "feet": 6573,
+        "hands": 14089,
+        "mainhand": 12282
+      },
+      "greeting": "Any friend who stands by a family in hardship has a place at our gathering.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_VILLAGER_0",
+      "entry": 4001605,
+      "name": "Village Provisioner",
+      "point": "villager_0",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_VILLAGER_1",
+      "entry": 4001606,
+      "name": "Village Herbalist",
+      "point": "villager_1",
+      "display": 2585,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 1,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 463
+    },
+    {
+      "key": "NPC_VILLAGER_2",
+      "entry": 4001607,
+      "name": "Village Toolkeeper",
+      "point": "villager_2",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_VILLAGER_3",
+      "entry": 4001608,
+      "name": "Village Cook",
+      "point": "villager_3",
+      "display": 2585,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 1,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 463
+    },
+    {
+      "key": "NPC_VILLAGER_4",
+      "entry": 4001609,
+      "name": "Village Laborer",
+      "point": "villager_4",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_VILLAGER_5",
+      "entry": 4001610,
+      "name": "Village Wardkeeper",
+      "point": "villager_5",
+      "display": 2585,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 1,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 463
+    },
+    {
+      "key": "NPC_VILLAGER_6",
+      "entry": 4001611,
+      "name": "Village Tailor",
+      "point": "villager_6",
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_VILLAGER_7",
+      "entry": 4001612,
+      "name": "Village Scout",
+      "point": "villager_7",
+      "display": 2585,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_contact",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 1,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 463
+    },
+    {
+      "key": "NPC_YIMO_SCENE",
+      "entry": 4001613,
+      "name": "Yi-Mo Longbrow",
+      "point": null,
+      "display": 3406,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_actor",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "outfit": {
+        "race": 3,
+        "gender": 0,
+        "class": 1,
+        "chest": 6238,
+        "legs": 6568,
+        "feet": 2315,
+        "hands": 14089
+      },
+      "greeting": "There is so much to do. I cannot seem to begin.",
+      "fallback_texture_extra": 1657
+    },
+    {
+      "key": "NPC_KEN_SCENE",
+      "entry": 4001614,
+      "name": "Ken-Ken",
+      "point": null,
+      "display": 843,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 0,
+      "level": 40,
+      "type": 7,
+      "script": "npc_bs_c04_actor",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "greeting": "There is so much to do. I cannot seem to begin."
+    },
+    {
+      "key": "NPC_SCENE",
+      "entry": 4001615,
+      "name": "Village recovery",
+      "point": null,
+      "display": 11686,
+      "faction": 35,
+      "flags": 33555202,
+      "npc_flags": 0,
+      "level": 40,
+      "type": 10,
+      "script": "npc_bs_c04_scene",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "greeting": "There is so much to do. I cannot seem to begin."
+    },
+    {
+      "key": "NPC_STALKER",
+      "entry": 4001616,
+      "name": "Marsh Stalker",
+      "point": null,
+      "display": 545,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 38,
+      "type": 1,
+      "script": "npc_bs_c04_enemy",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "greeting": "There is so much to do. I cannot seem to begin."
+    },
+    {
+      "key": "NPC_ESSENCE",
+      "entry": 4001617,
+      "name": "Essence of Despair",
+      "point": null,
+      "display": 19110,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 38,
+      "type": 10,
+      "script": "npc_bs_c04_enemy",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "greeting": "There is so much to do. I cannot seem to begin."
+    },
+    {
+      "key": "NPC_QUINTESSENCE",
+      "entry": 4001618,
+      "name": "Quintessence of Despair",
+      "point": null,
+      "display": 19110,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 38,
+      "type": 10,
+      "script": "npc_bs_c04_enemy",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15,
+      "scale": 1.8,
+      "health_multiplier": 2.5,
+      "damage_multiplier": 0.8,
+      "greeting": "There is so much to do. I cannot seem to begin."
+    },
+    {
+      "key": "NPC_HEARTH_FLAME",
+      "entry": 4001619,
+      "name": "Relit village hearth",
+      "point": null,
+      "display": 27626,
+      "scale": 0.5,
+      "faction": 35,
+      "flags": 33555202,
+      "npc_flags": 0,
+      "level": 1,
+      "type": 10,
+      "script": "npc_bs_c04_flame",
+      "experience_multiplier": 0,
+      "map": 1,
+      "zone": 15
+    }
+  ],
+  "objects": [
+    {
+      "key": "GO_TRAIL",
+      "entry": 4001700,
+      "name": "Yi-Mo's Discarded Pack",
+      "display": 6737,
+      "scale": 0.6,
+      "decorative": false,
+      "points": [
+        "trail"
+      ],
+      "placements": {
+        "trail": {
+          "terrain_relief": 0.136
+        }
+      },
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
+    },
+    {
+      "key": "GO_HERB",
+      "entry": 4001701,
+      "name": "Medicinal marsh herb",
+      "display": 269,
+      "scale": 0.7,
+      "decorative": false,
+      "points": [
+        "herb_0",
+        "herb_1",
+        "herb_2",
+        "herb_3",
+        "herb_4",
+        "herb_5",
+        "herb_6",
+        "herb_7"
+      ],
+      "placements": {
+        "herb_0": {
+          "terrain_relief": 0.327
+        },
+        "herb_1": {
+          "terrain_relief": 0.308
+        },
+        "herb_2": {
+          "terrain_relief": 0.217
+        },
+        "herb_3": {
+          "terrain_relief": 0.46
+        },
+        "herb_4": {
+          "terrain_relief": 0.205
+        },
+        "herb_5": {
+          "terrain_relief": 0.933
+        },
+        "herb_6": {
+          "terrain_relief": 1.178
+        },
+        "herb_7": {
+          "terrain_relief": 0.937
+        }
+      },
+      "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx"
+    },
+    {
+      "key": "GO_WELL",
+      "entry": 4001702,
+      "name": "Old village well",
+      "display": 8503,
+      "scale": 0.75,
+      "decorative": false,
+      "points": [
+        "well"
+      ],
+      "placements": {
+        "well": {
+          "terrain_relief": 1.147
+        }
+      },
+      "native_model": "WORLD\\EXPANSION02\\DOODADS\\DALARAN\\DALARAN_WELL_01.MDX"
+    },
+    {
+      "key": "GO_WARD",
+      "entry": 4001703,
+      "name": "Damaged village ward",
+      "display": 235,
+      "scale": 0.4,
+      "decorative": false,
+      "points": [
+        "ward"
+      ],
+      "placements": {
+        "ward": {
+          "terrain_relief": 1.165
+        }
+      },
+      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
+    },
+    {
+      "key": "GO_SUPPLY",
+      "entry": 4001704,
+      "name": "Safe village provisions",
+      "display": 335,
+      "scale": 0.8,
+      "decorative": false,
+      "points": [
+        "supply"
+      ],
+      "placements": {
+        "supply": {
+          "terrain_relief": 1.199
+        }
+      },
+      "native_model": "World\\Goober\\G_Crate01.mdx"
+    },
+    {
+      "key": "GO_LOST_SUPPLY",
+      "entry": 4001705,
+      "name": "Yi-Mo's lost provisions",
+      "display": 335,
+      "scale": 1,
+      "decorative": false,
+      "points": [
+        "lost_supply"
+      ],
+      "placements": {
+        "lost_supply": {
+          "terrain_relief": 1.076
+        }
+      },
+      "native_model": "World\\Goober\\G_Crate01.mdx"
+    },
+    {
+      "key": "GO_HEARTH_A",
+      "entry": 4001706,
+      "name": "Cold household hearth",
+      "display": 199,
+      "scale": 1,
+      "decorative": false,
+      "points": [
+        "hearth_a"
+      ],
+      "placements": {
+        "hearth_a": {
+          "terrain_relief": 0.228
+        }
+      },
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx"
+    },
+    {
+      "key": "GO_HEARTH_B",
+      "entry": 4001707,
+      "name": "Cold household hearth",
+      "display": 199,
+      "scale": 1,
+      "decorative": false,
+      "points": [
+        "hearth_b"
+      ],
+      "placements": {
+        "hearth_b": {
+          "terrain_relief": 0.879
+        }
+      },
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx"
+    },
+    {
+      "key": "GO_HEARTH_C",
+      "entry": 4001708,
+      "name": "Cold household hearth",
+      "display": 199,
+      "scale": 1,
+      "decorative": false,
+      "points": [
+        "hearth_c"
+      ],
+      "placements": {
+        "hearth_c": {
+          "terrain_relief": 0.823
+        }
+      },
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx"
+    }
+  ],
+  "items": [
+    {
+      "key": "ITEM_WARD",
+      "entry": 900400,
+      "name": "Damaged Ward Rubbing",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_FOOD",
+      "entry": 900401,
+      "name": "Village Food Supplies",
+      "display": 6399,
+      "maxcount": 6,
+      "stackable": 6,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 4540
+    },
+    {
+      "key": "ITEM_MEDICINE",
+      "entry": 900402,
+      "name": "Prepared Herbal Medicine",
+      "display": 2885,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 6452
+    },
+    {
+      "key": "ITEM_MASK",
+      "entry": 900403,
+      "name": "Ken-Ken's Treatment Mask",
+      "display": 41842,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "item_bs_c04_mask",
+      "spell": "SPELL_MASK_TARGET",
+      "icon_donor_item": 10025
+    },
+    {
+      "key": "ITEM_RESIDUE",
+      "entry": 900404,
+      "name": "Despair Residue Sample",
+      "display": 18084,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "icon_donor_item": 159
+    },
+    {
+      "key": "ITEM_PLEDGE",
+      "entry": 900405,
+      "name": "Village Pledge of Aid",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_LETTER",
+      "entry": 900406,
+      "name": "Letter of Introduction to the Wildhammer",
+      "display": 18098,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null
+    },
+    {
+      "key": "ITEM_MIGHT",
+      "entry": 900410,
+      "name": "The Village That Gave Up: Signet of Might",
+      "display": 9846,
+      "equipment": true,
+      "level": 40,
+      "required_level": 35,
+      "stats": [
+        [
+          4,
+          8
+        ],
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_PRECISION",
+      "entry": 900411,
+      "name": "The Village That Gave Up: Signet of Precision",
+      "display": 9846,
+      "equipment": true,
+      "level": 40,
+      "required_level": 35,
+      "stats": [
+        [
+          3,
+          8
+        ],
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_SORCERY",
+      "entry": 900412,
+      "name": "The Village That Gave Up: Signet of Sorcery",
+      "display": 9846,
+      "equipment": true,
+      "level": 40,
+      "required_level": 35,
+      "stats": [
+        [
+          5,
+          8
+        ],
+        [
+          45,
+          10
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_RESTORATION",
+      "entry": 900413,
+      "name": "The Village That Gave Up: Signet of Restoration",
+      "display": 9846,
+      "equipment": true,
+      "level": 40,
+      "required_level": 35,
+      "stats": [
+        [
+          6,
+          8
+        ],
+        [
+          43,
+          4
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_GUARDING",
+      "entry": 900414,
+      "name": "The Village That Gave Up: Signet of Guarding",
+      "display": 9846,
+      "equipment": true,
+      "level": 40,
+      "required_level": 35,
+      "stats": [
+        [
+          7,
+          9
+        ],
+        [
+          12,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "ITEM_BALANCE",
+      "entry": 900415,
+      "name": "The Village That Gave Up: Signet of Balance",
+      "display": 9846,
+      "equipment": true,
+      "level": 40,
+      "required_level": 35,
+      "stats": [
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          6
+        ]
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "key": "QUEST_INTRO",
+      "id": 900400,
+      "design_id": "BS-C04-01",
+      "title": "Ken-Ken",
+      "level": 35,
+      "min_level": 35,
+      "giver": "NPC_MEI",
+      "turn_in": "NPC_KEN",
+      "previous": "QUEST_C03_END",
+      "prerequisites": [
+        "QUEST_C03_END"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_INSPECT": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Find Ken-Ken and inspect the village together.",
+      "description": "Kang's letter brought you to our relief station. The families here have food and shelter, but they have stopped caring for themselves. Ken-Ken is helping at the southern camp. Ask him to show you what has happened.",
+      "completion": "These people are sick with something food alone will not mend.",
+      "xp_difficulty": 5,
+      "money": 7000,
+      "objective_labels": {
+        "CREDIT_INSPECT": "Village inspected with Ken-Ken"
+      }
+    },
+    {
+      "key": "QUEST_FOOD",
+      "id": 900401,
+      "design_id": "BS-C04-02",
+      "title": "What's Eating the Village?",
+      "level": 35,
+      "min_level": 35,
+      "giver": "NPC_KEN",
+      "turn_in": "NPC_KEN",
+      "previous": "QUEST_INTRO",
+      "prerequisites": [
+        "QUEST_INTRO"
+      ],
+      "exclusive_group": -900404,
+      "credits": {
+        "CREDIT_QUESTION_A": 1,
+        "CREDIT_QUESTION_B": 1,
+        "CREDIT_QUESTION_C": 1
+      },
+      "required_items": {
+        "ITEM_FOOD": 6
+      },
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Gather 6 safe food supplies and question 3 despondent residents.",
+      "description": "We must rule out hunger first. Take six sound food bundles from the marked village crate, then hear the troubles of the village provisioner, herbalist and toolkeeper. Each has something different to tell us.",
+      "completion": "Their stories share the same emptiness. We must find Yi-Mo.",
+      "xp_difficulty": 5,
+      "money": 7500,
+      "objective_labels": {
+        "CREDIT_QUESTION_A": "Village Provisioner questioned",
+        "CREDIT_QUESTION_B": "Village Herbalist questioned",
+        "CREDIT_QUESTION_C": "Village Toolkeeper questioned"
+      }
+    },
+    {
+      "key": "QUEST_FIND",
+      "id": 900402,
+      "design_id": "BS-C04-03",
+      "title": "Finding Yi-Mo",
+      "level": 35,
+      "min_level": 35,
+      "giver": "NPC_KEN",
+      "turn_in": "NPC_YIMO",
+      "previous": "QUEST_INTRO",
+      "prerequisites": [
+        "QUEST_INTRO"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_ESCORT": 1
+      },
+      "required_items": {},
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Find Yi-Mo at the marked marsh trail and escort him away from the predators.",
+      "description": "Yi-Mo has wandered down the marsh trail alone. Read the marked trail sign southeast of the village to find him. Stay beside him, protect him from the stalker, and lead him back through the marked path.",
+      "completion": "You came all that way for me? I cannot understand it yet.",
+      "xp_difficulty": 5,
+      "money": 8000,
+      "objective_labels": {
+        "CREDIT_ESCORT": "Yi-Mo escorted to safety"
+      }
+    },
+    {
+      "key": "QUEST_CHEER",
+      "id": 900403,
+      "design_id": "BS-C04-04",
+      "title": "Cheer Up, Yi-Mo",
+      "level": 36,
+      "min_level": 35,
+      "giver": "NPC_YIMO",
+      "turn_in": "NPC_KEN",
+      "previous": "QUEST_FIND",
+      "prerequisites": [
+        "QUEST_FIND"
+      ],
+      "exclusive_group": -900404,
+      "credits": {
+        "CREDIT_CHEER": 1
+      },
+      "required_items": {
+        "ITEM_FOOD": 3
+      },
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Recover Yi-Mos lost supplies and persuade him to return to the village.",
+      "description": "You found me. I do not know why you bothered. My supplies are still beside that trail. Bring back three bundles and talk to me again; perhaps there is still a reason to return to my neighbors.",
+      "completion": "He has returned. Now we can begin treating the village together.",
+      "xp_difficulty": 5,
+      "money": 8500,
+      "objective_labels": {
+        "CREDIT_CHEER": "Yi-Mo persuaded to return"
+      }
+    },
+    {
+      "key": "QUEST_MEDICINE",
+      "id": 900404,
+      "design_id": "BS-C04-05",
+      "title": "Materia Medica",
+      "level": 36,
+      "min_level": 35,
+      "giver": "NPC_KEN",
+      "turn_in": "NPC_KANG",
+      "previous": "QUEST_FOOD",
+      "prerequisites": [
+        "QUEST_FOOD",
+        "QUEST_CHEER"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_HERBS": 8
+      },
+      "required_items": {
+        "ITEM_MEDICINE": 1
+      },
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Gather 8 local herbs and prepare medicine with Kang.",
+      "description": "Both the families and Yi-Mo need our help. Gather eight fresh herb sprigs from the marked patches south of camp. Bring them to Kang by his cooking hearth and ask him to prepare the medicine.",
+      "completion": "The medicine is ready. Ken-Ken's mask will carry it into the curse.",
+      "xp_difficulty": 5,
+      "money": 9000,
+      "objective_labels": {
+        "CREDIT_HERBS": "Medicinal herbs gathered"
+      }
+    },
+    {
+      "key": "QUEST_TEST",
+      "id": 900405,
+      "design_id": "BS-C04-06",
+      "title": "Why So Serious?",
+      "level": 37,
+      "min_level": 35,
+      "giver": "NPC_KEN",
+      "turn_in": "NPC_KEN",
+      "previous": "QUEST_MEDICINE",
+      "prerequisites": [
+        "QUEST_MEDICINE"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_TEST_A": 1,
+        "CREDIT_TEST_B": 1,
+        "CREDIT_TEST_C": 1
+      },
+      "required_items": {
+        "ITEM_RESIDUE": 1
+      },
+      "source_item": "ITEM_MASK",
+      "source_count": 1,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Use the supplied treatment mask to test 3 residents and identify the shared residue.",
+      "description": "Ken-Ken made a mask with Kang's medicine. Test it on the provisioner, herbalist and toolkeeper. The mask draws out a dark residue. Once all three have been tested, return to Ken-Ken for a sample bottle.",
+      "completion": "This residue came from every resident. It is the same influence.",
+      "xp_difficulty": 5,
+      "money": 9500,
+      "objective_labels": {
+        "CREDIT_TEST_A": "Village Provisioner tested",
+        "CREDIT_TEST_B": "Village Herbalist tested",
+        "CREDIT_TEST_C": "Village Toolkeeper tested"
+      }
+    },
+    {
+      "key": "QUEST_TREAT",
+      "id": 900406,
+      "design_id": "BS-C04-07",
+      "title": "Apply Directly to the Forehead",
+      "level": 37,
+      "min_level": 35,
+      "giver": "NPC_KEN",
+      "turn_in": "NPC_KEN",
+      "previous": "QUEST_TEST",
+      "prerequisites": [
+        "QUEST_TEST"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_TREATED": 8
+      },
+      "required_items": {},
+      "source_item": "ITEM_MASK",
+      "source_count": 1,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Treat 8 villagers with the mask and defeat the released lesser manifestations.",
+      "description": "There are eight people still trapped in this gloom. Use the mask on the next untreated villager, then defeat the despair it releases. Work through the round in the order Ken-Ken shows you. You can ask him to resume whenever you need.",
+      "completion": "Eight people can breathe freely again. Yi-Mo is still struggling.",
+      "xp_difficulty": 5,
+      "money": 10000,
+      "objective_labels": {
+        "CREDIT_TREATED": "Villagers freed from despair"
+      }
+    },
+    {
+      "key": "QUEST_WARD",
+      "id": 900407,
+      "design_id": "BS-C04-08",
+      "title": "The Well Beneath the Ward",
+      "level": 38,
+      "min_level": 35,
+      "giver": "NPC_MARUUT",
+      "turn_in": "NPC_MARUUT",
+      "previous": "QUEST_TREAT",
+      "prerequisites": [
+        "QUEST_TREAT"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_WELL": 1
+      },
+      "required_items": {
+        "ITEM_WARD": 1
+      },
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Sample the old ward by the well and confirm where the influence gathers.",
+      "description": "The old well southeast of the village lies below a damaged ward. Inspect the well first, then take a rubbing of the ward beside it. Bring it to me before touching Yi-Mo with the mask again.",
+      "completion": "The ward has been pulling despair toward the well instead of dispersing it.",
+      "xp_difficulty": 5,
+      "money": 10500,
+      "objective_labels": {
+        "CREDIT_WELL": "Old well inspected"
+      }
+    },
+    {
+      "key": "QUEST_DESPAIR",
+      "id": 900408,
+      "design_id": "BS-C04-09",
+      "title": "Zhu's Despair",
+      "level": 38,
+      "min_level": 35,
+      "giver": "NPC_KEN",
+      "turn_in": "NPC_YIMO",
+      "previous": "QUEST_WARD",
+      "prerequisites": [
+        "QUEST_WARD"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_ESSENCES": 8,
+        "CREDIT_YIMO": 1,
+        "CREDIT_BOSS": 1
+      },
+      "required_items": {},
+      "source_item": "ITEM_MASK",
+      "source_count": 1,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Kens help.",
+      "description": "The broken ward has gathered the village's despair around Yi-Mo. Meet Ken-Ken at the well southeast of camp and use the well to begin the confrontation. Defeat eight lesser manifestations there, use the mask on Yi-Mo, and defeat the Quintessence it releases. Ken-Ken will stand beside you.",
+      "completion": "You saved me twice. My thoughts are my own again. We will repair what we neglected.",
+      "xp_difficulty": 5,
+      "money": 11000,
+      "objective_labels": {
+        "CREDIT_ESSENCES": "Lesser manifestations defeated",
+        "CREDIT_YIMO": "Yi-Mo treated at the well",
+        "CREDIT_BOSS": "Quintessence of Despair defeated"
+      }
+    },
+    {
+      "key": "QUEST_WORK",
+      "id": 900409,
+      "design_id": "BS-C04-10",
+      "title": "Hands Back to Work",
+      "level": 39,
+      "min_level": 35,
+      "giver": "NPC_MEI",
+      "turn_in": "NPC_MEI",
+      "previous": "QUEST_DESPAIR",
+      "prerequisites": [
+        "QUEST_DESPAIR"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_HEARTH_A": 1,
+        "CREDIT_HEARTH_B": 1,
+        "CREDIT_HEARTH_C": 1,
+        "CREDIT_SERVICES": 3
+      },
+      "required_items": {},
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Relight 3 hearths and help 3 recovered villagers restart the village services.",
+      "description": "The curse is broken; now we rebuild. Light the three marked household hearths and help the first three residents resume their food, medicine and equipment services. Each family needs a different hand.",
+      "completion": "Warm hearths, fresh medicine and working hands. The village has begun again.",
+      "xp_difficulty": 5,
+      "money": 11500,
+      "objective_labels": {
+        "CREDIT_HEARTH_A": "Household hearth 1 relit",
+        "CREDIT_HEARTH_B": "Household hearth 2 relit",
+        "CREDIT_HEARTH_C": "Household hearth 3 relit",
+        "CREDIT_SERVICES": "Village services restarted"
+      }
+    },
+    {
+      "key": "QUEST_PLEDGE",
+      "id": 900410,
+      "design_id": "BS-C04-11",
+      "title": "When You Need Us",
+      "level": 39,
+      "min_level": 35,
+      "giver": "NPC_YIMO",
+      "turn_in": "NPC_YIMO",
+      "previous": "QUEST_WORK",
+      "prerequisites": [
+        "QUEST_WORK"
+      ],
+      "exclusive_group": 0,
+      "credits": {
+        "CREDIT_LIAISON": 1
+      },
+      "required_items": {
+        "ITEM_PLEDGE": 1
+      },
+      "source_item": null,
+      "source_count": 0,
+      "fixed_rewards": {},
+      "reward_choices": [],
+      "objectives": "Accept the villages pledge of aid and nominate Mei as its future supply liaison.",
+      "description": "You stayed when we could not help ourselves. Let me put the village's promise in writing. Ask Mei to become our supply liaison, then return to me to accept our pledge.",
+      "completion": "When you need seeds, supplies or defenders, remember that this village owes you aid.",
+      "xp_difficulty": 5,
+      "money": 12000,
+      "objective_labels": {
+        "CREDIT_LIAISON": "Mei named supply liaison"
+      }
+    },
+    {
+      "key": "QUEST_LETTER",
+      "id": 900411,
+      "design_id": "BS-C04-12",
+      "title": "The Families in the Hills",
+      "level": 40,
+      "min_level": 35,
+      "giver": "NPC_MARUUT",
+      "turn_in": "NPC_IAIN",
+      "previous": "QUEST_PLEDGE",
+      "prerequisites": [
+        "QUEST_PLEDGE"
+      ],
+      "exclusive_group": 0,
+      "credits": {},
+      "required_items": {
+        "ITEM_LETTER": 1
+      },
+      "source_item": "ITEM_LETTER",
+      "source_count": 1,
+      "fixed_rewards": {},
+      "reward_choices": [
+        "ITEM_MIGHT",
+        "ITEM_PRECISION",
+        "ITEM_SORCERY",
+        "ITEM_RESTORATION",
+        "ITEM_GUARDING",
+        "ITEM_BALANCE"
+      ],
+      "objectives": "Deliver the Wildhammer introduction letter to Iain at the neutral Hinterlands gathering.",
+      "description": "The ward rubbing points toward the hills of the Eastern Kingdoms. Iain Firebeard has agreed to receive travelers from both factions at a neutral gathering outside Aerie Peak. Carry this letter to him in the western Hinterlands; you need not enter Aerie Peak itself.",
+      "completion": "Maruut's friends are welcome here. Rest at our table before we speak of the families.",
+      "xp_difficulty": 5,
+      "money": 12500,
+      "objective_labels": {}
+    }
+  ],
+  "external_entries": [
+    "NPC_MEI"
+  ],
+  "loot": [],
+  "validation": {
+    "all_ground_points_checked": true,
+    "routes": [
+      {
+        "start": "mei",
+        "end": "ken",
+        "map": 1,
+        "complete": true,
+        "polygons": 10
+      },
+      {
+        "start": "ken",
+        "end": "trail",
+        "map": 1,
+        "complete": true,
+        "polygons": 17
+      },
+      {
+        "start": "ken",
+        "end": "well",
+        "map": 1,
+        "complete": true,
+        "polygons": 18
+      },
+      {
+        "start": "ken",
+        "end": "kang",
+        "map": 1,
+        "complete": true,
+        "polygons": 1
+      },
+      {
+        "start": "ken",
+        "end": "maruut",
+        "map": 1,
+        "complete": true,
+        "polygons": 1
+      },
+      {
+        "start": "escort_0",
+        "end": "escort_1",
+        "map": 1,
+        "complete": true,
+        "polygons": 4
+      },
+      {
+        "start": "escort_1",
+        "end": "escort_2",
+        "map": 1,
+        "complete": true,
+        "polygons": 7
+      },
+      {
+        "start": "escort_2",
+        "end": "escort_3",
+        "map": 1,
+        "complete": true,
+        "polygons": 5
+      },
+      {
+        "start": "escort_3",
+        "end": "escort_4",
+        "map": 1,
+        "complete": true,
+        "polygons": 6
+      },
+      {
+        "start": "iain",
+        "end": "hinterlands_road",
+        "map": 0,
+        "complete": true,
+        "polygons": 63
+      },
+      {
+        "start": "mei",
+        "end": "mei_approach",
+        "map": 1,
+        "complete": true,
+        "polygons": 4
+      },
+      {
+        "start": "mei_approach",
+        "end": "ken",
+        "map": 1,
+        "complete": true,
+        "polygons": 7
+      }
+    ]
+  },
+  "native_assets": {
+    "ken": {
+      "display": 843,
+      "stock_entry": 1108,
+      "approximation": "Native gorilla; no hozen model port"
+    },
+    "mask_target_effect": 25,
+    "object_models": {
+      "GO_TRAIL": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
+      "GO_HERB": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx",
+      "GO_WELL": "WORLD\\EXPANSION02\\DOODADS\\DALARAN\\DALARAN_WELL_01.MDX",
+      "GO_WARD": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
+      "GO_SUPPLY": "World\\Goober\\G_Crate01.mdx",
+      "GO_LOST_SUPPLY": "World\\Goober\\G_Crate01.mdx",
+      "GO_HEARTH_A": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx",
+      "GO_HEARTH_B": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx",
+      "GO_HEARTH_C": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx"
+    }
+  },
+  "source_identity_references": [
+    {
+      "url": "https://www.wowhead.com/mop-classic/quest=30090/zhus-despair",
+      "checked_on": "2026-10-07",
+      "verified": "Eight essences, Yi-Mo mask treatment, released Quintessence; source ID 30090"
+    },
+    {
+      "url": "https://warcraft.wiki.gg/wiki/Apply_Directly_to_the_Forehead",
+      "checked_on": "2026-10-07",
+      "verified": "Eight distinct villagers treated; indexed source excerpt"
+    }
+  ],
+  "arrays": {
+    "VillagerEntries": [
+      "NPC_VILLAGER_0",
+      "NPC_VILLAGER_1",
+      "NPC_VILLAGER_2",
+      "NPC_VILLAGER_3",
+      "NPC_VILLAGER_4",
+      "NPC_VILLAGER_5",
+      "NPC_VILLAGER_6",
+      "NPC_VILLAGER_7"
+    ],
+    "QuestionCredits": [
+      "CREDIT_QUESTION_A",
+      "CREDIT_QUESTION_B",
+      "CREDIT_QUESTION_C"
+    ],
+    "TestCredits": [
+      "CREDIT_TEST_A",
+      "CREDIT_TEST_B",
+      "CREDIT_TEST_C"
+    ],
+    "HearthCredits": [
+      "CREDIT_HEARTH_A",
+      "CREDIT_HEARTH_B",
+      "CREDIT_HEARTH_C"
+    ],
+    "HearthEntries": [
+      "GO_HEARTH_A",
+      "GO_HEARTH_B",
+      "GO_HEARTH_C"
+    ],
+    "PersonalEntries": [
+      "NPC_YIMO_SCENE",
+      "NPC_KEN_SCENE",
+      "NPC_SCENE",
+      "NPC_STALKER",
+      "NPC_ESSENCE",
+      "NPC_QUINTESSENCE",
+      "NPC_HEARTH_FLAME"
+    ]
+  },
+  "polish": {
+    "normal_world": true,
+    "stock_spawns_preserved": true,
+    "textured_fallbacks": true,
+    "placeholder_signs_removed": true
+  }
+}

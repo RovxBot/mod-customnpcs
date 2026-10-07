@@ -91,171 +91,171 @@
       3.14
     ],
     "maruut": [
-      1124.0,
-      1546.0,
-      33.2028,
+      1102.0,
+      1542.0,
+      27.086243166456008,
       3.14
     ],
     "scout": [
-      1118.0,
-      1551.0,
-      35.0452,
+      1102.0,
+      1538.0,
+      26.94763928250599,
       3.14
     ],
     "ortell": [
-      1120.0,
-      1550.0,
-      34.5478,
+      1100.0,
+      1540.0,
+      26.693678368559475,
       3.14
     ],
     "wagon": [
-      1152.0,
-      1516.0,
-      47.4284,
+      1098.0,
+      1538.0,
+      26.476730812201232,
       3.14
     ],
     "trail_1": [
-      1150.0,
-      1510.0,
-      47.5968,
+      1086.0,
+      1540.0,
+      24.084525478175753,
       3.14
     ],
     "trail_2": [
-      1100.0,
-      1550.0,
-      28.5585,
+      955.0,
+      1625.0,
+      -10.625724499778299,
       3.14
     ],
     "trail_3": [
-      1010.0,
-      1660.0,
-      0.0815,
+      895.0,
+      1670.0,
+      -18.820534544219413,
       3.14
     ],
     "cage_1": [
-      985.0,
-      1685.0,
-      -6.814,
+      882.0,
+      1680.0,
+      -19.920641848289904,
       3.14
     ],
     "cage_2": [
-      971.0,
-      1694.0,
-      -8.5529,
+      886.0,
+      1683.0,
+      -19.82492036391301,
       3.14
     ],
     "cage_3": [
-      952.0,
-      1690.0,
-      -12.7174,
+      890.0,
+      1684.0,
+      -19.76820141805994,
       3.14
     ],
     "safe": [
-      1012.0,
-      1655.0,
-      0.6661,
+      1098.0,
+      1540.0,
+      26.319535605871447,
       3.14
     ],
     "ward_1": [
-      935.0,
-      1690.0,
-      -16.0457,
+      885.0,
+      1674.0,
+      -18.646728079259265,
       3.14
     ],
     "ward_2": [
-      925.0,
-      1710.0,
-      -15.1322,
+      892.0,
+      1673.0,
+      -18.273758041376333,
       3.14
     ],
     "ward_3": [
-      930.0,
-      1730.0,
-      -11.9326,
+      898.0,
+      1674.0,
+      -18.549552262937393,
       3.14
     ],
     "jarod": [
-      990.0,
-      1730.0,
-      -9.6758,
+      895.0,
+      1682.0,
+      -19.67909053343282,
       3.14
     ],
     "altar": [
-      990.0,
-      1734.0,
-      -9.1447,
+      895.0,
+      1685.0,
+      -19.391455524284886,
       3.14
     ],
     "cover": [
-      958.0,
-      1700.0,
-      -13.0579,
+      882.0,
+      1669.0,
+      -19.190444458766294,
       3.14
     ],
     "guard_1": [
-      981.0,
-      1723.0,
-      -9.2015,
+      895.0,
+      1677.0,
+      -19.74255229103074,
       3.14
     ],
     "guard_2": [
-      999.0,
-      1721.0,
-      -9.9455,
+      886.0,
+      1680.0,
+      -19.94589433933409,
       3.14
     ],
     "guard_3": [
-      992.0,
-      1742.0,
-      -7.2726,
+      891.0,
+      1682.0,
+      -19.822672759998113,
       3.14
     ],
     "drop": [
-      958.0,
-      1690.0,
-      -10.9006,
+      882.0,
+      1672.0,
+      -19.55970310195156,
       3.14
     ],
     "recruit_1": [
-      997.0,
-      1710.0,
-      -7.759,
+      891.0,
+      1678.0,
+      -19.828225663787876,
       3.14
     ],
     "recruit_2": [
-      999.0,
-      1685.0,
-      -5.3542,
+      892.0,
+      1682.0,
+      -19.786975521349316,
       3.14
     ],
     "recruit_3": [
-      981.333,
-      1682.0,
-      -6.8929,
+      896.0,
+      1681.0,
+      -19.673537629643008,
       3.14
     ],
     "recruit_4": [
-      980.0,
-      1712.0,
-      -9.4181,
+      898.0,
+      1678.0,
+      -19.656614494283577,
       3.14
     ],
     "scout_1": [
-      1052.0,
-      1646.0,
-      15.459047454452229,
+      879.0,
+      1675.0,
+      -19.910858160660233,
       3.14
     ],
     "scout_2": [
-      1038.0,
-      1616.0,
-      79.35763348383723,
+      901.0,
+      1681.0,
+      -19.31815178709473,
       3.14
     ],
     "scout_3": [
-      1032.0,
-      1604.0,
-      87.11358574626871,
+      899.0,
+      1669.0,
+      -18.537572168639834,
       3.14
     ],
     "scout_4": [
@@ -289,15 +289,15 @@
       3.14
     ],
     "earth_1": [
-      917.0,
-      1698.0,
-      -16.2688,
+      885.0,
+      1694.0,
+      -18.570360743399192,
       3.14
     ],
     "earth_2": [
-      912.0,
-      1720.0,
-      -15.0397,
+      897.0,
+      1692.0,
+      -18.67546927942086,
       3.14
     ],
     "earth_3": [
@@ -307,27 +307,27 @@
       3.14
     ],
     "rescue_rally": [
-      1012.0,
-      1655.0,
-      0.6661,
+      1098.0,
+      1540.0,
+      26.500125748181112,
       3.14
     ],
     "cage_guard_1": [
-      979.0,
+      880.0,
       1682.0,
-      -7.026,
+      -19.711218048216764,
       3.14
     ],
     "cage_guard_2": [
-      965.0,
-      1691.0,
-      -9.2075,
+      889.0,
+      1688.0,
+      -19.323704690884536,
       3.14
     ],
     "cage_guard_3": [
-      946.0,
-      1687.0,
-      -13.6669,
+      898.0,
+      1683.0,
+      -19.433176222740876,
       3.14
     ]
   },
@@ -353,13 +353,14 @@
         "hands": 14089,
         "mainhand": 6631
       },
-      "fallback_display": 59,
+      "fallback_display": 3770,
       "point": "maruut",
       "script_role": "contact",
       "npc_flags": 3,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx"
+      "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx",
+      "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_ORTELL",
@@ -380,13 +381,14 @@
         "mainhand": 4575,
         "legs": 9747
       },
-      "fallback_display": 49,
+      "fallback_display": 5075,
       "point": "ortell",
       "script_role": "contact",
       "npc_flags": 3,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx",
+      "fallback_texture_extra": 3286
     },
     {
       "key": "NPC_JAROD",
@@ -409,13 +411,14 @@
         "legs": 6596,
         "feet": 6573
       },
-      "fallback_display": 55,
+      "fallback_display": 5070,
       "point": "jarod",
       "script_role": "contact",
       "npc_flags": 0,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx"
+      "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx",
+      "fallback_texture_extra": 3281
     },
     {
       "key": "NPC_RECRUIT",
@@ -433,15 +436,18 @@
         "hair_color": 0,
         "facial_hair": 0,
         "chest": 6238,
-        "legs": 10045
+        "legs": 10045,
+        "mainhand": 4575
       },
-      "fallback_display": 49,
+      "fallback_display": 11824,
       "point": "recruit_1",
       "script_role": "recruit",
       "npc_flags": 0,
       "level": 25,
-      "faction": 35,
-      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+      "faction": 14,
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx",
+      "native_appearance": true,
+      "fallback_texture_extra": 8393
     },
     {
       "key": "NPC_SCOUT",
@@ -464,13 +470,14 @@
         "feet": 2315,
         "legs": 5961
       },
-      "fallback_display": 56,
+      "fallback_display": 7934,
       "point": "scout",
       "script_role": "contact",
       "npc_flags": 3,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\NightElf\\Female\\NightElfFemale.mdx"
+      "native_model_path": "Character\\NightElf\\Female\\NightElfFemale.mdx",
+      "fallback_texture_extra": 5468
     },
     {
       "key": "NPC_COURIER_A",
@@ -492,13 +499,14 @@
         "legs": 1431,
         "feet": 1427
       },
-      "fallback_display": 50,
+      "fallback_display": 4888,
       "point": "courier_a",
       "script_role": "contact",
       "npc_flags": 3,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx"
+      "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx",
+      "fallback_texture_extra": 3103
     },
     {
       "key": "NPC_COURIER_H",
@@ -520,13 +528,14 @@
         "legs": 139,
         "feet": 140
       },
-      "fallback_display": 51,
+      "fallback_display": 3865,
       "point": "courier_h",
       "script_role": "contact",
       "npc_flags": 3,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\Orc\\Male\\OrcMale.mdx"
+      "native_model_path": "Character\\Orc\\Male\\OrcMale.mdx",
+      "fallback_texture_extra": 2121
     },
     {
       "key": "NPC_CAPTIVE_A",
@@ -546,13 +555,14 @@
         "chest": 1433,
         "legs": 1431
       },
-      "fallback_display": 50,
-      "point": null,
+      "fallback_display": 4888,
+      "point": "cage_1",
       "script_role": "captive",
-      "npc_flags": 0,
+      "npc_flags": 1,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx"
+      "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx",
+      "fallback_texture_extra": 3103
     },
     {
       "key": "NPC_CAPTIVE_B",
@@ -572,13 +582,14 @@
         "chest": 6238,
         "legs": 10045
       },
-      "fallback_display": 59,
-      "point": null,
+      "fallback_display": 3770,
+      "point": "cage_2",
       "script_role": "captive",
-      "npc_flags": 0,
+      "npc_flags": 1,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx"
+      "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx",
+      "fallback_texture_extra": 2018
     },
     {
       "key": "NPC_CAPTIVE_C",
@@ -598,13 +609,14 @@
         "chest": 85,
         "legs": 139
       },
-      "fallback_display": 55,
-      "point": null,
+      "fallback_display": 5070,
+      "point": "cage_3",
       "script_role": "captive",
-      "npc_flags": 0,
+      "npc_flags": 1,
       "level": 25,
       "faction": 35,
-      "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx"
+      "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx",
+      "fallback_texture_extra": 3281
     }
   ],
   "hostile": [
@@ -612,7 +624,7 @@
       "key": "NPC_CULT_SCOUT",
       "entry": 4001010,
       "name": "Twilight Scout",
-      "display": 49,
+      "display": 11816,
       "outfit": {
         "race": 1,
         "gender": 0,
@@ -626,7 +638,8 @@
         "hands": 4248,
         "feet": 2315,
         "ranged": 2504,
-        "legs": 5961
+        "legs": 5961,
+        "mainhand": 12282
       },
       "level": [
         20,
@@ -635,22 +648,24 @@
       "points": [
         "scout_1",
         "scout_2",
-        "scout_3",
-        "scout_4",
-        "scout_5",
-        "scout_6",
-        "scout_7",
-        "scout_8"
+        "scout_3"
       ],
       "spell": "SPELL_SHOOT",
       "loot_item": "ITEM_ORDERS",
-      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx",
+      "native_appearance": true,
+      "fallback_texture_extra": 8388,
+      "ordinary_loot": {
+        "level": 21,
+        "mingold": 17,
+        "maxgold": 79
+      }
     },
     {
       "key": "NPC_CULT_GUARD",
       "entry": 4001011,
       "name": "Twilight Guard",
-      "display": 49,
+      "display": 11811,
       "outfit": {
         "race": 1,
         "gender": 0,
@@ -663,22 +678,27 @@
         "chest": 6085,
         "shoulders": 6597,
         "waist": 6594,
-        "legs": 6596
+        "legs": 6596,
+        "mainhand": 12282
       },
       "level": [
         22,
         23
       ],
       "points": [
-        "guard_1",
-        "guard_2",
-        "guard_3",
         "cage_guard_1",
         "cage_guard_2",
         "cage_guard_3"
       ],
       "spell": "SPELL_STRIKE",
-      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx"
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx",
+      "native_appearance": true,
+      "fallback_texture_extra": 8384,
+      "ordinary_loot": {
+        "level": 21,
+        "mingold": 17,
+        "maxgold": 79
+      }
     },
     {
       "key": "NPC_EARTH",
@@ -691,8 +711,7 @@
       ],
       "points": [
         "earth_1",
-        "earth_2",
-        "earth_3"
+        "earth_2"
       ],
       "spell": "SPELL_THUNDERCLAP",
       "native_model_path": "Creature\\ElementalEarth\\ElementalEarth.mdx"
@@ -708,73 +727,40 @@
       "point": "wagon",
       "quest": "QUEST_WAGON",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.7
     },
     {
       "key": "GO_TRAIL_A",
       "entry": 4001101,
-      "name": "First Ash-marked Trail Sign",
-      "display": 22,
-      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "name": "Ash-marked Twilight Tablet",
+      "display": 6420,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx",
       "point": "trail_1",
       "quest": "QUEST_TRAIL",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.7
     },
     {
       "key": "GO_TRAIL_B",
       "entry": 4001102,
-      "name": "Second Ash-marked Trail Sign",
-      "display": 22,
-      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "name": "Ash-marked Twilight Tablet",
+      "display": 6419,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx",
       "point": "trail_2",
       "quest": "QUEST_TRAIL",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.7
     },
     {
       "key": "GO_TRAIL_C",
       "entry": 4001103,
-      "name": "Third Ash-marked Trail Sign",
-      "display": 22,
-      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "name": "Ash-marked Twilight Tablet",
+      "display": 6420,
+      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx",
       "point": "trail_3",
       "quest": "QUEST_TRAIL",
       "decorative": false,
-      "scale": 1.0
-    },
-    {
-      "key": "GO_CAGE_A",
-      "entry": 4001104,
-      "name": "Mira's Holding Cage",
-      "display": 676,
-      "native_model": "World\\Goober\\G_Cage.mdx",
-      "point": "cage_1",
-      "quest": "QUEST_RESCUE",
-      "decorative": false,
-      "scale": 0.8
-    },
-    {
-      "key": "GO_CAGE_B",
-      "entry": 4001105,
-      "name": "Dorn's Holding Cage",
-      "display": 676,
-      "native_model": "World\\Goober\\G_Cage.mdx",
-      "point": "cage_2",
-      "quest": "QUEST_RESCUE",
-      "decorative": false,
-      "scale": 0.8
-    },
-    {
-      "key": "GO_CAGE_C",
-      "entry": 4001106,
-      "name": "Teren's Holding Cage",
-      "display": 676,
-      "native_model": "World\\Goober\\G_Cage.mdx",
-      "point": "cage_3",
-      "quest": "QUEST_RESCUE",
-      "decorative": false,
-      "scale": 0.8
+      "scale": 0.7
     },
     {
       "key": "GO_WARD_A",
@@ -785,7 +771,7 @@
       "point": "ward_1",
       "quest": "QUEST_WARDS",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.35
     },
     {
       "key": "GO_WARD_B",
@@ -796,7 +782,7 @@
       "point": "ward_2",
       "quest": "QUEST_WARDS",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.35
     },
     {
       "key": "GO_WARD_C",
@@ -807,7 +793,7 @@
       "point": "ward_3",
       "quest": "QUEST_WARDS",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.35
     },
     {
       "key": "GO_COVER",
@@ -818,18 +804,18 @@
       "point": "cover",
       "quest": "QUEST_COMMANDER",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.65
     },
     {
       "key": "GO_DEAD_DROP",
       "entry": 4001111,
-      "name": "Ortell's Dead Drop",
-      "display": 3332,
-      "native_model": "World\\Azeroth\\Westfall\\PassiveDoodads\\Outhouse\\OutHouse.mdx",
+      "name": "Ortell's Sealed Message Crate",
+      "display": 6737,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
       "point": "drop",
       "quest": "QUEST_RECRUIT",
       "decorative": false,
-      "scale": 1.0
+      "scale": 0.65
     },
     {
       "key": "GO_ALTAR",
@@ -840,18 +826,18 @@
       "point": "altar",
       "quest": null,
       "decorative": true,
-      "scale": 1.0
+      "scale": 0.65
     },
     {
       "key": "GO_RALLY",
       "entry": 4001113,
-      "name": "Expedition Refuge Marker",
-      "display": 22,
-      "native_model": "World\\Generic\\Human\\Passive Doodads\\SignPosts\\WoodSignPointerWorn01.mdx",
+      "name": "Expedition Refuge Banner",
+      "display": 5191,
+      "native_model": "World\\Generic\\Dwarf\\Passive Doodads\\ExcavationBannerStands\\ExcavationBannerStand01.mdx",
       "point": "rescue_rally",
       "quest": null,
       "decorative": true,
-      "scale": 1.0
+      "scale": 0.65
     }
   ],
   "items": [
@@ -1130,8 +1116,8 @@
       "level": 22,
       "min_level": 20,
       "faction": "Both",
-      "description": "The scouts are holding Mira, Dorn and Teren in three cages below the last trail marker. Free each of them and stay nearby while they reach the expedition refuge marker. Clear trouble from the route; nobody gets left behind.",
-      "objectives": "Open each surveyor's cage and accompany them until they reach the marked refuge.",
+      "description": "The scouts are holding Mira, Dorn and Teren in three captives below the last trail marker. Free each of them and stay nearby while they reach the expedition refuge marker. Clear trouble from the route; nobody gets left behind.",
+      "objectives": "Open each surveyor's guard post and accompany them until they reach the marked refuge.",
       "completion": "All three are safe. They remember a spiral carved into the ward stones and a prisoner called Shadowsong. Maruut needs to hear this.",
       "xp_difficulty": 4,
       "money": 600,
@@ -1198,7 +1184,7 @@
       "level": 24,
       "min_level": 20,
       "faction": "Both",
-      "description": "The rescued surveyors recognized the commander's name: Jarod Shadowsong. The cult is holding him at an altar beyond their cages. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.",
+      "description": "The rescued surveyors recognized the commander's name: Jarod Shadowsong. The cult is holding him at an altar beyond their captives. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.",
       "objectives": "Remain at the concealed observation point until you can confirm Jarod is alive.",
       "completion": "Alive, guarded, and kept apart from the workers. They are preparing something public. A direct assault would give them time to kill him.",
       "xp_difficulty": 4,
@@ -1245,7 +1231,10 @@
     "NPC_ORTELL": "The Twilight's Hammer rewards certainty. Inside their camps, doubt is best kept behind your teeth.",
     "NPC_SCOUT": "Fresh ash, bootprints, and a trail nobody wants to explain. Stay alert on the descent.",
     "NPC_COURIER_A": "A neutral expedition needs someone who can see past the color of a banner.",
-    "NPC_COURIER_H": "The invitation is for a willing traveler. The missing people need help, not another argument about borders."
+    "NPC_COURIER_H": "The invitation is for a willing traveler. The missing people need help, not another argument about borders.",
+    "NPC_CAPTIVE_A": "The cult took our notes and put us under guard. If the path is clear, I can walk.",
+    "NPC_CAPTIVE_B": "The cult took our notes and put us under guard. If the path is clear, I can walk.",
+    "NPC_CAPTIVE_C": "The cult took our notes and put us under guard. If the path is clear, I can walk."
   },
   "safe_point": "safe",
   "recruit_patrol": [
@@ -1641,5 +1630,11 @@
     "Captives are player-private temporary actors; the cage opening animation is shared but never grants/throttles credit.",
     "No item/model/map client patch is required.",
     "The Chapter 1 SQL remains independently installable. Chapter 2 adds Signed in Blood (900200) to the same Ortell, requiring reward of 900108 and level 25."
-  ]
+  ],
+  "polish": {
+    "normal_world": true,
+    "stock_spawns_preserved": true,
+    "textured_fallbacks": true,
+    "placeholder_signs_removed": true
+  }
 }

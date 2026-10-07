@@ -28,7 +28,7 @@ def main():
     source=(ROOT/'data/sql/db-world/base/custom_npc_appearances.sql').read_text()
     for table in ['mod_customnpcs_outfit','mod_customnpcs_outfit_entry','mod_customnpcs_outfit_spawn']:
         schemas.append(re.search(r'CREATE TABLE IF NOT EXISTS `'+table+r'` \(.*?\) ENGINE=[^;]+;',source,re.S).group())
-    chapters=[(ROOT/f'data/sql/db-world/base/broken_seal_chapter{n}.sql').read_text() for n in [1,2,3]]
+    chapters=[(ROOT/f'data/sql/db-world/base/broken_seal_chapter{n}.sql').read_text() for n in [1,2,3,4]]
     sql=(ROOT/'data/sql/db-world/base/broken_seal_hubs.sql').read_text()
     restore=(ROOT/'data/sql/support/restore_broken_seal_hub_native_spawns.sql').read_text()
     data=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text());created=[]
@@ -46,7 +46,7 @@ def main():
                 run(f"INSERT INTO creature_template (entry,name) VALUES ({entry},'Native sentinel');",db)
             for i,r in enumerate(data['relocations']):
                 p=r['original'];x=p[0]+100 if i==0 else p[0]
-                run(f"INSERT INTO creature (guid,{col},map,position_x,position_y,position_z,orientation,wander_distance,MovementType,Comment) VALUES ({r['guid']},{r['entry']},1,{x},{p[1]},{p[2]},{p[3]},{r['wander']},{r['movement']},'native sentinel');",db)
+                run(f"INSERT INTO creature (guid,{col},map,position_x,position_y,position_z,orientation,wander_distance,MovementType,Comment) VALUES ({r['guid']},{r['entry']},{r['map']},{x},{p[1]},{p[2]},{p[3]},{r['wander']},{r['movement']},'native sentinel');",db)
             run("INSERT INTO creature_template (entry,name) VALUES (987654,'Unrelated');"
                 f"INSERT INTO creature ({col},Comment) VALUES (987654,'unrelated sentinel');"
                 "INSERT INTO mod_customnpcs_outfit_spawn (spawn_guid,outfit_id) VALUES (987654,0);",db)
@@ -88,6 +88,30 @@ def main():
             assert run('SELECT COUNT(*) FROM creature_template WHERE entry=4009001;',db).stdout.strip()=='0'
         db=fixture(False);result=run(sql,db,False);assert result.returncode and 'Duplicate entry' in result.stderr
         print('Passed all hub collision guards and missing-chapter rejection before content changes.')
+        # Upgrade the already-shipped three-chapter hub version, retaining its GUIDs and original backups.
+        historical=(ROOT/'data/sql/db-world/updates/2026_10_06_03_broken_seal_hubs.sql').read_text()
+        for legacy in [False,True]:
+            db=fixture(False,legacy);col='id' if legacy else 'id1'
+            for chapter in chapters[:3]:run(chapter,db)
+            for entry in {r['entry'] for r in data['relocations']}:
+                run(f"INSERT INTO creature_template (entry,name) VALUES ({entry},'Upgrade sentinel');",db)
+            for r in data['relocations']:
+                p=r['original']
+                run(f"INSERT INTO creature (guid,{col},map,position_x,position_y,position_z,orientation,wander_distance,MovementType) VALUES ({r['guid']},{r['entry']},{r['map']},{p[0]},{p[1]},{p[2]},{p[3]},{r['wander']},{r['movement']});",db)
+            run(historical,db)
+            old=set(run("SELECT guid,Comment FROM creature WHERE Comment LIKE 'BS-HUB:%'; SELECT guid,Comment FROM gameobject WHERE Comment LIKE 'BS-HUB:%';",db).stdout.splitlines())
+            r=data['relocations'][2]
+            # Model a prior installed clearance with a different applied home.
+            run(f"UPDATE creature SET position_x=position_x+7 WHERE guid={r['guid']}; UPDATE mod_customnpcs_bs_hub_native b INNER JOIN creature c ON c.guid=b.guid SET b.applied_x=c.position_x WHERE b.guid={r['guid']};",db)
+            run(chapters[3],db);run(sql,db)
+            new=set(run("SELECT guid,Comment FROM creature WHERE Comment LIKE 'BS-HUB:%'; SELECT guid,Comment FROM gameobject WHERE Comment LIKE 'BS-HUB:%';",db).stdout.splitlines())
+            assert old<=new
+            assert run(f"SELECT ABS(c.position_x-b.applied_x)<0.01 FROM creature c INNER JOIN mod_customnpcs_bs_hub_native b ON b.guid=c.guid WHERE c.guid={r['guid']};",db).stdout.strip()=='1'
+            run(restore,db)
+            actual=run(f"SELECT position_x,position_y,position_z FROM creature WHERE guid={r['guid']};",db).stdout.split()
+            assert all(abs(float(actual[i])-r['original'][i])<.01 for i in range(3))
+            print('Passed',col,'historical hub upgrade, old GUID retention and revised-clearance backup restoration.')
+
     finally:
         for db in created:
             assert db.startswith('customnpcs_hubs_test_') and re.fullmatch('[a-z0-9_]+',db)
