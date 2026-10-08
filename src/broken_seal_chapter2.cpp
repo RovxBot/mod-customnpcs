@@ -10,6 +10,7 @@
 #include "Config.h"
 #include "Creature.h"
 #include "GameObject.h"
+#include "GameObjectAI.h"
 #include "Group.h"
 #include "Item.h"
 #include "MotionMaster.h"
@@ -44,7 +45,8 @@ enum Data : std::uint32_t
     DATA_KILLED,
     DATA_DISTRACT,
     DATA_SAVED,
-    DATA_COMMAND
+    DATA_COMMAND,
+    DATA_SHIELDED
 };
 enum Mode : std::uint32_t
 {
@@ -72,7 +74,10 @@ enum Event : std::uint32_t
     ANSWER_TIMEOUT,
     NEXT_WAVE,
     COMBAT_CAST,
-    POUNCE_READY
+    POUNCE_READY,
+    ASCENDANT_STRIKE_READY,
+    FLAME_SHIELD_READY,
+    FLAME_SHIELD_EXPIRE
 };
 enum Action : std::uint32_t
 {
@@ -89,6 +94,7 @@ enum Action : std::uint32_t
     START_RIOT,
     START_FIRE,
     START_TERRITORY,
+    START_COURSE,
     QUESTION = 50,
     DISTRACT_GUARD,
     HOUND_ATTACK,
@@ -96,15 +102,21 @@ enum Action : std::uint32_t
     HOUND_RETURN,
     HOUND_FEED,
     CANCEL_TRIAL,
+    LURE_RECRUIT,
+    BEGIN_ASCENDANCY,
+    ASCENDANT_STRIKE,
+    FLAME_SHIELD,
 };
 
 struct PlayerState : DataMap::Base
 {
-    bool carrying = false;
     std::uint32_t phase = 0;
     bool disguise = false;
     bool fireForm = false;
+    bool rescuingCommander = false;
     std::unordered_map<ObjectGuid, std::uint32_t> flowers;
+    std::unordered_map<ObjectGuid, std::uint32_t> lodestones;
+    EventMap encounters;
 };
 constexpr char StateKey[] = "mod-customnpcs.broken-seal.chapter2";
 PlayerState& State(Player* p)
@@ -214,7 +226,9 @@ void ClearForms(Player* p)
         p->RemoveAurasDueToSpell(SPELL_FIRE_FORM);
     state->disguise = false;
     state->fireForm = false;
-    state->carrying = false;
+    state->rescuingCommander = false;
+    if (p->IsInWorld())
+        p->UpdateObjectVisibility(false);
 }
 
 void Cleanup(Player* p)
@@ -250,7 +264,9 @@ void Recover(Player* p)
     for (QuestSupply const& supply : Supplies)
         if (Held(p, supply.quest))
             for (std::uint32_t item : supply.items)
-                if (item && (item != ITEM_NOTES || HasCredit(p, QUEST_WRITING, CREDIT_OKROG)))
+                if (item && (item != ITEM_NOTES || HasCredit(p, QUEST_WRITING, CREDIT_OKROG)) &&
+                    (item != ITEM_KEY || p->IsQuestRewarded(QUEST_DISCORD) ||
+                     (Active(p, QUEST_DISCORD) && HasCredit(p, QUEST_DISCORD, CREDIT_DISCORD))))
                     Give(p, item);
     if (CoverAllowed(p))
         Give(p, ITEM_IDENTITY);
@@ -360,6 +376,13 @@ struct npc_bs_c02_actorAI : ScriptedAI
         else
             me->SetReactState(REACT_DEFENSIVE);
     }
+    void DamageDealt(Unit* victim, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
+    {
+        if (me->GetEntry() != NPC_GARNOTH || owner.IsEmpty() || !victim || victim->GetGUID() != owner)
+            return;
+        if (Creature* focus = ObjectAccessor::GetCreature(*me, parent))
+            damage = FlameShieldDamage(damage, focus->AI()->GetData(DATA_SHIELDED));
+    }
     void MovementInform(std::uint32_t type, std::uint32_t) override
     {
         if (type == POINT_MOTION_TYPE)
@@ -448,7 +471,8 @@ struct npc_bs_c02_enemyAI : ScriptedAI
     }
     void DamageTaken(Unit* attacker, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
     {
-        if (!Enabled() || (!owner.IsEmpty() && (!attacker || !CanAIAttack(attacker))))
+        if (me->GetEntry() == NPC_BLAZING_TRAINER || !Enabled() ||
+            (!owner.IsEmpty() && (!attacker || !CanAIAttack(attacker))))
             damage = 0;
         else if (!owner.IsEmpty())
             me->SetReactState(REACT_DEFENSIVE);
@@ -505,7 +529,8 @@ struct npc_bs_c02_enemyAI : ScriptedAI
             }
             else if (event == COMBAT_CAST)
             {
-                if (Enabled() && me->GetVictim() && !me->HasUnitState(UNIT_STATE_CASTING))
+                if (Enabled() && me->GetEntry() != NPC_BLAZING_TRAINER && me->GetVictim() &&
+                    !me->HasUnitState(UNIT_STATE_CASTING))
                 {
                     std::uint32_t spell = SPELL_STRIKE;
                     switch (me->GetEntry())
@@ -552,7 +577,6 @@ struct npc_bs_c02_sceneAI : ScriptedAI
     ObjectGuid jarod;
     AnswerOffer offer;
     std::uint32_t question = 0;
-    std::uint32_t courseStep = 0;
     std::uint32_t escapeStep = 0;
     std::uint32_t kills = 0;
     std::uint32_t wave = 0;
@@ -565,6 +589,11 @@ struct npc_bs_c02_sceneAI : ScriptedAI
     bool moving = false;
     bool waveActive = false;
     bool stopped = false;
+    bool garnothReady = false;
+    bool speechFinished = false;
+    bool strikeReady = true;
+    bool shieldReady = true;
+    bool shielded = false;
 
     void Reset() override
     {
@@ -581,7 +610,7 @@ struct npc_bs_c02_sceneAI : ScriptedAI
     }
     std::uint32_t GetData(std::uint32_t type) const override
     {
-        return type == DATA_ROLE ? mode : courseStep;
+        return type == DATA_SHIELDED ? shielded : type == DATA_ROLE ? mode : 0;
     }
     Creature* Resolve(ObjectGuid const& guid)
     {
@@ -617,12 +646,20 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         events.Reset();
         if (Player* p = Owner())
         {
+            if (mode == RIOT)
+            {
+                State(p).rescuingCommander = false;
+                p->UpdateObjectVisibility(false);
+            }
             if (!reason.empty())
                 Tell(p, reason);
             if (mode == GARNOTH)
             {
                 p->RemoveAurasDueToSpell(SPELL_FIRE_FORM);
                 State(p).fireForm = false;
+                p->RemoveAurasDueToSpell(SPELL_FLAME_SHIELD);
+                p->DestroyItemCount(ITEM_ASCENDANT_STRIKE, 1, true);
+                p->DestroyItemCount(ITEM_FLAME_SHIELD, 1, true);
             }
             CloseGossipMenuFor(p);
         }
@@ -638,6 +675,13 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         if (mode == RIOT)
             if (Creature* c = Resolve(jarod))
                 anchor = c;
+        if (mode == DOG)
+        {
+            Creature* pet = Resolve(hound);
+            if (!pet || !pet->IsAlive())
+                return false;
+            anchor = pet;
+        }
         TrialSafety s{Enabled(),
                       Active(p, QuestFor(mode)),
                       p && p->IsAlive(),
@@ -649,12 +693,11 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         bool requiresCover = mode != RECRUIT && mode != RESTRAINT && mode != RIOT;
         if (requiresCover && !Covered(p))
             return false;
-        if (mode == GARNOTH && p && (!p->HasAura(SPELL_FIRE_FORM) || p->GetDisplayId() != FireDisplay))
+        if (mode == GARNOTH && garnothReady && p &&
+            (!p->HasAura(SPELL_FIRE_FORM) || p->GetDisplayId() != FireDisplay))
             return false;
-        return CanContinue(s, CombatTrial(mode),
-                           mode == COURSE                     ? 95.0f
-                           : mode == MENTAL || mode == SPEECH ? 8.0f
-                                                              : 90.0f);
+        return CanContinue(s, CombatTrial(mode) || mode == COURSE || mode == DOG,
+                           mode == MENTAL || (mode == SPEECH && !speechFinished) ? 8.0f : 90.0f);
     }
 
     std::uint32_t TrialGoal() const
@@ -703,18 +746,19 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             if (Creature* c = Child(NPC_RECRUIT, Locations::recruit_start, 1))
             {
                 c->SetWalk(true);
-                c->GetMotionMaster()->MovePoint(1, Locations::recruit_hide.x, Locations::recruit_hide.y,
-                                                Locations::recruit_hide.z);
-                Tell(p,
-                     "The recruit follows your false summons into cover. Wait for him there, then use the blackjack.");
+                c->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                Tell(p, "A recruit waits at the checkpoint. Speak to him and draw him away from the others.");
             }
         }
         else if (mode == SUPPLICANTS)
         {
-            std::array<std::uint32_t, 3> entries = {NPC_SUPPLICANT_A, NPC_SUPPLICANT_B, NPC_SUPPLICANT_C};
-            std::array<std::uint32_t, 3> credits = {CREDIT_SUPPLICANT_A, CREDIT_SUPPLICANT_B, CREDIT_SUPPLICANT_C};
-            std::array<Point, 3> points = {Locations::supplicant_a, Locations::supplicant_b, Locations::supplicant_c};
-            for (std::size_t i = 0; i < 3; ++i)
+            std::array<std::uint32_t, 4> entries =
+                {NPC_SUPPLICANT_A, NPC_SUPPLICANT_B, NPC_SUPPLICANT_C, NPC_SUPPLICANT_D};
+            std::array<std::uint32_t, 4> credits =
+                {CREDIT_SUPPLICANT_A, CREDIT_SUPPLICANT_B, CREDIT_SUPPLICANT_C, CREDIT_SUPPLICANT_D};
+            std::array<Point, 4> points =
+                {Locations::supplicant_a, Locations::supplicant_b, Locations::supplicant_c, Locations::supplicant_d};
+            for (std::size_t i = 0; i < entries.size(); ++i)
                 if (!HasCredit(p, QUEST_WASTE, credits[i]))
                     if (Creature* c = Child(entries[i], points[i], i))
                     {
@@ -726,12 +770,24 @@ struct npc_bs_c02_sceneAI : ScriptedAI
                         c->HandleEmoteCommand(EMOTE_ONESHOT_WOUND);
                     }
             events.RescheduleEvent(TIMEOUT, 45000ms);
-            Tell(p, "The three supplicants are burning. Bind each living recruit within forty-five seconds.");
+            Tell(p, "Four supplicants are burning. Extinguish their flames within forty-five seconds.");
         }
         else if (mode == COURSE)
         {
+            if (Creature* c = Child(NPC_BLAZING_TRAINER, Locations::fire_chaser, 1))
+            {
+                opponent = c->GetGUID();
+                c->SetSpeed(MOVE_RUN, 0.75f);
+                c->SetWalk(false);
+            }
+            else
+            {
+                Stop("The trainer could not be prepared. Speak to Mylva to try again.");
+                return;
+            }
+            events.ScheduleEvent(PROMPT, 3s);
             events.RescheduleEvent(TIMEOUT, 60000ms);
-            Tell(p, "The course is open for sixty seconds. Pass A, B, C and D on foot, in that order.");
+            Tell(p, "Run! Stay in the training grounds and keep away from the Blazing Trainer for one minute.");
         }
         else if (mode == MENTAL || mode == SPEECH)
         {
@@ -739,13 +795,22 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             {
                 Child(NPC_OGRE, Locations::crowd_a, 1);
                 Child(NPC_OGRE, Locations::crowd_b, 2);
-                Child(NPC_RECRUIT, Locations::crowd_c, 3);
+                for (std::uint32_t i = 0; i < 4; ++i)
+                {
+                    Point point = Locations::crowd_c;
+                    point.x -= static_cast<float>(i) * 2.0f;
+                    if (Creature* listener = Child(NPC_RECRUIT, point, 20 + i))
+                        listener->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                }
             }
             events.ScheduleEvent(PROMPT, 1000ms);
         }
         else if (mode == DOG || mode == GRUDGE)
         {
-            if (Creature* c = Child(NPC_HOUND, Locations::hound, 1))
+            Point petPoint = mode == DOG
+                ? Point{p->GetPositionX(), p->GetPositionY(), p->GetPositionZ(), p->GetOrientation()}
+                : Locations::hound;
+            if (Creature* c = Child(NPC_HOUND, petPoint, 1))
             {
                 hound = c->GetGUID();
                 c->RemoveUnitFlag(UNIT_FLAG_NON_ATTACKABLE | UNIT_FLAG_IMMUNE_TO_NPC);
@@ -786,7 +851,17 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             if (Creature* c = Child(entry, location, 1))
             {
                 opponent = c->GetGUID();
-                c->AI()->AttackStart(p);
+                if (mode == OKROG)
+                {
+                    c->SetWalk(true);
+                    c->SetReactState(REACT_AGGRESSIVE);
+                    c->GetMotionMaster()->MovePoint(1, Locations::okrog_exit.x, Locations::okrog_exit.y,
+                                                   Locations::okrog_exit.z);
+                }
+                else if (mode == GARNOTH)
+                    c->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
+                else
+                    c->AI()->AttackStart(p);
             }
         }
         else if (mode == RIOT)
@@ -795,8 +870,12 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             {
                 jarod = c->GetGUID();
                 c->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
-                c->SetWalk(true);
+                c->SetWalk(false);
+                State(p).rescuingCommander = true;
+                p->UpdateObjectVisibility(false);
             }
+            else
+                return;
             p->RemoveAurasDueToSpell(SPELL_DISGUISE);
             State(p).disguise = false;
             events.RescheduleEvent(TIMEOUT, 480000ms);
@@ -880,6 +959,7 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         CloseGossipMenuFor(p);
         if (result == AnswerOffer::Wrong || result == AnswerOffer::Expired)
         {
+            QuizPenalty(p);
             Stop("That response did not pass the trial. Your earlier correct responses are recorded; try again.");
             return;
         }
@@ -888,30 +968,77 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         Credit(p, quest, credit, 10);
         if (HasCredit(p, quest, credit, 10))
         {
-            Stop(mode == SPEECH ? "The crowd turns inward. Approach Jarod at the altar."
-                                : "The orb accepts ten answers. Return to Mylva.");
+            if (mode == SPEECH)
+            {
+                speechFinished = true;
+                events.CancelEvent(PROMPT);
+                events.RescheduleEvent(TIMEOUT, 20s);
+                if (Creature* ally = Child(NPC_ORTELL_SCENE, Locations::prison, 30))
+                    ally->Whisper("The crowd has the guards' attention. Use the key and get Jarod out of here.",
+                                  LANG_UNIVERSAL, p);
+                for (ObjectGuid const& guid : children)
+                    if (Creature* listener = Resolve(guid))
+                        if (listener->GetEntry() == NPC_RECRUIT || listener->GetEntry() == NPC_OGRE)
+                            listener->HandleEmoteCommand(EMOTE_ONESHOT_CHEER);
+                Tell(p, "The crowd turns against the guards. Approach Jarod at the altar.");
+            }
+            else
+                Stop("The orb accepts ten answers. Return to Mylva.");
             return;
         }
         events.ScheduleEvent(PROMPT, mode == MENTAL ? 1000ms : 9000ms);
     }
 
-    void Checkpoint(Player* p, std::uint32_t index)
+    void QuizPenalty(Player* p)
     {
-        if (mode != COURSE || !Safe(p) || index != courseStep || index >= Course.size())
+        if (mode != MENTAL)
             return;
-        if (getMSTimeDiff(startedAt, getMSTime()) >= 60000)
-        {
-            Stop("The course timer has expired. Start a new attempt.");
-            return;
-        }
-        ++courseStep;
-        if (courseStep == Course.size())
-        {
-            Credit(p, QUEST_AGILITY, CREDIT_COURSE);
-            Stop("The course is complete. Return to Mylva.");
-        }
+        std::uint32_t damage = std::max(1u, p->GetMaxHealth() / 6);
+        Tell(p, "The orb lashes at you for the unanswered truth.");
+        if (p->GetHealth() <= damage)
+            Unit::Kill(me, p, false);
         else
-            Tell(p, "Checkpoint accepted. Continue to the next lettered marker.");
+            p->ModifyHealth(-static_cast<std::int32_t>(damage));
+    }
+
+    void AscendantAbility(Player* p, std::uint32_t action)
+    {
+        Creature* foe = Resolve(opponent);
+        if (mode != GARNOTH || !garnothReady || !Safe(p) || !foe || !foe->IsAlive() || !Owned(foe, p))
+            return;
+        if (action == ASCENDANT_STRIKE && strikeReady && p->IsWithinMeleeRange(foe))
+        {
+            strikeReady = false;
+            p->HandleEmoteCommand(EMOTE_ONESHOT_ATTACK1H);
+            Unit::DealDamage(p, foe, AscendantStrikeDamage(foe->GetMaxHealth()), nullptr,
+                             DIRECT_DAMAGE, SPELL_SCHOOL_MASK_FIRE, nullptr, false);
+            if (!stopped)
+                events.ScheduleEvent(ASCENDANT_STRIKE_READY, 1500ms);
+        }
+        else if (action == FLAME_SHIELD && shieldReady)
+        {
+            shieldReady = false;
+            shielded = true;
+            if (Aura* aura = p->AddAura(SPELL_FLAME_SHIELD, p))
+            {
+                aura->SetMaxDuration(10000);
+                aura->SetDuration(10000);
+            }
+            events.RescheduleEvent(FLAME_SHIELD_EXPIRE, 10s);
+            events.RescheduleEvent(FLAME_SHIELD_READY, 6s);
+            Tell(p, "Your flame shield holds back Garnoth's blows for ten seconds.");
+        }
+    }
+
+    void Lure(Player* p, Creature* recruit)
+    {
+        if (mode != RECRUIT || !Safe(p) || !Owned(recruit, p) || !Interact(p, recruit) ||
+            !recruit->HasNpcFlag(UNIT_NPC_FLAG_GOSSIP))
+            return;
+        recruit->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+        recruit->Whisper("The instructor sent for me? All right. Lead the way.", LANG_UNIVERSAL, p);
+        recruit->GetMotionMaster()->MovePoint(1, Locations::recruit_hide.x, Locations::recruit_hide.y,
+                                            Locations::recruit_hide.z);
     }
 
     void Knockout(Player* p, Creature* recruit)
@@ -934,7 +1061,8 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         if (mode != SUPPLICANTS || !Safe(p) || getMSTimeDiff(startedAt, getMSTime()) >= 45000 || !Owned(recruit, p) ||
             !Interact(p, recruit) || !recruit->IsAlive())
             return;
-        std::array<std::uint32_t, 3> credits = {CREDIT_SUPPLICANT_A, CREDIT_SUPPLICANT_B, CREDIT_SUPPLICANT_C};
+        std::array<std::uint32_t, 4> credits =
+            {CREDIT_SUPPLICANT_A, CREDIT_SUPPLICANT_B, CREDIT_SUPPLICANT_C, CREDIT_SUPPLICANT_D};
         std::uint32_t index = recruit->AI()->GetData(DATA_ROLE);
         if (index >= credits.size())
             return;
@@ -951,20 +1079,17 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             return;
         if (mode == DOG && action == HOUND_FEED)
         {
-            std::array<std::uint32_t, 3> credits = {CREDIT_DOG_A, CREDIT_DOG_B, CREDIT_DOG_C};
-            for (std::size_t i = 0; i < DogStations.size(); ++i)
-                if (!HasCredit(p, QUEST_DOG, credits[i]))
-                {
-                    Point const& point = DogStations[i];
-                    if (c->GetDistance(point.x, point.y, point.z) <= 7.0f &&
-                        p->GetDistance(point.x, point.y, point.z) <= 7.0f)
-                    {
-                        c->HandleEmoteCommand(EMOTE_ONESHOT_EAT_NO_SHEATHE);
-                        Credit(p, QUEST_DOG, credits[i]);
-                        Tell(p, "The hound accepts its meal. Continue to the next station.");
-                    }
-                    return;
-                }
+            if (!p->HasItemCount(ITEM_MEAT, 1))
+            {
+                Tell(p, "Loot charred meat from a Spinescale Basilisk before feeding your hound.");
+                return;
+            }
+            if (HasCredit(p, QUEST_DOG, CREDIT_DOG_A, 5))
+                return;
+            p->DestroyItemCount(ITEM_MEAT, 1, true);
+            c->HandleEmoteCommand(EMOTE_ONESHOT_EAT_NO_SHEATHE);
+            Credit(p, QUEST_DOG, CREDIT_DOG_A, 5);
+            Tell(p, "The hound eats the meat. Five meals complete his feeding.");
         }
         else if (mode == GRUDGE)
         {
@@ -1023,6 +1148,17 @@ struct npc_bs_c02_sceneAI : ScriptedAI
         Player* p = Owner();
         if (!p || stopped || !Safe(p))
             return;
+        if (type == BEGIN_ASCENDANCY && mode == GARNOTH && !garnothReady && p->HasAura(SPELL_FIRE_FORM) &&
+            p->GetDisplayId() == FireDisplay)
+        {
+            if (Creature* foe = Resolve(opponent))
+            {
+                garnothReady = true;
+                foe->RemoveUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
+                foe->AI()->AttackStart(p);
+            }
+            return;
+        }
         if (type == DATA_DISTRACT && mode == DISCORD && !distracted)
         {
             distracted = true;
@@ -1030,7 +1166,12 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             for (ObjectGuid const& guid : children)
                 if (Creature* c = Resolve(guid))
                     if (c->GetEntry() == NPC_KARRGONN)
-                        c->DespawnOrUnsummon();
+                    {
+                        c->RemoveNpcFlag(UNIT_NPC_FLAG_GOSSIP);
+                        c->SetWalk(true);
+                        c->GetMotionMaster()->MovePoint(1, Locations::discord_exit.x, Locations::discord_exit.y,
+                                                       Locations::discord_exit.z);
+                    }
             if (Creature* c = Resolve(opponent))
             {
                 c->RemoveUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
@@ -1090,13 +1231,15 @@ struct npc_bs_c02_sceneAI : ScriptedAI
                 Credit(p, QUEST_GRUDGE, CREDIT_GRUDGE);
             }
             else if (mode == DISCORD && distracted)
+            {
                 Credit(p, QUEST_DISCORD, CREDIT_DISCORD);
+                Give(p, ITEM_KEY);
+            }
             else if (mode == GARNOTH && p->HasAura(SPELL_FIRE_FORM))
                 Credit(p, QUEST_GREATER, CREDIT_GARNOTH);
             else if (mode == OKROG)
             {
                 Credit(p, QUEST_WRITING, CREDIT_OKROG);
-                Give(p, ITEM_NOTES);
             }
             else if (mode == RESTRAINT)
             {
@@ -1123,6 +1266,20 @@ struct npc_bs_c02_sceneAI : ScriptedAI
             }
             if (event == TIMEOUT || event == ANSWER_TIMEOUT)
             {
+                if (event == ANSWER_TIMEOUT)
+                    QuizPenalty(p);
+                if (mode == COURSE && event == TIMEOUT)
+                {
+                    Creature* trainer = Resolve(opponent);
+                    TrialSafety state{Enabled(), Active(p, QUEST_AGILITY), p->IsAlive(), SameWorld(p, me),
+                                      p->IsInCombat(), p->IsMounted(), p->IsFlying() || p->IsInFlight(),
+                                      me->GetDistance(p)};
+                    if (CanFinishChase(state, getMSTimeDiff(startedAt, getMSTime()),
+                                       trainer && trainer->IsAlive()))
+                        Credit(p, QUEST_AGILITY, CREDIT_COURSE);
+                    Stop("The chase is over. Return to Mylva.");
+                    return;
+                }
                 if (mode == SUPPLICANTS)
                     for (ObjectGuid const& guid : children)
                         if (Creature* c = Resolve(guid))
@@ -1132,9 +1289,28 @@ struct npc_bs_c02_sceneAI : ScriptedAI
                 return;
             }
             if (event == PROMPT)
-                Prompt();
+            {
+                if (mode == COURSE)
+                {
+                    if (Creature* trainer = Resolve(opponent))
+                        trainer->AI()->AttackStart(p);
+                    else
+                    {
+                        Stop("The trainer is missing. Speak to Mylva to restart the chase.");
+                        return;
+                    }
+                }
+                else
+                    Prompt();
+            }
             else if (event == POUNCE_READY)
                 pounceReady = true;
+            else if (event == ASCENDANT_STRIKE_READY)
+                strikeReady = true;
+            else if (event == FLAME_SHIELD_READY)
+                shieldReady = true;
+            else if (event == FLAME_SHIELD_EXPIRE)
+                shielded = false;
             else if (event == CHECK)
             {
                 if (mode == RIOT)
@@ -1160,15 +1336,22 @@ struct npc_bs_c02_sceneAI : ScriptedAI
                                 moving = false;
                                 if (escapeStep == EscapeRoute.size() - 1)
                                 {
-                                    if (p->GetDistance(c) <= 12.0f && wave == 3)
+                                    if (p->GetDistance(c) <= 12.0f)
                                     {
                                         Credit(p, QUEST_RIOT, CREDIT_RIOT);
+                                        c->AI()->SetGUID(ObjectGuid::Empty, DATA_PARENT);
+                                        c->SetNpcFlag(UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
+                                        c->GetMotionMaster()->MoveIdle();
+                                        std::erase(children, c->GetGUID());
                                         Stop("Jarod reaches Ortell's refuge. Report back to the handler.");
                                         return;
                                     }
                                 }
                                 else
-                                    SpawnWave();
+                                {
+                                    ++escapeStep;
+                                    MoveEscape();
+                                }
                             }
                             else if (!moving)
                                 MoveEscape();
@@ -1246,6 +1429,8 @@ void ContactMenu(Player* p, Creature* c)
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin or resume my fire trial.", Sender, START_FIRE);
     if (entry == NPC_MYLVA && Active(p, QUEST_TERRITORY))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin or resume the Horrorguard challenge.", Sender, START_TERRITORY);
+    if (entry == NPC_MYLVA && Active(p, QUEST_AGILITY))
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin the agility course.", Sender, START_COURSE);
     if (entry == NPC_CARGALL && Active(p, QUEST_WASTE))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Begin the supplicant preservation trial.", Sender, START_SUPPLICANTS);
     if (entry == NPC_MYLVA || entry == NPC_DEVORAN)
@@ -1268,7 +1453,8 @@ void ContactMenu(Player* p, Creature* c)
     if (entry == NPC_PRISONER && Active(p, QUEST_RIOT) && p->HasItemCount(ITEM_KEY, 1))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Unlock your restraints. Let us get out of here.", Sender, START_RIOT);
     if (entry == NPC_PRISONER && Held(p, QUEST_RIOT))
-        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Challenge your restraint guard.", Sender, START_RESTRAINT);
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "I need a replacement key from the deposited intelligence.",
+                         Sender, RECOVER);
     if (entry == NPC_JAROD_FREE && Held(p, QUEST_LETTER))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Replace my letter to Dezco.", Sender, RECOVER);
 }
@@ -1309,7 +1495,9 @@ bool ContactSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t a
     else if (action == START_FIRE && entry == NPC_CONDENNA)
         Start(p, FIRE_TRIAL, Locations::condenna);
     else if (action == START_TERRITORY && entry == NPC_MYLVA)
-        Tell(p, "Use the calling tablet at the holding camp to summon the Horrorguards one at a time.");
+        Tell(p, "Go to the northwestern ravine while disguised. A Horrorguard will meet your challenge there.");
+    else if (action == START_COURSE && entry == NPC_MYLVA)
+        Start(p, COURSE, Locations::mylva);
     else if (action == START_RIOT && entry == NPC_PRISONER && p->HasItemCount(ITEM_KEY, 1))
         Start(p, RIOT, Locations::prison);
     else if (action == START_SUPPLICANTS && entry == NPC_CARGALL && p->HasItemCount(ITEM_GEM, 1))
@@ -1432,11 +1620,20 @@ public:
     }
     bool OnGossipHello(Player* p, Creature* c) override
     {
-        if (!Interact(p, c, true) || !Owned(c, p) || c->GetEntry() != NPC_HOUND)
+        if (!Owned(c, p) || !Interact(p, c, c->GetEntry() == NPC_HOUND))
             return true;
         ClearGossipMenuFor(p);
+        if (c->GetEntry() == NPC_RECRUIT && Active(p, QUEST_SIGNED))
+        {
+            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Your instructor is waiting in the hollow. Follow me.", Sender,
+                             LURE_RECRUIT);
+            SendGossipMenuFor(p, NPC_RECRUIT, c->GetGUID());
+            return true;
+        }
+        if (c->GetEntry() != NPC_HOUND)
+            return true;
         if (Held(p, QUEST_DOG))
-            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Feed at the next station.", Sender, HOUND_FEED);
+            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Feed one piece of charred basilisk meat.", Sender, HOUND_FEED);
         if (Held(p, QUEST_GRUDGE))
         {
             AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Attack the opponent.", Sender, HOUND_ATTACK);
@@ -1448,6 +1645,11 @@ public:
     }
     bool OnGossipSelect(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action) override
     {
+        if (sender == Sender && action == LURE_RECRUIT && c->GetEntry() == NPC_RECRUIT &&
+            Owned(c, p) && Interact(p, c))
+            if (Creature* focus = ObjectAccessor::GetCreature(*c, c->AI()->GetGUID(DATA_PARENT)))
+                if (auto* ai = dynamic_cast<npc_bs_c02_sceneAI*>(focus->AI()))
+                    ai->Lure(p, c);
         if (sender == Sender && Interact(p, c, true) && Owned(c, p) && c->GetEntry() == NPC_HOUND)
             if (Creature* focus = ObjectAccessor::GetCreature(*c, c->AI()->GetGUID(DATA_PARENT)))
                 if (auto* ai = dynamic_cast<npc_bs_c02_sceneAI*>(focus->AI()))
@@ -1510,14 +1712,83 @@ public:
     }
 };
 
+void BreakLodestone(Player* p, GameObject* go)
+{
+    if (!Interact(p, go) || go->GetEntry() != GO_STONES || !Active(p, QUEST_LABOR) || !Covered(p) ||
+        p->IsMounted() || p->IsFlying())
+        return;
+    if (!p->HasItemCount(ITEM_PICK, 1))
+    {
+        Tell(p, "You need the Twilight Pick. Mylva can replace a lost one.");
+        return;
+    }
+    auto& nodes = State(p).lodestones;
+    auto it = nodes.find(go->GetGUID());
+    if (it != nodes.end() && getMSTimeDiff(it->second, getMSTime()) < 60000)
+    {
+        Tell(p, "This deposit is broken. Find another lodestone in the gorge.");
+        return;
+    }
+    nodes[go->GetGUID()] = getMSTime();
+    p->HandleEmoteCommand(EMOTE_ONESHOT_ATTACK1H);
+    Credit(p, QUEST_LABOR, CREDIT_LOADS, 5);
+    Tell(p, "You break the lodestone with the pick.");
+}
+
 class go_bs_c02_interaction : public GameObjectScript
 {
 public:
     go_bs_c02_interaction() : GameObjectScript("go_bs_c02_interaction") {}
+    struct HideoutAI : GameObjectAI
+    {
+        explicit HideoutAI(GameObject* go) : GameObjectAI(go) {}
+        EventMap events;
+        void Refresh()
+        {
+            if (Enabled())
+                me->RemoveGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
+            else
+                me->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
+        }
+        void Reset() override
+        {
+            Refresh();
+            events.Reset();
+            events.ScheduleEvent(CHECK, 2s);
+        }
+        void UpdateAI(std::uint32_t diff) override
+        {
+            events.Update(diff);
+            if (events.ExecuteEvent() == CHECK)
+            {
+                Refresh();
+                events.ScheduleEvent(CHECK, 2s);
+            }
+        }
+    };
+    GameObjectAI* GetAI(GameObject* go) const override
+    {
+        return go->GetEntry() == GO_HIDEOUT ? new HideoutAI(go) : new GameObjectAI(go);
+    }
     bool OnGossipHello(Player* p, GameObject* go) override
     {
         if (!Interact(p, go))
             return true;
+        if (go->GetEntry() == GO_HIDEOUT)
+        {
+            ClearGossipMenuFor(p);
+            p->PrepareQuestMenu(go->GetGUID());
+            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Replace my active quest supplies.", Sender, RECOVER);
+            if (CoverAllowed(p))
+                AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Renew my forged papers and disguise.", Sender, DISGUISE);
+            SendGossipMenuFor(p, NPC_ORTELL, go->GetGUID());
+            return true;
+        }
+        if (!Active(p, go->GetGOInfo()->goober.questId))
+        {
+            Tell(p, "You have no current assignment here. Speak to your quest contact for instructions.");
+            return true;
+        }
         std::uint32_t entry = go->GetEntry();
         if (entry == GO_RENDEZVOUS && p->HasItemCount(ITEM_BLACKJACK, 1))
             Start(p, RECRUIT, Locations::recruit_start);
@@ -1532,25 +1803,8 @@ public:
             else if (p->AddItem(ITEM_BLOSSOMS, 1))
                 flowers[go->GetGUID()] = getMSTime();
         }
-        else if (entry == GO_STONES && Active(p, QUEST_LABOR) && !p->IsMounted() && !p->IsFlying())
-        {
-            State(p).carrying = true;
-            Tell(p, "You lift one training load. Carry it on foot to the delivery station south of Mylva.");
-        }
-        else if (entry == GO_DELIVERY &&
-                 CanDeliver(State(p).carrying, Active(p, QUEST_LABOR), !p->IsMounted() && !p->IsFlying(), true))
-        {
-            State(p).carrying = false;
-            Credit(p, QUEST_LABOR, CREDIT_LOADS, 5);
-            Tell(p, "Load delivered. Return to the stone pile for the next one.");
-        }
-        else if (entry == GO_COURSE_START)
-            Start(p, COURSE, Locations::course_start);
-        else if (entry >= GO_CHECK_A && entry <= GO_CHECK_D)
-        {
-            if (npc_bs_c02_sceneAI* ai = Focus(p))
-                ai->Checkpoint(p, entry - GO_CHECK_A);
-        }
+        else if (entry == GO_STONES)
+            BreakLodestone(p, go);
         else if (entry == GO_COMMUNIQUE && Active(p, QUEST_INTELLIGENCE) && Covered(p))
             Give(p, ITEM_COMMUNIQUE);
         else if (entry == GO_PLANS && Active(p, QUEST_INTELLIGENCE) && Covered(p))
@@ -1571,10 +1825,22 @@ public:
             else
                 Tell(p, "The speech is recorded. Speak to Jarod at the prisoner altar.");
         }
-        else if (entry == GO_PRISON && Active(p, QUEST_RIOT) && p->HasItemCount(ITEM_KEY, 1))
-            Start(p, RIOT, Locations::prison);
         else if (entry == GO_BUYERS && Active(p, QUEST_BUYERS))
             Give(p, ITEM_LEDGER);
+        return true;
+    }
+    bool OnGossipSelect(Player* p, GameObject* go, std::uint32_t sender, std::uint32_t action) override
+    {
+        CloseGossipMenuFor(p);
+        if (sender != Sender || go->GetEntry() != GO_HIDEOUT || !Interact(p, go))
+            return true;
+        if (action == RECOVER)
+            Recover(p);
+        else if (action == DISGUISE && CoverAllowed(p))
+        {
+            Recover(p);
+            ApplyCover(p);
+        }
         return true;
     }
 };
@@ -1589,7 +1855,28 @@ public:
         if (!Enabled() || !p->IsAlive() || !InVale(p))
             return true;
         std::uint32_t entry = item->GetEntry();
-        if (entry == ITEM_BLACKJACK || entry == ITEM_GEM)
+        if (entry == ITEM_PICK && Active(p, QUEST_LABOR))
+        {
+            if (GameObject* node = targets.GetGOTarget())
+                if (node->GetEntry() == GO_STONES)
+                {
+                    BreakLodestone(p, node);
+                }
+        }
+        else if (entry == ITEM_ASCENDANT_STRIKE)
+        {
+            Creature* foe = targets.GetUnitTarget() ? targets.GetUnitTarget()->ToCreature() : nullptr;
+            if (foe && foe->GetEntry() == NPC_GARNOTH && Owned(foe, p))
+                if (Creature* controller = ObjectAccessor::GetCreature(*foe, foe->AI()->GetGUID(DATA_PARENT)))
+                    if (auto* trial = dynamic_cast<npc_bs_c02_sceneAI*>(controller->AI()))
+                        trial->AscendantAbility(p, ASCENDANT_STRIKE);
+        }
+        else if (entry == ITEM_FLAME_SHIELD)
+        {
+            if (npc_bs_c02_sceneAI* trial = Focus(p))
+                trial->AscendantAbility(p, FLAME_SHIELD);
+        }
+        else if (entry == ITEM_BLACKJACK || entry == ITEM_GEM)
         {
             Creature* c = targets.GetUnitTarget() ? targets.GetUnitTarget()->ToCreature() : nullptr;
             if (c && Owned(c, p))
@@ -1598,8 +1885,9 @@ public:
                     {
                         if (entry == ITEM_BLACKJACK && c->GetEntry() == NPC_RECRUIT)
                             ai->Knockout(p, c);
-                        else if (entry == ITEM_GEM && c->GetEntry() >= NPC_SUPPLICANT_A &&
-                                 c->GetEntry() <= NPC_SUPPLICANT_C)
+                        else if (entry == ITEM_GEM && (c->GetEntry() == NPC_SUPPLICANT_A ||
+                                 c->GetEntry() == NPC_SUPPLICANT_B || c->GetEntry() == NPC_SUPPLICANT_C ||
+                                 c->GetEntry() == NPC_SUPPLICANT_D))
                             ai->Bind(p, c);
                     }
         }
@@ -1611,25 +1899,41 @@ public:
             Point point{p->GetPositionX(), p->GetPositionY(), p->GetPositionZ(), p->GetOrientation()};
             Start(p, MENTAL, point);
         }
-        else if (entry == ITEM_LEASH &&
-                 p->GetDistance(Locations::devoran.x, Locations::devoran.y, Locations::devoran.z) <= 12.0f)
+        else if (entry == ITEM_LEASH)
         {
-            if (Active(p, QUEST_GRUDGE) && p->HasItemCount(ITEM_COLLAR, 1))
+            if (Active(p, QUEST_GRUDGE) && p->HasItemCount(ITEM_COLLAR, 1) &&
+                p->GetDistance(Locations::devoran.x, Locations::devoran.y, Locations::devoran.z) <= 25.0f)
                 Start(p, GRUDGE, Locations::devoran);
-            else
-                Start(p, DOG, Locations::devoran);
+            else if (Active(p, QUEST_DOG))
+                Start(p, DOG, {p->GetPositionX(), p->GetPositionY(), p->GetPositionZ(), p->GetOrientation()});
         }
         else if (entry == ITEM_TALISMAN && Active(p, QUEST_GREATER) && !p->IsInCombat() &&
-                 p->GetDistance(Locations::garnoth.x, Locations::garnoth.y, Locations::garnoth.z) <= 8.0f && !Focus(p))
+                 p->GetDistance(Locations::garnoth.x, Locations::garnoth.y, Locations::garnoth.z) <= 35.0f)
         {
+            if (!Give(p, ITEM_ASCENDANT_STRIKE) || !Give(p, ITEM_FLAME_SHIELD) ||
+                !p->HasItemCount(ITEM_ASCENDANT_STRIKE, 1) || !p->HasItemCount(ITEM_FLAME_SHIELD, 1))
+            {
+                Tell(p, "Make room for both ascendant foci in your bags before using the talisman.");
+                return true;
+            }
+            npc_bs_c02_sceneAI* trial = Focus(p);
+            if (trial && trial->mode != GARNOTH)
+            {
+                Tell(p, "Finish your current trial before taking the ascendancy form.");
+                return true;
+            }
             p->RemoveAurasByType(SPELL_AURA_MOD_SHAPESHIFT);
             if (Aura* aura = p->AddAura(SPELL_FIRE_FORM, p))
             {
                 aura->SetMaxDuration(300000);
                 aura->SetDuration(300000);
                 State(p).fireForm = true;
-                Start(p, GARNOTH, Locations::garnoth);
-                if (!Focus(p))
+                if (!trial)
+                    Start(p, GARNOTH, Locations::garnoth);
+                trial = Focus(p);
+                if (trial)
+                    trial->SetData(BEGIN_ASCENDANCY, 1);
+                else
                 {
                     p->RemoveAurasDueToSpell(SPELL_FIRE_FORM);
                     State(p).fireForm = false;
@@ -1666,9 +1970,14 @@ public:
         if (quest >= QUEST_SIGNED && quest <= QUEST_LETTER)
             Cleanup(p);
     }
-    void OnPlayerUpdate(Player* p, std::uint32_t) override
+    void OnPlayerUpdate(Player* p, std::uint32_t diff) override
     {
         PlayerState* state = p->CustomData.Get<PlayerState>(StateKey);
+        bool fieldQuest = Active(p, QUEST_SIGNED) || Held(p, QUEST_IDENTITY) ||
+                          Active(p, QUEST_DISCORD) || Active(p, QUEST_WRITING) ||
+                          Active(p, QUEST_TERRITORY) || Active(p, QUEST_GREATER);
+        if (!state && fieldQuest && Enabled() && InVale(p))
+            state = &State(p);
         if (!state)
             return;
         if (!Enabled() || !p->IsAlive() || !InVale(p) || state->phase != p->GetPhaseMask())
@@ -1676,13 +1985,40 @@ public:
             Cleanup(p);
             return;
         }
-        if (state->carrying && (!Active(p, QUEST_LABOR) || p->IsInCombat() || p->IsMounted() || p->IsFlying()))
-            state->carrying = false;
+        state->encounters.Update(diff);
+        if (state->encounters.Empty())
+            state->encounters.ScheduleEvent(CHECK, 1s);
+        if (state->encounters.ExecuteEvent() == CHECK)
+        {
+            state->encounters.ScheduleEvent(CHECK, 1s);
+            if (fieldQuest && !p->IsInCombat() && !p->IsMounted() && !p->IsFlying() && !Focus(p))
+            {
+                auto near = [p](Point const& point)
+                {
+                    return p->GetDistance(point.x, point.y, point.z) <= 40.0f;
+                };
+                if (Active(p, QUEST_SIGNED) && near(Locations::recruit_start))
+                    Start(p, RECRUIT, Locations::recruit_start);
+                else if (Covered(p) && Active(p, QUEST_DISCORD) && !HasCredit(p, QUEST_DISCORD, CREDIT_DISCORD) &&
+                         near(Locations::discord))
+                    Start(p, DISCORD, Locations::discord);
+                else if (Covered(p) && Active(p, QUEST_WRITING) && !HasCredit(p, QUEST_WRITING, CREDIT_OKROG) &&
+                         near(Locations::okrog))
+                    Start(p, OKROG, Locations::okrog);
+                else if (Covered(p) && Active(p, QUEST_TERRITORY) && near(Locations::horrorguard_0))
+                    Start(p, TERRITORY_TRIAL, Locations::horrorguard_0);
+                else if (Covered(p) && Active(p, QUEST_GREATER) && !HasCredit(p, QUEST_GREATER, CREDIT_GARNOTH) &&
+                         near(Locations::garnoth))
+                    Start(p, GARNOTH, Locations::garnoth);
+            }
+        }
         if (state->disguise && !CoverAllowed(p))
         {
             p->RemoveAurasDueToSpell(SPELL_DISGUISE);
             state->disguise = false;
         }
+        if (Held(p, QUEST_IDENTITY) && p->HasItemCount(ITEM_IDENTITY, 1) && !state->disguise)
+            ApplyCover(p);
         if (state->fireForm && !Active(p, QUEST_GREATER))
         {
             p->RemoveAurasDueToSpell(SPELL_FIRE_FORM);
@@ -1713,6 +2049,24 @@ public:
 bool BrokenSealChapter2Available()
 {
     return BrokenSeal::Chapter2::Enabled();
+}
+bool BrokenSealChapter2CommanderVisible(Player const* p)
+{
+    using namespace BrokenSeal::Chapter2;
+    if (!p || p->IsGameMaster())
+        return true;
+    PlayerState const* state = p->CustomData.Get<PlayerState>(StateKey);
+    std::uint16_t slot = p->FindQuestSlot(QUEST_RIOT);
+    return !p->IsQuestRewarded(QUEST_RIOT) &&
+           (slot >= MAX_QUEST_LOG_SIZE || !p->GetQuestSlotCounter(slot, 0)) &&
+           !(state && state->rescuingCommander);
+}
+bool BrokenSealChapter2OrtellAtCampVisible(Player const* p)
+{
+    using namespace BrokenSeal::Chapter2;
+    std::uint16_t slot = p ? p->FindQuestSlot(QUEST_RIOT) : MAX_QUEST_LOG_SIZE;
+    return !p || p->IsGameMaster() || !p->IsQuestRewarded(QUEST_IDENTITY) || p->IsQuestRewarded(QUEST_RIOT) ||
+           (slot < MAX_QUEST_LOG_SIZE && p->GetQuestSlotCounter(slot, 0));
 }
 bool BrokenSealChapter2AvoidCombat(Unit const* unit)
 {

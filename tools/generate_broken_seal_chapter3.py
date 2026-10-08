@@ -107,6 +107,7 @@ SELECT 1 WHERE (SELECT COUNT(*) FROM `mod_customnpcs_bs_content`
   OR NOT EXISTS (SELECT 1 FROM `creature_template` WHERE `entry` = 4001205);
 '''
     for kind, table, col in [('creature','creature_template','entry'),('gameobject','gameobject_template','entry'),
+                            ('gameobject','gameobject_template_addon','entry'),
                             ('quest','quest_template','ID'),('item','item_template','entry'),
                             ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry'),
                             ('npc_text','npc_text','ID'),
@@ -200,8 +201,10 @@ SELECT `kind`, `entry`, 3 FROM `bs_c03_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     text += f'DELETE FROM `gossip_menu` WHERE `MenuID` IN ({menus});\n'
     text += rows('gossip_menu',['MenuID','TextID'],[[a['entry'],a['entry']] for a in talkers])
     text += f'UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN ({menus});\n'
-    text += upsert('gameobject_template',['entry','type','displayId','name','size','Data3','Data5','Data18','ScriptName'],
-                   [[o['entry'],5 if o['decorative'] else 10,o['display'],o['name'],o['scale'],0,0,1,'' if o['decorative'] else 'go_bs_c03_interaction'] for o in d['objects']],['entry'])
+    text += upsert('gameobject_template',['entry','type','displayId','name','size','Data1','Data3','Data5','Data18','ScriptName'],
+                   [[o['entry'],5 if o['decorative'] else 10,o['display'],o['name'],o['scale'],ids[o['quest']] if o.get('quest') else 0,0,0,1,'' if o['decorative'] else 'go_bs_c03_interaction'] for o in d['objects']],['entry'])
+    text += upsert('gameobject_template_addon',['entry','flags'],
+                   [[o['entry'],16 if o['decorative'] else 0] for o in d['objects']],['entry'])
     for kind in ('creature','gameobject'):
         text += f'DROP TEMPORARY TABLE IF EXISTS `bs_c03_{kind}_spawns`;\n'
         text += f'CREATE TEMPORARY TABLE `bs_c03_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'

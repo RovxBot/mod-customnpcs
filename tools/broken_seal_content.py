@@ -88,7 +88,7 @@ def quest_poi_rows(data, actor_points):
     for quest in data['quests']:
         slots={key:index for index,key in enumerate(quest.get('credits',{}))}
         slots.update({key:index+4 for index,key in enumerate(quest.get('required_items',{}))})
-        locations=[(-1,actor_points[quest['turn_in']])]
+        locations=[(-1,quest.get('turn_in_point') or actor_points[quest['turn_in']])]
         locations += [(slots[key],point) for key,names in quest['objective_locations'].items() for point in names]
         for blob,(objective,point) in enumerate(locations):
             position=data['points'][point]

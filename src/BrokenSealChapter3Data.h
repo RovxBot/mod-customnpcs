@@ -95,6 +95,13 @@ enum Id : std::uint32_t
     TEXT_DEZCO = 4001464,
     SPELL_POISON = 744,
     TEXT_NALA_TWINS = 4001465,
+    NPC_OUTRIDER = 4001417,
+    NPC_POOL_GUIDE = 4001418,
+    NPC_POOL_GUARD = 4001419,
+    CREDIT_POOL_GUARD = 4001466,
+    ITEM_POISON_BLADE = 900315,
+    NPC_DOMINATOR = 4001420,
+    SPELL_POOL_HEAL = 2061,
 };
 
 struct Point
@@ -141,9 +148,9 @@ inline constexpr Point village_sign = {-4533.0000f, -3233.0000f, 30.0354f, 3.140
 inline constexpr Point raider_0 = {-3940.0000f, -3620.0000f, 35.3329f, 3.1400f};
 inline constexpr Point raider_1 = {-3935.0000f, -3617.0000f, 35.1653f, 3.1400f};
 inline constexpr Point raider_2 = {-3938.0000f, -3627.0000f, 34.9659f, 3.1400f};
-inline constexpr Point raider_3 = {-3898.0000f, -3550.0000f, 37.5560f, 3.1400f};
-inline constexpr Point raider_4 = {-3986.0000f, -3592.0000f, 35.1444f, 3.1400f};
-inline constexpr Point raider_5 = {-4007.0000f, -3586.0000f, 30.9076f, 3.1400f};
+inline constexpr Point raider_3 = {-3735.0000f, -3360.0000f, 32.1422f, 3.1400f};
+inline constexpr Point raider_4 = {-3722.0000f, -3370.0000f, 29.1843f, 3.1400f};
+inline constexpr Point raider_5 = {-3745.0000f, -3378.0000f, 29.8073f, 3.1400f};
 inline constexpr Point raider_6 = {-3913.2700f, -3606.5800f, 30.7396f, 3.1400f};
 inline constexpr Point raider_7 = {-3888.2300f, -3596.1500f, 30.8409f, 3.1400f};
 inline constexpr Point hexer_0 = {-3945.0000f, -3621.0000f, 35.6982f, 3.1400f};
@@ -169,6 +176,11 @@ inline constexpr Point herb_8 = {-4020.9800f, -3554.9800f, 31.2705f, 3.1400f};
 inline constexpr Point herb_9 = {-4018.0000f, -3565.0000f, 32.2899f, 3.1400f};
 inline constexpr Point herb_10 = {-4025.0000f, -3505.0000f, 36.0122f, 3.1400f};
 inline constexpr Point herb_11 = {-3870.0000f, -3536.0000f, 39.2038f, 3.1400f};
+inline constexpr Point outrider = {-3720.0000f, -3350.0000f, 34.4858f, 3.1400f};
+inline constexpr Point pool_guide = {-3955.0000f, -3630.0000f, 30.1346f, 3.1400f};
+inline constexpr Point pool_guard_a = {-3945.0000f, -3635.0000f, 30.8385f, 3.1400f};
+inline constexpr Point pool_guard_b = {-3960.0000f, -3625.0000f, 31.2623f, 3.1400f};
+inline constexpr Point dominator = {-3935.0000f, -3624.0000f, 35.2215f, 3.1400f};
 }
 
 inline constexpr std::array<std::uint32_t, 3> LookoutCredits =
@@ -196,9 +208,9 @@ inline constexpr std::array<std::uint32_t, 3> SupplyEntries =
     GO_SUPPLY_A, GO_SUPPLY_B, GO_SUPPLY_C
 };
 
-inline constexpr std::array<std::uint32_t, 6> PersonalEntries =
+inline constexpr std::array<std::uint32_t, 7> PersonalEntries =
 {
-    NPC_LEZA, NPC_REDHORN, NPC_CLOUDHOOF, NPC_DEZCO_SCENE, NPC_NALA_SCENE, NPC_SCENE
+    NPC_LEZA, NPC_REDHORN, NPC_CLOUDHOOF, NPC_DEZCO_SCENE, NPC_NALA_SCENE, NPC_SCENE, NPC_POOL_GUARD
 };
 
 }

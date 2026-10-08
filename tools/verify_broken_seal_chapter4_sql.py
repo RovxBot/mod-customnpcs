@@ -99,10 +99,12 @@ def main():
                 sum(len(o['points']) for o in data['objects']))
             assert run('SELECT COUNT(*) FROM item_template WHERE entry BETWEEN 900410 AND 900415 AND InventoryType=11;', database).stdout.strip() == '6'
             assert run('SELECT NextQuestID FROM quest_template_addon WHERE ID=900411;', database).stdout.strip() == '0'
-            assert run('SELECT ProvidedItemCount FROM quest_template_addon WHERE ID IN (900405,900406,900408,900411);',database).stdout.split() == ['1']*4
+            assert run('SELECT ProvidedItemCount FROM quest_template_addon WHERE ID IN (900405,900406,900408,900411) ORDER BY ID;',database).stdout.split() == ['0','1','1','1']
             assert run('SELECT RequiredNpcOrGoCount1 FROM quest_template WHERE ID=900406;', database).stdout.strip() == '8'
             assert run('SELECT RequiredNpcOrGoCount1,RequiredNpcOrGoCount2,RequiredNpcOrGoCount3 FROM quest_template WHERE ID=900408;', database).stdout.split() == ['8','1','1']
-            personal=','.join(str(ids[k]) for k in data['arrays']['PersonalEntries'])
+            actors={a['key']:a for a in data['actors']}
+            personal=','.join(str(ids[k]) for k in data['arrays']['PersonalEntries']
+                              if not actors[k].get('point') and not actors[k].get('points'))
             assert run('SELECT COUNT(*) FROM creature WHERE '+col+' IN ('+personal+');', database).stdout.strip() == '0'
             assert run('SELECT map,zoneId FROM creature WHERE '+col+'=4001604;',database).stdout.split() == ['0','47']
             assert run('SELECT MapID,WorldMapAreaId FROM quest_poi WHERE QuestID=900411 AND ObjectiveIndex=-1;',database).stdout.split() == ['0','26']
@@ -111,7 +113,7 @@ def main():
             assert run('SELECT Chapter FROM mod_customnpcs_bs_content WHERE kind="creature" AND entry=4001405;', database).stdout.strip() == '3'
             print('Passed', 'legacy creature.id' if legacy else 'native creature.id1', 'Chapter 4 import/reimport, ALL join, shared Mei, both maps, quest progress and C01-C03 GUID preservation.')
 
-        for table, col, entry in [('creature_template','entry',4001600),('gameobject_template','entry',4001700),
+        for table, col, entry in [('creature_template','entry',4001600),('gameobject_template','entry',4001702),
                                   ('quest_template','ID',900400),('item_template','entry',900400),
                                   ('mod_customnpcs_outfit','outfit_id',4001601),
                                   ('mod_customnpcs_outfit_entry','creature_entry',4001600),('npc_text','ID',4001600),

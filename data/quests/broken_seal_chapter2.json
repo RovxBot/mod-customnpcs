@@ -124,7 +124,7 @@
     "ITEM_BALANCE": 900221,
     "NPC_ORTELL": 4001001,
     "NPC_PRISONER": 4001002,
-    "QUEST_C01_END": 900108,
+    "QUEST_C01_END": 900107,
     "SPELL_DISGUISE": 4329,
     "SPELL_FIRE_FORM": 4933,
     "SPELL_BLACKJACK": 41358,
@@ -138,7 +138,18 @@
     "GO_TERRITORY": 4001321,
     "SPELL_SHOOT": 6660,
     "SPELL_SHADOW_BOLT": 20816,
-    "SPELL_POISON": 744
+    "SPELL_POISON": 744,
+    "NPC_SUPPLICANT_D": 4001230,
+    "NPC_BASILISK": 4001231,
+    "NPC_ORTELL_SCENE": 4001232,
+    "NPC_BLAZING_TRAINER": 4001233,
+    "CREDIT_SUPPLICANT_D": 4001275,
+    "GO_HIDEOUT": 4001322,
+    "ITEM_PICK": 900222,
+    "ITEM_MEAT": 900223,
+    "ITEM_ASCENDANT_STRIKE": 900224,
+    "ITEM_FLAME_SHIELD": 900225,
+    "SPELL_FLAME_SHIELD": 2947
   },
   "points": {
     "condenna": [
@@ -174,7 +185,7 @@
     "prison": [
       895.0,
       1682.0,
-      -18.985879877982,
+      -19.578662229356624,
       3.14
     ],
     "refuge": [
@@ -186,19 +197,19 @@
     "rendezvous": [
       869.0,
       1666.0,
-      -19.745591491613013,
+      -19.89300954133592,
       3.14
     ],
     "recruit_start": [
-      885.0,
-      1670.0,
-      -19.126708818341015,
+      950,
+      1600,
+      -12.099722523076988,
       3.14
     ],
     "recruit_hide": [
-      874.0,
-      1666.0,
-      -17.63443203082455,
+      965,
+      1577,
+      -7.83661356606105,
       3.14
     ],
     "supplicant_a": [
@@ -234,31 +245,31 @@
     "course_start": [
       650.0,
       1637.0,
-      -17.694322389255138,
+      -17.63983043495831,
       3.14
     ],
     "check_a": [
       657.0,
       1637.0,
-      -18.62469819803956,
+      -18.57020624374273,
       3.14
     ],
     "check_b": [
       657.0,
       1616.0,
-      -19.319736655731827,
+      -19.265244701434998,
       3.14
     ],
     "check_c": [
       625.0,
       1616.0,
-      -16.07512208654335,
+      -16.02063013224652,
       3.14
     ],
     "check_d": [
       625.0,
       1635.0,
-      -16.688717955318157,
+      -16.63422600102133,
       3.14
     ],
     "dog_a": [
@@ -304,33 +315,33 @@
       3.14
     ],
     "discord": [
-      883.0,
-      1675.0,
-      -19.740699647798067,
+      735,
+      1410,
+      -12.031645164044452,
       3.14
     ],
     "karrgonn": [
-      881.0,
-      1674.0,
-      -19.796891420974063,
+      741,
+      1414,
+      -12.619624077288677,
       3.14
     ],
     "azennios": [
-      885.0,
-      1675.0,
-      -19.836026171492676,
+      735,
+      1410,
+      -12.031645164044452,
       3.14
     ],
     "garnoth": [
-      654.0,
-      1624.0,
-      -17.974739597444334,
+      720,
+      1480,
+      -16.501709292519507,
       3.14
     ],
     "okrog": [
-      887.0,
-      1677.0,
-      -19.722322180493663,
+      735,
+      1555,
+      -22.40663468060321,
       3.14
     ],
     "podium": [
@@ -358,9 +369,9 @@
       3.14
     ],
     "buyers": [
-      894.0,
-      1688.0,
-      -19.284569940365806,
+      732,
+      1404,
+      -11.893605226806162,
       3.14
     ],
     "restraint": [
@@ -520,9 +531,9 @@
       3.14
     ],
     "horrorguard_0": [
-      887.0,
-      1677.0,
-      -19.176529574765752,
+      810,
+      1815,
+      -11.78563779620658,
       3.14
     ],
     "horrorguard_1": [
@@ -616,9 +627,99 @@
       3.14
     ],
     "garnoth_foe": [
-      657.0,
-      1624.0,
-      -19.0086435068097,
+      724,
+      1482,
+      -17.153366720058685,
+      3.14
+    ],
+    "hideout": [
+      590,
+      1630,
+      -12.771766848553241,
+      3.14
+    ],
+    "discord_exit": [
+      767,
+      1421,
+      -14.520762879071054,
+      3.14
+    ],
+    "okrog_exit": [
+      758,
+      1570,
+      -25.834382075091007,
+      3.14
+    ],
+    "fire_chaser": [
+      651,
+      1620,
+      -18.90948451056292,
+      3.14
+    ],
+    "supplicant_d": [
+      648,
+      1634,
+      -17.71904770762207,
+      3.14
+    ],
+    "lodestone_0": [
+      591,
+      1639,
+      -11.577667946940055,
+      3.14
+    ],
+    "lodestone_1": [
+      610,
+      1662,
+      -16.66981293419816,
+      3.14
+    ],
+    "lodestone_2": [
+      636,
+      1680,
+      -17.726318986208327,
+      3.14
+    ],
+    "lodestone_3": [
+      661,
+      1666,
+      -20.744189983979446,
+      3.14
+    ],
+    "lodestone_4": [
+      677,
+      1640,
+      -21.50559886315956,
+      3.14
+    ],
+    "basilisk_0": [
+      728,
+      1745,
+      -22.063533863179558,
+      3.14
+    ],
+    "basilisk_1": [
+      745,
+      1770,
+      -18.400864965814783,
+      3.14
+    ],
+    "basilisk_2": [
+      758,
+      1744,
+      -20.89649858335295,
+      3.14
+    ],
+    "basilisk_3": [
+      784,
+      1758,
+      -19.065362452662896,
+      3.14
+    ],
+    "basilisk_4": [
+      782,
+      1737,
+      -21.59100819306522,
       3.14
     ]
   },
@@ -807,7 +908,7 @@
     {
       "key": "NPC_RECRUIT",
       "entry": 4001206,
-      "name": "Isolated Twilight Recruit",
+      "name": "Twilight Recruit",
       "point": null,
       "display": 11824,
       "faction": 35,
@@ -1046,7 +1147,9 @@
       "type": 3,
       "script": "npc_bs_c02_enemy",
       "scale": 0.6,
-      "experience_multiplier": 0
+      "experience_multiplier": 0,
+      "health_multiplier": 8,
+      "damage_multiplier": 5
     },
     {
       "key": "NPC_GROMMKO",
@@ -1373,20 +1476,127 @@
       "type": 1,
       "script": "npc_bs_c02_enemy",
       "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_SUPPLICANT_D",
+      "entry": 4001230,
+      "name": "Immolated Supplicant",
+      "point": null,
+      "display": 11824,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 27,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "chest": 6238,
+        "waist": 6570,
+        "legs": 6568,
+        "hands": 14089,
+        "mainhand": 4575,
+        "class": 1
+      },
+      "experience_multiplier": 0,
+      "native_appearance": true,
+      "fallback_texture_extra": 8393,
+      "greeting": "Cargall said the gem would hold the flame. You have it, do you not?"
+    },
+    {
+      "key": "NPC_BASILISK",
+      "entry": 4001231,
+      "name": "Spinescale Basilisk",
+      "point": null,
+      "display": 141,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 26,
+      "type": 1,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "points": [
+        "basilisk_0",
+        "basilisk_1",
+        "basilisk_2",
+        "basilisk_3",
+        "basilisk_4"
+      ],
+      "experience_multiplier": 1,
+      "ordinary_loot": {
+        "level": 27,
+        "mingold": 28,
+        "maxgold": 94,
+        "items": [
+          [
+            1702,
+            65,
+            1,
+            2
+          ],
+          [
+            3667,
+            35,
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "key": "NPC_ORTELL_SCENE",
+      "entry": 4001232,
+      "name": "Elementalist Ortell",
+      "race": 1,
+      "gender": 0,
+      "outfit": {
+        "race": 1,
+        "gender": 0,
+        "class": 1,
+        "skin": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "facial_hair": 0,
+        "chest": 9748,
+        "mainhand": 4575,
+        "legs": 9747
+      },
+      "fallback_display": 5075,
+      "point": null,
+      "script_role": "contact",
+      "npc_flags": 0,
+      "level": 30,
+      "faction": 35,
+      "native_model_path": "Character\\Human\\Male\\HumanMale.mdx",
+      "fallback_texture_extra": 3286,
+      "display": 5075,
+      "flags": 770,
+      "type": 7,
+      "script": "npc_bs_c02_actor",
+      "scale": 1,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_BLAZING_TRAINER",
+      "entry": 4001233,
+      "name": "Blazing Trainer",
+      "point": null,
+      "display": 2172,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 25,
+      "type": 4,
+      "script": "npc_bs_c02_enemy",
+      "scale": 1,
+      "experience_multiplier": 0
     }
   ],
   "objects": [
-    {
-      "key": "GO_RENDEZVOUS",
-      "entry": 4001300,
-      "name": "Recruit Watch Roster",
-      "display": 6420,
-      "points": [
-        "rendezvous"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
     {
       "key": "GO_FLOWER",
       "entry": 4001301,
@@ -1403,120 +1613,25 @@
         "flower_7"
       ],
       "scale": 1,
-      "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx"
+      "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx",
+      "quest": "QUEST_BLOOM"
     },
     {
       "key": "GO_STONES",
       "entry": 4001302,
-      "name": "Training Stone Pile",
-      "display": 235,
+      "name": "Darkwhisper Lodestone",
+      "display": 312,
       "points": [
-        "stones"
-      ],
-      "scale": 0.3,
-      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
-    },
-    {
-      "key": "GO_DELIVERY",
-      "entry": 4001303,
-      "name": "Training Load Crate",
-      "display": 6737,
-      "points": [
-        "delivery"
+        "lodestone_0",
+        "lodestone_1",
+        "lodestone_2",
+        "lodestone_3",
+        "lodestone_4"
       ],
       "scale": 0.65,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
-    },
-    {
-      "key": "GO_COURSE_START",
-      "entry": 4001304,
-      "name": "Agility Course Starting Tablet",
-      "display": 6420,
-      "points": [
-        "course_start"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
-    {
-      "key": "GO_CHECK_A",
-      "entry": 4001305,
-      "name": "Agility Course: Checkpoint A",
-      "display": 6420,
-      "points": [
-        "check_a"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
-    {
-      "key": "GO_CHECK_B",
-      "entry": 4001306,
-      "name": "Agility Course: Checkpoint B",
-      "display": 6420,
-      "points": [
-        "check_b"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
-    {
-      "key": "GO_CHECK_C",
-      "entry": 4001307,
-      "name": "Agility Course: Checkpoint C",
-      "display": 6420,
-      "points": [
-        "check_c"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
-    {
-      "key": "GO_CHECK_D",
-      "entry": 4001308,
-      "name": "Agility Course: Checkpoint D",
-      "display": 6420,
-      "points": [
-        "check_d"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
-    {
-      "key": "GO_DOG_A",
-      "entry": 4001309,
-      "name": "First Hound Feeding Station",
-      "display": 6737,
-      "points": [
-        "dog_a"
-      ],
-      "scale": 0.5,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
-      "decorative": true
-    },
-    {
-      "key": "GO_DOG_B",
-      "entry": 4001310,
-      "name": "Second Hound Feeding Station",
-      "display": 6737,
-      "points": [
-        "dog_b"
-      ],
-      "scale": 0.5,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
-      "decorative": true
-    },
-    {
-      "key": "GO_DOG_C",
-      "entry": 4001311,
-      "name": "Third Hound Feeding Station",
-      "display": 6737,
-      "points": [
-        "dog_c"
-      ],
-      "scale": 0.5,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
-      "decorative": true
+      "native_model": "World\\SkillActivated\\TradeskillNodes\\Iron_Miningnode_01.mdx",
+      "quest": "QUEST_LABOR",
+      "decorative": false
     },
     {
       "key": "GO_COMMUNIQUE",
@@ -1527,7 +1642,8 @@
         "communique"
       ],
       "scale": 1,
-      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx"
+      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx",
+      "quest": "QUEST_INTELLIGENCE"
     },
     {
       "key": "GO_PLANS",
@@ -1538,51 +1654,8 @@
         "plans"
       ],
       "scale": 1,
-      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx"
-    },
-    {
-      "key": "GO_DROP",
-      "entry": 4001314,
-      "name": "Ortell's Sealed Message Crate",
-      "display": 6737,
-      "points": [
-        "drop"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
-    },
-    {
-      "key": "GO_DISCORD",
-      "entry": 4001315,
-      "name": "Azennios's Meeting Tablet",
-      "display": 6420,
-      "points": [
-        "discord"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
-    },
-    {
-      "key": "GO_GARNOTH",
-      "entry": 4001316,
-      "name": "Garnoth's Challenge Stone",
-      "display": 235,
-      "points": [
-        "garnoth"
-      ],
-      "scale": 0.3,
-      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
-    },
-    {
-      "key": "GO_OKROG",
-      "entry": 4001317,
-      "name": "Okrog's Speaking Roster",
-      "display": 6420,
-      "points": [
-        "okrog"
-      ],
-      "scale": 0.65,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx"
+      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx",
+      "quest": "QUEST_INTELLIGENCE"
     },
     {
       "key": "GO_PODIUM",
@@ -1593,18 +1666,21 @@
         "podium"
       ],
       "scale": 0.65,
-      "native_model": "World\\Generic\\Human\\Passive Doodads\\Altars\\Altar02.mdx"
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\Altars\\Altar02.mdx",
+      "quest": "QUEST_SPEECH"
     },
     {
       "key": "GO_PRISON",
       "entry": 4001319,
-      "name": "Broken Restraint Tablet",
-      "display": 6419,
+      "name": "Jarod's Broken Shackles",
+      "display": 181,
       "points": [
         "prison"
       ],
-      "scale": 0.55,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx"
+      "scale": 0.7,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\BallandChain\\BallAndChain01.mdx",
+      "decorative": true,
+      "quest": null
     },
     {
       "key": "GO_BUYERS",
@@ -1615,18 +1691,21 @@
         "buyers"
       ],
       "scale": 0.65,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
+      "quest": "QUEST_BUYERS"
     },
     {
-      "key": "GO_TERRITORY",
-      "entry": 4001321,
-      "name": "Horrorguard Calling Tablet",
-      "display": 6419,
-      "scale": 0.55,
+      "key": "GO_HIDEOUT",
+      "entry": 4001322,
+      "name": "Outhouse Hideout",
+      "display": 3332,
       "points": [
-        "horrorguard_0"
+        "hideout"
       ],
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx"
+      "scale": 0.75,
+      "decorative": false,
+      "native_model": "World\\Azeroth\\Westfall\\PassiveDoodads\\Outhouse\\OutHouse.mdx",
+      "questgiver": true
     }
   ],
   "items": [
@@ -1945,6 +2024,56 @@
         ]
       ],
       "description": "Given in gratitude for freeing Jarod and uncovering the cult's buyers."
+    },
+    {
+      "key": "ITEM_PICK",
+      "entry": 900222,
+      "name": "Twilight Pick",
+      "display": 6568,
+      "icon_donor_item": 2901,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_OPENING",
+      "description": "Use on the lodestone deposits in the training gorge. No mining skill is required."
+    },
+    {
+      "key": "ITEM_MEAT",
+      "entry": 900223,
+      "name": "Charred Basilisk Meat",
+      "display": 25466,
+      "icon_donor_item": 27668,
+      "maxcount": 5,
+      "stackable": 5,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "Feed one piece to your summoned hound. Acquired from Spinescale Basilisks."
+    },
+    {
+      "key": "ITEM_ASCENDANT_STRIKE",
+      "entry": 900224,
+      "name": "Ascendant Strike Focus",
+      "display": 8466,
+      "icon_donor_item": 1292,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_STRIKE",
+      "description": "Use on Garnoth while ascended. Deals five percent of his maximum health; 1.5 second recharge."
+    },
+    {
+      "key": "ITEM_FLAME_SHIELD",
+      "entry": 900225,
+      "name": "Flame Shield Focus",
+      "display": 6373,
+      "icon_donor_item": 1322,
+      "maxcount": 1,
+      "stackable": 1,
+      "script": "item_bs_c02_tool",
+      "spell": "SPELL_FLAME_SHIELD",
+      "description": "Use while ascended near Garnoth. Reduces his damage by 95 percent for ten seconds; six second recharge."
     }
   ],
   "quests": [
@@ -1974,21 +2103,22 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1000,
-      "objectives": "Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.",
-      "description": "Ortell keeps his voice low. A recruit makes the watch circuit below our camp. Use the Recruit Watch Roster to lure a recruit into the hollow, wait until he reaches cover, then use my blackjack on him. Bring back his papers. We can borrow his place without taking his life.",
-      "completion": "He will wake with a sore head, and nothing worse. These papers give us a way inside. Now I must make their seal speak for you.",
+      "objectives": "Speak to a Twilight Recruit at the road checkpoint, lure him into cover, and use the blackjack to take his papers.",
+      "description": "A small recruit group uses the eastern road checkpoint, away from Jarod's ritual camp. Speak to one recruit and convince him that an instructor is waiting in the hollow. Follow him there, then use the blackjack. His signed recruitment papers will let me forge an identity that gets you past the instructors.",
+      "completion": "His sponsor has already signed. I can change the bearer's name and leave the seal intact. Now we have a way into the cult, rather than another excuse to run at the altar.",
       "objective_labels": {
         "CREDIT_KNOCKOUT": "Recruit subdued in cover"
       },
       "objective_locations": {
         "CREDIT_KNOCKOUT": [
-          "rendezvous"
+          "recruit_start",
+          "recruit_hide"
         ],
         "ITEM_PAPERS": [
-          "rendezvous"
+          "recruit_hide"
         ]
       },
-      "request_text": "The recruit must live. Have you brought his papers?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Elementalist Ortell at the expedition refuge."
     },
     {
@@ -2018,7 +2148,7 @@
       "xp_difficulty": 5,
       "money": 1000,
       "objectives": "Present the altered papers to Condenna and pass the identity check.",
-      "description": "The recruit has a name, a sponsor and an appointment with Condenna. These altered papers now bear your description. Speak to Condenna at the western training camp to pass her identity check. Keep your cover using the papers; if the disguise is lost, Condenna or Ortell can renew it.",
+      "description": "These forged papers give you a recruit's identity. Present them to Condenna at the recruiting compound. Once you are admitted, find my concealed contact at the outhouse just outside the western edge of the training grounds. Bring intelligence and reports there so you can remain inside the cult.",
       "completion": "The seal is in order. Remember whose banner shelters you, recruit. Your first trial begins with fire.",
       "objective_labels": {
         "CREDIT_IDENTITY": "Papers presented to Condenna"
@@ -2086,15 +2216,15 @@
       ],
       "credits": {},
       "required_items": {
-        "ITEM_BLOSSOMS": 8
+        "ITEM_BLOSSOMS": 5
       },
       "source_item": null,
       "recovery_items": [],
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1000,
-      "objectives": "Collect 8 flame blossoms while avoiding Smolderos.",
-      "description": "Collect eight Flame Blossoms from the grove west of camp. Smolderos prowls among the patches. He sees through our robes; keep clear of him, and never mistake a uniform for protection.",
+      "objectives": "Gather 5 Flame Blossoms from the proving grounds. Avoid Smolderos.",
+      "description": "Flame blossoms grow in the proving fields southeast of our camp. Bring back five. Smolderos prowls those fields and the fiery instructors use them for trials, so pay attention to the ground around you.",
       "completion": "Good. These blossoms will feed the brazier. Cargall will decide whether you are useful beyond gathering fuel.",
       "exclusive_group": -900205,
       "objective_labels": {},
@@ -2110,7 +2240,7 @@
           "flower_7"
         ]
       },
-      "request_text": "The brazier needs eight blossoms. Where are they?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Condenna the Pitiless at the Twilight recruiting compound."
     },
     {
@@ -2129,7 +2259,8 @@
       "credits": {
         "CREDIT_SUPPLICANT_A": 1,
         "CREDIT_SUPPLICANT_B": 1,
-        "CREDIT_SUPPLICANT_C": 1
+        "CREDIT_SUPPLICANT_C": 1,
+        "CREDIT_SUPPLICANT_D": 1
       },
       "required_items": {},
       "source_item": "ITEM_GEM",
@@ -2139,14 +2270,15 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1000,
-      "objectives": "Use the binding gem to preserve 3 burning supplicants before their timers expire.",
-      "description": "Cargall has left three supplicants burning in the training hollow. Ask him to begin the preservation trial, then use the binding gem on each before their forty-five seconds expire. The gem preserves a living recruit for the cult. Failed attempts can be restarted, and saved recruits remain credited.",
+      "objectives": "Use the Frostgale Crystal to extinguish the flames on four immolated supplicants.",
+      "description": "Ask Cargall to prepare the trial, then use the supplied crystal on the four burning recruits in the training yard. They will not survive long. Saved recruits remain recorded if the attempt is interrupted; Cargall can prepare the remaining recruits and replace a lost crystal.",
       "completion": "All three survived. The cult wastes nothing that can still serve. You may continue.",
       "exclusive_group": -900205,
       "objective_labels": {
         "CREDIT_SUPPLICANT_A": "First supplicant preserved",
         "CREDIT_SUPPLICANT_B": "Second supplicant preserved",
-        "CREDIT_SUPPLICANT_C": "Third supplicant preserved"
+        "CREDIT_SUPPLICANT_C": "Third supplicant preserved",
+        "CREDIT_SUPPLICANT_D": "Fourth supplicant saved"
       },
       "objective_locations": {
         "CREDIT_SUPPLICANT_A": [
@@ -2157,9 +2289,12 @@
         ],
         "CREDIT_SUPPLICANT_C": [
           "cargall"
+        ],
+        "CREDIT_SUPPLICANT_D": [
+          "cargall"
         ]
       },
-      "request_text": "Three supplicants are still of use to us. Did you preserve every one?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Instructor Cargall at the Twilight recruiting compound."
     },
     {
@@ -2222,24 +2357,29 @@
         "CREDIT_LOADS": 5
       },
       "required_items": {},
-      "source_item": null,
-      "recovery_items": [],
+      "source_item": "ITEM_PICK",
+      "recovery_items": [
+        "ITEM_PICK"
+      ],
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1040,
-      "objectives": "Carry 5 training stones between the marked work stations.",
-      "description": "Use the Training Stone Pile beside Mylva to take one heavy load. Carry it on foot to the Stone Delivery Station to the south. Deliver five loads; each delivery must follow a fresh pickup. Combat, mounting or abandoning the quest drops the current load.",
+      "objectives": "Use the Twilight Pick to break 5 Darkwhisper Lodestones in the training gorge.",
+      "description": "Take this pick out into the gorge and break five lodestone deposits. The work is the test; there is no ore to carry back. The deposits follow a loop south and west of the training compound. Use the pick on a deposit after clearing any trouble around it. I can replace a lost pick.",
       "completion": "Five loads, delivered without excuse. Strength is only useful when it obeys.",
       "objective_labels": {
-        "CREDIT_LOADS": "Stone loads delivered"
+        "CREDIT_LOADS": "Darkwhisper lodestones broken"
       },
       "objective_locations": {
         "CREDIT_LOADS": [
-          "stones",
-          "delivery"
+          "lodestone_0",
+          "lodestone_1",
+          "lodestone_2",
+          "lodestone_3",
+          "lodestone_4"
         ]
       },
-      "request_text": "Five loads. Count them yourself before you report to me.",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Instructor Mylva at the Twilight recruiting compound."
     },
     {
@@ -2264,22 +2404,18 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1040,
-      "objectives": "Complete the 4-checkpoint obstacle route before the time expires.",
-      "description": "Use the Agility Course Starting Tablet west of Mylva. Pass markers A, B, C and D in that order within sixty seconds, on the ground and on foot. Combat, mounting, flying or leaving the course resets this attempt. A failed attempt can be restarted at the start marker.",
+      "objectives": "Stay alive and keep away from the Blazing Trainer for one minute inside the training grounds.",
+      "description": "Ask me to summon your Blazing Trainer. Run away for one minute without leaving the training grounds. He is slower than a running recruit, but standing still will hurt. You must remain alive, on foot and disguised.",
       "completion": "You reached every station in time. Keep that speed when the ground is less forgiving.",
       "objective_labels": {
         "CREDIT_COURSE": "Agility course completed"
       },
       "objective_locations": {
         "CREDIT_COURSE": [
-          "course_start",
-          "check_a",
-          "check_b",
-          "check_c",
-          "check_d"
+          "mylva"
         ]
       },
-      "request_text": "Did you finish the entire course in order?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Instructor Mylva at the Twilight recruiting compound."
     },
     {
@@ -2372,9 +2508,7 @@
         "QUEST_TRAINING"
       ],
       "credits": {
-        "CREDIT_DOG_A": 1,
-        "CREDIT_DOG_B": 1,
-        "CREDIT_DOG_C": 1
+        "CREDIT_DOG_A": 5
       },
       "required_items": {},
       "source_item": "ITEM_LEASH",
@@ -2384,27 +2518,26 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1080,
-      "objectives": "Take an owner-bound training hound through 3 feeding/handling stations.",
-      "description": "Use the leash near Devoran to call your own training core hound. Take it to feeding stations A, B and C in order, then command it to feed at each station through its gossip menu. Stay nearby. Lost hounds can be called again with the leash, and completed stations remain credited.",
+      "objectives": "Use the Fiery Leash to summon the hound, then feed it 5 pieces of meat looted from Spinescale Basilisks.",
+      "description": "Use the leash to bring out the Spawn of Smolderos. Take him to the basilisk hollow northwest of the proving fields, kill basilisks and loot their meat. Speak to your hound to feed him one piece at a time. Five meals will be enough. You can summon him again anywhere in the Vale after an interruption; his completed meals remain recorded.",
       "completion": "It knows your scent now. Trust grows from care repeated, not from a leash pulled harder.",
       "objective_labels": {
-        "CREDIT_DOG_A": "Hound fed at the first station",
-        "CREDIT_DOG_B": "Hound fed at the second station",
-        "CREDIT_DOG_C": "Hound fed at the third station"
+        "CREDIT_DOG_A": "Spawn of Smolderos fed"
       },
       "objective_locations": {
         "CREDIT_DOG_A": [
-          "dog_a"
-        ],
-        "CREDIT_DOG_B": [
-          "dog_b"
-        ],
-        "CREDIT_DOG_C": [
-          "dog_c"
+          "basilisk_0",
+          "basilisk_1",
+          "basilisk_2",
+          "basilisk_3",
+          "basilisk_4"
         ]
       },
-      "request_text": "A hound remembers its handler. Did you feed it at all three stations?",
-      "return_text": "Speak with Instructor Devoran at the Twilight recruiting compound."
+      "request_text": "Have you completed the work I asked you to do?",
+      "return_text": "Speak with Instructor Devoran at the Twilight recruiting compound.",
+      "item_drops": {
+        "ITEM_MEAT": 5
+      }
     },
     {
       "key": "QUEST_COLLAR",
@@ -2487,15 +2620,13 @@
       "title": "Gather the Intelligence",
       "level": 27,
       "min_level": 25,
-      "giver": "NPC_ORTELL",
-      "turn_in": "NPC_ORTELL",
+      "giver": "GO_HIDEOUT",
+      "turn_in": "GO_HIDEOUT",
       "previous": "QUEST_TRAINING",
       "prerequisites": [
         "QUEST_TRAINING"
       ],
-      "credits": {
-        "CREDIT_DROP": 1
-      },
+      "credits": {},
       "required_items": {
         "ITEM_COMMUNIQUE": 1,
         "ITEM_PLANS": 1
@@ -2505,16 +2636,11 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1080,
-      "objectives": "Recover the communique and battleplans from their caches, then check the dead drop.",
-      "description": "Recover the communique and battleplans from the guarded caches south of the camp. Use Ortell's dead drop with both documents before returning to him. The caches are still watched; keep your disguise ready.",
+      "objectives": "Recover the Twilight Communique from the recruiting compound and the Battleplans from the ritual compound.",
+      "description": "I can keep contact from this outhouse while you are inside the cult. Recover the communique from the recruiting compound's dispatch chest and the battleplans from the ritual compound's guarded command cache. These are two separate sites. Bring both documents directly back here; the delivery is part of the quest hand-in, not a separate drop-box task.",
       "completion": "These routes are more than troop movements. The cult is moving prisoners and relics under the same seal. We have very little time.",
-      "objective_labels": {
-        "CREDIT_DROP": "Documents checked at the dead drop"
-      },
+      "objective_labels": {},
       "objective_locations": {
-        "CREDIT_DROP": [
-          "drop"
-        ],
         "ITEM_COMMUNIQUE": [
           "communique"
         ],
@@ -2522,8 +2648,10 @@
           "plans"
         ]
       },
-      "request_text": "Bring both documents. Have you checked them at our dead drop?",
-      "return_text": "Speak with Elementalist Ortell at the expedition refuge."
+      "request_text": "Have you completed the work I asked you to do?",
+      "return_text": "Return to Ortell at the Outhouse Hideout west of the training grounds.",
+      "giver_kind": "gameobject",
+      "turn_in_kind": "gameobject"
     },
     {
       "key": "QUEST_DISCORD",
@@ -2532,8 +2660,8 @@
       "title": "Seeds of Discord",
       "level": 28,
       "min_level": 25,
-      "giver": "NPC_ORTELL",
-      "turn_in": "NPC_ORTELL",
+      "giver": "GO_HIDEOUT",
+      "turn_in": "GO_HIDEOUT",
       "previous": "QUEST_INTELLIGENCE",
       "prerequisites": [
         "QUEST_INTELLIGENCE"
@@ -2541,14 +2669,18 @@
       "credits": {
         "CREDIT_DISCORD": 1
       },
-      "required_items": {},
+      "required_items": {
+        "ITEM_KEY": 1
+      },
       "source_item": null,
-      "recovery_items": [],
+      "recovery_items": [
+        "ITEM_KEY"
+      ],
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1120,
-      "objectives": "Distract Karr'gonn, then defeat Azennios without revealing the handler.",
-      "description": "Use the Azennios's Meeting Tablet near the dead drop to begin a secret meeting. Speak to Karr'gonn to send him after a false order, then defeat Azennios while the distraction lasts. If Karr'gonn returns, withdraw and restart the scene. Never speak Ortell's name.",
+      "objectives": "Distract Karr'gonn and kill Azennios at the eastern rendezvous; recover the sacrificial key.",
+      "description": "The intelligence identifies Azennios, the envoy meeting Karr'gonn at the eastern rendezvous. Speak to the ogre and send him away with a convincing order, then kill Azennios before he returns. Azennios carries the key to the commander's restraints. Bring it here. A key alone will not get Jarod through an armed ceremony: your remaining training will win the speaking slot and provide the distraction we need.",
       "completion": "Azennios is gone, and Karr'gonn blames a false order. Their own suspicion has opened a path for us.",
       "exclusive_group": -900215,
       "objective_labels": {
@@ -2557,10 +2689,15 @@
       "objective_locations": {
         "CREDIT_DISCORD": [
           "discord"
+        ],
+        "ITEM_KEY": [
+          "discord"
         ]
       },
-      "request_text": "Did the diversion last long enough to deal with Azennios?",
-      "return_text": "Speak with Elementalist Ortell at the expedition refuge."
+      "request_text": "Have you completed the work I asked you to do?",
+      "return_text": "Return to Ortell at the Outhouse Hideout west of the training grounds.",
+      "giver_kind": "gameobject",
+      "turn_in_kind": "gameobject"
     },
     {
       "key": "QUEST_GREATER",
@@ -2583,13 +2720,15 @@
       "required_items": {},
       "source_item": "ITEM_TALISMAN",
       "recovery_items": [
-        "ITEM_TALISMAN"
+        "ITEM_TALISMAN",
+        "ITEM_ASCENDANT_STRIKE",
+        "ITEM_FLAME_SHIELD"
       ],
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1120,
       "objectives": "Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.",
-      "description": "Use the ascendancy talisman at Garnoth's Challenge Stone southwest of camp. It grants a fire-elemental form for this duel. Defeat Garnoth while the form remains active. The form ends when the encounter closes or you leave the valley.",
+      "description": "Garnoth waits at the Legion challenge ground on the eastern rim of the Vale. Use the talisman there to ascend. Your strike focus burns away five percent of his health with each blow; your shield focus holds off nearly all of his damage for ten seconds. Use the shield, keep striking, and defeat him before the ascendant form fades. Make room for both foci before using the talisman.",
       "completion": "Garnoth has fallen. The borrowed flame served its purpose; do not let its power persuade you to keep it.",
       "exclusive_group": -900217,
       "objective_labels": {
@@ -2597,7 +2736,7 @@
       },
       "objective_locations": {
         "CREDIT_GARNOTH": [
-          "garnoth"
+          "garnoth_foe"
         ]
       },
       "request_text": "Has Garnoth fallen to your borrowed flame?",
@@ -2627,8 +2766,8 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1120,
-      "objectives": "Use the calling tablet at the holding camp and defeat 10 Horrorguards while disguised.",
-      "description": "Use the calling tablet at the holding camp to challenge ten Horrorguards. They will be called one at a time; return to the tablet if your challenge is interrupted. These demons are rivals to the cult, not innocent travelers. Keep your cover intact throughout the challenge and as you return.",
+      "objectives": "Defeat 10 Horrorguards at the northwestern trial ground while disguised.",
+      "description": "The Horrorguards gather in the northwestern ravine, away from the prisoner altar. Go there while disguised and challenge ten of them. A rival will appear as you approach the trial ground, followed by the next when you win. Return to that ground to resume after an interruption.",
       "completion": "Ten demons defeated. You have earned the right to stand before the congregation.",
       "exclusive_group": -900217,
       "objective_labels": {
@@ -2649,8 +2788,8 @@
       "title": "Speech Writing for Dummies",
       "level": 28,
       "min_level": 25,
-      "giver": "NPC_ORTELL",
-      "turn_in": "NPC_ORTELL",
+      "giver": "GO_HIDEOUT",
+      "turn_in": "GO_HIDEOUT",
       "previous": "QUEST_GREATER",
       "prerequisites": [
         "QUEST_GREATER",
@@ -2659,9 +2798,7 @@
       "credits": {
         "CREDIT_OKROG": 1
       },
-      "required_items": {
-        "ITEM_NOTES": 1
-      },
+      "required_items": {},
       "source_item": null,
       "recovery_items": [
         "ITEM_NOTES"
@@ -2669,8 +2806,8 @@
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1120,
-      "objectives": "Remove the scheduled ogre speaker Okrog and receive Ortell's cue cards and take his place at the podium.",
-      "description": "Use Okrog's Speaking Roster south of the camp to confront the scheduled ogre speaker. Defeat him, then speak to Ortell for your cue cards. Your opening lies in the crowd, not in another prison assault.",
+      "objectives": "Kill Okrog as he leaves the ritual compound, then return to Ortell for the speech notes.",
+      "description": "Okrog is the scheduled speaker. He leaves the ritual compound along the southern watch road. Intercept him there and kill him, then return to this hideout. I will prepare the notes that let you take his place. Do not search a book or summon him from a marker: watch the road for the ogre.",
       "completion": "Okrog will not be taking the podium. Here are your notes. Give the crowd what it expects while you look for Jarod.",
       "objective_labels": {
         "CREDIT_OKROG": "Okrog defeated"
@@ -2678,13 +2815,12 @@
       "objective_locations": {
         "CREDIT_OKROG": [
           "okrog"
-        ],
-        "ITEM_NOTES": [
-          "ortell"
         ]
       },
-      "request_text": "Has Okrog's speaking slot become available? Keep the cue cards with you.",
-      "return_text": "Speak with Elementalist Ortell at the expedition refuge."
+      "request_text": "Have you completed the work I asked you to do?",
+      "return_text": "Return to Ortell at the Outhouse Hideout west of the training grounds.",
+      "giver_kind": "gameobject",
+      "turn_in_kind": "gameobject"
     },
     {
       "key": "QUEST_HEAD",
@@ -2693,34 +2829,27 @@
       "title": "Head of the Class",
       "level": 29,
       "min_level": 25,
-      "giver": "NPC_ORTELL",
+      "giver": "GO_HIDEOUT",
       "turn_in": "NPC_MYLVA",
       "previous": "QUEST_WRITING",
       "prerequisites": [
         "QUEST_WRITING"
       ],
-      "credits": {
-        "CREDIT_HEAD": 1
-      },
+      "credits": {},
       "required_items": {},
       "source_item": null,
       "recovery_items": [],
       "reward_choices": [],
       "xp_difficulty": 4,
       "money": 1160,
-      "objectives": "Receive the handler's final instruction and report to Mylva for the speaking slot.",
-      "description": "Ask Ortell for the final instruction, then report to Mylva. An initiate who can hold the crowd may approach the altar. Use their expectations to bring Jarod within reach.",
+      "objectives": "Speak to Mylva at the training compound to claim the speaking slot.",
+      "description": "Okrog is gone and the instructions are ready. Report to Mylva at the training compound and claim your place at the initiation podium. Read the crowd carefully. The key is ready; the speech must draw the guards away from Jarod.",
       "completion": "Ortell has prepared you. I will put your name before the congregation. Take your place at the podium.",
-      "objective_labels": {
-        "CREDIT_HEAD": "Ortell's final instruction received"
-      },
-      "objective_locations": {
-        "CREDIT_HEAD": [
-          "ortell"
-        ]
-      },
-      "request_text": "Has Ortell given you the final instruction?",
-      "return_text": "Speak with Instructor Mylva at the Twilight recruiting compound."
+      "objective_labels": {},
+      "objective_locations": {},
+      "request_text": "Have you completed the work I asked you to do?",
+      "return_text": "Speak with Instructor Mylva at the Twilight recruiting compound.",
+      "giver_kind": "gameobject"
     },
     {
       "key": "QUEST_SPEECH",
@@ -2740,8 +2869,10 @@
         "CREDIT_ALTAR": 1
       },
       "required_items": {},
-      "source_item": null,
-      "recovery_items": [],
+      "source_item": "ITEM_NOTES",
+      "recovery_items": [
+        "ITEM_NOTES"
+      ],
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1160,
@@ -2782,13 +2913,15 @@
       "required_items": {
         "ITEM_KEY": 1
       },
-      "source_item": null,
-      "recovery_items": [],
+      "source_item": "ITEM_KEY",
+      "recovery_items": [
+        "ITEM_KEY"
+      ],
       "reward_choices": [],
       "xp_difficulty": 5,
       "money": 1160,
-      "objectives": "Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.",
-      "description": "Speak to Jarod to challenge his restraint guard. Defeat it and recover the prison key, then speak to Jarod again to unlock his bindings and begin the escape. Defeat three pairs of enforcers along the route and stay with him until he reaches Ortell's refuge. The key can be recovered again after a failed escape.",
+      "objectives": "Use the sacrificial key to free Jarod, then accompany him to the expedition refuge.",
+      "description": "The speech has turned the crowd against its guards. Use the key we recovered from Azennios to release Jarod, then stay with him as he leaves the compound. He will hurry along the escape route. Deal with any trouble that reaches you, but do not stop to hunt more cultists. Ortell can replace the key after a failed attempt if you already deposited Azennios's key.",
       "completion": "Jarod is here, alive. Let the cult shout at an empty altar. We can finally follow the people who paid for all this.",
       "objective_labels": {
         "CREDIT_RIOT": "Jarod escorted to the refuge"
@@ -2801,7 +2934,7 @@
           "prison"
         ]
       },
-      "request_text": "Where is Jarod? Bring him safely to the refuge, and keep the key.",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Elementalist Ortell at the expedition refuge."
     },
     {
@@ -2827,7 +2960,7 @@
       "xp_difficulty": 5,
       "money": 1160,
       "objectives": "Return to the quiet camp cache and recover the relic buyers' ledger.",
-      "description": "Ortell has found a name missing from the orders: the buyer. Return to the quiet ledger cache and recover the Relic Buyers Ledger. The cult's fire is only a curtain; someone has been buying what it digs from the earth.",
+      "description": "The recovered plans mention a buyer ledger at Azennios's eastern meeting post. Jarod is safe at the expedition refuge. Return to that separate post, recover the ledger from its correspondence chest, and bring it to Ortell at the refuge. There is no need to revisit the prisoner altar.",
       "completion": "These payments lead to excavations in Dustwallow. Jarod knows someone there who will listen. We will send you with his introduction.",
       "objective_labels": {},
       "objective_locations": {
@@ -3026,10 +3159,12 @@
         "complete": true,
         "navigation_polygons": 48
       }
-    ]
+    ],
+    "source_revision_ground_points": 95,
+    "source_revision": "2026-10-08: native tables and current terrain/navigation checks; live client acceptance remains pending."
   },
   "schema_version": 1,
-  "status": "Implemented; SQL, syntax, progression and native assets validated; live playthrough pending.",
+  "status": "source gameplay revision implemented; current validation and live-client acceptance recorded in the source review",
   "source_identity_references": {
     "NPC_CONDENNA": "https://wowpedia.fandom.com/wiki/Condenna_the_Pitiless",
     "NPC_MYLVA": "https://wowpedia.fandom.com/wiki/Instructor_Mylva",
@@ -3042,6 +3177,8 @@
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
     "placeholder_signs_removed": true,
-    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations",
+    "context_props": "Future trials use course flags, messages, a speaking book, shackles and a challenge brazier; scenery is unselectable.",
+    "source_audit": "2026-10-08: source gameplay, quest travel and interaction corrections; native-client substitutions recorded in source review."
   }
 }

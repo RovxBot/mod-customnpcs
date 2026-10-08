@@ -57,5 +57,15 @@ int main()
     assert(!CanDeliver(true, false, true, true));
     assert(!CanDeliver(true, true, false, true));
     assert(!CanDeliver(true, true, true, false));
+    assert(!CanFinishChase(safe, 59999, true));
+    assert(CanFinishChase(safe, 60000, true)); // Combat with the pursuer is expected.
+    assert(!CanFinishChase(safe, 60000, false));
+    auto outside = safe;
+    outside.distance = 90.01f;
+    assert(!CanFinishChase(outside, 60000, true));
+    assert(AscendantStrikeDamage(10000) == 500);
+    assert(AscendantStrikeDamage(1) == 1);
+    assert(FlameShieldDamage(2000, true) == 100);
+    assert(FlameShieldDamage(2000, false) == 2000);
     std::cout << "Chapter 2: replay, timeout, scene safety and delivery policy checks passed.\n";
 }

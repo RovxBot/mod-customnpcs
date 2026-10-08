@@ -100,6 +100,7 @@ INSERT INTO `bs_hub_guard` SELECT 1 WHERE
         text=text.replace("OR (`entry`=900311 AND `chapter`=3) OR (`entry`=900411 AND `chapter`=4)", "")
         text=text.replace(") <> 4", ") <> 2").replace("IN (900108,900222,900311,900411)", "IN (900108,900222)")
     for kind,table,col in [('creature','creature_template','entry'),('gameobject','gameobject_template','entry'),
+                           ('gameobject','gameobject_template_addon','entry'),
                            ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry'),
                            ('npc_text','npc_text','ID'),('gossip_menu','gossip_menu','MenuID')]:
         text+=f'''INSERT INTO `bs_hub_guard`
@@ -141,6 +142,7 @@ SELECT `kind`,`entry`,0 FROM `bs_hub_ids` ON DUPLICATE KEY UPDATE `chapter`=VALU
     text+=f'UPDATE `creature_template` SET `gossip_menu_id`=`entry` WHERE `entry` IN ({menus});\n'
     text+=upsert('gameobject_template',['entry','type','displayId','name','size'],
                 [[o['entry'],5,o['display'],o['name'],o['scale']] for o in objects],['entry'])
+    text+=upsert('gameobject_template_addon',['entry','flags'],[[o['entry'],16] for o in objects],['entry'])
     for kind in ['creature','gameobject']:
         text+=f'DROP TEMPORARY TABLE IF EXISTS `bs_hub_{kind}_spawns`;\n'
         text+=f'CREATE TEMPORARY TABLE `bs_hub_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `map` SMALLINT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'

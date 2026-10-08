@@ -63,7 +63,7 @@ class HubTests(unittest.TestCase):
 
     def test_scene_corridors_and_full_camp_coverage(self):
         self.assertTrue(DATA['validation']['corridors_clear'])
-        self.assertEqual(len(DATA['corridors']),26)
+        self.assertEqual(len(DATA['corridors']),29)
         from sys import path
         path.insert(0,str(ROOT/'tools'))
         from verify_broken_seal_hub_assets import intersects_route

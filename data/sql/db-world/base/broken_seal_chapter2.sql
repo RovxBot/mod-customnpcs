@@ -45,6 +45,10 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('creature', 4001227),
   ('creature', 4001228),
   ('creature', 4001229),
+  ('creature', 4001230),
+  ('creature', 4001231),
+  ('creature', 4001232),
+  ('creature', 4001233),
   ('creature', 4001250),
   ('creature', 4001251),
   ('creature', 4001252),
@@ -70,28 +74,15 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('creature', 4001272),
   ('creature', 4001273),
   ('creature', 4001274),
-  ('gameobject', 4001300),
+  ('creature', 4001275),
   ('gameobject', 4001301),
   ('gameobject', 4001302),
-  ('gameobject', 4001303),
-  ('gameobject', 4001304),
-  ('gameobject', 4001305),
-  ('gameobject', 4001306),
-  ('gameobject', 4001307),
-  ('gameobject', 4001308),
-  ('gameobject', 4001309),
-  ('gameobject', 4001310),
-  ('gameobject', 4001311),
   ('gameobject', 4001312),
   ('gameobject', 4001313),
-  ('gameobject', 4001314),
-  ('gameobject', 4001315),
-  ('gameobject', 4001316),
-  ('gameobject', 4001317),
   ('gameobject', 4001318),
   ('gameobject', 4001319),
   ('gameobject', 4001320),
-  ('gameobject', 4001321),
+  ('gameobject', 4001322),
   ('quest', 900200),
   ('quest', 900201),
   ('quest', 900202),
@@ -137,6 +128,10 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('item', 900219),
   ('item', 900220),
   ('item', 900221),
+  ('item', 900222),
+  ('item', 900223),
+  ('item', 900224),
+  ('item', 900225),
   ('outfit', 4001200),
   ('outfit', 4001201),
   ('outfit', 4001202),
@@ -154,6 +149,8 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('outfit', 4001225),
   ('outfit', 4001227),
   ('outfit', 4001228),
+  ('outfit', 4001230),
+  ('outfit', 4001232),
   ('outfit_entry', 4001200),
   ('outfit_entry', 4001201),
   ('outfit_entry', 4001202),
@@ -171,6 +168,8 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('outfit_entry', 4001225),
   ('outfit_entry', 4001227),
   ('outfit_entry', 4001228),
+  ('outfit_entry', 4001230),
+  ('outfit_entry', 4001232),
   ('npc_text', 4001200),
   ('npc_text', 4001201),
   ('npc_text', 4001202),
@@ -184,6 +183,7 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('npc_text', 4001210),
   ('npc_text', 4001211),
   ('npc_text', 4001212),
+  ('npc_text', 4001230),
   ('gossip_menu', 4001200),
   ('gossip_menu', 4001201),
   ('gossip_menu', 4001202),
@@ -197,6 +197,7 @@ INSERT INTO `bs_c02_ids` (`kind`, `entry`) VALUES
   ('gossip_menu', 4001210),
   ('gossip_menu', 4001211),
   ('gossip_menu', 4001212),
+  ('gossip_menu', 4001230),
   ('npc_text', 4001002),
   ('gossip_menu', 4001002);
 DROP TEMPORARY TABLE IF EXISTS `bs_c02_collision_guard`;
@@ -215,6 +216,10 @@ LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c02_collision_guard`
 SELECT 1 FROM `gameobject_template` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c02_collision_guard`
+SELECT 1 FROM `gameobject_template_addon` t INNER JOIN `bs_c02_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 2
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c02_collision_guard`
@@ -252,7 +257,7 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001203, 'Instructor Devoran', 30, 30, 0, 14, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 0),
   (4001204, 'Commander Jarod Shadowsong', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
   (4001205, 'Sunwalker Dezco', 30, 30, 0, 35, 3, 1, 770, 7, '', 'npc_bs_c02_contact', 1, 1, 0, 0, 2),
-  (4001206, 'Isolated Twilight Recruit', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001206, 'Twilight Recruit', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
   (4001207, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
   (4001208, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
   (4001209, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
@@ -262,7 +267,7 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001213, 'Twilight Ogre Initiate', 27, 27, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
   (4001214, 'Karr''gonn', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
   (4001215, 'High Cultist Azennios', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
-  (4001216, 'Garnoth, Fist of the Legion', 27, 27, 0, 14, 0, 1, 0, 3, '', 'npc_bs_c02_enemy', 1.3, 1, 0, 0, 0),
+  (4001216, 'Garnoth, Fist of the Legion', 27, 27, 0, 14, 0, 1, 0, 3, '', 'npc_bs_c02_enemy', 8, 5, 0, 0, 0),
   (4001217, 'Gromm''ko', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1.3, 1, 0, 0, 0),
   (4001218, 'Okrog', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1.3, 1, 0, 0, 0),
   (4001219, 'Twilight Restraint Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
@@ -276,6 +281,10 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001227, 'Twilight Guard', 27, 27, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001227, 0),
   (4001228, 'Twilight Scout', 26, 26, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001228, 0),
   (4001229, 'Butcher', 27, 27, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
+  (4001230, 'Immolated Supplicant', 27, 27, 0, 35, 1, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001231, 'Spinescale Basilisk', 26, 26, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c02_enemy', 1, 1, 1, 4001231, 0),
+  (4001232, 'Elementalist Ortell', 30, 30, 0, 35, 0, 1, 770, 7, '', 'npc_bs_c02_actor', 1, 1, 0, 0, 2),
+  (4001233, 'Blazing Trainer', 25, 25, 0, 14, 0, 1, 0, 4, '', 'npc_bs_c02_enemy', 1, 1, 0, 0, 0),
   (4001250, 'Knockout', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001251, 'Identity', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001252, 'Fire', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -300,10 +309,11 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001271, 'Head', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001272, 'Speech', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001273, 'Altar', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
-  (4001274, 'Riot', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2)
+  (4001274, 'Riot', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001275, 'Supplicant D', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2)
 ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001213, 4001214, 4001215, 4001216, 4001217, 4001218, 4001219, 4001220, 4001221, 4001222, 4001223, 4001224, 4001225, 4001226, 4001227, 4001228, 4001229, 4001250, 4001251, 4001252, 4001253, 4001254, 4001255, 4001256, 4001257, 4001258, 4001259, 4001260, 4001261, 4001262, 4001263, 4001264, 4001265, 4001266, 4001267, 4001268, 4001269, 4001270, 4001271, 4001272, 4001273, 4001274);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001213, 4001214, 4001215, 4001216, 4001217, 4001218, 4001219, 4001220, 4001221, 4001222, 4001223, 4001224, 4001225, 4001226, 4001227, 4001228, 4001229, 4001230, 4001231, 4001232, 4001233, 4001250, 4001251, 4001252, 4001253, 4001254, 4001255, 4001256, 4001257, 4001258, 4001259, 4001260, 4001261, 4001262, 4001263, 4001264, 4001265, 4001266, 4001267, 4001268, 4001269, 4001270, 4001271, 4001272, 4001273, 4001274, 4001275);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
   (4001200, 0, 11815, 1, 1),
   (4001201, 0, 11811, 1, 1),
@@ -335,6 +345,10 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
   (4001227, 0, 11812, 1, 1),
   (4001228, 0, 11816, 1, 1),
   (4001229, 0, 2571, 1, 1),
+  (4001230, 0, 11824, 1, 1),
+  (4001231, 0, 141, 1, 1),
+  (4001232, 0, 5075, 1, 1),
+  (4001233, 0, 2172, 1, 1),
   (4001250, 0, 11686, 1, 1),
   (4001251, 0, 11686, 1, 1),
   (4001252, 0, 11686, 1, 1),
@@ -359,7 +373,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
   (4001271, 0, 11686, 1, 1),
   (4001272, 0, 11686, 1, 1),
   (4001273, 0, 11686, 1, 1),
-  (4001274, 0, 11686, 1, 1);
+  (4001274, 0, 11686, 1, 1),
+  (4001275, 0, 11686, 1, 1);
 INSERT INTO `mod_customnpcs_outfit` (`outfit_id`, `race`, `gender`, `class`, `skin`, `face`, `hair`, `hair_color`, `facial_hair`, `chest`, `shoulders`, `shirt`, `waist`, `legs`, `feet`, `hands`, `mainhand`, `ranged`) VALUES
   (4001200, 1, 1, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
   (4001201, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
@@ -377,7 +392,9 @@ INSERT INTO `mod_customnpcs_outfit` (`outfit_id`, `race`, `gender`, `class`, `sk
   (4001220, 2, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 0),
   (4001225, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
   (4001227, 2, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 0),
-  (4001228, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 2504)
+  (4001228, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 12282, 2504),
+  (4001230, 1, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
+  (4001232, 1, 0, 1, 0, 0, 0, 0, 0, 9748, 0, 0, 0, 9747, 0, 0, 4575, 0)
 ON DUPLICATE KEY UPDATE
   `race` = VALUES(`race`), `gender` = VALUES(`gender`), `class` = VALUES(`class`), `skin` = VALUES(`skin`), `face` = VALUES(`face`), `hair` = VALUES(`hair`), `hair_color` = VALUES(`hair_color`), `facial_hair` = VALUES(`facial_hair`), `chest` = VALUES(`chest`), `shoulders` = VALUES(`shoulders`), `shirt` = VALUES(`shirt`), `waist` = VALUES(`waist`), `legs` = VALUES(`legs`), `feet` = VALUES(`feet`), `hands` = VALUES(`hands`), `mainhand` = VALUES(`mainhand`), `ranged` = VALUES(`ranged`);
 INSERT INTO `mod_customnpcs_outfit_entry` (`creature_entry`, `outfit_id`) VALUES
@@ -397,7 +414,9 @@ INSERT INTO `mod_customnpcs_outfit_entry` (`creature_entry`, `outfit_id`) VALUES
   (4001220, 0),
   (4001225, 0),
   (4001227, 0),
-  (4001228, 0)
+  (4001228, 0),
+  (4001230, 0),
+  (4001232, 4001232)
 ON DUPLICATE KEY UPDATE
   `outfit_id` = VALUES(`outfit_id`);
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
@@ -417,7 +436,9 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
   (4001220, 1, 12282, 0, 0),
   (4001225, 1, 4575, 0, 0),
   (4001227, 1, 12282, 0, 0),
-  (4001228, 1, 12282, 0, 2504)
+  (4001228, 1, 12282, 0, 2504),
+  (4001230, 1, 4575, 0, 0),
+  (4001232, 1, 4575, 0, 0)
 ON DUPLICATE KEY UPDATE
   `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
@@ -442,10 +463,14 @@ INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, 
   (900218, 4, 0, 'Inside the Twilight: Signet of Sorcery', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 5, 5, 45, 6, 0, 0, 'Given in gratitude for freeing Jarod and uncovering the cult''s buyers.', 0, 0, ''),
   (900219, 4, 0, 'Inside the Twilight: Signet of Restoration', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 6, 5, 43, 2, 0, 0, 'Given in gratitude for freeing Jarod and uncovering the cult''s buyers.', 0, 0, ''),
   (900220, 4, 0, 'Inside the Twilight: Signet of Guarding', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 7, 6, 12, 4, 0, 0, 'Given in gratitude for freeing Jarod and uncovering the cult''s buyers.', 0, 0, ''),
-  (900221, 4, 0, 'Inside the Twilight: Signet of Balance', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 5, 4, 6, 4, 7, 4, 'Given in gratitude for freeing Jarod and uncovering the cult''s buyers.', 0, 0, '')
+  (900221, 4, 0, 'Inside the Twilight: Signet of Balance', 9846, 2, 11, -1, -1, 30, 25, 1, 1, 1, 5, 4, 6, 4, 7, 4, 'Given in gratitude for freeing Jarod and uncovering the cult''s buyers.', 0, 0, ''),
+  (900222, 12, 0, 'Twilight Pick', 6568, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Use on the lodestone deposits in the training gorge. No mining skill is required.', 3365, 0, 'item_bs_c02_tool'),
+  (900223, 12, 0, 'Charred Basilisk Meat', 25466, 1, 0, -1, -1, 1, 0, 5, 5, 4, 0, 0, 0, 0, 0, 0, 'Feed one piece to your summoned hound. Acquired from Spinescale Basilisks.', 0, 0, ''),
+  (900224, 12, 0, 'Ascendant Strike Focus', 8466, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Use on Garnoth while ascended. Deals five percent of his maximum health; 1.5 second recharge.', 11976, 0, 'item_bs_c02_tool'),
+  (900225, 12, 0, 'Flame Shield Focus', 6373, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'Use while ascended near Garnoth. Reduces his damage by 95 percent for ten seconds; six second recharge.', 2947, 0, 'item_bs_c02_tool')
 ON DUPLICATE KEY UPDATE
   `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
-DELETE FROM `creature_loot_template` WHERE `Entry` = 4001224;
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (4001224, 4001231);
 UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001223 WHERE `entry`=4001223;
 DELETE FROM `creature_loot_template` WHERE `Entry`=4001223;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
@@ -495,42 +520,48 @@ SELECT 4001228, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`
 FROM `creature_loot_template` l
 WHERE l.`Entry`=431 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
   AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001231 WHERE `entry`=4001231;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001231;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001231, 1702, 0, 65, 0, 1, 0, 1, 2),
+  (4001231, 3667, 0, 35, 0, 1, 0, 1, 1);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
-  (4001224, 900207, 100, 1, 1, 0, 1, 1);
-INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`) VALUES
-  (900200, 2, 25, 25, 406, 5, 1000, 900200, 0, 0, 'Signed in Blood', 'Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.', 'Ortell keeps his voice low. A recruit makes the watch circuit below our camp. Use the Recruit Watch Roster to lure a recruit into the hollow, wait until he reaches cover, then use my blackjack on him. Bring back his papers. We can borrow his place without taking his life.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001250, 0, 0, 0, 1, 0, 0, 0, 'Recruit subdued in cover', '', '', '', 900201, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900201, 2, 25, 25, 406, 5, 1000, 900202, 0, 0, 'Your New Identity', 'Present the altered papers to Condenna and pass the identity check.', 'The recruit has a name, a sponsor and an appointment with Condenna. These altered papers now bear your description. Speak to Condenna at the western training camp to pass her identity check. Keep your cover using the papers; if the disguise is lost, Condenna or Ortell can renew it.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 4001251, 0, 0, 0, 1, 0, 0, 0, 'Papers presented to Condenna', '', '', '', 900202, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900202, 2, 25, 25, 406, 5, 1000, 0, 0, 0, 'Trial By Fire', 'Defeat 8 trial fire elementals while the disguise is active.', 'Our new recruits must face the fire. Speak to Condenna to begin or resume your trial, then defeat eight Trial Fire Elementals while wearing your disguise. They will be called one at a time. This trial tests your nerve, not your loyalties. Renew your cover with Ortell or your papers if needed.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 4001252, 0, 0, 0, 8, 0, 0, 0, 'Trial fire elementals defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900203, 2, 25, 25, 406, 5, 1000, 0, 0, 0, 'In Bloom', 'Collect 8 flame blossoms while avoiding Smolderos.', 'Collect eight Flame Blossoms from the grove west of camp. Smolderos prowls among the patches. He sees through our robes; keep clear of him, and never mistake a uniform for protection.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900203, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900204, 2, 25, 25, 406, 5, 1000, 900204, 0, 0, 'Waste of Flesh', 'Use the binding gem to preserve 3 burning supplicants before their timers expire.', 'Cargall has left three supplicants burning in the training hollow. Ask him to begin the preservation trial, then use the binding gem on each before their forty-five seconds expire. The gem preserves a living recruit for the cult. Failed attempts can be restarted, and saved recruits remain credited.', 'Speak with Instructor Cargall at the Twilight recruiting compound.', 4001253, 4001254, 4001255, 0, 1, 1, 1, 0, 'First supplicant preserved', 'Second supplicant preserved', 'Third supplicant preserved', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900205, 2, 26, 25, 406, 4, 1040, 0, 0, 0, 'Twilight Training', 'Report completion of all three admission trials and meet the two instructors.', 'You have passed the first trials. Visit Instructor Mylva and Instructor Devoran and ask each for an introduction to their training. Return to Condenna when both have acknowledged you.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 4001256, 4001257, 0, 0, 1, 1, 0, 0, 'Training discussed with Mylva', 'Training discussed with Devoran', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900206, 2, 26, 25, 406, 5, 1040, 0, 0, 0, 'Physical Training: Forced Labor', 'Carry 5 training stones between the marked work stations.', 'Use the Training Stone Pile beside Mylva to take one heavy load. Carry it on foot to the Stone Delivery Station to the south. Deliver five loads; each delivery must follow a fresh pickup. Combat, mounting or abandoning the quest drops the current load.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001258, 0, 0, 0, 5, 0, 0, 0, 'Stone loads delivered', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900207, 2, 26, 25, 406, 5, 1040, 0, 0, 0, 'Agility Training: Run Like Hell!', 'Complete the 4-checkpoint obstacle route before the time expires.', 'Use the Agility Course Starting Tablet west of Mylva. Pass markers A, B, C and D in that order within sixty seconds, on the ground and on foot. Combat, mounting, flying or leaving the course resets this attempt. A failed attempt can be restarted at the start marker.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001259, 0, 0, 0, 1, 0, 0, 0, 'Agility course completed', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900208, 2, 26, 25, 406, 5, 1040, 900211, 0, 0, 'Mental Training: Speaking the Truth to Power', 'Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.', 'Use the Orb of Ascension near Mylva. Speak to your questioner and answer ten simple questions correctly. You have five seconds per offered question. Wrong or late answers interrupt the attempt; answers already credited remain recorded. Use the orb again to retry.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001260, 0, 0, 0, 10, 0, 0, 0, 'Mental prompts answered correctly', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900209, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'Spiritual Training: Mercy is for the Weak', 'Defeat 5 failed supplicants in the cults lethal promotion trial.', 'The cult calls hesitation weakness. Defeat five Failed Supplicants north of the training camp while maintaining your disguise. Ortell needs you to reach the graduation platform; the price of this cover will stay with you.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001261, 0, 0, 0, 5, 0, 0, 0, 'Failed supplicants put to rest', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900210, 2, 27, 25, 406, 5, 1080, 900205, 0, 0, 'Walking the Dog', 'Take an owner-bound training hound through 3 feeding/handling stations.', 'Use the leash near Devoran to call your own training core hound. Take it to feeding stations A, B and C in order, then command it to feed at each station through its gossip menu. Stay nearby. Lost hounds can be called again with the leash, and completed stations remain credited.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 4001262, 4001263, 4001264, 0, 1, 1, 1, 0, 'Hound fed at the first station', 'Hound fed at the second station', 'Hound fed at the third station', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900211, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'A Champion''s Collar', 'Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.', 'Devoran wants a spiked hide from the Spinescale Matriarch east of his station. Defeat the matriarch and bring him the hide. He will prepare a collar for your supervised match.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900207, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900212, 2, 27, 25, 406, 5, 1080, 900205, 0, 0, 'Grudge Match', 'Defeat Butcher with your collared hound, then defeat Gromm''ko with the hound nearby.', 'Use the leash or ask Devoran to prepare your collar and supervised match. Take your hound to station A and command it to attack Gromm''ko''s raptor Butcher. When the raptor falls, Gromm''ko turns on you. Defeat him while your hound is alive and nearby. You may fight beside it.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 4001265, 0, 0, 0, 1, 0, 0, 0, 'Butcher and Gromm''ko defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900213, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'Gather the Intelligence', 'Recover the communique and battleplans from their caches, then check the dead drop.', 'Recover the communique and battleplans from the guarded caches south of the camp. Use Ortell''s dead drop with both documents before returning to him. The caches are still watched; keep your disguise ready.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001266, 0, 0, 0, 1, 0, 0, 0, 'Documents checked at the dead drop', '', '', '', 900208, 900209, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900214, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Seeds of Discord', 'Distract Karr''gonn, then defeat Azennios without revealing the handler.', 'Use the Azennios''s Meeting Tablet near the dead drop to begin a secret meeting. Speak to Karr''gonn to send him after a false order, then defeat Azennios while the distraction lasts. If Karr''gonn returns, withdraw and restart the scene. Never speak Ortell''s name.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001267, 0, 0, 0, 1, 0, 0, 0, 'Azennios defeated during the diversion', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900215, 2, 28, 25, 406, 5, 1120, 900210, 0, 0, 'The Greater of Two Evils', 'Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.', 'Use the ascendancy talisman at Garnoth''s Challenge Stone southwest of camp. It grants a fire-elemental form for this duel. Defeat Garnoth while the form remains active. The form ends when the encounter closes or you leave the valley.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001268, 0, 0, 0, 1, 0, 0, 0, 'Garnoth defeated in elemental form', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900216, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Twilight Territory', 'Use the calling tablet at the holding camp and defeat 10 Horrorguards while disguised.', 'Use the calling tablet at the holding camp to challenge ten Horrorguards. They will be called one at a time; return to the tablet if your challenge is interrupted. These demons are rivals to the cult, not innocent travelers. Keep your cover intact throughout the challenge and as you return.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001269, 0, 0, 0, 10, 0, 0, 0, 'Horrorguards defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900217, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Speech Writing for Dummies', 'Remove the scheduled ogre speaker Okrog and receive Ortell''s cue cards and take his place at the podium.', 'Use Okrog''s Speaking Roster south of the camp to confront the scheduled ogre speaker. Defeat him, then speak to Ortell for your cue cards. Your opening lies in the crowd, not in another prison assault.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001270, 0, 0, 0, 1, 0, 0, 0, 'Okrog defeated', '', '', '', 900212, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900218, 2, 29, 25, 406, 4, 1160, 0, 0, 0, 'Head of the Class', 'Receive the handler''s final instruction and report to Mylva for the speaking slot.', 'Ask Ortell for the final instruction, then report to Mylva. An initiate who can hold the crowd may approach the altar. Use their expectations to bring Jarod within reach.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001271, 0, 0, 0, 1, 0, 0, 0, 'Ortell''s final instruction received', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900219, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'Graduation Speech', 'Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.', 'Use the Initiation Podium beside the prisoner altar. Speak to the crowd leader and choose the response matching its displayed mood ten times. You have ten seconds per response. Correct responses remain credited after a retry. Then speak to Jarod at the altar.', 'Speak with Commander Jarod Shadowsong at the prisoner altar.', 4001272, 4001273, 0, 0, 10, 1, 0, 0, 'Crowd responses matched', 'Jarod reached at the altar', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900220, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'Twilight Riot', 'Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.', 'Speak to Jarod to challenge his restraint guard. Defeat it and recover the prison key, then speak to Jarod again to unlock his bindings and begin the escape. Defeat three pairs of enforcers along the route and stay with him until he reaches Ortell''s refuge. The key can be recovered again after a failed escape.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001274, 0, 0, 0, 1, 0, 0, 0, 'Jarod escorted to the refuge', '', '', '', 900213, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900221, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'The Buyers Behind the Banner', 'Return to the quiet camp cache and recover the relic buyers'' ledger.', 'Ortell has found a name missing from the orders: the buyer. Return to the quiet ledger cache and recover the Relic Buyers Ledger. The cult''s fire is only a curtain; someone has been buying what it digs from the earth.', 'Speak with Elementalist Ortell at the expedition refuge.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900214, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900222, 2, 30, 25, 406, 4, 1200, 900215, 0, 0, 'A Letter Through the Marsh', 'Deliver Jarod''s introduction to Dezco at the neutral Dustwallow field camp.', 'Jarod writes an introduction to Sunwalker Dezco. Deliver it to Dezco''s neutral field camp beside the Tabetha road in Dustwallow Marsh. Travel on foot or use your usual routes. His expedition can help us follow the buyers. Keep the letter safe until you reach him.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp beside the Tabetha road in Dustwallow.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900215, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900216, 900217, 900218, 900219, 900220, 900221, 1, 1, 1, 1, 1, 1)
+  (4001224, 900207, 100, 1, 1, 0, 1, 1),
+  (4001231, 900223, 100, 1, 1, 0, 1, 1);
+INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`, `ItemDrop1`, `ItemDrop2`, `ItemDrop3`, `ItemDrop4`, `ItemDropQuantity1`, `ItemDropQuantity2`, `ItemDropQuantity3`, `ItemDropQuantity4`) VALUES
+  (900200, 2, 25, 25, 406, 5, 1000, 900200, 0, 0, 'Signed in Blood', 'Speak to a Twilight Recruit at the road checkpoint, lure him into cover, and use the blackjack to take his papers.', 'A small recruit group uses the eastern road checkpoint, away from Jarod''s ritual camp. Speak to one recruit and convince him that an instructor is waiting in the hollow. Follow him there, then use the blackjack. His signed recruitment papers will let me forge an identity that gets you past the instructors.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001250, 0, 0, 0, 1, 0, 0, 0, 'Recruit subdued in cover', '', '', '', 900201, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900201, 2, 25, 25, 406, 5, 1000, 900202, 0, 0, 'Your New Identity', 'Present the altered papers to Condenna and pass the identity check.', 'These forged papers give you a recruit''s identity. Present them to Condenna at the recruiting compound. Once you are admitted, find my concealed contact at the outhouse just outside the western edge of the training grounds. Bring intelligence and reports there so you can remain inside the cult.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 4001251, 0, 0, 0, 1, 0, 0, 0, 'Papers presented to Condenna', '', '', '', 900202, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900202, 2, 25, 25, 406, 5, 1000, 0, 0, 0, 'Trial By Fire', 'Defeat 8 trial fire elementals while the disguise is active.', 'Our new recruits must face the fire. Speak to Condenna to begin or resume your trial, then defeat eight Trial Fire Elementals while wearing your disguise. They will be called one at a time. This trial tests your nerve, not your loyalties. Renew your cover with Ortell or your papers if needed.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 4001252, 0, 0, 0, 8, 0, 0, 0, 'Trial fire elementals defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900203, 2, 25, 25, 406, 5, 1000, 0, 0, 0, 'In Bloom', 'Gather 5 Flame Blossoms from the proving grounds. Avoid Smolderos.', 'Flame blossoms grow in the proving fields southeast of our camp. Bring back five. Smolderos prowls those fields and the fiery instructors use them for trials, so pay attention to the ground around you.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900203, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900204, 2, 25, 25, 406, 5, 1000, 900204, 0, 0, 'Waste of Flesh', 'Use the Frostgale Crystal to extinguish the flames on four immolated supplicants.', 'Ask Cargall to prepare the trial, then use the supplied crystal on the four burning recruits in the training yard. They will not survive long. Saved recruits remain recorded if the attempt is interrupted; Cargall can prepare the remaining recruits and replace a lost crystal.', 'Speak with Instructor Cargall at the Twilight recruiting compound.', 4001253, 4001254, 4001255, 4001275, 1, 1, 1, 1, 'First supplicant preserved', 'Second supplicant preserved', 'Third supplicant preserved', 'Fourth supplicant saved', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900205, 2, 26, 25, 406, 4, 1040, 0, 0, 0, 'Twilight Training', 'Report completion of all three admission trials and meet the two instructors.', 'You have passed the first trials. Visit Instructor Mylva and Instructor Devoran and ask each for an introduction to their training. Return to Condenna when both have acknowledged you.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 4001256, 4001257, 0, 0, 1, 1, 0, 0, 'Training discussed with Mylva', 'Training discussed with Devoran', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900206, 2, 26, 25, 406, 5, 1040, 900222, 0, 0, 'Physical Training: Forced Labor', 'Use the Twilight Pick to break 5 Darkwhisper Lodestones in the training gorge.', 'Take this pick out into the gorge and break five lodestone deposits. The work is the test; there is no ore to carry back. The deposits follow a loop south and west of the training compound. Use the pick on a deposit after clearing any trouble around it. I can replace a lost pick.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001258, 0, 0, 0, 5, 0, 0, 0, 'Darkwhisper lodestones broken', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900207, 2, 26, 25, 406, 5, 1040, 0, 0, 0, 'Agility Training: Run Like Hell!', 'Stay alive and keep away from the Blazing Trainer for one minute inside the training grounds.', 'Ask me to summon your Blazing Trainer. Run away for one minute without leaving the training grounds. He is slower than a running recruit, but standing still will hurt. You must remain alive, on foot and disguised.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001259, 0, 0, 0, 1, 0, 0, 0, 'Agility course completed', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900208, 2, 26, 25, 406, 5, 1040, 900211, 0, 0, 'Mental Training: Speaking the Truth to Power', 'Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.', 'Use the Orb of Ascension near Mylva. Speak to your questioner and answer ten simple questions correctly. You have five seconds per offered question. Wrong or late answers interrupt the attempt; answers already credited remain recorded. Use the orb again to retry.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001260, 0, 0, 0, 10, 0, 0, 0, 'Mental prompts answered correctly', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900209, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'Spiritual Training: Mercy is for the Weak', 'Defeat 5 failed supplicants in the cults lethal promotion trial.', 'The cult calls hesitation weakness. Defeat five Failed Supplicants north of the training camp while maintaining your disguise. Ortell needs you to reach the graduation platform; the price of this cover will stay with you.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001261, 0, 0, 0, 5, 0, 0, 0, 'Failed supplicants put to rest', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900210, 2, 27, 25, 406, 5, 1080, 900205, 0, 0, 'Walking the Dog', 'Use the Fiery Leash to summon the hound, then feed it 5 pieces of meat looted from Spinescale Basilisks.', 'Use the leash to bring out the Spawn of Smolderos. Take him to the basilisk hollow northwest of the proving fields, kill basilisks and loot their meat. Speak to your hound to feed him one piece at a time. Five meals will be enough. You can summon him again anywhere in the Vale after an interruption; his completed meals remain recorded.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 4001262, 0, 0, 0, 5, 0, 0, 0, 'Spawn of Smolderos fed', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900223, 0, 0, 0, 5, 0, 0, 0),
+  (900211, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'A Champion''s Collar', 'Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.', 'Devoran wants a spiked hide from the Spinescale Matriarch east of his station. Defeat the matriarch and bring him the hide. He will prepare a collar for your supervised match.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900207, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900212, 2, 27, 25, 406, 5, 1080, 900205, 0, 0, 'Grudge Match', 'Defeat Butcher with your collared hound, then defeat Gromm''ko with the hound nearby.', 'Use the leash or ask Devoran to prepare your collar and supervised match. Take your hound to station A and command it to attack Gromm''ko''s raptor Butcher. When the raptor falls, Gromm''ko turns on you. Defeat him while your hound is alive and nearby. You may fight beside it.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 4001265, 0, 0, 0, 1, 0, 0, 0, 'Butcher and Gromm''ko defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900213, 2, 27, 25, 406, 5, 1080, 0, 0, 0, 'Gather the Intelligence', 'Recover the Twilight Communique from the recruiting compound and the Battleplans from the ritual compound.', 'I can keep contact from this outhouse while you are inside the cult. Recover the communique from the recruiting compound''s dispatch chest and the battleplans from the ritual compound''s guarded command cache. These are two separate sites. Bring both documents directly back here; the delivery is part of the quest hand-in, not a separate drop-box task.', 'Return to Ortell at the Outhouse Hideout west of the training grounds.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900208, 900209, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900214, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Seeds of Discord', 'Distract Karr''gonn and kill Azennios at the eastern rendezvous; recover the sacrificial key.', 'The intelligence identifies Azennios, the envoy meeting Karr''gonn at the eastern rendezvous. Speak to the ogre and send him away with a convincing order, then kill Azennios before he returns. Azennios carries the key to the commander''s restraints. Bring it here. A key alone will not get Jarod through an armed ceremony: your remaining training will win the speaking slot and provide the distraction we need.', 'Return to Ortell at the Outhouse Hideout west of the training grounds.', 4001267, 0, 0, 0, 1, 0, 0, 0, 'Azennios defeated during the diversion', '', '', '', 900213, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900215, 2, 28, 25, 406, 5, 1120, 900210, 0, 0, 'The Greater of Two Evils', 'Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.', 'Garnoth waits at the Legion challenge ground on the eastern rim of the Vale. Use the talisman there to ascend. Your strike focus burns away five percent of his health with each blow; your shield focus holds off nearly all of his damage for ten seconds. Use the shield, keep striking, and defeat him before the ascendant form fades. Make room for both foci before using the talisman.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001268, 0, 0, 0, 1, 0, 0, 0, 'Garnoth defeated in elemental form', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900216, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Twilight Territory', 'Defeat 10 Horrorguards at the northwestern trial ground while disguised.', 'The Horrorguards gather in the northwestern ravine, away from the prisoner altar. Go there while disguised and challenge ten of them. A rival will appear as you approach the trial ground, followed by the next when you win. Return to that ground to resume after an interruption.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 4001269, 0, 0, 0, 10, 0, 0, 0, 'Horrorguards defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900217, 2, 28, 25, 406, 5, 1120, 0, 0, 0, 'Speech Writing for Dummies', 'Kill Okrog as he leaves the ritual compound, then return to Ortell for the speech notes.', 'Okrog is the scheduled speaker. He leaves the ritual compound along the southern watch road. Intercept him there and kill him, then return to this hideout. I will prepare the notes that let you take his place. Do not search a book or summon him from a marker: watch the road for the ogre.', 'Return to Ortell at the Outhouse Hideout west of the training grounds.', 4001270, 0, 0, 0, 1, 0, 0, 0, 'Okrog defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900218, 2, 29, 25, 406, 4, 1160, 0, 0, 0, 'Head of the Class', 'Speak to Mylva at the training compound to claim the speaking slot.', 'Okrog is gone and the instructions are ready. Report to Mylva at the training compound and claim your place at the initiation podium. Read the crowd carefully. The key is ready; the speech must draw the guards away from Jarod.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900219, 2, 29, 25, 406, 5, 1160, 900212, 0, 0, 'Graduation Speech', 'Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.', 'Use the Initiation Podium beside the prisoner altar. Speak to the crowd leader and choose the response matching its displayed mood ten times. You have ten seconds per response. Correct responses remain credited after a retry. Then speak to Jarod at the altar.', 'Speak with Commander Jarod Shadowsong at the prisoner altar.', 4001272, 4001273, 0, 0, 10, 1, 0, 0, 'Crowd responses matched', 'Jarod reached at the altar', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900220, 2, 29, 25, 406, 5, 1160, 900213, 0, 0, 'Twilight Riot', 'Use the sacrificial key to free Jarod, then accompany him to the expedition refuge.', 'The speech has turned the crowd against its guards. Use the key we recovered from Azennios to release Jarod, then stay with him as he leaves the compound. He will hurry along the escape route. Deal with any trouble that reaches you, but do not stop to hunt more cultists. Ortell can replace the key after a failed attempt if you already deposited Azennios''s key.', 'Speak with Elementalist Ortell at the expedition refuge.', 4001274, 0, 0, 0, 1, 0, 0, 0, 'Jarod escorted to the refuge', '', '', '', 900213, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900221, 2, 29, 25, 406, 5, 1160, 0, 0, 0, 'The Buyers Behind the Banner', 'Return to the quiet camp cache and recover the relic buyers'' ledger.', 'The recovered plans mention a buyer ledger at Azennios''s eastern meeting post. Jarod is safe at the expedition refuge. Return to that separate post, recover the ledger from its correspondence chest, and bring it to Ortell at the refuge. There is no need to revisit the prisoner altar.', 'Speak with Elementalist Ortell at the expedition refuge.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900214, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900222, 2, 30, 25, 406, 4, 1200, 900215, 0, 0, 'A Letter Through the Marsh', 'Deliver Jarod''s introduction to Dezco at the neutral Dustwallow field camp.', 'Jarod writes an introduction to Sunwalker Dezco. Deliver it to Dezco''s neutral field camp beside the Tabetha road in Dustwallow Marsh. Travel on foot or use your usual routes. His expedition can help us follow the buyers. Keep the letter safe until you reach him.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp beside the Tabetha road in Dustwallow.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900215, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900216, 900217, 900218, 900219, 900220, 900221, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 ON DUPLICATE KEY UPDATE
-  `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`);
+  `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`), `ItemDrop1` = VALUES(`ItemDrop1`), `ItemDrop2` = VALUES(`ItemDrop2`), `ItemDrop3` = VALUES(`ItemDrop3`), `ItemDrop4` = VALUES(`ItemDrop4`), `ItemDropQuantity1` = VALUES(`ItemDropQuantity1`), `ItemDropQuantity2` = VALUES(`ItemDropQuantity2`), `ItemDropQuantity3` = VALUES(`ItemDropQuantity3`), `ItemDropQuantity4` = VALUES(`ItemDropQuantity4`);
 INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `ProvidedItemCount`, `SpecialFlags`) VALUES
-  (900200, 900108, 0, 0, 1, 256),
+  (900200, 900107, 0, 0, 1, 256),
   (900201, 900200, 0, 0, 1, 256),
   (900202, 900201, 0, -900205, 0, 256),
   (900203, 900201, 0, -900205, 0, 256),
   (900204, 900201, 0, -900205, 1, 256),
   (900205, 900202, 0, 0, 0, 256),
-  (900206, 900205, 0, 0, 0, 256),
+  (900206, 900205, 0, 0, 1, 256),
   (900207, 900206, 0, 0, 0, 256),
   (900208, 900207, 0, 0, 1, 256),
   (900209, 900208, 0, -900215, 0, 256),
@@ -543,8 +574,8 @@ INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `Exclusi
   (900216, 900209, 0, -900217, 0, 256),
   (900217, 900215, 0, 0, 0, 256),
   (900218, 900217, 0, 0, 0, 256),
-  (900219, 900218, 0, 0, 0, 256),
-  (900220, 900219, 0, 0, 0, 256),
+  (900219, 900218, 0, 0, 1, 256),
+  (900220, 900219, 0, 0, 1, 256),
   (900221, 900220, 0, 0, 0, 256),
   (900222, 900221, 0, 0, 1, 256)
 ON DUPLICATE KEY UPDATE
@@ -564,16 +595,18 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
   (4001203, 900210),
   (4001203, 900211),
   (4001203, 900212),
-  (4001001, 900213),
-  (4001001, 900214),
   (4001202, 900215),
   (4001202, 900216),
-  (4001001, 900217),
-  (4001001, 900218),
   (4001202, 900219),
   (4001002, 900220),
   (4001001, 900221),
   (4001204, 900222);
+DELETE FROM `gameobject_queststarter` WHERE `quest` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES
+  (4001322, 900213),
+  (4001322, 900214),
+  (4001322, 900217),
+  (4001322, 900218);
 DELETE FROM `creature_questender` WHERE `quest` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
   (4001001, 900200),
@@ -589,18 +622,20 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
   (4001203, 900210),
   (4001203, 900211),
   (4001203, 900212),
-  (4001001, 900213),
-  (4001001, 900214),
   (4001202, 900215),
   (4001202, 900216),
-  (4001001, 900217),
   (4001202, 900218),
   (4001002, 900219),
   (4001001, 900220),
   (4001001, 900221),
   (4001205, 900222);
+DELETE FROM `gameobject_questender` WHERE `quest` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
+INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES
+  (4001322, 900213),
+  (4001322, 900214),
+  (4001322, 900217);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
-  (900200, 'He will wake with a sore head, and nothing worse. These papers give us a way inside. Now I must make their seal speak for you.'),
+  (900200, 'His sponsor has already signed. I can change the bearer''s name and leave the seal intact. Now we have a way into the cult, rather than another excuse to run at the altar.'),
   (900201, 'The seal is in order. Remember whose banner shelters you, recruit. Your first trial begins with fire.'),
   (900202, 'The flame has tested you and found you standing. Do not mistake that for mastery.'),
   (900203, 'Good. These blossoms will feed the brazier. Cargall will decide whether you are useful beyond gathering fuel.'),
@@ -626,34 +661,34 @@ INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
 ON DUPLICATE KEY UPDATE
   `RewardText` = VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
-  (900200, 'The recruit must live. Have you brought his papers?'),
+  (900200, 'Have you completed the work I asked you to do?'),
   (900201, 'Your sponsor''s seal, recruit. Show it to me.'),
   (900202, 'Eight flames, eight victories. Have you finished your trial?'),
-  (900203, 'The brazier needs eight blossoms. Where are they?'),
-  (900204, 'Three supplicants are still of use to us. Did you preserve every one?'),
+  (900203, 'Have you completed the work I asked you to do?'),
+  (900204, 'Have you completed the work I asked you to do?'),
   (900205, 'Have both Mylva and Devoran accepted you?'),
-  (900206, 'Five loads. Count them yourself before you report to me.'),
-  (900207, 'Did you finish the entire course in order?'),
+  (900206, 'Have you completed the work I asked you to do?'),
+  (900207, 'Have you completed the work I asked you to do?'),
   (900208, 'Ten correct answers under pressure. Has the orb recorded them?'),
   (900209, 'Have you ended the suffering of five failed supplicants?'),
-  (900210, 'A hound remembers its handler. Did you feed it at all three stations?'),
+  (900210, 'Have you completed the work I asked you to do?'),
   (900211, 'Have you taken the matriarch''s hide?'),
   (900212, 'Was your hound victorious over both Butcher and his handler?'),
-  (900213, 'Bring both documents. Have you checked them at our dead drop?'),
-  (900214, 'Did the diversion last long enough to deal with Azennios?'),
+  (900213, 'Have you completed the work I asked you to do?'),
+  (900214, 'Have you completed the work I asked you to do?'),
   (900215, 'Has Garnoth fallen to your borrowed flame?'),
   (900216, 'Ten Horrorguards. Have you completed the challenge?'),
-  (900217, 'Has Okrog''s speaking slot become available? Keep the cue cards with you.'),
-  (900218, 'Has Ortell given you the final instruction?'),
+  (900217, 'Have you completed the work I asked you to do?'),
+  (900218, 'Have you completed the work I asked you to do?'),
   (900219, 'You held their attention. Did you reach Jarod at the altar?'),
-  (900220, 'Where is Jarod? Bring him safely to the refuge, and keep the key.'),
+  (900220, 'Have you completed the work I asked you to do?'),
   (900221, 'Does the cache still hold the buyers'' ledger?'),
   (900222, 'Jarod''s seal is familiar. Have you brought his letter?')
 ON DUPLICATE KEY UPDATE
   `CompletionText` = VALUES(`CompletionText`);
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (900200, 900201, 900202, 900203, 900204, 900205, 900206, 900207, 900208, 900209, 900210, 900211, 900212, 900213, 900214, 900215, 900216, 900217, 900218, 900219, 900220, 900221, 900222);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceEntry`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionValue1`, `Comment`) VALUES
-  (19, 900200, 0, 8, 900108, 'Broken Seal C02: every listed predecessor must be rewarded'),
+  (19, 900200, 0, 8, 900107, 'Broken Seal C02: every listed predecessor must be rewarded'),
   (19, 900201, 0, 8, 900200, 'Broken Seal C02: every listed predecessor must be rewarded'),
   (19, 900202, 0, 8, 900201, 'Broken Seal C02: every listed predecessor must be rewarded'),
   (19, 900203, 0, 8, 900201, 'Broken Seal C02: every listed predecessor must be rewarded'),
@@ -688,7 +723,8 @@ DELETE FROM `quest_poi` WHERE `QuestID` IN (900200, 900201, 900202, 900203, 9002
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`) VALUES
   (900200, 0, -1, 1, 81, 0, 0, 0),
   (900200, 1, 0, 1, 81, 0, 0, 0),
-  (900200, 2, 4, 1, 81, 0, 0, 0),
+  (900200, 2, 0, 1, 81, 0, 0, 0),
+  (900200, 3, 4, 1, 81, 0, 0, 0),
   (900201, 0, -1, 1, 81, 0, 0, 0),
   (900201, 1, 0, 1, 81, 0, 0, 0),
   (900201, 2, 4, 1, 81, 0, 0, 0),
@@ -707,18 +743,18 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900204, 1, 0, 1, 81, 0, 0, 0),
   (900204, 2, 1, 1, 81, 0, 0, 0),
   (900204, 3, 2, 1, 81, 0, 0, 0),
+  (900204, 4, 3, 1, 81, 0, 0, 0),
   (900205, 0, -1, 1, 81, 0, 0, 0),
   (900205, 1, 0, 1, 81, 0, 0, 0),
   (900205, 2, 1, 1, 81, 0, 0, 0),
   (900206, 0, -1, 1, 81, 0, 0, 0),
   (900206, 1, 0, 1, 81, 0, 0, 0),
   (900206, 2, 0, 1, 81, 0, 0, 0),
+  (900206, 3, 0, 1, 81, 0, 0, 0),
+  (900206, 4, 0, 1, 81, 0, 0, 0),
+  (900206, 5, 0, 1, 81, 0, 0, 0),
   (900207, 0, -1, 1, 81, 0, 0, 0),
   (900207, 1, 0, 1, 81, 0, 0, 0),
-  (900207, 2, 0, 1, 81, 0, 0, 0),
-  (900207, 3, 0, 1, 81, 0, 0, 0),
-  (900207, 4, 0, 1, 81, 0, 0, 0),
-  (900207, 5, 0, 1, 81, 0, 0, 0),
   (900208, 0, -1, 1, 81, 0, 0, 0),
   (900208, 1, 0, 1, 81, 0, 0, 0),
   (900209, 0, -1, 1, 81, 0, 0, 0),
@@ -726,27 +762,27 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900209, 2, 0, 1, 81, 0, 0, 0),
   (900210, 0, -1, 1, 81, 0, 0, 0),
   (900210, 1, 0, 1, 81, 0, 0, 0),
-  (900210, 2, 1, 1, 81, 0, 0, 0),
-  (900210, 3, 2, 1, 81, 0, 0, 0),
+  (900210, 2, 0, 1, 81, 0, 0, 0),
+  (900210, 3, 0, 1, 81, 0, 0, 0),
+  (900210, 4, 0, 1, 81, 0, 0, 0),
+  (900210, 5, 0, 1, 81, 0, 0, 0),
   (900211, 0, -1, 1, 81, 0, 0, 0),
   (900211, 1, 4, 1, 81, 0, 0, 0),
   (900212, 0, -1, 1, 81, 0, 0, 0),
   (900212, 1, 0, 1, 81, 0, 0, 0),
   (900213, 0, -1, 1, 81, 0, 0, 0),
-  (900213, 1, 0, 1, 81, 0, 0, 0),
-  (900213, 2, 4, 1, 81, 0, 0, 0),
-  (900213, 3, 5, 1, 81, 0, 0, 0),
+  (900213, 1, 4, 1, 81, 0, 0, 0),
+  (900213, 2, 5, 1, 81, 0, 0, 0),
   (900214, 0, -1, 1, 81, 0, 0, 0),
   (900214, 1, 0, 1, 81, 0, 0, 0),
+  (900214, 2, 4, 1, 81, 0, 0, 0),
   (900215, 0, -1, 1, 81, 0, 0, 0),
   (900215, 1, 0, 1, 81, 0, 0, 0),
   (900216, 0, -1, 1, 81, 0, 0, 0),
   (900216, 1, 0, 1, 81, 0, 0, 0),
   (900217, 0, -1, 1, 81, 0, 0, 0),
   (900217, 1, 0, 1, 81, 0, 0, 0),
-  (900217, 2, 4, 1, 81, 0, 0, 0),
   (900218, 0, -1, 1, 81, 0, 0, 0),
-  (900218, 1, 0, 1, 81, 0, 0, 0),
   (900219, 0, -1, 1, 81, 0, 0, 0),
   (900219, 1, 0, 1, 81, 0, 0, 0),
   (900219, 2, 1, 1, 81, 0, 0, 0),
@@ -759,8 +795,9 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900222, 1, 4, 1, 141, 0, 0, 0);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900200, 0, 0, 1100, 1540),
-  (900200, 1, 0, 869, 1666),
-  (900200, 2, 0, 869, 1666),
+  (900200, 1, 0, 950, 1600),
+  (900200, 2, 0, 965, 1577),
+  (900200, 3, 0, 965, 1577),
   (900201, 0, 0, 635, 1624),
   (900201, 1, 0, 635, 1624),
   (900201, 2, 0, 635, 1624),
@@ -779,46 +816,46 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900204, 1, 0, 636, 1632),
   (900204, 2, 0, 636, 1632),
   (900204, 3, 0, 636, 1632),
+  (900204, 4, 0, 636, 1632),
   (900205, 0, 0, 635, 1624),
   (900205, 1, 0, 644, 1620),
   (900205, 2, 0, 646, 1630),
   (900206, 0, 0, 644, 1620),
-  (900206, 1, 0, 636, 1617),
-  (900206, 2, 0, 649, 1626),
+  (900206, 1, 0, 591, 1639),
+  (900206, 2, 0, 610, 1662),
+  (900206, 3, 0, 636, 1680),
+  (900206, 4, 0, 661, 1666),
+  (900206, 5, 0, 677, 1640),
   (900207, 0, 0, 644, 1620),
-  (900207, 1, 0, 650, 1637),
-  (900207, 2, 0, 657, 1637),
-  (900207, 3, 0, 657, 1616),
-  (900207, 4, 0, 625, 1616),
-  (900207, 5, 0, 625, 1635),
+  (900207, 1, 0, 644, 1620),
   (900208, 0, 0, 644, 1620),
   (900208, 1, 0, 644, 1620),
   (900209, 0, 0, 644, 1620),
   (900209, 1, 0, 600, 1648),
   (900209, 2, 0, 600, 1654),
   (900210, 0, 0, 646, 1630),
-  (900210, 1, 0, 647, 1636),
-  (900210, 2, 0, 640, 1640),
-  (900210, 3, 0, 628, 1638),
+  (900210, 1, 0, 728, 1745),
+  (900210, 2, 0, 745, 1770),
+  (900210, 3, 0, 758, 1744),
+  (900210, 4, 0, 784, 1758),
+  (900210, 5, 0, 782, 1737),
   (900211, 0, 0, 646, 1630),
   (900211, 1, 0, 955, 1570),
   (900212, 0, 0, 646, 1630),
   (900212, 1, 0, 646, 1630),
-  (900213, 0, 0, 1100, 1540),
-  (900213, 1, 0, 1089, 1537),
-  (900213, 2, 0, 632, 1626),
-  (900213, 3, 0, 895, 1687),
-  (900214, 0, 0, 1100, 1540),
-  (900214, 1, 0, 883, 1675),
+  (900213, 0, 0, 590, 1630),
+  (900213, 1, 0, 632, 1626),
+  (900213, 2, 0, 895, 1687),
+  (900214, 0, 0, 590, 1630),
+  (900214, 1, 0, 735, 1410),
+  (900214, 2, 0, 735, 1410),
   (900215, 0, 0, 644, 1620),
-  (900215, 1, 0, 654, 1624),
+  (900215, 1, 0, 724, 1482),
   (900216, 0, 0, 644, 1620),
-  (900216, 1, 0, 887, 1677),
-  (900217, 0, 0, 1100, 1540),
-  (900217, 1, 0, 887, 1677),
-  (900217, 2, 0, 1100, 1540),
+  (900216, 1, 0, 810, 1815),
+  (900217, 0, 0, 590, 1630),
+  (900217, 1, 0, 735, 1555),
   (900218, 0, 0, 644, 1620),
-  (900218, 1, 0, 1100, 1540),
   (900219, 0, 0, 895, 1682),
   (900219, 1, 0, 895, 1675),
   (900219, 2, 0, 895, 1682),
@@ -826,7 +863,7 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900220, 1, 0, 895, 1682),
   (900220, 2, 0, 895, 1682),
   (900221, 0, 0, 1100, 1540),
-  (900221, 1, 0, 894, 1688),
+  (900221, 1, 0, 732, 1404),
   (900222, 0, 0, -3970, -3350),
   (900222, 1, 0, -3970, -3350);
 INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
@@ -843,10 +880,11 @@ INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001210, 'The hound watches your hands and sniffs toward the feeding station.', 1),
   (4001211, 'The orb brightens. A voice tests your certainty before the flame.', 1),
   (4001212, 'The congregation waits for its speaker. Read their mood before you answer.', 1),
+  (4001230, 'Cargall said the gem would hold the flame. You have it, do you not?', 1),
   (4001002, 'Keep your voice down. My chains have a guard, and the crowd has a memory.', 1)
 ON DUPLICATE KEY UPDATE
   `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
-DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001002);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001230, 4001002);
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001200, 4001200),
   (4001201, 4001201),
@@ -861,33 +899,31 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001210, 4001210),
   (4001211, 4001211),
   (4001212, 4001212),
+  (4001230, 4001230),
   (4001002, 4001002);
-UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001002);
-INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
-  (4001300, 10, 6420, 'Recruit Watch Roster', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001301, 10, 269, 'Flame Blossom Patch', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001302, 10, 235, 'Training Stone Pile', 0.3, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001303, 10, 6737, 'Training Load Crate', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001304, 10, 6420, 'Agility Course Starting Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001305, 10, 6420, 'Agility Course: Checkpoint A', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001306, 10, 6420, 'Agility Course: Checkpoint B', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001307, 10, 6420, 'Agility Course: Checkpoint C', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001308, 10, 6420, 'Agility Course: Checkpoint D', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001309, 5, 6737, 'First Hound Feeding Station', 0.5, 0, 0, 1, ''),
-  (4001310, 5, 6737, 'Second Hound Feeding Station', 0.5, 0, 0, 1, ''),
-  (4001311, 5, 6737, 'Third Hound Feeding Station', 0.5, 0, 0, 1, ''),
-  (4001312, 10, 259, 'Sealed Twilight Dispatches', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001313, 10, 259, 'Charred Vale Battleplan Cache', 1, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001314, 10, 6737, 'Ortell''s Sealed Message Crate', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001315, 10, 6420, 'Azennios''s Meeting Tablet', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001316, 10, 235, 'Garnoth''s Challenge Stone', 0.3, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001317, 10, 6420, 'Okrog''s Speaking Roster', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001318, 10, 227, 'Initiation Podium', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001319, 10, 6419, 'Broken Restraint Tablet', 0.55, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001320, 10, 6737, 'Buyer Correspondence Crate', 0.65, 0, 0, 1, 'go_bs_c02_interaction'),
-  (4001321, 10, 6419, 'Horrorguard Calling Tablet', 0.55, 0, 0, 1, 'go_bs_c02_interaction')
+UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001200, 4001201, 4001202, 4001203, 4001204, 4001205, 4001206, 4001207, 4001208, 4001209, 4001210, 4001211, 4001212, 4001230, 4001002);
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data1`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
+  (4001301, 10, 269, 'Flame Blossom Patch', 1, 900203, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001302, 10, 312, 'Darkwhisper Lodestone', 0.65, 900206, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001312, 10, 259, 'Sealed Twilight Dispatches', 1, 900213, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001313, 10, 259, 'Charred Vale Battleplan Cache', 1, 900213, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001318, 10, 227, 'Initiation Podium', 0.65, 900219, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001319, 5, 181, 'Jarod''s Broken Shackles', 0.7, 0, 0, 0, 1, ''),
+  (4001320, 10, 6737, 'Buyer Correspondence Crate', 0.65, 900221, 0, 0, 1, 'go_bs_c02_interaction'),
+  (4001322, 2, 3332, 'Outhouse Hideout', 0.75, 0, 4001001, 0, 1, 'go_bs_c02_interaction')
 ON DUPLICATE KEY UPDATE
-  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data1` = VALUES(`Data1`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+INSERT INTO `gameobject_template_addon` (`entry`, `flags`) VALUES
+  (4001301, 0),
+  (4001302, 0),
+  (4001312, 0),
+  (4001313, 0),
+  (4001318, 0),
+  (4001319, 16),
+  (4001320, 0),
+  (4001322, 0)
+ON DUPLICATE KEY UPDATE
+  `flags` = VALUES(`flags`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c02_creature_spawns`;
 CREATE TEMPORARY TABLE `bs_c02_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 DROP TEMPORARY TABLE IF EXISTS `bs_c02_gameobject_spawns`;
@@ -905,9 +941,13 @@ INSERT INTO `bs_c02_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z
   ('BS-C02:NPC_GUARD:guard_0', 4001227, 406, 643.0, 1627.0, -17.777485409410172, 3.14),
   ('BS-C02:NPC_GUARD:guard_1', 4001227, 406, 633.0, 1627.0, -17.611030507710623, 3.14),
   ('BS-C02:NPC_SCOUT:scout_0', 4001228, 406, 638.0, 1627.0, -17.76466084589558, 3.14),
-  ('BS-C02:NPC_SCOUT:scout_1', 4001228, 406, 640.0, 1629.0, -17.700405816327685, 3.14);
+  ('BS-C02:NPC_SCOUT:scout_1', 4001228, 406, 640.0, 1629.0, -17.700405816327685, 3.14),
+  ('BS-C02:NPC_BASILISK:basilisk_0', 4001231, 406, 728, 1745, -22.063533863179558, 3.14),
+  ('BS-C02:NPC_BASILISK:basilisk_1', 4001231, 406, 745, 1770, -18.400864965814783, 3.14),
+  ('BS-C02:NPC_BASILISK:basilisk_2', 4001231, 406, 758, 1744, -20.89649858335295, 3.14),
+  ('BS-C02:NPC_BASILISK:basilisk_3', 4001231, 406, 784, 1758, -19.065362452662896, 3.14),
+  ('BS-C02:NPC_BASILISK:basilisk_4', 4001231, 406, 782, 1737, -21.59100819306522, 3.14);
 INSERT INTO `bs_c02_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C02:GO_RENDEZVOUS:rendezvous', 4001300, 406, 869.0, 1666.0, -19.745591491613013, 3.14),
   ('BS-C02:GO_FLOWER:flower_0', 4001301, 406, 776.0, 1588.0, -29.084771086373635, 3.14),
   ('BS-C02:GO_FLOWER:flower_1', 4001301, 406, 790.0, 1580.0, -29.34597867626155, 3.14),
   ('BS-C02:GO_FLOWER:flower_2', 4001301, 406, 805.0, 1590.0, -29.113468311566045, 3.14),
@@ -916,26 +956,17 @@ INSERT INTO `bs_c02_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, 
   ('BS-C02:GO_FLOWER:flower_5', 4001301, 406, 774.0, 1620.0, -32.13109328863422, 3.14),
   ('BS-C02:GO_FLOWER:flower_6', 4001301, 406, 808.0, 1625.0, -29.32172060697105, 3.14),
   ('BS-C02:GO_FLOWER:flower_7', 4001301, 406, 790.0, 1638.0, -33.09359661220252, 3.14),
-  ('BS-C02:GO_STONES:stones', 4001302, 406, 636.0, 1617.0, -16.288507813269582, 3.14),
-  ('BS-C02:GO_DELIVERY:delivery', 4001303, 406, 649.0, 1626.0, -18.28848477006856, 3.14),
-  ('BS-C02:GO_COURSE_START:course_start', 4001304, 406, 650.0, 1637.0, -17.694322389255138, 3.14),
-  ('BS-C02:GO_CHECK_A:check_a', 4001305, 406, 657.0, 1637.0, -18.62469819803956, 3.14),
-  ('BS-C02:GO_CHECK_B:check_b', 4001306, 406, 657.0, 1616.0, -19.319736655731827, 3.14),
-  ('BS-C02:GO_CHECK_C:check_c', 4001307, 406, 625.0, 1616.0, -16.07512208654335, 3.14),
-  ('BS-C02:GO_CHECK_D:check_d', 4001308, 406, 625.0, 1635.0, -16.688717955318157, 3.14),
-  ('BS-C02:GO_DOG_A:dog_a', 4001309, 406, 647.0, 1636.0, -17.6551893140392, 3.14),
-  ('BS-C02:GO_DOG_B:dog_b', 4001310, 406, 640.0, 1640.0, -17.79996144855941, 3.14),
-  ('BS-C02:GO_DOG_C:dog_c', 4001311, 406, 628.0, 1638.0, -17.53937160642281, 3.14),
+  ('BS-C02:GO_STONES:lodestone_0', 4001302, 406, 591, 1639, -11.577667946940055, 3.14),
+  ('BS-C02:GO_STONES:lodestone_1', 4001302, 406, 610, 1662, -16.66981293419816, 3.14),
+  ('BS-C02:GO_STONES:lodestone_2', 4001302, 406, 636, 1680, -17.726318986208327, 3.14),
+  ('BS-C02:GO_STONES:lodestone_3', 4001302, 406, 661, 1666, -20.744189983979446, 3.14),
+  ('BS-C02:GO_STONES:lodestone_4', 4001302, 406, 677, 1640, -21.50559886315956, 3.14),
   ('BS-C02:GO_COMMUNIQUE:communique', 4001312, 406, 632.0, 1626.0, -17.55953349355738, 3.14),
   ('BS-C02:GO_PLANS:plans', 4001313, 406, 895.0, 1687.0, -19.327736714629424, 3.14),
-  ('BS-C02:GO_DROP:drop', 4001314, 406, 1089.0, 1537.0, 24.93897951494475, 3.14),
-  ('BS-C02:GO_DISCORD:discord', 4001315, 406, 883.0, 1675.0, -19.740699647798067, 3.14),
-  ('BS-C02:GO_GARNOTH:garnoth', 4001316, 406, 654.0, 1624.0, -17.974739597444334, 3.14),
-  ('BS-C02:GO_OKROG:okrog', 4001317, 406, 887.0, 1677.0, -19.722322180493663, 3.14),
   ('BS-C02:GO_PODIUM:podium', 4001318, 406, 895.0, 1675.0, -19.593739876628337, 3.14),
-  ('BS-C02:GO_PRISON:prison', 4001319, 406, 895.0, 1682.0, -18.985879877982, 3.14),
-  ('BS-C02:GO_BUYERS:buyers', 4001320, 406, 894.0, 1688.0, -19.284569940365806, 3.14),
-  ('BS-C02:GO_TERRITORY:horrorguard_0', 4001321, 406, 887.0, 1677.0, -19.176529574765752, 3.14);
+  ('BS-C02:GO_PRISON:prison', 4001319, 406, 895.0, 1682.0, -19.578662229356624, 3.14),
+  ('BS-C02:GO_BUYERS:buyers', 4001320, 406, 732, 1404, -11.893605226806162, 3.14),
+  ('BS-C02:GO_HIDEOUT:hideout', 4001322, 406, 590, 1630, -12.771766848553241, 3.14);
 SET @BS_C02_ENTRY_COLUMN := (
   SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
   WHERE `TABLE_SCHEMA` = DATABASE() AND `TABLE_NAME` = 'creature' AND `COLUMN_NAME` IN ('id1', 'id')

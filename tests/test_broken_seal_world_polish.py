@@ -48,7 +48,7 @@ class WorldPolishTests(unittest.TestCase):
                 self.assertGreater(a['ordinary_loot']['mingold'],0)
         self.assertFalse(HUB['policy']['native_spawn_edits'])
         self.assertFalse(HUB['policy']['phasing'])
-        self.assertEqual(HUB['policy']['permanent_cult_compounds'],2)
+        self.assertEqual(HUB['policy']['permanent_cult_compounds'],3)
         self.assertFalse(HUB['relocations'])
         recruiting=next(h for h in HUB['hubs'] if h.get('cult'))
         self.assertEqual(set(recruiting['contacts']),{4001200,4001201,4001202,4001203})

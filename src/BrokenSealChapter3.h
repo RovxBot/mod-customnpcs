@@ -26,6 +26,11 @@ inline bool CanObserve(SceneSafety const& s)
            s.distance <= 20.0f;
 }
 
+inline bool CanFightPool(SceneSafety const& s)
+{
+    return s.enabled && s.questActive && s.alive && s.sameWorld && !s.mounted && !s.flying && s.distance <= 45.0f;
+}
+
 using Counts = std::array<std::uint16_t, 3>;
 inline std::uint32_t RemainingBundles(Counts const& counts)
 {

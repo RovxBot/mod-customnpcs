@@ -18,18 +18,19 @@ geometry or mechanics. The campaign requires **no asset ports or client patch**.
 The separate flight-master feature does have an existing client patch; do not
 confuse that feature's requirements with the campaign.
 
-Status as of **7 October 2026**:
+Status as of **8 October 2026**:
 
 | Chapter | Levels | Setting | Quest entries | Implementation |
 |---|---|---|---|---|
-| 1 | 20–25 | Stonetalon / Charred Vale | 900100–900108 | 9 records; alternate faction entrances, investigation and shared escorts |
+| 1 | 20–25 | Stonetalon / Charred Vale | 900100–900108 | 9 records; 8 offered, 1 retired compatibility briefing; investigation and shared escorts |
 | 2 | 25–30 | Charred Vale, then Dustwallow handoff | 900200–900222 | 23 quests; infiltration, training branches and Jarod's escape |
 | 3 | 30–35 | Dustwallow | 900300–900311 | 12 quests; Dawnchaser medical story and settlement handoff |
 | 4 | 35–40 | Dustwallow, then Hinterlands handoff | 900400–900411 | 12 quests; village recovery and despair finale |
 | 5–14 | 40–80 | See campaign inventory | Design IDs only | Designed, not implemented |
 
-The design inventory contains 252 records across 14 chapters. Each faction follows
-251 records because Chapter 1 has alternate introductions. Do not describe the
+The design inventory contains 252 records across 14 chapters, including one retired
+prologue compatibility record. Each fresh faction route has 250 records because of
+the retired briefing and the alternate introductions. Do not describe the
 later chapters as playable or installable until their runtime and SQL exist.
 
 ## Start here
@@ -39,6 +40,8 @@ later chapters as playable or installable until their runtime and SQL exist.
   appearance defaults, trial/captive controls and existing-realm upgrade steps.
 - [Implemented-chapter quality review](docs/broken-seal/quality-review.md): authored
   quests, item icons, enemy rewards, hub dialogue and the optional-chapter upgrade.
+- [Source gameplay and travel review](docs/broken-seal/source-review.md): current quest
+  interactions, source evidence, distances, upgrade order and native substitutions.
 - [Campaign inventory](docs/broken-seal/README.md): complete design and source references.
 - `docs/broken-seal/chapter{1,2,3,4}-implementation.md`: controls, recovery,
   coordinates, installation and remaining client acceptance checks.
@@ -47,7 +50,8 @@ later chapters as playable or installable until their runtime and SQL exist.
 - [Appearance guide](docs/custom-npc-appearances.md) and
   [outfit repair](docs/broken-seal/outfit-repair.md): assignments and diagnostics.
 
-The world-polish guide takes precedence over historical placement notes. Existing
+The October 8 source-gameplay review takes precedence over earlier interaction
+notes; the world-polish guide remains the placement and native-preservation policy. Existing
 commits and SQL can contain retired cage, signpost and native-clearance behavior.
 
 ## Campaign design rules
@@ -107,11 +111,41 @@ commits and SQL can contain retired cage, signpost and native-clearance behavior
   spawns**: visible and kneeling, one owner per escort, stand/walk after gossip.
 - Escort credit requires arrival and a valid nearby living owner. Interrupted
   escorts return home without erasing saved credit. Successful Chapter 1 escorts
-  despawn after five seconds and respawn home after a minute; they must not visibly
-  walk straight back into captivity.
+  despawn after five seconds and respawn home after five minutes; they must not visibly
+  walk straight back into captivity. Their small roadside guard camp is separate from
+  Jarod's ritual compound, so later objectives do not lead back through those captives.
+- Chapter 1's wards occupy three distinct sites across the Vale, with two Twilight
+  defenders at each. The trail and early objectives stay outside Jarod's ritual
+  compound. Observation uses Ortell's supplied/recoverable spyglass beside
+  the scout's banner northwest of the ritual compound. Jarod and the recruit have
+  extended creature visibility for that lookout; keep the normal-world phase.
+  Commander observation 900107 ends the fresh prologue. The retired 900108 is not
+  offered; existing holders finish it locally with Ortell and retain their reward.
+- The user chose to **keep the source order**: substantial cult training and
+  infiltration precede Jarod's rescue. The source audit restores five blossoms,
+  four supplicants, five picked lodestones, a one-minute pursuing trainer, five
+  hunted hound meals and real ascendant strike/shield powers. Preserve the ALL joins.
+- Repeated intelligence/speech reports use the native Outhouse Hideout near the
+  trainers. Recruit, Azennios, Okrog, Garnoth and Horrorguard encounters have physical
+  NPC subjects, not scene-start crates, books or tablets. Azennios provides the
+  deposited sacrificial key; graduation supplies the distraction and Jarod leaves
+  by a direct private escort without the former mandatory enforcer waves.
+- Native `CreatureAI::CanBeSeen` checks use saved counters/history to hide rescued
+  captives and captive Jarod from their rescuer, and move Ortell's presence between
+  the camp and concealed-contact story stages. Phase masks are unchanged. GM mode
+  deliberately bypasses these checks; use GM mode off in player acceptance tests.
+- Dawnchaser poison evidence requires five blades; a named dominator carries the
+  orders, and Na Lek's pond encounter has four private guardians plus healing aid.
+  Nala, Kang and Dezco start their scenes directly. Village finding precedes Yi-Mo
+  escort; Ken-Ken's three-ingredient remedy and fang/pigment gathering precede masks.
+- Decorative Chapter 1/2 and hub props are unselectable via `gameobject_template_addon`.
+  Interactive props retain their quest association and sparkle only for that quest.
+  Future trial controls use contextual props rather than interchangeable tablets.
+  Mylva starts the one-minute chase through gossip; the checkpoint flags are retired.
 - Fire and Horrorguard trials have no permanent population. They summon one opponent
   at a time and read the native required count: **8 fire elementals, 10 Horrorguards**.
-  Condenna starts fire trials; the holding camp's calling tablet starts Horrorguards.
+  Condenna starts fire trials; the owned Horrorguard encounter starts on approach
+  to its separate northwestern trial ground. No calling prop remains.
 - Handle death, combat interruptions, distance, logout, abandonment, full bags,
   lost tools and configuration disable. Supply recovery through the existing
   quest contacts. Prevent stale gossip menus from awarding duplicate progress.
@@ -127,6 +161,9 @@ commits and SQL can contain retired cage, signpost and native-clearance behavior
 | `data/quests/broken_seal_hubs.json` | `tools/generate_broken_seal_hubs.py` renders hub SQL/data; `tools/render_broken_seal_hubs.py` renders the layout SVG |
 | `data/quests/broken_seal_legacy_outfits.json` | Frozen original 56-preset input for the historical outfit repair generator |
 | Current Chapter 1/2 and hub manifests | `tools/generate_broken_seal_polish.py` renders the compatible existing-realm polish update |
+| Current Chapter 1/2 and hub manifests | `tools/generate_broken_seal_flow.py` renders the route/interaction update for already-polished realms |
+| Current Chapter 1/2 manifests | `tools/generate_broken_seal_source_gameplay.py` renders the October 8 existing-realm correction |
+| `data/quests/broken_seal_source_review.json` + current chapter manifests | `tools/render_broken_seal_source_review.py` renders researched findings and measured distances |
 | Current Chapter 1–4 and hub manifests | `tools/generate_broken_seal_quality.py` renders the ownership-gated quality update for installed chapters |
 
 Edit manifests/generators, then regenerate; do not hand-edit generated artifacts.
@@ -172,6 +209,19 @@ Inspect the actual core hook signatures before implementing new integrations.
   Later chapters and hubs are optional; only installed module-owned content is updated.
   Quest requirements, branch gates, spawns and outfit overrides remain intact. New
   hub text/menu IDs and Chapter 3 Nala text 4001465 are collision-guarded.
+- Existing Chapter 1/2 realms then apply `2026_10_07_05_broken_seal_chapter1_flow.sql`
+  for the separate roadside rescue camp, scattered defended wards, spyglass lookout
+  and contextual/unselectable props. Rebuild and restart worldserver for the runtime
+  changes. A character already on either observation quest can recover a spyglass
+  from Ortell without abandoning the quest. Chapter 1-only realms reapply the current
+  Chapter 1 base SQL instead of this combined Chapter 1/2 upgrade.
+- Existing Chapter 1/2 realms apply `2026_10_08_00_broken_seal_source_gameplay.sql`
+  for the source mechanics, retired marker spawns and concealed contact. For installed
+  Chapters 3/4, also reapply their current base SQL in order before restarting the
+  rebuilt binary. The combined dated update deliberately does not install optional
+  chapters. Chapter 1-only realms reapply its current base SQL. Preserve rewarded
+  history and unrelated quests; changed active objectives may need reacceptance to
+  reconcile old client/completion state, as documented in the source review.
 - Source changes require a rebuilt/restarted worldserver. SQL-only changes and
   appearance reloads do not replace a new runtime binary. Configuration disable
   stops interactions/scenes; it is not a content uninstall.
@@ -225,10 +275,25 @@ SQL from commit `1f7c966`, so it needs that Git history. The quality fixture nee
 the prior implemented revision `3eccb67`. The native navigation probe
 source is `tools/broken_seal_nav_probe.cpp`; client-data/MMAP inputs are external.
 
-Latest recorded validation: 40 campaign Python tests; six standalone C++ tests;
-runtime syntax checks; native asset/terrain/navigation audits; and SQL imports and
-reimports on both creature schemas. Upgrade fixtures preserved 154 native NPCs,
-155 native objects and their quest links. Quality upgrades also passed twice with
+Latest source-revision validation: 49 campaign Python tests; Chapters 1–4 standalone
+C++ tests and runtime syntax checks; 62 grounded quest props, native asset audits,
+95 Chapter 2 ground points / 16 routes, 67 Chapter 3 ground points / 10 routes, and
+63 Chapter 4 ground points and its complete navigation routes. Current Chapter 1–4
+and full-hub imports/reimports passed on both creature schemas. The dated source
+upgrade applied twice over the prior Chapter 1/2 polish+quality installation,
+preserving 154 native NPCs, 155 native objects/quest links, surviving captive/ward
+GUIDs and a captive appearance override. Retired marker removal, the outhouse
+questgiver and occupied-ID rejection passed. Detailed results are in the source review. Full build, deployment and live client acceptance
+remain pending.
+
+Earlier route-revision validation: 43 campaign Python tests; Chapter 1/2
+standalone C++ tests and runtime syntax checks; 88 grounded quest props and native
+asset/terrain/navigation audits; Chapter 1/2 and full-hub SQL imports/reimports on
+both creature schemas. The `05` upgrade was applied twice to the pre-change `cbd5fc1`
+Chapter 1/2 polish+quality installation on both schemas, preserving 154 native NPCs,
+155 native objects/quest links, captive/ward/course GUIDs and a captive appearance
+override. Spyglass collision rejection and new prop/respawn definitions passed.
+Earlier revision validation also included all six standalone C++ tests; quality upgrades passed twice with
 Chapters 1–2, 1–3 and 1–4 installed, preserving spawns, progression definitions
 and outfit overrides while checking text, icons, map slots and ordinary/quest loot.
 These results describe the tested revision,

@@ -88,6 +88,8 @@ WHERE {ownership('creature',data['ids'][value['actor']],chapter)}
                 text+=f"DELETE FROM `{table}` WHERE `QuestID`={quest['id']} AND {ownership('quest',quest['id'],chapter)};\n"
         actor_points={a['key']:a['point'] for a in data['actors'] if a.get('point')}
         actor_points.update(NPC_ORTELL='ortell',NPC_PRISONER='prison',NPC_JAROD_FREE='refuge',NPC_DEZCO='dezco',NPC_MEI='mei')
+        actor_points.update(NPC_YIMO='yimo')
+        actor_points.update({o['key']:o['points'][0] for o in data['objects'] if o.get('questgiver')})
         poi,points=quest_poi_rows(data,actor_points)
         text+=owned_rows('quest_poi',['QuestID','id','ObjectiveIndex','MapID','WorldMapAreaId','Floor','Priority','Flags'],poi,'quest',chapter)
         text+=owned_rows('quest_poi_points',['QuestID','Idx1','Idx2','X','Y'],points,'quest',chapter)

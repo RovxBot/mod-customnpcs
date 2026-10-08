@@ -76,7 +76,7 @@ def check_manifest(data):
 
     paths = {}
     for faction in ('Alliance', 'Horde'):
-        eligible = {q['id'] for q in quests if q['faction'] in ('Both', faction)}
+        eligible = {q['id'] for q in quests if q['faction'] in ('Both', faction) and not q.get('retired')}
         completed = set()
         while True:
             next_ids = {key for key in eligible - completed

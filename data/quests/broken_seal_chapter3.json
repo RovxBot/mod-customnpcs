@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": "C03",
   "title": "The Dawnchaser Promise",
-  "status": "Implemented; syntax, progression, SQL and native assets checked; full build and live playthrough pending.",
+  "status": "source gameplay revision implemented; current validation and live-client acceptance recorded in the source review",
   "zone": 15,
   "world_map_area": 141,
   "ids": {
@@ -91,7 +91,14 @@
     "CREDIT_DEVICE": 4001463,
     "TEXT_DEZCO": 4001464,
     "SPELL_POISON": 744,
-    "TEXT_NALA_TWINS": 4001465
+    "TEXT_NALA_TWINS": 4001465,
+    "NPC_OUTRIDER": 4001417,
+    "NPC_POOL_GUIDE": 4001418,
+    "NPC_POOL_GUARD": 4001419,
+    "CREDIT_POOL_GUARD": 4001466,
+    "ITEM_POISON_BLADE": 900315,
+    "NPC_DOMINATOR": 4001420,
+    "SPELL_POOL_HEAL": 2061
   },
   "points": {
     "dezco": [
@@ -299,21 +306,21 @@
       3.14
     ],
     "raider_3": [
-      -3898.0,
-      -3550.0,
-      37.555951501783724,
+      -3735,
+      -3360,
+      32.14219057455888,
       3.14
     ],
     "raider_4": [
-      -3986.0,
-      -3592.0,
-      35.14438154908573,
+      -3722,
+      -3370,
+      29.18432675369921,
       3.14
     ],
     "raider_5": [
-      -4007.0,
-      -3586.0,
-      30.907599275429448,
+      -3745,
+      -3378,
+      29.8073009069135,
       3.14
     ],
     "raider_6": [
@@ -464,6 +471,36 @@
       -3870.0,
       -3536.0,
       39.20382301289827,
+      3.14
+    ],
+    "outrider": [
+      -3720,
+      -3350,
+      34.48578362693455,
+      3.14
+    ],
+    "pool_guide": [
+      -3955,
+      -3630,
+      30.13460352158378,
+      3.14
+    ],
+    "pool_guard_a": [
+      -3945,
+      -3635,
+      30.838518533483807,
+      3.14
+    ],
+    "pool_guard_b": [
+      -3960,
+      -3625,
+      31.262296809683424,
+      3.14
+    ],
+    "dominator": [
+      -3935,
+      -3624,
+      35.22147930021917,
       3.14
     ]
   },
@@ -808,7 +845,10 @@
       "points": [
         "raider_0",
         "raider_1",
-        "raider_2"
+        "raider_2",
+        "raider_3",
+        "raider_4",
+        "raider_5"
       ],
       "display": 14402,
       "faction": 14,
@@ -910,6 +950,91 @@
           ]
         ]
       }
+    },
+    {
+      "key": "NPC_OUTRIDER",
+      "entry": 4001417,
+      "name": "Relic Raider Outrider",
+      "point": "outrider",
+      "points": [],
+      "display": 14402,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 33,
+      "type": 7,
+      "script": "npc_bs_c03_enemy",
+      "experience_multiplier": 1,
+      "combat_spell": "SPELL_STRIKE",
+      "greeting": "",
+      "ordinary_loot": {
+        "level": 31,
+        "mingold": 27,
+        "maxgold": 181
+      },
+      "weapons": [
+        12282,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "NPC_POOL_GUIDE",
+      "entry": 4001418,
+      "name": "Na Lek",
+      "point": "pool_guide",
+      "display": 525,
+      "faction": 35,
+      "flags": 770,
+      "npc_flags": 1,
+      "level": 35,
+      "type": 4,
+      "script": "npc_bs_c03_contact",
+      "scale": 0.8,
+      "experience_multiplier": 0,
+      "greeting": "The raiders have bound these waters. Break their guardians before you draw a sample."
+    },
+    {
+      "key": "NPC_POOL_GUARD",
+      "entry": 4001419,
+      "name": "Bound Pool Guardian",
+      "point": null,
+      "display": 453,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 33,
+      "type": 4,
+      "script": "npc_bs_c03_pool_guard",
+      "scale": 0.7,
+      "experience_multiplier": 0
+    },
+    {
+      "key": "NPC_DOMINATOR",
+      "entry": 4001420,
+      "name": "Relic Raider Dominator",
+      "point": "dominator",
+      "points": [],
+      "display": 1122,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 34,
+      "type": 7,
+      "script": "npc_bs_c03_enemy",
+      "experience_multiplier": 1,
+      "combat_spell": "SPELL_HEX_BOLT",
+      "greeting": "",
+      "ordinary_loot": {
+        "level": 32,
+        "mingold": 27,
+        "maxgold": 181
+      },
+      "weapons": [
+        4575,
+        0,
+        0
+      ]
     }
   ],
   "objects": [
@@ -934,7 +1059,7 @@
         "tent"
       ],
       "scale": 0.75,
-      "decorative": false,
+      "decorative": true,
       "native_model": "world\\expansion02\\doodads\\generic\\human\\tents\\hu_tent01.mdx"
     },
     {
@@ -946,44 +1071,8 @@
         "hearth"
       ],
       "scale": 1,
-      "decorative": false,
+      "decorative": true,
       "native_model": "World\\Azeroth\\Elwynn\\PassiveDoodads\\Campfire\\ElwynnCampfire.mdx"
-    },
-    {
-      "key": "GO_LOOKOUT_A",
-      "entry": 4001503,
-      "name": "Western Raider Lookout Supplies",
-      "display": 6737,
-      "points": [
-        "lookout_a"
-      ],
-      "scale": 0.6,
-      "decorative": false,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
-    },
-    {
-      "key": "GO_LOOKOUT_B",
-      "entry": 4001504,
-      "name": "Central Raider Lookout Supplies",
-      "display": 6737,
-      "points": [
-        "lookout_b"
-      ],
-      "scale": 0.6,
-      "decorative": false,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
-    },
-    {
-      "key": "GO_LOOKOUT_C",
-      "entry": 4001505,
-      "name": "Eastern Raider Lookout Supplies",
-      "display": 6737,
-      "points": [
-        "lookout_c"
-      ],
-      "scale": 0.6,
-      "decorative": false,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
     },
     {
       "key": "GO_HERB",
@@ -1009,42 +1098,6 @@
       "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx"
     },
     {
-      "key": "GO_ORDERS",
-      "entry": 4001507,
-      "name": "Raider Excavation Orders",
-      "display": 259,
-      "points": [
-        "orders"
-      ],
-      "scale": 1,
-      "decorative": false,
-      "native_model": "World\\SkillActivated\\Containers\\TreasureChest01.mdx"
-    },
-    {
-      "key": "GO_DEVICE",
-      "entry": 4001508,
-      "name": "Raider Relic Binding Apparatus",
-      "display": 235,
-      "points": [
-        "device"
-      ],
-      "scale": 0.35,
-      "decorative": false,
-      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
-    },
-    {
-      "key": "GO_POOL",
-      "entry": 4001509,
-      "name": "Ward-tainted Pool Focus",
-      "display": 235,
-      "points": [
-        "pool"
-      ],
-      "scale": 0.35,
-      "decorative": false,
-      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
-    },
-    {
       "key": "GO_MEMORIAL",
       "entry": 4001510,
       "name": "Leza's Memorial",
@@ -1053,44 +1106,8 @@
         "memorial"
       ],
       "scale": 1,
-      "decorative": false,
+      "decorative": true,
       "native_model": "World\\Azeroth\\Elwynn\\PassiveDoodads\\Campfire\\ElwynnCampfire.mdx"
-    },
-    {
-      "key": "GO_SUPPLY_A",
-      "entry": 4001511,
-      "name": "Dawnchaser Family Provisions",
-      "display": 335,
-      "points": [
-        "supply_a"
-      ],
-      "scale": 1,
-      "decorative": false,
-      "native_model": "World\\Goober\\G_Crate01.mdx"
-    },
-    {
-      "key": "GO_SUPPLY_B",
-      "entry": 4001512,
-      "name": "Traveler Provisions",
-      "display": 335,
-      "points": [
-        "supply_b"
-      ],
-      "scale": 1,
-      "decorative": false,
-      "native_model": "World\\Goober\\G_Crate01.mdx"
-    },
-    {
-      "key": "GO_SUPPLY_C",
-      "entry": 4001513,
-      "name": "Field Hospital Provisions",
-      "display": 335,
-      "points": [
-        "supply_c"
-      ],
-      "scale": 1,
-      "decorative": false,
-      "native_model": "World\\Goober\\G_Crate01.mdx"
     },
     {
       "key": "GO_COT_A",
@@ -1382,6 +1399,19 @@
         ]
       ],
       "description": "A reminder of the Dawnchasers' promise to care for the living."
+    },
+    {
+      "key": "ITEM_POISON_BLADE",
+      "entry": 900315,
+      "name": "Poisoned Raider Blade",
+      "display": 22136,
+      "icon_donor_item": 2494,
+      "maxcount": 5,
+      "stackable": 5,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "A poison sample for Dezco, taken from a relic raider."
     }
   ],
   "quests": [
@@ -1433,28 +1463,31 @@
       "prerequisites": [
         "QUEST_SEARCH"
       ],
-      "credits": {
-        "CREDIT_TREATED": 1
+      "credits": {},
+      "required_items": {
+        "ITEM_POISON_BLADE": 5
       },
-      "required_items": {},
-      "source_item": "ITEM_ANTIDOTE",
-      "source_count": 1,
+      "source_item": null,
+      "source_count": 0,
       "reward_choices": [],
       "fixed_rewards": {},
       "xp_difficulty": 4,
       "money": 1200,
-      "objectives": "Obtain the supplied antidote and administer it to Leza while Nala monitors her.",
-      "description": "Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.",
+      "objectives": "Collect 5 poisoned blades from relic raiders and bring them to Dezco.",
+      "description": "Chezin's report describes the raiders' poisoned weapons. Kill relic raiders at their marsh camp and bring five blades back as samples. Nala needs to identify the poison before treating anyone. Clicking the medical tent does not provide that evidence.",
       "completion": "The fever has eased, but this is not a cure. We will keep looking, and Nala will stay with her.",
-      "objective_labels": {
-        "CREDIT_TREATED": "Leza treated under Nala's care"
-      },
+      "objective_labels": {},
       "objective_locations": {
-        "CREDIT_TREATED": [
-          "tent"
+        "ITEM_POISON_BLADE": [
+          "raider_0",
+          "raider_1",
+          "raider_2",
+          "raider_3",
+          "raider_4",
+          "raider_5"
         ]
       },
-      "request_text": "Did Leza respond to the antidote? Nala must watch the treatment.",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Sunwalker Dezco at the Dawnchaser field camp."
     },
     {
@@ -1483,7 +1516,7 @@
       "xp_difficulty": 5,
       "money": 1200,
       "objectives": "Gather 8 skitterer meat and help prepare food for the weakened camp.",
-      "description": "People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.",
+      "description": "Gather eight pieces of skitterer meat from the pools around camp, then speak to Kang at the cooking hearth. He will prepare food for the weakened expedition.",
       "completion": "Hot food will do more for this camp than another empty assurance. Thank you.",
       "exclusive_group": -900304,
       "objective_labels": {
@@ -1521,10 +1554,7 @@
         "QUEST_POISON"
       ],
       "credits": {
-        "NPC_RAIDER": 6,
-        "CREDIT_LOOKOUT_A": 1,
-        "CREDIT_LOOKOUT_B": 1,
-        "CREDIT_LOOKOUT_C": 1
+        "NPC_OUTRIDER": 1
       },
       "required_items": {},
       "source_item": null,
@@ -1533,33 +1563,19 @@
       "fixed_rewards": {},
       "xp_difficulty": 5,
       "money": 1240,
-      "objectives": "Disable 3 raider lookout posts and defeat 6 guards watching the expedition.",
-      "description": "The relic raiders are watching us. Disable each of the three raider lookout supply crates to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; disabling the same post again will not blind another lookout. Keep their attention away from the medical tent.",
+      "objectives": "Kill the relic raider outrider watching the expedition.",
+      "description": "An outrider scouts the track north of the Dawnchaser camp. Defeat him before he reports our position and brings more raiders down on the expedition.",
       "completion": "Their lookout line is broken. Now we can prepare without their eyes on every movement.",
       "exclusive_group": -900304,
       "objective_labels": {
-        "NPC_RAIDER": "Marsh Relic Raiders defeated",
-        "CREDIT_LOOKOUT_A": "Western lookout disabled",
-        "CREDIT_LOOKOUT_B": "Central lookout disabled",
-        "CREDIT_LOOKOUT_C": "Eastern lookout disabled"
+        "NPC_OUTRIDER": "Raider outrider defeated"
       },
       "objective_locations": {
-        "NPC_RAIDER": [
-          "raider_0",
-          "raider_1",
-          "raider_2"
-        ],
-        "CREDIT_LOOKOUT_A": [
-          "lookout_a"
-        ],
-        "CREDIT_LOOKOUT_B": [
-          "lookout_b"
-        ],
-        "CREDIT_LOOKOUT_C": [
-          "lookout_c"
+        "NPC_OUTRIDER": [
+          "outrider"
         ]
       },
-      "request_text": "Are all three lookout posts disabled, and their guards driven back?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Kor Bloodtusk at the Dawnchaser field camp."
     },
     {
@@ -1596,6 +1612,9 @@
           "raider_0",
           "raider_1",
           "raider_2",
+          "raider_3",
+          "raider_4",
+          "raider_5",
           "hexer_0"
         ]
       },
@@ -1671,10 +1690,7 @@
         "QUEST_STEW",
         "QUEST_BLIND"
       ],
-      "credits": {
-        "CREDIT_DEVICE": 1,
-        "CREDIT_AGENDA": 1
-      },
+      "credits": {},
       "required_items": {
         "ITEM_ORDERS": 1
       },
@@ -1684,23 +1700,14 @@
       "fixed_rewards": {},
       "xp_difficulty": 5,
       "money": 1280,
-      "objectives": "Recover excavation orders and compare the raiders' focus with the expedition ledger.",
-      "description": "Chezin saw the raiders excavating stones marked with the same cuts described in Jarod's ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.",
+      "objectives": "Kill the relic raider dominator and recover his excavation orders.",
+      "description": "The dominator leads the raiders at the marsh ruins. Defeat him and take his excavation orders. Those orders will tell us why the raiders have come and how their work connects to the buyers in Jarod's ledger. Bring the document back to Dezco.",
       "completion": "The cuts match Jarod's ledger. Someone is buying relics that should have stayed buried.",
       "exclusive_group": -900307,
-      "objective_labels": {
-        "CREDIT_DEVICE": "Binding apparatus inspected",
-        "CREDIT_AGENDA": "Orders compared with Dezco"
-      },
+      "objective_labels": {},
       "objective_locations": {
-        "CREDIT_DEVICE": [
-          "device"
-        ],
-        "CREDIT_AGENDA": [
-          "dezco"
-        ],
         "ITEM_ORDERS": [
-          "orders"
+          "dominator"
         ]
       },
       "request_text": "Bring fresh orders, inspect the apparatus, then we can compare the buyer's mark.",
@@ -1721,7 +1728,9 @@
         "QUEST_HERBS",
         "QUEST_AGENDA"
       ],
-      "credits": {},
+      "credits": {
+        "CREDIT_POOL_GUARD": 4
+      },
       "required_items": {
         "ITEM_SAMPLE": 1
       },
@@ -1731,16 +1740,21 @@
       "fixed_rewards": {},
       "xp_difficulty": 4,
       "money": 1320,
-      "objectives": "Collect one water sample from the tainted pool and bring it to Kang for testing.",
-      "description": "The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.",
+      "objectives": "Speak to Na Lek, defeat four bound pool guardians, and bring the purified water to Kang.",
+      "description": "Na Lek is held near the ward-tainted pool. Speak to the water spirit and help break the guardians' hold. He will aid you while you fight four bound guardians, then allow a purified sample to be drawn. The defeated guardians remain recorded if the encounter is interrupted; return to Na Lek to resume or recover a sample that would not fit in your bags.",
       "completion": "This water drains life. I will not give it to Leza as medicine. I can explain the mark, but I cannot undo what she has already suffered.",
-      "objective_labels": {},
+      "objective_labels": {
+        "CREDIT_POOL_GUARD": "Bound pool guardians defeated"
+      },
       "objective_locations": {
+        "CREDIT_POOL_GUARD": [
+          "pool_guide"
+        ],
         "ITEM_SAMPLE": [
-          "pool"
+          "pool_guide"
         ]
       },
-      "request_text": "Bring the pool sample here. I will test it before anyone drinks it.",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Kang Bramblestaff at the Dawnchaser cooking hearth."
     },
     {
@@ -1767,7 +1781,7 @@
       "xp_difficulty": 5,
       "money": 1320,
       "objectives": "Stay near the medical tent through Leza's delivery and Nala's care for the family.",
-      "description": "Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.",
+      "description": "Speak to Nala at the field hospital to begin Leza's delivery scene. Stay nearby while the family and healer work. The tent is shelter, not a scene button. Redhorn and Cloudhoof must both be safe when the scene ends.",
       "completion": "Leza is gone. Redhorn and Cloudhoof are here. I must be here for them, too.",
       "objective_labels": {
         "CREDIT_LIFE": "Leza's delivery witnessed"
@@ -1806,7 +1820,7 @@
       "xp_difficulty": 4,
       "money": 1360,
       "objectives": "Attend the memorial and accept Leza's keepsake without a combat objective.",
-      "description": "Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial at the northern edge of camp. Stay quietly for the vigil, then return to me for a totem in her memory.",
+      "description": "Speak to Dezco, then join him at Leza's memorial for a quiet vigil. Remain nearby until he has finished. The fire is a memorial, not a control to click.",
       "completion": "Keep this totem. Let it remind you that the person who dies is more than the moment of their death.",
       "objective_labels": {
         "CREDIT_VIGIL": "Vigil attended"
@@ -1929,6 +1943,14 @@
     {
       "actor": "NPC_HEXER",
       "item": "ITEM_INSIGNIA"
+    },
+    {
+      "actor": "NPC_RAIDER",
+      "item": "ITEM_POISON_BLADE"
+    },
+    {
+      "actor": "NPC_DOMINATOR",
+      "item": "ITEM_ORDERS"
     }
   ],
   "validation": {
@@ -1998,7 +2020,9 @@
     ],
     "native_source": "AzerothCore client-data v20 (3.3.5a)",
     "travel_navigation_flags": "NAV_GROUND | NAV_WATER (9); stationary scene points checked on NAV_GROUND (1)",
-    "native_dbc_assets_checked": true
+    "native_dbc_assets_checked": true,
+    "source_revision_ground_points": 67,
+    "source_revision": "2026-10-08: native tables and current terrain/navigation checks; live client acceptance remains pending."
   },
   "native_assets": {
     "infants": {
@@ -2019,7 +2043,8 @@
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
     "placeholder_signs_removed": true,
-    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations",
+    "source_audit": "2026-10-08: source gameplay, quest travel and interaction corrections; native-client substitutions recorded in source review."
   },
   "story_greetings": {
     "TEXT_NALA_TWINS": {

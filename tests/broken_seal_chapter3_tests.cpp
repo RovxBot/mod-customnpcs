@@ -8,6 +8,14 @@ int main()
 {
     SceneSafety safe{true, true, true, true, false, false, false, 20.0f};
     assert(CanObserve(safe));
+    auto fighting = safe;
+    fighting.inCombat = true;
+    assert(CanFightPool(fighting));
+    fighting.distance = 45.01f;
+    assert(!CanFightPool(fighting));
+    fighting.distance = 20.0f;
+    fighting.alive = false;
+    assert(!CanFightPool(fighting));
     for (unsigned i = 0; i < 8; ++i)
     {
         SceneSafety invalid = safe;

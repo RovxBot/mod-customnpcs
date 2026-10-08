@@ -35,6 +35,6 @@ int main()
             assert(!CanTreatNext(count, count - 1, false));
         }
     }
-    static_assert(VillagerEntries.size() == 8 && PersonalEntries.size() == 7);
+    static_assert(VillagerEntries.size() == 8 && PersonalEntries.size() == 8);
     std::cout << "Chapter 4: distinct residents, saved progress, services and ordered boss gates passed.\n";
 }

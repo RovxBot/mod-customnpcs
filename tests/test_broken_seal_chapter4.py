@@ -63,14 +63,14 @@ class ChapterFourTests(unittest.TestCase):
     def test_story_and_persistence_contracts(self):
         actors={a['key']:a for a in DATA['actors']}
         for key in DATA['arrays']['PersonalEntries']:
-            self.assertIsNone(actors[key]['point'])
-            self.assertEqual(actors[key]['npc_flags'],0)
+            self.assertEqual(actors[key]['point'],'yimo' if key=='NPC_YIMO' else None)
+            self.assertEqual(actors[key]['npc_flags'],3 if key=='NPC_YIMO' else 0)
             self.assertEqual(actors[key]['experience_multiplier'],0)
         self.assertEqual(len(DATA['arrays']['VillagerEntries']),8)
         self.assertEqual(QUESTS['QUEST_TREAT']['credits'],{'CREDIT_TREATED':8})
         self.assertEqual(QUESTS['QUEST_DESPAIR']['credits'],{'CREDIT_ESSENCES':8,'CREDIT_YIMO':1,'CREDIT_BOSS':1})
         self.assertEqual(len(QUESTS['QUEST_FOOD']['credits']),3)
-        self.assertEqual(len(QUESTS['QUEST_TEST']['credits']),3)
+        self.assertEqual(QUESTS['QUEST_TEST']['required_items'],{'ITEM_FANGS':18,'ITEM_PIGMENT':1})
         self.assertEqual(QUESTS['QUEST_WORK']['credits']['CREDIT_SERVICES'],3)
         self.assertEqual(len(QUESTS['QUEST_WORK']['credits']),4)
         self.assertEqual(actors['NPC_IAIN']['map'],0)

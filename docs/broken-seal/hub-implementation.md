@@ -1,8 +1,12 @@
 # Quest hubs: camp safety and compact layouts
 
+The [October 8 source-gameplay review](source-review.md) supersedes the earlier
+interaction controls below and gives the current upgrade sequence.
+
 The four implemented chapters have **six protected resting areas**, **59 resting-area
 props**, **six holding-camp props**, **12 sentries** and **six working residents**.
-The Charred Vale uses one friendly expedition/refuge and two compact cult compounds.
+Chapter 1 also supplies three roadside prison props. The Charred Vale uses one
+friendly expedition/refuge and three compact cult camps: recruiting, ritual and roadside prison.
 The campaign stays in the normal world; native spawns, quests and objects are retained.
 
 [World polish upgrade and controls](world-polish.md) · [Layout plan](hub-layout.svg)
@@ -24,10 +28,12 @@ terrain contact still require a stock-client playthrough.
 | Southern Village Relief Camp | Chapter 4 | 20 m | 28 m | 11 |
 | Neutral Wildhammer Gathering | Chapter 4 | 22 m | 40 m | 10 |
 
-The guarded holding camp is a deliberate encounter area, with six additional cult
-props. Its captives, Jarod and guards are not a friendly resting hub. Each real hub
+The ritual compound is a deliberate encounter area, with six additional cult
+props. Its Jarod, moving recruit and guards are not a friendly resting hub. Each real hub
 has shelter, supplies, lighting and a work/medical/equipment area. Small footprints,
-reserved movement lanes and checked prop foundations keep it coherent.
+reserved movement lanes and checked prop foundations keep it coherent. The three
+surveyors occupy a separate 14-metre roadside guard camp whose three props ship
+with Chapter 1. All decorative props are unselectable.
 
 ## Protection and hostility
 
@@ -51,7 +57,9 @@ rules. Native stock templates and patrol paths are never rewritten.
 For the existing Chapter 1/2 realm, rebuild and apply the
 [world polish update](../../data/sql/db-world/updates/2026_10_07_03_broken_seal_world_polish.sql).
 It installs the compact Vale hubs and restores unchanged stock homes moved by the
-previous add-on. Backups and later administrator edits are retained.
+previous add-on. Backups and later administrator edits are retained. Realms that
+already applied it then use the quality update and
+[Chapter 1 route update](../../data/sql/db-world/updates/2026_10_07_05_broken_seal_chapter1_flow.sql).
 
 With all four chapters installed, apply their current base SQL followed by
 [broken_seal_hubs.sql](../../data/sql/db-world/base/broken_seal_hubs.sql). The current

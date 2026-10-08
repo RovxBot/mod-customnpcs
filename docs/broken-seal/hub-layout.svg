@@ -9,6 +9,9 @@
 <path d="M 20.00 95.00 L 143.59 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
 <path d="M 20.00 95.00 L 143.59 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
 <path d="M 150.00 220.00 L 20.00 95.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 20.00 348.21 L 143.59 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 20.00 338.59 L 143.59 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 20.00 328.97 L 143.59 220.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
 <rect x="164.84" y="226.80" width="14.50" height="12.49" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition and Refuge Shelter</title></rect>
 <rect x="136.97" y="204.59" width="2.00" height="2.00" fill="#87775b" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition and Refuge Sleeping</title></rect>
 <rect x="163.22" y="182.54" width="3.19" height="3.41" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Vale Expedition and Refuge Supplies</title></rect>
@@ -72,9 +75,9 @@
 <circle cx="772.05" cy="210.38" r="3" fill="#8cd3d6"><title>Kang Bramblestaff</title></circle>
 <circle cx="756.03" cy="248.85" r="3" fill="#8cd3d6"><title>Kor Bloodtusk</title></circle>
 <circle cx="717.56" cy="213.59" r="3" fill="#8cd3d6"><title>Nala</title></circle>
-<circle cx="788.08" cy="200.77" r="3" fill="#8cd3d6"><title>Expedition Refugees: Group A</title></circle>
-<circle cx="778.46" cy="252.05" r="3" fill="#8cd3d6"><title>Expedition Refugees: Group B</title></circle>
-<circle cx="720.77" cy="181.54" r="3" fill="#8cd3d6"><title>Expedition Refugees: Group C</title></circle>
+<circle cx="788.08" cy="200.77" r="3" fill="#8cd3d6"><title>Dawnchaser Family Elder</title></circle>
+<circle cx="778.46" cy="252.05" r="3" fill="#8cd3d6"><title>Displaced Caravan Traveler</title></circle>
+<circle cx="720.77" cy="181.54" r="3" fill="#8cd3d6"><title>Wounded Expedition Scout</title></circle>
 <path d="M 675.90 241.64 L 679.90 248.64 L 671.90 248.64 Z" fill="#f0cf7a"><title>Sentry</title></path>
 <path d="M 804.10 190.36 L 808.10 197.36 L 800.10 197.36 Z" fill="#f0cf7a"><title>Sentry</title></path>
 <text x="615" y="349" fill="#b8c7c8" font-size="11" font-family="sans-serif">10 props • 2 sentries • 1 resident</text>
@@ -123,7 +126,6 @@
 <rect x="164.21" y="497.19" width="2.00" height="4.75" fill="#a19d65" stroke="#cfdbd4" stroke-width=".5"><title>Southern Village Relief Camp Identity</title></rect>
 <rect x="181.23" y="525.99" width="15.71" height="13.53" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Southern Village Relief Camp Shelter</title></rect>
 <circle cx="150.00" cy="530.00" r="3" fill="#8cd3d6"><title>Ken-Ken</title></circle>
-<circle cx="124.36" cy="536.41" r="3" fill="#8cd3d6"><title>Yi-Mo Longbrow</title></circle>
 <circle cx="166.03" cy="546.03" r="3" fill="#8cd3d6"><title>Kang Bramblestaff</title></circle>
 <circle cx="143.59" cy="562.05" r="3" fill="#8cd3d6"><title>Maruut Stonebinder</title></circle>
 <circle cx="130.77" cy="497.95" r="3" fill="#8cd3d6"><title>Village Provisioner</title></circle>
@@ -156,23 +158,33 @@
 <path d="M 497.35 526.88 L 501.35 533.88 L 493.35 533.88 Z" fill="#f0cf7a"><title>Sentry</title></path>
 <text x="320" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">10 props • 2 sentries • 1 resident</text>
 <rect x="605" y="375" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
-<text x="615" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Holding and Ritual Camp</text>
+<text x="615" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Ritual Compound</text>
 <circle cx="740" cy="530" r="57.69230769230769" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
 <path d="M 711.15 530.00 L 885.00 665.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
 <path d="M 723.97 520.38 L 885.00 665.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
 <path d="M 736.79 517.18 L 885.00 665.00" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
 <path d="M 610.00 665.00 L 752.82 523.59" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
-<rect x="775.86" y="501.14" width="13.30" height="16.57" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Holding and Ritual Camp Shelter</title></rect>
-<rect x="728.42" y="567.51" width="2.37" height="2.55" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Holding and Ritual Camp Supplies</title></rect>
-<rect x="700.72" y="563.08" width="2.41" height="2.41" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Holding and Ritual Camp Lighting</title></rect>
-<rect x="728.50" y="483.92" width="2.28" height="4.14" fill="#a19d65" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Holding and Ritual Camp Identity</title></rect>
-<rect x="737.23" y="472.16" width="6.60" height="11.22" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Holding and Ritual Camp Workstation</title></rect>
-<rect x="701.69" y="511.35" width="2.00" height="2.66" fill="#a478b5" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Holding and Ritual Camp Ward</title></rect>
+<rect x="775.86" y="501.14" width="13.30" height="16.57" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Ritual Compound Shelter</title></rect>
+<rect x="728.42" y="567.51" width="2.37" height="2.55" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Ritual Compound Supplies</title></rect>
+<rect x="700.72" y="563.08" width="2.41" height="2.41" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Ritual Compound Lighting</title></rect>
+<rect x="728.50" y="483.92" width="2.28" height="4.14" fill="#a19d65" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Ritual Compound Identity</title></rect>
+<rect x="737.23" y="472.16" width="6.60" height="11.22" fill="#bd945a" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Ritual Compound Workstation</title></rect>
+<rect x="701.69" y="511.35" width="2.00" height="2.66" fill="#a478b5" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Ritual Compound Ward</title></rect>
 <circle cx="752.82" cy="523.59" r="3" fill="#8cd3d6"><title>Commander Jarod Shadowsong</title></circle>
-<circle cx="711.15" cy="530.00" r="3" fill="#8cd3d6"><title>Mira Ashwood</title></circle>
-<circle cx="723.97" cy="520.38" r="3" fill="#8cd3d6"><title>Dorn Stonehoof</title></circle>
-<circle cx="736.79" cy="517.18" r="3" fill="#8cd3d6"><title>Teren Valeguard</title></circle>
 <circle cx="740.00" cy="536.41" r="3" fill="#8cd3d6"><title>Twilight Recruit</title></circle>
 <text x="615" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">6 props • guarded encounter</text>
+<rect x="900" y="375" width="285" height="298" rx="6" fill="#202e36" stroke="#42555e"/>
+<text x="910" y="395" fill="#edf5f4" font-size="13" font-family="sans-serif">Twilight Roadside Guard Camp</text>
+<circle cx="1035" cy="530" r="44.871794871794876" fill="#24444b" stroke="#467e89" stroke-dasharray="4 3"/>
+<path d="M 1035.00 539.62 L 1180.00 411.41" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 1047.82 530.00 L 1180.00 411.41" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<path d="M 1035.00 520.38 L 1180.00 411.41" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+<rect x="1015.16" y="496.06" width="13.32" height="16.59" fill="#766394" stroke="#cfdbd4" stroke-width=".5"><title>Twilight Roadside Prison Tent</title></rect>
+<rect x="1004.97" y="509.49" width="2.37" height="2.55" fill="#aa754c" stroke="#cfdbd4" stroke-width=".5"><title>Roadside Guard Supplies</title></rect>
+<rect x="1059.44" y="525.58" width="2.41" height="2.41" fill="#ecc276" stroke="#cfdbd4" stroke-width=".5"><title>Roadside Guard Brazier</title></rect>
+<circle cx="1035.00" cy="539.62" r="3" fill="#8cd3d6"><title>Mira Ashwood</title></circle>
+<circle cx="1047.82" cy="530.00" r="3" fill="#8cd3d6"><title>Dorn Stonehoof</title></circle>
+<circle cx="1035.00" cy="520.38" r="3" fill="#8cd3d6"><title>Teren Valeguard</title></circle>
+<text x="910" y="659" fill="#b8c7c8" font-size="11" font-family="sans-serif">3 props • guarded encounter</text>
 <text x="20" y="690" fill="#b8c7c8" font-size="11" font-family="sans-serif">Layout and clearance review. In-game terrain, model rendering and NPC behavior still need a live acceptance pass.</text>
 </svg>

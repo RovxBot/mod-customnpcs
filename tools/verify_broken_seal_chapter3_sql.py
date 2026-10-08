@@ -99,7 +99,7 @@ def main():
             assert run('SELECT RewardItem1,RewardAmount1 FROM quest_template WHERE ID=900309;', database).stdout.split() == ['900306','1']
             assert run('SELECT ProvidedItemCount FROM quest_template_addon WHERE ID=900310;', database).stdout.strip() == '3'
             assert run('SELECT COUNT(*) FROM creature WHERE ' + col + ' IN (4001404,4001406,4001407,4001411,4001412,4001413);', database).stdout.strip() == '0'
-            assert run('SELECT COUNT(*) FROM creature_loot_template WHERE Entry IN (4001414,4001415,4001416) AND Chance=100 AND QuestRequired=1;', database).stdout.strip() == '3'
+            assert run('SELECT COUNT(*) FROM creature_loot_template WHERE Entry IN (4001414,4001415,4001416) AND Chance=100 AND QuestRequired=1;', database).stdout.strip() == '4'
             assert run('SELECT Chapter FROM mod_customnpcs_bs_content WHERE kind="creature" AND entry=4001205;', database).stdout.strip() == '2'
             print('Passed', 'legacy creature.id' if legacy else 'native creature.id1', 'import, ALL joins, C01/C02 coexistence, fixed keepsake and three-bundle supply and GUID preservation.')
 

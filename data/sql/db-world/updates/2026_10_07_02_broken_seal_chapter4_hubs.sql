@@ -140,6 +140,10 @@ SELECT 1 FROM `gameobject_template` t INNER JOIN `bs_hub_ids` h ON h.`kind`='gam
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_hub_guard`
+SELECT 1 FROM `gameobject_template_addon` t INNER JOIN `bs_hub_ids` h ON h.`kind`='gameobject' AND h.`entry`=t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_hub_guard`
 SELECT 1 FROM `mod_customnpcs_outfit` t INNER JOIN `bs_hub_ids` h ON h.`kind`='outfit' AND h.`entry`=t.`outfit_id`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind`=h.`kind` AND o.`entry`=h.`entry` AND o.`chapter`=0
 WHERE o.`entry` IS NULL LIMIT 1;
@@ -333,14 +337,82 @@ INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`)
   (4009318, 5, 130, 'Southern Village Relief Camp Equipment', 0.8),
   (4009319, 5, 5191, 'Southern Village Relief Camp Identity', 0.7),
   (4009320, 5, 7211, 'Southern Village Relief Camp Shelter', 0.65),
-  (4009218, 5, 7253, 'Twilight Holding and Ritual Camp Shelter', 0.5),
-  (4009219, 5, 6737, 'Twilight Holding and Ritual Camp Supplies', 0.6),
-  (4009220, 5, 7255, 'Twilight Holding and Ritual Camp Lighting', 0.7),
-  (4009221, 5, 7261, 'Twilight Holding and Ritual Camp Identity', 0.6),
-  (4009222, 5, 6419, 'Twilight Holding and Ritual Camp Workstation', 0.8),
-  (4009223, 5, 6431, 'Twilight Holding and Ritual Camp Ward', 0.4)
+  (4009218, 5, 7253, 'Twilight Ritual Compound Shelter', 0.5),
+  (4009219, 5, 6737, 'Twilight Ritual Compound Supplies', 0.6),
+  (4009220, 5, 7255, 'Twilight Ritual Compound Lighting', 0.7),
+  (4009221, 5, 7261, 'Twilight Ritual Compound Identity', 0.6),
+  (4009222, 5, 6419, 'Twilight Ritual Compound Workstation', 0.8),
+  (4009223, 5, 6431, 'Twilight Ritual Compound Ward', 0.4)
 ON DUPLICATE KEY UPDATE
   `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`);
+INSERT INTO `gameobject_template_addon` (`entry`, `flags`) VALUES
+  (4009162, 16),
+  (4009163, 16),
+  (4009164, 16),
+  (4009165, 16),
+  (4009166, 16),
+  (4009167, 16),
+  (4009168, 16),
+  (4009169, 16),
+  (4009170, 16),
+  (4009171, 16),
+  (4009186, 16),
+  (4009187, 16),
+  (4009188, 16),
+  (4009189, 16),
+  (4009190, 16),
+  (4009191, 16),
+  (4009192, 16),
+  (4009193, 16),
+  (4009194, 16),
+  (4009195, 16),
+  (4009200, 16),
+  (4009201, 16),
+  (4009202, 16),
+  (4009203, 16),
+  (4009204, 16),
+  (4009205, 16),
+  (4009206, 16),
+  (4009207, 16),
+  (4009208, 16),
+  (4009209, 16),
+  (4009210, 16),
+  (4009211, 16),
+  (4009212, 16),
+  (4009213, 16),
+  (4009214, 16),
+  (4009215, 16),
+  (4009216, 16),
+  (4009217, 16),
+  (4009300, 16),
+  (4009301, 16),
+  (4009302, 16),
+  (4009303, 16),
+  (4009304, 16),
+  (4009305, 16),
+  (4009306, 16),
+  (4009307, 16),
+  (4009308, 16),
+  (4009309, 16),
+  (4009310, 16),
+  (4009311, 16),
+  (4009312, 16),
+  (4009313, 16),
+  (4009314, 16),
+  (4009315, 16),
+  (4009316, 16),
+  (4009317, 16),
+  (4009318, 16),
+  (4009319, 16),
+  (4009320, 16),
+  (4009218, 16),
+  (4009219, 16),
+  (4009220, 16),
+  (4009221, 16),
+  (4009222, 16),
+  (4009223, 16)
+ON DUPLICATE KEY UPDATE
+  `flags` = VALUES(`flags`);
 DROP TEMPORARY TABLE IF EXISTS `bs_hub_creature_spawns`;
 CREATE TEMPORARY TABLE `bs_hub_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `map` SMALLINT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 DROP TEMPORARY TABLE IF EXISTS `bs_hub_gameobject_spawns`;

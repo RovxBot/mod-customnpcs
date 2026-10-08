@@ -1,5 +1,8 @@
 # Broken Seal: world polish and the Charred Vale upgrade
 
+The [October 8 source-gameplay review](source-review.md) supersedes the earlier
+interaction controls below and gives the current upgrade sequence.
+
 This pass addresses the Chapter 1/2 playtest feedback and applies the same placement
 rules to the four implemented chapters. **The campaign stays in the normal world.**
 Native quests, spawns, objects and shared patrols keep their original definitions
@@ -12,7 +15,9 @@ checked offline; this work has not been installed on the realm by the coding age
 The subsequent [implemented-chapter quality review](quality-review.md) supplies
 authored quest labels/maps, suitable item icons, fuller enemy loot/combat roles and
 hub directions. Existing realms also apply its `2026_10_07_04` update after
-completing the layout sequence below.
+completing the layout sequence below. Then apply the
+[Chapter 1 route upgrade](../../data/sql/db-world/updates/2026_10_07_05_broken_seal_chapter1_flow.sql)
+for the separate rescue camp, defended ward sites, spyglass lookout and contextual props.
 
 ## What changed
 
@@ -26,7 +31,7 @@ completing the layout sequence below.
   each to begin an escort. That NPC stands and walks to the expedition; the empty
   cage interactions are removed. One owner can escort a given captive at a time.
   Arrival grants that player's distinct credit. The survivor rests at camp briefly,
-  then despawns and respawns at home after a minute. Interrupted escorts walk home
+  then despawns and respawns at the separate roadside camp after five minutes. Interrupted escorts walk home
   for another attempt. No duplicate private captive appears.
 - **Textures:** every campaign humanoid has a texture-bearing native NPC fallback.
   Twilight instructors, guards, scouts and failed supplicants default to native
@@ -66,13 +71,16 @@ completing the layout sequence below.
 |---|---:|---|---|
 | Expedition and refuge | 1 | 1100 / 1540 | Small friendly camp, wagon, three contacts and escort destination. |
 | Twilight recruiting compound | 1 | 640 / 1626 | Four instructors, limited armed staff, two shelters and shared training lanes. |
-| Twilight holding/ritual camp | 1 | 891 / 1680 | Three kneeling captives, Jarod, a small guard group, altar and ritual supplies. |
+| Twilight roadside guard camp | 1 | 950 / 1503 | Three kneeling surveyors, guards, tent, supplies and brazier; escorts return to the expedition. |
+| Twilight ritual compound | 1 | 891 / 1680 | Jarod, moving recruit, guards, altar and ritual supplies. |
+| Scout's lookout | 1 | 952 / 1763 | Spyglass observation from the rise northwest of the ritual compound. |
+| Three ward sites | 1 | 820 / 1830; 600 / 1770; 730 / 1410 | Separate ancient wards across the Vale, each with two Twilight defenders. |
 | Failed supplicant pocket | 1 | 600 / 1651 | Two ordinary enemies away from the quest contacts. |
 | Dawnchaser hospital | 1 | -3970 / -3350 | 23 m resting radius; contacts and families grouped around the medical area. |
 | Village relief compound | 1 | -4580 / -3250 | 20 m resting radius; existing Mudsprocket services remain outside it. |
 
 The recruiting footprint is **19 m**, instead of four separate stations occupying
-much of the Vale. The holding camp is a deliberate encounter area. Cult resting
+much of the Vale. The roadside prison and ritual compound are separate encounter areas. Cult resting
 protection requires a valid disguise; it does not neutralize campaign enemies.
 Sentries leave fights outside a resting area alone and repel eligible ordinary
 intruders or attackers targeting protected players. Scripted campaign encounters
@@ -97,7 +105,10 @@ later administrator edits and the original backups.
    [full hub base](../../data/sql/db-world/base/broken_seal_hubs.sql) to install the
    later compact layouts. The dated polish update also fixes their existing native
    fallback and prop definitions when present.
-4. Restart worldserver. Keep the module, relevant chapter options and hub option
+4. Apply the quality update, followed by
+   [2026_10_07_05_broken_seal_chapter1_flow.sql](../../data/sql/db-world/updates/2026_10_07_05_broken_seal_chapter1_flow.sql).
+   The new update runs even on realms that already applied the earlier polish.
+5. Restart worldserver. Keep the module, relevant chapter options and hub option
    enabled. There is no phasing setup or character database migration.
 
 ```bash
@@ -121,11 +132,16 @@ Enter the cult compound with your altered papers/disguise active. Recover papers
 and renew cover at Ortell; carried papers also apply the disguise. Expired cover
 makes public cult NPCs hostile again and prevents their ordinary gossip interaction.
 
-Condenna starts or resumes **Trial By Fire** through gossip. Mylva directs the
-Horrorguard challenge to the calling tablet at the holding camp. Each round reads
+Condenna starts or resumes **Trial By Fire** through gossip. Mylva directs the Horrorguard challenge to the separate northwestern trial ground; no calling prop remains. Each round reads
 its existing quest count, summons one opponent, credits its defeat and calls the
 next. Death, distance, logout or lost cover ends that attempt; prior kills remain
 saved. Other players cannot see or damage the private opponents.
+
+Ortell supplies/replaces the observation spyglass. Use it beside the scout's lookout
+banner to observe Jarod; use it beside the adjacent message crate to watch the
+recruit. Remain nearby and out of combat. Camp dressing is unselectable. Mylva starts the one-minute Blazing Trainer chase through gossip; the old flags are retired.
+Future scene controls use messages, a speaking book, shackles and a challenge
+brazier rather than interchangeable tablets.
 
 Use a captive's gossip after clearing its guards. Stay nearby, protect your own
 route and reach the expedition. A busy or returning captive must finish its current
@@ -140,7 +156,7 @@ both `creature.id1` and legacy `creature.id`, and compare **154 native NPC place
 They also check surviving GUIDs, native texture bindings, weapons, normal loot,
 retired permanent trial/cage spawns and three visible captives.
 
-The native audit checks **53 textured fallback models**, **85 grounded quest-prop
+The native audit checks **53 textured fallback models**, **88 grounded quest-prop
 placements**, model footprint slopes, absence of placeholder signs/cages, three
 complete escort paths, and zero fresh native-spawn moves. Wardrobe audits include
 65 current actor/staff presets. The old 56-preset repair stays byte-for-byte current.
@@ -154,7 +170,7 @@ python3 tools/verify_broken_seal_world_polish_sql.py --core-root /path/to/core -
 python3 -m unittest discover -s tests -p 'test_broken_seal*.py'
 ```
 
-In the client, check the wagon and tablets from ground-level angles; clothing with
+In the client, check the wagon, investigation props, ward stones and lookout from ground-level angles; clothing with
 and without appearance rendering; staff/sword visibility; repeated ordinary kills
 for coin and cloth; two players with different disguise states; concurrent captive
 claims, abandonment and return-home; resumed trial counts; native Gaea mounds and

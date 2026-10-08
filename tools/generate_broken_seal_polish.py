@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'data/sql/db-world/updates/2026_10_07_03_broken_seal_world_polish.sql'
 
 
-def generate():
+def generate(include_later=True):
     chapters=[json.loads((ROOT/f'data/quests/broken_seal_chapter{i}.json').read_text()) for i in [1,2]]
     hubs=copy.deepcopy(json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text()))
     hubs['max_chapter']=2
@@ -33,7 +33,7 @@ def generate():
     # Existing add-on backups restore only still-unmodified applied homes. No fresh stock move is authored.
     text+='\n'+(ROOT/'data/sql/support/restore_broken_seal_hub_native_spawns.sql').read_text()
     # Stock-textured fallbacks and replacement sign models also reach installed Chapters 3/4.
-    for n in [3,4]:
+    for n in [3,4] if include_later else []:
         d=json.loads((ROOT/f'data/quests/broken_seal_chapter{n}.json').read_text())
         for a in d['actors']:
             if not a.get('outfit'):continue

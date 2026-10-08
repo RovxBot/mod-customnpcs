@@ -77,13 +77,15 @@ def header(data):
         lines += [f'inline constexpr std::array<std::uint32_t, 3> {name} =',
                   '{', '    ' + ', '.join(keys), '};', '']
     for name, points in [('CaptiveStarts', [f'cage_{i}' for i in range(1, 4)]),
-                         ('RecruitPatrol', data['recruit_patrol'])]:
+                         ('RecruitPatrol', data['recruit_patrol']),
+                         ('Lookouts', ['cover', 'drop'])]:
         lines += [f'inline constexpr std::array<Point, {len(points)}> {name} =', '{{']
         for key in points:
             lines += ['    {' + ', '.join(f'{v:.4f}f' for v in data['points'][key]) + '},']
         lines += ['}};', '']
     p = data['points'][data['safe_point']]
     lines += ['inline constexpr Point Refuge = {' + ', '.join(f'{v:.4f}f' for v in p) + '};',
+              f'inline constexpr std::uint32_t EscortRespawnSeconds = {data["escort_respawn_seconds"]};',
               '}', '', '#endif', '']
     return '\n'.join(lines)
 
@@ -131,6 +133,7 @@ INSERT INTO `bs_c01_collision_guard` VALUES (1);
 """
     for kind, table, column in [('creature', 'creature_template', 'entry'),
                                 ('gameobject', 'gameobject_template', 'entry'),
+                                ('gameobject', 'gameobject_template_addon', 'entry'),
                                 ('quest', 'quest_template', 'ID'), ('item', 'item_template', 'entry'),
                                 ('outfit', 'mod_customnpcs_outfit', 'outfit_id'),
                                 ('npc_text', 'npc_text', 'ID'), ('gossip_menu', 'gossip_menu', 'MenuID'),
@@ -253,7 +256,8 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
         addons.append([q['id'], ids[q['previous']] if q['previous'] else 0,
                        ids['QUEST_WAGON'] if q['key'].startswith('QUEST_COMMISSION') else 0,
                        q.get('exclusive_group', 0), 1 if q.get('source_item') else 0, 256])
-        starters.append([ids[q['giver']], q['id']])
+        if not q.get('retired'):
+            starters.append([ids[q['giver']], q['id']])
         enders.append([ids[q['turn_in']], q['id']])
         offers.append([q['id'], q['completion']])
         requests.append([q['id'], q['request_text']])
@@ -294,16 +298,19 @@ ON DUPLICATE KEY UPDATE `chapter` = VALUES(`chapter`);
                    [[o['entry'], 5 if o['decorative'] else 10, o['display'], o['name'], o['scale'],
                      ids[o['quest']] if o['quest'] else 0, 0, 0, 1,
                      '' if o['decorative'] else 'go_bs_c01_interaction'] for o in data['objects']], ['entry'])
+    text += upsert('gameobject_template_addon', ['entry', 'flags'],
+                   [[o['entry'], 16 if o['decorative'] else 0] for o in data['objects']], ['entry'])
 
     # Dynamically allocated native GUIDs avoid collisions and preserve existing overrides.
     for kind in ('creature', 'gameobject'):
         text += f'DROP TEMPORARY TABLE IF EXISTS `bs_c01_{kind}_spawns`;\n'
-        text += f'CREATE TEMPORARY TABLE `bs_c01_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'
-    spawns = [[f'BS-C01:{a["key"]}:{a["point"]}', a['entry'], *data['points'][a['point']]]
+        extra = ', `respawn` INT UNSIGNED' if kind == 'creature' else ''
+        text += f'CREATE TEMPORARY TABLE `bs_c01_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT{extra}) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'
+    spawns = [[f'BS-C01:{a["key"]}:{a["point"]}', a['entry'], *data['points'][a['point']], a.get('respawn_seconds', 90)]
               for a in data['actors'] if a['point']]
-    spawns += [[f'BS-C01:{a["key"]}:{p}', a['entry'], *data['points'][p]]
+    spawns += [[f'BS-C01:{a["key"]}:{p}', a['entry'], *data['points'][p], 90]
                for a in data['hostile'] for p in a['points']]
-    text += rows('bs_c01_creature_spawns', ['spawn_key', 'entry', 'x', 'y', 'z', 'o'], spawns)
+    text += rows('bs_c01_creature_spawns', ['spawn_key', 'entry', 'x', 'y', 'z', 'o', 'respawn'], spawns)
     text += rows('bs_c01_gameobject_spawns', ['spawn_key', 'entry', 'x', 'y', 'z', 'o'],
                  [[f'BS-C01:{o["key"]}', o['entry'], *data['points'][o['point']]] for o in data['objects']])
     text += """
@@ -315,7 +322,7 @@ SET @BS_C01_ENTRY_COLUMN := (
 SET @BS_C01_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C01_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
   '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 90, 0, 0, s.`spawn_key` ',
+  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, s.`respawn`, 0, 0, s.`spawn_key` ',
   'FROM `bs_c01_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_INSERT;
@@ -324,7 +331,7 @@ DEALLOCATE PREPARE bs_c01_stmt;
 SET @BS_C01_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c01_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C01_ENTRY_COLUMN, '` = s.`entry`, c.`position_x` = s.`x`, c.`position_y` = s.`y`, ',
-  'c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
+  'c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1, c.`spawntimesecs` = s.`respawn`'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_UPDATE;
 EXECUTE bs_c01_stmt;

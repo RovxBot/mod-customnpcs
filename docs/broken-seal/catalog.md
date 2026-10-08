@@ -2078,7 +2078,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Required level variants:** C02: 25–30.
 
-## Quest items, keepsakes and equipment (193)
+## Quest items, keepsakes and equipment (200)
 
 <a id="items-ascendancy"></a>
 
@@ -2320,18 +2320,6 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
 
-<a id="items-antidote"></a>
-
-### Marsh Antidote
-
-**Key:** `antidote` · **Chapters:** C03.
-
-**Type / purpose:** quest_item; Chezin investigation and Leza treatment.
-
-**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
-
-**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
-
 <a id="items-skitterer_meat"></a>
 
 ### Skitterer Meat
@@ -2420,21 +2408,9 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 ### Village Food Supplies
 
-**Key:** `village_food` · **Chapters:** C03, C04.
+**Key:** `village_food` · **Chapters:** C03.
 
 **Type / purpose:** quest_item; Restore practical services before the exorcism.
-
-**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
-
-**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
-
-<a id="items-medicine"></a>
-
-### Prepared Herbal Medicine
-
-**Key:** `medicine` · **Chapters:** C04.
-
-**Type / purpose:** quest_item; Village treatment.
 
 **Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
 
@@ -2447,18 +2423,6 @@ An appearance plan labeled recreation deliberately changes the original race or 
 **Key:** `ken_mask` · **Chapters:** C04.
 
 **Type / purpose:** quest_item; Quest-provided exorcism tool using stock item presentation.
-
-**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
-
-**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
-
-<a id="items-curse_sample"></a>
-
-### Despair Residue Sample
-
-**Key:** `curse_sample` · **Chapters:** C04.
-
-**Type / purpose:** quest_item; Evidence linking the village curse to a ward.
 
 **Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
 
@@ -4396,6 +4360,126 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 **Binding / lifecycle:** quest-bound; no trade; Provided on quest accept; removed by native source-item cleanup; reissue if deleted.
 
+<a id="items-twilight_pick"></a>
+
+### Twilight Pick
+
+**Key:** `twilight_pick` · **Chapters:** C02.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-basilisk_meat"></a>
+
+### Charred Basilisk Meat
+
+**Key:** `basilisk_meat` · **Chapters:** C02.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-ascendant_strike"></a>
+
+### Ascendant Strike Focus
+
+**Key:** `ascendant_strike` · **Chapters:** C02.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-flame_shield"></a>
+
+### Flame Shield Focus
+
+**Key:** `flame_shield` · **Chapters:** C02.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-poisoned_blade"></a>
+
+### Poisoned Raider Blade
+
+**Key:** `poisoned_blade` · **Chapters:** C03.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-honeycomb"></a>
+
+### Chunk of Honeycomb
+
+**Key:** `honeycomb` · **Chapters:** C04.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-mudfish"></a>
+
+### Slick Mudfish
+
+**Key:** `mudfish` · **Chapters:** C04.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-salty_core"></a>
+
+### Salty Core
+
+**Key:** `salty_core` · **Chapters:** C04.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-panther_fangs"></a>
+
+### Huge Panther Fang
+
+**Key:** `panther_fangs` · **Chapters:** C04.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
+<a id="items-pigment_jar"></a>
+
+### Jar of Pigment
+
+**Key:** `pigment_jar` · **Chapters:** C04.
+
+**Type / purpose:** quest_item; Source-audited quest material or supplied tool.
+
+**Visual:** Reuse a native icon/display appropriate to this item; exact donor pending.
+
+**Binding / lifecycle:** quest-bound; no trade; Remove temporary copies on completion/abandonment; reissue on retry.
+
 ## Interactable objects and scene sites (44)
 
 <a id="objects-lost_wagon"></a>
@@ -4412,7 +4496,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 ### Marked trail clue
 
-**Key:** `tracks` · **Chapters:** C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13.
+**Key:** `tracks` · **Chapters:** C01, C03, C05, C06, C07, C08, C09, C10, C11, C12, C13.
 
 **Native representation:** Grounded native evidence crate or carved tablet.
 
@@ -4422,7 +4506,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 ### Cult document chest
 
-**Key:** `cult_chest` · **Chapters:** C02, C03, C05, C08, C09, C10.
+**Key:** `cult_chest` · **Chapters:** C02, C05, C08, C09, C10.
 
 **Native representation:** Stock chest.
 
@@ -4452,7 +4536,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 ### Training stone
 
-**Key:** `training_stone` · **Chapters:** C02, C07.
+**Key:** `training_stone` · **Chapters:** C07.
 
 **Native representation:** Stock stone/ore object.
 
@@ -4462,9 +4546,9 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 ### Ortell dead drop
 
-**Key:** `hideout` · **Chapters:** C01, C02.
+**Key:** `hideout` · **Chapters:** C02.
 
-**Native representation:** Stock outhouse or crate; fallback must be reachable.
+**Native representation:** Native Westfall outhouse model; Ortell communicates through a real questgiving shelter..
 
 **Interaction:** Gossip proxy and document handoff.
 
@@ -4517,16 +4601,6 @@ An appearance plan labeled recreation deliberately changes the original race or 
 **Native representation:** Stock herb.
 
 **Interaction:** Quest-only gather, no profession gate.
-
-<a id="objects-pool"></a>
-
-### Ward-tainted pool focus
-
-**Key:** `pool` · **Chapters:** C03.
-
-**Native representation:** Stock pool shore plus native interactable basin.
-
-**Interaction:** Collect and test water.
 
 <a id="objects-totem"></a>
 
@@ -4732,7 +4806,7 @@ An appearance plan labeled recreation deliberately changes the original race or 
 
 ### Relic binding apparatus
 
-**Key:** `binding_device` · **Chapters:** C03, C07, C09, C10, C13.
+**Key:** `binding_device` · **Chapters:** C07, C09, C10, C13.
 
 **Native representation:** Stock demonic/titan focus.
 
@@ -4837,3 +4911,13 @@ An appearance plan labeled recreation deliberately changes the original race or 
 **Native representation:** Stock chest.
 
 **Interaction:** Personal finale reward handoff.
+
+<a id="objects-lodestone_deposit"></a>
+
+### Darkwhisper Lodestone
+
+**Key:** `lodestone_deposit` · **Chapters:** C02.
+
+**Native representation:** Stock iron-vein model used as an ordinary quest object..
+
+**Interaction:** Break five deposits with the supplied Twilight Pick..

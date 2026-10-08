@@ -35,6 +35,8 @@ INSERT INTO `bs_c04_ids` (`kind`, `entry`) VALUES
   ('creature', 4001617),
   ('creature', 4001618),
   ('creature', 4001619),
+  ('creature', 4001620),
+  ('creature', 4001621),
   ('creature', 4001650),
   ('creature', 4001651),
   ('creature', 4001652),
@@ -55,15 +57,15 @@ INSERT INTO `bs_c04_ids` (`kind`, `entry`) VALUES
   ('creature', 4001667),
   ('creature', 4001668),
   ('creature', 4001669),
-  ('gameobject', 4001700),
-  ('gameobject', 4001701),
   ('gameobject', 4001702),
   ('gameobject', 4001703),
   ('gameobject', 4001704),
-  ('gameobject', 4001705),
   ('gameobject', 4001706),
   ('gameobject', 4001707),
   ('gameobject', 4001708),
+  ('gameobject', 4001709),
+  ('gameobject', 4001710),
+  ('gameobject', 4001711),
   ('quest', 900400),
   ('quest', 900401),
   ('quest', 900402),
@@ -89,6 +91,11 @@ INSERT INTO `bs_c04_ids` (`kind`, `entry`) VALUES
   ('item', 900413),
   ('item', 900414),
   ('item', 900415),
+  ('item', 900416),
+  ('item', 900417),
+  ('item', 900418),
+  ('item', 900419),
+  ('item', 900420),
   ('outfit', 4001601),
   ('outfit', 4001602),
   ('outfit', 4001603),
@@ -122,6 +129,8 @@ INSERT INTO `bs_c04_ids` (`kind`, `entry`) VALUES
   ('outfit_entry', 4001617),
   ('outfit_entry', 4001618),
   ('outfit_entry', 4001619),
+  ('outfit_entry', 4001620),
+  ('outfit_entry', 4001621),
   ('npc_text', 4001600),
   ('npc_text', 4001601),
   ('npc_text', 4001602),
@@ -168,6 +177,10 @@ LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c04_collision_guard`
 SELECT 1 FROM `gameobject_template` t INNER JOIN `bs_c04_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 4
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c04_collision_guard`
+SELECT 1 FROM `gameobject_template_addon` t INNER JOIN `bs_c04_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 4
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c04_collision_guard`
@@ -219,6 +232,8 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001617, 'Essence of Despair', 38, 38, 0, 14, 0, 1, 0, 10, '', 'npc_bs_c04_enemy', 1, 1, 0, 0, 0),
   (4001618, 'Quintessence of Despair', 38, 38, 0, 14, 0, 1, 0, 10, '', 'npc_bs_c04_enemy', 2.5, 0.8, 0, 0, 0),
   (4001619, 'Relit village hearth', 1, 1, 0, 35, 0, 1, 33555202, 10, '', 'npc_bs_c04_flame', 1, 1, 0, 0, 2),
+  (4001620, 'Weeping Marsh Horror', 37, 37, 0, 14, 0, 1, 0, 4, '', 'npc_bs_c04_enemy', 1, 1, 1, 4001620, 0),
+  (4001621, 'Marsh Panther', 37, 37, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c04_enemy', 1, 1, 1, 4001621, 0),
   (4001650, 'Inspect', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001651, 'Question A', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001652, 'Question B', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -241,7 +256,7 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001669, 'Liaison', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2)
 ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001600, 4001601, 4001602, 4001603, 4001604, 4001605, 4001606, 4001607, 4001608, 4001609, 4001610, 4001611, 4001612, 4001613, 4001614, 4001615, 4001616, 4001617, 4001618, 4001619, 4001650, 4001651, 4001652, 4001653, 4001654, 4001655, 4001656, 4001657, 4001658, 4001659, 4001660, 4001661, 4001662, 4001663, 4001664, 4001665, 4001666, 4001667, 4001668, 4001669);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001600, 4001601, 4001602, 4001603, 4001604, 4001605, 4001606, 4001607, 4001608, 4001609, 4001610, 4001611, 4001612, 4001613, 4001614, 4001615, 4001616, 4001617, 4001618, 4001619, 4001620, 4001621, 4001650, 4001651, 4001652, 4001653, 4001654, 4001655, 4001656, 4001657, 4001658, 4001659, 4001660, 4001661, 4001662, 4001663, 4001664, 4001665, 4001666, 4001667, 4001668, 4001669);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
   (4001600, 0, 843, 1, 1),
   (4001601, 0, 3406, 1, 1),
@@ -263,6 +278,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
   (4001617, 0, 19110, 1, 1),
   (4001618, 0, 19110, 1.8, 1),
   (4001619, 0, 27626, 0.5, 1),
+  (4001620, 0, 19110, 1, 1),
+  (4001621, 0, 633, 1, 1),
   (4001650, 0, 11686, 1, 1),
   (4001651, 0, 11686, 1, 1),
   (4001652, 0, 11686, 1, 1),
@@ -321,6 +338,21 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
   (4001604, 1, 12282, 0, 0)
 ON DUPLICATE KEY UPDATE
   `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
+UPDATE `creature_template` SET `mingold`=45,`maxgold`=132,`lootid`=4001620 WHERE `entry`=4001620;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001620;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001620, 7070, 0, 30, 0, 1, 0, 1, 1),
+  (4001620, 10940, 0, 15, 0, 1, 0, 1, 2);
+UPDATE `creature_template` SET `mingold`=45,`maxgold`=132,`lootid`=4001621 WHERE `entry`=4001621;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001621;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001621, 12203, 0, 65, 0, 1, 0, 1, 2),
+  (4001621, 5635, 0, 18, 0, 1, 0, 1, 1);
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001621 AND `QuestRequired`=1;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001620 AND `QuestRequired`=1;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001620, 900416, 100, 1, 1, 0, 1, 1),
+  (4001621, 900419, 100, 1, 1, 0, 3, 3);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
   (900400, 12, 0, 'Damaged Ward Rubbing', 4110, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'The broken rune turns the village''s fear toward its old well.', 0, 0, ''),
   (900401, 12, 0, 'Village Food Supplies', 6399, 1, 0, -1, -1, 1, 0, 6, 6, 4, 0, 0, 0, 0, 0, 0, 'Sound provisions recovered from the village stores.', 0, 0, ''),
@@ -334,19 +366,24 @@ INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, 
   (900412, 4, 0, 'The Village That Gave Up: Signet of Sorcery', 9846, 2, 11, -1, -1, 40, 35, 1, 1, 1, 5, 8, 45, 10, 0, 0, 'The village remembers those who stayed when hope was hardest to find.', 0, 0, ''),
   (900413, 4, 0, 'The Village That Gave Up: Signet of Restoration', 9846, 2, 11, -1, -1, 40, 35, 1, 1, 1, 6, 8, 43, 4, 0, 0, 'The village remembers those who stayed when hope was hardest to find.', 0, 0, ''),
   (900414, 4, 0, 'The Village That Gave Up: Signet of Guarding', 9846, 2, 11, -1, -1, 40, 35, 1, 1, 1, 7, 9, 12, 7, 0, 0, 'The village remembers those who stayed when hope was hardest to find.', 0, 0, ''),
-  (900415, 4, 0, 'The Village That Gave Up: Signet of Balance', 9846, 2, 11, -1, -1, 40, 35, 1, 1, 1, 5, 7, 6, 7, 7, 6, 'The village remembers those who stayed when hope was hardest to find.', 0, 0, '')
+  (900415, 4, 0, 'The Village That Gave Up: Signet of Balance', 9846, 2, 11, -1, -1, 40, 35, 1, 1, 1, 5, 7, 6, 7, 7, 6, 'The village remembers those who stayed when hope was hardest to find.', 0, 0, ''),
+  (900416, 12, 0, 'Salty Core', 4136, 1, 0, -1, -1, 1, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 'An ingredient requested by Ken-Ken.', 0, 0, ''),
+  (900417, 12, 0, 'Slick Mudfish', 24522, 1, 0, -1, -1, 1, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 'An ingredient requested by Ken-Ken.', 0, 0, ''),
+  (900418, 12, 0, 'Chunk of Honeycomb', 25468, 1, 0, -1, -1, 1, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 'An ingredient requested by Ken-Ken.', 0, 0, ''),
+  (900419, 12, 0, 'Huge Panther Fang', 6002, 1, 0, -1, -1, 1, 0, 18, 18, 4, 0, 0, 0, 0, 0, 0, 'An ingredient requested by Ken-Ken.', 0, 0, ''),
+  (900420, 12, 0, 'Jar of Pigment', 54605, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 'An ingredient requested by Ken-Ken.', 0, 0, '')
 ON DUPLICATE KEY UPDATE
   `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
 INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`, `RewardItem1`, `RewardItem2`, `RewardItem3`, `RewardItem4`, `RewardAmount1`, `RewardAmount2`, `RewardAmount3`, `RewardAmount4`) VALUES
   (900400, 2, 35, 35, 15, 5, 7000, 0, 0, 0, 'Ken-Ken', 'Find Ken-Ken and inspect the village together.', 'Kang''s letter brought you to our relief station. The families here have food and shelter, but they have stopped caring for themselves. Ken-Ken is helping at the southern camp. Ask him to show you what has happened.', 'Speak with Ken-Ken at the village relief camp.', 4001650, 0, 0, 0, 1, 0, 0, 0, 'Village inspected with Ken-Ken', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900401, 2, 35, 35, 15, 5, 7500, 0, 0, 0, 'What''s Eating the Village?', 'Gather 6 safe food supplies and question 3 despondent residents.', 'We must rule out hunger first. Take six sound food bundles from the marked village crate, then hear the troubles of the village provisioner, herbalist and toolkeeper. Each has something different to tell us.', 'Speak with Ken-Ken at the village relief camp.', 4001651, 4001652, 4001653, 0, 1, 1, 1, 0, 'Village Provisioner questioned', 'Village Herbalist questioned', 'Village Toolkeeper questioned', '', 900401, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900402, 2, 35, 35, 15, 5, 8000, 0, 0, 0, 'Finding Yi-Mo', 'Find Yi-Mo at the marked marsh trail and escort him away from the predators.', 'Yi-Mo has wandered down the marsh trail alone. Read the discarded pack southeast of the village to find him. Stay beside him, protect him from the stalker, and lead him back through the marked path.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 4001654, 0, 0, 0, 1, 0, 0, 0, 'Yi-Mo escorted to safety', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900403, 2, 36, 35, 15, 5, 8500, 0, 0, 0, 'Cheer Up, Yi-Mo', 'Recover Yi-Mo''s lost supplies and persuade him to return to the village.', 'You found me. I do not know why you bothered. My supplies are still beside that trail. Bring back three bundles and talk to me again; perhaps there is still a reason to return to my neighbors.', 'Speak with Ken-Ken at the village relief camp.', 4001655, 0, 0, 0, 1, 0, 0, 0, 'Yi-Mo persuaded to return', '', '', '', 900401, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900404, 2, 36, 35, 15, 5, 9000, 0, 0, 0, 'Materia Medica', 'Gather 8 local herbs and prepare medicine with Kang.', 'Both the families and Yi-Mo need our help. Gather eight fresh herb sprigs from the marked patches south of camp. Bring them to Kang by his cooking hearth and ask him to prepare the medicine.', 'Speak with Kang Bramblestaff at the village cooking hearth.', 4001656, 0, 0, 0, 8, 0, 0, 0, 'Medicinal herbs gathered', '', '', '', 900402, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900405, 2, 37, 35, 15, 5, 9500, 900403, 0, 0, 'Why So Serious?', 'Use the supplied treatment mask to test 3 residents and identify the shared residue.', 'Ken-Ken made a mask with Kang''s medicine. Test it on the provisioner, herbalist and toolkeeper. The mask draws out a dark residue. Once all three have been tested, return to Ken-Ken for a sample bottle.', 'Speak with Ken-Ken at the village relief camp.', 4001657, 4001658, 4001659, 0, 1, 1, 1, 0, 'Village Provisioner tested', 'Village Herbalist tested', 'Village Toolkeeper tested', '', 900404, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900401, 2, 35, 35, 15, 5, 7500, 0, 0, 0, 'What''s Eating the Village?', 'Question the three despondent residents about what is wrong with the village.', 'Speak to the provisioner, herbalist and cooking keeper here in the village. They have stopped tending their work and their neighbors. Find out why. We need to understand this despair before Ken-Ken can try to treat it.', 'Speak with Ken-Ken at the village relief camp.', 4001651, 4001652, 4001653, 0, 1, 1, 1, 0, 'Village Provisioner questioned', 'Village Herbalist questioned', 'Village Toolkeeper questioned', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900402, 2, 35, 35, 15, 5, 8000, 0, 0, 0, 'Finding Yi-Mo', 'Find Yi-Mo on the marsh trail east of the village.', 'Yi-Mo has wandered out toward the eastern marsh trail, where predators hunt. Find him and speak to him. Finding him is the first task; bringing him home comes next.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900403, 2, 36, 35, 15, 5, 8500, 0, 0, 0, 'Cheer Up, Yi-Mo', 'Speak to Yi-Mo and bring him back to the village.', 'Yi-Mo will not come home on his own. Speak to him on the trail and insist that he stand up. Stay with him, clear the predators along the way, and bring him back to the village. His neighbors are waiting for him.', 'Speak with Ken-Ken at the village relief camp.', 4001655, 0, 0, 0, 1, 0, 0, 0, 'Yi-Mo persuaded to return', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900404, 2, 36, 35, 15, 5, 9000, 0, 0, 0, 'Materia Medica', 'Gather 4 chunks of honeycomb, 4 mudfish and 4 salty cores for Ken-Ken''s remedy.', 'Ken-Ken''s first theory needs three ingredients. Gather honeycomb from the small hives along the village''s eastern edge, take four mudfish from the provisioner''s fishing hamper, and defeat the weeping marsh horrors southeast of camp for four salty cores. Bring all three ingredients back to Ken-Ken.', 'Speak with Kang Bramblestaff at the village cooking hearth.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900418, 900417, 900416, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900405, 2, 37, 35, 15, 5, 9500, 0, 0, 0, 'Why So Serious?', 'Collect 18 panther fangs and the jar of pigment from the eastern marsh.', 'The first remedy did not remove the village''s despair. Ken-Ken remembers a mask used to confront it. Kill marsh panthers for eighteen fangs and retrieve the pigment jar at the edge of their hunting ground. Bring the materials here so he can prepare the mask; you will use it on the wardens in the next quest.', 'Speak with Ken-Ken at the village relief camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900419, 900420, 0, 0, 0, 0, 18, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900406, 2, 37, 35, 15, 5, 10000, 900403, 0, 0, 'Apply Directly to the Forehead', 'Treat 8 villagers with the mask and defeat the released lesser manifestations.', 'There are eight people still trapped in this gloom. Use the mask on the next untreated villager, then defeat the despair it releases. Work through the round in the order Ken-Ken shows you. You can ask him to resume whenever you need.', 'Speak with Ken-Ken at the village relief camp.', 4001660, 0, 0, 0, 8, 0, 0, 0, 'Villagers freed from despair', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900407, 2, 38, 35, 15, 5, 10500, 0, 0, 0, 'The Well Beneath the Ward', 'Sample the old ward by the well and confirm where the influence gathers.', 'The old well southeast of the village lies below a damaged ward. Inspect the well first, then take a rubbing of the ward beside it. Bring it to me before touching Yi-Mo with the mask again.', 'Speak with Maruut Stonebinder at the village relief camp.', 4001661, 0, 0, 0, 1, 0, 0, 0, 'Old well inspected', '', '', '', 900400, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900408, 2, 38, 35, 15, 5, 11000, 900403, 0, 0, 'Zhu''s Despair', 'Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken''s help.', 'The broken ward has gathered the village''s despair around Yi-Mo. Meet Ken-Ken at the well southeast of camp and use the well to begin the confrontation. Defeat eight lesser manifestations there, use the mask on Yi-Mo, and defeat the Quintessence it releases. Ken-Ken will stand beside you.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 4001662, 4001663, 4001664, 0, 8, 1, 1, 0, 'Lesser manifestations defeated', 'Yi-Mo treated at the well', 'Quintessence of Despair defeated', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900407, 2, 38, 35, 15, 5, 10500, 0, 0, 0, 'The Well Beneath the Ward', 'Take a sample of the tainted water collected beside the old village well.', 'The villagers draw their water from the old well southeast of camp. Take a sample from the water sack beside it and bring it here. The treatment has helped the people; now we must find the source of the remaining gloom.', 'Speak with Maruut Stonebinder at the village relief camp.', 4001661, 0, 0, 0, 1, 0, 0, 0, 'Old well inspected', '', '', '', 900400, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900408, 2, 38, 35, 15, 5, 11000, 900403, 0, 0, 'Zhu''s Despair', 'Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken''s help.', 'Meet Ken-Ken at the old village well. Defeat the eight lesser manifestations that gather there, then use the mask on Yi-Mo. That will draw out the Quintessence of Despair. Defeat it with Ken-Ken''s help and keep Yi-Mo alive.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 4001662, 4001663, 4001664, 0, 8, 1, 1, 0, 'Lesser manifestations defeated', 'Yi-Mo treated at the well', 'Quintessence of Despair defeated', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900409, 2, 39, 35, 15, 5, 11500, 0, 0, 0, 'Hands Back to Work', 'Relight 3 hearths and help 3 recovered villagers restart the village services.', 'The curse is broken; now we rebuild. Light the three marked household hearths and help the first three residents resume their food, medicine and equipment services. Each family needs a different hand.', 'Speak with Mei Barrelbottom at the relief station on the Mudsprocket road.', 4001665, 4001666, 4001667, 4001668, 1, 1, 1, 3, 'Household hearth 1 relit', 'Household hearth 2 relit', 'Household hearth 3 relit', 'Village services restarted', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900410, 2, 39, 35, 15, 5, 12000, 0, 0, 0, 'When You Need Us', 'Accept the village''s pledge of aid and nominate Mei as its future supply liaison.', 'You stayed when we could not help ourselves. Let me put the village''s promise in writing. Ask Mei to become our supply liaison, then return to me to accept our pledge.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 4001669, 0, 0, 0, 1, 0, 0, 0, 'Mei named supply liaison', '', '', '', 900405, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900411, 2, 40, 35, 47, 5, 12500, 900406, 0, 0, 'The Families in the Hills', 'Deliver the Wildhammer introduction letter to Iain at the neutral Hinterlands gathering.', 'The ward rubbing points toward the hills of the Eastern Kingdoms. Iain Firebeard has agreed to receive travelers from both factions at a neutral gathering outside Aerie Peak. Carry this letter to him in the western Hinterlands; you need not enter Aerie Peak itself.', 'Speak with Iain Firebeard at the neutral gathering outside Aerie Peak in the Hinterlands.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900406, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900410, 900411, 900412, 900413, 900414, 900415, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -358,7 +395,7 @@ INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `Exclusi
   (900402, 900400, 0, 0, 0, 256),
   (900403, 900402, 0, -900404, 0, 256),
   (900404, 900401, 0, 0, 0, 256),
-  (900405, 900404, 0, 0, 1, 256),
+  (900405, 900404, 0, 0, 0, 256),
   (900406, 900405, 0, 0, 1, 256),
   (900407, 900406, 0, 0, 0, 256),
   (900408, 900407, 0, 0, 1, 256),
@@ -387,7 +424,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
   (4001600, 900401),
   (4001601, 900402),
   (4001600, 900403),
-  (4001602, 900404),
+  (4001600, 900404),
   (4001600, 900405),
   (4001600, 900406),
   (4001603, 900407),
@@ -413,10 +450,10 @@ ON DUPLICATE KEY UPDATE
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
   (900400, 'Did Ken-Ken show you what has happened to the families?'),
   (900401, 'Have you checked the food and heard all three residents'' troubles?'),
-  (900402, 'Did Yi-Mo reach the village safely?'),
-  (900403, 'Did you recover my supplies and speak with me?'),
-  (900404, 'Have you gathered eight sprigs and asked me to prepare them?'),
-  (900405, 'Test all three residents before asking me to bottle the residue.'),
+  (900402, 'Have you completed the work I asked you to do?'),
+  (900403, 'Have you completed the work I asked you to do?'),
+  (900404, 'Have you completed the work I asked you to do?'),
+  (900405, 'Have you completed the work I asked you to do?'),
   (900406, 'Eight villagers need help. Have you defeated the despair released from every patient?'),
   (900407, 'Inspect the well first, then bring me the ward rubbing.'),
   (900408, 'Clear the eight lesser manifestations, treat me with the mask, and face what it releases.'),
@@ -449,27 +486,26 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900401, 1, 0, 1, 141, 0, 0, 0),
   (900401, 2, 1, 1, 141, 0, 0, 0),
   (900401, 3, 2, 1, 141, 0, 0, 0),
-  (900401, 4, 4, 1, 141, 0, 0, 0),
   (900402, 0, -1, 1, 141, 0, 0, 0),
-  (900402, 1, 0, 1, 141, 0, 0, 0),
   (900403, 0, -1, 1, 141, 0, 0, 0),
   (900403, 1, 0, 1, 141, 0, 0, 0),
-  (900403, 2, 4, 1, 141, 0, 0, 0),
+  (900403, 2, 0, 1, 141, 0, 0, 0),
   (900404, 0, -1, 1, 141, 0, 0, 0),
-  (900404, 1, 0, 1, 141, 0, 0, 0),
-  (900404, 2, 0, 1, 141, 0, 0, 0),
-  (900404, 3, 0, 1, 141, 0, 0, 0),
-  (900404, 4, 0, 1, 141, 0, 0, 0),
-  (900404, 5, 0, 1, 141, 0, 0, 0),
-  (900404, 6, 0, 1, 141, 0, 0, 0),
-  (900404, 7, 0, 1, 141, 0, 0, 0),
-  (900404, 8, 0, 1, 141, 0, 0, 0),
-  (900404, 9, 4, 1, 141, 0, 0, 0),
+  (900404, 1, 4, 1, 141, 0, 0, 0),
+  (900404, 2, 4, 1, 141, 0, 0, 0),
+  (900404, 3, 5, 1, 141, 0, 0, 0),
+  (900404, 4, 6, 1, 141, 0, 0, 0),
+  (900404, 5, 6, 1, 141, 0, 0, 0),
+  (900404, 6, 6, 1, 141, 0, 0, 0),
+  (900404, 7, 6, 1, 141, 0, 0, 0),
   (900405, 0, -1, 1, 141, 0, 0, 0),
-  (900405, 1, 0, 1, 141, 0, 0, 0),
-  (900405, 2, 1, 1, 141, 0, 0, 0),
-  (900405, 3, 2, 1, 141, 0, 0, 0),
+  (900405, 1, 4, 1, 141, 0, 0, 0),
+  (900405, 2, 4, 1, 141, 0, 0, 0),
+  (900405, 3, 4, 1, 141, 0, 0, 0),
   (900405, 4, 4, 1, 141, 0, 0, 0),
+  (900405, 5, 4, 1, 141, 0, 0, 0),
+  (900405, 6, 4, 1, 141, 0, 0, 0),
+  (900405, 7, 5, 1, 141, 0, 0, 0),
   (900406, 0, -1, 1, 141, 0, 0, 0),
   (900406, 1, 0, 1, 141, 0, 0, 0),
   (900407, 0, -1, 1, 141, 0, 0, 0),
@@ -498,27 +534,26 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900401, 1, 0, -4586, -3240),
   (900401, 2, 0, -4588, -3246),
   (900401, 3, 0, -4590, -3250),
-  (900401, 4, 0, -4565, -3258),
-  (900402, 0, 0, -4588, -3252),
-  (900402, 1, 0, -4515, -3300),
+  (900402, 0, 0, -4515, -3300),
   (900403, 0, 0, -4580, -3250),
-  (900403, 1, 0, -4588, -3252),
-  (900403, 2, 0, -4517, -3302),
-  (900404, 0, 0, -4575, -3255),
-  (900404, 1, 0, -4570, -3280),
-  (900404, 2, 0, -4578, -3280),
-  (900404, 3, 0, -4586, -3280),
-  (900404, 4, 0, -4594, -3280),
-  (900404, 5, 0, -4595, -3290),
-  (900404, 6, 0, -4585, -3290),
-  (900404, 7, 0, -4574, -3290),
-  (900404, 8, 0, -4565, -3290),
-  (900404, 9, 0, -4575, -3255),
+  (900403, 1, 0, -4515, -3300),
+  (900403, 2, 0, -4588, -3252),
+  (900404, 0, 0, -4580, -3250),
+  (900404, 1, 0, -4564, -3291),
+  (900404, 2, 0, -4621, -3280),
+  (900404, 3, 0, -4610, -3208),
+  (900404, 4, 0, -4629, -3337),
+  (900404, 5, 0, -4597, -3333),
+  (900404, 6, 0, -4607, -3365),
+  (900404, 7, 0, -4638, -3362),
   (900405, 0, 0, -4580, -3250),
-  (900405, 1, 0, -4586, -3240),
-  (900405, 2, 0, -4588, -3246),
-  (900405, 3, 0, -4590, -3250),
-  (900405, 4, 0, -4580, -3250),
+  (900405, 1, 0, -4472, -3287),
+  (900405, 2, 0, -4496, -3296),
+  (900405, 3, 0, -4518, -3285),
+  (900405, 4, 0, -4510, -3315),
+  (900405, 5, 0, -4470, -3317),
+  (900405, 6, 0, -4485, -3334),
+  (900405, 7, 0, -4475, -3280),
   (900406, 0, 0, -4580, -3250),
   (900406, 1, 0, -4580, -3250),
   (900407, 0, 0, -4582, -3260),
@@ -576,18 +611,30 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001671, 4001671),
   (4001670, 4001670);
 UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001600, 4001601, 4001602, 4001603, 4001604, 4001605, 4001606, 4001607, 4001608, 4001609, 4001610, 4001611, 4001612, 4001671, 4001670);
-INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
-  (4001700, 10, 6737, 'Yi-Mo''s Discarded Pack', 0.6, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001701, 10, 269, 'Fresh Marsh Herb', 0.7, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001702, 10, 8503, 'Old Village Well', 0.75, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001703, 10, 235, 'Damaged Village Ward', 0.4, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001704, 10, 335, 'Sound Village Provisions', 0.8, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001705, 10, 335, 'Yi-Mo''s Lost Provisions', 1, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001706, 10, 199, 'Provisioner Hearth', 1, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001707, 10, 199, 'Herbalist Hearth', 1, 0, 0, 1, 'go_bs_c04_interaction'),
-  (4001708, 10, 199, 'Cooking Hearth', 1, 0, 0, 1, 'go_bs_c04_interaction')
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data1`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
+  (4001702, 5, 8503, 'Old Village Well', 0.75, 0, 0, 0, 1, ''),
+  (4001703, 10, 2890, 'Tainted Well-water Sack', 0.7, 0, 0, 0, 1, 'go_bs_c04_interaction'),
+  (4001704, 5, 335, 'Sound Village Provisions', 0.8, 0, 0, 0, 1, ''),
+  (4001706, 10, 199, 'Provisioner Hearth', 1, 0, 0, 0, 1, 'go_bs_c04_interaction'),
+  (4001707, 10, 199, 'Herbalist Hearth', 1, 0, 0, 0, 1, 'go_bs_c04_interaction'),
+  (4001708, 10, 199, 'Cooking Hearth', 1, 0, 0, 0, 1, 'go_bs_c04_interaction'),
+  (4001709, 10, 8207, 'Rain-slick Honeycomb', 0.4, 0, 0, 0, 1, 'go_bs_c04_interaction'),
+  (4001710, 10, 6396, 'Caught Marsh Mudfish', 0.8, 0, 0, 0, 1, 'go_bs_c04_interaction'),
+  (4001711, 10, 52, 'Jar of Pigment', 0.65, 0, 0, 0, 1, 'go_bs_c04_interaction')
 ON DUPLICATE KEY UPDATE
-  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data1` = VALUES(`Data1`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+INSERT INTO `gameobject_template_addon` (`entry`, `flags`) VALUES
+  (4001702, 16),
+  (4001703, 0),
+  (4001704, 16),
+  (4001706, 0),
+  (4001707, 0),
+  (4001708, 0),
+  (4001709, 0),
+  (4001710, 0),
+  (4001711, 0)
+ON DUPLICATE KEY UPDATE
+  `flags` = VALUES(`flags`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c04_creature_spawns`;
 CREATE TEMPORARY TABLE `bs_c04_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `map` SMALLINT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 DROP TEMPORARY TABLE IF EXISTS `bs_c04_gameobject_spawns`;
@@ -605,24 +652,28 @@ INSERT INTO `bs_c04_creature_spawns` (`spawn_key`, `entry`, `map`, `zone`, `x`, 
   ('BS-C04:NPC_VILLAGER_4:villager_4', 4001609, 1, 15, -4586.0, -3264.0, 31.4333, 3.14),
   ('BS-C04:NPC_VILLAGER_5:villager_5', 4001610, 1, 15, -4575.0, -3264.0, 35.1583, 3.14),
   ('BS-C04:NPC_VILLAGER_6:villager_6', 4001611, 1, 15, -4568.0, -3255.0, 33.0767, 3.14),
-  ('BS-C04:NPC_VILLAGER_7:villager_7', 4001612, 1, 15, -4568.0, -3242.0, 34.083, 3.14);
+  ('BS-C04:NPC_VILLAGER_7:villager_7', 4001612, 1, 15, -4568.0, -3242.0, 34.083, 3.14),
+  ('BS-C04:NPC_WEEPING_HORROR:horror_0', 4001620, 1, 15, -4629, -3337, 29.838095913542027, 3.14),
+  ('BS-C04:NPC_WEEPING_HORROR:horror_1', 4001620, 1, 15, -4597, -3333, 36.47555368413144, 3.14),
+  ('BS-C04:NPC_WEEPING_HORROR:horror_2', 4001620, 1, 15, -4607, -3365, 37.32766470138746, 3.14),
+  ('BS-C04:NPC_WEEPING_HORROR:horror_3', 4001620, 1, 15, -4638, -3362, 30.122132919293968, 3.14),
+  ('BS-C04:NPC_PANTHER:panther_0', 4001621, 1, 15, -4472, -3287, 37.65174539479149, 3.14),
+  ('BS-C04:NPC_PANTHER:panther_1', 4001621, 1, 15, -4496, -3296, 32.42867597937564, 3.14),
+  ('BS-C04:NPC_PANTHER:panther_2', 4001621, 1, 15, -4518, -3285, 36.11456083938265, 3.14),
+  ('BS-C04:NPC_PANTHER:panther_3', 4001621, 1, 15, -4510, -3315, 29.64880453813981, 3.14),
+  ('BS-C04:NPC_PANTHER:panther_4', 4001621, 1, 15, -4470, -3317, 39.054740288087544, 3.14),
+  ('BS-C04:NPC_PANTHER:panther_5', 4001621, 1, 15, -4485, -3334, 32.530417595088984, 3.14);
 INSERT INTO `bs_c04_gameobject_spawns` (`spawn_key`, `entry`, `map`, `zone`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C04:GO_TRAIL:trail', 4001700, 1, 15, -4515.0, -3300.0, 31.406462575141678, 3.14),
-  ('BS-C04:GO_HERB:herb_0', 4001701, 1, 15, -4570.0, -3280.0, 35.25804768150197, 3.14),
-  ('BS-C04:GO_HERB:herb_1', 4001701, 1, 15, -4578.0, -3280.0, 35.73284188816158, 3.14),
-  ('BS-C04:GO_HERB:herb_2', 4001701, 1, 15, -4586.0, -3280.0, 36.67769968280612, 3.14),
-  ('BS-C04:GO_HERB:herb_3', 4001701, 1, 15, -4594.0, -3280.0, 36.62206494205952, 3.14),
-  ('BS-C04:GO_HERB:herb_4', 4001701, 1, 15, -4595.0, -3290.0, 37.97382257112362, 3.14),
-  ('BS-C04:GO_HERB:herb_5', 4001701, 1, 15, -4585.0, -3290.0, 35.82872020185444, 3.14),
-  ('BS-C04:GO_HERB:herb_6', 4001701, 1, 15, -4574.0, -3290.0, 32.85002951943496, 3.14),
-  ('BS-C04:GO_HERB:herb_7', 4001701, 1, 15, -4565.0, -3290.0, 31.541513742759985, 3.14),
   ('BS-C04:GO_WELL:well', 4001702, 1, 15, -4532.0, -3324.0, 34.55830546961555, 3.14),
-  ('BS-C04:GO_WARD:ward', 4001703, 1, 15, -4535.0, -3326.0, 36.631565430174355, 3.14),
+  ('BS-C04:GO_WARD:ward', 4001703, 1, 15, -4535.0, -3326.0, 35.45657082104194, 3.14),
   ('BS-C04:GO_SUPPLY:supply', 4001704, 1, 15, -4565.0, -3258.0, 34.19550885274701, 3.14),
-  ('BS-C04:GO_LOST_SUPPLY:lost_supply', 4001705, 1, 15, -4516.57, -3301.57, 30.776066786906007, 3.14),
   ('BS-C04:GO_HEARTH_A:hearth_a', 4001706, 1, 15, -4590.0, -3260.0, 30.644549028402572, 3.14),
   ('BS-C04:GO_HEARTH_B:hearth_b', 4001707, 1, 15, -4565.0, -3245.0, 31.78189636318811, 3.14),
-  ('BS-C04:GO_HEARTH_C:hearth_c', 4001708, 1, 15, -4575.0, -3259.0, 33.21154262929703, 3.14);
+  ('BS-C04:GO_HEARTH_C:hearth_c', 4001708, 1, 15, -4575.0, -3259.0, 33.21154262929703, 3.14),
+  ('BS-C04:GO_HONEYCOMB:honey_0', 4001709, 1, 15, -4564, -3291, 30.565678391330273, 3.14),
+  ('BS-C04:GO_HONEYCOMB:honey_1', 4001709, 1, 15, -4621, -3280, 39.938832952719245, 3.14),
+  ('BS-C04:GO_MUDFISH:fish_0', 4001710, 1, 15, -4610, -3208, 34.92472195504913, 3.14),
+  ('BS-C04:GO_PIGMENT:pigment', 4001711, 1, 15, -4475, -3280, 35.290610218014876, 3.14);
 SET @BS_C04_ENTRY_COLUMN := (
   SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
   WHERE `TABLE_SCHEMA` = DATABASE() AND `TABLE_NAME` = 'creature' AND `COLUMN_NAME` IN ('id1', 'id')

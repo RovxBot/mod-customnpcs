@@ -13,11 +13,23 @@ QUESTS = {q['key']: q for q in DATA['quests']}
 
 
 class ChapterTwoTests(unittest.TestCase):
+    def test_scene_starters_are_retired_and_real_props_keep_their_context(self):
+        objects = {o['key']: o for o in DATA['objects']}
+        self.assertFalse(any(o['display'] in (6419, 6420) for o in objects.values()))
+        for key in ('GO_RENDEZVOUS', 'GO_COURSE_START', 'GO_CHECK_A', 'GO_CHECK_B', 'GO_CHECK_C', 'GO_CHECK_D',
+                    'GO_DOG_A', 'GO_DOG_B', 'GO_DOG_C', 'GO_DISCORD', 'GO_OKROG', 'GO_GARNOTH', 'GO_TERRITORY'):
+            self.assertNotIn(key, objects)
+        self.assertTrue(objects['GO_HIDEOUT']['questgiver'])
+        self.assertEqual(objects['GO_HIDEOUT']['display'], 3332)
+        for obj in objects.values():
+            if not obj.get('decorative') and not obj.get('questgiver'):
+                self.assertIn(obj['quest'], QUESTS)
+
     def test_design_and_implementation_agree(self):
         plan = json.loads((ROOT / 'data/quests/broken_seal_campaign.json').read_text())['chapters'][1]
         logical = {q['id']: q for q in plan['quests']}
         keys = {q['design_id']: q['key'] for q in DATA['quests']}
-        keys['BS-C01-09'] = 'QUEST_C01_END'
+        keys['BS-C01-08'] = 'QUEST_C01_END'
         self.assertEqual(len(logical), len(QUESTS))
         for q in DATA['quests']:
             intended = logical[q['design_id']]
@@ -62,7 +74,8 @@ class ChapterTwoTests(unittest.TestCase):
         self.assertEqual(DATA['ids']['NPC_PRISONER'], C01['ids']['NPC_JAROD'])
 
     def test_inventory_covers_native_client_limits_and_recovery(self):
-        actors = {a['key'] for a in DATA['actors']} | DATA['external_entries'].keys()
+        actors = {a['key'] for a in DATA['actors']} | DATA['external_entries'].keys() | {
+            o['key'] for o in DATA['objects'] if o.get('questgiver')}
         items = {i['key'] for i in DATA['items']}
         for q in DATA['quests']:
             self.assertIn(q['giver'], actors)
@@ -74,8 +87,9 @@ class ChapterTwoTests(unittest.TestCase):
             if q['source_item']:
                 self.assertIn(q['source_item'], q['recovery_items'])
         self.assertEqual(QUESTS['QUEST_GRUDGE']['recovery_items'], ['ITEM_LEASH', 'ITEM_COLLAR'])
-        self.assertEqual(len(QUESTS['QUEST_WASTE']['credits']), 3)
-        self.assertEqual(len(QUESTS['QUEST_DOG']['credits']), 3)
+        self.assertEqual(len(QUESTS['QUEST_WASTE']['credits']), 4)
+        self.assertEqual(QUESTS['QUEST_DOG']['credits'], {'CREDIT_DOG_A': 5})
+        self.assertEqual(QUESTS['QUEST_DOG']['item_drops'], {'ITEM_MEAT': 5})
         self.assertEqual(QUESTS['QUEST_MENTAL']['credits']['CREDIT_MENTAL'], 10)
         self.assertEqual(QUESTS['QUEST_SPEECH']['credits']['CREDIT_SPEECH'], 10)
         self.assertIn('NPC_BUTCHER', actors)

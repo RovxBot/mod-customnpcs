@@ -35,11 +35,13 @@ enum Mode : std::uint32_t
 {
     PATIENT = 1,
     LIFE,
-    VIGIL
+    VIGIL,
+    POOL
 };
 enum Data : std::int32_t
 {
-    DATA_PARENT = 1
+    DATA_PARENT = 1,
+    DATA_POOL_DEFEATED = 2
 };
 enum Event : std::uint32_t
 {
@@ -48,7 +50,8 @@ enum Event : std::uint32_t
     STEP,
     TREATED,
     MOTHER_LOST,
-    COMBAT_SPELL
+    COMBAT_SPELL,
+    POOL_HELP
 };
 enum Action : std::uint32_t
 {
@@ -61,6 +64,8 @@ enum Action : std::uint32_t
     BEGIN_VIGIL,
     PRESENT_TWINS,
     DELIVER_FOOD,
+    BEGIN_POOL,
+    COOK_STEW,
 };
 
 struct PlayerState : DataMap::Base
@@ -121,9 +126,9 @@ bool HasCredit(Player* p, std::uint32_t quest, std::uint32_t credit)
 {
     return p->GetReqKillOrCastCurrentCount(quest, credit) > 0;
 }
-void Credit(Player* p, std::uint32_t quest, std::uint32_t credit)
+void Credit(Player* p, std::uint32_t quest, std::uint32_t credit, std::uint32_t cap = 1)
 {
-    if (Enabled() && Active(p, quest) && !HasCredit(p, quest, credit))
+    if (Enabled() && Active(p, quest) && p->GetReqKillOrCastCurrentCount(quest, credit) < cap)
         p->KilledMonsterCredit(credit);
 }
 Counts DeliveryCounts(Player* p)
@@ -175,8 +180,6 @@ void Cleanup(Player* p)
 }
 void Recover(Player* p)
 {
-    if (Held(p, QUEST_POISON) && !LifeFinished(p))
-        Give(p, ITEM_ANTIDOTE);
     if (Held(p, QUEST_LETTER))
         Give(p, ITEM_LETTER);
     if (Active(p, QUEST_LIVING))
@@ -266,6 +269,8 @@ struct npc_bs_c03_sceneAI : ScriptedAI
     ObjectGuid dezco;
     ObjectGuid redhorn;
     ObjectGuid cloudhoof;
+    ObjectGuid opponent;
+    ObjectGuid poolGuide;
     std::vector<ObjectGuid> children;
     EventMap events;
     Mode mode = PATIENT;
@@ -293,7 +298,10 @@ struct npc_bs_c03_sceneAI : ScriptedAI
         Creature* c = Resolve(guid);
         return c && c->IsAlive();
     }
-    std::uint32_t Quest() const { return mode == PATIENT ? QUEST_POISON : mode == LIFE ? QUEST_LIFE : QUEST_VIGIL; }
+    std::uint32_t Quest() const
+    {
+        return mode == POOL ? QUEST_POOLS : mode == PATIENT ? QUEST_POISON : mode == LIFE ? QUEST_LIFE : QUEST_VIGIL;
+    }
     bool Safe(Player* p)
     {
         SceneSafety state{Enabled(),
@@ -304,7 +312,7 @@ struct npc_bs_c03_sceneAI : ScriptedAI
                           p && p->IsMounted(),
                           p && (p->IsFlying() || p->IsInFlight()),
                           p ? me->GetDistance(p) : 999.0f};
-        return CanObserve(state);
+        return mode == POOL ? CanFightPool(state) : CanObserve(state);
     }
     void Stop(std::string_view message = {})
     {
@@ -332,7 +340,7 @@ struct npc_bs_c03_sceneAI : ScriptedAI
                 children.push_back(c->GetGUID());
                 return c->GetGUID();
             }
-        Stop("The scene could not prepare its actors. Return to Nala or the scene marker to retry.");
+        Stop("This attempt could not be prepared. Speak to the quest contact again.");
         return ObjectGuid::Empty;
     }
     void Whisper(ObjectGuid const& speaker, std::string_view words)
@@ -344,6 +352,15 @@ struct npc_bs_c03_sceneAI : ScriptedAI
     void Begin(Mode value)
     {
         mode = value;
+        if (mode == POOL)
+        {
+            if (Creature* guide = me->FindNearestCreature(NPC_POOL_GUIDE, 20.0f))
+                poolGuide = guide->GetGUID();
+            events.RescheduleEvent(TIMEOUT, 300s);
+            events.ScheduleEvent(POOL_HELP, 3s);
+            NextPoolGuardian();
+            return;
+        }
         if (mode == VIGIL)
         {
             dezco = Child(NPC_DEZCO_SCENE, Locations::memorial);
@@ -361,6 +378,39 @@ struct npc_bs_c03_sceneAI : ScriptedAI
         dezco = Child(NPC_DEZCO_SCENE, Locations::dezco_scene);
         Whisper(nala, "Wait outside the canvas. I am staying beside her; we will tell you what is happening.");
         events.ScheduleEvent(STEP, 10000ms);
+    }
+    void NextPoolGuardian()
+    {
+        Player* p = Owner();
+        if (!p || !Safe(p))
+        {
+            Stop();
+            return;
+        }
+        std::uint32_t count = p->GetReqKillOrCastCurrentCount(QUEST_POOLS, CREDIT_POOL_GUARD);
+        if (count >= 4)
+        {
+            if (Give(p, ITEM_SAMPLE))
+                Stop("The waters are clear enough to sample. Bring the purified water to Kang.");
+            else
+                Stop("Make room for the sample, then speak to Na Lek again. Your victories remain recorded.");
+            return;
+        }
+        opponent = Child(NPC_POOL_GUARD, count % 2 ? Locations::pool_guard_b : Locations::pool_guard_a);
+        if (Creature* guard = Resolve(opponent))
+            guard->AI()->AttackStart(p);
+    }
+    void SetData(std::uint32_t type, std::uint32_t) override
+    {
+        if (type != DATA_POOL_DEFEATED || mode != POOL || stopped)
+            return;
+        Player* p = Owner();
+        Creature* guard = Resolve(opponent);
+        if (!p || !Safe(p) || !guard || guard->IsAlive() || !Owned(guard, p))
+            return;
+        opponent.Clear();
+        Credit(p, QUEST_POOLS, CREDIT_POOL_GUARD, 4);
+        NextPoolGuardian();
     }
     void Treat(Player* p, Creature* patient)
     {
@@ -443,7 +493,7 @@ struct npc_bs_c03_sceneAI : ScriptedAI
             Player* p = Owner();
             if (!p || !Safe(p))
             {
-                Stop("The scene has ended. Return to its starting contact or marker to retry when ready.");
+                Stop("This attempt has ended. Speak to the quest contact to try again.");
                 return;
             }
             if (event == TIMEOUT)
@@ -453,6 +503,12 @@ struct npc_bs_c03_sceneAI : ScriptedAI
             }
             if (event == CHECK)
                 events.ScheduleEvent(CHECK, 500ms);
+            else if (event == POOL_HELP && mode == POOL)
+            {
+                if (Creature* guide = Resolve(poolGuide))
+                    guide->CastSpell(p, SPELL_POOL_HEAL, true);
+                events.ScheduleEvent(POOL_HELP, 3s);
+            }
             else if (event == TREATED && mode == PATIENT)
             {
                 if (!Alive(leza) || !Alive(nala) || !p->HasItemCount(ITEM_ANTIDOTE, 1))
@@ -497,9 +553,10 @@ struct npc_bs_c03_sceneAI : ScriptedAI
 
 void Start(Player* p, Mode mode, Point const& point)
 {
-    std::uint32_t quest = mode == PATIENT ? QUEST_POISON : mode == LIFE ? QUEST_LIFE : QUEST_VIGIL;
+    std::uint32_t quest = mode == POOL ? QUEST_POOLS : mode == PATIENT ? QUEST_POISON :
+                         mode == LIFE ? QUEST_LIFE : QUEST_VIGIL;
     if (!Enabled() || !Active(p, quest) || !p->IsAlive() || p->IsInCombat() || p->IsMounted() || p->IsFlying() ||
-        p->IsInFlight() || (mode != VIGIL && LifeFinished(p)))
+        p->IsInFlight() || ((mode == PATIENT || mode == LIFE) && LifeFinished(p)))
         return;
     if (Creature* existing = FindOwned(p, NPC_SCENE))
     {
@@ -511,7 +568,7 @@ void Start(Player* p, Mode mode, Point const& point)
         }
     }
     State(p);
-    if (Creature* c = Summon(p, NPC_SCENE, point, 125000))
+    if (Creature* c = Summon(p, NPC_SCENE, point, mode == POOL ? 305000 : 125000))
         if (auto* ai = dynamic_cast<npc_bs_c03_sceneAI*>(c->AI()))
             ai->Begin(mode);
 }
@@ -519,7 +576,7 @@ void Start(Player* p, Mode mode, Point const& point)
 bool Contact(std::uint32_t entry)
 {
     return entry == NPC_DEZCO || entry == NPC_NALA || entry == NPC_KANG || entry == NPC_KOR || entry == NPC_MEI ||
-           Index(RefugeeEntries, entry) < RefugeeEntries.size();
+           entry == NPC_POOL_GUIDE || Index(RefugeeEntries, entry) < RefugeeEntries.size();
 }
 void Menu(Player* p, Creature* c)
 {
@@ -530,8 +587,6 @@ void Menu(Player* p, Creature* c)
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Replace my active quest supplies.", Sender, RECOVER);
     if (entry == NPC_NALA)
     {
-        if (Active(p, QUEST_POISON) && !LifeFinished(p))
-            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Prepare Leza for the antidote.", Sender, PREPARE_PATIENT);
         if (Active(p, QUEST_LIFE))
             AddGossipItemFor(p, GOSSIP_ICON_CHAT, "I am ready to stand by the medical tent.", Sender, BEGIN_LIFE);
         if (LifeFinished(p))
@@ -541,11 +596,14 @@ void Menu(Player* p, Creature* c)
     if (entry == NPC_KANG && Active(p, QUEST_HERBS))
         AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Prepare the second remedy from my lotus leaves.", Sender,
                          PREPARE_REMEDY);
+    if (entry == NPC_KANG && Active(p, QUEST_STEW))
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Prepare stew from my skitterer meat.", Sender, COOK_STEW);
+    if (entry == NPC_POOL_GUIDE && Active(p, QUEST_POOLS))
+        AddGossipItemFor(p, GOSSIP_ICON_CHAT, "I will help break the guardians' hold on the pool.", Sender, BEGIN_POOL);
     if (entry == NPC_DEZCO)
     {
-        if (Active(p, QUEST_AGENDA))
-            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "Compare the excavation orders with Jarod's ledger.", Sender,
-                             COMPARE_ORDERS);
+        if (Active(p, QUEST_VIGIL))
+            AddGossipItemFor(p, GOSSIP_ICON_CHAT, "I will join you at Leza's memorial.", Sender, BEGIN_VIGIL);
         if (Active(p, QUEST_LIVING) && !RemainingBundles(DeliveryCounts(p)))
             AddGossipItemFor(p, GOSSIP_ICON_CHAT,
                              "The food is delivered. What comes next for the boys and the expedition?", Sender,
@@ -595,6 +653,16 @@ bool Select(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action)
     }
     else if (action == BEGIN_LIFE && entry == NPC_NALA)
         Start(p, LIFE, Locations::tent);
+    else if (action == BEGIN_VIGIL && entry == NPC_DEZCO)
+        Start(p, VIGIL, Locations::memorial);
+    else if (action == COOK_STEW && entry == NPC_KANG && Active(p, QUEST_STEW) &&
+             p->HasItemCount(ITEM_MEAT, 8))
+    {
+        c->Whisper("The families can eat while we work. I will keep this broth warm for them.", LANG_UNIVERSAL, p);
+        Credit(p, QUEST_STEW, CREDIT_STEW);
+    }
+    else if (action == BEGIN_POOL && entry == NPC_POOL_GUIDE)
+        Start(p, POOL, Locations::pool_guide);
     else if (action == PRESENT_TWINS && entry == NPC_NALA)
         PresentTwins(p);
     else if (action == DELIVER_FOOD)
@@ -715,6 +783,70 @@ class npc_bs_c03_enemy : public CreatureScript
 public:
     npc_bs_c03_enemy() : CreatureScript("npc_bs_c03_enemy") {}
     CreatureAI* GetAI(Creature* c) const override { return new npc_bs_c03_enemyAI(c); }
+};
+
+struct npc_bs_c03_pool_guardAI : ScriptedAI
+{
+    explicit npc_bs_c03_pool_guardAI(Creature* c) : ScriptedAI(c) {}
+    ObjectGuid owner;
+    ObjectGuid parent;
+    EventMap events;
+
+    void Reset() override
+    {
+        me->SetReactState(REACT_DEFENSIVE);
+        events.Reset();
+        events.ScheduleEvent(CHECK, 1s);
+    }
+    void IsSummonedBy(WorldObject* summoner) override
+    {
+        owner = summoner->GetGUID();
+        me->setActive(true);
+    }
+    void SetGUID(ObjectGuid const& guid, std::int32_t type) override
+    {
+        if (type == DATA_PARENT)
+            parent = guid;
+    }
+    bool CanAIAttack(Unit const* target) const override
+    {
+        Player const* p = target ? target->GetCharmerOrOwnerPlayerOrPlayerItself() : nullptr;
+        return Enabled() && p && p->GetGUID() == owner;
+    }
+    void DamageTaken(Unit* attacker, std::uint32_t& damage, DamageEffectType, SpellSchoolMask) override
+    {
+        if (!CanAIAttack(attacker))
+            damage = 0;
+    }
+    void JustDied(Unit*) override
+    {
+        if (Creature* focus = ObjectAccessor::GetCreature(*me, parent))
+            focus->AI()->SetData(DATA_POOL_DEFEATED, 1);
+    }
+    void UpdateAI(std::uint32_t diff) override
+    {
+        events.Update(diff);
+        if (events.ExecuteEvent() == CHECK)
+        {
+            Player* p = ObjectAccessor::FindConnectedPlayer(owner);
+            if (!Enabled() || !p || !p->IsAlive() || !SameWorld(p, me) ||
+                !ObjectAccessor::GetCreature(*me, parent))
+            {
+                me->DespawnOrUnsummon();
+                return;
+            }
+            events.ScheduleEvent(CHECK, 1s);
+        }
+        if (UpdateVictim())
+            DoMeleeAttackIfReady();
+    }
+};
+
+class npc_bs_c03_pool_guard : public CreatureScript
+{
+public:
+    npc_bs_c03_pool_guard() : CreatureScript("npc_bs_c03_pool_guard") {}
+    CreatureAI* GetAI(Creature* c) const override { return new npc_bs_c03_pool_guardAI(c); }
 };
 
 class go_bs_c03_interaction : public GameObjectScript
@@ -849,6 +981,7 @@ void AddBrokenSealChapter3Scripts()
     new npc_bs_c03_scene();
     new npc_bs_c03_corpse();
     new npc_bs_c03_enemy();
+    new npc_bs_c03_pool_guard();
     new go_bs_c03_interaction();
     new item_bs_c03_antidote();
     new bs_c03_player();

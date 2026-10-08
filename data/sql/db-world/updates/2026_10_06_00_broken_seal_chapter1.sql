@@ -54,9 +54,11 @@ INSERT INTO `bs_c01_ids` (`kind`, `entry`) VALUES
   ('gameobject', 4001108),
   ('gameobject', 4001109),
   ('gameobject', 4001110),
-  ('gameobject', 4001111),
   ('gameobject', 4001112),
   ('gameobject', 4001113),
+  ('gameobject', 4001114),
+  ('gameobject', 4001115),
+  ('gameobject', 4001116),
   ('quest', 900100),
   ('quest', 900101),
   ('quest', 900102),
@@ -77,6 +79,7 @@ INSERT INTO `bs_c01_ids` (`kind`, `entry`) VALUES
   ('item', 900113),
   ('item', 900114),
   ('item', 900115),
+  ('item', 900105),
   ('outfit', 4001000),
   ('outfit', 4001001),
   ('outfit', 4001002),
@@ -122,6 +125,11 @@ LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c01_collision_guard`
 SELECT 1 FROM `gameobject_template` t
+INNER JOIN `bs_c01_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 1
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c01_collision_guard`
+SELECT 1 FROM `gameobject_template_addon` t
 INNER JOIN `bs_c01_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 1
 WHERE o.`entry` IS NULL LIMIT 1;
@@ -309,7 +317,8 @@ INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, 
   (900112, 4, 0, 'Vale Expedition Signet of Sorcery', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 4, 7, 3, 45, 3, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
   (900113, 4, 0, 'Vale Expedition Signet of Restoration', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 6, 4, 45, 4, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
   (900114, 4, 0, 'Vale Expedition Signet of Guarding', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 7, 6, 4, 2, 12, 2, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
-  (900115, 4, 0, 'Vale Expedition Signet of Balance', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 7, 3, 43, 2, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, '')
+  (900115, 4, 0, 'Vale Expedition Signet of Balance', 9846, 2, 11, -1, -1, 25, 20, 1, 1, 1, 5, 3, 7, 3, 43, 2, 0, 'A signet of the Vale expedition, given for bringing its missing people home.', 0, 0, ''),
+  (900105, 12, 0, 'Expedition Scout''s Spyglass', 7365, 1, 0, -1, -1, 1, 0, 1, 1, 4, 0, 0, 0, 0, 0, 0, 0, 'Use from the expedition lookout overlooking the ritual camp.', 12883, 0, 'item_bs_c01_spyglass')
 ON DUPLICATE KEY UPDATE
   `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `PageText` = VALUES(`PageText`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
 INSERT INTO `page_text` (`ID`, `Text`, `NextPageID`) VALUES
@@ -325,12 +334,12 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
   (900100, 2, 20, 20, 406, 2, 300, 900100, 0, 1101, 'An Unusual Commission', 'Follow the old road toward the Charred Vale and look for the expedition''s blue-clad stonebinder.', 'The expedition in Stonetalon is accepting help from anyone willing to put missing travelers before old quarrels. Take this invitation to Maruut Stonebinder. His camp is on the eastern approach to the Charred Vale.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900101, 2, 20, 20, 406, 2, 300, 900100, 0, 690, 'An Unusual Commission', 'Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.', 'Maruut Stonebinder needs help in Stonetalon. Three surveyors have vanished near the Charred Vale. This is an expedition, not a border dispute. Take this invitation to his neutral camp on the valley''s eastern approach.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900102, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Travelers Who Never Arrived', 'Inspect the abandoned wagon above camp and recover its log.', 'Mira, Dorn and Teren were inspecting old trail stones. Their abandoned wagon is beside our camp. Search it for the travelers'' log. Leave what supplies remain for the survivors.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900101, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900103, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Follow the Ash', 'Inspect all three distinct tablets, defeat six Twilight Scouts and recover their coded orders.', 'Follow the three ash-marked tablets from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 4001010, 4001050, 4001051, 4001052, 6, 1, 1, 1, 'Twilight Scouts defeated', 'Western trail tablet examined', 'Central trail tablet examined', 'Eastern trail tablet examined', 900102, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900104, 2, 22, 20, 406, 4, 600, 0, 0, 0, 'Bring Them Home', 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 'The scouts are holding Mira, Dorn and Teren under guard at the holding camp. Clear their guards and speak to each surveyor, then stay nearby until they reach our expedition camp. Clear trouble from the route; nobody gets left behind.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 4001053, 4001054, 4001055, 0, 1, 1, 1, 0, 'Mira escorted to the expedition', 'Dorn escorted to the expedition', 'Teren escorted to the expedition', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900105, 2, 23, 20, 406, 4, 600, 900104, 0, 0, 'A Stone That Should Be Quiet', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 4001056, 4001057, 4001058, 0, 1, 1, 1, 0, 'Western ward traced', 'Central ward traced', 'Eastern ward traced', '', 900103, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900103, 2, 21, 20, 406, 4, 600, 0, 0, 0, 'Follow the Ash', 'Inspect all three discarded survey clues, defeat six Twilight Scouts and recover their coded orders.', 'Inspect the surveyors'' discarded supplies, journal and map on the eastern approaches. Defeat the six Twilight scouts watching that route and recover their orders. The last clue leads to the roadside prisoners; keep clear of the ritual compound deeper in the Vale.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 4001010, 4001050, 4001051, 4001052, 6, 1, 1, 1, 'Twilight Scouts defeated', 'Discarded supplies examined', 'Survey journal examined', 'Scorched map examined', 900102, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900104, 2, 22, 20, 406, 4, 600, 0, 0, 0, 'Bring Them Home', 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 'Mira, Dorn and Teren are held at a small roadside guard camp southeast of our expedition, on the eastern side of the Charred Vale. This is separate from the cult''s ritual compound deeper in the valley. Clear the guards and speak to each surveyor, then accompany them back to our camp. Nobody gets left behind.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 4001053, 4001054, 4001055, 0, 1, 1, 1, 0, 'Mira escorted to the expedition', 'Dorn escorted to the expedition', 'Teren escorted to the expedition', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900105, 2, 23, 20, 406, 4, 600, 900104, 0, 0, 'A Stone That Should Be Quiet', 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'The cult has cut three older ward stones across the Charred Vale: one on the northwestern rise, one on the southwestern valley floor, and one along the eastern rim. Twilight defenders watch each stone. Clear them, then use this tracing kit on each distinct ward and bring me the complete rubbing.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 4001056, 4001057, 4001058, 0, 1, 1, 1, 0, 'Northwestern ward traced', 'Southwestern ward traced', 'Eastern ward traced', '', 900103, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900106, 2, 23, 20, 406, 2, 600, 0, 0, 0, 'The Same Hand', 'Ask Ortell to compare the orders and the rubbing.', 'Ortell once knew the Twilight''s Hammer from the inside. He is helping us now. Speak with him here in camp and compare the deposited orders with the ward rubbing. You do not need to carry those papers back and forth; I have sent him copies.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001059, 0, 0, 0, 1, 0, 0, 0, 'Evidence compared with Ortell', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900107, 2, 24, 20, 406, 4, 600, 0, 0, 0, 'A Captive Commander', 'Remain at the concealed observation point until you can confirm Jarod is alive.', 'The rescued surveyors recognized the commander''s name: Jarod Shadowsong. The cult is holding him at the altar in their holding camp. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001060, 0, 0, 0, 1, 0, 0, 0, 'Jarod observed from cover', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900108, 2, 25, 20, 406, 2, 600, 0, 0, 0, 'The Name on the Papers', 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 'There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001061, 4001062, 0, 0, 1, 1, 0, 0, 'Recruit watch change observed', 'Extraction signal agreed with Ortell', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900110, 900111, 900112, 900113, 900114, 900115, 1, 1, 1, 1, 1, 1)
+  (900107, 2, 24, 20, 406, 4, 600, 900105, 0, 0, 'A Captive Commander', 'Use the supplied spyglass beside the lookout banner northwest of the ritual camp and confirm Jarod is alive.', 'The surveyors recognized the commander''s name: Jarod Shadowsong. He is held at the altar in the cult''s ritual compound, well away from the roadside prisoners. Take this spyglass to our scout''s banner on the rise northwest of the altar. Use it there and watch quietly from outside the camp. We need to know he is alive before planning his rescue.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001060, 0, 0, 0, 1, 0, 0, 0, 'Jarod observed from cover', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900110, 900111, 900112, 900113, 900114, 900115, 1, 1, 1, 1, 1, 1),
+  (900108, 2, 25, 20, 406, 2, 600, 0, 0, 0, 'The Name on the Papers', 'Speak with Ortell at the expedition camp to settle the earlier briefing.', 'This earlier expedition briefing has been replaced by the direct handoff to Signed in Blood. If it remains in your log, speak with Ortell at the expedition camp to settle the report and continue. You do not need to revisit the lookout.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 4001061, 4001062, 0, 0, 1, 1, 0, 0, 'Recruit watch change observed', 'Extraction signal agreed with Ortell', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900110, 900111, 900112, 900113, 900114, 900115, 1, 1, 1, 1, 1, 1)
 ON DUPLICATE KEY UPDATE
   `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`);
 INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `ProvidedItemCount`, `SpecialFlags`) VALUES
@@ -341,7 +350,7 @@ INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `Exclusi
   (900104, 900103, 0, 0, 0, 256),
   (900105, 900104, 0, 0, 1, 256),
   (900106, 900105, 0, 0, 0, 256),
-  (900107, 900106, 0, 0, 0, 256),
+  (900107, 900106, 0, 0, 1, 256),
   (900108, 900107, 0, 0, 0, 256)
 ON DUPLICATE KEY UPDATE
   `PrevQuestID` = VALUES(`PrevQuestID`), `NextQuestID` = VALUES(`NextQuestID`), `ExclusiveGroup` = VALUES(`ExclusiveGroup`), `ProvidedItemCount` = VALUES(`ProvidedItemCount`), `SpecialFlags` = VALUES(`SpecialFlags`);
@@ -355,8 +364,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
   (4001005, 900104),
   (4001000, 900105),
   (4001000, 900106),
-  (4001001, 900107),
-  (4001001, 900108);
+  (4001001, 900107);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
   (4001000, 900100),
   (4001000, 900101),
@@ -375,7 +383,7 @@ INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES
   (900104, 'All three are safe. They remember a spiral carved into the ward stones and a prisoner called Shadowsong. Maruut needs to hear this.'),
   (900105, 'Those are deliberate cuts. The new spiral interrupts the old pattern at exactly the points it needs. Ortell knows the people who use that sign.'),
   (900106, 'The hand that wrote the orders also marked the stone. That spiral is an instruction, not a decoration. We must find out what else they intend to break.'),
-  (900107, 'Alive, guarded, and kept apart from the workers. They are preparing something public. A direct assault would give them time to kill him.'),
+  (900107, 'He is alive. The guards and the sacrifice make a direct charge hopeless. We will borrow a recruit''s identity and work our way into the inner circle. Return to me at level 25 for Signed in Blood. Take this signet for the surveyors you brought home.'),
   (900108, 'Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition''s trust. Speak with me again once you reach level twenty-five; entering the cult will require a steadier hand.')
 ON DUPLICATE KEY UPDATE
   `RewardText` = VALUES(`RewardText`);
@@ -383,7 +391,7 @@ INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
   (900100, 'Do you carry the expedition''s invitation?'),
   (900101, 'Let me see the invitation before we begin.'),
   (900102, 'Did anything survive in the wagon''s strongbox?'),
-  (900103, 'Show me the orders, and tell me what you found at all three tablets.'),
+  (900103, 'Show me the orders, and tell me what you found at all three survey clues.'),
   (900104, 'Mira, Dorn and Teren are still missing. Have all three reached our banner?'),
   (900105, 'Have you traced all three ward stones? I need the complete rubbing.'),
   (900106, 'Ortell can compare the evidence we have already deposited. What did he find?'),
@@ -408,12 +416,15 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900103, 1, 0, 1, 81, 0, 0, 0),
   (900103, 2, 0, 1, 81, 0, 0, 0),
   (900103, 3, 0, 1, 81, 0, 0, 0),
-  (900103, 4, 1, 1, 81, 0, 0, 0),
-  (900103, 5, 2, 1, 81, 0, 0, 0),
-  (900103, 6, 3, 1, 81, 0, 0, 0),
-  (900103, 7, 4, 1, 81, 0, 0, 0),
-  (900103, 8, 4, 1, 81, 0, 0, 0),
-  (900103, 9, 4, 1, 81, 0, 0, 0),
+  (900103, 4, 0, 1, 81, 0, 0, 0),
+  (900103, 5, 0, 1, 81, 0, 0, 0),
+  (900103, 6, 0, 1, 81, 0, 0, 0),
+  (900103, 7, 1, 1, 81, 0, 0, 0),
+  (900103, 8, 2, 1, 81, 0, 0, 0),
+  (900103, 9, 3, 1, 81, 0, 0, 0),
+  (900103, 10, 4, 1, 81, 0, 0, 0),
+  (900103, 11, 4, 1, 81, 0, 0, 0),
+  (900103, 12, 4, 1, 81, 0, 0, 0),
   (900104, 0, -1, 1, 81, 0, 0, 0),
   (900104, 1, 0, 1, 81, 0, 0, 0),
   (900104, 2, 1, 1, 81, 0, 0, 0),
@@ -440,32 +451,35 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900102, 0, 0, 1102, 1542),
   (900102, 1, 0, 1098, 1538),
   (900103, 0, 0, 1102, 1538),
-  (900103, 1, 0, 879, 1675),
-  (900103, 2, 0, 901, 1681),
-  (900103, 3, 0, 899, 1669),
-  (900103, 4, 0, 1086, 1540),
-  (900103, 5, 0, 955, 1625),
-  (900103, 6, 0, 895, 1670),
-  (900103, 7, 0, 879, 1675),
-  (900103, 8, 0, 901, 1681),
-  (900103, 9, 0, 899, 1669),
+  (900103, 1, 0, 1008, 1566),
+  (900103, 2, 0, 990, 1594),
+  (900103, 3, 0, 966, 1617),
+  (900103, 4, 0, 1071, 1570),
+  (900103, 5, 0, 1045, 1565),
+  (900103, 6, 0, 1025, 1590),
+  (900103, 7, 0, 1086, 1540),
+  (900103, 8, 0, 955, 1625),
+  (900103, 9, 0, 938, 1511),
+  (900103, 10, 0, 1008, 1566),
+  (900103, 11, 0, 990, 1594),
+  (900103, 12, 0, 966, 1617),
   (900104, 0, 0, 1102, 1538),
-  (900104, 1, 0, 882, 1680),
-  (900104, 2, 0, 886, 1683),
-  (900104, 3, 0, 890, 1684),
+  (900104, 1, 0, 950, 1500),
+  (900104, 2, 0, 954, 1503),
+  (900104, 3, 0, 950, 1506),
   (900105, 0, 0, 1102, 1542),
-  (900105, 1, 0, 885, 1674),
-  (900105, 2, 0, 892, 1673),
-  (900105, 3, 0, 898, 1674),
-  (900105, 4, 0, 885, 1674),
-  (900105, 5, 0, 892, 1673),
-  (900105, 6, 0, 898, 1674),
+  (900105, 1, 0, 820, 1830),
+  (900105, 2, 0, 600, 1770),
+  (900105, 3, 0, 730, 1410),
+  (900105, 4, 0, 820, 1830),
+  (900105, 5, 0, 600, 1770),
+  (900105, 6, 0, 730, 1410),
   (900106, 0, 0, 1100, 1540),
   (900106, 1, 0, 1100, 1540),
   (900107, 0, 0, 1100, 1540),
-  (900107, 1, 0, 882, 1669),
+  (900107, 1, 0, 952, 1763),
   (900108, 0, 0, 1100, 1540),
-  (900108, 1, 0, 882, 1672),
+  (900108, 1, 0, 1100, 1540),
   (900108, 2, 0, 1100, 1540);
 INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001000, 'Old stones do not start speaking without a reason. Help us find our missing people, and we will learn who disturbed them.', 1),
@@ -491,53 +505,85 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
 UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001000, 4001001, 4001005, 4001006, 4001007, 4001004, 4001008, 4001009);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data1`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
   (4001100, 10, 3678, 'Abandoned Expedition Wagon', 0.7, 900102, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001101, 10, 6420, 'Western Ash-marked Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001102, 10, 6419, 'Central Ash-marked Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001103, 10, 6420, 'Eastern Ash-marked Tablet', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001107, 10, 235, 'Western Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001108, 10, 235, 'Central Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001101, 10, 335, 'Discarded Survey Supplies', 0.7, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001102, 10, 255, 'Ash-stained Survey Journal', 0.9, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001103, 10, 222, 'Scorched Survey Map', 1, 900103, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001107, 10, 235, 'Northwestern Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001108, 10, 235, 'Southwestern Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
   (4001109, 10, 235, 'Eastern Ward Stone', 0.35, 900105, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001110, 10, 236, 'Concealed Observation Point', 0.65, 900107, 0, 0, 1, 'go_bs_c01_interaction'),
-  (4001111, 10, 6737, 'Ortell''s Sealed Message Crate', 0.65, 900108, 0, 0, 1, 'go_bs_c01_interaction'),
+  (4001110, 5, 5191, 'Scout''s Lookout Banner', 0.65, 0, 0, 0, 1, ''),
   (4001112, 5, 227, 'Twilight Sacrificial Altar', 0.65, 0, 0, 0, 1, ''),
-  (4001113, 5, 5191, 'Expedition Refuge Banner', 0.65, 0, 0, 0, 1, '')
+  (4001113, 5, 5191, 'Expedition Refuge Banner', 0.65, 0, 0, 0, 1, ''),
+  (4001114, 5, 7253, 'Twilight Roadside Prison Tent', 0.5, 0, 0, 0, 1, ''),
+  (4001115, 5, 6737, 'Roadside Guard Supplies', 0.6, 0, 0, 0, 1, ''),
+  (4001116, 5, 7255, 'Roadside Guard Brazier', 0.7, 0, 0, 0, 1, '')
 ON DUPLICATE KEY UPDATE
   `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data1` = VALUES(`Data1`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+INSERT INTO `gameobject_template_addon` (`entry`, `flags`) VALUES
+  (4001100, 0),
+  (4001101, 0),
+  (4001102, 0),
+  (4001103, 0),
+  (4001107, 0),
+  (4001108, 0),
+  (4001109, 0),
+  (4001110, 16),
+  (4001112, 16),
+  (4001113, 16),
+  (4001114, 16),
+  (4001115, 16),
+  (4001116, 16)
+ON DUPLICATE KEY UPDATE
+  `flags` = VALUES(`flags`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c01_creature_spawns`;
-CREATE TEMPORARY TABLE `bs_c01_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TEMPORARY TABLE `bs_c01_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT, `respawn` INT UNSIGNED) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 DROP TEMPORARY TABLE IF EXISTS `bs_c01_gameobject_spawns`;
 CREATE TEMPORARY TABLE `bs_c01_gameobject_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-INSERT INTO `bs_c01_creature_spawns` (`spawn_key`, `entry`, `x`, `y`, `z`, `o`) VALUES
-  ('BS-C01:NPC_MARUUT:maruut', 4001000, 1102.0, 1542.0, 27.086243166456008, 3.14),
-  ('BS-C01:NPC_ORTELL:ortell', 4001001, 1100.0, 1540.0, 26.693678368559475, 3.14),
-  ('BS-C01:NPC_JAROD:jarod', 4001002, 895.0, 1682.0, -19.67909053343282, 3.14),
-  ('BS-C01:NPC_RECRUIT:recruit_1', 4001003, 891.0, 1678.0, -19.828225663787876, 3.14),
-  ('BS-C01:NPC_SCOUT:scout', 4001005, 1102.0, 1538.0, 26.94763928250599, 3.14),
-  ('BS-C01:NPC_COURIER_A:courier_a', 4001006, 746.0, 322.0, 63.3356, 3.14),
-  ('BS-C01:NPC_COURIER_H:courier_h', 4001007, 956.106, 1005.78, 102.5642, 3.14),
-  ('BS-C01:NPC_CAPTIVE_A:cage_1', 4001004, 882.0, 1680.0, -19.920641848289904, 3.14),
-  ('BS-C01:NPC_CAPTIVE_B:cage_2', 4001008, 886.0, 1683.0, -19.82492036391301, 3.14),
-  ('BS-C01:NPC_CAPTIVE_C:cage_3', 4001009, 890.0, 1684.0, -19.76820141805994, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_1', 4001010, 879.0, 1675.0, -19.910858160660233, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_2', 4001010, 901.0, 1681.0, -19.31815178709473, 3.14),
-  ('BS-C01:NPC_CULT_SCOUT:scout_3', 4001010, 899.0, 1669.0, -18.537572168639834, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:cage_guard_1', 4001011, 880.0, 1682.0, -19.711218048216764, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:cage_guard_2', 4001011, 889.0, 1688.0, -19.323704690884536, 3.14),
-  ('BS-C01:NPC_CULT_GUARD:cage_guard_3', 4001011, 898.0, 1683.0, -19.433176222740876, 3.14),
-  ('BS-C01:NPC_EARTH:earth_1', 4001012, 885.0, 1694.0, -18.570360743399192, 3.14),
-  ('BS-C01:NPC_EARTH:earth_2', 4001012, 897.0, 1692.0, -18.67546927942086, 3.14);
+INSERT INTO `bs_c01_creature_spawns` (`spawn_key`, `entry`, `x`, `y`, `z`, `o`, `respawn`) VALUES
+  ('BS-C01:NPC_MARUUT:maruut', 4001000, 1102.0, 1542.0, 27.086243166456008, 3.14, 90),
+  ('BS-C01:NPC_ORTELL:ortell', 4001001, 1100.0, 1540.0, 26.693678368559475, 3.14, 90),
+  ('BS-C01:NPC_JAROD:jarod', 4001002, 895.0, 1682.0, -19.67909053343282, 3.14, 90),
+  ('BS-C01:NPC_RECRUIT:recruit_1', 4001003, 891.0, 1678.0, -19.828225663787876, 3.14, 90),
+  ('BS-C01:NPC_SCOUT:scout', 4001005, 1102.0, 1538.0, 26.94763928250599, 3.14, 90),
+  ('BS-C01:NPC_COURIER_A:courier_a', 4001006, 746.0, 322.0, 63.3356, 3.14, 90),
+  ('BS-C01:NPC_COURIER_H:courier_h', 4001007, 956.106, 1005.78, 102.5642, 3.14, 90),
+  ('BS-C01:NPC_CAPTIVE_A:cage_1', 4001004, 950, 1500, -5.669030454464924, 3.14, 300),
+  ('BS-C01:NPC_CAPTIVE_B:cage_2', 4001008, 954, 1503, -5.654158169876162, 3.14, 300),
+  ('BS-C01:NPC_CAPTIVE_C:cage_3', 4001009, 950, 1506, -6.361953235017673, 3.14, 300),
+  ('BS-C01:NPC_CULT_SCOUT:scout_1', 4001010, 1008, 1566, 10.78222992614345, 3.14, 90),
+  ('BS-C01:NPC_CULT_SCOUT:scout_2', 4001010, 990, 1594, 21.08746633329229, 3.14, 90),
+  ('BS-C01:NPC_CULT_SCOUT:scout_3', 4001010, 966, 1617, -10.301161516395101, 3.14, 90),
+  ('BS-C01:NPC_CULT_SCOUT:scout_4', 4001010, 1071, 1570, 71.31974280162771, 3.14, 90),
+  ('BS-C01:NPC_CULT_SCOUT:scout_5', 4001010, 1045, 1565, 45.59426824101962, 3.14, 90),
+  ('BS-C01:NPC_CULT_SCOUT:scout_6', 4001010, 1025, 1590, 74.2590257696597, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:cage_guard_1', 4001011, 943, 1501, -5.759520974778731, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:cage_guard_2', 4001011, 957, 1509, -5.63865747889664, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:cage_guard_3', 4001011, 958, 1497, -4.354823221941221, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:guard_1', 4001011, 895, 1688, -19.242526525957146, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:guard_2', 4001011, 901, 1685, -18.991323735465436, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:guard_3', 4001011, 892, 1690, -19.138211261905603, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:ward_guard_1a', 4001011, 827, 1832, -8.231118310748098, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:ward_guard_1b', 4001011, 814, 1827, -9.605594210722927, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:ward_guard_2a', 4001011, 607, 1772, -11.288388483027791, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:ward_guard_2b', 4001011, 594, 1767, -10.338974146963928, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:ward_guard_3a', 4001011, 737, 1412, -12.143082564060823, 3.14, 90),
+  ('BS-C01:NPC_CULT_GUARD:ward_guard_3b', 4001011, 724, 1407, -11.873286753494902, 3.14, 90),
+  ('BS-C01:NPC_EARTH:earth_1', 4001012, 856, 1686, -21.979975882342387, 3.14, 90),
+  ('BS-C01:NPC_EARTH:earth_2', 4001012, 920, 1699, -16.404992689360096, 3.14, 90);
 INSERT INTO `bs_c01_gameobject_spawns` (`spawn_key`, `entry`, `x`, `y`, `z`, `o`) VALUES
   ('BS-C01:GO_WAGON', 4001100, 1098.0, 1538.0, 26.476730812201232, 3.14),
-  ('BS-C01:GO_TRAIL_A', 4001101, 1086.0, 1540.0, 24.084525478175753, 3.14),
-  ('BS-C01:GO_TRAIL_B', 4001102, 955.0, 1625.0, -10.625724499778299, 3.14),
-  ('BS-C01:GO_TRAIL_C', 4001103, 895.0, 1670.0, -18.820534544219413, 3.14),
-  ('BS-C01:GO_WARD_A', 4001107, 885.0, 1674.0, -18.646728079259265, 3.14),
-  ('BS-C01:GO_WARD_B', 4001108, 892.0, 1673.0, -18.273758041376333, 3.14),
-  ('BS-C01:GO_WARD_C', 4001109, 898.0, 1674.0, -18.549552262937393, 3.14),
-  ('BS-C01:GO_COVER', 4001110, 882.0, 1669.0, -19.190444458766294, 3.14),
-  ('BS-C01:GO_DEAD_DROP', 4001111, 882.0, 1672.0, -19.55970310195156, 3.14),
+  ('BS-C01:GO_TRAIL_A', 4001101, 1086.0, 1540.0, 23.92510887847017, 3.14),
+  ('BS-C01:GO_TRAIL_B', 4001102, 955.0, 1625.0, -11.507638906720386, 3.14),
+  ('BS-C01:GO_TRAIL_C', 4001103, 938, 1511, -6.560097027357006, 3.14),
+  ('BS-C01:GO_WARD_A', 4001107, 820, 1830, -7.69296429386817, 3.14),
+  ('BS-C01:GO_WARD_B', 4001108, 600, 1770, -9.916770049695309, 3.14),
+  ('BS-C01:GO_WARD_C', 4001109, 730, 1410, -10.9772033067065, 3.14),
+  ('BS-C01:GO_COVER', 4001110, 952, 1763, 9.854677889834594, 3.14),
   ('BS-C01:GO_ALTAR', 4001112, 895.0, 1685.0, -19.391455524284886, 3.14),
-  ('BS-C01:GO_RALLY', 4001113, 1098.0, 1540.0, 26.500125748181112, 3.14);
+  ('BS-C01:GO_RALLY', 4001113, 1098.0, 1540.0, 26.500125748181112, 3.14),
+  ('BS-C01:GO_RESCUE_TENT', 4001114, 946, 1511, -6.768677696313329, 3.14),
+  ('BS-C01:GO_RESCUE_SUPPLIES', 4001115, 941, 1509, -6.435476782772756, 3.14),
+  ('BS-C01:GO_RESCUE_BRAZIER', 4001116, 958, 1504, -4.898029736465012, 3.14);
 
 SET @BS_C01_ENTRY_COLUMN := (
   SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
@@ -547,7 +593,7 @@ SET @BS_C01_ENTRY_COLUMN := (
 SET @BS_C01_INSERT := CONCAT(
   'INSERT INTO `creature` (`', @BS_C01_ENTRY_COLUMN, '`, `map`, `zoneId`, `spawnMask`, `phaseMask`, ',
   '`position_x`, `position_y`, `position_z`, `orientation`, `equipment_id`, `spawntimesecs`, `curhealth`, `curmana`, `Comment`) ',
-  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, 90, 0, 0, s.`spawn_key` ',
+  'SELECT s.`entry`, 1, 406, 1, 1, s.`x`, s.`y`, s.`z`, s.`o`, -1, s.`respawn`, 0, 0, s.`spawn_key` ',
   'FROM `bs_c01_creature_spawns` s LEFT JOIN `creature` c ON c.`Comment` = s.`spawn_key` WHERE c.`guid` IS NULL'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_INSERT;
@@ -556,7 +602,7 @@ DEALLOCATE PREPARE bs_c01_stmt;
 SET @BS_C01_UPDATE := CONCAT(
   'UPDATE `creature` c INNER JOIN `bs_c01_creature_spawns` s ON c.`Comment` = s.`spawn_key` ',
   'SET c.`', @BS_C01_ENTRY_COLUMN, '` = s.`entry`, c.`position_x` = s.`x`, c.`position_y` = s.`y`, ',
-  'c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1'
+  'c.`position_z` = s.`z`, c.`orientation` = s.`o`, c.`equipment_id` = -1, c.`spawntimesecs` = s.`respawn`'
 );
 PREPARE bs_c01_stmt FROM @BS_C01_UPDATE;
 EXECUTE bs_c01_stmt;

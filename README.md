@@ -166,7 +166,19 @@ active, and preserves native spawn homes and quests.
 [The layout plan](docs/broken-seal/hub-layout.svg) shows camp footprints and clear routes.
 The [world polish upgrade](docs/broken-seal/world-polish.md) replaces placeholder signs,
 fixes native texture fallbacks and weapons, adds normal cult loot, and consolidates
-the Charred Vale into two small compounds in the normal world.
+the Charred Vale into small camps in the normal world. The
+[Chapter 1 route revision](docs/broken-seal/chapter1-implementation.md) separates
+the roadside prisoner camp, spreads three defended wards across the Vale, and uses
+a supplied spyglass from an outside lookout. Future controls use contextual props;
+decorative scenery is unselectable. Existing Chapter 1/2 realms receive this through
+`2026_10_07_05_broken_seal_chapter1_flow.sql` and a rebuilt worldserver.
+The [October 8 source gameplay review](docs/broken-seal/source-review.md) corrects
+training, feeding, infiltration, named encounters and later-chapter objectives against
+the retail quest material. It retires the extra prologue trip, removes scene-start
+markers, gives Ortell a native concealed quest contact and uses saved NPC visibility
+without changing phases. Existing realms apply `2026_10_08_00_broken_seal_source_gameplay.sql`
+and reapply the current bases of any installed Chapters 3/4 before restarting the
+rebuilt server. The review includes the source links, local distances and acceptance checks.
 The [implemented-chapter quality review](docs/broken-seal/quality-review.md) adds
 authored objective text and map locations to all 56 records, suitable item icons,
 fuller ordinary loot and combat roles, distinct residents and local hub directions.

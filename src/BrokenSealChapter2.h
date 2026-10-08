@@ -2,6 +2,7 @@
 #define MOD_CUSTOMNPCS_BROKEN_SEAL_CHAPTER2_H
 
 #include "BrokenSealChapter2Data.h"
+#include <cstddef>
 #include <cstdint>
 
 namespace BrokenSeal::Chapter2
@@ -67,6 +68,21 @@ class AnswerOffer
 inline bool CanDeliver(bool carrying, bool active, bool onFoot, bool atStation)
 {
     return carrying && active && onFoot && atStation;
+}
+
+inline bool CanFinishChase(TrialSafety const& state, std::uint32_t elapsed, bool trainerAlive)
+{
+    return CanContinue(state, true, 90.0f) && elapsed >= 60000 && trainerAlive;
+}
+
+inline std::uint32_t AscendantStrikeDamage(std::uint32_t maximumHealth)
+{
+    return maximumHealth / 20 ? maximumHealth / 20 : 1;
+}
+
+inline std::uint32_t FlameShieldDamage(std::uint32_t damage, bool shielded)
+{
+    return shielded ? damage / 20 : damage;
 }
 } // namespace BrokenSeal::Chapter2
 

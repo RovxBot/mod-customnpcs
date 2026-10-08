@@ -32,6 +32,10 @@ INSERT INTO `bs_c03_ids` (`kind`, `entry`) VALUES
   ('creature', 4001414),
   ('creature', 4001415),
   ('creature', 4001416),
+  ('creature', 4001417),
+  ('creature', 4001418),
+  ('creature', 4001419),
+  ('creature', 4001420),
   ('creature', 4001450),
   ('creature', 4001451),
   ('creature', 4001452),
@@ -46,20 +50,12 @@ INSERT INTO `bs_c03_ids` (`kind`, `entry`) VALUES
   ('creature', 4001461),
   ('creature', 4001462),
   ('creature', 4001463),
+  ('creature', 4001466),
   ('gameobject', 4001500),
   ('gameobject', 4001501),
   ('gameobject', 4001502),
-  ('gameobject', 4001503),
-  ('gameobject', 4001504),
-  ('gameobject', 4001505),
   ('gameobject', 4001506),
-  ('gameobject', 4001507),
-  ('gameobject', 4001508),
-  ('gameobject', 4001509),
   ('gameobject', 4001510),
-  ('gameobject', 4001511),
-  ('gameobject', 4001512),
-  ('gameobject', 4001513),
   ('gameobject', 4001514),
   ('gameobject', 4001515),
   ('gameobject', 4001516),
@@ -91,6 +87,7 @@ INSERT INTO `bs_c03_ids` (`kind`, `entry`) VALUES
   ('item', 900312),
   ('item', 900313),
   ('item', 900314),
+  ('item', 900315),
   ('outfit', 4001400),
   ('outfit', 4001401),
   ('outfit', 4001402),
@@ -120,6 +117,7 @@ INSERT INTO `bs_c03_ids` (`kind`, `entry`) VALUES
   ('npc_text', 4001408),
   ('npc_text', 4001409),
   ('npc_text', 4001410),
+  ('npc_text', 4001418),
   ('gossip_menu', 4001400),
   ('gossip_menu', 4001401),
   ('gossip_menu', 4001402),
@@ -127,6 +125,7 @@ INSERT INTO `bs_c03_ids` (`kind`, `entry`) VALUES
   ('gossip_menu', 4001408),
   ('gossip_menu', 4001409),
   ('gossip_menu', 4001410),
+  ('gossip_menu', 4001418),
   ('npc_text', 4001464),
   ('gossip_menu', 4001464),
   ('npc_text', 4001465);
@@ -146,6 +145,10 @@ LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c03_collision_guard`
 SELECT 1 FROM `gameobject_template` t INNER JOIN `bs_c03_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
+LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 3
+WHERE o.`entry` IS NULL LIMIT 1;
+INSERT INTO `bs_c03_collision_guard`
+SELECT 1 FROM `gameobject_template_addon` t INNER JOIN `bs_c03_ids` r ON r.`kind` = 'gameobject' AND r.`entry` = t.`entry`
 LEFT JOIN `mod_customnpcs_bs_content` o ON o.`kind` = r.`kind` AND o.`entry` = r.`entry` AND o.`chapter` = 3
 WHERE o.`entry` IS NULL LIMIT 1;
 INSERT INTO `bs_c03_collision_guard`
@@ -194,6 +197,10 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001414, 'Marsh Relic Raider', 31, 31, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c03_enemy', 1, 1, 1, 4001414, 0),
   (4001415, 'Marsh Raider Hexer', 32, 32, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c03_enemy', 1, 1, 1, 4001415, 0),
   (4001416, 'Marsh Skitterer', 30, 30, 0, 14, 0, 1, 0, 1, '', 'npc_bs_c03_enemy', 1, 1, 1, 4001416, 0),
+  (4001417, 'Relic Raider Outrider', 33, 33, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c03_enemy', 1, 1, 1, 4001417, 0),
+  (4001418, 'Na Lek', 35, 35, 0, 35, 1, 1, 770, 4, '', 'npc_bs_c03_contact', 1, 1, 0, 0, 2),
+  (4001419, 'Bound Pool Guardian', 33, 33, 0, 14, 0, 1, 0, 4, '', 'npc_bs_c03_pool_guard', 1, 1, 0, 0, 0),
+  (4001420, 'Relic Raider Dominator', 34, 34, 0, 14, 0, 1, 0, 7, '', 'npc_bs_c03_enemy', 1, 1, 1, 4001420, 0),
   (4001450, 'Treated', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001451, 'Stew', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001452, 'Lookout A', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
@@ -207,10 +214,11 @@ INSERT INTO `creature_template` (`entry`, `name`, `minlevel`, `maxlevel`, `exp`,
   (4001460, 'Refugee B', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001461, 'Refugee C', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
   (4001462, 'Promise', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
-  (4001463, 'Device', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2)
+  (4001463, 'Device', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2),
+  (4001466, 'Pool Guard', 1, 1, 0, 35, 0, 1, 33555202, 10, 'NullCreatureAI', '', 1, 1, 0, 0, 2)
 ON DUPLICATE KEY UPDATE
   `name` = VALUES(`name`), `minlevel` = VALUES(`minlevel`), `maxlevel` = VALUES(`maxlevel`), `exp` = VALUES(`exp`), `faction` = VALUES(`faction`), `npcflag` = VALUES(`npcflag`), `unit_class` = VALUES(`unit_class`), `unit_flags` = VALUES(`unit_flags`), `type` = VALUES(`type`), `AIName` = VALUES(`AIName`), `ScriptName` = VALUES(`ScriptName`), `HealthModifier` = VALUES(`HealthModifier`), `DamageModifier` = VALUES(`DamageModifier`), `ExperienceModifier` = VALUES(`ExperienceModifier`), `lootid` = VALUES(`lootid`), `flags_extra` = VALUES(`flags_extra`);
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001400, 4001401, 4001402, 4001403, 4001404, 4001405, 4001406, 4001407, 4001408, 4001409, 4001410, 4001411, 4001412, 4001413, 4001414, 4001415, 4001416, 4001450, 4001451, 4001452, 4001453, 4001454, 4001455, 4001456, 4001457, 4001458, 4001459, 4001460, 4001461, 4001462, 4001463);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (4001400, 4001401, 4001402, 4001403, 4001404, 4001405, 4001406, 4001407, 4001408, 4001409, 4001410, 4001411, 4001412, 4001413, 4001414, 4001415, 4001416, 4001417, 4001418, 4001419, 4001420, 4001450, 4001451, 4001452, 4001453, 4001454, 4001455, 4001456, 4001457, 4001458, 4001459, 4001460, 4001461, 4001462, 4001463, 4001466);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
   (4001400, 0, 3406, 1, 1),
   (4001401, 0, 3865, 1, 1),
@@ -229,6 +237,10 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
   (4001414, 0, 14402, 1, 1),
   (4001415, 0, 1122, 1, 1),
   (4001416, 0, 545, 1, 1),
+  (4001417, 0, 14402, 1, 1),
+  (4001418, 0, 525, 0.8, 1),
+  (4001419, 0, 453, 0.7, 1),
+  (4001420, 0, 1122, 1, 1),
   (4001450, 0, 11686, 1, 1),
   (4001451, 0, 11686, 1, 1),
   (4001452, 0, 11686, 1, 1),
@@ -242,7 +254,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
   (4001460, 0, 11686, 1, 1),
   (4001461, 0, 11686, 1, 1),
   (4001462, 0, 11686, 1, 1),
-  (4001463, 0, 11686, 1, 1);
+  (4001463, 0, 11686, 1, 1),
+  (4001466, 0, 11686, 1, 1);
 INSERT INTO `mod_customnpcs_outfit` (`outfit_id`, `race`, `gender`, `class`, `skin`, `face`, `hair`, `hair_color`, `facial_hair`, `chest`, `shoulders`, `shirt`, `waist`, `legs`, `feet`, `hands`, `mainhand`, `ranged`) VALUES
   (4001400, 3, 0, 1, 0, 0, 0, 0, 0, 6238, 0, 0, 6570, 6568, 0, 14089, 4575, 0),
   (4001401, 2, 0, 1, 0, 0, 0, 0, 0, 6085, 6597, 0, 6594, 6596, 6573, 0, 0, 0),
@@ -277,7 +290,9 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
   (4001411, 1, 6631, 0, 0),
   (4001412, 1, 4575, 0, 0),
   (4001414, 1, 12282, 0, 0),
-  (4001415, 1, 4575, 0, 0)
+  (4001415, 1, 4575, 0, 0),
+  (4001417, 1, 12282, 0, 0),
+  (4001420, 1, 4575, 0, 0)
 ON DUPLICATE KEY UPDATE
   `ItemID1` = VALUES(`ItemID1`), `ItemID2` = VALUES(`ItemID2`), `ItemID3` = VALUES(`ItemID3`);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `InventoryType`, `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `description`, `spellid_1`, `spelltrigger_1`, `ScriptName`) VALUES
@@ -295,10 +310,11 @@ INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, 
   (900311, 4, 0, 'The Dawnchaser Promise: Signet of Sorcery', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 6, 45, 8, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
   (900312, 4, 0, 'The Dawnchaser Promise: Signet of Restoration', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 6, 6, 43, 2, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
   (900313, 4, 0, 'The Dawnchaser Promise: Signet of Guarding', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 7, 7, 12, 5, 0, 0, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
-  (900314, 4, 0, 'The Dawnchaser Promise: Signet of Balance', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 5, 6, 5, 7, 4, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, '')
+  (900314, 4, 0, 'The Dawnchaser Promise: Signet of Balance', 9846, 2, 11, -1, -1, 35, 30, 1, 1, 1, 5, 5, 6, 5, 7, 4, 'A reminder of the Dawnchasers'' promise to care for the living.', 0, 0, ''),
+  (900315, 12, 0, 'Poisoned Raider Blade', 22136, 1, 0, -1, -1, 1, 0, 5, 5, 4, 0, 0, 0, 0, 0, 0, 'A poison sample for Dezco, taken from a relic raider.', 0, 0, '')
 ON DUPLICATE KEY UPDATE
   `class` = VALUES(`class`), `subclass` = VALUES(`subclass`), `name` = VALUES(`name`), `displayid` = VALUES(`displayid`), `Quality` = VALUES(`Quality`), `InventoryType` = VALUES(`InventoryType`), `AllowableClass` = VALUES(`AllowableClass`), `AllowableRace` = VALUES(`AllowableRace`), `ItemLevel` = VALUES(`ItemLevel`), `RequiredLevel` = VALUES(`RequiredLevel`), `maxcount` = VALUES(`maxcount`), `stackable` = VALUES(`stackable`), `bonding` = VALUES(`bonding`), `stat_type1` = VALUES(`stat_type1`), `stat_value1` = VALUES(`stat_value1`), `stat_type2` = VALUES(`stat_type2`), `stat_value2` = VALUES(`stat_value2`), `stat_type3` = VALUES(`stat_type3`), `stat_value3` = VALUES(`stat_value3`), `description` = VALUES(`description`), `spellid_1` = VALUES(`spellid_1`), `spelltrigger_1` = VALUES(`spelltrigger_1`), `ScriptName` = VALUES(`ScriptName`);
-DELETE FROM `creature_loot_template` WHERE `Entry` IN (4001414, 4001415, 4001416);
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (4001414, 4001415, 4001416, 4001420);
 UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001414 WHERE `entry`=4001414;
 DELETE FROM `creature_loot_template` WHERE `Entry`=4001414;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
@@ -331,28 +347,56 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
   (4001416, 2251, 0, 65, 0, 1, 0, 1, 2),
   (4001416, 1475, 0, 25, 0, 1, 0, 1, 1),
   (4001416, 3174, 0, 35, 0, 1, 0, 1, 1);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001417 WHERE `entry`=4001417;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001417;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001417, 4306, 0, 40, 0, 1, 0, 1, 2),
+  (4001417, 3771, 0, 8, 0, 1, 0, 1, 1),
+  (4001417, 1708, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001417, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=2586 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001420 WHERE `entry`=4001420;
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001420;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+  (4001420, 4306, 0, 40, 0, 1, 0, 1, 2),
+  (4001420, 3771, 0, 8, 0, 1, 0, 1, 1),
+  (4001420, 1708, 0, 8, 0, 1, 0, 1, 1);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001420, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=2586 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`) VALUES
   (4001416, 900302, 100, 1, 1, 0, 1, 1),
   (4001414, 900303, 100, 1, 1, 0, 1, 1),
-  (4001415, 900303, 100, 1, 1, 0, 1, 1);
+  (4001415, 900303, 100, 1, 1, 0, 1, 1),
+  (4001414, 900315, 100, 1, 1, 0, 1, 1),
+  (4001420, 900300, 100, 1, 1, 0, 1, 1);
 INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `RewardXPDifficulty`, `RewardMoney`, `StartItem`, `Flags`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `RewardChoiceItemID1`, `RewardChoiceItemID2`, `RewardChoiceItemID3`, `RewardChoiceItemID4`, `RewardChoiceItemID5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity1`, `RewardChoiceItemQuantity2`, `RewardChoiceItemQuantity3`, `RewardChoiceItemQuantity4`, `RewardChoiceItemQuantity5`, `RewardChoiceItemQuantity6`, `RewardItem1`, `RewardItem2`, `RewardItem3`, `RewardItem4`, `RewardAmount1`, `RewardAmount2`, `RewardAmount3`, `RewardAmount4`) VALUES
   (900300, 2, 30, 30, 15, 4, 1200, 0, 0, 0, 'Search Party', 'Find Chezin at the ruined scouting camp and recover his report.', 'Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Find his abandoned pack beside the ruined scouting shelter. If he has a report, bring it back. Do not promise Leza he is coming home until you know.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900301, 2, 30, 30, 15, 4, 1200, 900301, 0, 0, 'Poisoned!', 'Obtain the supplied antidote and administer it to Leza while Nala monitors her.', 'Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001450, 0, 0, 0, 1, 0, 0, 0, 'Leza treated under Nala''s care', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900302, 2, 30, 30, 15, 5, 1200, 0, 0, 0, 'Skitterer Stew', 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 'People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 4001451, 0, 0, 0, 1, 0, 0, 0, 'Skitterer stew prepared', '', '', '', 900302, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900303, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Blind Them!', 'Disable 3 raider lookout posts and defeat 6 guards watching the expedition.', 'The relic raiders are watching us. Disable each of the three raider lookout supply crates to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; disabling the same post again will not blind another lookout. Keep their attention away from the medical tent.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 4001414, 4001452, 4001453, 4001454, 6, 1, 1, 1, 'Marsh Relic Raiders defeated', 'Western lookout disabled', 'Central lookout disabled', 'Eastern lookout disabled', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900301, 2, 30, 30, 15, 4, 1200, 0, 0, 0, 'Poisoned!', 'Collect 5 poisoned blades from relic raiders and bring them to Dezco.', 'Chezin''s report describes the raiders'' poisoned weapons. Kill relic raiders at their marsh camp and bring five blades back as samples. Nala needs to identify the poison before treating anyone. Clicking the medical tent does not provide that evidence.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900315, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900302, 2, 30, 30, 15, 5, 1200, 0, 0, 0, 'Skitterer Stew', 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 'Gather eight pieces of skitterer meat from the pools around camp, then speak to Kang at the cooking hearth. He will prepare food for the weakened expedition.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 4001451, 0, 0, 0, 1, 0, 0, 0, 'Skitterer stew prepared', '', '', '', 900302, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900303, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Blind Them!', 'Kill the relic raider outrider watching the expedition.', 'An outrider scouts the track north of the Dawnchaser camp. Defeat him before he reports our position and brings more raiders down on the expedition.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 4001417, 0, 0, 0, 1, 0, 0, 0, 'Raider outrider defeated', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900304, 2, 31, 30, 15, 5, 1240, 0, 0, 0, 'Threat from the Marsh Ruins', 'Defeat 8 relic raiders before their next camp attack.', 'The watchers were only the edge of the force. Defeat relic raiders and hexers at their dig, and bring back eight insignia as proof that their next attack has been broken. This expedition has families in it, and I mean to keep them alive.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900303, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900305, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'Herbal Remedies', 'Collect 12 marsh lotus leaves and help Kang prepare a second treatment.', 'The antidote eased the fever, but Leza is still weak. Collect twelve marsh lotus leaves among the southern marsh paths. Ask Kang to prepare the treatment when you have them, then return the leaves to me. These are camp supplies, not a test of your herbalism.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001455, 0, 0, 0, 1, 0, 0, 0, 'Lotus remedy prepared with Kang', '', '', '', 900304, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900306, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'The Relic Raiders'' Agenda', 'Recover excavation orders and compare the raiders'' focus with the expedition ledger.', 'Chezin saw the raiders excavating stones marked with the same cuts described in Jarod''s ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001463, 4001456, 0, 0, 1, 1, 0, 0, 'Binding apparatus inspected', 'Orders compared with Dezco', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900307, 2, 33, 30, 15, 4, 1320, 0, 0, 0, 'The Pools of Youth', 'Collect one water sample from the tainted pool and bring it to Kang for testing.', 'The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900305, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900308, 2, 33, 30, 15, 5, 1320, 0, 0, 0, 'Life', 'Stay near the medical tent through Leza''s delivery and Nala''s care for the family.', 'Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001457, 0, 0, 0, 1, 0, 0, 0, 'Leza''s delivery witnessed', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-  (900309, 2, 34, 30, 15, 4, 1360, 0, 0, 0, 'A Quiet Vigil', 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 'Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial at the northern edge of camp. Stay quietly for the vigil, then return to me for a totem in her memory.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001458, 0, 0, 0, 1, 0, 0, 0, 'Vigil attended', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900306, 0, 0, 0, 1, 0, 0, 0),
+  (900306, 2, 32, 30, 15, 5, 1280, 0, 0, 0, 'The Relic Raiders'' Agenda', 'Kill the relic raider dominator and recover his excavation orders.', 'The dominator leads the raiders at the marsh ruins. Defeat him and take his excavation orders. Those orders will tell us why the raiders have come and how their work connects to the buyers in Jarod''s ledger. Bring the document back to Dezco.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900300, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900307, 2, 33, 30, 15, 4, 1320, 0, 0, 0, 'The Pools of Youth', 'Speak to Na Lek, defeat four bound pool guardians, and bring the purified water to Kang.', 'Na Lek is held near the ward-tainted pool. Speak to the water spirit and help break the guardians'' hold. He will aid you while you fight four bound guardians, then allow a purified sample to be drawn. The defeated guardians remain recorded if the encounter is interrupted; return to Na Lek to resume or recover a sample that would not fit in your bags.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 4001466, 0, 0, 0, 4, 0, 0, 0, 'Bound pool guardians defeated', '', '', '', 900305, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900308, 2, 33, 30, 15, 5, 1320, 0, 0, 0, 'Life', 'Stay near the medical tent through Leza''s delivery and Nala''s care for the family.', 'Speak to Nala at the field hospital to begin Leza''s delivery scene. Stay nearby while the family and healer work. The tent is shelter, not a scene button. Redhorn and Cloudhoof must both be safe when the scene ends.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001457, 0, 0, 0, 1, 0, 0, 0, 'Leza''s delivery witnessed', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  (900309, 2, 34, 30, 15, 4, 1360, 0, 0, 0, 'A Quiet Vigil', 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 'Speak to Dezco, then join him at Leza''s memorial for a quiet vigil. Remain nearby until he has finished. The fire is a memorial, not a control to click.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001458, 0, 0, 0, 1, 0, 0, 0, 'Vigil attended', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 900306, 0, 0, 0, 1, 0, 0, 0),
   (900310, 2, 34, 30, 15, 5, 1360, 900307, 0, 0, 'For the Living', 'Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.', 'Redhorn and Cloudhoof breathe, and others still need to eat. Take these three food bundles to the Dawnchaser families, displaced travelers and expedition wounded. Give each group one bundle, then speak with me about the boys and the people who remain. We will carry our grief; we will not leave the living behind.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 4001459, 4001460, 4001461, 4001462, 1, 1, 1, 1, 'Dawnchaser families supplied', 'Displaced travelers supplied', 'Expedition wounded supplied', 'Expedition plans discussed with Dezco', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
   (900311, 2, 35, 30, 15, 4, 1400, 900308, 0, 0, 'Leave a Place Better', 'Deliver the village introduction letter to Mei at the affected settlement.', 'The people at the wayside settlement southwest of here have been facing the same raiders, and hope is wearing thin there. Take my introduction to Mei Barrelbottom at the relief station on the Mudsprocket road. Tell her what our camp has learned and what you are willing to do.', 'Speak with Mei Barrelbottom at the relief station on the Mudsprocket road.', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 900308, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 900309, 900310, 900311, 900312, 900313, 900314, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 ON DUPLICATE KEY UPDATE
   `QuestType` = VALUES(`QuestType`), `QuestLevel` = VALUES(`QuestLevel`), `MinLevel` = VALUES(`MinLevel`), `QuestSortID` = VALUES(`QuestSortID`), `RewardXPDifficulty` = VALUES(`RewardXPDifficulty`), `RewardMoney` = VALUES(`RewardMoney`), `StartItem` = VALUES(`StartItem`), `Flags` = VALUES(`Flags`), `AllowableRaces` = VALUES(`AllowableRaces`), `LogTitle` = VALUES(`LogTitle`), `LogDescription` = VALUES(`LogDescription`), `QuestDescription` = VALUES(`QuestDescription`), `QuestCompletionLog` = VALUES(`QuestCompletionLog`), `RequiredNpcOrGo1` = VALUES(`RequiredNpcOrGo1`), `RequiredNpcOrGo2` = VALUES(`RequiredNpcOrGo2`), `RequiredNpcOrGo3` = VALUES(`RequiredNpcOrGo3`), `RequiredNpcOrGo4` = VALUES(`RequiredNpcOrGo4`), `RequiredNpcOrGoCount1` = VALUES(`RequiredNpcOrGoCount1`), `RequiredNpcOrGoCount2` = VALUES(`RequiredNpcOrGoCount2`), `RequiredNpcOrGoCount3` = VALUES(`RequiredNpcOrGoCount3`), `RequiredNpcOrGoCount4` = VALUES(`RequiredNpcOrGoCount4`), `ObjectiveText1` = VALUES(`ObjectiveText1`), `ObjectiveText2` = VALUES(`ObjectiveText2`), `ObjectiveText3` = VALUES(`ObjectiveText3`), `ObjectiveText4` = VALUES(`ObjectiveText4`), `RequiredItemId1` = VALUES(`RequiredItemId1`), `RequiredItemId2` = VALUES(`RequiredItemId2`), `RequiredItemId3` = VALUES(`RequiredItemId3`), `RequiredItemId4` = VALUES(`RequiredItemId4`), `RequiredItemId5` = VALUES(`RequiredItemId5`), `RequiredItemId6` = VALUES(`RequiredItemId6`), `RequiredItemCount1` = VALUES(`RequiredItemCount1`), `RequiredItemCount2` = VALUES(`RequiredItemCount2`), `RequiredItemCount3` = VALUES(`RequiredItemCount3`), `RequiredItemCount4` = VALUES(`RequiredItemCount4`), `RequiredItemCount5` = VALUES(`RequiredItemCount5`), `RequiredItemCount6` = VALUES(`RequiredItemCount6`), `RewardChoiceItemID1` = VALUES(`RewardChoiceItemID1`), `RewardChoiceItemID2` = VALUES(`RewardChoiceItemID2`), `RewardChoiceItemID3` = VALUES(`RewardChoiceItemID3`), `RewardChoiceItemID4` = VALUES(`RewardChoiceItemID4`), `RewardChoiceItemID5` = VALUES(`RewardChoiceItemID5`), `RewardChoiceItemID6` = VALUES(`RewardChoiceItemID6`), `RewardChoiceItemQuantity1` = VALUES(`RewardChoiceItemQuantity1`), `RewardChoiceItemQuantity2` = VALUES(`RewardChoiceItemQuantity2`), `RewardChoiceItemQuantity3` = VALUES(`RewardChoiceItemQuantity3`), `RewardChoiceItemQuantity4` = VALUES(`RewardChoiceItemQuantity4`), `RewardChoiceItemQuantity5` = VALUES(`RewardChoiceItemQuantity5`), `RewardChoiceItemQuantity6` = VALUES(`RewardChoiceItemQuantity6`), `RewardItem1` = VALUES(`RewardItem1`), `RewardItem2` = VALUES(`RewardItem2`), `RewardItem3` = VALUES(`RewardItem3`), `RewardItem4` = VALUES(`RewardItem4`), `RewardAmount1` = VALUES(`RewardAmount1`), `RewardAmount2` = VALUES(`RewardAmount2`), `RewardAmount3` = VALUES(`RewardAmount3`), `RewardAmount4` = VALUES(`RewardAmount4`);
 INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `ProvidedItemCount`, `SpecialFlags`) VALUES
   (900300, 900222, 0, 0, 0, 256),
-  (900301, 900300, 0, 0, 1, 256),
+  (900301, 900300, 0, 0, 0, 256),
   (900302, 900301, 0, -900304, 0, 256),
   (900303, 900301, 0, -900304, 0, 256),
   (900304, 900302, 0, -900307, 0, 256),
@@ -410,13 +454,13 @@ ON DUPLICATE KEY UPDATE
   `RewardText` = VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`) VALUES
   (900300, 'What happened to Chezin? Bring me the report he left behind.'),
-  (900301, 'Did Leza respond to the antidote? Nala must watch the treatment.'),
+  (900301, 'Have you completed the work I asked you to do?'),
   (900302, 'Eight portions of meat, and a pot ready for the camp. Have you prepared them?'),
-  (900303, 'Are all three lookout posts disabled, and their guards driven back?'),
+  (900303, 'Have you completed the work I asked you to do?'),
   (900304, 'Bring eight raider insignia. I need to know the next attack has been broken.'),
   (900305, 'Have you gathered twelve leaves and helped Kang prepare the remedy?'),
   (900306, 'Bring fresh orders, inspect the apparatus, then we can compare the buyer''s mark.'),
-  (900307, 'Bring the pool sample here. I will test it before anyone drinks it.'),
+  (900307, 'Have you completed the work I asked you to do?'),
   (900308, 'Stay with Nala through the delivery. I will be beside Leza.'),
   (900309, 'Have you spent a little time at Leza''s memorial?'),
   (900310, 'Each group needs one bundle. When all three have eaten, we can speak about the journey ahead.'),
@@ -448,7 +492,12 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900300, 0, -1, 1, 141, 0, 0, 0),
   (900300, 1, 4, 1, 141, 0, 0, 0),
   (900301, 0, -1, 1, 141, 0, 0, 0),
-  (900301, 1, 0, 1, 141, 0, 0, 0),
+  (900301, 1, 4, 1, 141, 0, 0, 0),
+  (900301, 2, 4, 1, 141, 0, 0, 0),
+  (900301, 3, 4, 1, 141, 0, 0, 0),
+  (900301, 4, 4, 1, 141, 0, 0, 0),
+  (900301, 5, 4, 1, 141, 0, 0, 0),
+  (900301, 6, 4, 1, 141, 0, 0, 0),
   (900302, 0, -1, 1, 141, 0, 0, 0),
   (900302, 1, 0, 1, 141, 0, 0, 0),
   (900302, 2, 4, 1, 141, 0, 0, 0),
@@ -461,16 +510,14 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900302, 9, 4, 1, 141, 0, 0, 0),
   (900303, 0, -1, 1, 141, 0, 0, 0),
   (900303, 1, 0, 1, 141, 0, 0, 0),
-  (900303, 2, 0, 1, 141, 0, 0, 0),
-  (900303, 3, 0, 1, 141, 0, 0, 0),
-  (900303, 4, 1, 1, 141, 0, 0, 0),
-  (900303, 5, 2, 1, 141, 0, 0, 0),
-  (900303, 6, 3, 1, 141, 0, 0, 0),
   (900304, 0, -1, 1, 141, 0, 0, 0),
   (900304, 1, 4, 1, 141, 0, 0, 0),
   (900304, 2, 4, 1, 141, 0, 0, 0),
   (900304, 3, 4, 1, 141, 0, 0, 0),
   (900304, 4, 4, 1, 141, 0, 0, 0),
+  (900304, 5, 4, 1, 141, 0, 0, 0),
+  (900304, 6, 4, 1, 141, 0, 0, 0),
+  (900304, 7, 4, 1, 141, 0, 0, 0),
   (900305, 0, -1, 1, 141, 0, 0, 0),
   (900305, 1, 0, 1, 141, 0, 0, 0),
   (900305, 2, 4, 1, 141, 0, 0, 0),
@@ -486,11 +533,10 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
   (900305, 12, 4, 1, 141, 0, 0, 0),
   (900305, 13, 4, 1, 141, 0, 0, 0),
   (900306, 0, -1, 1, 141, 0, 0, 0),
-  (900306, 1, 0, 1, 141, 0, 0, 0),
-  (900306, 2, 1, 1, 141, 0, 0, 0),
-  (900306, 3, 4, 1, 141, 0, 0, 0),
+  (900306, 1, 4, 1, 141, 0, 0, 0),
   (900307, 0, -1, 1, 141, 0, 0, 0),
-  (900307, 1, 4, 1, 141, 0, 0, 0),
+  (900307, 1, 0, 1, 141, 0, 0, 0),
+  (900307, 2, 4, 1, 141, 0, 0, 0),
   (900308, 0, -1, 1, 141, 0, 0, 0),
   (900308, 1, 0, 1, 141, 0, 0, 0),
   (900309, 0, -1, 1, 141, 0, 0, 0),
@@ -506,7 +552,12 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900300, 0, 0, -3970, -3350),
   (900300, 1, 0, -3780, -3484),
   (900301, 0, 0, -3970, -3350),
-  (900301, 1, 0, -3980, -3358),
+  (900301, 1, 0, -3940, -3620),
+  (900301, 2, 0, -3935, -3617),
+  (900301, 3, 0, -3938, -3627),
+  (900301, 4, 0, -3735, -3360),
+  (900301, 5, 0, -3722, -3370),
+  (900301, 6, 0, -3745, -3378),
   (900302, 0, 0, -3960, -3347),
   (900302, 1, 0, -3960, -3355),
   (900302, 2, 0, -3925, -3460),
@@ -518,17 +569,15 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900302, 8, 0, -4004, -3428),
   (900302, 9, 0, -3942, -3440),
   (900303, 0, 0, -3965, -3359),
-  (900303, 1, 0, -3940, -3620),
-  (900303, 2, 0, -3935, -3617),
-  (900303, 3, 0, -3938, -3627),
-  (900303, 4, 0, -3932, -3624),
-  (900303, 5, 0, -3948, -3625),
-  (900303, 6, 0, -3940, -3610),
+  (900303, 1, 0, -3720, -3350),
   (900304, 0, 0, -3965, -3359),
   (900304, 1, 0, -3940, -3620),
   (900304, 2, 0, -3935, -3617),
   (900304, 3, 0, -3938, -3627),
-  (900304, 4, 0, -3945, -3621),
+  (900304, 4, 0, -3735, -3360),
+  (900304, 5, 0, -3722, -3370),
+  (900304, 6, 0, -3745, -3378),
+  (900304, 7, 0, -3945, -3621),
   (900305, 0, 0, -3970, -3350),
   (900305, 1, 0, -3960, -3347),
   (900305, 2, 0, -3865, -3472),
@@ -544,11 +593,10 @@ INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`) VALUES
   (900305, 12, 0, -4025, -3505),
   (900305, 13, 0, -3870, -3536),
   (900306, 0, 0, -3970, -3350),
-  (900306, 1, 0, -3948, -3618),
-  (900306, 2, 0, -3970, -3350),
-  (900306, 3, 0, -3935, -3624),
+  (900306, 1, 0, -3935, -3624),
   (900307, 0, 0, -3960, -3347),
-  (900307, 1, 0, -4012, -3660),
+  (900307, 1, 0, -3955, -3630),
+  (900307, 2, 0, -3955, -3630),
   (900308, 0, 0, -3970, -3350),
   (900308, 1, 0, -3980, -3358),
   (900309, 0, 0, -3970, -3350),
@@ -568,6 +616,7 @@ INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001408, 'The little ones eat first. We can wait, but they should not have to.', 1),
   (4001409, 'We lost the wagons on the road. I never thought a place to sit could mean so much.', 1),
   (4001410, 'Nala says I must rest. It is easier when I know someone is watching the road.', 1),
+  (4001418, 'The raiders have bound these waters. Break their guardians before you draw a sample.', 1),
   (4001464, 'Jarod sent you to follow the buyers. My people need you here as well.', 1)
 ON DUPLICATE KEY UPDATE
   `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
@@ -575,7 +624,7 @@ INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`) VALUES
   (4001465, 'Redhorn and Cloudhoof are resting. Both boys are strong, and I will stay beside them. When you are ready, I can show you how they are doing.', 1)
 ON DUPLICATE KEY UPDATE
   `text0_0` = VALUES(`text0_0`), `Probability0` = VALUES(`Probability0`);
-DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001464);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001418, 4001464);
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001400, 4001400),
   (4001401, 4001401),
@@ -584,29 +633,33 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
   (4001408, 4001408),
   (4001409, 4001409),
   (4001410, 4001410),
+  (4001418, 4001418),
   (4001464, 4001464);
-UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001464);
-INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
-  (4001500, 10, 6737, 'Chezin''s Abandoned Pack', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001501, 10, 8698, 'Dawnchaser Medical Tent', 0.75, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001502, 10, 192, 'Dawnchaser Cooking Hearth', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001503, 10, 6737, 'Western Raider Lookout Supplies', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001504, 10, 6737, 'Central Raider Lookout Supplies', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001505, 10, 6737, 'Eastern Raider Lookout Supplies', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001506, 10, 269, 'Marsh Lotus Leaves', 0.6, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001507, 10, 259, 'Raider Excavation Orders', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001508, 10, 235, 'Raider Relic Binding Apparatus', 0.35, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001509, 10, 235, 'Ward-tainted Pool Focus', 0.35, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001510, 10, 192, 'Leza''s Memorial', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001511, 10, 335, 'Dawnchaser Family Provisions', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001512, 10, 335, 'Traveler Provisions', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001513, 10, 335, 'Field Hospital Provisions', 1, 0, 0, 1, 'go_bs_c03_interaction'),
-  (4001514, 5, 5993, 'Redhorn''s Bundled Cot', 0.8, 0, 0, 1, ''),
-  (4001515, 5, 5993, 'Cloudhoof''s Bundled Cot', 0.8, 0, 0, 1, ''),
-  (4001516, 5, 8457, 'Ruined Scouting Shelter', 1, 0, 0, 1, ''),
-  (4001517, 5, 6737, 'Barrelbottom Relief Supplies', 0.6, 0, 0, 1, '')
+UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN (4001400, 4001401, 4001402, 4001405, 4001408, 4001409, 4001410, 4001418, 4001464);
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data1`, `Data3`, `Data5`, `Data18`, `ScriptName`) VALUES
+  (4001500, 10, 6737, 'Chezin''s Abandoned Pack', 0.6, 0, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001501, 5, 8698, 'Dawnchaser Medical Tent', 0.75, 0, 0, 0, 1, ''),
+  (4001502, 5, 192, 'Dawnchaser Cooking Hearth', 1, 0, 0, 0, 1, ''),
+  (4001506, 10, 269, 'Marsh Lotus Leaves', 0.6, 0, 0, 0, 1, 'go_bs_c03_interaction'),
+  (4001510, 5, 192, 'Leza''s Memorial', 1, 0, 0, 0, 1, ''),
+  (4001514, 5, 5993, 'Redhorn''s Bundled Cot', 0.8, 0, 0, 0, 1, ''),
+  (4001515, 5, 5993, 'Cloudhoof''s Bundled Cot', 0.8, 0, 0, 0, 1, ''),
+  (4001516, 5, 8457, 'Ruined Scouting Shelter', 1, 0, 0, 0, 1, ''),
+  (4001517, 5, 6737, 'Barrelbottom Relief Supplies', 0.6, 0, 0, 0, 1, '')
 ON DUPLICATE KEY UPDATE
-  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+  `type` = VALUES(`type`), `displayId` = VALUES(`displayId`), `name` = VALUES(`name`), `size` = VALUES(`size`), `Data1` = VALUES(`Data1`), `Data3` = VALUES(`Data3`), `Data5` = VALUES(`Data5`), `Data18` = VALUES(`Data18`), `ScriptName` = VALUES(`ScriptName`);
+INSERT INTO `gameobject_template_addon` (`entry`, `flags`) VALUES
+  (4001500, 0),
+  (4001501, 16),
+  (4001502, 16),
+  (4001506, 0),
+  (4001510, 16),
+  (4001514, 16),
+  (4001515, 16),
+  (4001516, 16),
+  (4001517, 16)
+ON DUPLICATE KEY UPDATE
+  `flags` = VALUES(`flags`);
 DROP TEMPORARY TABLE IF EXISTS `bs_c03_creature_spawns`;
 CREATE TEMPORARY TABLE `bs_c03_creature_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 DROP TEMPORARY TABLE IF EXISTS `bs_c03_gameobject_spawns`;
@@ -623,6 +676,9 @@ INSERT INTO `bs_c03_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z
   ('BS-C03:NPC_RAIDER:raider_0', 4001414, 15, -3940, -3620, 35.33285509169608, 3.14),
   ('BS-C03:NPC_RAIDER:raider_1', 4001414, 15, -3935, -3617, 35.16534475789969, 3.14),
   ('BS-C03:NPC_RAIDER:raider_2', 4001414, 15, -3938, -3627, 34.96592599234592, 3.14),
+  ('BS-C03:NPC_RAIDER:raider_3', 4001414, 15, -3735, -3360, 32.14219057455888, 3.14),
+  ('BS-C03:NPC_RAIDER:raider_4', 4001414, 15, -3722, -3370, 29.18432675369921, 3.14),
+  ('BS-C03:NPC_RAIDER:raider_5', 4001414, 15, -3745, -3378, 29.8073009069135, 3.14),
   ('BS-C03:NPC_HEXER:hexer_0', 4001415, 15, -3945, -3621, 35.698176263354235, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_0', 4001416, 15, -3925.0, -3460.0, 30.728261740164694, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_1', 4001416, 15, -3958.4, -3466.67, 30.358569149087955, 3.14),
@@ -631,14 +687,14 @@ INSERT INTO `bs_c03_creature_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z
   ('BS-C03:NPC_SKITTERER:skitterer_4', 4001416, 15, -4005.0, -3480.0, 30.58926532410932, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_5', 4001416, 15, -4016.0, -3458.0, 32.2797333044642, 3.14),
   ('BS-C03:NPC_SKITTERER:skitterer_6', 4001416, 15, -4004.0, -3428.0, 44.80791978377301, 3.14),
-  ('BS-C03:NPC_SKITTERER:skitterer_7', 4001416, 15, -3941.74, -3439.96, 30.832398283854484, 3.14);
+  ('BS-C03:NPC_SKITTERER:skitterer_7', 4001416, 15, -3941.74, -3439.96, 30.832398283854484, 3.14),
+  ('BS-C03:NPC_OUTRIDER:outrider', 4001417, 15, -3720, -3350, 34.48578362693455, 3.14),
+  ('BS-C03:NPC_POOL_GUIDE:pool_guide', 4001418, 15, -3955, -3630, 30.13460352158378, 3.14),
+  ('BS-C03:NPC_DOMINATOR:dominator', 4001420, 15, -3935, -3624, 35.22147930021917, 3.14);
 INSERT INTO `bs_c03_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, `z`, `o`) VALUES
   ('BS-C03:GO_TRACK:track', 4001500, 15, -3780.0, -3484.0, 30.61348012003404, 3.14),
   ('BS-C03:GO_TENT:tent', 4001501, 15, -3980, -3358, 39.921344749215976, 3.14),
   ('BS-C03:GO_HEARTH:hearth', 4001502, 15, -3960, -3355, 38.360619737504265, 3.14),
-  ('BS-C03:GO_LOOKOUT_A:lookout_a', 4001503, 15, -3932, -3624, 35.10099191848694, 3.14),
-  ('BS-C03:GO_LOOKOUT_B:lookout_b', 4001504, 15, -3948, -3625, 34.624152028445735, 3.14),
-  ('BS-C03:GO_LOOKOUT_C:lookout_c', 4001505, 15, -3940, -3610, 35.31177337306542, 3.14),
   ('BS-C03:GO_HERB:herb_0', 4001506, 15, -3865.42, -3471.61, 31.100855069344856, 3.14),
   ('BS-C03:GO_HERB:herb_1', 4001506, 15, -3869.33, -3490.67, 31.208929249294414, 3.14),
   ('BS-C03:GO_HERB:herb_2', 4001506, 15, -3898.0, -3472.0, 32.246105498573755, 3.14),
@@ -651,13 +707,7 @@ INSERT INTO `bs_c03_gameobject_spawns` (`spawn_key`, `entry`, `zone`, `x`, `y`, 
   ('BS-C03:GO_HERB:herb_9', 4001506, 15, -4018.0, -3565.0, 32.28994832697981, 3.14),
   ('BS-C03:GO_HERB:herb_10', 4001506, 15, -4025.0, -3505.0, 36.01215800741884, 3.14),
   ('BS-C03:GO_HERB:herb_11', 4001506, 15, -3870.0, -3536.0, 39.20382301289827, 3.14),
-  ('BS-C03:GO_ORDERS:orders', 4001507, 15, -3935, -3624, 35.22432230021393, 3.14),
-  ('BS-C03:GO_DEVICE:device', 4001508, 15, -3948, -3618, 37.10546891980462, 3.14),
-  ('BS-C03:GO_POOL:pool', 4001509, 15, -4012.0, -3660.0, 44.65293857988611, 3.14),
   ('BS-C03:GO_MEMORIAL:memorial', 4001510, 15, -3973, -3338, 40.61414826392581, 3.14),
-  ('BS-C03:GO_SUPPLY_A:supply_a', 4001511, 15, -3953, -3344, 39.28991743525222, 3.14),
-  ('BS-C03:GO_SUPPLY_B:supply_b', 4001512, 15, -3956, -3360, 38.11291436459301, 3.14),
-  ('BS-C03:GO_SUPPLY_C:supply_c', 4001513, 15, -3974, -3338, 40.41521669767683, 3.14),
   ('BS-C03:GO_COT_A:cot_a', 4001514, 15, -3978, -3346, 40.4470484007398, 3.14),
   ('BS-C03:GO_COT_B:cot_b', 4001515, 15, -3981, -3346, 40.13746872241002, 3.14),
   ('BS-C03:GO_RUINED_TENT:ruined_tent', 4001516, 15, -3792.0, -3486.94, 31.18072556590791, 3.14),

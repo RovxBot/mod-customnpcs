@@ -16,8 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 TABLES = ['creature_template', 'creature_template_model', 'creature_template_addon',
           'creature', 'creature_equip_template', 'smart_scripts', 'item_template', 'page_text',
           'creature_loot_template', 'reference_loot_template', 'quest_template', 'quest_template_addon', 'creature_queststarter',
-          'creature_questender', 'quest_offer_reward', 'quest_request_items', 'conditions',
-          'npc_text', 'gossip_menu', 'gameobject_template', 'gameobject', 'quest_poi', 'quest_poi_points']
+          'creature_questender', 'gameobject_queststarter', 'gameobject_questender', 'quest_offer_reward', 'quest_request_items', 'conditions',
+          'npc_text', 'gossip_menu', 'gameobject_template', 'gameobject_template_addon', 'gameobject', 'quest_poi', 'quest_poi_points']
 
 
 def main():

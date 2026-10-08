@@ -12,6 +12,8 @@ COLORS={'shelter':'#766394','sleeping':'#87775b','supplies':'#aa754c','workstati
 def main():
     d=json.loads((ROOT/'data/quests/broken_seal_hubs.json').read_text());chapters=[json.loads((ROOT/f'data/quests/broken_seal_chapter{i}.json').read_text()) for i in [1,2,3,4]]
     actors={a['entry']:(a['name'],c['points'][a['point']]) for c in chapters for a in c['actors'] if a.get('point')}
+    chapter_scenery=[dict(o,hub=o['camp'],point=c['points'][o['point']]) for c in chapters for o in c['objects'] if o.get('camp')]
+    scenery=d['objects']+d.get('encounter_scenery',[])+chapter_scenery
     out=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">',
          '<rect width="1200" height="700" fill="#121d26"/>',
          '<text x="20" y="28" fill="#edf5f4" font-size="20" font-family="sans-serif">The Broken Seal — hub layout plan</text>',
@@ -30,7 +32,7 @@ def main():
                 # Clip long routes at the panel edge.
                 ax=max(left+5,min(left+280,ax));bx=max(left+5,min(left+280,bx));ay=max(top+30,min(top+290,ay));by=max(top+30,min(top+290,by))
                 out.append(f'<path d="M {ax:.2f} {ay:.2f} L {bx:.2f} {by:.2f}" stroke="#6aa6b0" stroke-width="2" stroke-dasharray="3 3" fill="none"/>')
-        for o in [v for v in d['objects']+d.get('encounter_scenery',[]) if v['hub']==h['key']]:
+        for o in [v for v in scenery if v['hub']==h['key']]:
             b=o['bounds'];x,y=xy(b[0],b[3]);w=(b[2]-b[0])*scale;hh=(b[3]-b[1])*scale
             out.append(f'<rect x="{x:.2f}" y="{y:.2f}" width="{max(w,2):.2f}" height="{max(hh,2):.2f}" fill="{COLORS[o["role"]]}" stroke="#cfdbd4" stroke-width=".5"><title>{html.escape(o["name"])}</title></rect>')
         for entry in h.get('contacts',[]):
@@ -40,7 +42,7 @@ def main():
             if g['hub']!=h['key']:continue
             for p in g['points']:
                 x,y=xy(*p[:2]);out.append(f'<path d="M {x:.2f} {y-4:.2f} L {x+4:.2f} {y+3:.2f} L {x-4:.2f} {y+3:.2f} Z" fill="#f0cf7a"><title>Sentry</title></path>')
-        out.append(f'<text x="{left+10}" y="{top+284}" fill="#b8c7c8" font-size="11" font-family="sans-serif">{len([o for o in d["objects"]+d.get("encounter_scenery",[]) if o["hub"]==h["key"]])} props • {"guarded encounter" if h in d.get("encounter_camps",[]) else "2 sentries • 1 resident"}</text>')
+        out.append(f'<text x="{left+10}" y="{top+284}" fill="#b8c7c8" font-size="11" font-family="sans-serif">{len([o for o in scenery if o["hub"]==h["key"]])} props • {"guarded encounter" if h in d.get("encounter_camps",[]) else "2 sentries • 1 resident"}</text>')
     out += ['<text x="20" y="690" fill="#b8c7c8" font-size="11" font-family="sans-serif">Layout and clearance review. In-game terrain, model rendering and NPC behavior still need a live acceptance pass.</text>','</svg>']
     (ROOT/'docs/broken-seal/hub-layout.svg').write_text('\n'.join(out)+'\n')
 

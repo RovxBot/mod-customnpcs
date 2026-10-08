@@ -1,6 +1,7 @@
 """Content-integrity and progression checks for the implemented opening chapter."""
 
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -12,11 +13,43 @@ IDS = DATA['ids']
 
 
 class ChapterOneTests(unittest.TestCase):
+    def test_opening_route_separates_rescue_wards_and_observation(self):
+        def distance(a, b):
+            return math.dist(DATA['points'][a][:2], DATA['points'][b][:2])
+        for captive in ('cage_1', 'cage_2', 'cage_3'):
+            self.assertGreater(distance(captive, 'jarod'), 150)
+        wards = ('ward_1', 'ward_2', 'ward_3')
+        for i, first in enumerate(wards):
+            for second in wards[i + 1:]:
+                self.assertGreater(distance(first, second), 200)
+        guard = next(a for a in DATA['hostile'] if a['key'] == 'NPC_CULT_GUARD')
+        for ward in wards:
+            nearby = [point for point in guard['points'] if distance(ward, point) <= 12]
+            self.assertIn(len(nearby), (1, 2))
+        for lookout in ('cover', 'drop'):
+            self.assertGreater(distance(lookout, 'jarod'), 80)
+            self.assertLess(distance(lookout, 'jarod'), 120)
+            for actor in DATA['hostile']:
+                self.assertTrue(all(distance(lookout, point) > 40 for point in actor['points']))
+        self.assertEqual(DATA['escort_respawn_seconds'], 300)
+        for captive in [a for a in DATA['actors'] if a['key'].startswith('NPC_CAPTIVE_')]:
+            self.assertEqual(captive['respawn_seconds'], DATA['escort_respawn_seconds'])
+
+    def test_spyglass_controls_and_unselectable_scenery(self):
+        quests = {q['key']: q for q in DATA['quests']}
+        self.assertEqual(quests['QUEST_COMMANDER']['source_item'], 'ITEM_SPYGLASS')
+        self.assertTrue(quests['QUEST_RECRUIT']['retired'])
+        objects = {o['key']: o for o in DATA['objects']}
+        self.assertTrue(objects['GO_COVER']['decorative'])
+        self.assertNotIn('GO_DEAD_DROP', objects)
+        self.assertTrue(all('Tablet' not in o['name'] for o in objects.values()))
+        subprocess.run([sys.executable, str(ROOT / 'tools/generate_broken_seal_flow.py'), '--check'], check=True)
+
     def test_faction_starters_converge_and_every_required_quest_is_reachable(self):
         quests = {q['key']: q for q in DATA['quests']}
         for faction in ('Alliance', 'Horde'):
             completed = set()
-            allowed = {key for key, q in quests.items() if q['faction'] in ('Both', faction)}
+            allowed = {key for key, q in quests.items() if q['faction'] in ('Both', faction) and not q.get('retired')}
             while True:
                 candidates = {key for key in allowed - completed
                               if (not quests[key]['previous'] or quests[key]['previous'] in completed)
@@ -26,8 +59,8 @@ class ChapterOneTests(unittest.TestCase):
                     break
                 completed.update(candidates)
             self.assertEqual(completed, allowed)
-            self.assertEqual(len(completed), 8)
-            self.assertIn('QUEST_RECRUIT', completed)
+            self.assertEqual(len(completed), 7)
+            self.assertIn('QUEST_COMMANDER', completed)
         self.assertEqual(quests['QUEST_COMMISSION_A']['exclusive_group'],
                          quests['QUEST_COMMISSION_H']['exclusive_group'])
         self.assertTrue(all(q['min_level'] == 20 for q in quests.values()))

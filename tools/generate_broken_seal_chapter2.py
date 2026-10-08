@@ -59,11 +59,11 @@ def header(d):
         lines += [f'inline constexpr std::array<Point, {len(keys)}> {name} =',
                   '{', '    ' + ', '.join('Locations::' + k for k in keys), '};', '']
     lines += ['struct QuestSupply', '{', '    std::uint32_t quest;',
-              '    std::array<std::uint32_t, 2> items;', '};', '',
-              'inline constexpr std::array<QuestSupply, 9> Supplies =', '{{']
+              '    std::array<std::uint32_t, 3> items;', '};', '',
+              f'inline constexpr std::array<QuestSupply, {sum(bool(q["recovery_items"]) for q in d["quests"])}> Supplies =', '{{']
     for q in d['quests']:
         if q['recovery_items']:
-            keys = q['recovery_items'] + ['0'] * (2 - len(q['recovery_items']))
+            keys = q['recovery_items'] + ['0'] * (3 - len(q['recovery_items']))
             lines += ['    {' + q['key'] + ', {' + ', '.join(keys) + '}},']
     lines += ['}};', '', 'inline constexpr std::array<std::uint32_t, 23> Quests =', '{',
               '    ' + ', '.join(q['key'] for q in d['quests']), '};',
@@ -115,6 +115,7 @@ SELECT 1 WHERE (SELECT COUNT(*) FROM `mod_customnpcs_bs_content`
   OR (SELECT COUNT(*) FROM `creature_template` WHERE `entry` IN (4001001, 4001002)) <> 2;
 '''
     for kind, table, col in [('creature','creature_template','entry'),('gameobject','gameobject_template','entry'),
+                            ('gameobject','gameobject_template_addon','entry'),
                             ('quest','quest_template','ID'),('item','item_template','entry'),
                             ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry'),
                             ('npc_text','npc_text','ID'),
@@ -132,7 +133,7 @@ SELECT `kind`, `entry`, 2 FROM `bs_c02_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     cols = ['entry','name','minlevel','maxlevel','exp','faction','npcflag','unit_class','unit_flags','type',
             'AIName','ScriptName','HealthModifier','DamageModifier','ExperienceModifier','lootid','flags_extra']
     values = [[a['entry'],a['name'],a['level'],a['level'],0,a['faction'],a['npc_flags'],1,a['flags'],a['type'],'',
-               a['script'],1.3 if a['key'] in ['NPC_GARNOTH','NPC_GROMMKO','NPC_OKROG'] else 1,1,
+               a['script'],a.get('health_multiplier',1.3 if a['key'] in ['NPC_GARNOTH','NPC_GROMMKO','NPC_OKROG'] else 1),a.get('damage_multiplier',1),
                a['experience_multiplier'],a['entry'] if a['key']=='NPC_MATRIARCH' or a.get('ordinary_loot') else 0,
                2 if a['faction']==35 else 0] for a in d['actors']]
     values += [[v,k.replace('CREDIT_','').replace('_',' ').title(),1,1,0,35,0,1,33555202,10,
@@ -159,32 +160,39 @@ SELECT `kind`, `entry`, 2 FROM `bs_c02_ids` ON DUPLICATE KEY UPDATE `chapter` = 
                    1 if eq else 4,*stats[0],*stats[1],*stats[2],item['description'],
                    ids[item['spell']] if item.get('spell') else 0,0,item.get('script','')])
     text += upsert('item_template',icols,iv,['entry'])
-    text += f'DELETE FROM `creature_loot_template` WHERE `Entry` = {ids["NPC_MATRIARCH"]};\n'
+    text += f'DELETE FROM `creature_loot_template` WHERE `Entry` IN ({ids["NPC_MATRIARCH"]}, {ids["NPC_BASILISK"]});\n'
     text += ordinary_loot_sql(d['actors'])
     text += rows('creature_loot_template',['Entry','Item','Chance','QuestRequired','LootMode','GroupId','MinCount','MaxCount'],
-                 [[ids['NPC_MATRIARCH'],ids['ITEM_HIDE'],100,1,1,0,1,1]])
+                 [[ids['NPC_MATRIARCH'],ids['ITEM_HIDE'],100,1,1,0,1,1],
+                  [ids['NPC_BASILISK'],ids['ITEM_MEAT'],100,1,1,0,1,1]])
     qcols=['ID','QuestType','QuestLevel','MinLevel','QuestSortID','RewardXPDifficulty','RewardMoney','StartItem',
            'Flags','AllowableRaces','LogTitle','LogDescription','QuestDescription','QuestCompletionLog']
     for stem,n in [('RequiredNpcOrGo',4),('RequiredNpcOrGoCount',4),('ObjectiveText',4),('RequiredItemId',6),
-                   ('RequiredItemCount',6),('RewardChoiceItemID',6),('RewardChoiceItemQuantity',6)]:
+                   ('RequiredItemCount',6),('RewardChoiceItemID',6),('RewardChoiceItemQuantity',6),
+                   ('ItemDrop',4),('ItemDropQuantity',4)]:
         qcols += [stem+str(i) for i in range(1,n+1)]
     qr=[];addons=[]
     for q in d['quests']:
         cr=list(q['credits'].items());req=list(q['required_items'].items());rewards=q['reward_choices']
+        drops=list(q.get('item_drops',{}).items())
         qr.append([q['id'],2,q['level'],25,406,q['xp_difficulty'],q['money'],ids[q['source_item']] if q['source_item'] else 0,
                    0,0,q['title'],q['objectives'],q['description'],q['return_text'],
                    *([ids[k] for k,v in cr]+[0]*(4-len(cr))),*([v for k,v in cr]+[0]*(4-len(cr))),
                    *([q['objective_labels'][k] for k,v in cr]+['']*(4-len(cr))),
                    *([ids[k] for k,v in req]+[0]*(6-len(req))),*([v for k,v in req]+[0]*(6-len(req))),
-                   *([ids[k] for k in rewards]+[0]*(6-len(rewards))),*([1]*len(rewards)+[0]*(6-len(rewards)))])
+                   *([ids[k] for k in rewards]+[0]*(6-len(rewards))),*([1]*len(rewards)+[0]*(6-len(rewards))),
+                   *([ids[k] for k,v in drops]+[0]*(4-len(drops))),*([v for k,v in drops]+[0]*(4-len(drops)))])
         addons.append([q['id'],ids[q['previous']],0,q.get('exclusive_group',0),1 if q['source_item'] else 0,256])
     text += upsert('quest_template',qcols,qr,['ID'])
     text += upsert('quest_template_addon',['ID','PrevQuestID','NextQuestID','ExclusiveGroup','ProvidedItemCount','SpecialFlags'],addons,['ID'])
     qids=', '.join(str(q['id']) for q in d['quests'])
-    for table in ('creature_queststarter','creature_questender'):
-        text += f'DELETE FROM `{table}` WHERE `quest` IN ({qids});\n'
-        field='giver' if table.endswith('starter') else 'turn_in'
-        text += rows(table,['id','quest'],[[ids[q[field]],q['id']] for q in d['quests']])
+    for relation in ('queststarter','questender'):
+        field='giver' if relation.endswith('starter') else 'turn_in'
+        for kind in ('creature','gameobject'):
+            table=kind+'_'+relation
+            text += f'DELETE FROM `{table}` WHERE `quest` IN ({qids});\n'
+            values=[[ids[q[field]],q['id']] for q in d['quests'] if q.get(field+'_kind','creature')==kind]
+            if values:text += rows(table,['id','quest'],values)
     text += upsert('quest_offer_reward',['ID','RewardText'],[[q['id'],q['completion']] for q in d['quests']],['ID'])
     text += upsert('quest_request_items',['ID','CompletionText'],[[q['id'],q['request_text']] for q in d['quests']],['ID'])
     text += f'DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN ({qids});\n'
@@ -194,6 +202,7 @@ SELECT `kind`, `entry`, 2 FROM `bs_c02_ids` ON DUPLICATE KEY UPDATE `chapter` = 
         text += f'DELETE FROM `{table}` WHERE `QuestID` IN ({qids});\n'
     actor_points={a['key']:a['point'] for a in d['actors'] if a['point']}
     actor_points.update(NPC_ORTELL='ortell',NPC_PRISONER='prison',NPC_JAROD_FREE='refuge')
+    actor_points.update({o['key']:o['points'][0] for o in d['objects'] if o.get('questgiver')})
     poi,pp = quest_poi_rows(d, actor_points)
     text += rows('quest_poi',['QuestID','id','ObjectiveIndex','MapID','WorldMapAreaId','Floor','Priority','Flags'],poi)
     text += rows('quest_poi_points',['QuestID','Idx1','Idx2','X','Y'],pp)
@@ -204,8 +213,10 @@ SELECT `kind`, `entry`, 2 FROM `bs_c02_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     text += f'DELETE FROM `gossip_menu` WHERE `MenuID` IN ({menus});\n'
     text += rows('gossip_menu',['MenuID','TextID'],[[a['entry'],a['entry']] for a in talkers])
     text += f'UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN ({menus});\n'
-    text += upsert('gameobject_template',['entry','type','displayId','name','size','Data3','Data5','Data18','ScriptName'],
-                   [[o['entry'],5 if o.get('decorative') else 10,o['display'],o['name'],o['scale'],0,0,1,'' if o.get('decorative') else 'go_bs_c02_interaction'] for o in d['objects']],['entry'])
+    text += upsert('gameobject_template',['entry','type','displayId','name','size','Data1','Data3','Data5','Data18','ScriptName'],
+                   [[o['entry'],2 if o.get('questgiver') else 5 if o.get('decorative') else 10,o['display'],o['name'],o['scale'],ids[o['quest']] if o.get('quest') else 0,ids['NPC_ORTELL'] if o.get('questgiver') else 0,0,1,'' if o.get('decorative') else 'go_bs_c02_interaction'] for o in d['objects']],['entry'])
+    text += upsert('gameobject_template_addon',['entry','flags'],
+                   [[o['entry'],16 if o.get('decorative') else 0] for o in d['objects']],['entry'])
     for kind in ('creature','gameobject'):
         text += f'DROP TEMPORARY TABLE IF EXISTS `bs_c02_{kind}_spawns`;\n'
         text += f'CREATE TEMPORARY TABLE `bs_c02_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'

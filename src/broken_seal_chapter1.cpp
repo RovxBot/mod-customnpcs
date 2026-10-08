@@ -33,7 +33,6 @@ using namespace std::chrono_literals;
 enum Data : std::int32_t
 {
     DATA_OWNER = 1,
-    DATA_ANCHOR = 2,
     DATA_KIND = 3,
     DATA_SHIFT_SERIAL = 4,
 };
@@ -66,6 +65,7 @@ enum GossipAction : std::uint32_t
     GOSSIP_SIGNAL = 101,
     GOSSIP_REPLACE_KIT = 102,
     GOSSIP_HELP = 103,
+    GOSSIP_REPLACE_SPYGLASS = 104,
 };
 
 bool Enabled()
@@ -195,6 +195,14 @@ struct npc_bs_c01_captiveAI : ScriptedAI
         events.Reset();
         events.ScheduleEvent(EVENT_CHECK, 1s);
     }
+    bool CanBeSeen(Player const* seer) override
+    {
+        std::size_t index = IndexOf(CaptiveEntries, me->GetEntry());
+        std::uint16_t slot = seer ? seer->FindQuestSlot(QUEST_RESCUE) : MAX_QUEST_LOG_SIZE;
+        return !seer || seer->IsGameMaster() || index >= DistinctCount ||
+               (!seer->IsQuestRewarded(QUEST_RESCUE) &&
+                (slot >= MAX_QUEST_LOG_SIZE || !seer->GetQuestSlotCounter(slot, index)));
+    }
     ObjectGuid GetGUID(std::int32_t) const override
     {
         return owner;
@@ -293,7 +301,7 @@ struct npc_bs_c01_captiveAI : ScriptedAI
                 started = paused = reached = false;
                 returning = true;
                 events.Reset();
-                me->DespawnOrUnsummon(5s, 60s);
+                me->DespawnOrUnsummon(5s, std::chrono::seconds(EscortRespawnSeconds));
                 return;
             }
             if (safety.inCombat && !paused)
@@ -321,6 +329,7 @@ struct npc_bs_c01_recruitAI : ScriptedAI
 
     void Reset() override
     {
+        me->SetVisibilityDistanceOverride(VisibilityDistanceType::Large);
         me->SetReactState(REACT_PASSIVE);
         me->SetWalk(true);
         events.Reset();
@@ -363,7 +372,6 @@ struct npc_bs_c01_observationAI : ScriptedAI
     explicit npc_bs_c01_observationAI(Creature* creature) : ScriptedAI(creature) {}
 
     ObjectGuid owner;
-    ObjectGuid anchor;
     ObjectGuid recruit;
     EventMap events;
     std::uint32_t kind = SCENE_COMMANDER;
@@ -382,12 +390,6 @@ struct npc_bs_c01_observationAI : ScriptedAI
         me->setActive(true);
     }
 
-    void SetGUID(ObjectGuid const& guid, std::int32_t id) override
-    {
-        if (id == DATA_ANCHOR)
-            anchor = guid;
-    }
-
     void SetData(std::uint32_t id, std::uint32_t value) override
     {
         if (id == DATA_KIND)
@@ -396,11 +398,11 @@ struct npc_bs_c01_observationAI : ScriptedAI
 
     void DoAction(std::int32_t action) override
     {
-        if (action != ACTION_OBSERVE || owner.IsEmpty() || anchor.IsEmpty())
+        if (action != ACTION_OBSERVE || owner.IsEmpty())
             return;
         if (kind == SCENE_RECRUIT)
         {
-            if (Creature* actor = me->FindNearestCreature(NPC_RECRUIT, 70.0f))
+            if (Creature* actor = me->FindNearestCreature(NPC_RECRUIT, 120.0f))
             {
                 recruit = actor->GetGUID();
                 initialSerial = actor->AI()->GetData(DATA_SHIFT_SERIAL);
@@ -422,8 +424,7 @@ struct npc_bs_c01_observationAI : ScriptedAI
         while (std::uint32_t event = events.ExecuteEvent())
         {
             Player* player = ObjectAccessor::GetPlayer(*me, owner);
-            GameObject* point = ObjectAccessor::GetGameObject(*me, anchor);
-            if (!player || !point || event == EVENT_TIMEOUT)
+            if (!player || event == EVENT_TIMEOUT)
             {
                 me->DespawnOrUnsummon();
                 return;
@@ -432,12 +433,12 @@ struct npc_bs_c01_observationAI : ScriptedAI
             SceneSafety safety{Enabled(),
                                Active(player, quest),
                                player->IsAlive(),
-                               SameWorld(player, point),
+                               SameWorld(player, me),
                                player->IsInCombat(),
-                               point->GetDistance(player)};
+                               me->GetDistance(player)};
             if (!CanObserve(safety))
             {
-                Tell(player, "The observation is interrupted. Return quietly to the marked point and try again.");
+                Tell(player, "The observation is interrupted. Return to the lookout and use your spyglass again.");
                 me->DespawnOrUnsummon();
                 return;
             }
@@ -446,11 +447,11 @@ struct npc_bs_c01_observationAI : ScriptedAI
             bool witnessed = kind == SCENE_COMMANDER;
             if (kind == SCENE_COMMANDER)
             {
-                Creature* jarod = point->FindNearestCreature(NPC_JAROD, 70.0f);
-                witnessed = jarod && jarod->IsAlive() && player->IsWithinLOSInMap(jarod);
+                Creature* jarod = me->FindNearestCreature(NPC_JAROD, 120.0f);
+                witnessed = jarod && jarod->IsAlive() && SameWorld(player, jarod) && player->IsWithinLOSInMap(jarod);
             }
             else if (Creature* actor = ObjectAccessor::GetCreature(*me, recruit))
-                witnessed = actor->IsAlive() && player->IsWithinLOSInMap(actor) &&
+                witnessed = actor->IsAlive() && SameWorld(player, actor) && player->IsWithinLOSInMap(actor) &&
                             actor->AI()->GetData(DATA_SHIFT_SERIAL) != initialSerial;
             if (minimumWatch && witnessed)
             {
@@ -468,20 +469,29 @@ struct npc_bs_c01_observationAI : ScriptedAI
     }
 };
 
-void StartObservation(Player* player, GameObject* go, std::uint32_t kind)
+void StartObservation(Player* player, std::uint32_t kind)
 {
     std::uint32_t quest = kind == SCENE_COMMANDER ? QUEST_COMMANDER : QUEST_RECRUIT;
     std::uint32_t credit = kind == SCENE_COMMANDER ? CREDIT_COMMANDER : CREDIT_RECRUIT;
-    if (!CanInteract(player, go) || !Active(player, quest) || player->GetReqKillOrCastCurrentCount(quest, credit) ||
+    Point const& point = Lookouts[kind];
+    SceneSafety safety{Enabled(), Active(player, quest), player->IsAlive(),
+                       player->IsInWorld() && player->GetMapId() == MapId, player->IsInCombat(),
+                       player->GetDistance(point.x, point.y, point.z)};
+    if (!CanObserve(safety))
+    {
+        Tell(player, "Use the spyglass beside the lookout banner northwest of the ritual camp, out of combat.");
+        return;
+    }
+    if (player->GetReqKillOrCastCurrentCount(quest, credit) ||
         FindOwned(player, NPC_SCENE))
         return;
     if (TempSummon* observer =
-            player->SummonCreature(NPC_SCENE, go->GetPosition(), TEMPSUMMON_TIMED_DESPAWN, 50000, 0, nullptr, true))
+            player->SummonCreature(NPC_SCENE, point.x, point.y, point.z, point.orientation,
+                                   TEMPSUMMON_TIMED_DESPAWN, 50000, nullptr, true))
     {
-        observer->AI()->SetGUID(go->GetGUID(), DATA_ANCHOR);
         observer->AI()->SetData(DATA_KIND, kind);
         observer->AI()->DoAction(ACTION_OBSERVE);
-        Tell(player, "Remain at the marked point, alive and out of combat, while you observe.");
+        Tell(player, "Watch through the spyglass. Remain at the lookout, alive and out of combat.");
     }
 }
 
@@ -495,6 +505,11 @@ public:
         // Always intercept: default goober use must not consume a shared quest object.
         if (!CanInteract(player, go))
             return true;
+        if (!Active(player, go->GetGOInfo()->goober.questId))
+        {
+            Tell(player, "You have no current expedition task here. Your quest contact can give you directions.");
+            return true;
+        }
         if (go->GetEntry() == GO_WAGON && Active(player, QUEST_WAGON))
         {
             GiveDocument(player, ITEM_LOG);
@@ -506,16 +521,30 @@ public:
             if (NeedsDistinct(ReadCounts(player, QUEST_TRAIL, TrailCredits), trail))
             {
                 CreditOnce(player, QUEST_TRAIL, TrailCredits[trail]);
-                Tell(player, "The ash hides a spiral etched into the damaged tablet. You record this distinct marker.");
+                Tell(player, "You record the surveyors' notes and the spiral mark on these discarded belongings.");
             }
             return true;
         }
         if (IndexOf(WardEntries, go->GetEntry()) != DistinctCount)
             TraceWard(player, go);
-        else if (go->GetEntry() == GO_COVER)
-            StartObservation(player, go, SCENE_COMMANDER);
-        else if (go->GetEntry() == GO_DEAD_DROP)
-            StartObservation(player, go, SCENE_RECRUIT);
+        return true;
+    }
+};
+
+class item_bs_c01_spyglass : public ItemScript
+{
+public:
+    item_bs_c01_spyglass() : ItemScript("item_bs_c01_spyglass") {}
+
+    bool OnUse(Player* player, Item* item, SpellCastTargets const&) override
+    {
+        if (item->GetEntry() != ITEM_SPYGLASS || !Enabled())
+            return true;
+        player->SendEquipError(EQUIP_ERR_OK, item, nullptr);
+        if (Active(player, QUEST_COMMANDER))
+            StartObservation(player, SCENE_COMMANDER);
+        else if (Active(player, QUEST_RECRUIT))
+            StartObservation(player, SCENE_RECRUIT);
         return true;
     }
 };
@@ -544,6 +573,16 @@ struct npc_bs_c01_contactAI : ScriptedAI
     explicit npc_bs_c01_contactAI(Creature* creature) : ScriptedAI(creature) {}
     EventMap events;
 
+    bool CanBeSeen(Player const* seer) override
+    {
+        if (me->GetEntry() == NPC_JAROD)
+            return BrokenSealChapter2CommanderVisible(seer);
+        if (me->GetEntry() == NPC_ORTELL)
+            return BrokenSealChapter2OrtellAtCampVisible(seer);
+        return true;
+    }
+
+
     void RefreshFlags()
     {
         if (me->GetEntry() == NPC_JAROD)
@@ -562,6 +601,8 @@ struct npc_bs_c01_contactAI : ScriptedAI
 
     void Reset() override
     {
+        if (me->GetEntry() == NPC_JAROD)
+            me->SetVisibilityDistanceOverride(VisibilityDistanceType::Large);
         me->SetReactState(REACT_PASSIVE);
         RefreshFlags();
         events.Reset();
@@ -598,17 +639,22 @@ public:
         BrokenSealChapter2Gossip(player, creature);
         if (creature->GetEntry() == NPC_ORTELL)
         {
+            if (Active(player, QUEST_RECRUIT))
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I am ready to finish the expedition briefing.",
+                                 GOSSIP_SENDER_MAIN, GOSSIP_SIGNAL);
             if (Active(player, QUEST_COMPARE))
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Compare the orders with the ward rubbing.",
                                  GOSSIP_SENDER_MAIN, GOSSIP_COMPARE);
-            if (Active(player, QUEST_RECRUIT) && player->GetReqKillOrCastCurrentCount(QUEST_RECRUIT, CREDIT_RECRUIT))
-                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I saw the watch change. Let us agree the signal.",
-                                 GOSSIP_SENDER_MAIN, GOSSIP_SIGNAL);
         }
         if (creature->GetEntry() == NPC_MARUUT && Active(player, QUEST_WARDS) &&
             !player->HasItemCount(ITEM_TRACING_KIT, 1, true))
             AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I need a replacement tracing kit.", GOSSIP_SENDER_MAIN,
                              GOSSIP_REPLACE_KIT);
+        if (creature->GetEntry() == NPC_ORTELL &&
+            (Active(player, QUEST_COMMANDER) || Active(player, QUEST_RECRUIT)) &&
+            !player->HasItemCount(ITEM_SPYGLASS, 1, true))
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I need a replacement spyglass.", GOSSIP_SENDER_MAIN,
+                             GOSSIP_REPLACE_SPYGLASS);
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Where should I go next?", GOSSIP_SENDER_MAIN, GOSSIP_HELP);
         SendGossipMenuFor(player, creature->GetEntry(), creature->GetGUID());
         return true;
@@ -630,38 +676,43 @@ public:
             CreditOnce(player, QUEST_COMPARE, CREDIT_COMPARE);
         }
         else if (action == GOSSIP_SIGNAL && creature->GetEntry() == NPC_ORTELL && Active(player, QUEST_RECRUIT) &&
-                 player->GetReqKillOrCastCurrentCount(QUEST_RECRUIT, CREDIT_RECRUIT))
+                 player->IsQuestRewarded(QUEST_COMMANDER))
         {
             creature->Whisper("Two short knocks, then a pause. If the wrong person answers, you walk away. "
                               "Do not let courage become noise.",
                               LANG_UNIVERSAL, player);
             CreditOnce(player, QUEST_RECRUIT, CREDIT_SIGNAL);
+            CreditOnce(player, QUEST_RECRUIT, CREDIT_RECRUIT);
         }
         else if (action == GOSSIP_REPLACE_KIT && creature->GetEntry() == NPC_MARUUT && Active(player, QUEST_WARDS))
             GiveDocument(player, ITEM_TRACING_KIT);
+        else if (action == GOSSIP_REPLACE_SPYGLASS && creature->GetEntry() == NPC_ORTELL &&
+                 (Active(player, QUEST_COMMANDER) || Active(player, QUEST_RECRUIT)))
+            GiveDocument(player, ITEM_SPYGLASS);
         else if (action == GOSSIP_HELP)
         {
             if (Active(player, QUEST_RECRUIT))
-                Tell(player, "Watch the moving recruit from Ortell's dead drop south of the concealed observation "
-                             "stone, then speak to Ortell.");
+                Tell(player, "Settle the earlier expedition briefing with Ortell here in camp. "
+                             "The infiltration begins with Signed in Blood at level 25.");
             else if (Active(player, QUEST_COMMANDER))
                 Tell(
                     player,
-                    "Use the concealed observation stone west of Jarod's altar. Stay there quietly and out of combat.");
+                    "Use your spyglass beside the scout's lookout banner on the rise northwest of Jarod's altar.");
             else if (Active(player, QUEST_COMPARE))
                 Tell(player, "Ask Ortell here in camp to compare the deposited orders and rubbing.");
             else if (Active(player, QUEST_WARDS))
                 Tell(player,
-                     "Trace each of the three ward stones west of the holding camp. A repeated stone does not count twice.");
+                     "Trace the ward on the northwestern rise, the southwestern valley floor and the eastern rim. "
+                     "Each has two Twilight defenders. A repeated stone does not count twice.");
             else if (Active(player, QUEST_RESCUE))
-                Tell(player, "Clear the guards around Mira, Dorn and Teren, then speak to each surveyor. Stay nearby "
-                             "until they reach our camp.");
+                Tell(player, "Mira, Dorn and Teren are in the small roadside guard camp southwest of here. "
+                             "Clear its guards, then escort each surveyor back to our camp.");
             else if (Active(player, QUEST_TRAIL))
-                Tell(player, "Inspect all three ash-marked trail clues. Defeat six Twilight Scouts and "
-                             "recover their orders.");
+                Tell(player, "Inspect the discarded supplies, ash-stained journal and scorched map. "
+                             "Defeat six Twilight Scouts and recover their orders.");
             else if (Active(player, QUEST_WAGON))
                 Tell(player, "Inspect the abandoned wagon beside our camp.");
-            else if (player->IsQuestRewarded(QUEST_RECRUIT))
+            else if (player->IsQuestRewarded(QUEST_COMMANDER))
                 Tell(
                     player,
                     BrokenSealChapter2Available()
@@ -772,6 +823,7 @@ void AddBrokenSealChapter1Scripts()
     new npc_bs_c01_observation();
     new go_bs_c01_interaction();
     new item_bs_c01_tracing_kit();
+    new item_bs_c01_spyglass();
     new npc_bs_c01_cult();
     new bs_c01_player();
 }

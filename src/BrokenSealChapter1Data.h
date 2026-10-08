@@ -79,6 +79,11 @@ enum Id : std::uint32_t
     TEXT_SCOUT = 4001005,
     TEXT_COURIER_A = 4001006,
     TEXT_COURIER_H = 4001007,
+    ITEM_SPYGLASS = 900105,
+    SPELL_SPYGLASS = 12883,
+    GO_RESCUE_TENT = 4001114,
+    GO_RESCUE_SUPPLIES = 4001115,
+    GO_RESCUE_BRAZIER = 4001116,
 };
 
 struct Point
@@ -124,9 +129,9 @@ inline constexpr std::array<std::uint32_t, 3> TrailEntries =
 
 inline constexpr std::array<Point, 3> CaptiveStarts =
 {{
-    {882.0000f, 1680.0000f, -19.9206f, 3.1400f},
-    {886.0000f, 1683.0000f, -19.8249f, 3.1400f},
-    {890.0000f, 1684.0000f, -19.7682f, 3.1400f},
+    {950.0000f, 1500.0000f, -5.6690f, 3.1400f},
+    {954.0000f, 1503.0000f, -5.6542f, 3.1400f},
+    {950.0000f, 1506.0000f, -6.3620f, 3.1400f},
 }};
 
 inline constexpr std::array<Point, 4> RecruitPatrol =
@@ -137,7 +142,14 @@ inline constexpr std::array<Point, 4> RecruitPatrol =
     {898.0000f, 1678.0000f, -19.6566f, 3.1400f},
 }};
 
+inline constexpr std::array<Point, 2> Lookouts =
+{{
+    {952.0000f, 1763.0000f, 9.8547f, 3.1400f},
+    {950.0000f, 1763.0000f, 10.2143f, 3.1400f},
+}};
+
 inline constexpr Point Refuge = {1098.0000f, 1540.0000f, 26.3195f, 3.1400f};
+inline constexpr std::uint32_t EscortRespawnSeconds = 300;
 }
 
 #endif

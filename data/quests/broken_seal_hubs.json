@@ -2554,6 +2554,48 @@
         -3347,
         39.321337597956
       ]
+    },
+    {
+      "key": "C01:NPC_CAPTIVE_A:refuge",
+      "a": [
+        950,
+        1500,
+        -5.669030454464924
+      ],
+      "b": [
+        1098.0,
+        1540.0,
+        26.319535605871447
+      ],
+      "map": 1
+    },
+    {
+      "key": "C01:NPC_CAPTIVE_B:refuge",
+      "a": [
+        954,
+        1503,
+        -5.654158169876162
+      ],
+      "b": [
+        1098.0,
+        1540.0,
+        26.319535605871447
+      ],
+      "map": 1
+    },
+    {
+      "key": "C01:NPC_CAPTIVE_C:refuge",
+      "a": [
+        950,
+        1506,
+        -6.361953235017673
+      ],
+      "b": [
+        1098.0,
+        1540.0,
+        26.319535605871447
+      ],
+      "map": 1
     }
   ],
   "validation": {
@@ -2565,9 +2607,9 @@
     "4001006": "Alliance introduction uses Kaela's existing faction settlement.",
     "4001007": "Horde introduction uses the existing Sun Rock Retreat settlement.",
     "4001002": "Bound Jarod is a deliberate hostile-zone quest encounter, not a resting hub.",
-    "4001004": "Guarded captive in the compact holding camp; shared escort to the expedition.",
-    "4001008": "Guarded captive in the compact holding camp; shared escort to the expedition.",
-    "4001009": "Guarded captive in the compact holding camp; shared escort to the expedition."
+    "4001004": "Shared captive in the separate roadside guard camp; escort to the expedition.",
+    "4001008": "Shared captive in the separate roadside guard camp; escort to the expedition.",
+    "4001009": "Shared captive in the separate roadside guard camp; escort to the expedition."
   },
   "retired_spawn_keys": [
     "BS-HUB:expedition_shelter_0",
@@ -2662,13 +2704,13 @@
   "policy": {
     "native_spawn_edits": false,
     "phasing": false,
-    "permanent_cult_compounds": 2,
+    "permanent_cult_compounds": 3,
     "sentry_screen_requires_protected_target": true
   },
   "encounter_camps": [
     {
       "key": "holding",
-      "name": "Twilight Holding and Ritual Camp",
+      "name": "Twilight Ritual Compound",
       "map": 1,
       "center": [
         891,
@@ -2680,10 +2722,26 @@
       "phase": 1,
       "contacts": [
         4001002,
+        4001003
+      ]
+    },
+    {
+      "key": "rescue",
+      "name": "Twilight Roadside Guard Camp",
+      "chapter": 1,
+      "map": 1,
+      "center": [
+        950,
+        1503,
+        -6.038533412413734,
+        0
+      ],
+      "radius": 14,
+      "phase": 1,
+      "contacts": [
         4001004,
         4001008,
-        4001009,
-        4001003
+        4001009
       ]
     }
   ],
@@ -2692,7 +2750,7 @@
       "entry": 4009218,
       "key": "holding_shelter_4009218",
       "hub": "holding",
-      "name": "Twilight Holding and Ritual Camp Shelter",
+      "name": "Twilight Ritual Compound Shelter",
       "display": 7253,
       "scale": 0.5,
       "role": "shelter",
@@ -2714,7 +2772,7 @@
       "entry": 4009219,
       "key": "holding_supplies_4009219",
       "hub": "holding",
-      "name": "Twilight Holding and Ritual Camp Supplies",
+      "name": "Twilight Ritual Compound Supplies",
       "display": 6737,
       "scale": 0.6,
       "role": "supplies",
@@ -2736,7 +2794,7 @@
       "entry": 4009220,
       "key": "holding_lighting_4009220",
       "hub": "holding",
-      "name": "Twilight Holding and Ritual Camp Lighting",
+      "name": "Twilight Ritual Compound Lighting",
       "display": 7255,
       "scale": 0.7,
       "role": "lighting",
@@ -2758,7 +2816,7 @@
       "entry": 4009221,
       "key": "holding_identity_4009221",
       "hub": "holding",
-      "name": "Twilight Holding and Ritual Camp Identity",
+      "name": "Twilight Ritual Compound Identity",
       "display": 7261,
       "scale": 0.6,
       "role": "identity",
@@ -2780,7 +2838,7 @@
       "entry": 4009222,
       "key": "holding_workstation_4009222",
       "hub": "holding",
-      "name": "Twilight Holding and Ritual Camp Workstation",
+      "name": "Twilight Ritual Compound Workstation",
       "display": 6419,
       "scale": 0.8,
       "role": "workstation",
@@ -2802,7 +2860,7 @@
       "entry": 4009223,
       "key": "holding_ward_4009223",
       "hub": "holding",
-      "name": "Twilight Holding and Ritual Camp Ward",
+      "name": "Twilight Ritual Compound Ward",
       "display": 6431,
       "scale": 0.4,
       "role": "ward",

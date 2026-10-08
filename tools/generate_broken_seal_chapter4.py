@@ -112,6 +112,7 @@ SELECT 1 WHERE (SELECT COUNT(*) FROM `mod_customnpcs_bs_content`
   OR NOT EXISTS (SELECT 1 FROM `creature_template` WHERE `entry` = 4001405);
 '''
     for kind, table, col in [('creature','creature_template','entry'),('gameobject','gameobject_template','entry'),
+                            ('gameobject','gameobject_template_addon','entry'),
                             ('quest','quest_template','ID'),('item','item_template','entry'),
                             ('outfit','mod_customnpcs_outfit','outfit_id'),('outfit_entry','mod_customnpcs_outfit_entry','creature_entry'),
                             ('npc_text','npc_text','ID'),
@@ -145,6 +146,11 @@ SELECT `kind`, `entry`, 4 FROM `bs_c04_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     text += upsert('mod_customnpcs_outfit_entry',['creature_entry','outfit_id'],[[a['entry'],0 if a.get('native_appearance') else a['entry']] for a in dressed],['creature_entry'])
     text += equipment_sql(d['actors'])
     text += ordinary_loot_sql(d['actors'])
+    for actor in sorted({v['actor'] for v in d.get('loot',[])}):
+        text += f'DELETE FROM `creature_loot_template` WHERE `Entry`={ids[actor]} AND `QuestRequired`=1;\n'
+    if d.get('loot'):
+        text += rows('creature_loot_template',['Entry','Item','Chance','QuestRequired','LootMode','GroupId','MinCount','MaxCount'],
+                     [[ids[v['actor']],ids[v['item']],100,1,1,0,v.get('mincount',1),v.get('maxcount',1)] for v in d['loot']])
     icols=['entry','class','subclass','name','displayid','Quality','InventoryType','AllowableClass','AllowableRace',
            'ItemLevel','RequiredLevel','maxcount','stackable','bonding','stat_type1','stat_value1','stat_type2',
            'stat_value2','stat_type3','stat_value3','description','spellid_1','spelltrigger_1','ScriptName']
@@ -189,6 +195,7 @@ SELECT `kind`, `entry`, 4 FROM `bs_c04_ids` ON DUPLICATE KEY UPDATE `chapter` = 
         text += f'DELETE FROM `{table}` WHERE `QuestID` IN ({qids});\n'
     actor_points={a['key']:a['point'] for a in d['actors'] if a['point']}
     actor_points.update(NPC_MEI='mei')
+    actor_points.update(NPC_YIMO='yimo')
     poi,pp = quest_poi_rows(d, actor_points)
     text += rows('quest_poi',['QuestID','id','ObjectiveIndex','MapID','WorldMapAreaId','Floor','Priority','Flags'],poi)
     text += rows('quest_poi_points',['QuestID','Idx1','Idx2','X','Y'],pp)
@@ -199,8 +206,10 @@ SELECT `kind`, `entry`, 4 FROM `bs_c04_ids` ON DUPLICATE KEY UPDATE `chapter` = 
     text += f'DELETE FROM `gossip_menu` WHERE `MenuID` IN ({menus});\n'
     text += rows('gossip_menu',['MenuID','TextID'],[[a['entry'],a['entry']] for a in talkers])
     text += f'UPDATE `creature_template` SET `gossip_menu_id` = `entry` WHERE `entry` IN ({menus});\n'
-    text += upsert('gameobject_template',['entry','type','displayId','name','size','Data3','Data5','Data18','ScriptName'],
-                   [[o['entry'],5 if o['decorative'] else 10,o['display'],o['name'],o['scale'],0,0,1,'' if o['decorative'] else 'go_bs_c04_interaction'] for o in d['objects']],['entry'])
+    text += upsert('gameobject_template',['entry','type','displayId','name','size','Data1','Data3','Data5','Data18','ScriptName'],
+                   [[o['entry'],5 if o['decorative'] else 10,o['display'],o['name'],o['scale'],ids[o['quest']] if o.get('quest') else 0,0,0,1,'' if o['decorative'] else 'go_bs_c04_interaction'] for o in d['objects']],['entry'])
+    text += upsert('gameobject_template_addon',['entry','flags'],
+                   [[o['entry'],16 if o['decorative'] else 0] for o in d['objects']],['entry'])
     for kind in ('creature','gameobject'):
         text += f'DROP TEMPORARY TABLE IF EXISTS `bs_c04_{kind}_spawns`;\n'
         text += f'CREATE TEMPORARY TABLE `bs_c04_{kind}_spawns` (`spawn_key` VARCHAR(100) PRIMARY KEY, `entry` INT UNSIGNED, `map` SMALLINT UNSIGNED, `zone` INT UNSIGNED, `x` FLOAT, `y` FLOAT, `z` FLOAT, `o` FLOAT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n'

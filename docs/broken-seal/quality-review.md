@@ -1,5 +1,8 @@
 # Broken Seal: implemented-chapter quality review
 
+The [October 8 source-gameplay review](source-review.md) supersedes the earlier
+interaction controls below and gives the current upgrade sequence.
+
 Reviewed **7 October 2026**: Chapters **1–4**, levels **20–40**, with **56 quest
 records** and six shared hubs. Each faction follows 55 records because Chapter 1
 has alternate introductions. Chapters 5–14 remain design work.

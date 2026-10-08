@@ -2,7 +2,7 @@
   "schema_version": 1,
   "campaign": "The Broken Seal",
   "status": "design manifest; not installed content",
-  "researched_on": "2026-10-06",
+  "researched_on": "2026-10-08",
   "client": "3.3.5a, native assets only; no client patch",
   "level_range": [
     20,
@@ -120,7 +120,7 @@
           "prerequisite_any": [],
           "giver": "courier_a",
           "turn_in": "maruut",
-          "objective": "Deliver an expedition invitation to Maruut at the neutral Stonetalon camp.",
+          "objective": "Follow the old road toward the Charred Vale and look for the expedition's blue-clad stonebinder.",
           "npcs": [
             "courier_a",
             "maruut"
@@ -147,7 +147,8 @@
           },
           "quest_level": 20,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-02",
@@ -159,7 +160,7 @@
           "prerequisite_any": [],
           "giver": "courier_h",
           "turn_in": "maruut",
-          "objective": "Deliver an expedition invitation to Maruut at the neutral Stonetalon camp.",
+          "objective": "Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.",
           "npcs": [
             "courier_h",
             "maruut"
@@ -186,7 +187,8 @@
           },
           "quest_level": 20,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-03",
@@ -201,7 +203,7 @@
           ],
           "giver": "maruut",
           "turn_in": "maruut",
-          "objective": "Inspect the abandoned wagon and recover the missing travelers log.",
+          "objective": "Inspect the abandoned wagon above camp and recover its log.",
           "npcs": [
             "maruut"
           ],
@@ -229,7 +231,8 @@
           },
           "quest_level": 21,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-04",
@@ -243,7 +246,7 @@
           "prerequisite_any": [],
           "giver": "scout",
           "turn_in": "scout",
-          "objective": "Inspect 3 trail markers and defeat 6 Twilight Scouts on the route.",
+          "objective": "Inspect all three discarded survey clues, defeat six Twilight Scouts and recover their coded orders.",
           "npcs": [
             "scout"
           ],
@@ -273,7 +276,8 @@
           },
           "quest_level": 21,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-05",
@@ -287,7 +291,7 @@
           "prerequisite_any": [],
           "giver": "scout",
           "turn_in": "scout",
-          "objective": "Speak to the 3 guarded surveyors and escort each to the expedition camp.",
+          "objective": "Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.",
           "npcs": [
             "captive",
             "scout"
@@ -316,7 +320,8 @@
           },
           "quest_level": 22,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-06",
@@ -330,7 +335,7 @@
           "prerequisite_any": [],
           "giver": "maruut",
           "turn_in": "maruut",
-          "objective": "Use the supplied tracing kit at 3 ward marks; recover one complete rubbing.",
+          "objective": "Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.",
           "npcs": [
             "maruut"
           ],
@@ -362,7 +367,8 @@
           },
           "quest_level": 23,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-07",
@@ -376,7 +382,7 @@
           "prerequisite_any": [],
           "giver": "maruut",
           "turn_in": "ortell",
-          "objective": "Compare the recovered orders and rubbing with Ortell; identify the shared cult signature.",
+          "objective": "Ask Ortell to compare the orders and the rubbing.",
           "npcs": [
             "maruut",
             "ortell"
@@ -401,7 +407,8 @@
           },
           "quest_level": 23,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-08",
@@ -415,7 +422,7 @@
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Observe the guarded altar and confirm that Jarod is alive without attacking his guards.",
+          "objective": "Use the supplied spyglass beside the lookout banner northwest of the ritual camp and confirm Jarod is alive.",
           "npcs": [
             "jarod",
             "ortell"
@@ -439,34 +446,33 @@
           "reward": {
             "xp": "normal quest XP for the chapter; tune on server",
             "money": "normal level-appropriate quest money",
-            "choice_group": null,
+            "choice_group": "reward-C01",
             "fixed_items": []
           },
           "quest_level": 24,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C01-09",
           "title": "The Name on the Papers",
           "min_level": 20,
           "faction": "Both",
-          "required": true,
+          "required": false,
           "prerequisite_all": [
             "BS-C01-08"
           ],
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Observe a recruit changing watch and agree the extraction signal with Ortell.",
+          "objective": "Speak with Ortell at the expedition camp to settle the earlier briefing.",
           "npcs": [
             "ortell",
             "recruit"
           ],
           "mobs": [],
-          "objects": [
-            "hideout"
-          ],
+          "objects": [],
           "items_provided": {},
           "items_acquired": {},
           "items_used": [],
@@ -476,7 +482,7 @@
             "original_title": null,
             "quest_id": null
           },
-          "scene_notes": "Ends prologue; next chapter opens at level 25.",
+          "scene_notes": "Compatibility record only; not offered to new players. Existing holders finish with Ortell at camp.",
           "reward": {
             "xp": "normal quest XP for the chapter; tune on server",
             "money": "normal level-appropriate quest money",
@@ -485,7 +491,8 @@
           },
           "quest_level": 25,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": true
         }
       ]
     },
@@ -511,12 +518,12 @@
           "faction": "Both",
           "required": true,
           "prerequisite_all": [
-            "BS-C01-09"
+            "BS-C01-08"
           ],
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.",
+          "objective": "Speak to a Twilight Recruit at the road checkpoint, lure him into cover, and use the blackjack to take his papers.",
           "npcs": [
             "ortell",
             "recruit"
@@ -547,7 +554,8 @@
           },
           "quest_level": 25,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-02",
@@ -588,7 +596,8 @@
           },
           "quest_level": 25,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-03",
@@ -628,7 +637,8 @@
           },
           "quest_level": 25,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-04",
@@ -642,7 +652,7 @@
           "prerequisite_any": [],
           "giver": "condenna",
           "turn_in": "condenna",
-          "objective": "Collect 8 flame blossoms while avoiding Smolderos.",
+          "objective": "Gather 5 Flame Blossoms from the proving grounds. Avoid Smolderos.",
           "npcs": [
             "condenna"
           ],
@@ -654,7 +664,7 @@
           ],
           "items_provided": {},
           "items_acquired": {
-            "flame_blossom": 8
+            "flame_blossom": 5
           },
           "items_used": [],
           "source": {
@@ -672,7 +682,8 @@
           },
           "quest_level": 25,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-05",
@@ -686,7 +697,7 @@
           "prerequisite_any": [],
           "giver": "cargall",
           "turn_in": "cargall",
-          "objective": "Use the binding gem to preserve 3 burning supplicants before their timers expire.",
+          "objective": "Use the Frostgale Crystal to extinguish the flames on four immolated supplicants.",
           "npcs": [
             "cargall",
             "supplicant"
@@ -713,7 +724,8 @@
           },
           "quest_level": 25,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-06",
@@ -755,7 +767,8 @@
           },
           "quest_level": 26,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-07",
@@ -769,15 +782,17 @@
           "prerequisite_any": [],
           "giver": "mylva",
           "turn_in": "mylva",
-          "objective": "Carry 5 training stones between the marked work stations.",
+          "objective": "Use the Twilight Pick to break 5 Darkwhisper Lodestones in the training gorge.",
           "npcs": [
             "mylva"
           ],
           "mobs": [],
           "objects": [
-            "training_stone"
+            "lodestone_deposit"
           ],
-          "items_provided": {},
+          "items_provided": {
+            "twilight_pick": 1
+          },
           "items_acquired": {},
           "items_used": [],
           "source": {
@@ -795,7 +810,8 @@
           },
           "quest_level": 26,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-08",
@@ -809,16 +825,14 @@
           "prerequisite_any": [],
           "giver": "mylva",
           "turn_in": "mylva",
-          "objective": "Complete the 4-checkpoint obstacle route while avoiding trial fire.",
+          "objective": "Stay alive and keep away from the Blazing Trainer for one minute inside the training grounds.",
           "npcs": [
             "mylva"
           ],
           "mobs": [
             "fire"
           ],
-          "objects": [
-            "tracks"
-          ],
+          "objects": [],
           "items_provided": {},
           "items_acquired": {},
           "items_used": [],
@@ -837,7 +851,8 @@
           },
           "quest_level": 26,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-09",
@@ -851,7 +866,7 @@
           "prerequisite_any": [],
           "giver": "mylva",
           "turn_in": "mylva",
-          "objective": "Summon the orb and answer 10 timed yes/no questions correctly.",
+          "objective": "Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.",
           "npcs": [
             "mylva",
             "orb"
@@ -878,7 +893,8 @@
           },
           "quest_level": 26,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-10",
@@ -920,7 +936,8 @@
           },
           "quest_level": 27,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-11",
@@ -934,21 +951,23 @@
           "prerequisite_any": [],
           "giver": "devoran",
           "turn_in": "devoran",
-          "objective": "Take an owner-bound training hound through 3 feeding/handling stations.",
+          "objective": "Use the Fiery Leash to summon the hound, then feed it 5 pieces of meat looted from Spinescale Basilisks.",
           "npcs": [
             "devoran"
           ],
           "mobs": [
             "hound"
           ],
-          "objects": [
-            "tracks"
-          ],
+          "objects": [],
           "items_provided": {
             "hound_leash": 1
           },
-          "items_acquired": {},
-          "items_used": [],
+          "items_acquired": {
+            "basilisk_meat": 5
+          },
+          "items_used": [
+            "basilisk_meat"
+          ],
           "source": {
             "type": "adapted",
             "reference": "hyjal",
@@ -964,7 +983,8 @@
           },
           "quest_level": 27,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-12",
@@ -1007,7 +1027,8 @@
           },
           "quest_level": 27,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-13",
@@ -1021,7 +1042,7 @@
           "prerequisite_any": [],
           "giver": "devoran",
           "turn_in": "devoran",
-          "objective": "Challenge Gromm'ko with the collared hound, defeat Butcher first, then win the fight with Gromm'ko.",
+          "objective": "Defeat Butcher with your collared hound, then defeat Gromm'ko with the hound nearby.",
           "npcs": [
             "devoran"
           ],
@@ -1052,7 +1073,8 @@
           },
           "quest_level": 27,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-14",
@@ -1066,7 +1088,7 @@
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Recover the communique and local battleplans from guarded camp caches.",
+          "objective": "Recover the Twilight Communique from the recruiting compound and the Battleplans from the ritual compound.",
           "npcs": [
             "ortell"
           ],
@@ -1098,7 +1120,8 @@
           },
           "quest_level": 27,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-15",
@@ -1112,7 +1135,7 @@
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Distract Karr'gonn, then defeat Azennios without revealing the handler.",
+          "objective": "Distract Karr'gonn and kill Azennios at the eastern rendezvous; recover the sacrificial key.",
           "npcs": [
             "ortell"
           ],
@@ -1124,7 +1147,9 @@
             "hideout"
           ],
           "items_provided": {},
-          "items_acquired": {},
+          "items_acquired": {
+            "prison_key": 1
+          },
           "items_used": [],
           "source": {
             "type": "adapted",
@@ -1141,7 +1166,8 @@
           },
           "quest_level": 28,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-16",
@@ -1157,7 +1183,7 @@
           "prerequisite_any": [],
           "giver": "mylva",
           "turn_in": "mylva",
-          "objective": "Use the ascendancy talisman to assume a native fire-elemental form and defeat Garnoth.",
+          "objective": "Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.",
           "npcs": [
             "mylva"
           ],
@@ -1166,7 +1192,9 @@
           ],
           "objects": [],
           "items_provided": {
-            "ascendancy": 1
+            "ascendancy": 1,
+            "ascendant_strike": 1,
+            "flame_shield": 1
           },
           "items_acquired": {},
           "items_used": [],
@@ -1185,7 +1213,8 @@
           },
           "quest_level": 28,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-17",
@@ -1201,7 +1230,7 @@
           "prerequisite_any": [],
           "giver": "mylva",
           "turn_in": "mylva",
-          "objective": "Defeat 10 Horrorguards at the camps contested Legion approach.",
+          "objective": "Defeat 10 Horrorguards at the northwestern trial ground while disguised.",
           "npcs": [
             "mylva"
           ],
@@ -1227,7 +1256,8 @@
           },
           "quest_level": 28,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-18",
@@ -1242,7 +1272,7 @@
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Remove the scheduled ogre speaker Okrog and receive Ortell's cue cards so the player can speak instead.",
+          "objective": "Kill Okrog as he leaves the ritual compound, then return to Ortell for the speech notes.",
           "npcs": [
             "ortell"
           ],
@@ -1253,9 +1283,7 @@
             "hideout"
           ],
           "items_provided": {},
-          "items_acquired": {
-            "speech_notes": 1
-          },
+          "items_acquired": {},
           "items_used": [],
           "source": {
             "type": "adapted",
@@ -1272,7 +1300,8 @@
           },
           "quest_level": 28,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-19",
@@ -1286,7 +1315,7 @@
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "mylva",
-          "objective": "Receive the handlers final instruction and report to Mylva for the speaking slot.",
+          "objective": "Speak to Mylva at the training compound to claim the speaking slot.",
           "npcs": [
             "initiate",
             "mylva",
@@ -1315,7 +1344,8 @@
           },
           "quest_level": 29,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-20",
@@ -1329,7 +1359,7 @@
           "prerequisite_any": [],
           "giver": "mylva",
           "turn_in": "jarod",
-          "objective": "Make 10 successful audience responses at the podium and reach the prisoner altar.",
+          "objective": "Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.",
           "npcs": [
             "initiate",
             "jarod",
@@ -1341,7 +1371,9 @@
             "podium",
             "altar"
           ],
-          "items_provided": {},
+          "items_provided": {
+            "speech_notes": 1
+          },
           "items_acquired": {},
           "items_used": [],
           "source": {
@@ -1359,7 +1391,8 @@
           },
           "quest_level": 29,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-21",
@@ -1373,7 +1406,7 @@
           "prerequisite_any": [],
           "giver": "jarod",
           "turn_in": "ortell",
-          "objective": "Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.",
+          "objective": "Use the sacrificial key to free Jarod, then accompany him to the expedition refuge.",
           "npcs": [
             "jarod",
             "ortell"
@@ -1385,10 +1418,10 @@
             "prison",
             "altar"
           ],
-          "items_provided": {},
-          "items_acquired": {
+          "items_provided": {
             "prison_key": 1
           },
+          "items_acquired": {},
           "items_used": [],
           "source": {
             "type": "adapted",
@@ -1405,7 +1438,8 @@
           },
           "quest_level": 29,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-22",
@@ -1419,7 +1453,7 @@
           "prerequisite_any": [],
           "giver": "ortell",
           "turn_in": "ortell",
-          "objective": "Return to the quiet camp cache and recover the relic buyers ledger.",
+          "objective": "Return to the quiet camp cache and recover the relic buyers' ledger.",
           "npcs": [
             "ortell"
           ],
@@ -1449,7 +1483,8 @@
           },
           "quest_level": 29,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C02-23",
@@ -1490,7 +1525,8 @@
           },
           "quest_level": 30,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         }
       ]
     },
@@ -1550,7 +1586,8 @@
           },
           "quest_level": 30,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-02",
@@ -1564,7 +1601,7 @@
           "prerequisite_any": [],
           "giver": "dezco",
           "turn_in": "dezco",
-          "objective": "Obtain the supplied antidote and administer it to Leza while Nala monitors her.",
+          "objective": "Collect 5 poisoned blades from relic raiders and bring them to Dezco.",
           "npcs": [
             "dezco",
             "kang",
@@ -1575,10 +1612,10 @@
           "objects": [
             "medical_tent"
           ],
-          "items_provided": {
-            "antidote": 1
+          "items_provided": {},
+          "items_acquired": {
+            "poisoned_blade": 5
           },
-          "items_acquired": {},
           "items_used": [],
           "source": {
             "type": "adapted",
@@ -1595,7 +1632,8 @@
           },
           "quest_level": 30,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-03",
@@ -1639,7 +1677,8 @@
           },
           "quest_level": 30,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-04",
@@ -1653,16 +1692,14 @@
           "prerequisite_any": [],
           "giver": "kor",
           "turn_in": "kor",
-          "objective": "Disable 3 raider lookout posts and defeat 6 guards watching the expedition.",
+          "objective": "Kill the relic raider outrider watching the expedition.",
           "npcs": [
             "kor"
           ],
           "mobs": [
             "marsh_raider"
           ],
-          "objects": [
-            "tracks"
-          ],
+          "objects": [],
           "items_provided": {},
           "items_acquired": {},
           "items_used": [],
@@ -1681,7 +1718,8 @@
           },
           "quest_level": 31,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-05",
@@ -1725,7 +1763,8 @@
           },
           "quest_level": 31,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-06",
@@ -1740,7 +1779,7 @@
           "prerequisite_any": [],
           "giver": "dezco",
           "turn_in": "dezco",
-          "objective": "Collect 12 quest lotus leaves and help Kang prepare a second treatment.",
+          "objective": "Collect 12 marsh lotus leaves and help Kang prepare a second treatment.",
           "npcs": [
             "dezco",
             "kang"
@@ -1769,7 +1808,8 @@
           },
           "quest_level": 32,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-07",
@@ -1784,17 +1824,14 @@
           "prerequisite_any": [],
           "giver": "dezco",
           "turn_in": "dezco",
-          "objective": "Recover excavation orders and compare the raiders focus with the expedition ledger.",
+          "objective": "Kill the relic raider dominator and recover his excavation orders.",
           "npcs": [
             "dezco"
           ],
           "mobs": [
             "marsh_shaman"
           ],
-          "objects": [
-            "cult_chest",
-            "binding_device"
-          ],
+          "objects": [],
           "items_provided": {},
           "items_acquired": {
             "marsh_orders": 1
@@ -1815,7 +1852,8 @@
           },
           "quest_level": 32,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-08",
@@ -1831,15 +1869,13 @@
           "prerequisite_any": [],
           "giver": "dezco",
           "turn_in": "kang",
-          "objective": "Collect one water sample from the tainted pool and bring it to Kang for testing.",
+          "objective": "Speak to Na Lek, defeat four bound pool guardians, and bring the purified water to Kang.",
           "npcs": [
             "dezco",
             "kang"
           ],
           "mobs": [],
-          "objects": [
-            "pool"
-          ],
+          "objects": [],
           "items_provided": {},
           "items_acquired": {
             "medical_sample": 1
@@ -1860,7 +1896,8 @@
           },
           "quest_level": 33,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-09",
@@ -1874,7 +1911,7 @@
           "prerequisite_any": [],
           "giver": "dezco",
           "turn_in": "dezco",
-          "objective": "Stand by Dezco while Nala tends Leza; witness the birth, Leza's death and the two surviving sons.",
+          "objective": "Stay near the medical tent through Leza's delivery and Nala's care for the family.",
           "npcs": [
             "cloudhoof",
             "dezco",
@@ -1905,7 +1942,8 @@
           },
           "quest_level": 33,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-10",
@@ -1947,7 +1985,8 @@
           },
           "quest_level": 34,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-11",
@@ -1990,7 +2029,8 @@
           },
           "quest_level": 34,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C03-12",
@@ -2031,7 +2071,8 @@
           },
           "quest_level": 35,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         }
       ]
     },
@@ -2087,7 +2128,8 @@
           },
           "quest_level": 35,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-02",
@@ -2101,7 +2143,7 @@
           "prerequisite_any": [],
           "giver": "ken",
           "turn_in": "ken",
-          "objective": "Gather 6 safe food supplies and question 3 despondent residents.",
+          "objective": "Question the three despondent residents about what is wrong with the village.",
           "npcs": [
             "ken",
             "villager"
@@ -2111,9 +2153,7 @@
             "supply"
           ],
           "items_provided": {},
-          "items_acquired": {
-            "village_food": 6
-          },
+          "items_acquired": {},
           "items_used": [],
           "source": {
             "type": "adapted",
@@ -2130,7 +2170,8 @@
           },
           "quest_level": 35,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-03",
@@ -2144,7 +2185,7 @@
           "prerequisite_any": [],
           "giver": "ken",
           "turn_in": "yimo",
-          "objective": "Find Yi-Mo at the marked marsh trail and escort him away from the predators.",
+          "objective": "Find Yi-Mo on the marsh trail east of the village.",
           "npcs": [
             "ken",
             "yimo"
@@ -2152,9 +2193,7 @@
           "mobs": [
             "marsh_stalker"
           ],
-          "objects": [
-            "tracks"
-          ],
+          "objects": [],
           "items_provided": {},
           "items_acquired": {},
           "items_used": [],
@@ -2173,7 +2212,8 @@
           },
           "quest_level": 35,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-04",
@@ -2187,7 +2227,7 @@
           "prerequisite_any": [],
           "giver": "yimo",
           "turn_in": "ken",
-          "objective": "Recover Yi-Mos lost supplies and persuade him to return to the village.",
+          "objective": "Speak to Yi-Mo and bring him back to the village.",
           "npcs": [
             "ken",
             "yimo"
@@ -2197,9 +2237,7 @@
             "supply"
           ],
           "items_provided": {},
-          "items_acquired": {
-            "village_food": 3
-          },
+          "items_acquired": {},
           "items_used": [],
           "source": {
             "type": "adapted",
@@ -2216,7 +2254,8 @@
           },
           "quest_level": 36,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-05",
@@ -2230,20 +2269,21 @@
           ],
           "prerequisite_any": [],
           "giver": "ken",
-          "turn_in": "kang",
-          "objective": "Gather 8 local herbs and prepare medicine with Kang.",
+          "turn_in": "ken",
+          "objective": "Gather 4 chunks of honeycomb, 4 mudfish and 4 salty cores for Ken-Ken's remedy.",
           "npcs": [
             "kang",
             "ken"
           ],
           "mobs": [],
           "objects": [
-            "herb",
-            "hearth"
+            "herb"
           ],
           "items_provided": {},
           "items_acquired": {
-            "medicine": 1
+            "honeycomb": 4,
+            "mudfish": 4,
+            "salty_core": 4
           },
           "items_used": [],
           "source": {
@@ -2261,7 +2301,8 @@
           },
           "quest_level": 36,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-06",
@@ -2275,18 +2316,17 @@
           "prerequisite_any": [],
           "giver": "ken",
           "turn_in": "ken",
-          "objective": "Use the supplied treatment mask to test 3 residents and identify the shared residue.",
+          "objective": "Collect 18 panther fangs and the jar of pigment from the eastern marsh.",
           "npcs": [
             "ken",
             "villager"
           ],
           "mobs": [],
           "objects": [],
-          "items_provided": {
-            "ken_mask": 1
-          },
+          "items_provided": {},
           "items_acquired": {
-            "curse_sample": 1
+            "panther_fangs": 18,
+            "pigment_jar": 1
           },
           "items_used": [],
           "source": {
@@ -2304,7 +2344,8 @@
           },
           "quest_level": 37,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-07",
@@ -2347,7 +2388,8 @@
           },
           "quest_level": 37,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-08",
@@ -2361,7 +2403,7 @@
           "prerequisite_any": [],
           "giver": "maruut",
           "turn_in": "maruut",
-          "objective": "Sample the old ward by the well and confirm where the influence gathers.",
+          "objective": "Take a sample of the tainted water collected beside the old village well.",
           "npcs": [
             "maruut"
           ],
@@ -2392,7 +2434,8 @@
           },
           "quest_level": 38,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-09",
@@ -2406,7 +2449,7 @@
           "prerequisite_any": [],
           "giver": "ken",
           "turn_in": "yimo",
-          "objective": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Kens help.",
+          "objective": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken's help.",
           "npcs": [
             "ken",
             "yimo"
@@ -2438,7 +2481,8 @@
           },
           "quest_level": 38,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-10",
@@ -2480,7 +2524,8 @@
           },
           "quest_level": 39,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-11",
@@ -2494,7 +2539,7 @@
           "prerequisite_any": [],
           "giver": "yimo",
           "turn_in": "yimo",
-          "objective": "Accept the villages pledge of aid and nominate Mei as its future supply liaison.",
+          "objective": "Accept the village's pledge of aid and nominate Mei as its future supply liaison.",
           "npcs": [
             "mei",
             "yimo"
@@ -2521,7 +2566,8 @@
           },
           "quest_level": 39,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         },
         {
           "id": "BS-C04-12",
@@ -2562,7 +2608,8 @@
           },
           "quest_level": 40,
           "all_objective_counts_are": "proposed for the adaptation; not assertions of source quantities",
-          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests."
+          "item_supply_contract": "Provided tools are reissued on accept/retry. Acquired evidence is supplied by the named objective and deposited on turn-in. Earlier evidence is recalled from completed quests.",
+          "retired": false
         }
       ]
     },
@@ -14360,18 +14407,6 @@
         ],
         "database_id": null
       },
-      "antidote": {
-        "name": "Marsh Antidote",
-        "kind": "quest_item",
-        "role": "Chezin investigation and Leza treatment",
-        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
-        "binding": "quest-bound; no trade",
-        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
-        "chapters": [
-          "C03"
-        ],
-        "database_id": null
-      },
       "skitterer_meat": {
         "name": "Skitterer Meat",
         "kind": "quest_item",
@@ -14464,20 +14499,7 @@
         "binding": "quest-bound; no trade",
         "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
         "chapters": [
-          "C03",
-          "C04"
-        ],
-        "database_id": null
-      },
-      "medicine": {
-        "name": "Prepared Herbal Medicine",
-        "kind": "quest_item",
-        "role": "Village treatment",
-        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
-        "binding": "quest-bound; no trade",
-        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
-        "chapters": [
-          "C04"
+          "C03"
         ],
         "database_id": null
       },
@@ -14485,18 +14507,6 @@
         "name": "Ken-Ken's Treatment Mask",
         "kind": "quest_item",
         "role": "Quest-provided exorcism tool using stock item presentation",
-        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
-        "binding": "quest-bound; no trade",
-        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
-        "chapters": [
-          "C04"
-        ],
-        "database_id": null
-      },
-      "curse_sample": {
-        "name": "Despair Residue Sample",
-        "kind": "quest_item",
-        "role": "Evidence linking the village curse to a ward",
         "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
         "binding": "quest-bound; no trade",
         "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
@@ -16701,6 +16711,126 @@
           "C01"
         ],
         "database_id": null
+      },
+      "twilight_pick": {
+        "name": "Twilight Pick",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C02"
+        ],
+        "database_id": null
+      },
+      "basilisk_meat": {
+        "name": "Charred Basilisk Meat",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C02"
+        ],
+        "database_id": null
+      },
+      "ascendant_strike": {
+        "name": "Ascendant Strike Focus",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C02"
+        ],
+        "database_id": null
+      },
+      "flame_shield": {
+        "name": "Flame Shield Focus",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C02"
+        ],
+        "database_id": null
+      },
+      "poisoned_blade": {
+        "name": "Poisoned Raider Blade",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C03"
+        ],
+        "database_id": null
+      },
+      "honeycomb": {
+        "name": "Chunk of Honeycomb",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C04"
+        ],
+        "database_id": null
+      },
+      "mudfish": {
+        "name": "Slick Mudfish",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C04"
+        ],
+        "database_id": null
+      },
+      "salty_core": {
+        "name": "Salty Core",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C04"
+        ],
+        "database_id": null
+      },
+      "panther_fangs": {
+        "name": "Huge Panther Fang",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C04"
+        ],
+        "database_id": null
+      },
+      "pigment_jar": {
+        "name": "Jar of Pigment",
+        "kind": "quest_item",
+        "role": "Source-audited quest material or supplied tool",
+        "visual_plan": "Reuse a native icon/display appropriate to this item; exact donor pending",
+        "binding": "quest-bound; no trade",
+        "lifecycle": "Remove temporary copies on completion/abandonment; reissue on retry",
+        "chapters": [
+          "C04"
+        ],
+        "database_id": null
       }
     },
     "objects": {
@@ -16721,9 +16851,7 @@
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
           "C01",
-          "C02",
           "C03",
-          "C04",
           "C05",
           "C06",
           "C07",
@@ -16743,7 +16871,6 @@
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
           "C02",
-          "C03",
           "C05",
           "C08",
           "C09",
@@ -16779,18 +16906,16 @@
         "interaction": "Carry/strike/drop interactions",
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
-          "C02",
           "C07"
         ],
         "database_id": null
       },
       "hideout": {
         "name": "Ortell dead drop",
-        "appearance_plan": "Stock outhouse or crate; fallback must be reachable",
+        "appearance_plan": "Native Westfall outhouse model; Ortell communicates through a real questgiving shelter.",
         "interaction": "Gossip proxy and document handoff",
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
-          "C01",
           "C02"
         ],
         "database_id": null
@@ -16846,16 +16971,6 @@
         "chapters": [
           "C03",
           "C04"
-        ],
-        "database_id": null
-      },
-      "pool": {
-        "name": "Ward-tainted pool focus",
-        "appearance_plan": "Stock pool shore plus native interactable basin",
-        "interaction": "Collect and test water",
-        "asset_status": "native gameobject plan; exact display and placement pending",
-        "chapters": [
-          "C03"
         ],
         "database_id": null
       },
@@ -17094,7 +17209,6 @@
         "interaction": "Disable and recover evidence",
         "asset_status": "native gameobject plan; exact display and placement pending",
         "chapters": [
-          "C03",
           "C07",
           "C09",
           "C10",
@@ -17207,6 +17321,16 @@
           "C14"
         ],
         "database_id": null
+      },
+      "lodestone_deposit": {
+        "name": "Darkwhisper Lodestone",
+        "appearance_plan": "Stock iron-vein model used as an ordinary quest object.",
+        "interaction": "Break five deposits with the supplied Twilight Pick.",
+        "asset_status": "native gameobject plan; exact display and placement pending",
+        "chapters": [
+          "C02"
+        ],
+        "database_id": null
       }
     }
   },
@@ -17223,5 +17347,6 @@
     "Every chapter ends in one of six native-display ring choices. Two named readable/visual keepsakes supplement them.",
     "Creature donor IDs describe verified stock appearance candidates only; they are not final custom entries.",
     "Npc services/faction state and normal city guards are not globally modified."
-  ]
+  ],
+  "source_gameplay_review": "docs/broken-seal/source-review.md"
 }

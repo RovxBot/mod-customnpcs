@@ -132,16 +132,18 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 SELECT 4001010, 900102, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001010 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
 UPDATE `gameobject_template` SET `name`='Abandoned Expedition Wagon' WHERE `entry`=4001100 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001100 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Western Ash-marked Tablet' WHERE `entry`=4001101 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001101 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Central Ash-marked Tablet' WHERE `entry`=4001102 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001102 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Eastern Ash-marked Tablet' WHERE `entry`=4001103 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001103 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Western Ward Stone' WHERE `entry`=4001107 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001107 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Central Ward Stone' WHERE `entry`=4001108 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001108 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Discarded Survey Supplies' WHERE `entry`=4001101 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001101 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Ash-stained Survey Journal' WHERE `entry`=4001102 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001102 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Scorched Survey Map' WHERE `entry`=4001103 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001103 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Northwestern Ward Stone' WHERE `entry`=4001107 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001107 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Southwestern Ward Stone' WHERE `entry`=4001108 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001108 AND owner.`chapter`=1);
 UPDATE `gameobject_template` SET `name`='Eastern Ward Stone' WHERE `entry`=4001109 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001109 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Concealed Observation Point' WHERE `entry`=4001110 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001110 AND owner.`chapter`=1);
-UPDATE `gameobject_template` SET `name`='Ortell''s Sealed Message Crate' WHERE `entry`=4001111 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001111 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Scout''s Lookout Banner' WHERE `entry`=4001110 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001110 AND owner.`chapter`=1);
 UPDATE `gameobject_template` SET `name`='Twilight Sacrificial Altar' WHERE `entry`=4001112 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001112 AND owner.`chapter`=1);
 UPDATE `gameobject_template` SET `name`='Expedition Refuge Banner' WHERE `entry`=4001113 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001113 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Twilight Roadside Prison Tent' WHERE `entry`=4001114 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001114 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Roadside Guard Supplies' WHERE `entry`=4001115 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001115 AND owner.`chapter`=1);
+UPDATE `gameobject_template` SET `name`='Roadside Guard Brazier' WHERE `entry`=4001116 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001116 AND owner.`chapter`=1);
 UPDATE `item_template` SET `displayid`=7233,`description`='The expedition seal admits its bearer to Maruut''s camp.' WHERE `entry`=900100 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900100 AND owner.`chapter`=1);
 UPDATE `item_template` SET `displayid`=1143,`description`='The final entries name three surveyors who never returned.' WHERE `entry`=900101 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900101 AND owner.`chapter`=1);
 UPDATE `item_template` SET `displayid`=4110,`description`='A spiral seal marks the cult''s instructions.' WHERE `entry`=900102 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900102 AND owner.`chapter`=1);
@@ -153,6 +155,7 @@ UPDATE `item_template` SET `displayid`=9846,`description`='A signet of the Vale 
 UPDATE `item_template` SET `displayid`=9846,`description`='A signet of the Vale expedition, given for bringing its missing people home.' WHERE `entry`=900113 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900113 AND owner.`chapter`=1);
 UPDATE `item_template` SET `displayid`=9846,`description`='A signet of the Vale expedition, given for bringing its missing people home.' WHERE `entry`=900114 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900114 AND owner.`chapter`=1);
 UPDATE `item_template` SET `displayid`=9846,`description`='A signet of the Vale expedition, given for bringing its missing people home.' WHERE `entry`=900115 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900115 AND owner.`chapter`=1);
+UPDATE `item_template` SET `displayid`=7365,`description`='Use from the expedition lookout overlooking the ritual camp.' WHERE `entry`=900105 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
 SELECT 900100, 'Follow the old road toward the Charred Vale and look for the expedition''s blue-clad stonebinder.', 'The expedition in Stonetalon is accepting help from anyone willing to put missing travelers before old quarrels. Take this invitation to Maruut Stonebinder. His camp is on the eastern approach to the Charred Vale.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900100 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
@@ -187,18 +190,18 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900102 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900102 AND owner.`chapter`=1);
 DELETE FROM `quest_poi` WHERE `QuestID`=900102 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900102 AND owner.`chapter`=1);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900103, 'Inspect all three distinct tablets, defeat six Twilight Scouts and recover their coded orders.', 'Follow the three ash-marked tablets from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 'Twilight Scouts defeated', 'Western trail tablet examined', 'Central trail tablet examined', 'Eastern trail tablet examined' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1)
+SELECT 900103, 'Inspect all three discarded survey clues, defeat six Twilight Scouts and recover their coded orders.', 'Inspect the surveyors'' discarded supplies, journal and map on the eastern approaches. Defeat the six Twilight scouts watching that route and recover their orders. The last clue leads to the roadside prisoners; keep clear of the ritual compound deeper in the Vale.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 'Twilight Scouts defeated', 'Discarded supplies examined', 'Survey journal examined', 'Scorched map examined' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900103, 'Prisoners, a separate commander, and a watch rotation. Those were not bandits taking whatever they could carry. Someone organized this.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900103, 'Show me the orders, and tell me what you found at all three tablets.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1)
+SELECT 900103, 'Show me the orders, and tell me what you found at all three survey clues.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900103 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 DELETE FROM `quest_poi` WHERE `QuestID`=900103 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900104, 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 'The scouts are holding Mira, Dorn and Teren under guard at the holding camp. Clear their guards and speak to each surveyor, then stay nearby until they reach our expedition camp. Clear trouble from the route; nobody gets left behind.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 'Mira escorted to the expedition', 'Dorn escorted to the expedition', 'Teren escorted to the expedition', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1)
+SELECT 900104, 'Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.', 'Mira, Dorn and Teren are held at a small roadside guard camp southeast of our expedition, on the eastern side of the Charred Vale. This is separate from the cult''s ritual compound deeper in the valley. Clear the guards and speak to each surveyor, then accompany them back to our camp. Nobody gets left behind.', 'Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale.', 'Mira escorted to the expedition', 'Dorn escorted to the expedition', 'Teren escorted to the expedition', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900104, 'All three are safe. They remember a spiral carved into the ward stones and a prisoner called Shadowsong. Maruut needs to hear this.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1)
@@ -209,7 +212,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900104 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 DELETE FROM `quest_poi` WHERE `QuestID`=900104 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900105, 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 'Western ward traced', 'Central ward traced', 'Eastern ward traced', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1)
+SELECT 900105, 'Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.', 'The cult has cut three older ward stones across the Charred Vale: one on the northwestern rise, one on the southwestern valley floor, and one along the eastern rim. Twilight defenders watch each stone. Clear them, then use this tracing kit on each distinct ward and bring me the complete rubbing.', 'Speak with Maruut Stonebinder at the expedition camp in the eastern Charred Vale.', 'Northwestern ward traced', 'Southwestern ward traced', 'Eastern ward traced', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900105, 'Those are deliberate cuts. The new spiral interrupts the old pattern at exactly the points it needs. Ortell knows the people who use that sign.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1)
@@ -231,10 +234,10 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900106 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900106 AND owner.`chapter`=1);
 DELETE FROM `quest_poi` WHERE `QuestID`=900106 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900106 AND owner.`chapter`=1);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900107, 'Remain at the concealed observation point until you can confirm Jarod is alive.', 'The rescued surveyors recognized the commander''s name: Jarod Shadowsong. The cult is holding him at the altar in their holding camp. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 'Jarod observed from cover', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1)
+SELECT 900107, 'Use the supplied spyglass beside the lookout banner northwest of the ritual camp and confirm Jarod is alive.', 'The surveyors recognized the commander''s name: Jarod Shadowsong. He is held at the altar in the cult''s ritual compound, well away from the roadside prisoners. Take this spyglass to our scout''s banner on the rise northwest of the altar. Use it there and watch quietly from outside the camp. We need to know he is alive before planning his rescue.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 'Jarod observed from cover', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
-SELECT 900107, 'Alive, guarded, and kept apart from the workers. They are preparing something public. A direct assault would give them time to kill him.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1)
+SELECT 900107, 'He is alive. The guards and the sacrifice make a direct charge hopeless. We will borrow a recruit''s identity and work our way into the inner circle. Return to me at level 25 for Signed in Blood. Take this signet for the surveyors you brought home.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
 SELECT 900107, 'Did you see Jarod clearly? Keep your voice low.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1)
@@ -242,7 +245,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900107 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1);
 DELETE FROM `quest_poi` WHERE `QuestID`=900107 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900108, 'Watch the recruit''s change from the dead drop, then agree the extraction signal with me.', 'There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 'Recruit watch change observed', 'Extraction signal agreed with Ortell', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1)
+SELECT 900108, 'Speak with Ortell at the expedition camp to settle the earlier briefing.', 'This earlier expedition briefing has been replaced by the direct handoff to Signed in Blood. If it remains in your log, speak with Ortell at the expedition camp to settle the report and continue. You do not need to revisit the lookout.', 'Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.', 'Recruit watch change observed', 'Extraction signal agreed with Ortell', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900108, 'Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition''s trust. Speak with me again once you reach level twenty-five; entering the cult will require a steadier hand.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1)
@@ -273,17 +276,23 @@ SELECT 900103, 2, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900103, 3, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900103, 4, 1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 4, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900103, 5, 2, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 5, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900103, 6, 3, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 6, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900103, 7, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 7, 1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900103, 8, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 8, 2, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900103, 9, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 9, 3, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900103, 10, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900103, 11, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900103, 12, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900104, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -335,45 +344,51 @@ SELECT 900102, 1, 0, 1098, 1538 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_c
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900103, 0, 0, 1102, 1538 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 1, 0, 879, 1675 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 1, 0, 1008, 1566 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 2, 0, 901, 1681 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 2, 0, 990, 1594 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 3, 0, 899, 1669 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 3, 0, 966, 1617 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 4, 0, 1086, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 4, 0, 1071, 1570 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 5, 0, 955, 1625 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 5, 0, 1045, 1565 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 6, 0, 895, 1670 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 6, 0, 1025, 1590 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 7, 0, 879, 1675 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 7, 0, 1086, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 8, 0, 901, 1681 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 8, 0, 955, 1625 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900103, 9, 0, 899, 1669 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+SELECT 900103, 9, 0, 938, 1511 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900103, 10, 0, 1008, 1566 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900103, 11, 0, 990, 1594 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900103, 12, 0, 966, 1617 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900103 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900104, 0, 0, 1102, 1538 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900104, 1, 0, 882, 1680 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
+SELECT 900104, 1, 0, 950, 1500 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900104, 2, 0, 886, 1683 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
+SELECT 900104, 2, 0, 954, 1503 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900104, 3, 0, 890, 1684 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
+SELECT 900104, 3, 0, 950, 1506 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900104 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900105, 0, 0, 1102, 1542 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900105, 1, 0, 885, 1674 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
+SELECT 900105, 1, 0, 820, 1830 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900105, 2, 0, 892, 1673 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
+SELECT 900105, 2, 0, 600, 1770 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900105, 3, 0, 898, 1674 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
+SELECT 900105, 3, 0, 730, 1410 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900105, 4, 0, 885, 1674 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
+SELECT 900105, 4, 0, 820, 1830 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900105, 5, 0, 892, 1673 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
+SELECT 900105, 5, 0, 600, 1770 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900105, 6, 0, 898, 1674 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
+SELECT 900105, 6, 0, 730, 1410 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900105 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900106, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900106 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -381,11 +396,11 @@ SELECT 900106, 1, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_c
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900107, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900107, 1, 0, 882, 1669 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1);
+SELECT 900107, 1, 0, 952, 1763 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900107 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900108, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900108, 1, 0, 882, 1672 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1);
+SELECT 900108, 1, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900108, 2, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900108 AND owner.`chapter`=1);
 UPDATE `creature_template` SET `name`='Condenna the Pitiless' WHERE `entry`=4001200 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001200 AND owner.`chapter`=2);
@@ -430,7 +445,7 @@ ON DUPLICATE KEY UPDATE `text0_0`=VALUES(`text0_0`), `Probability0`=VALUES(`Prob
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`)
 SELECT 4001205, 1, 6631, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001205 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
-UPDATE `creature_template` SET `name`='Isolated Twilight Recruit' WHERE `entry`=4001206 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001206 AND owner.`chapter`=2);
+UPDATE `creature_template` SET `name`='Twilight Recruit' WHERE `entry`=4001206 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001206 AND owner.`chapter`=2);
 INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`)
 SELECT 4001206, 'The watch captain sent me here. Is this about my papers?', 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001206 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `text0_0`=VALUES(`text0_0`), `Probability0`=VALUES(`Probability0`);
@@ -508,6 +523,19 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 SELECT 4001228, 1, 12282, 0, 2504 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001228 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
 UPDATE `creature_template` SET `name`='Butcher' WHERE `entry`=4001229 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001229 AND owner.`chapter`=2);
+UPDATE `creature_template` SET `name`='Immolated Supplicant' WHERE `entry`=4001230 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001230 AND owner.`chapter`=2);
+INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`)
+SELECT 4001230, 'Cargall said the gem would hold the flame. You have it, do you not?', 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001230 AND owner.`chapter`=2)
+ON DUPLICATE KEY UPDATE `text0_0`=VALUES(`text0_0`), `Probability0`=VALUES(`Probability0`);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`)
+SELECT 4001230, 1, 4575, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001230 AND owner.`chapter`=2)
+ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
+UPDATE `creature_template` SET `name`='Spinescale Basilisk' WHERE `entry`=4001231 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001231 AND owner.`chapter`=2);
+UPDATE `creature_template` SET `name`='Elementalist Ortell' WHERE `entry`=4001232 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001232 AND owner.`chapter`=2);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`)
+SELECT 4001232, 1, 4575, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001232 AND owner.`chapter`=2)
+ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
+UPDATE `creature_template` SET `name`='Blazing Trainer' WHERE `entry`=4001233 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001233 AND owner.`chapter`=2);
 UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001223 WHERE `entry`=4001223 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001223 AND owner.`chapter`=2);
 DELETE FROM `creature_loot_template` WHERE `Entry`=4001223 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001223 AND owner.`chapter`=2);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
@@ -565,31 +593,23 @@ SELECT 4001228, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`
 FROM `creature_loot_template` l
 WHERE l.`Entry`=431 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
   AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`) AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001228 AND owner.`chapter`=2);
+UPDATE `creature_template` SET `mingold`=28,`maxgold`=94,`lootid`=4001231 WHERE `entry`=4001231 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001231 AND owner.`chapter`=2);
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001231 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001231 AND owner.`chapter`=2);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001231, 1702, 0, 65, 0, 1, 0, 1, 2 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001231 AND owner.`chapter`=2);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001231, 3667, 0, 35, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001231 AND owner.`chapter`=2);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
 SELECT 4001224, 900207, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001224 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
-UPDATE `gameobject_template` SET `name`='Recruit Watch Roster' WHERE `entry`=4001300 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001300 AND owner.`chapter`=2);
 UPDATE `gameobject_template` SET `name`='Flame Blossom Patch' WHERE `entry`=4001301 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001301 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Training Stone Pile' WHERE `entry`=4001302 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001302 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Training Load Crate' WHERE `entry`=4001303 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001303 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Agility Course Starting Tablet' WHERE `entry`=4001304 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001304 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Agility Course: Checkpoint A' WHERE `entry`=4001305 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001305 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Agility Course: Checkpoint B' WHERE `entry`=4001306 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001306 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Agility Course: Checkpoint C' WHERE `entry`=4001307 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001307 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Agility Course: Checkpoint D' WHERE `entry`=4001308 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001308 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='First Hound Feeding Station' WHERE `entry`=4001309 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001309 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Second Hound Feeding Station' WHERE `entry`=4001310 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001310 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Third Hound Feeding Station' WHERE `entry`=4001311 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001311 AND owner.`chapter`=2);
+UPDATE `gameobject_template` SET `name`='Darkwhisper Lodestone' WHERE `entry`=4001302 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001302 AND owner.`chapter`=2);
 UPDATE `gameobject_template` SET `name`='Sealed Twilight Dispatches' WHERE `entry`=4001312 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001312 AND owner.`chapter`=2);
 UPDATE `gameobject_template` SET `name`='Charred Vale Battleplan Cache' WHERE `entry`=4001313 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001313 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Ortell''s Sealed Message Crate' WHERE `entry`=4001314 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001314 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Azennios''s Meeting Tablet' WHERE `entry`=4001315 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001315 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Garnoth''s Challenge Stone' WHERE `entry`=4001316 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001316 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Okrog''s Speaking Roster' WHERE `entry`=4001317 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001317 AND owner.`chapter`=2);
 UPDATE `gameobject_template` SET `name`='Initiation Podium' WHERE `entry`=4001318 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001318 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Broken Restraint Tablet' WHERE `entry`=4001319 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001319 AND owner.`chapter`=2);
+UPDATE `gameobject_template` SET `name`='Jarod''s Broken Shackles' WHERE `entry`=4001319 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001319 AND owner.`chapter`=2);
 UPDATE `gameobject_template` SET `name`='Buyer Correspondence Crate' WHERE `entry`=4001320 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001320 AND owner.`chapter`=2);
-UPDATE `gameobject_template` SET `name`='Horrorguard Calling Tablet' WHERE `entry`=4001321 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001321 AND owner.`chapter`=2);
+UPDATE `gameobject_template` SET `name`='Outhouse Hideout' WHERE `entry`=4001322 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001322 AND owner.`chapter`=2);
 UPDATE `item_template` SET `displayid`=22121,`description`='Use on the isolated recruit after he reaches cover. Ortell can replace it.' WHERE `entry`=900200 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900200 AND owner.`chapter`=2);
 UPDATE `item_template` SET `displayid`=4110,`description`='A watch roster and sponsor seal identify the missing recruit.' WHERE `entry`=900201 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900201 AND owner.`chapter`=2);
 UPDATE `item_template` SET `displayid`=4110,`description`='Use outside combat in the Charred Vale to renew your cult disguise.' WHERE `entry`=900202 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900202 AND owner.`chapter`=2);
@@ -612,19 +632,23 @@ UPDATE `item_template` SET `displayid`=9846,`description`='Given in gratitude fo
 UPDATE `item_template` SET `displayid`=9846,`description`='Given in gratitude for freeing Jarod and uncovering the cult''s buyers.' WHERE `entry`=900219 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900219 AND owner.`chapter`=2);
 UPDATE `item_template` SET `displayid`=9846,`description`='Given in gratitude for freeing Jarod and uncovering the cult''s buyers.' WHERE `entry`=900220 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900220 AND owner.`chapter`=2);
 UPDATE `item_template` SET `displayid`=9846,`description`='Given in gratitude for freeing Jarod and uncovering the cult''s buyers.' WHERE `entry`=900221 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900221 AND owner.`chapter`=2);
+UPDATE `item_template` SET `displayid`=6568,`description`='Use on the lodestone deposits in the training gorge. No mining skill is required.' WHERE `entry`=900222 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900222 AND owner.`chapter`=2);
+UPDATE `item_template` SET `displayid`=25466,`description`='Feed one piece to your summoned hound. Acquired from Spinescale Basilisks.' WHERE `entry`=900223 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900223 AND owner.`chapter`=2);
+UPDATE `item_template` SET `displayid`=8466,`description`='Use on Garnoth while ascended. Deals five percent of his maximum health; 1.5 second recharge.' WHERE `entry`=900224 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900224 AND owner.`chapter`=2);
+UPDATE `item_template` SET `displayid`=6373,`description`='Use while ascended near Garnoth. Reduces his damage by 95 percent for ten seconds; six second recharge.' WHERE `entry`=900225 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900225 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900200, 'Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.', 'Ortell keeps his voice low. A recruit makes the watch circuit below our camp. Use the Recruit Watch Roster to lure a recruit into the hollow, wait until he reaches cover, then use my blackjack on him. Bring back his papers. We can borrow his place without taking his life.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Recruit subdued in cover', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2)
+SELECT 900200, 'Speak to a Twilight Recruit at the road checkpoint, lure him into cover, and use the blackjack to take his papers.', 'A small recruit group uses the eastern road checkpoint, away from Jarod''s ritual camp. Speak to one recruit and convince him that an instructor is waiting in the hollow. Follow him there, then use the blackjack. His signed recruitment papers will let me forge an identity that gets you past the instructors.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Recruit subdued in cover', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
-SELECT 900200, 'He will wake with a sore head, and nothing worse. These papers give us a way inside. Now I must make their seal speak for you.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2)
+SELECT 900200, 'His sponsor has already signed. I can change the bearer''s name and leave the seal intact. Now we have a way into the cult, rather than another excuse to run at the altar.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900200, 'The recruit must live. Have you brought his papers?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2)
+SELECT 900200, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900200 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900200 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900201, 'Present the altered papers to Condenna and pass the identity check.', 'The recruit has a name, a sponsor and an appointment with Condenna. These altered papers now bear your description. Speak to Condenna at the western training camp to pass her identity check. Keep your cover using the papers; if the disguise is lost, Condenna or Ortell can renew it.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 'Papers presented to Condenna', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900201 AND owner.`chapter`=2)
+SELECT 900201, 'Present the altered papers to Condenna and pass the identity check.', 'These forged papers give you a recruit''s identity. Present them to Condenna at the recruiting compound. Once you are admitted, find my concealed contact at the outhouse just outside the western edge of the training grounds. Bring intelligence and reports there so you can remain inside the cult.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', 'Papers presented to Condenna', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900201 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900201, 'The seal is in order. Remember whose banner shelters you, recruit. Your first trial begins with fire.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900201 AND owner.`chapter`=2)
@@ -646,24 +670,24 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900202 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900202 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900202 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900202 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900203, 'Collect 8 flame blossoms while avoiding Smolderos.', 'Collect eight Flame Blossoms from the grove west of camp. Smolderos prowls among the patches. He sees through our robes; keep clear of him, and never mistake a uniform for protection.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2)
+SELECT 900203, 'Gather 5 Flame Blossoms from the proving grounds. Avoid Smolderos.', 'Flame blossoms grow in the proving fields southeast of our camp. Bring back five. Smolderos prowls those fields and the fiery instructors use them for trials, so pay attention to the ground around you.', 'Speak with Condenna the Pitiless at the Twilight recruiting compound.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900203, 'Good. These blossoms will feed the brazier. Cargall will decide whether you are useful beyond gathering fuel.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900203, 'The brazier needs eight blossoms. Where are they?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2)
+SELECT 900203, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900203 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900203 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900203 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900204, 'Use the binding gem to preserve 3 burning supplicants before their timers expire.', 'Cargall has left three supplicants burning in the training hollow. Ask him to begin the preservation trial, then use the binding gem on each before their forty-five seconds expire. The gem preserves a living recruit for the cult. Failed attempts can be restarted, and saved recruits remain credited.', 'Speak with Instructor Cargall at the Twilight recruiting compound.', 'First supplicant preserved', 'Second supplicant preserved', 'Third supplicant preserved', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2)
+SELECT 900204, 'Use the Frostgale Crystal to extinguish the flames on four immolated supplicants.', 'Ask Cargall to prepare the trial, then use the supplied crystal on the four burning recruits in the training yard. They will not survive long. Saved recruits remain recorded if the attempt is interrupted; Cargall can prepare the remaining recruits and replace a lost crystal.', 'Speak with Instructor Cargall at the Twilight recruiting compound.', 'First supplicant preserved', 'Second supplicant preserved', 'Third supplicant preserved', 'Fourth supplicant saved' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900204, 'All three survived. The cult wastes nothing that can still serve. You may continue.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900204, 'Three supplicants are still of use to us. Did you preserve every one?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2)
+SELECT 900204, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900204 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900204 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2);
@@ -679,24 +703,24 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900205 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900205 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900205 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900205 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900206, 'Carry 5 training stones between the marked work stations.', 'Use the Training Stone Pile beside Mylva to take one heavy load. Carry it on foot to the Stone Delivery Station to the south. Deliver five loads; each delivery must follow a fresh pickup. Combat, mounting or abandoning the quest drops the current load.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Stone loads delivered', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2)
+SELECT 900206, 'Use the Twilight Pick to break 5 Darkwhisper Lodestones in the training gorge.', 'Take this pick out into the gorge and break five lodestone deposits. The work is the test; there is no ore to carry back. The deposits follow a loop south and west of the training compound. Use the pick on a deposit after clearing any trouble around it. I can replace a lost pick.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Darkwhisper lodestones broken', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900206, 'Five loads, delivered without excuse. Strength is only useful when it obeys.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900206, 'Five loads. Count them yourself before you report to me.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2)
+SELECT 900206, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900206 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900206 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900207, 'Complete the 4-checkpoint obstacle route before the time expires.', 'Use the Agility Course Starting Tablet west of Mylva. Pass markers A, B, C and D in that order within sixty seconds, on the ground and on foot. Combat, mounting, flying or leaving the course resets this attempt. A failed attempt can be restarted at the start marker.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Agility course completed', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2)
+SELECT 900207, 'Stay alive and keep away from the Blazing Trainer for one minute inside the training grounds.', 'Ask me to summon your Blazing Trainer. Run away for one minute without leaving the training grounds. He is slower than a running recruit, but standing still will hurt. You must remain alive, on foot and disguised.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Agility course completed', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900207, 'You reached every station in time. Keep that speed when the ground is less forgiving.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900207, 'Did you finish the entire course in order?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2)
+SELECT 900207, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900207 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900207 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
@@ -723,13 +747,13 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900209 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900209 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900209 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900209 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900210, 'Take an owner-bound training hound through 3 feeding/handling stations.', 'Use the leash near Devoran to call your own training core hound. Take it to feeding stations A, B and C in order, then command it to feed at each station through its gossip menu. Stay nearby. Lost hounds can be called again with the leash, and completed stations remain credited.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 'Hound fed at the first station', 'Hound fed at the second station', 'Hound fed at the third station', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2)
+SELECT 900210, 'Use the Fiery Leash to summon the hound, then feed it 5 pieces of meat looted from Spinescale Basilisks.', 'Use the leash to bring out the Spawn of Smolderos. Take him to the basilisk hollow northwest of the proving fields, kill basilisks and loot their meat. Speak to your hound to feed him one piece at a time. Five meals will be enough. You can summon him again anywhere in the Vale after an interruption; his completed meals remain recorded.', 'Speak with Instructor Devoran at the Twilight recruiting compound.', 'Spawn of Smolderos fed', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900210, 'It knows your scent now. Trust grows from care repeated, not from a leash pulled harder.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900210, 'A hound remembers its handler. Did you feed it at all three stations?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2)
+SELECT 900210, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900210 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900210 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
@@ -756,29 +780,29 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900212 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900212 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900212 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900212 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900213, 'Recover the communique and battleplans from their caches, then check the dead drop.', 'Recover the communique and battleplans from the guarded caches south of the camp. Use Ortell''s dead drop with both documents before returning to him. The caches are still watched; keep your disguise ready.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Documents checked at the dead drop', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2)
+SELECT 900213, 'Recover the Twilight Communique from the recruiting compound and the Battleplans from the ritual compound.', 'I can keep contact from this outhouse while you are inside the cult. Recover the communique from the recruiting compound''s dispatch chest and the battleplans from the ritual compound''s guarded command cache. These are two separate sites. Bring both documents directly back here; the delivery is part of the quest hand-in, not a separate drop-box task.', 'Return to Ortell at the Outhouse Hideout west of the training grounds.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900213, 'These routes are more than troop movements. The cult is moving prisoners and relics under the same seal. We have very little time.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900213, 'Bring both documents. Have you checked them at our dead drop?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2)
+SELECT 900213, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900213 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900213 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900214, 'Distract Karr''gonn, then defeat Azennios without revealing the handler.', 'Use the Azennios''s Meeting Tablet near the dead drop to begin a secret meeting. Speak to Karr''gonn to send him after a false order, then defeat Azennios while the distraction lasts. If Karr''gonn returns, withdraw and restart the scene. Never speak Ortell''s name.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Azennios defeated during the diversion', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2)
+SELECT 900214, 'Distract Karr''gonn and kill Azennios at the eastern rendezvous; recover the sacrificial key.', 'The intelligence identifies Azennios, the envoy meeting Karr''gonn at the eastern rendezvous. Speak to the ogre and send him away with a convincing order, then kill Azennios before he returns. Azennios carries the key to the commander''s restraints. Bring it here. A key alone will not get Jarod through an armed ceremony: your remaining training will win the speaking slot and provide the distraction we need.', 'Return to Ortell at the Outhouse Hideout west of the training grounds.', 'Azennios defeated during the diversion', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900214, 'Azennios is gone, and Karr''gonn blames a false order. Their own suspicion has opened a path for us.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900214, 'Did the diversion last long enough to deal with Azennios?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2)
+SELECT 900214, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900214 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900214 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900215, 'Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.', 'Use the ascendancy talisman at Garnoth''s Challenge Stone southwest of camp. It grants a fire-elemental form for this duel. Defeat Garnoth while the form remains active. The form ends when the encounter closes or you leave the valley.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Garnoth defeated in elemental form', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2)
+SELECT 900215, 'Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.', 'Garnoth waits at the Legion challenge ground on the eastern rim of the Vale. Use the talisman there to ascend. Your strike focus burns away five percent of his health with each blow; your shield focus holds off nearly all of his damage for ten seconds. Use the shield, keep striking, and defeat him before the ascendant form fades. Make room for both foci before using the talisman.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Garnoth defeated in elemental form', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900215, 'Garnoth has fallen. The borrowed flame served its purpose; do not let its power persuade you to keep it.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2)
@@ -789,7 +813,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900215 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900215 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900216, 'Use the calling tablet at the holding camp and defeat 10 Horrorguards while disguised.', 'Use the calling tablet at the holding camp to challenge ten Horrorguards. They will be called one at a time; return to the tablet if your challenge is interrupted. These demons are rivals to the cult, not innocent travelers. Keep your cover intact throughout the challenge and as you return.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Horrorguards defeated', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2)
+SELECT 900216, 'Defeat 10 Horrorguards at the northwestern trial ground while disguised.', 'The Horrorguards gather in the northwestern ravine, away from the prisoner altar. Go there while disguised and challenge ten of them. A rival will appear as you approach the trial ground, followed by the next when you win. Return to that ground to resume after an interruption.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Horrorguards defeated', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900216, 'Ten demons defeated. You have earned the right to stand before the congregation.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2)
@@ -800,24 +824,24 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900216 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900216 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900217, 'Remove the scheduled ogre speaker Okrog and receive Ortell''s cue cards and take his place at the podium.', 'Use Okrog''s Speaking Roster south of the camp to confront the scheduled ogre speaker. Defeat him, then speak to Ortell for your cue cards. Your opening lies in the crowd, not in another prison assault.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Okrog defeated', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2)
+SELECT 900217, 'Kill Okrog as he leaves the ritual compound, then return to Ortell for the speech notes.', 'Okrog is the scheduled speaker. He leaves the ritual compound along the southern watch road. Intercept him there and kill him, then return to this hideout. I will prepare the notes that let you take his place. Do not search a book or summon him from a marker: watch the road for the ogre.', 'Return to Ortell at the Outhouse Hideout west of the training grounds.', 'Okrog defeated', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900217, 'Okrog will not be taking the podium. Here are your notes. Give the crowd what it expects while you look for Jarod.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900217, 'Has Okrog''s speaking slot become available? Keep the cue cards with you.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2)
+SELECT 900217, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900217 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900217 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900218, 'Receive the handler''s final instruction and report to Mylva for the speaking slot.', 'Ask Ortell for the final instruction, then report to Mylva. An initiate who can hold the crowd may approach the altar. Use their expectations to bring Jarod within reach.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', 'Ortell''s final instruction received', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2)
+SELECT 900218, 'Speak to Mylva at the training compound to claim the speaking slot.', 'Okrog is gone and the instructions are ready. Report to Mylva at the training compound and claim your place at the initiation podium. Read the crowd carefully. The key is ready; the speech must draw the guards away from Jarod.', 'Speak with Instructor Mylva at the Twilight recruiting compound.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900218, 'Ortell has prepared you. I will put your name before the congregation. Take your place at the podium.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900218, 'Has Ortell given you the final instruction?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2)
+SELECT 900218, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900218 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900218 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2);
@@ -833,18 +857,18 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900219 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900219 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900219 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900219 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900220, 'Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.', 'Speak to Jarod to challenge his restraint guard. Defeat it and recover the prison key, then speak to Jarod again to unlock his bindings and begin the escape. Defeat three pairs of enforcers along the route and stay with him until he reaches Ortell''s refuge. The key can be recovered again after a failed escape.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Jarod escorted to the refuge', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2)
+SELECT 900220, 'Use the sacrificial key to free Jarod, then accompany him to the expedition refuge.', 'The speech has turned the crowd against its guards. Use the key we recovered from Azennios to release Jarod, then stay with him as he leaves the compound. He will hurry along the escape route. Deal with any trouble that reaches you, but do not stop to hunt more cultists. Ortell can replace the key after a failed attempt if you already deposited Azennios''s key.', 'Speak with Elementalist Ortell at the expedition refuge.', 'Jarod escorted to the refuge', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900220, 'Jarod is here, alive. Let the cult shout at an empty altar. We can finally follow the people who paid for all this.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900220, 'Where is Jarod? Bring him safely to the refuge, and keep the key.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2)
+SELECT 900220, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900220 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2);
 DELETE FROM `quest_poi` WHERE `QuestID`=900220 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900220 AND owner.`chapter`=2);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900221, 'Return to the quiet camp cache and recover the relic buyers'' ledger.', 'Ortell has found a name missing from the orders: the buyer. Return to the quiet ledger cache and recover the Relic Buyers Ledger. The cult''s fire is only a curtain; someone has been buying what it digs from the earth.', 'Speak with Elementalist Ortell at the expedition refuge.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900221 AND owner.`chapter`=2)
+SELECT 900221, 'Return to the quiet camp cache and recover the relic buyers'' ledger.', 'The recovered plans mention a buyer ledger at Azennios''s eastern meeting post. Jarod is safe at the expedition refuge. Return to that separate post, recover the ledger from its correspondence chest, and bring it to Ortell at the refuge. There is no need to revisit the prisoner altar.', 'Speak with Elementalist Ortell at the expedition refuge.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900221 AND owner.`chapter`=2)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900221, 'These payments lead to excavations in Dustwallow. Jarod knows someone there who will listen. We will send you with his introduction.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900221 AND owner.`chapter`=2)
@@ -870,7 +894,9 @@ SELECT 900200, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900200, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900200, 2, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
+SELECT 900200, 2, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900200, 3, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900201, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900201 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -908,6 +934,8 @@ SELECT 900204, 2, 1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900204, 3, 2, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900204, 4, 3, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900205, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900205 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900205, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900205 AND owner.`chapter`=2);
@@ -920,17 +948,15 @@ SELECT 900206, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900206, 2, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900206, 3, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900206, 4, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900206, 5, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900207, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900207, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900207, 2, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900207, 3, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900207, 4, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900207, 5, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900208, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900208 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -946,9 +972,13 @@ SELECT 900210, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900210, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900210, 2, 1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+SELECT 900210, 2, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900210, 3, 2, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+SELECT 900210, 3, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900210, 4, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900210, 5, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900211, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900211 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -960,15 +990,15 @@ SELECT 900212, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900213, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900213, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
+SELECT 900213, 1, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900213, 2, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900213, 3, 5, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
+SELECT 900213, 2, 5, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900214, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900214, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900214, 2, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900215, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -982,11 +1012,7 @@ SELECT 900217, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900217, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900217, 2, 4, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900218, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900218, 1, 0, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900219, 0, -1, 1, 81, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900219 AND owner.`chapter`=2);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -1010,9 +1036,11 @@ SELECT 900222, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900200, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900200, 1, 0, 869, 1666 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
+SELECT 900200, 1, 0, 950, 1600 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900200, 2, 0, 869, 1666 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
+SELECT 900200, 2, 0, 965, 1577 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900200, 3, 0, 965, 1577 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900200 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900201, 0, 0, 635, 1624 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900201 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1050,6 +1078,8 @@ SELECT 900204, 2, 0, 636, 1632 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_co
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900204, 3, 0, 636, 1632 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900204, 4, 0, 636, 1632 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900204 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900205, 0, 0, 635, 1624 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900205 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900205, 1, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900205 AND owner.`chapter`=2);
@@ -1058,21 +1088,19 @@ SELECT 900205, 2, 0, 646, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_co
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900206, 0, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900206, 1, 0, 636, 1617 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+SELECT 900206, 1, 0, 591, 1639 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900206, 2, 0, 649, 1626 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+SELECT 900206, 2, 0, 610, 1662 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900206, 3, 0, 636, 1680 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900206, 4, 0, 661, 1666 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900206, 5, 0, 677, 1640 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900206 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900207, 0, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900207, 1, 0, 650, 1637 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900207, 2, 0, 657, 1637 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900207, 3, 0, 657, 1616 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900207, 4, 0, 625, 1616 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900207, 5, 0, 625, 1635 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
+SELECT 900207, 1, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900207 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900208, 0, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900208 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1086,11 +1114,15 @@ SELECT 900209, 2, 0, 600, 1654 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_co
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900210, 0, 0, 646, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900210, 1, 0, 647, 1636 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+SELECT 900210, 1, 0, 728, 1745 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900210, 2, 0, 640, 1640 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+SELECT 900210, 2, 0, 745, 1770 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900210, 3, 0, 628, 1638 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+SELECT 900210, 3, 0, 758, 1744 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900210, 4, 0, 784, 1758 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900210, 5, 0, 782, 1737 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900210 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900211, 0, 0, 646, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900211 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1100,35 +1132,31 @@ SELECT 900212, 0, 0, 646, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_co
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900212, 1, 0, 646, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900212 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900213, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
+SELECT 900213, 0, 0, 590, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900213, 1, 0, 1089, 1537 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
+SELECT 900213, 1, 0, 632, 1626 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900213, 2, 0, 632, 1626 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
+SELECT 900213, 2, 0, 895, 1687 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900213, 3, 0, 895, 1687 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900213 AND owner.`chapter`=2);
+SELECT 900214, 0, 0, 590, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900214, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
+SELECT 900214, 1, 0, 735, 1410 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900214, 1, 0, 883, 1675 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
+SELECT 900214, 2, 0, 735, 1410 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900214 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900215, 0, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900215, 1, 0, 654, 1624 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2);
+SELECT 900215, 1, 0, 724, 1482 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900215 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900216, 0, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900216, 1, 0, 887, 1677 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2);
+SELECT 900216, 1, 0, 810, 1815 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900216 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900217, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
+SELECT 900217, 0, 0, 590, 1630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900217, 1, 0, 887, 1677 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900217, 2, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
+SELECT 900217, 1, 0, 735, 1555 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900217 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900218, 0, 0, 644, 1620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900218, 1, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900218 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900219, 0, 0, 895, 1682 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900219 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1144,7 +1172,7 @@ SELECT 900220, 2, 0, 895, 1682 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_co
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900221, 0, 0, 1100, 1540 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900221 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900221, 1, 0, 894, 1688 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900221 AND owner.`chapter`=2);
+SELECT 900221, 1, 0, 732, 1404 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900221 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900222, 0, 0, -3970, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900222 AND owner.`chapter`=2);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1209,6 +1237,19 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 SELECT 4001415, 1, 4575, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001415 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
 UPDATE `creature_template` SET `name`='Marsh Skitterer' WHERE `entry`=4001416 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001416 AND owner.`chapter`=3);
+UPDATE `creature_template` SET `name`='Relic Raider Outrider' WHERE `entry`=4001417 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`)
+SELECT 4001417, 1, 12282, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3)
+ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
+UPDATE `creature_template` SET `name`='Na Lek' WHERE `entry`=4001418 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001418 AND owner.`chapter`=3);
+INSERT INTO `npc_text` (`ID`, `text0_0`, `Probability0`)
+SELECT 4001418, 'The raiders have bound these waters. Break their guardians before you draw a sample.', 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001418 AND owner.`chapter`=3)
+ON DUPLICATE KEY UPDATE `text0_0`=VALUES(`text0_0`), `Probability0`=VALUES(`Probability0`);
+UPDATE `creature_template` SET `name`='Bound Pool Guardian' WHERE `entry`=4001419 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001419 AND owner.`chapter`=3);
+UPDATE `creature_template` SET `name`='Relic Raider Dominator' WHERE `entry`=4001420 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`)
+SELECT 4001420, 1, 4575, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3)
+ON DUPLICATE KEY UPDATE `ItemID1`=VALUES(`ItemID1`), `ItemID2`=VALUES(`ItemID2`), `ItemID3`=VALUES(`ItemID3`);
 UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001414 WHERE `entry`=4001414 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001414 AND owner.`chapter`=3);
 DELETE FROM `creature_loot_template` WHERE `Entry`=4001414 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001414 AND owner.`chapter`=3);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
@@ -1247,6 +1288,36 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 SELECT 4001416, 1475, 0, 25, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001416 AND owner.`chapter`=3);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
 SELECT 4001416, 3174, 0, 35, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001416 AND owner.`chapter`=3);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001417 WHERE `entry`=4001417 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001417 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001417, 4306, 0, 40, 0, 1, 0, 1, 2 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001417, 3771, 0, 8, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001417, 1708, 0, 8, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001417, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=2586 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`) AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001417 AND owner.`chapter`=3);
+UPDATE `creature_template` SET `mingold`=27,`maxgold`=181,`lootid`=4001420 WHERE `entry`=4001420 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001420 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001420, 4306, 0, 40, 0, 1, 0, 1, 2 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001420, 3771, 0, 8, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001420, 1708, 0, 8, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
+-- Reuse the stock donor's level-appropriate world-drop references when installed.
+INSERT INTO `creature_loot_template`
+  (`Entry`,`Item`,`Reference`,`Chance`,`QuestRequired`,`LootMode`,`GroupId`,`MinCount`,`MaxCount`)
+SELECT 4001420, l.`Item`,l.`Reference`,l.`Chance`,0,l.`LootMode`,l.`GroupId`,l.`MinCount`,l.`MaxCount`
+FROM `creature_loot_template` l
+WHERE l.`Entry`=2586 AND l.`Reference`>=1000000 AND l.`QuestRequired`=0
+  AND EXISTS (SELECT 1 FROM `reference_loot_template` r WHERE r.`Entry`=l.`Reference`) AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
 SELECT 4001416, 900302, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001416 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
@@ -1256,20 +1327,17 @@ ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
 SELECT 4001415, 900303, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001415 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001414, 900315, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001414 AND owner.`chapter`=3)
+ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001420, 900300, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001420 AND owner.`chapter`=3)
+ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
 UPDATE `gameobject_template` SET `name`='Chezin''s Abandoned Pack' WHERE `entry`=4001500 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001500 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Dawnchaser Medical Tent' WHERE `entry`=4001501 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001501 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Dawnchaser Cooking Hearth' WHERE `entry`=4001502 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001502 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Western Raider Lookout Supplies' WHERE `entry`=4001503 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001503 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Central Raider Lookout Supplies' WHERE `entry`=4001504 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001504 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Eastern Raider Lookout Supplies' WHERE `entry`=4001505 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001505 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Marsh Lotus Leaves' WHERE `entry`=4001506 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001506 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Raider Excavation Orders' WHERE `entry`=4001507 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001507 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Raider Relic Binding Apparatus' WHERE `entry`=4001508 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001508 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Ward-tainted Pool Focus' WHERE `entry`=4001509 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001509 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Leza''s Memorial' WHERE `entry`=4001510 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001510 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Dawnchaser Family Provisions' WHERE `entry`=4001511 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001511 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Traveler Provisions' WHERE `entry`=4001512 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001512 AND owner.`chapter`=3);
-UPDATE `gameobject_template` SET `name`='Field Hospital Provisions' WHERE `entry`=4001513 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001513 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Redhorn''s Bundled Cot' WHERE `entry`=4001514 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001514 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Cloudhoof''s Bundled Cot' WHERE `entry`=4001515 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001515 AND owner.`chapter`=3);
 UPDATE `gameobject_template` SET `name`='Ruined Scouting Shelter' WHERE `entry`=4001516 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001516 AND owner.`chapter`=3);
@@ -1289,6 +1357,7 @@ UPDATE `item_template` SET `displayid`=9846,`description`='A reminder of the Daw
 UPDATE `item_template` SET `displayid`=9846,`description`='A reminder of the Dawnchasers'' promise to care for the living.' WHERE `entry`=900312 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900312 AND owner.`chapter`=3);
 UPDATE `item_template` SET `displayid`=9846,`description`='A reminder of the Dawnchasers'' promise to care for the living.' WHERE `entry`=900313 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900313 AND owner.`chapter`=3);
 UPDATE `item_template` SET `displayid`=9846,`description`='A reminder of the Dawnchasers'' promise to care for the living.' WHERE `entry`=900314 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900314 AND owner.`chapter`=3);
+UPDATE `item_template` SET `displayid`=22136,`description`='A poison sample for Dezco, taken from a relic raider.' WHERE `entry`=900315 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900315 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
 SELECT 900300, 'Find Chezin at the ruined scouting camp and recover his report.', 'Jarod trusts you, and that is enough for me. My brother-in-law Chezin went to the scouting camp southeast of us. The camp has fallen silent. Find his abandoned pack beside the ruined scouting shelter. If he has a report, bring it back. Do not promise Leza he is coming home until you know.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900300 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
@@ -1301,18 +1370,18 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900300 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900300 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900300 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900300 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900301, 'Obtain the supplied antidote and administer it to Leza while Nala monitors her.', 'Leza is ill, and the marsh fever has brought her into labor too soon. Kang has prepared an antidote. Ask Nala to prepare Leza inside the medical tent, then target your patient with the antidote while Nala is beside her. Stay for her response. We need to know whether it helps.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 'Leza treated under Nala''s care', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3)
+SELECT 900301, 'Collect 5 poisoned blades from relic raiders and bring them to Dezco.', 'Chezin''s report describes the raiders'' poisoned weapons. Kill relic raiders at their marsh camp and bring five blades back as samples. Nala needs to identify the poison before treating anyone. Clicking the medical tent does not provide that evidence.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900301, 'The fever has eased, but this is not a cure. We will keep looking, and Nala will stay with her.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900301, 'Did Leza respond to the antidote? Nala must watch the treatment.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3)
+SELECT 900301, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900301 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900301 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900302, 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 'People who have not eaten cannot recover. Gather eight pieces of meat from the marsh skitterers south of camp, then use our cooking hearth to help prepare the stew. Keep the ingredients until you return them to me. Nobody here needs a cooking profession to lend a hand.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 'Skitterer stew prepared', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3)
+SELECT 900302, 'Gather 8 skitterer meat and help prepare food for the weakened camp.', 'Gather eight pieces of skitterer meat from the pools around camp, then speak to Kang at the cooking hearth. He will prepare food for the weakened expedition.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 'Skitterer stew prepared', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900302, 'Hot food will do more for this camp than another empty assurance. Thank you.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3)
@@ -1323,13 +1392,13 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900302 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900302 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900303, 'Disable 3 raider lookout posts and defeat 6 guards watching the expedition.', 'The relic raiders are watching us. Disable each of the three raider lookout supply crates to the southeast and defeat six Marsh Relic Raiders. Each post needs only one visit; disabling the same post again will not blind another lookout. Keep their attention away from the medical tent.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 'Marsh Relic Raiders defeated', 'Western lookout disabled', 'Central lookout disabled', 'Eastern lookout disabled' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3)
+SELECT 900303, 'Kill the relic raider outrider watching the expedition.', 'An outrider scouts the track north of the Dawnchaser camp. Defeat him before he reports our position and brings more raiders down on the expedition.', 'Speak with Kor Bloodtusk at the Dawnchaser field camp.', 'Raider outrider defeated', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900303, 'Their lookout line is broken. Now we can prepare without their eyes on every movement.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900303, 'Are all three lookout posts disabled, and their guards driven back?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3)
+SELECT 900303, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900303 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900303 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
@@ -1356,7 +1425,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900305 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900305 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900305 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900305 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900306, 'Recover excavation orders and compare the raiders'' focus with the expedition ledger.', 'Chezin saw the raiders excavating stones marked with the same cuts described in Jarod''s ledger. Recover fresh orders from the raider chest, inspect the binding apparatus beside it, then ask me to compare the orders with the ledger. We must learn what is poisoning the water.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 'Binding apparatus inspected', 'Orders compared with Dezco', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3)
+SELECT 900306, 'Kill the relic raider dominator and recover his excavation orders.', 'The dominator leads the raiders at the marsh ruins. Defeat him and take his excavation orders. Those orders will tell us why the raiders have come and how their work connects to the buyers in Jarod''s ledger. Bring the document back to Dezco.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900306, 'The cuts match Jarod''s ledger. Someone is buying relics that should have stayed buried.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3)
@@ -1367,18 +1436,18 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900306 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900306 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900307, 'Collect one water sample from the tainted pool and bring it to Kang for testing.', 'The orders describe a pool that takes strength from one life and feeds it into the buried ward. Collect a sample at the pool focus south of camp and take it to Kang. A promise of youth means little until someone has tested what it costs.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3)
+SELECT 900307, 'Speak to Na Lek, defeat four bound pool guardians, and bring the purified water to Kang.', 'Na Lek is held near the ward-tainted pool. Speak to the water spirit and help break the guardians'' hold. He will aid you while you fight four bound guardians, then allow a purified sample to be drawn. The defeated guardians remain recorded if the encounter is interrupted; return to Na Lek to resume or recover a sample that would not fit in your bags.', 'Speak with Kang Bramblestaff at the Dawnchaser cooking hearth.', 'Bound pool guardians defeated', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900307, 'This water drains life. I will not give it to Leza as medicine. I can explain the mark, but I cannot undo what she has already suffered.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900307, 'Bring the pool sample here. I will test it before anyone drinks it.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3)
+SELECT 900307, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900307 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900307 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900308, 'Stay near the medical tent through Leza''s delivery and Nala''s care for the family.', 'Kang has found the same draining mark in the water and in the stones the raiders unearthed. Leza has already been exposed. Nala cannot leave her now. Use the medical tent and stand nearby while we attend to her. Stay with us through the birth and what follows. Your presence is all I can ask.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 'Leza''s delivery witnessed', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3)
+SELECT 900308, 'Stay near the medical tent through Leza''s delivery and Nala''s care for the family.', 'Speak to Nala at the field hospital to begin Leza''s delivery scene. Stay nearby while the family and healer work. The tent is shelter, not a scene button. Redhorn and Cloudhoof must both be safe when the scene ends.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 'Leza''s delivery witnessed', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900308, 'Leza is gone. Redhorn and Cloudhoof are here. I must be here for them, too.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3)
@@ -1389,7 +1458,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900308 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3);
 DELETE FROM `quest_poi` WHERE `QuestID`=900308 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900309, 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 'Leza led us here because she believed the living could find something better. There must be room to mourn her before we speak of another march. Attend the memorial at the northern edge of camp. Stay quietly for the vigil, then return to me for a totem in her memory.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 'Vigil attended', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900309 AND owner.`chapter`=3)
+SELECT 900309, 'Attend the memorial and accept Leza''s keepsake without a combat objective.', 'Speak to Dezco, then join him at Leza''s memorial for a quiet vigil. Remain nearby until he has finished. The fire is a memorial, not a control to click.', 'Speak with Sunwalker Dezco at the Dawnchaser field camp.', 'Vigil attended', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900309 AND owner.`chapter`=3)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900309, 'Keep this totem. Let it remind you that the person who dies is more than the moment of their death.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900309 AND owner.`chapter`=3)
@@ -1428,7 +1497,17 @@ SELECT 900300, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900301, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900301, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+SELECT 900301, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900301, 2, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900301, 3, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900301, 4, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900301, 5, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900301, 6, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900302, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -1454,16 +1533,6 @@ SELECT 900303, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpc
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900303, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900303, 2, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900303, 3, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900303, 4, 1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900303, 5, 2, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900303, 6, 3, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900304, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900304, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
@@ -1473,6 +1542,12 @@ INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAr
 SELECT 900304, 3, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900304, 4, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900304, 5, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900304, 6, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900304, 7, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900305, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900305 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -1504,15 +1579,13 @@ SELECT 900305, 13, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpc
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900306, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900306, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900306, 2, 1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900306, 3, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
+SELECT 900306, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900307, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900307, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
+SELECT 900307, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900307, 2, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900308, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -1542,7 +1615,17 @@ SELECT 900300, 1, 0, -3780, -3484 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900301, 0, 0, -3970, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900301, 1, 0, -3980, -3358 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+SELECT 900301, 1, 0, -3940, -3620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900301, 2, 0, -3935, -3617 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900301, 3, 0, -3938, -3627 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900301, 4, 0, -3735, -3360 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900301, 5, 0, -3722, -3370 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900301, 6, 0, -3745, -3378 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900301 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900302, 0, 0, -3960, -3347 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900302 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1566,17 +1649,7 @@ SELECT 900302, 9, 0, -3942, -3440 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900303, 0, 0, -3965, -3359 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900303, 1, 0, -3940, -3620 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900303, 2, 0, -3935, -3617 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900303, 3, 0, -3938, -3627 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900303, 4, 0, -3932, -3624 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900303, 5, 0, -3948, -3625 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900303, 6, 0, -3940, -3610 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
+SELECT 900303, 1, 0, -3720, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900303 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900304, 0, 0, -3965, -3359 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1586,7 +1659,13 @@ SELECT 900304, 2, 0, -3935, -3617 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900304, 3, 0, -3938, -3627 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900304, 4, 0, -3945, -3621 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+SELECT 900304, 4, 0, -3735, -3360 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900304, 5, 0, -3722, -3370 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900304, 6, 0, -3745, -3378 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900304, 7, 0, -3945, -3621 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900304 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900305, 0, 0, -3970, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900305 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1618,15 +1697,13 @@ SELECT 900305, 13, 0, -3870, -3536 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_b
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900306, 0, 0, -3970, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900306, 1, 0, -3948, -3618 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900306, 2, 0, -3970, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900306, 3, 0, -3935, -3624 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
+SELECT 900306, 1, 0, -3935, -3624 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900306 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900307, 0, 0, -3960, -3347 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900307, 1, 0, -4012, -3660 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
+SELECT 900307, 1, 0, -3955, -3630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900307, 2, 0, -3955, -3630 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900307 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900308, 0, 0, -3970, -3350 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900308 AND owner.`chapter`=3);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
@@ -1717,15 +1794,35 @@ UPDATE `creature_template` SET `name`='Marsh Stalker' WHERE `entry`=4001616 AND 
 UPDATE `creature_template` SET `name`='Essence of Despair' WHERE `entry`=4001617 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001617 AND owner.`chapter`=4);
 UPDATE `creature_template` SET `name`='Quintessence of Despair' WHERE `entry`=4001618 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001618 AND owner.`chapter`=4);
 UPDATE `creature_template` SET `name`='Relit village hearth' WHERE `entry`=4001619 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001619 AND owner.`chapter`=4);
-UPDATE `gameobject_template` SET `name`='Yi-Mo''s Discarded Pack' WHERE `entry`=4001700 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001700 AND owner.`chapter`=4);
-UPDATE `gameobject_template` SET `name`='Fresh Marsh Herb' WHERE `entry`=4001701 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001701 AND owner.`chapter`=4);
+UPDATE `creature_template` SET `name`='Weeping Marsh Horror' WHERE `entry`=4001620 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001620 AND owner.`chapter`=4);
+UPDATE `creature_template` SET `name`='Marsh Panther' WHERE `entry`=4001621 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001621 AND owner.`chapter`=4);
+UPDATE `creature_template` SET `mingold`=45,`maxgold`=132,`lootid`=4001620 WHERE `entry`=4001620 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001620 AND owner.`chapter`=4);
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001620 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001620 AND owner.`chapter`=4);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001620, 7070, 0, 30, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001620 AND owner.`chapter`=4);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001620, 10940, 0, 15, 0, 1, 0, 1, 2 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001620 AND owner.`chapter`=4);
+UPDATE `creature_template` SET `mingold`=45,`maxgold`=132,`lootid`=4001621 WHERE `entry`=4001621 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001621 AND owner.`chapter`=4);
+DELETE FROM `creature_loot_template` WHERE `Entry`=4001621 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001621 AND owner.`chapter`=4);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001621, 12203, 0, 65, 0, 1, 0, 1, 2 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001621 AND owner.`chapter`=4);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001621, 5635, 0, 18, 0, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001621 AND owner.`chapter`=4);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001620, 900416, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001620 AND owner.`chapter`=4)
+ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`)
+SELECT 4001621, 900419, 0, 100, 1, 1, 0, 1, 1 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='creature' AND owner.`entry`=4001621 AND owner.`chapter`=4)
+ON DUPLICATE KEY UPDATE `Reference`=VALUES(`Reference`), `Chance`=VALUES(`Chance`), `QuestRequired`=VALUES(`QuestRequired`), `LootMode`=VALUES(`LootMode`), `GroupId`=VALUES(`GroupId`), `MinCount`=VALUES(`MinCount`), `MaxCount`=VALUES(`MaxCount`);
 UPDATE `gameobject_template` SET `name`='Old Village Well' WHERE `entry`=4001702 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001702 AND owner.`chapter`=4);
-UPDATE `gameobject_template` SET `name`='Damaged Village Ward' WHERE `entry`=4001703 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001703 AND owner.`chapter`=4);
+UPDATE `gameobject_template` SET `name`='Tainted Well-water Sack' WHERE `entry`=4001703 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001703 AND owner.`chapter`=4);
 UPDATE `gameobject_template` SET `name`='Sound Village Provisions' WHERE `entry`=4001704 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001704 AND owner.`chapter`=4);
-UPDATE `gameobject_template` SET `name`='Yi-Mo''s Lost Provisions' WHERE `entry`=4001705 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001705 AND owner.`chapter`=4);
 UPDATE `gameobject_template` SET `name`='Provisioner Hearth' WHERE `entry`=4001706 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001706 AND owner.`chapter`=4);
 UPDATE `gameobject_template` SET `name`='Herbalist Hearth' WHERE `entry`=4001707 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001707 AND owner.`chapter`=4);
 UPDATE `gameobject_template` SET `name`='Cooking Hearth' WHERE `entry`=4001708 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001708 AND owner.`chapter`=4);
+UPDATE `gameobject_template` SET `name`='Rain-slick Honeycomb' WHERE `entry`=4001709 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001709 AND owner.`chapter`=4);
+UPDATE `gameobject_template` SET `name`='Caught Marsh Mudfish' WHERE `entry`=4001710 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001710 AND owner.`chapter`=4);
+UPDATE `gameobject_template` SET `name`='Jar of Pigment' WHERE `entry`=4001711 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='gameobject' AND owner.`entry`=4001711 AND owner.`chapter`=4);
 UPDATE `item_template` SET `displayid`=4110,`description`='The broken rune turns the village''s fear toward its old well.' WHERE `entry`=900400 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900400 AND owner.`chapter`=4);
 UPDATE `item_template` SET `displayid`=6399,`description`='Sound provisions recovered from the village stores.' WHERE `entry`=900401 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900401 AND owner.`chapter`=4);
 UPDATE `item_template` SET `displayid`=15711,`description`='Kang has warmed the gathered herbs for Ken-Ken''s treatment.' WHERE `entry`=900402 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900402 AND owner.`chapter`=4);
@@ -1739,6 +1836,11 @@ UPDATE `item_template` SET `displayid`=9846,`description`='The village remembers
 UPDATE `item_template` SET `displayid`=9846,`description`='The village remembers those who stayed when hope was hardest to find.' WHERE `entry`=900413 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900413 AND owner.`chapter`=4);
 UPDATE `item_template` SET `displayid`=9846,`description`='The village remembers those who stayed when hope was hardest to find.' WHERE `entry`=900414 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900414 AND owner.`chapter`=4);
 UPDATE `item_template` SET `displayid`=9846,`description`='The village remembers those who stayed when hope was hardest to find.' WHERE `entry`=900415 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900415 AND owner.`chapter`=4);
+UPDATE `item_template` SET `displayid`=4136,`description`='An ingredient requested by Ken-Ken.' WHERE `entry`=900416 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900416 AND owner.`chapter`=4);
+UPDATE `item_template` SET `displayid`=24522,`description`='An ingredient requested by Ken-Ken.' WHERE `entry`=900417 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900417 AND owner.`chapter`=4);
+UPDATE `item_template` SET `displayid`=25468,`description`='An ingredient requested by Ken-Ken.' WHERE `entry`=900418 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900418 AND owner.`chapter`=4);
+UPDATE `item_template` SET `displayid`=6002,`description`='An ingredient requested by Ken-Ken.' WHERE `entry`=900419 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900419 AND owner.`chapter`=4);
+UPDATE `item_template` SET `displayid`=54605,`description`='An ingredient requested by Ken-Ken.' WHERE `entry`=900420 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='item' AND owner.`entry`=900420 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
 SELECT 900400, 'Find Ken-Ken and inspect the village together.', 'Kang''s letter brought you to our relief station. The families here have food and shelter, but they have stopped caring for themselves. Ken-Ken is helping at the southern camp. Ask him to show you what has happened.', 'Speak with Ken-Ken at the village relief camp.', 'Village inspected with Ken-Ken', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900400 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
@@ -1751,7 +1853,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900400 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900400 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900400 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900400 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900401, 'Gather 6 safe food supplies and question 3 despondent residents.', 'We must rule out hunger first. Take six sound food bundles from the marked village crate, then hear the troubles of the village provisioner, herbalist and toolkeeper. Each has something different to tell us.', 'Speak with Ken-Ken at the village relief camp.', 'Village Provisioner questioned', 'Village Herbalist questioned', 'Village Toolkeeper questioned', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4)
+SELECT 900401, 'Question the three despondent residents about what is wrong with the village.', 'Speak to the provisioner, herbalist and cooking keeper here in the village. They have stopped tending their work and their neighbors. Find out why. We need to understand this despair before Ken-Ken can try to treat it.', 'Speak with Ken-Ken at the village relief camp.', 'Village Provisioner questioned', 'Village Herbalist questioned', 'Village Toolkeeper questioned', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900401, 'Their stories share the same emptiness. We must find Yi-Mo.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4)
@@ -1762,46 +1864,46 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900401 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900401 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900402, 'Find Yi-Mo at the marked marsh trail and escort him away from the predators.', 'Yi-Mo has wandered down the marsh trail alone. Read the discarded pack southeast of the village to find him. Stay beside him, protect him from the stalker, and lead him back through the marked path.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 'Yi-Mo escorted to safety', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4)
+SELECT 900402, 'Find Yi-Mo on the marsh trail east of the village.', 'Yi-Mo has wandered out toward the eastern marsh trail, where predators hunt. Find him and speak to him. Finding him is the first task; bringing him home comes next.', 'Speak with Yi-Mo Longbrow at the village relief camp.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900402, 'You came all that way for me? I cannot understand it yet.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900402, 'Did Yi-Mo reach the village safely?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4)
+SELECT 900402, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900402 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900402 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900403, 'Recover Yi-Mo''s lost supplies and persuade him to return to the village.', 'You found me. I do not know why you bothered. My supplies are still beside that trail. Bring back three bundles and talk to me again; perhaps there is still a reason to return to my neighbors.', 'Speak with Ken-Ken at the village relief camp.', 'Yi-Mo persuaded to return', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4)
+SELECT 900403, 'Speak to Yi-Mo and bring him back to the village.', 'Yi-Mo will not come home on his own. Speak to him on the trail and insist that he stand up. Stay with him, clear the predators along the way, and bring him back to the village. His neighbors are waiting for him.', 'Speak with Ken-Ken at the village relief camp.', 'Yi-Mo persuaded to return', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900403, 'He has returned. Now we can begin treating the village together.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900403, 'Did you recover my supplies and speak with me?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4)
+SELECT 900403, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900403 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900403 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900404, 'Gather 8 local herbs and prepare medicine with Kang.', 'Both the families and Yi-Mo need our help. Gather eight fresh herb sprigs from the marked patches south of camp. Bring them to Kang by his cooking hearth and ask him to prepare the medicine.', 'Speak with Kang Bramblestaff at the village cooking hearth.', 'Medicinal herbs gathered', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4)
+SELECT 900404, 'Gather 4 chunks of honeycomb, 4 mudfish and 4 salty cores for Ken-Ken''s remedy.', 'Ken-Ken''s first theory needs three ingredients. Gather honeycomb from the small hives along the village''s eastern edge, take four mudfish from the provisioner''s fishing hamper, and defeat the weeping marsh horrors southeast of camp for four salty cores. Bring all three ingredients back to Ken-Ken.', 'Speak with Kang Bramblestaff at the village cooking hearth.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900404, 'The medicine is ready. Ken-Ken''s mask will carry it into the curse.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900404, 'Have you gathered eight sprigs and asked me to prepare them?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4)
+SELECT 900404, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900404 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900404 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900405, 'Use the supplied treatment mask to test 3 residents and identify the shared residue.', 'Ken-Ken made a mask with Kang''s medicine. Test it on the provisioner, herbalist and toolkeeper. The mask draws out a dark residue. Once all three have been tested, return to Ken-Ken for a sample bottle.', 'Speak with Ken-Ken at the village relief camp.', 'Village Provisioner tested', 'Village Herbalist tested', 'Village Toolkeeper tested', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4)
+SELECT 900405, 'Collect 18 panther fangs and the jar of pigment from the eastern marsh.', 'The first remedy did not remove the village''s despair. Ken-Ken remembers a mask used to confront it. Kill marsh panthers for eighteen fangs and retrieve the pigment jar at the edge of their hunting ground. Bring the materials here so he can prepare the mask; you will use it on the wardens in the next quest.', 'Speak with Ken-Ken at the village relief camp.', '', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900405, 'This residue came from every resident. It is the same influence.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `RewardText`=VALUES(`RewardText`);
 INSERT INTO `quest_request_items` (`ID`, `CompletionText`)
-SELECT 900405, 'Test all three residents before asking me to bottle the residue.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4)
+SELECT 900405, 'Have you completed the work I asked you to do?' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900405 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900405 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
@@ -1817,7 +1919,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900406 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900406 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900406 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900406 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900407, 'Sample the old ward by the well and confirm where the influence gathers.', 'The old well southeast of the village lies below a damaged ward. Inspect the well first, then take a rubbing of the ward beside it. Bring it to me before touching Yi-Mo with the mask again.', 'Speak with Maruut Stonebinder at the village relief camp.', 'Old well inspected', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900407 AND owner.`chapter`=4)
+SELECT 900407, 'Take a sample of the tainted water collected beside the old village well.', 'The villagers draw their water from the old well southeast of camp. Take a sample from the water sack beside it and bring it here. The treatment has helped the people; now we must find the source of the remaining gloom.', 'Speak with Maruut Stonebinder at the village relief camp.', 'Old well inspected', '', '', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900407 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900407, 'The ward has been pulling despair toward the well instead of dispersing it.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900407 AND owner.`chapter`=4)
@@ -1828,7 +1930,7 @@ ON DUPLICATE KEY UPDATE `CompletionText`=VALUES(`CompletionText`);
 DELETE FROM `quest_poi_points` WHERE `QuestID`=900407 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900407 AND owner.`chapter`=4);
 DELETE FROM `quest_poi` WHERE `QuestID`=900407 AND EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900407 AND owner.`chapter`=4);
 INSERT INTO `quest_template` (`ID`, `LogDescription`, `QuestDescription`, `QuestCompletionLog`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`)
-SELECT 900408, 'Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken''s help.', 'The broken ward has gathered the village''s despair around Yi-Mo. Meet Ken-Ken at the well southeast of camp and use the well to begin the confrontation. Defeat eight lesser manifestations there, use the mask on Yi-Mo, and defeat the Quintessence it releases. Ken-Ken will stand beside you.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 'Lesser manifestations defeated', 'Yi-Mo treated at the well', 'Quintessence of Despair defeated', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900408 AND owner.`chapter`=4)
+SELECT 900408, 'Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken''s help.', 'Meet Ken-Ken at the old village well. Defeat the eight lesser manifestations that gather there, then use the mask on Yi-Mo. That will draw out the Quintessence of Despair. Defeat it with Ken-Ken''s help and keep Yi-Mo alive.', 'Speak with Yi-Mo Longbrow at the village relief camp.', 'Lesser manifestations defeated', 'Yi-Mo treated at the well', 'Quintessence of Despair defeated', '' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900408 AND owner.`chapter`=4)
 ON DUPLICATE KEY UPDATE `LogDescription`=VALUES(`LogDescription`), `QuestDescription`=VALUES(`QuestDescription`), `QuestCompletionLog`=VALUES(`QuestCompletionLog`), `ObjectiveText1`=VALUES(`ObjectiveText1`), `ObjectiveText2`=VALUES(`ObjectiveText2`), `ObjectiveText3`=VALUES(`ObjectiveText3`), `ObjectiveText4`=VALUES(`ObjectiveText4`);
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`)
 SELECT 900408, 'You saved me twice. My thoughts are my own again. We will repair what we neglected.' WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900408 AND owner.`chapter`=4)
@@ -1884,47 +1986,45 @@ SELECT 900401, 2, 1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900401, 3, 2, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900401, 4, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900402, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900402, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900403, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900403, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900403, 2, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
+SELECT 900403, 2, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900404, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 2, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 2, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 3, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 3, 5, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 4, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 4, 6, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 5, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 5, 6, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 6, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 6, 6, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 7, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 8, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
-INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900404, 9, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 7, 6, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900405, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900405, 1, 0, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 1, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900405, 2, 1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 2, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
-SELECT 900405, 3, 2, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 3, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900405, 4, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900405, 5, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900405, 6, 4, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
+SELECT 900405, 7, 5, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
 SELECT 900406, 0, -1, 1, 141, 0, 0, 0 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900406 AND owner.`chapter`=4);
 INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`)
@@ -1980,47 +2080,45 @@ SELECT 900401, 2, 0, -4588, -3246 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900401, 3, 0, -4590, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900401, 4, 0, -4565, -3258 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900401 AND owner.`chapter`=4);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900402, 0, 0, -4588, -3252 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900402, 1, 0, -4515, -3300 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
+SELECT 900402, 0, 0, -4515, -3300 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900402 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900403, 0, 0, -4580, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900403, 1, 0, -4588, -3252 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
+SELECT 900403, 1, 0, -4515, -3300 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900403, 2, 0, -4517, -3302 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
+SELECT 900403, 2, 0, -4588, -3252 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900403 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 0, 0, -4575, -3255 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 0, 0, -4580, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 1, 0, -4570, -3280 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 1, 0, -4564, -3291 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 2, 0, -4578, -3280 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 2, 0, -4621, -3280 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 3, 0, -4586, -3280 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 3, 0, -4610, -3208 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 4, 0, -4594, -3280 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 4, 0, -4629, -3337 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 5, 0, -4595, -3290 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 5, 0, -4597, -3333 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 6, 0, -4585, -3290 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 6, 0, -4607, -3365 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 7, 0, -4574, -3290 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 8, 0, -4565, -3290 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
-INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900404, 9, 0, -4575, -3255 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
+SELECT 900404, 7, 0, -4638, -3362 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900404 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900405, 0, 0, -4580, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900405, 1, 0, -4586, -3240 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 1, 0, -4472, -3287 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900405, 2, 0, -4588, -3246 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 2, 0, -4496, -3296 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900405, 3, 0, -4590, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 3, 0, -4518, -3285 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
-SELECT 900405, 4, 0, -4580, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+SELECT 900405, 4, 0, -4510, -3315 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900405, 5, 0, -4470, -3317 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900405, 6, 0, -4485, -3334 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
+SELECT 900405, 7, 0, -4475, -3280 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900405 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)
 SELECT 900406, 0, 0, -4580, -3250 WHERE EXISTS (SELECT 1 FROM `mod_customnpcs_bs_content` owner WHERE owner.`kind`='quest' AND owner.`entry`=900406 AND owner.`chapter`=4);
 INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`)

@@ -68,8 +68,10 @@ enum Action : std::uint32_t
 struct PlayerState : DataMap::Base
 {
     ObjectGuid scene;
+    ObjectGuid yimo;
     std::uint32_t phase = 0;
     std::unordered_map<ObjectGuid, std::uint32_t> herbs;
+    EventMap encounters;
 };
 PlayerState& State(Player* p)
 {
@@ -182,7 +184,7 @@ void Cleanup(Player* p)
 }
 void Recover(Player* p)
 {
-    if (Held(p, QUEST_TEST) || Held(p, QUEST_TREAT) || Held(p, QUEST_DESPAIR))
+    if (Held(p, QUEST_TREAT) || Held(p, QUEST_DESPAIR))
         Give(p, ITEM_MASK);
     if (Held(p, QUEST_LETTER))
         Give(p, ITEM_LETTER);
@@ -194,7 +196,7 @@ std::uint32_t SceneQuest(std::uint32_t mode)
         case INSPECT:
             return QUEST_INTRO;
         case ESCORT:
-            return QUEST_FIND;
+            return QUEST_CHEER;
         case TREAT:
             return QUEST_TREAT;
         case DESPAIR:
@@ -341,8 +343,9 @@ struct npc_bs_c04_sceneAI : ScriptedAI
         }
         else if (step + 1 == EscortPath.size())
         {
-            Credit(p, QUEST_FIND, CREDIT_ESCORT);
-            Tell(p, "Yi-Mo reaches the village approach. Speak to him at the southern relief camp.");
+            Credit(p, QUEST_CHEER, CREDIT_CHEER);
+            p->UpdateObjectVisibility(false);
+            Tell(p, "Yi-Mo reaches the village. Return to Ken-Ken and tell him that Yi-Mo is safe.");
             Abort();
         }
         else
@@ -473,7 +476,7 @@ struct npc_bs_c04_sceneAI : ScriptedAI
             }
             else if (event == TIMEOUT)
             {
-                Tell(p, "The treatment party withdraws. Speak to Ken-Ken or use the trail sign to resume.");
+                Tell(p, "This attempt has ended. Return to Yi-Mo or Ken-Ken to try again.");
                 Abort();
                 return;
             }
@@ -483,6 +486,7 @@ struct npc_bs_c04_sceneAI : ScriptedAI
                     yi->Whisper("My mind is clear. You came back for me twice. We will rebuild, and we will remember.",
                                 LANG_UNIVERSAL, p);
                 Credit(p, QUEST_DESPAIR, CREDIT_BOSS);
+                p->UpdateObjectVisibility(false);
                 Abort();
                 return;
             }
@@ -625,7 +629,7 @@ struct npc_bs_c04_enemyAI : ScriptedAI
     EventMap events;
     void Reset() override
     {
-        me->SetReactState(REACT_DEFENSIVE);
+        me->SetReactState(me->ToTempSummon() ? REACT_DEFENSIVE : REACT_AGGRESSIVE);
         events.Reset();
         events.ScheduleEvent(CHECK, 1s);
         events.ScheduleEvent(COMBAT_SPELL, 6s);
@@ -643,6 +647,8 @@ struct npc_bs_c04_enemyAI : ScriptedAI
     bool Allowed(Unit const* unit) const
     {
         Player const* p = unit ? unit->GetCharmerOrOwnerPlayerOrPlayerItself() : nullptr;
+        if (owner.IsEmpty())
+            return p && (me->GetEntry() == NPC_WEEPING_HORROR || me->GetEntry() == NPC_PANTHER);
         Creature const* c = unit ? unit->ToCreature() : nullptr;
         TempSummon const* summon = c ? c->ToTempSummon() : nullptr;
         return (p && p->GetGUID() == owner) ||
@@ -675,6 +681,11 @@ struct npc_bs_c04_enemyAI : ScriptedAI
         {
             if (event == CHECK)
             {
+                if (owner.IsEmpty())
+                {
+                    events.ScheduleEvent(CHECK, 1s);
+                    continue;
+                }
                 Player* p = ObjectAccessor::FindConnectedPlayer(owner);
                 if (!Enabled() || !p || !p->IsAlive() || !SameWorld(p, me) || !ObjectAccessor::GetCreature(*me, parent))
                 {
@@ -686,7 +697,8 @@ struct npc_bs_c04_enemyAI : ScriptedAI
             else if (event == COMBAT_SPELL)
             {
                 if (UpdateVictim() && !me->HasUnitState(UNIT_STATE_CASTING))
-                    DoCastVictim(me->GetEntry() == NPC_STALKER ? SPELL_POISON : SPELL_SHADOW_BOLT);
+                    DoCastVictim(me->GetEntry() == NPC_STALKER || me->GetEntry() == NPC_PANTHER
+                                     ? SPELL_POISON : SPELL_SHADOW_BOLT);
                 events.ScheduleEvent(COMBAT_SPELL, 8s);
             }
         }
@@ -707,8 +719,6 @@ void Menu(Player* p, Creature* c)
     {
         if (Active(p, QUEST_INTRO))
             add(INSPECT_VILLAGE, "Show me what has happened to the families.");
-        if (Active(p, QUEST_TEST))
-            add(BOTTLE_RESIDUE, "Bottle the residue from the three tests.");
         if (Active(p, QUEST_TREAT))
             add(BEGIN_TREATMENT, "Begin or resume the village treatment round.");
         if (Active(p, QUEST_DESPAIR))
@@ -722,12 +732,10 @@ void Menu(Player* p, Creature* c)
     if (entry == NPC_YIMO)
     {
         if (Active(p, QUEST_CHEER))
-            add(ENCOURAGE, "Your supplies are safe. Your neighbors still need you.");
+            add(ENCOURAGE, "Stand up, Yi-Mo. We are going back to the village.");
         if (Active(p, QUEST_PLEDGE))
             add(PLEDGE, "I will remember your promise of aid.");
     }
-    if (entry == NPC_KANG && Active(p, QUEST_MEDICINE))
-        add(MAKE_MEDICINE, "Prepare the herbs at your hearth.");
     if (entry == NPC_MEI && Active(p, QUEST_PLEDGE))
         add(NAME_LIAISON, "Will you become the village's supply liaison?");
 }
@@ -739,6 +747,8 @@ bool Select(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action)
     if (!Interact(p, c))
         return true;
     std::uint32_t entry = c->GetEntry();
+    if (entry == NPC_YIMO && c->ToTempSummon() && !Owned(c, p))
+        return true;
     auto index = Index(VillagerEntries, entry);
     if (action == RECOVER)
         Recover(p);
@@ -767,10 +777,13 @@ bool Select(Player* p, Creature* c, std::uint32_t sender, std::uint32_t action)
         c->Whisper(stories[index], LANG_UNIVERSAL, p);
         Credit(p, QUEST_FOOD, QuestionCredits[index]);
     }
-    else if (action == ENCOURAGE && entry == NPC_YIMO && Active(p, QUEST_CHEER) && p->HasItemCount(ITEM_FOOD, 3))
+    else if (action == ENCOURAGE && entry == NPC_YIMO && Active(p, QUEST_CHEER) && Owned(c, p))
     {
-        c->Whisper("You kept them safe. Perhaps I can still do one useful thing for my neighbors.", LANG_UNIVERSAL, p);
-        Credit(p, QUEST_CHEER, CREDIT_CHEER);
+        if (Start(p, ESCORT))
+        {
+            State(p).yimo.Clear();
+            c->DespawnOrUnsummon();
+        }
     }
     else if (action == MAKE_MEDICINE && entry == NPC_KANG && Active(p, QUEST_MEDICINE) &&
              Count(p, QUEST_MEDICINE, CREDIT_HERBS) == 8 && c->FindNearestGameObject(GO_HEARTH_C, 12.0f))
@@ -813,6 +826,15 @@ struct npc_bs_c04_contactAI : ScriptedAI
 {
     explicit npc_bs_c04_contactAI(Creature* c) : ScriptedAI(c) {}
     EventMap events;
+    bool CanBeSeen(Player const* seer) override
+    {
+        if (me->GetEntry() != NPC_YIMO || me->ToTempSummon() || !seer || seer->IsGameMaster())
+            return true;
+        std::uint16_t slot = seer->FindQuestSlot(QUEST_CHEER);
+        bool returned = seer->IsQuestRewarded(QUEST_CHEER) ||
+                        (slot < MAX_QUEST_LOG_SIZE && seer->GetQuestSlotCounter(slot, 0));
+        return returned && seer->GetQuestStatus(QUEST_DESPAIR) != QUEST_STATUS_INCOMPLETE;
+    }
     void Flags()
     {
         if (Enabled())
@@ -855,7 +877,7 @@ public:
     }
     bool OnGossipHello(Player* p, Creature* c) override
     {
-        if (!Interact(p, c))
+        if (!Interact(p, c) || (c->GetEntry() == NPC_YIMO && c->ToTempSummon() && !Owned(c, p)))
             return true;
         ClearGossipMenuFor(p);
         p->PrepareQuestMenu(c->GetGUID());
@@ -954,31 +976,30 @@ public:
             if (p->GetItemCount(ITEM_FOOD, true) < needed)
                 p->AddItem(ITEM_FOOD, 1);
         }
-        else if (entry == GO_HERB && Active(p, QUEST_MEDICINE) && Count(p, QUEST_MEDICINE, CREDIT_HERBS) < 8)
+        else if ((entry == GO_HONEYCOMB || entry == GO_MUDFISH) && Active(p, QUEST_MEDICINE))
         {
+            std::uint32_t resource = entry == GO_HONEYCOMB ? ITEM_HONEYCOMB : ITEM_MUDFISH;
+            std::uint32_t count = p->GetItemCount(resource, true);
+            if (count >= 4)
+                return true;
             auto& nodes = State(p).herbs;
             auto it = nodes.find(go->GetGUID());
-            if (it == nodes.end() || getMSTimeDiff(it->second, getMSTime()) >= 60000)
+            if (it != nodes.end() && getMSTimeDiff(it->second, getMSTime()) < 60000)
             {
-                Credit(p, QUEST_MEDICINE, CREDIT_HERBS, true);
+                Tell(p, "You have gathered this supply. Try another hive or return after it is replenished.");
+                return true;
+            }
+            std::uint32_t amount = std::min(4 - count, entry == GO_HONEYCOMB ? 2u : 4u);
+            if (p->AddItem(resource, amount))
                 nodes[go->GetGUID()] = getMSTime();
-            }
-            else
-                Tell(p, "Gather from another marked herb patch while these leaves regrow.");
         }
-        else if (entry == GO_WELL)
+        else if (entry == GO_PIGMENT && Active(p, QUEST_TEST))
+            Give(p, ITEM_PIGMENT);
+        else if (entry == GO_WARD && Active(p, QUEST_WARD))
         {
-            if (Active(p, QUEST_WARD))
-                Credit(p, QUEST_WARD, CREDIT_WELL);
-            else if (Active(p, QUEST_DESPAIR))
-            {
-                Recover(p);
-                if (p->HasItemCount(ITEM_MASK, 1))
-                    Start(p, DESPAIR);
-            }
-        }
-        else if (entry == GO_WARD && Active(p, QUEST_WARD) && Count(p, QUEST_WARD, CREDIT_WELL))
+            Credit(p, QUEST_WARD, CREDIT_WELL);
             Give(p, ITEM_WARD);
+        }
         else
         {
             auto index = Index(HearthEntries, entry);
@@ -989,12 +1010,7 @@ public:
                     Credit(p, QUEST_WORK, HearthCredits[index]);
                 else
                     RestoreHearths(p);
-                if (entry == GO_HEARTH_C && Active(p, QUEST_MEDICINE) && Count(p, QUEST_MEDICINE, CREDIT_HERBS) == 8 &&
-                    p->FindNearestCreature(NPC_KANG, 12.0f))
-                {
-                    LightHearth(p, HearthPoints[index]);
-                    Give(p, ITEM_MEDICINE);
-                }
+
             }
         }
         return true;
@@ -1011,13 +1027,7 @@ public:
         if (!target || !Interact(p, target))
             return true;
         auto index = Index(VillagerEntries, target->GetEntry());
-        if (Active(p, QUEST_TEST) && index < TestCredits.size())
-        {
-            Credit(p, QUEST_TEST, TestCredits[index]);
-            p->CastSpell(target, SPELL_HEAL_VISUAL, true);
-            target->Whisper("The mask draws a dark residue from my skin. It came from the well.", LANG_UNIVERSAL, p);
-        }
-        else if (Active(p, QUEST_TREAT) && index < VillagerEntries.size())
+        if (Active(p, QUEST_TREAT) && index < VillagerEntries.size())
         {
             if (Start(p, TREAT))
                 if (auto* ai = Scene(p))
@@ -1045,11 +1055,43 @@ public:
         if (quest >= QUEST_INTRO && quest <= QUEST_LETTER)
             Cleanup(p);
     }
-    void OnPlayerUpdate(Player* p, std::uint32_t) override
+    void OnPlayerUpdate(Player* p, std::uint32_t diff) override
     {
         PlayerState* state = p->CustomData.Get<PlayerState>(StateKey);
+        bool needsYimo = Held(p, QUEST_FIND) || Held(p, QUEST_CHEER) || p->IsQuestRewarded(QUEST_CHEER);
+        if (!state && needsYimo && Enabled() && p->GetMapId() == 1)
+            state = &State(p);
         if (state && (!Enabled() || !p->IsAlive() || p->GetMapId() != 1 || state->phase != p->GetPhaseMask()))
+        {
             Cleanup(p);
+            return;
+        }
+        if (!state)
+            return;
+        state->encounters.Update(diff);
+        if (state->encounters.Empty())
+            state->encounters.ScheduleEvent(CHECK, 1s);
+        if (state->encounters.ExecuteEvent() != CHECK)
+            return;
+        state->encounters.ScheduleEvent(CHECK, 1s);
+        Creature* yimo = ObjectAccessor::GetCreature(*p, state->yimo);
+        bool returned = p->IsQuestRewarded(QUEST_CHEER) || Count(p, QUEST_CHEER, CREDIT_CHEER);
+        auto* scene = Scene(p);
+        bool inScene = scene && (scene->mode == ESCORT || scene->mode == DESPAIR);
+        if (yimo && (!needsYimo || returned || Active(p, QUEST_DESPAIR) || inScene))
+        {
+            yimo->DespawnOrUnsummon();
+            state->yimo.Clear();
+            yimo = nullptr;
+        }
+        Point const& point = returned ? Locations::yimo : Locations::trail;
+        if (needsYimo && !returned && !Active(p, QUEST_DESPAIR) && !inScene && !yimo &&
+            p->GetDistance(point.x, point.y, point.z) <= 60.0f)
+            if (Creature* contact = Summon(p, NPC_YIMO, point))
+                state->yimo = contact->GetGUID();
+        if (Active(p, QUEST_DESPAIR) && !scene && !p->IsInCombat() && !p->IsMounted() && !p->IsFlying() &&
+            p->GetDistance(Locations::well.x, Locations::well.y, Locations::well.z) <= 30.0f)
+            Start(p, DESPAIR);
     }
 };
 void FilterQuestMenu(Player* p)

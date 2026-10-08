@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chapter": "C01",
-  "status": "implemented; syntax, content, scene-policy and isolated SQL checks passed; live-client QA pending",
+  "status": "source gameplay revision implemented; current validation and live-client acceptance recorded in the source review",
   "map": 1,
   "zone_id": 406,
   "world_map_area_id": 81,
@@ -75,7 +75,12 @@
     "TEXT_ORTELL": 4001001,
     "TEXT_SCOUT": 4001005,
     "TEXT_COURIER_A": 4001006,
-    "TEXT_COURIER_H": 4001007
+    "TEXT_COURIER_H": 4001007,
+    "ITEM_SPYGLASS": 900105,
+    "SPELL_SPYGLASS": 12883,
+    "GO_RESCUE_TENT": 4001114,
+    "GO_RESCUE_SUPPLIES": 4001115,
+    "GO_RESCUE_BRAZIER": 4001116
   },
   "points": {
     "courier_a": [
@@ -117,37 +122,37 @@
     "trail_1": [
       1086.0,
       1540.0,
-      24.084525478175753,
+      23.92510887847017,
       3.14
     ],
     "trail_2": [
       955.0,
       1625.0,
-      -10.625724499778299,
+      -11.507638906720386,
       3.14
     ],
     "trail_3": [
-      895.0,
-      1670.0,
-      -18.820534544219413,
+      938,
+      1511,
+      -6.560097027357006,
       3.14
     ],
     "cage_1": [
-      882.0,
-      1680.0,
-      -19.920641848289904,
+      950,
+      1500,
+      -5.669030454464924,
       3.14
     ],
     "cage_2": [
-      886.0,
-      1683.0,
-      -19.82492036391301,
+      954,
+      1503,
+      -5.654158169876162,
       3.14
     ],
     "cage_3": [
-      890.0,
-      1684.0,
-      -19.76820141805994,
+      950,
+      1506,
+      -6.361953235017673,
       3.14
     ],
     "safe": [
@@ -157,21 +162,21 @@
       3.14
     ],
     "ward_1": [
-      885.0,
-      1674.0,
-      -18.646728079259265,
+      820,
+      1830,
+      -7.69296429386817,
       3.14
     ],
     "ward_2": [
-      892.0,
-      1673.0,
-      -18.273758041376333,
+      600,
+      1770,
+      -9.916770049695309,
       3.14
     ],
     "ward_3": [
-      898.0,
-      1674.0,
-      -18.549552262937393,
+      730,
+      1410,
+      -10.9772033067065,
       3.14
     ],
     "jarod": [
@@ -187,33 +192,33 @@
       3.14
     ],
     "cover": [
-      882.0,
-      1669.0,
-      -19.190444458766294,
+      952,
+      1763,
+      9.854677889834594,
       3.14
     ],
     "guard_1": [
-      895.0,
-      1677.0,
-      -19.74255229103074,
+      895,
+      1688,
+      -19.242526525957146,
       3.14
     ],
     "guard_2": [
-      886.0,
-      1680.0,
-      -19.94589433933409,
+      901,
+      1685,
+      -18.991323735465436,
       3.14
     ],
     "guard_3": [
-      891.0,
-      1682.0,
-      -19.822672759998113,
+      892,
+      1690,
+      -19.138211261905603,
       3.14
     ],
     "drop": [
-      882.0,
-      1672.0,
-      -19.55970310195156,
+      950,
+      1763,
+      10.214305959077294,
       3.14
     ],
     "recruit_1": [
@@ -241,39 +246,39 @@
       3.14
     ],
     "scout_1": [
-      879.0,
-      1675.0,
-      -19.910858160660233,
+      1008,
+      1566,
+      10.78222992614345,
       3.14
     ],
     "scout_2": [
-      901.0,
-      1681.0,
-      -19.31815178709473,
+      990,
+      1594,
+      21.08746633329229,
       3.14
     ],
     "scout_3": [
-      899.0,
-      1669.0,
-      -18.537572168639834,
+      966,
+      1617,
+      -10.301161516395101,
       3.14
     ],
     "scout_4": [
-      1048.73,
-      1630.73,
-      29.246997468726835,
+      1071,
+      1570,
+      71.31974280162771,
       3.14
     ],
     "scout_5": [
-      1052.0,
-      1653.0,
-      14.391567806857072,
+      1045,
+      1565,
+      45.59426824101962,
       3.14
     ],
     "scout_6": [
-      1060.0,
-      1626.0,
-      34.23473728777762,
+      1025,
+      1590,
+      74.2590257696597,
       3.14
     ],
     "scout_7": [
@@ -289,15 +294,15 @@
       3.14
     ],
     "earth_1": [
-      885.0,
-      1694.0,
-      -18.570360743399192,
+      856,
+      1686,
+      -21.979975882342387,
       3.14
     ],
     "earth_2": [
-      897.0,
-      1692.0,
-      -18.67546927942086,
+      920,
+      1699,
+      -16.404992689360096,
       3.14
     ],
     "earth_3": [
@@ -313,21 +318,75 @@
       3.14
     ],
     "cage_guard_1": [
-      880.0,
-      1682.0,
-      -19.711218048216764,
+      943,
+      1501,
+      -5.759520974778731,
       3.14
     ],
     "cage_guard_2": [
-      889.0,
-      1688.0,
-      -19.323704690884536,
+      957,
+      1509,
+      -5.63865747889664,
       3.14
     ],
     "cage_guard_3": [
-      898.0,
-      1683.0,
-      -19.433176222740876,
+      958,
+      1497,
+      -4.354823221941221,
+      3.14
+    ],
+    "rescue_tent": [
+      946,
+      1511,
+      -6.768677696313329,
+      3.14
+    ],
+    "rescue_supplies": [
+      941,
+      1509,
+      -6.435476782772756,
+      3.14
+    ],
+    "rescue_brazier": [
+      958,
+      1504,
+      -4.898029736465012,
+      3.14
+    ],
+    "ward_guard_1a": [
+      827,
+      1832,
+      -8.231118310748098,
+      3.14
+    ],
+    "ward_guard_1b": [
+      814,
+      1827,
+      -9.605594210722927,
+      3.14
+    ],
+    "ward_guard_2a": [
+      607,
+      1772,
+      -11.288388483027791,
+      3.14
+    ],
+    "ward_guard_2b": [
+      594,
+      1767,
+      -10.338974146963928,
+      3.14
+    ],
+    "ward_guard_3a": [
+      737,
+      1412,
+      -12.143082564060823,
+      3.14
+    ],
+    "ward_guard_3b": [
+      724,
+      1407,
+      -11.873286753494902,
       3.14
     ]
   },
@@ -562,7 +621,8 @@
       "level": 25,
       "faction": 35,
       "native_model_path": "Character\\Human\\Female\\HumanFemale.mdx",
-      "fallback_texture_extra": 3103
+      "fallback_texture_extra": 3103,
+      "respawn_seconds": 300
     },
     {
       "key": "NPC_CAPTIVE_B",
@@ -589,7 +649,8 @@
       "level": 25,
       "faction": 35,
       "native_model_path": "Character\\Tauren\\Male\\TaurenMale.mdx",
-      "fallback_texture_extra": 2018
+      "fallback_texture_extra": 2018,
+      "respawn_seconds": 300
     },
     {
       "key": "NPC_CAPTIVE_C",
@@ -616,7 +677,8 @@
       "level": 25,
       "faction": 35,
       "native_model_path": "Character\\NightElf\\Male\\NightElfMale.mdx",
-      "fallback_texture_extra": 3281
+      "fallback_texture_extra": 3281,
+      "respawn_seconds": 300
     }
   ],
   "hostile": [
@@ -648,7 +710,10 @@
       "points": [
         "scout_1",
         "scout_2",
-        "scout_3"
+        "scout_3",
+        "scout_4",
+        "scout_5",
+        "scout_6"
       ],
       "spell": "SPELL_SHOOT",
       "loot_item": "ITEM_ORDERS",
@@ -688,7 +753,16 @@
       "points": [
         "cage_guard_1",
         "cage_guard_2",
-        "cage_guard_3"
+        "cage_guard_3",
+        "guard_1",
+        "guard_2",
+        "guard_3",
+        "ward_guard_1a",
+        "ward_guard_1b",
+        "ward_guard_2a",
+        "ward_guard_2b",
+        "ward_guard_3a",
+        "ward_guard_3b"
       ],
       "spell": "SPELL_STRIKE",
       "native_model_path": "Character\\Human\\Male\\HumanMale.mdx",
@@ -751,9 +825,9 @@
     {
       "key": "GO_TRAIL_A",
       "entry": 4001101,
-      "name": "Western Ash-marked Tablet",
-      "display": 6420,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx",
+      "name": "Discarded Survey Supplies",
+      "display": 335,
+      "native_model": "World\\Goober\\G_Crate01.mdx",
       "point": "trail_1",
       "quest": "QUEST_TRAIL",
       "decorative": false,
@@ -762,29 +836,29 @@
     {
       "key": "GO_TRAIL_B",
       "entry": 4001102,
-      "name": "Central Ash-marked Tablet",
-      "display": 6419,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletLower.mdx",
+      "name": "Ash-stained Survey Journal",
+      "display": 255,
+      "native_model": "World\\Goober\\G_Book01.mdx",
       "point": "trail_2",
       "quest": "QUEST_TRAIL",
       "decorative": false,
-      "scale": 0.7
+      "scale": 0.9
     },
     {
       "key": "GO_TRAIL_C",
       "entry": 4001103,
-      "name": "Eastern Ash-marked Tablet",
-      "display": 6420,
-      "native_model": "World\\Kalimdor\\Silithus\\PassiveDoodads\\TwilightTablet\\TwilightTabletUpper.mdx",
+      "name": "Scorched Survey Map",
+      "display": 222,
+      "native_model": "World\\Generic\\Human\\Passive Doodads\\Scrolls\\ScrollMap.mdx",
       "point": "trail_3",
       "quest": "QUEST_TRAIL",
       "decorative": false,
-      "scale": 0.7
+      "scale": 1
     },
     {
       "key": "GO_WARD_A",
       "entry": 4001107,
-      "name": "Western Ward Stone",
+      "name": "Northwestern Ward Stone",
       "display": 235,
       "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
       "point": "ward_1",
@@ -795,7 +869,7 @@
     {
       "key": "GO_WARD_B",
       "entry": 4001108,
-      "name": "Central Ward Stone",
+      "name": "Southwestern Ward Stone",
       "display": 235,
       "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
       "point": "ward_2",
@@ -817,23 +891,12 @@
     {
       "key": "GO_COVER",
       "entry": 4001110,
-      "name": "Concealed Observation Point",
-      "display": 236,
-      "native_model": "World\\Generic\\NightElf\\Passive Doodads\\StoneRunes\\KalidarStoneRune03.mdx",
+      "name": "Scout's Lookout Banner",
+      "display": 5191,
+      "native_model": "World\\Generic\\Dwarf\\Passive Doodads\\ExcavationBannerStands\\ExcavationBannerStand01.mdx",
       "point": "cover",
-      "quest": "QUEST_COMMANDER",
-      "decorative": false,
-      "scale": 0.65
-    },
-    {
-      "key": "GO_DEAD_DROP",
-      "entry": 4001111,
-      "name": "Ortell's Sealed Message Crate",
-      "display": 6737,
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
-      "point": "drop",
-      "quest": "QUEST_RECRUIT",
-      "decorative": false,
+      "quest": null,
+      "decorative": true,
       "scale": 0.65
     },
     {
@@ -857,6 +920,66 @@
       "quest": null,
       "decorative": true,
       "scale": 0.65
+    },
+    {
+      "key": "GO_RESCUE_TENT",
+      "entry": 4001114,
+      "point": "rescue_tent",
+      "quest": null,
+      "decorative": true,
+      "camp": "rescue",
+      "role": "shelter",
+      "display": 7253,
+      "name": "Twilight Roadside Prison Tent",
+      "scale": 0.5,
+      "native_model": "World\\Expansion01\\Doodads\\Generic\\ShadowCouncil\\Tents\\ShadowCouncil_Tent01.mdx",
+      "bounds": [
+        943.8105943800232,
+        1508.4131653493157,
+        947.9672207409028,
+        1513.5904655820548
+      ],
+      "terrain_relief": 0.631
+    },
+    {
+      "key": "GO_RESCUE_SUPPLIES",
+      "entry": 4001115,
+      "point": "rescue_supplies",
+      "quest": null,
+      "decorative": true,
+      "camp": "rescue",
+      "role": "supplies",
+      "display": 6737,
+      "name": "Roadside Guard Supplies",
+      "scale": 0.6,
+      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
+      "bounds": [
+        940.629945510763,
+        1508.6022397506454,
+        941.370054489237,
+        1509.3977602493546
+      ],
+      "terrain_relief": 0.152
+    },
+    {
+      "key": "GO_RESCUE_BRAZIER",
+      "entry": 4001116,
+      "point": "rescue_brazier",
+      "quest": null,
+      "decorative": true,
+      "camp": "rescue",
+      "role": "lighting",
+      "display": 7255,
+      "name": "Roadside Guard Brazier",
+      "scale": 0.7,
+      "native_model": "World\\Expansion01\\Doodads\\Generic\\ShadowCouncil\\Torch\\ShadowCouncil_Torch.mdx",
+      "bounds": [
+        957.624297448021,
+        1503.6259821571387,
+        958.3772104395255,
+        1504.3788951486433
+      ],
+      "terrain_relief": 0.198
     }
   ],
   "items": [
@@ -1043,6 +1166,16 @@
       "level": 25,
       "required_level": 20,
       "description": "A signet of the Vale expedition, given for bringing its missing people home."
+    },
+    {
+      "key": "ITEM_SPYGLASS",
+      "entry": 900105,
+      "name": "Expedition Scout's Spyglass",
+      "display": 7365,
+      "spell": "SPELL_SPYGLASS",
+      "script": "item_bs_c01_spyglass",
+      "description": "Use from the expedition lookout overlooking the ritual camp.",
+      "icon_donor_item": 5507
     }
   ],
   "quests": [
@@ -1146,8 +1279,8 @@
       "level": 21,
       "min_level": 20,
       "faction": "Both",
-      "description": "Follow the three ash-marked tablets from the expedition approach into the Charred Vale. Inspect each one and defeat six Twilight scouts on that route. Recover a copy of their orders as well. We need evidence, not guesses.",
-      "objectives": "Inspect all three distinct tablets, defeat six Twilight Scouts and recover their coded orders.",
+      "description": "Inspect the surveyors' discarded supplies, journal and map on the eastern approaches. Defeat the six Twilight scouts watching that route and recover their orders. The last clue leads to the roadside prisoners; keep clear of the ritual compound deeper in the Vale.",
+      "objectives": "Inspect all three discarded survey clues, defeat six Twilight Scouts and recover their coded orders.",
       "completion": "Prisoners, a separate commander, and a watch rotation. Those were not bandits taking whatever they could carry. Someone organized this.",
       "xp_difficulty": 4,
       "money": 600,
@@ -1165,15 +1298,18 @@
       "previous": "QUEST_WAGON",
       "objective_labels": {
         "NPC_CULT_SCOUT": "Twilight Scouts defeated",
-        "CREDIT_TRAIL_A": "Western trail tablet examined",
-        "CREDIT_TRAIL_B": "Central trail tablet examined",
-        "CREDIT_TRAIL_C": "Eastern trail tablet examined"
+        "CREDIT_TRAIL_A": "Discarded supplies examined",
+        "CREDIT_TRAIL_B": "Survey journal examined",
+        "CREDIT_TRAIL_C": "Scorched map examined"
       },
       "objective_locations": {
         "NPC_CULT_SCOUT": [
           "scout_1",
           "scout_2",
-          "scout_3"
+          "scout_3",
+          "scout_4",
+          "scout_5",
+          "scout_6"
         ],
         "CREDIT_TRAIL_A": [
           "trail_1"
@@ -1190,7 +1326,7 @@
           "scout_3"
         ]
       },
-      "request_text": "Show me the orders, and tell me what you found at all three tablets.",
+      "request_text": "Show me the orders, and tell me what you found at all three survey clues.",
       "return_text": "Speak with the Expedition Scout at the expedition camp in the eastern Charred Vale."
     },
     {
@@ -1201,7 +1337,7 @@
       "level": 22,
       "min_level": 20,
       "faction": "Both",
-      "description": "The scouts are holding Mira, Dorn and Teren under guard at the holding camp. Clear their guards and speak to each surveyor, then stay nearby until they reach our expedition camp. Clear trouble from the route; nobody gets left behind.",
+      "description": "Mira, Dorn and Teren are held at a small roadside guard camp southeast of our expedition, on the eastern side of the Charred Vale. This is separate from the cult's ritual compound deeper in the valley. Clear the guards and speak to each surveyor, then accompany them back to our camp. Nobody gets left behind.",
       "objectives": "Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.",
       "completion": "All three are safe. They remember a spiral carved into the ward stones and a prisoner called Shadowsong. Maruut needs to hear this.",
       "xp_difficulty": 4,
@@ -1241,7 +1377,7 @@
       "level": 23,
       "min_level": 20,
       "faction": "Both",
-      "description": "Our workers saw the cult cutting older runes. Take this tracing kit to the three ward stones west of the prison site. Use it on each distinct stone, then bring me the complete rubbing. Be careful: the stones are already disturbing the earth around them.",
+      "description": "The cult has cut three older ward stones across the Charred Vale: one on the northwestern rise, one on the southwestern valley floor, and one along the eastern rim. Twilight defenders watch each stone. Clear them, then use this tracing kit on each distinct ward and bring me the complete rubbing.",
       "objectives": "Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.",
       "completion": "Those are deliberate cuts. The new spiral interrupts the old pattern at exactly the points it needs. Ortell knows the people who use that sign.",
       "xp_difficulty": 4,
@@ -1259,8 +1395,8 @@
       },
       "previous": "QUEST_RESCUE",
       "objective_labels": {
-        "CREDIT_WARD_A": "Western ward traced",
-        "CREDIT_WARD_B": "Central ward traced",
+        "CREDIT_WARD_A": "Northwestern ward traced",
+        "CREDIT_WARD_B": "Southwestern ward traced",
         "CREDIT_WARD_C": "Eastern ward traced"
       },
       "objective_locations": {
@@ -1320,9 +1456,9 @@
       "level": 24,
       "min_level": 20,
       "faction": "Both",
-      "description": "The rescued surveyors recognized the commander's name: Jarod Shadowsong. The cult is holding him at the altar in their holding camp. Observe it from the concealed stone marker to the west. Remain quiet and out of combat. Do not charge the altar; we need to know he is alive before we plan a rescue.",
-      "objectives": "Remain at the concealed observation point until you can confirm Jarod is alive.",
-      "completion": "Alive, guarded, and kept apart from the workers. They are preparing something public. A direct assault would give them time to kill him.",
+      "description": "The surveyors recognized the commander's name: Jarod Shadowsong. He is held at the altar in the cult's ritual compound, well away from the roadside prisoners. Take this spyglass to our scout's banner on the rise northwest of the altar. Use it there and watch quietly from outside the camp. We need to know he is alive before planning his rescue.",
+      "objectives": "Use the supplied spyglass beside the lookout banner northwest of the ritual camp and confirm Jarod is alive.",
+      "completion": "He is alive. The guards and the sacrifice make a direct charge hopeless. We will borrow a recruit's identity and work our way into the inner circle. Return to me at level 25 for Signed in Blood. Take this signet for the surveyors you brought home.",
       "xp_difficulty": 4,
       "money": 600,
       "giver": "NPC_ORTELL",
@@ -1340,7 +1476,16 @@
         ]
       },
       "request_text": "Did you see Jarod clearly? Keep your voice low.",
-      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale."
+      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.",
+      "source_item": "ITEM_SPYGLASS",
+      "reward_choices": [
+        "ITEM_MIGHT",
+        "ITEM_PRECISION",
+        "ITEM_SORCERY",
+        "ITEM_RESTORATION",
+        "ITEM_GUARDING",
+        "ITEM_BALANCE"
+      ]
     },
     {
       "key": "QUEST_RECRUIT",
@@ -1350,8 +1495,8 @@
       "level": 25,
       "min_level": 20,
       "faction": "Both",
-      "description": "There is a recruit moving between the watch posts beside the prison site. Use my dead drop south of the observation point and watch a full change of position without entering combat. Then return and agree the signal with me. We will need papers and patience to get inside.",
-      "objectives": "Watch the recruit's change from the dead drop, then agree the extraction signal with me.",
+      "description": "This earlier expedition briefing has been replaced by the direct handoff to Signed in Blood. If it remains in your log, speak with Ortell at the expedition camp to settle the report and continue. You do not need to revisit the lookout.",
+      "objectives": "Speak with Ortell at the expedition camp to settle the earlier briefing.",
       "completion": "Two short knocks, then a pause. If the wrong person answers, you walk away. You have earned this signet, and the expedition's trust. Speak with me again once you reach level twenty-five; entering the cult will require a steadier hand.",
       "xp_difficulty": 2,
       "money": 600,
@@ -1376,14 +1521,16 @@
       },
       "objective_locations": {
         "CREDIT_RECRUIT": [
-          "drop"
+          "ortell"
         ],
         "CREDIT_SIGNAL": [
           "ortell"
         ]
       },
       "request_text": "Have you watched the recruit finish his circuit and agreed our signal?",
-      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale."
+      "return_text": "Speak with Elementalist Ortell at the expedition camp in the eastern Charred Vale.",
+      "source_item": null,
+      "retired": true
     }
   ],
   "npc_texts": {
@@ -1451,213 +1598,213 @@
           3.14
         ],
         "maruut": [
-          1124.0,
-          1546.0,
-          33.2028,
+          1102.0,
+          1542.0,
+          27.086243166456008,
           3.14
         ],
         "scout": [
-          1118.0,
-          1551.0,
-          35.0452,
+          1102.0,
+          1538.0,
+          26.94763928250599,
           3.14
         ],
         "ortell": [
-          1120.0,
-          1550.0,
-          34.5478,
+          1100.0,
+          1540.0,
+          26.693678368559475,
           3.14
         ],
         "wagon": [
-          1152.0,
-          1516.0,
-          47.4284,
+          1098.0,
+          1538.0,
+          26.476730812201232,
           3.14
         ],
         "trail_1": [
-          1150.0,
-          1510.0,
-          47.5968,
+          1086.0,
+          1540.0,
+          23.92510887847017,
           3.14
         ],
         "trail_2": [
-          1100.0,
-          1550.0,
-          28.5585,
+          955.0,
+          1625.0,
+          -11.507638906720386,
           3.14
         ],
         "trail_3": [
-          1010.0,
-          1660.0,
-          0.0815,
+          938,
+          1511,
+          -6.560097027357006,
           3.14
         ],
         "cage_1": [
-          985.0,
-          1685.0,
-          -6.814,
+          950,
+          1500,
+          -5.669030454464924,
           3.14
         ],
         "cage_2": [
-          971.0,
-          1694.0,
-          -8.5529,
+          954,
+          1503,
+          -5.654158169876162,
           3.14
         ],
         "cage_3": [
-          952.0,
-          1690.0,
-          -12.7174,
+          950,
+          1506,
+          -6.361953235017673,
           3.14
         ],
         "safe": [
-          1012.0,
-          1655.0,
-          0.6661,
+          1098.0,
+          1540.0,
+          26.319535605871447,
           3.14
         ],
         "ward_1": [
-          935.0,
-          1690.0,
-          -16.0457,
+          820,
+          1830,
+          -7.69296429386817,
           3.14
         ],
         "ward_2": [
-          925.0,
-          1710.0,
-          -15.1322,
+          600,
+          1770,
+          -9.916770049695309,
           3.14
         ],
         "ward_3": [
-          930.0,
-          1730.0,
-          -11.9326,
+          730,
+          1410,
+          -10.9772033067065,
           3.14
         ],
         "jarod": [
-          990.0,
-          1730.0,
-          -9.6758,
+          895.0,
+          1682.0,
+          -19.67909053343282,
           3.14
         ],
         "altar": [
-          990.0,
-          1734.0,
-          -9.1447,
+          895.0,
+          1685.0,
+          -19.391455524284886,
           3.14
         ],
         "cover": [
-          958.0,
-          1700.0,
-          -13.0579,
+          952,
+          1763,
+          9.854677889834594,
           3.14
         ],
         "guard_1": [
-          981.0,
-          1723.0,
-          -9.2015,
+          895,
+          1688,
+          -19.242526525957146,
           3.14
         ],
         "guard_2": [
-          999.0,
-          1721.0,
-          -9.9455,
+          901,
+          1685,
+          -18.991323735465436,
           3.14
         ],
         "guard_3": [
-          992.0,
-          1742.0,
-          -7.2726,
+          892,
+          1690,
+          -19.138211261905603,
           3.14
         ],
         "drop": [
-          958.0,
-          1690.0,
-          -10.9006,
+          950,
+          1763,
+          10.214305959077294,
           3.14
         ],
         "recruit_1": [
-          997.0,
-          1710.0,
-          -7.759,
+          891.0,
+          1678.0,
+          -19.828225663787876,
           3.14
         ],
         "recruit_2": [
-          999.0,
-          1685.0,
-          -5.3542,
+          892.0,
+          1682.0,
+          -19.786975521349316,
           3.14
         ],
         "recruit_3": [
-          981.333,
-          1682.0,
-          -6.8929,
+          896.0,
+          1681.0,
+          -19.673537629643008,
           3.14
         ],
         "recruit_4": [
-          980.0,
-          1712.0,
-          -9.4181,
+          898.0,
+          1678.0,
+          -19.656614494283577,
           3.14
         ],
         "scout_1": [
-          1000.0,
-          1660.0,
-          6.3648,
+          1008,
+          1566,
+          10.78222992614345,
           3.14
         ],
         "scout_2": [
-          990.0,
-          1645.0,
-          12.4221,
+          990,
+          1594,
+          21.08746633329229,
           3.14
         ],
         "scout_3": [
-          1020.0,
-          1640.0,
-          19.7295,
+          966,
+          1617,
+          -10.301161516395101,
           3.14
         ],
         "scout_4": [
-          1040.0,
-          1646.13,
-          11.7481,
+          1071,
+          1570,
+          71.31974280162771,
           3.14
         ],
         "scout_5": [
-          1004.0,
-          1648.0,
-          9.2767,
+          1045,
+          1565,
+          45.59426824101962,
           3.14
         ],
         "scout_6": [
-          983.0,
-          1668.0,
-          -6.5765,
+          1025,
+          1590,
+          74.2590257696597,
           3.14
         ],
         "scout_7": [
           963.0,
-          1672.0,
-          -8.5886,
+          1660.0,
+          -10.141557772543873,
           3.14
         ],
         "scout_8": [
           942.0,
           1655.0,
-          -12.6257,
+          -12.625688946517286,
           3.14
         ],
         "earth_1": [
-          917.0,
-          1698.0,
-          -16.2688,
+          856,
+          1686,
+          -21.979975882342387,
           3.14
         ],
         "earth_2": [
-          912.0,
-          1720.0,
-          -15.0397,
+          920,
+          1699,
+          -16.404992689360096,
           3.14
         ],
         "earth_3": [
@@ -1667,80 +1814,134 @@
           3.14
         ],
         "rescue_rally": [
-          1012.0,
-          1655.0,
-          0.6661,
+          1098.0,
+          1540.0,
+          26.500125748181112,
           3.14
         ],
         "cage_guard_1": [
-          979.0,
-          1682.0,
-          -7.026,
+          943,
+          1501,
+          -5.759520974778731,
           3.14
         ],
         "cage_guard_2": [
-          965.0,
-          1691.0,
-          -9.2075,
+          957,
+          1509,
+          -5.63865747889664,
           3.14
         ],
         "cage_guard_3": [
-          946.0,
-          1687.0,
-          -13.6669,
+          958,
+          1497,
+          -4.354823221941221,
+          3.14
+        ],
+        "rescue_tent": [
+          946,
+          1511,
+          -6.768677696313329,
+          3.14
+        ],
+        "rescue_supplies": [
+          941,
+          1509,
+          -6.435476782772756,
+          3.14
+        ],
+        "rescue_brazier": [
+          958,
+          1504,
+          -4.898029736465012,
+          3.14
+        ],
+        "ward_guard_1a": [
+          827,
+          1832,
+          -8.231118310748098,
+          3.14
+        ],
+        "ward_guard_1b": [
+          814,
+          1827,
+          -9.605594210722927,
+          3.14
+        ],
+        "ward_guard_2a": [
+          607,
+          1772,
+          -11.288388483027791,
+          3.14
+        ],
+        "ward_guard_2b": [
+          594,
+          1767,
+          -10.338974146963928,
+          3.14
+        ],
+        "ward_guard_3a": [
+          737,
+          1412,
+          -12.143082564060823,
+          3.14
+        ],
+        "ward_guard_3b": [
+          724,
+          1407,
+          -11.873286753494902,
           3.14
         ]
       },
       "escort_routes": [
         {
-          "cage": 1,
+          "actor": "NPC_CAPTIVE_A",
           "start": [
-            985.0,
-            1685.0,
-            -6.6021,
-            0.0
+            950,
+            1500,
+            -5.669030454464924,
+            3.14
           ],
           "finish": [
-            1012.0,
-            1655.0,
-            1.8599,
-            0.0
+            1098.0,
+            1540.0,
+            26.319535605871447,
+            3.14
           ],
-          "navigation_polygons": 8,
+          "navigation_polygons": 25,
           "complete": true
         },
         {
-          "cage": 2,
+          "actor": "NPC_CAPTIVE_B",
           "start": [
-            971.0,
-            1694.0,
-            -8.2281,
-            0.0
+            954,
+            1503,
+            -5.654158169876162,
+            3.14
           ],
           "finish": [
-            1012.0,
-            1655.0,
-            1.8599,
-            0.0
+            1098.0,
+            1540.0,
+            26.319535605871447,
+            3.14
           ],
-          "navigation_polygons": 11,
+          "navigation_polygons": 25,
           "complete": true
         },
         {
-          "cage": 3,
+          "actor": "NPC_CAPTIVE_C",
           "start": [
-            952.0,
-            1690.0,
-            -12.3693,
-            0.0
+            950,
+            1506,
+            -6.361953235017673,
+            3.14
           ],
           "finish": [
-            1012.0,
-            1655.0,
-            1.8599,
-            0.0
+            1098.0,
+            1540.0,
+            26.319535605871447,
+            3.14
           ],
-          "navigation_polygons": 11,
+          "navigation_polygons": 25,
           "complete": true
         }
       ],
@@ -1762,7 +1963,8 @@
       3365,
       6660,
       11976,
-      8078
+      8078,
+      12883
     ],
     "dbc_sha256": {
       "WorldMapArea.dbc": "90e1ec678c8226c76f4dd9f7904f05a4cb0a58c8b4d386719b24949bd55925bb",
@@ -1777,9 +1979,15 @@
     },
     "live_client_checked": false,
     "final_spawn_walkability_checked": true,
-    "final_ground_positions_checked": 42,
+    "final_ground_positions_checked": 51,
     "cxx_syntax_checked_against": "/home/Rov/Documents/Git/azerothcore-wotlk-1",
-    "sql_engine_checked": "MariaDB 10.11.18; fresh/idempotent native id1 and legacy id schemas; occupied quest ID rejected"
+    "sql_engine_checked": "MariaDB 10.11.18; fresh/idempotent native id1 and legacy id schemas; occupied quest ID rejected",
+    "flow_revision_checks": {
+      "vale_points_checked": 49,
+      "unchanged_couriers": "Retain earlier native release validation; their navigation tiles are not present in the current local cache.",
+      "lookout": "Native terrain sightline clear from the authored lookout toward Jarod; stock/spawned model collision and client rendering still need playthrough.",
+      "live_client_checked": false
+    }
   },
   "source_identity_references": [
     "https://warcraft.wiki.gg/wiki/Elementalist_Ortell",
@@ -1787,15 +1995,20 @@
   ],
   "notes": [
     "Native-race clothes are Wrath approximations, not claimed exact later costumes.",
-    "Captives are player-private temporary actors; the cage opening animation is shared but never grants/throttles credit.",
     "No item/model/map client patch is required.",
-    "The Chapter 1 SQL remains independently installable. Chapter 2 adds Signed in Blood (900200) to the same Ortell, requiring reward of 900108 and level 25."
+    "The Chapter 1 SQL remains independently installable. Chapter 2 adds Signed in Blood (900200) to the same Ortell, requiring reward of 900108 and level 25.",
+    "Shared saved captives occupy a separate roadside guard camp; successful escorts reset after five minutes for other players.",
+    "Ward stones are spread across the Vale with two Twilight defenders at each. Observation uses a supplied spyglass from the northwestern rise; decorative scenery is unselectable.",
+    "The legacy Name on the Papers quest is not offered to new players; existing holders finish locally with Ortell. Chapter 2 follows rewarded commander observation directly."
   ],
   "polish": {
     "normal_world": true,
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
     "placeholder_signs_removed": true,
-    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
-  }
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations",
+    "chapter1_flow": "2026-10-07: separate roadside rescue camp, three defended ward sites, distant spyglass lookout and context-specific props",
+    "source_audit": "2026-10-08: source gameplay, quest travel and interaction corrections; native-client substitutions recorded in source review."
+  },
+  "escort_respawn_seconds": 300
 }

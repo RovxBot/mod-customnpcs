@@ -98,7 +98,7 @@ def main():
             assert run('SELECT COUNT(*) FROM creature_template WHERE entry BETWEEN 4001214 AND 4001220 AND ExperienceModifier<>0;', database).stdout.strip() == '0'
             print('Passed', 'legacy creature.id' if legacy else 'native creature.id1', 'import, ALL joins, C01 coexistence and GUID preservation.')
 
-        for table, col, entry in [('creature_template','entry',4001200),('gameobject_template','entry',4001300),
+        for table, col, entry in [('creature_template','entry',4001200),('gameobject_template','entry',4001301),
                                   ('quest_template','ID',900200),('item_template','entry',900200),
                                   ('mod_customnpcs_outfit','outfit_id',4001200),
                                   ('mod_customnpcs_outfit_entry','creature_entry',4001200),('npc_text','ID',4001200),

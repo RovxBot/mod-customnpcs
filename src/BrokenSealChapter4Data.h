@@ -92,6 +92,16 @@ enum Id : std::uint32_t
     NPC_HEARTH_FLAME = 4001619,
     TEXT_RECOVERED = 4001671,
     SPELL_POISON = 744,
+    NPC_WEEPING_HORROR = 4001620,
+    NPC_PANTHER = 4001621,
+    GO_HONEYCOMB = 4001709,
+    GO_MUDFISH = 4001710,
+    GO_PIGMENT = 4001711,
+    ITEM_SALTY_CORE = 900416,
+    ITEM_MUDFISH = 900417,
+    ITEM_HONEYCOMB = 900418,
+    ITEM_FANGS = 900419,
+    ITEM_PIGMENT = 900420,
 };
 
 struct Point
@@ -117,7 +127,7 @@ inline constexpr Point escort_3 = {-4560.0000f, -3270.0000f, 36.6152f, 3.1400f};
 inline constexpr Point escort_4 = {-4570.0000f, -3260.0000f, 35.0564f, 3.1400f};
 inline constexpr Point stalker = {-4521.0000f, -3284.0000f, 37.3333f, 3.1400f};
 inline constexpr Point well = {-4532.0000f, -3324.0000f, 34.5583f, 3.1400f};
-inline constexpr Point ward = {-4535.0000f, -3326.0000f, 36.6316f, 3.1400f};
+inline constexpr Point ward = {-4535.0000f, -3326.0000f, 35.4566f, 3.1400f};
 inline constexpr Point boss = {-4540.0000f, -3316.8000f, 36.3334f, 3.1400f};
 inline constexpr Point ken_scene = {-4528.0000f, -3320.0000f, 33.4474f, 3.1400f};
 inline constexpr Point yimo_scene = {-4527.0000f, -3319.0000f, 32.7556f, 3.1400f};
@@ -153,6 +163,20 @@ inline constexpr Point herb_7 = {-4565.0000f, -3290.0000f, 31.5415f, 3.1400f};
 inline constexpr Point iain = {80.0000f, -2050.0000f, 117.2310f, 3.1400f};
 inline constexpr Point hinterlands_road = {-100.0000f, -2200.0000f, 227.2290f, 3.1400f};
 inline constexpr Point mei_approach = {-4559.0000f, -3238.0000f, 32.1796f, 3.1400f};
+inline constexpr Point honey_0 = {-4564.0000f, -3291.0000f, 30.5657f, 3.1400f};
+inline constexpr Point honey_1 = {-4621.0000f, -3280.0000f, 39.9388f, 3.1400f};
+inline constexpr Point fish_0 = {-4610.0000f, -3208.0000f, 34.9247f, 3.1400f};
+inline constexpr Point pigment = {-4475.0000f, -3280.0000f, 35.2906f, 3.1400f};
+inline constexpr Point horror_0 = {-4629.0000f, -3337.0000f, 29.8381f, 3.1400f};
+inline constexpr Point horror_1 = {-4597.0000f, -3333.0000f, 36.4756f, 3.1400f};
+inline constexpr Point horror_2 = {-4607.0000f, -3365.0000f, 37.3277f, 3.1400f};
+inline constexpr Point horror_3 = {-4638.0000f, -3362.0000f, 30.1221f, 3.1400f};
+inline constexpr Point panther_0 = {-4472.0000f, -3287.0000f, 37.6517f, 3.1400f};
+inline constexpr Point panther_1 = {-4496.0000f, -3296.0000f, 32.4287f, 3.1400f};
+inline constexpr Point panther_2 = {-4518.0000f, -3285.0000f, 36.1146f, 3.1400f};
+inline constexpr Point panther_3 = {-4510.0000f, -3315.0000f, 29.6488f, 3.1400f};
+inline constexpr Point panther_4 = {-4470.0000f, -3317.0000f, 39.0547f, 3.1400f};
+inline constexpr Point panther_5 = {-4485.0000f, -3334.0000f, 32.5304f, 3.1400f};
 }
 
 inline constexpr std::array<std::uint32_t, 8> VillagerEntries =
@@ -180,9 +204,9 @@ inline constexpr std::array<std::uint32_t, 3> HearthEntries =
     GO_HEARTH_A, GO_HEARTH_B, GO_HEARTH_C
 };
 
-inline constexpr std::array<std::uint32_t, 7> PersonalEntries =
+inline constexpr std::array<std::uint32_t, 8> PersonalEntries =
 {
-    NPC_YIMO_SCENE, NPC_KEN_SCENE, NPC_SCENE, NPC_STALKER, NPC_ESSENCE, NPC_QUINTESSENCE, NPC_HEARTH_FLAME
+    NPC_YIMO, NPC_YIMO_SCENE, NPC_KEN_SCENE, NPC_SCENE, NPC_STALKER, NPC_ESSENCE, NPC_QUINTESSENCE, NPC_HEARTH_FLAME
 };
 
 inline constexpr std::array<char const*, 8> VillagerNames =

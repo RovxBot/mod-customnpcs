@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": "C04",
   "title": "The Village That Gave Up",
-  "status": "implementation",
+  "status": "source gameplay revision implemented; current validation and live-client acceptance recorded in the source review",
   "zone": 15,
   "world_map_area": 141,
   "ids": {
@@ -88,7 +88,17 @@
     "SPELL_STRIKE": 11976,
     "NPC_HEARTH_FLAME": 4001619,
     "TEXT_RECOVERED": 4001671,
-    "SPELL_POISON": 744
+    "SPELL_POISON": 744,
+    "NPC_WEEPING_HORROR": 4001620,
+    "NPC_PANTHER": 4001621,
+    "GO_HONEYCOMB": 4001709,
+    "GO_MUDFISH": 4001710,
+    "GO_PIGMENT": 4001711,
+    "ITEM_SALTY_CORE": 900416,
+    "ITEM_MUDFISH": 900417,
+    "ITEM_HONEYCOMB": 900418,
+    "ITEM_FANGS": 900419,
+    "ITEM_PIGMENT": 900420
   },
   "points": {
     "mei": [
@@ -172,7 +182,7 @@
     "ward": [
       -4535.0,
       -3326.0,
-      36.631565430174355,
+      35.45657082104194,
       3.14
     ],
     "boss": [
@@ -383,6 +393,90 @@
       -4559.0,
       -3238.0,
       32.1796,
+      3.14
+    ],
+    "honey_0": [
+      -4564,
+      -3291,
+      30.565678391330273,
+      3.14
+    ],
+    "honey_1": [
+      -4621,
+      -3280,
+      39.938832952719245,
+      3.14
+    ],
+    "fish_0": [
+      -4610,
+      -3208,
+      34.92472195504913,
+      3.14
+    ],
+    "pigment": [
+      -4475,
+      -3280,
+      35.290610218014876,
+      3.14
+    ],
+    "horror_0": [
+      -4629,
+      -3337,
+      29.838095913542027,
+      3.14
+    ],
+    "horror_1": [
+      -4597,
+      -3333,
+      36.47555368413144,
+      3.14
+    ],
+    "horror_2": [
+      -4607,
+      -3365,
+      37.32766470138746,
+      3.14
+    ],
+    "horror_3": [
+      -4638,
+      -3362,
+      30.122132919293968,
+      3.14
+    ],
+    "panther_0": [
+      -4472,
+      -3287,
+      37.65174539479149,
+      3.14
+    ],
+    "panther_1": [
+      -4496,
+      -3296,
+      32.42867597937564,
+      3.14
+    ],
+    "panther_2": [
+      -4518,
+      -3285,
+      36.11456083938265,
+      3.14
+    ],
+    "panther_3": [
+      -4510,
+      -3315,
+      29.64880453813981,
+      3.14
+    ],
+    "panther_4": [
+      -4470,
+      -3317,
+      39.054740288087544,
+      3.14
+    ],
+    "panther_5": [
+      -4485,
+      -3334,
+      32.530417595088984,
       3.14
     ]
   },
@@ -872,78 +966,98 @@
       "map": 1,
       "zone": 15,
       "greeting": ""
+    },
+    {
+      "key": "NPC_WEEPING_HORROR",
+      "entry": 4001620,
+      "name": "Weeping Marsh Horror",
+      "point": null,
+      "points": [
+        "horror_0",
+        "horror_1",
+        "horror_2",
+        "horror_3"
+      ],
+      "display": 19110,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 37,
+      "type": 4,
+      "script": "npc_bs_c04_enemy",
+      "scale": 1,
+      "experience_multiplier": 1,
+      "ordinary_loot": {
+        "level": 37,
+        "mingold": 45,
+        "maxgold": 132,
+        "items": [
+          [
+            7070,
+            30,
+            1,
+            1
+          ],
+          [
+            10940,
+            15,
+            1,
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "key": "NPC_PANTHER",
+      "entry": 4001621,
+      "name": "Marsh Panther",
+      "point": null,
+      "points": [
+        "panther_0",
+        "panther_1",
+        "panther_2",
+        "panther_3",
+        "panther_4",
+        "panther_5"
+      ],
+      "display": 633,
+      "faction": 14,
+      "flags": 0,
+      "npc_flags": 0,
+      "level": 37,
+      "type": 1,
+      "script": "npc_bs_c04_enemy",
+      "scale": 1,
+      "experience_multiplier": 1,
+      "ordinary_loot": {
+        "level": 37,
+        "mingold": 45,
+        "maxgold": 132,
+        "items": [
+          [
+            12203,
+            65,
+            1,
+            2
+          ],
+          [
+            5635,
+            18,
+            1,
+            1
+          ]
+        ]
+      }
     }
   ],
   "objects": [
-    {
-      "key": "GO_TRAIL",
-      "entry": 4001700,
-      "name": "Yi-Mo's Discarded Pack",
-      "display": 6737,
-      "scale": 0.6,
-      "decorative": false,
-      "points": [
-        "trail"
-      ],
-      "placements": {
-        "trail": {
-          "terrain_relief": 0.136
-        }
-      },
-      "native_model": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx"
-    },
-    {
-      "key": "GO_HERB",
-      "entry": 4001701,
-      "name": "Fresh Marsh Herb",
-      "display": 269,
-      "scale": 0.7,
-      "decorative": false,
-      "points": [
-        "herb_0",
-        "herb_1",
-        "herb_2",
-        "herb_3",
-        "herb_4",
-        "herb_5",
-        "herb_6",
-        "herb_7"
-      ],
-      "placements": {
-        "herb_0": {
-          "terrain_relief": 0.327
-        },
-        "herb_1": {
-          "terrain_relief": 0.308
-        },
-        "herb_2": {
-          "terrain_relief": 0.217
-        },
-        "herb_3": {
-          "terrain_relief": 0.46
-        },
-        "herb_4": {
-          "terrain_relief": 0.205
-        },
-        "herb_5": {
-          "terrain_relief": 0.933
-        },
-        "herb_6": {
-          "terrain_relief": 1.178
-        },
-        "herb_7": {
-          "terrain_relief": 0.937
-        }
-      },
-      "native_model": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx"
-    },
     {
       "key": "GO_WELL",
       "entry": 4001702,
       "name": "Old Village Well",
       "display": 8503,
       "scale": 0.75,
-      "decorative": false,
+      "decorative": true,
       "points": [
         "well"
       ],
@@ -957,9 +1071,9 @@
     {
       "key": "GO_WARD",
       "entry": 4001703,
-      "name": "Damaged Village Ward",
-      "display": 235,
-      "scale": 0.4,
+      "name": "Tainted Well-water Sack",
+      "display": 2890,
+      "scale": 0.7,
       "decorative": false,
       "points": [
         "ward"
@@ -969,7 +1083,7 @@
           "terrain_relief": 1.165
         }
       },
-      "native_model": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx"
+      "native_model": "World\\Generic\\PassiveDoodads\\Furniture\\Containers\\Sack02.mdx"
     },
     {
       "key": "GO_SUPPLY",
@@ -977,30 +1091,13 @@
       "name": "Sound Village Provisions",
       "display": 335,
       "scale": 0.8,
-      "decorative": false,
+      "decorative": true,
       "points": [
         "supply"
       ],
       "placements": {
         "supply": {
           "terrain_relief": 1.199
-        }
-      },
-      "native_model": "World\\Goober\\G_Crate01.mdx"
-    },
-    {
-      "key": "GO_LOST_SUPPLY",
-      "entry": 4001705,
-      "name": "Yi-Mo's Lost Provisions",
-      "display": 335,
-      "scale": 1,
-      "decorative": false,
-      "points": [
-        "lost_supply"
-      ],
-      "placements": {
-        "lost_supply": {
-          "terrain_relief": 1.076
         }
       },
       "native_model": "World\\Goober\\G_Crate01.mdx"
@@ -1055,6 +1152,43 @@
         }
       },
       "native_model": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx"
+    },
+    {
+      "key": "GO_HONEYCOMB",
+      "entry": 4001709,
+      "name": "Rain-slick Honeycomb",
+      "display": 8207,
+      "points": [
+        "honey_0",
+        "honey_1"
+      ],
+      "scale": 0.4,
+      "decorative": false,
+      "native_model": "World\\Expansion02\\Doodads\\Scholazar\\WaspKit\\Wasp_SmallHive01.mdx"
+    },
+    {
+      "key": "GO_MUDFISH",
+      "entry": 4001710,
+      "name": "Caught Marsh Mudfish",
+      "display": 6396,
+      "points": [
+        "fish_0"
+      ],
+      "scale": 0.8,
+      "decorative": false,
+      "native_model": "World\\Azeroth\\BootyBay\\PassiveDoodad\\FishingBox\\FishingBox.mdx"
+    },
+    {
+      "key": "GO_PIGMENT",
+      "entry": 4001711,
+      "name": "Jar of Pigment",
+      "display": 52,
+      "points": [
+        "pigment"
+      ],
+      "scale": 0.65,
+      "decorative": false,
+      "native_model": "World\\Generic\\PassiveDoodads\\Furniture\\Containers\\TitanVase01.mdx"
     }
   ],
   "items": [
@@ -1272,6 +1406,71 @@
         ]
       ],
       "description": "The village remembers those who stayed when hope was hardest to find."
+    },
+    {
+      "key": "ITEM_SALTY_CORE",
+      "entry": 900416,
+      "name": "Salty Core",
+      "display": 4136,
+      "icon_donor_item": 7070,
+      "maxcount": 4,
+      "stackable": 4,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "An ingredient requested by Ken-Ken."
+    },
+    {
+      "key": "ITEM_MUDFISH",
+      "entry": 900417,
+      "name": "Slick Mudfish",
+      "display": 24522,
+      "icon_donor_item": 13757,
+      "maxcount": 4,
+      "stackable": 4,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "An ingredient requested by Ken-Ken."
+    },
+    {
+      "key": "ITEM_HONEYCOMB",
+      "entry": 900418,
+      "name": "Chunk of Honeycomb",
+      "display": 25468,
+      "icon_donor_item": 34756,
+      "maxcount": 4,
+      "stackable": 4,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "An ingredient requested by Ken-Ken."
+    },
+    {
+      "key": "ITEM_FANGS",
+      "entry": 900419,
+      "name": "Huge Panther Fang",
+      "display": 6002,
+      "icon_donor_item": 7073,
+      "maxcount": 18,
+      "stackable": 18,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "An ingredient requested by Ken-Ken."
+    },
+    {
+      "key": "ITEM_PIGMENT",
+      "entry": 900420,
+      "name": "Jar of Pigment",
+      "display": 54605,
+      "icon_donor_item": 39338,
+      "maxcount": 1,
+      "stackable": 1,
+      "bonding": 4,
+      "script": "",
+      "spell": null,
+      "description": "An ingredient requested by Ken-Ken."
     }
   ],
   "quests": [
@@ -1332,15 +1531,13 @@
         "CREDIT_QUESTION_B": 1,
         "CREDIT_QUESTION_C": 1
       },
-      "required_items": {
-        "ITEM_FOOD": 6
-      },
+      "required_items": {},
       "source_item": null,
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Gather 6 safe food supplies and question 3 despondent residents.",
-      "description": "We must rule out hunger first. Take six sound food bundles from the marked village crate, then hear the troubles of the village provisioner, herbalist and toolkeeper. Each has something different to tell us.",
+      "objectives": "Question the three despondent residents about what is wrong with the village.",
+      "description": "Speak to the provisioner, herbalist and cooking keeper here in the village. They have stopped tending their work and their neighbors. Find out why. We need to understand this despair before Ken-Ken can try to treat it.",
       "completion": "Their stories share the same emptiness. We must find Yi-Mo.",
       "xp_difficulty": 5,
       "money": 7500,
@@ -1358,9 +1555,6 @@
         ],
         "CREDIT_QUESTION_C": [
           "villager_2"
-        ],
-        "ITEM_FOOD": [
-          "supply"
         ]
       },
       "request_text": "Have you checked the food and heard all three residents' troubles?",
@@ -1380,29 +1574,22 @@
         "QUEST_INTRO"
       ],
       "exclusive_group": 0,
-      "credits": {
-        "CREDIT_ESCORT": 1
-      },
+      "credits": {},
       "required_items": {},
       "source_item": null,
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Find Yi-Mo at the marked marsh trail and escort him away from the predators.",
-      "description": "Yi-Mo has wandered down the marsh trail alone. Read the discarded pack southeast of the village to find him. Stay beside him, protect him from the stalker, and lead him back through the marked path.",
+      "objectives": "Find Yi-Mo on the marsh trail east of the village.",
+      "description": "Yi-Mo has wandered out toward the eastern marsh trail, where predators hunt. Find him and speak to him. Finding him is the first task; bringing him home comes next.",
       "completion": "You came all that way for me? I cannot understand it yet.",
       "xp_difficulty": 5,
       "money": 8000,
-      "objective_labels": {
-        "CREDIT_ESCORT": "Yi-Mo escorted to safety"
-      },
-      "objective_locations": {
-        "CREDIT_ESCORT": [
-          "trail"
-        ]
-      },
-      "request_text": "Did Yi-Mo reach the village safely?",
-      "return_text": "Speak with Yi-Mo Longbrow at the village relief camp."
+      "objective_labels": {},
+      "objective_locations": {},
+      "request_text": "Have you completed the work I asked you to do?",
+      "return_text": "Speak with Yi-Mo Longbrow at the village relief camp.",
+      "turn_in_point": "trail"
     },
     {
       "key": "QUEST_CHEER",
@@ -1421,15 +1608,13 @@
       "credits": {
         "CREDIT_CHEER": 1
       },
-      "required_items": {
-        "ITEM_FOOD": 3
-      },
+      "required_items": {},
       "source_item": null,
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Recover Yi-Mo's lost supplies and persuade him to return to the village.",
-      "description": "You found me. I do not know why you bothered. My supplies are still beside that trail. Bring back three bundles and talk to me again; perhaps there is still a reason to return to my neighbors.",
+      "objectives": "Speak to Yi-Mo and bring him back to the village.",
+      "description": "Yi-Mo will not come home on his own. Speak to him on the trail and insist that he stand up. Stay with him, clear the predators along the way, and bring him back to the village. His neighbors are waiting for him.",
       "completion": "He has returned. Now we can begin treating the village together.",
       "xp_difficulty": 5,
       "money": 8500,
@@ -1438,13 +1623,11 @@
       },
       "objective_locations": {
         "CREDIT_CHEER": [
+          "trail",
           "yimo"
-        ],
-        "ITEM_FOOD": [
-          "lost_supply"
         ]
       },
-      "request_text": "Did you recover my supplies and speak with me?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
@@ -1455,47 +1638,45 @@
       "level": 36,
       "min_level": 35,
       "giver": "NPC_KEN",
-      "turn_in": "NPC_KANG",
+      "turn_in": "NPC_KEN",
       "previous": "QUEST_FOOD",
       "prerequisites": [
         "QUEST_FOOD",
         "QUEST_CHEER"
       ],
       "exclusive_group": 0,
-      "credits": {
-        "CREDIT_HERBS": 8
-      },
+      "credits": {},
       "required_items": {
-        "ITEM_MEDICINE": 1
+        "ITEM_HONEYCOMB": 4,
+        "ITEM_MUDFISH": 4,
+        "ITEM_SALTY_CORE": 4
       },
       "source_item": null,
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Gather 8 local herbs and prepare medicine with Kang.",
-      "description": "Both the families and Yi-Mo need our help. Gather eight fresh herb sprigs from the marked patches south of camp. Bring them to Kang by his cooking hearth and ask him to prepare the medicine.",
+      "objectives": "Gather 4 chunks of honeycomb, 4 mudfish and 4 salty cores for Ken-Ken's remedy.",
+      "description": "Ken-Ken's first theory needs three ingredients. Gather honeycomb from the small hives along the village's eastern edge, take four mudfish from the provisioner's fishing hamper, and defeat the weeping marsh horrors southeast of camp for four salty cores. Bring all three ingredients back to Ken-Ken.",
       "completion": "The medicine is ready. Ken-Ken's mask will carry it into the curse.",
       "xp_difficulty": 5,
       "money": 9000,
-      "objective_labels": {
-        "CREDIT_HERBS": "Medicinal herbs gathered"
-      },
+      "objective_labels": {},
       "objective_locations": {
-        "CREDIT_HERBS": [
-          "herb_0",
-          "herb_1",
-          "herb_2",
-          "herb_3",
-          "herb_4",
-          "herb_5",
-          "herb_6",
-          "herb_7"
+        "ITEM_HONEYCOMB": [
+          "honey_0",
+          "honey_1"
         ],
-        "ITEM_MEDICINE": [
-          "kang"
+        "ITEM_MUDFISH": [
+          "fish_0"
+        ],
+        "ITEM_SALTY_CORE": [
+          "horror_0",
+          "horror_1",
+          "horror_2",
+          "horror_3"
         ]
       },
-      "request_text": "Have you gathered eight sprigs and asked me to prepare them?",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Kang Bramblestaff at the village cooking hearth."
     },
     {
@@ -1512,43 +1693,35 @@
         "QUEST_MEDICINE"
       ],
       "exclusive_group": 0,
-      "credits": {
-        "CREDIT_TEST_A": 1,
-        "CREDIT_TEST_B": 1,
-        "CREDIT_TEST_C": 1
-      },
+      "credits": {},
       "required_items": {
-        "ITEM_RESIDUE": 1
+        "ITEM_FANGS": 18,
+        "ITEM_PIGMENT": 1
       },
-      "source_item": "ITEM_MASK",
-      "source_count": 1,
+      "source_item": null,
+      "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Use the supplied treatment mask to test 3 residents and identify the shared residue.",
-      "description": "Ken-Ken made a mask with Kang's medicine. Test it on the provisioner, herbalist and toolkeeper. The mask draws out a dark residue. Once all three have been tested, return to Ken-Ken for a sample bottle.",
+      "objectives": "Collect 18 panther fangs and the jar of pigment from the eastern marsh.",
+      "description": "The first remedy did not remove the village's despair. Ken-Ken remembers a mask used to confront it. Kill marsh panthers for eighteen fangs and retrieve the pigment jar at the edge of their hunting ground. Bring the materials here so he can prepare the mask; you will use it on the wardens in the next quest.",
       "completion": "This residue came from every resident. It is the same influence.",
       "xp_difficulty": 5,
       "money": 9500,
-      "objective_labels": {
-        "CREDIT_TEST_A": "Village Provisioner tested",
-        "CREDIT_TEST_B": "Village Herbalist tested",
-        "CREDIT_TEST_C": "Village Toolkeeper tested"
-      },
+      "objective_labels": {},
       "objective_locations": {
-        "CREDIT_TEST_A": [
-          "villager_0"
+        "ITEM_FANGS": [
+          "panther_0",
+          "panther_1",
+          "panther_2",
+          "panther_3",
+          "panther_4",
+          "panther_5"
         ],
-        "CREDIT_TEST_B": [
-          "villager_1"
-        ],
-        "CREDIT_TEST_C": [
-          "villager_2"
-        ],
-        "ITEM_RESIDUE": [
-          "ken"
+        "ITEM_PIGMENT": [
+          "pigment"
         ]
       },
-      "request_text": "Test all three residents before asking me to bottle the residue.",
+      "request_text": "Have you completed the work I asked you to do?",
       "return_text": "Speak with Ken-Ken at the village relief camp."
     },
     {
@@ -1613,8 +1786,8 @@
       "source_count": 0,
       "fixed_rewards": {},
       "reward_choices": [],
-      "objectives": "Sample the old ward by the well and confirm where the influence gathers.",
-      "description": "The old well southeast of the village lies below a damaged ward. Inspect the well first, then take a rubbing of the ward beside it. Bring it to me before touching Yi-Mo with the mask again.",
+      "objectives": "Take a sample of the tainted water collected beside the old village well.",
+      "description": "The villagers draw their water from the old well southeast of camp. Take a sample from the water sack beside it and bring it here. The treatment has helped the people; now we must find the source of the remaining gloom.",
       "completion": "The ward has been pulling despair toward the well instead of dispersing it.",
       "xp_difficulty": 5,
       "money": 10500,
@@ -1657,7 +1830,7 @@
       "fixed_rewards": {},
       "reward_choices": [],
       "objectives": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken's help.",
-      "description": "The broken ward has gathered the village's despair around Yi-Mo. Meet Ken-Ken at the well southeast of camp and use the well to begin the confrontation. Defeat eight lesser manifestations there, use the mask on Yi-Mo, and defeat the Quintessence it releases. Ken-Ken will stand beside you.",
+      "description": "Meet Ken-Ken at the old village well. Defeat the eight lesser manifestations that gather there, then use the mask on Yi-Mo. That will draw out the Quintessence of Despair. Defeat it with Ken-Ken's help and keep Yi-Mo alive.",
       "completion": "You saved me twice. My thoughts are my own again. We will repair what we neglected.",
       "xp_difficulty": 5,
       "money": 11000,
@@ -1825,7 +1998,20 @@
   "external_entries": [
     "NPC_MEI"
   ],
-  "loot": [],
+  "loot": [
+    {
+      "actor": "NPC_WEEPING_HORROR",
+      "item": "ITEM_SALTY_CORE",
+      "mincount": 1,
+      "maxcount": 1
+    },
+    {
+      "actor": "NPC_PANTHER",
+      "item": "ITEM_FANGS",
+      "mincount": 3,
+      "maxcount": 3
+    }
+  ],
   "validation": {
     "all_ground_points_checked": true,
     "routes": [
@@ -1913,7 +2099,9 @@
         "complete": true,
         "polygons": 7
       }
-    ]
+    ],
+    "source_revision_ground_points": 63,
+    "source_revision": "2026-10-08: native tables and current terrain/navigation checks; live client acceptance remains pending."
   },
   "native_assets": {
     "ken": {
@@ -1926,12 +2114,15 @@
       "GO_TRAIL": "World\\Generic\\PassiveDoodads\\SummerFestival\\SummerFest_Crate.mdx",
       "GO_HERB": "World\\SkillActivated\\TradeskillNodes\\Bush_Peacebloom01.mdx",
       "GO_WELL": "WORLD\\EXPANSION02\\DOODADS\\DALARAN\\DALARAN_WELL_01.MDX",
-      "GO_WARD": "World\\Generic\\PassiveDoodads\\PlainRune\\Runestone.mdx",
+      "GO_WARD": "World\\Generic\\PassiveDoodads\\Furniture\\Containers\\Sack02.mdx",
       "GO_SUPPLY": "World\\Goober\\G_Crate01.mdx",
       "GO_LOST_SUPPLY": "World\\Goober\\G_Crate01.mdx",
       "GO_HEARTH_A": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx",
       "GO_HEARTH_B": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx",
-      "GO_HEARTH_C": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx"
+      "GO_HEARTH_C": "World\\Generic\\Human\\Passive Doodads\\firewood\\FirewoodPile01.mdx",
+      "GO_HONEYCOMB": "World\\Expansion02\\Doodads\\Scholazar\\WaspKit\\Wasp_SmallHive01.mdx",
+      "GO_MUDFISH": "World\\Azeroth\\BootyBay\\PassiveDoodad\\FishingBox\\FishingBox.mdx",
+      "GO_PIGMENT": "World\\Generic\\PassiveDoodads\\Furniture\\Containers\\TitanVase01.mdx"
     }
   },
   "source_identity_references": [
@@ -1978,6 +2169,7 @@
       "GO_HEARTH_C"
     ],
     "PersonalEntries": [
+      "NPC_YIMO",
       "NPC_YIMO_SCENE",
       "NPC_KEN_SCENE",
       "NPC_SCENE",
@@ -1992,6 +2184,7 @@
     "stock_spawns_preserved": true,
     "textured_fallbacks": true,
     "placeholder_signs_removed": true,
-    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations"
+    "quality_review": "2026-10-07: authored quest text, objective labels and complete objective map locations",
+    "source_audit": "2026-10-08: source gameplay, quest travel and interaction corrections; native-client substitutions recorded in source review."
   }
 }

@@ -1,0 +1,996 @@
+{
+  "reviewed_on": "2026-10-08",
+  "scope": "All 56 implemented quest records in Chapters 1-4; one prologue compatibility record is no longer offered. Chapters 5-14 remain design-only.",
+  "decision": "User chose source order: cult training and infiltration remain before Jarod's rescue.",
+  "method": "Quest objectives, progression, player notes and source coordinates were compared with manifests and runtime code. Local distances are horizontal world units; they are straight-line lower bounds, not walking distances or claims of exact source-zone scale.",
+  "native_substitutions": [
+    "No client patch or asset ports. Phase masks remain unchanged; private encounters and native per-player NPC visibility use saved quest progress.",
+    "Later action bars become native gossip or supplied quest-item foci; the pick, chase, feeding, combat, timed answers and ascendant effects remain real actions.",
+    "Quilen guardians use native earth elementals; Na Lek uses a native water elemental. Neutral raider scouts replace faction assassination.",
+    "The current village uses a native fishing hamper for fish, native hives and shadow elementals for the recipe. Yi-Mo's later rolling controls become a private escort.",
+    "The recovered key is linked to Azennios and deposited with the intel branch. Graduation still supplies the distraction; escape uses a native escort in place of the source phase transition."
+  ],
+  "quests": [
+    {
+      "chapter": 1,
+      "entry": 900100,
+      "key": "QUEST_COMMISSION_A",
+      "title": "An Unusual Commission",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Follow the old road toward the Charred Vale and look for the expedition's blue-clad stonebinder.",
+      "implemented_objective": "Follow the old road toward the Charred Vale and look for the expedition's blue-clad stonebinder.",
+      "giver_point": "courier_a",
+      "objective_distances": {
+        "maruut": 1270.9
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900101,
+      "key": "QUEST_COMMISSION_H",
+      "title": "An Unusual Commission",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.",
+      "implemented_objective": "Look for the expedition camp above the Charred Vale. Maruut will recognize the invitation.",
+      "giver_point": "courier_h",
+      "objective_distances": {
+        "maruut": 555.7
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900102,
+      "key": "QUEST_WAGON",
+      "title": "Travelers Who Never Arrived",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Inspect the abandoned wagon above camp and recover its log.",
+      "implemented_objective": "Inspect the abandoned wagon above camp and recover its log.",
+      "giver_point": "maruut",
+      "objective_distances": {
+        "wagon": 5.7
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900103,
+      "key": "QUEST_TRAIL",
+      "title": "Follow the Ash",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Inspect all three discarded survey clues, defeat six Twilight Scouts and recover their coded orders.",
+      "implemented_objective": "Inspect all three discarded survey clues, defeat six Twilight Scouts and recover their coded orders.",
+      "giver_point": "scout",
+      "objective_distances": {
+        "scout_1": 98.1,
+        "scout_2": 125.2,
+        "scout_3": 157.3,
+        "scout_4": 30.4,
+        "scout_5": 63.1,
+        "scout_6": 92.9,
+        "trail_1": 16.1,
+        "trail_2": 170.8,
+        "trail_3": 166.2
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900104,
+      "key": "QUEST_RESCUE",
+      "title": "Bring Them Home",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.",
+      "implemented_objective": "Speak to Mira, Dorn and Teren and accompany each surveyor to the expedition camp.",
+      "giver_point": "scout",
+      "objective_distances": {
+        "cage_1": 156.7,
+        "cage_2": 152.1,
+        "cage_3": 155.3
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900105,
+      "key": "QUEST_WARDS",
+      "title": "A Stone That Should Be Quiet",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.",
+      "implemented_objective": "Trace all three ward stones and recover a complete rubbing. I can replace a lost kit.",
+      "giver_point": "maruut",
+      "objective_distances": {
+        "ward_1": 403.1,
+        "ward_2": 551.4,
+        "ward_3": 394.7
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900106,
+      "key": "QUEST_COMPARE",
+      "title": "The Same Hand",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Ask Ortell to compare the orders and the rubbing.",
+      "implemented_objective": "Ask Ortell to compare the orders and the rubbing.",
+      "giver_point": "maruut",
+      "objective_distances": {
+        "ortell": 2.8
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900107,
+      "key": "QUEST_COMMANDER",
+      "title": "A Captive Commander",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Commander_Jarod_Shadowsong",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "The source quest is a handoff to Ortell. This campaign's first reconnaissance is authored and occurs before any required visit inside Jarod's camp.",
+      "before_objective": "Use the supplied spyglass beside the lookout banner northwest of the ritual camp and confirm Jarod is alive.",
+      "implemented_objective": "Use the supplied spyglass beside the lookout banner northwest of the ritual camp and confirm Jarod is alive.",
+      "giver_point": "ortell",
+      "objective_distances": {
+        "cover": 267.6
+      }
+    },
+    {
+      "chapter": 1,
+      "entry": 900108,
+      "key": "QUEST_RECRUIT",
+      "title": "The Name on the Papers",
+      "retired": true,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Use the spyglass at the lookout to watch a recruit change posts, then agree the signal with Ortell.",
+      "implemented_objective": "Speak with Ortell at the expedition camp to settle the earlier briefing.",
+      "giver_point": "ortell",
+      "objective_distances": {
+        "ortell": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900200,
+      "key": "QUEST_SIGNED",
+      "title": "Signed in Blood",
+      "retired": false,
+      "source_url": "https://www.wowhead.com/cata/quest=25274/signed-in-blood",
+      "source_mechanic": "Talk to a recruit, lure him away, then use a blackjack to obtain his signed papers.",
+      "finding": "The old crate substituted for the recruit conversation.",
+      "before_objective": "Lure one recruit away, knock them out with the blackjack, and recover the recruitment papers.",
+      "implemented_objective": "Speak to a Twilight Recruit at the road checkpoint, lure him into cover, and use the blackjack to take his papers.",
+      "giver_point": "ortell",
+      "objective_distances": {
+        "recruit_start": 161.6,
+        "recruit_hide": 140.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900201,
+      "key": "QUEST_IDENTITY",
+      "title": "Your New Identity",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Your_New_Identity",
+      "source_mechanic": "Ortell supplies forged papers; presenting them to Condenna admits the player to the cult.",
+      "finding": "Carry the identity into the camp; disguise must be applied before the hostile contact can be used.",
+      "before_objective": "Present the altered papers to Condenna and pass the identity check.",
+      "implemented_objective": "Present the altered papers to Condenna and pass the identity check.",
+      "giver_point": "ortell",
+      "objective_distances": {
+        "condenna": 472.5
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900202,
+      "key": "QUEST_FIRE",
+      "title": "Trial By Fire",
+      "retired": false,
+      "source_url": "https://www.wowhead.com/cata/quest=25223/trial-by-fire",
+      "source_mechanic": "Defeat eight Fiery Instructors in the proving grounds.",
+      "finding": "Count eight is retained; private successive opponents preserve the agreed small-camp population.",
+      "before_objective": "Defeat 8 trial fire elementals while the disguise is active.",
+      "implemented_objective": "Defeat 8 trial fire elementals while the disguise is active.",
+      "giver_point": "condenna",
+      "objective_distances": {
+        "condenna": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900203,
+      "key": "QUEST_BLOOM",
+      "title": "In Bloom",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/In_Bloom",
+      "source_mechanic": "Gather five blossoms while avoiding Smolderos in the proving fields.",
+      "finding": "The implemented count was eight.",
+      "before_objective": "Collect 8 flame blossoms while avoiding Smolderos.",
+      "implemented_objective": "Gather 5 Flame Blossoms from the proving grounds. Avoid Smolderos.",
+      "giver_point": "condenna",
+      "objective_distances": {
+        "flower_0": 145.5,
+        "flower_1": 161.1,
+        "flower_2": 173.4,
+        "flower_3": 148.5,
+        "flower_4": 163.8,
+        "flower_5": 139.1,
+        "flower_6": 173.0,
+        "flower_7": 155.6
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900204,
+      "key": "QUEST_WASTE",
+      "title": "Waste of Flesh",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Waste_of_Flesh",
+      "source_mechanic": "Extinguish four burning supplicants with a supplied crystal before they die.",
+      "finding": "There were only three targets; a fourth distinct saved objective is restored.",
+      "before_objective": "Use the binding gem to preserve 3 burning supplicants before their timers expire.",
+      "implemented_objective": "Use the Frostgale Crystal to extinguish the flames on four immolated supplicants.",
+      "giver_point": "cargall",
+      "objective_distances": {
+        "cargall": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900205,
+      "key": "QUEST_TRAINING",
+      "title": "Twilight Training",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Twilight_Training",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Report completion of all three admission trials and meet the two instructors.",
+      "implemented_objective": "Report completion of all three admission trials and meet the two instructors.",
+      "giver_point": "condenna",
+      "objective_distances": {
+        "mylva": 9.8,
+        "devoran": 12.5
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900206,
+      "key": "QUEST_LABOR",
+      "title": "Physical Training: Forced Labor",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Physical_Training%3A_Forced_Labor",
+      "source_mechanic": "Use a supplied pick to break five lodestone deposits; no ore delivery is required.",
+      "finding": "The implementation instead shuttled loads between props about sixteen metres apart.",
+      "before_objective": "Carry 5 training stones between the marked work stations.",
+      "implemented_objective": "Use the Twilight Pick to break 5 Darkwhisper Lodestones in the training gorge.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "lodestone_0": 56.3,
+        "lodestone_1": 54.0,
+        "lodestone_2": 60.5,
+        "lodestone_3": 49.0,
+        "lodestone_4": 38.6
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900207,
+      "key": "QUEST_AGILITY",
+      "title": "Agility Training: Run Like Hell!",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Agility_Training%3A_Run_Like_Hell%21",
+      "source_mechanic": "Survive a one-minute pursuit by the Blazing Trainer without leaving the training grounds.",
+      "finding": "The implementation was a four-flag checkpoint circuit without a pursuing trainer.",
+      "before_objective": "Complete the 4-checkpoint obstacle route before the time expires.",
+      "implemented_objective": "Stay alive and keep away from the Blazing Trainer for one minute inside the training grounds.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "mylva": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900208,
+      "key": "QUEST_MENTAL",
+      "title": "Mental Training: Speaking the Truth to Power",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Mental_Training%3A_Speaking_the_Truth_to_Power",
+      "source_mechanic": "Answer ten yes/no questions before five-second deadlines; wrong or missing answers hurt.",
+      "finding": "The native gossip controls are retained, and the missing penalty is restored.",
+      "before_objective": "Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.",
+      "implemented_objective": "Answer 10 orb questions correctly near Mylva; each offered question allows five seconds.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "mylva": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900209,
+      "key": "QUEST_MERCY",
+      "title": "Spiritual Training: Mercy is for the Weak",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Spiritual_Training%3A_Mercy_is_for_the_Weak",
+      "source_mechanic": "Kill five Failed Supplicants; source progression requires this branch.",
+      "finding": "The five-kill goal and required branch are retained.",
+      "before_objective": "Defeat 5 failed supplicants in the cults lethal promotion trial.",
+      "implemented_objective": "Defeat 5 failed supplicants in the cults lethal promotion trial.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "failed_0": 52.2,
+        "failed_1": 55.6
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900210,
+      "key": "QUEST_DOG",
+      "title": "Walking the Dog",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Walking_the_Dog",
+      "source_mechanic": "Summon the hound with a leash, loot basilisk meat and feed five pieces to it.",
+      "finding": "Three nearby feeding-station credits supplied meals without hunting or consuming meat.",
+      "before_objective": "Take an owner-bound training hound through 3 feeding/handling stations.",
+      "implemented_objective": "Use the Fiery Leash to summon the hound, then feed it 5 pieces of meat looted from Spinescale Basilisks.",
+      "giver_point": "devoran",
+      "objective_distances": {
+        "basilisk_0": 141.2,
+        "basilisk_1": 171.5,
+        "basilisk_2": 159.8,
+        "basilisk_3": 188.2,
+        "basilisk_4": 173.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900211,
+      "key": "QUEST_COLLAR",
+      "title": "A Champion's Collar",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/A_Champion%27s_Collar",
+      "source_mechanic": "Kill the Spinescale Matriarch for the spiked hide used in the next match.",
+      "finding": "The actual named enemy and hide loot are retained.",
+      "before_objective": "Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.",
+      "implemented_objective": "Defeat the Spinescale Matriarch and bring its spiked hide to Devoran to make the hounds collar.",
+      "giver_point": "devoran",
+      "objective_distances": {
+        "matriarch": 314.8
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900212,
+      "key": "QUEST_GRUDGE",
+      "title": "Grudge Match",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Grudge_Match",
+      "source_mechanic": "Challenge Gromm'ko, have the hound defeat Butcher, then face the angry ogre.",
+      "finding": "The two-stage pet-and-owner fight is retained; supported gossip commands replace later action controls.",
+      "before_objective": "Defeat Butcher with your collared hound, then defeat Gromm'ko with the hound nearby.",
+      "implemented_objective": "Defeat Butcher with your collared hound, then defeat Gromm'ko with the hound nearby.",
+      "giver_point": "devoran",
+      "objective_distances": {
+        "devoran": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900213,
+      "key": "QUEST_INTELLIGENCE",
+      "title": "Gather the Intelligence",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Gather_the_Intelligence",
+      "source_mechanic": "Obtain a communique and battleplans from separate enemy locations; hand in at Ortell's outhouse.",
+      "finding": "The extra drop-box credit and expedition round trip are removed. The two locations remain separate.",
+      "before_objective": "Recover the communique and battleplans from their caches, then check the dead drop.",
+      "implemented_objective": "Recover the Twilight Communique from the recruiting compound and the Battleplans from the ritual compound.",
+      "giver_point": "hideout",
+      "objective_distances": {
+        "communique": 42.2,
+        "plans": 310.3
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900214,
+      "key": "QUEST_DISCORD",
+      "title": "Seeds of Discord",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Seeds_of_Discord",
+      "source_mechanic": "Mislead Karr'gonn, then kill Azennios at the Seat of the Chosen.",
+      "finding": "A named rendezvous replaces the scene-start cache. The key is a documented rescue adaptation.",
+      "before_objective": "Distract Karr'gonn, then defeat Azennios without revealing the handler.",
+      "implemented_objective": "Distract Karr'gonn and kill Azennios at the eastern rendezvous; recover the sacrificial key.",
+      "giver_point": "hideout",
+      "objective_distances": {
+        "discord": 263.5
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900215,
+      "key": "QUEST_GREATER",
+      "title": "The Greater of Two Evils",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/The_Greater_of_Two_Evils",
+      "source_mechanic": "Ascend near Garnoth and use a five-percent-health strike and a ten-second, 95-percent shield.",
+      "finding": "The earlier form was cosmetic and normal combat replaced the ascendant powers. Native quest foci now supply both powers.",
+      "before_objective": "Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.",
+      "implemented_objective": "Use the ascendancy talisman to assume a fire-elemental form and defeat Garnoth.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "garnoth_foe": 159.5
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900216,
+      "key": "QUEST_TERRITORY",
+      "title": "Twilight Territory",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Twilight_Territory",
+      "source_mechanic": "Kill ten Horrorguards near the Gates of Sothann.",
+      "finding": "The calling tablet/brazier is removed. Private successive opponents remain the native-client population substitute.",
+      "before_objective": "Use the challenge brazier at the ritual compound and defeat 10 Horrorguards while disguised.",
+      "implemented_objective": "Defeat 10 Horrorguards at the northwestern trial ground while disguised.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "horrorguard_0": 256.1
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900217,
+      "key": "QUEST_WRITING",
+      "title": "Speech Writing for Dummies",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Speech_Writing_for_Dummies",
+      "source_mechanic": "Intercept and kill Okrog as he leaves the Seat of the Chosen; Ortell supplies the speech preparation.",
+      "finding": "The speaking book had been an arbitrary enemy-summon button at Jarod's altar.",
+      "before_objective": "Remove the scheduled ogre speaker Okrog and receive Ortell's cue cards and take his place at the podium.",
+      "implemented_objective": "Kill Okrog as he leaves the ritual compound, then return to Ortell for the speech notes.",
+      "giver_point": "hideout",
+      "objective_distances": {
+        "okrog": 163.2,
+        "hideout": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900218,
+      "key": "QUEST_HEAD",
+      "title": "Head of the Class",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Head_of_the_Class",
+      "source_mechanic": "Report to Mylva and claim the speaking slot after dealing with Okrog.",
+      "finding": "An extra same-contact gossip credit is removed; the actual handoff remains.",
+      "before_objective": "Receive the handler's final instruction and report to Mylva for the speaking slot.",
+      "implemented_objective": "Speak to Mylva at the training compound to claim the speaking slot.",
+      "giver_point": "hideout",
+      "objective_distances": {}
+    },
+    {
+      "chapter": 2,
+      "entry": 900219,
+      "key": "QUEST_SPEECH",
+      "title": "Graduation Speech",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Graduation_Speech",
+      "source_mechanic": "Read the crowd's mood and deliver ten responses at a podium; the crowd riots and Ortell approaches Jarod.",
+      "finding": "The podium and mood responses remain. The ceremony has a visible crowd response and Ortell, with key release as the documented native retelling.",
+      "before_objective": "Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.",
+      "implemented_objective": "Match 10 crowd moods with Inspire, Incite or Pander, then speak to Jarod at the altar.",
+      "giver_point": "mylva",
+      "objective_distances": {
+        "podium": 257.0,
+        "prison": 258.5
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900220,
+      "key": "QUEST_RIOT",
+      "title": "Twilight Riot",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Twilight_Riot",
+      "source_mechanic": "After the distraction and release, meet Jarod outside the hostile camp.",
+      "finding": "The separate guard summon and three mandatory enforcer waves were invented. Escape now uses the deposited key and a straightforward escort.",
+      "before_objective": "Defeat the restraint guard, recover its key, then free Jarod and escape through 3 enforcer waves.",
+      "implemented_objective": "Use the sacrificial key to free Jarod, then accompany him to the expedition refuge.",
+      "giver_point": "prison",
+      "objective_distances": {
+        "prison": 0.0
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900221,
+      "key": "QUEST_BUYERS",
+      "title": "The Buyers Behind the Banner",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Return to the quiet camp cache and recover the relic buyers' ledger.",
+      "implemented_objective": "Return to the quiet camp cache and recover the relic buyers' ledger.",
+      "giver_point": "ortell",
+      "objective_distances": {
+        "buyers": 392.3
+      }
+    },
+    {
+      "chapter": 2,
+      "entry": 900222,
+      "key": "QUEST_LETTER",
+      "title": "A Letter Through the Marsh",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Deliver Jarod's introduction to Dezco at the neutral Dustwallow field camp.",
+      "implemented_objective": "Deliver Jarod's introduction to Dezco at the neutral Dustwallow field camp.",
+      "giver_point": "refuge",
+      "objective_distances": {
+        "dezco": 7042.5
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900300,
+      "key": "QUEST_SEARCH",
+      "title": "Search Party",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Search_Party",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Find Chezin at the ruined scouting camp and recover his report.",
+      "implemented_objective": "Find Chezin at the ruined scouting camp and recover his report.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "track": 232.5
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900301,
+      "key": "QUEST_POISON",
+      "title": "Poisoned!",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Poisoned%21",
+      "source_mechanic": "Collect five poisoned blades so Dezco can identify the poison reported by Chezin.",
+      "finding": "Treating Leza at a tent had replaced evidence collection. Blade collection is restored.",
+      "before_objective": "Obtain the supplied antidote and administer it to Leza while Nala monitors her.",
+      "implemented_objective": "Collect 5 poisoned blades from relic raiders and bring them to Dezco.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "raider_0": 271.7,
+        "raider_1": 269.3,
+        "raider_2": 278.8,
+        "raider_3": 235.2,
+        "raider_4": 248.8,
+        "raider_5": 226.7
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900302,
+      "key": "QUEST_STEW",
+      "title": "Skitterer Stew",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Skitterer_Stew",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Gather 8 skitterer meat and help prepare food for the weakened camp.",
+      "implemented_objective": "Gather 8 skitterer meat and help prepare food for the weakened camp.",
+      "giver_point": "kang",
+      "objective_distances": {
+        "hearth": 8.0,
+        "skitterer_0": 118.3,
+        "skitterer_1": 119.7,
+        "skitterer_2": 150.9,
+        "skitterer_3": 151.2,
+        "skitterer_4": 140.4,
+        "skitterer_5": 124.3,
+        "skitterer_6": 92.2,
+        "skitterer_7": 94.7
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900303,
+      "key": "QUEST_BLIND",
+      "title": "Blind Them!",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Blind_Them%21_%28Horde%29",
+      "source_mechanic": "Kill the opposing faction's scout before it reports the expedition.",
+      "finding": "The neutral campaign uses a hostile raider outrider, rather than faction murder or three supply-box clicks.",
+      "before_objective": "Disable 3 raider lookout posts and defeat 6 guards watching the expedition.",
+      "implemented_objective": "Kill the relic raider outrider watching the expedition.",
+      "giver_point": "kor",
+      "objective_distances": {
+        "outrider": 245.2
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900304,
+      "key": "QUEST_THREAT",
+      "title": "Threat from the Marsh Ruins",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Threat_from_Dojan",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Defeat 8 relic raiders before their next camp attack.",
+      "implemented_objective": "Defeat 8 relic raiders before their next camp attack.",
+      "giver_point": "kor",
+      "objective_distances": {
+        "raider_0": 262.2,
+        "raider_1": 259.7,
+        "raider_2": 269.4,
+        "raider_3": 230.0,
+        "raider_4": 243.2,
+        "raider_5": 220.8,
+        "hexer_0": 262.8
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900305,
+      "key": "QUEST_HERBS",
+      "title": "Herbal Remedies",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Herbal_Remedies",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Collect 12 marsh lotus leaves and help Kang prepare a second treatment.",
+      "implemented_objective": "Collect 12 marsh lotus leaves and help Kang prepare a second treatment.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "kang": 10.4,
+        "herb_0": 160.4,
+        "herb_1": 173.0,
+        "herb_2": 141.7,
+        "herb_3": 177.2,
+        "herb_4": 200.3,
+        "herb_5": 208.4,
+        "herb_6": 190.1,
+        "herb_7": 183.0,
+        "herb_8": 211.2,
+        "herb_9": 220.3,
+        "herb_10": 164.5,
+        "herb_11": 211.2
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900306,
+      "key": "QUEST_AGENDA",
+      "title": "The Relic Raiders' Agenda",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/The_Mogu_Agenda",
+      "source_mechanic": "Recover orders from the raider leadership and learn why the ruins are being excavated.",
+      "finding": "A cache, rune-device click and extra gossip had replaced confronting the leader. A native raider dominator carries the orders.",
+      "before_objective": "Recover excavation orders and compare the raiders' focus with the expedition ledger.",
+      "implemented_objective": "Kill the relic raider dominator and recover his excavation orders.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "dominator": 276.2
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900307,
+      "key": "QUEST_POOLS",
+      "title": "The Pools of Youth",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/The_Pools_of_Youth",
+      "source_mechanic": "Help Na Lek at the pool, fight four awakened guardians with healing aid, then obtain purified water.",
+      "finding": "A dry-ground runestone instantly supplied water. A native pond and guardian encounter replace it.",
+      "before_objective": "Collect one water sample from the tainted pool and bring it to Kang for testing.",
+      "implemented_objective": "Speak to Na Lek, defeat four bound pool guardians, and bring the purified water to Kang.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "pool_guide": 280.4
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900308,
+      "key": "QUEST_LIFE",
+      "title": "Life",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Life",
+      "source_mechanic": "The Dawnchaser birth and loss story leaves both sons alive and Leza dead.",
+      "finding": "The ordered private family scene remains; Nala starts it, and the tent becomes shelter rather than a control.",
+      "before_objective": "Stay near the medical tent through Leza's delivery and Nala's care for the family.",
+      "implemented_objective": "Stay near the medical tent through Leza's delivery and Nala's care for the family.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "tent": 12.8
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900309,
+      "key": "QUEST_VIGIL",
+      "title": "A Quiet Vigil",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Attend the memorial and accept Leza's keepsake without a combat objective.",
+      "implemented_objective": "Attend the memorial and accept Leza's keepsake without a combat objective.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "memorial": 12.4
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900310,
+      "key": "QUEST_LIVING",
+      "title": "For the Living",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.",
+      "implemented_objective": "Deliver food to 3 refugee groups and speak with Dezco about his sons and remaining expedition.",
+      "giver_point": "dezco",
+      "objective_distances": {
+        "refugee_a": 16.2,
+        "refugee_b": 15.6,
+        "refugee_c": 13.4,
+        "dezco": 0.0
+      }
+    },
+    {
+      "chapter": 3,
+      "entry": 900311,
+      "key": "QUEST_LETTER",
+      "title": "Leave a Place Better",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Deliver the village introduction letter to Mei at the affected settlement.",
+      "implemented_objective": "Deliver the village introduction letter to Mei at the affected settlement.",
+      "giver_point": "kang",
+      "objective_distances": {
+        "mei": 585.8
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900400,
+      "key": "QUEST_INTRO",
+      "title": "Ken-Ken",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Ken-Ken",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Find Ken-Ken and inspect the village together.",
+      "implemented_objective": "Find Ken-Ken and inspect the village together.",
+      "giver_point": "mei",
+      "objective_distances": {
+        "ken": 47.4
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900401,
+      "key": "QUEST_FOOD",
+      "title": "What's Eating the Village?",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/What%27s_Eating_Zhu%27s_Watch%3F",
+      "source_mechanic": "Source cast and arc order are retained; current objective-level substitutions are described by the implementation and chapter guide.",
+      "finding": "Retain the authored native-client adaptation; do not claim a literal source objective or geometry.",
+      "before_objective": "Gather 6 safe food supplies and question 3 despondent residents.",
+      "implemented_objective": "Question the three despondent residents about what is wrong with the village.",
+      "giver_point": "ken",
+      "objective_distances": {
+        "villager_0": 11.7,
+        "villager_1": 8.9,
+        "villager_2": 10.0
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900402,
+      "key": "QUEST_FIND",
+      "title": "Finding Yi-Mo",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Finding_Yi-Mo",
+      "source_mechanic": "First find Yi-Mo outside the village and speak to him.",
+      "finding": "A pack started an escort before the follow-up quest. The first quest now finds the person.",
+      "before_objective": "Find Yi-Mo at the marked marsh trail and escort him away from the predators.",
+      "implemented_objective": "Find Yi-Mo on the marsh trail east of the village.",
+      "giver_point": "ken",
+      "objective_distances": {}
+    },
+    {
+      "chapter": 4,
+      "entry": 900403,
+      "key": "QUEST_CHEER",
+      "title": "Cheer Up, Yi-Mo",
+      "retired": false,
+      "source_url": "https://www.wowhead.com/mop-classic/quest=30082/cheer-up-yi-mo",
+      "source_mechanic": "Bring the unwilling Yi-Mo home; the source uses repeated rolling/kicking controls.",
+      "finding": "The supported substitution is a private guided walk with predators. It belongs to the follow-up, not the finding quest.",
+      "before_objective": "Recover Yi-Mo's lost supplies and persuade him to return to the village.",
+      "implemented_objective": "Speak to Yi-Mo and bring him back to the village.",
+      "giver_point": "yimo",
+      "objective_distances": {
+        "trail": 87.4,
+        "yimo": 0.0
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900404,
+      "key": "QUEST_MEDICINE",
+      "title": "Materia Medica",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Materia_Medica",
+      "source_mechanic": "Gather four honeycomb pieces, four mudfish and four salty cores for the initial remedy.",
+      "finding": "Eight generic herb clicks and another hearth click had replaced the three-ingredient recipe.",
+      "before_objective": "Gather 8 local herbs and prepare medicine with Kang.",
+      "implemented_objective": "Gather 4 chunks of honeycomb, 4 mudfish and 4 salty cores for Ken-Ken's remedy.",
+      "giver_point": "ken",
+      "objective_distances": {
+        "honey_0": 44.0,
+        "honey_1": 50.8,
+        "fish_0": 51.6,
+        "horror_0": 98.6,
+        "horror_1": 84.7,
+        "horror_2": 118.1,
+        "horror_3": 126.1
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900405,
+      "key": "QUEST_TEST",
+      "title": "Why So Serious?",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Why_So_Serious%3F",
+      "source_mechanic": "Gather eighteen panther fangs and a pigment jar to prepare the mask.",
+      "finding": "Three instant mask tests had replaced gathering the mask materials.",
+      "before_objective": "Use the supplied treatment mask to test 3 residents and identify the shared residue.",
+      "implemented_objective": "Collect 18 panther fangs and the jar of pigment from the eastern marsh.",
+      "giver_point": "ken",
+      "objective_distances": {
+        "panther_0": 114.2,
+        "panther_1": 95.8,
+        "panther_2": 71.2,
+        "panther_3": 95.5,
+        "panther_4": 128.8,
+        "panther_5": 126.8,
+        "pigment": 109.2
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900406,
+      "key": "QUEST_TREAT",
+      "title": "Apply Directly to the Forehead",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Apply_Directly_to_the_Forehead",
+      "source_mechanic": "Use the mask on eight wardens and defeat the manifestations released from them.",
+      "finding": "The eight distinct native patients and owned enemies remain.",
+      "before_objective": "Treat 8 villagers with the mask and defeat the released lesser manifestations.",
+      "implemented_objective": "Treat 8 villagers with the mask and defeat the released lesser manifestations.",
+      "giver_point": "ken",
+      "objective_distances": {
+        "ken": 0.0
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900407,
+      "key": "QUEST_WARD",
+      "title": "The Well Beneath the Ward",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Sample the old ward by the well and confirm where the influence gathers.",
+      "implemented_objective": "Take a sample of the tainted water collected beside the old village well.",
+      "giver_point": "maruut",
+      "objective_distances": {
+        "well": 81.2,
+        "ward": 81.0
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900408,
+      "key": "QUEST_DESPAIR",
+      "title": "Zhu's Despair",
+      "retired": false,
+      "source_url": "https://warcraft.wiki.gg/wiki/Zhu%27s_Despair",
+      "source_mechanic": "Defeat eight essences and exorcise Yi-Mo near the well, with Ken-Ken's help.",
+      "finding": "The ordered fight is retained, with the party appearing at the actual well rather than requiring a scene-start prop.",
+      "before_objective": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken's help.",
+      "implemented_objective": "Defeat 8 lesser manifestations, treat Yi-Mo, then defeat the Quintessence of Despair with Ken-Ken's help.",
+      "giver_point": "ken",
+      "objective_distances": {
+        "well": 88.2
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900409,
+      "key": "QUEST_WORK",
+      "title": "Hands Back to Work",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Relight 3 hearths and help 3 recovered villagers restart the village services.",
+      "implemented_objective": "Relight 3 hearths and help 3 recovered villagers restart the village services.",
+      "giver_point": "mei",
+      "objective_distances": {
+        "hearth_a": 60.4,
+        "hearth_b": 31.6,
+        "hearth_c": 46.6,
+        "villager_0": 51.2,
+        "villager_1": 54.1,
+        "villager_2": 57.0
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900410,
+      "key": "QUEST_PLEDGE",
+      "title": "When You Need Us",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Accept the village's pledge of aid and nominate Mei as its future supply liaison.",
+      "implemented_objective": "Accept the village's pledge of aid and nominate Mei as its future supply liaison.",
+      "giver_point": "yimo",
+      "objective_distances": {
+        "mei": 55.7,
+        "yimo": 0.0
+      }
+    },
+    {
+      "chapter": 4,
+      "entry": 900411,
+      "key": "QUEST_LETTER",
+      "title": "The Families in the Hills",
+      "retired": false,
+      "source_url": null,
+      "source_mechanic": "Original campaign connective quest; it has no original retail objective to reproduce.",
+      "finding": "Keep a physical interaction and meaningful handoff; retire unnecessary travel and scene starters.",
+      "before_objective": "Deliver the Wildhammer introduction letter to Iain at the neutral Hinterlands gathering.",
+      "implemented_objective": "Deliver the Wildhammer introduction letter to Iain at the neutral Hinterlands gathering.",
+      "giver_point": "maruut",
+      "objective_distances": {
+        "iain": 4816.5
+      }
+    }
+  ]
+}

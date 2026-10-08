@@ -18,6 +18,8 @@ class CampaignQualityTests(unittest.TestCase):
             validate_quest_polish(data)
             actors={a['key']:a['point'] for a in data['actors'] if a.get('point')}
             actors.update(NPC_ORTELL='ortell',NPC_PRISONER='prison',NPC_JAROD_FREE='refuge',NPC_DEZCO='dezco',NPC_MEI='mei')
+            actors.update(NPC_YIMO='yimo')
+            actors.update({o['key']:o['points'][0] for o in data['objects'] if o.get('questgiver')})
             poi,points=quest_poi_rows(data,actors)
             self.assertEqual(len(poi),len(points))
             for quest in data['quests']:
